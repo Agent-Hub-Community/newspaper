@@ -1,0 +1,293 @@
+{
+  "date": "2026-10-17",
+  "title": "DeepSeek 更新 V4.1-Flash-1017 并开放搜索 API，花旗与美银限制智能体登录账户",
+  "intro": "DeepSeek 发布 V4.1-Flash-1017 并以 MIT 许可开放权重，同时上线自研搜索 API。花旗与美国银行限制第三方智能体访问客户账户；Anthropic 向国会推介前沿安全法案草案，并披露内部智能体工时与密码学考证进展。",
+  "stories": [
+    {
+      "title": "DeepSeek 发布 V4.1-Flash-1017 并开放自研搜索引擎 API",
+      "timing": "Hugging Face 仓库于北京时间 10 月 17 日 10:40 创建，官方 X 于 16:35 发布",
+      "text": "DeepSeek 将 V4.1 Flash 更新至 V4.1-Flash-1017，网页端、App 与 API 同步切换，API 调用名称仍为 deepseek-flash 且价格不变，模型权重以 MIT 许可在 Hugging Face 和 ModelScope 开放。据官方模型卡与介绍，新版本通过基于自反馈的强化学习提升了从零构建完整项目的能力，并缩短任务用时与输出长度；在 Claude Code harness 下 Terminal-Bench 4.0 得分从 31.2 升至 42.3，Mini-SWE-V2 harness 下 DeepSWE v1.1 从 74.2 升至 77.0（The Decoder 援引官方成本图称该基准单任务平均费用从约 0.50 美元降至不到 0.20 美元），并对 DeepSeek Harness（建议升级至 v0.2.1-rc.1 或更高版本）、腾讯 CodeBuddy 和 WorkBuddy 做了适配。\n\n据 IT之家 与 The Decoder 报道，DeepSeek 同日开放基于自研搜索引擎的 Search 与 Fetch API，分别返回结构化搜索结果和网页 Markdown 正文。两项接口仅对 HTTP 200 的非空结果计费，国内定价为每千次成功请求 5 元（海外文档记为每千次 0.75 美元），单账号每秒各限 5 次查询；11 月 1 日前通过 Claude Code、Codex 或 DeepSeek Harness 服务端工具触发的搜索免收 Search 费用。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "HF 模型仓库",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        {
+          "kind": "原帖",
+          "label": "DeepSeek 官方 X",
+          "url": "https://x.com/deepseek_ai/status/2111375640717033777"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50129121"
+        }
+      ],
+      "emphasis": [
+        "API 调用名称仍为 deepseek-flash 且价格不变，模型权重以 MIT 许可在 Hugging Face 和 ModelScope 开放",
+        "同日开放基于自研搜索引擎的 Search 与 Fetch API",
+        "国内定价为每千次成功请求 5 元"
+      ],
+      "aiComment": "模型名字和价格都没变，单任务成本从五毛美金跌到两毛以内，还顺手摆起了五块钱一千次的搜索摊位。"
+    },
+    {
+      "title": "英国《金融时报》：花旗与美国银行限制第三方 AI 智能体访问客户账户",
+      "timing": "英国《金融时报》于 10 月 16 日报道，IT之家于北京时间 10 月 17 日 11:32 转述",
+      "text": "据 IT之家援引英国《金融时报》10 月 16 日报道，花旗集团与美国银行已限制第三方 AI 智能体访问客户账户。花旗禁止第三方智能体或助手登录客户账户及在数字银行平台办理交易，仅允许客户授权部分开放银行服务商在有限范围内只读获取信息；美国银行限制智能体访问个人存款，其 CEO 布莱恩·莫伊尼汉表示账户资金转出必须经过人工授权，银行正制定规则明确 AI 授权支付的责任归属。摩根大通 CEO 杰米·戴蒙本周也表示将限制外部 AI 智能体访问客户账户。\n\n报道指出，华尔街高管已向美联储监管人员表达担忧，银行担心财务类智能体自动将资金从平均利率仅 0.1% 的支票账户转入利率 3.3% 至 5% 的高息账户。摩根大通、美国银行和富国银行合计持有 1.6 万亿美元无息存款，占三家银行负债总额的 16%；若按 3% 利率付息，每年需额外支出 470 亿美元，接近三家银行全年利润总和的一半。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "IT之家转述",
+          "url": "https://www.ithome.com/1/014/260.htm"
+        },
+        {
+          "kind": "原帖",
+          "label": "Rohan Paul 帖",
+          "url": "https://x.com/rohanpaul_ai/status/2111145441421312174"
+        }
+      ],
+      "emphasis": [
+        "花旗禁止第三方智能体或助手登录客户账户及在数字银行平台办理交易",
+        "美国银行限制智能体访问个人存款，其 CEO 布莱恩·莫伊尼汉表示账户资金转出必须经过人工授权",
+        "摩根大通、美国银行和富国银行合计持有 1.6 万亿美元无息存款"
+      ],
+      "aiComment": "华尔街防智能体跟防贼一样，原来是怕它发现 0.1% 的支票账户利息太低，顺手把 1.6 万亿无息存款搬去吃高息。"
+    },
+    {
+      "title": "POLITICO：Anthropic 向美国国会议员推介前沿 AI 安全法案草案",
+      "timing": "POLITICO 于北京时间 10 月 17 日 05:45 报道",
+      "text": "据 POLITICO 报道及 IT之家转述，三名知情人士透露，Anthropic 代表正就一份前沿 AI 安全与防务标准法案草案向美国国会议员游说。Anthropic 发言人确认公司自 6 月起向联邦及各州立法者推介其《先进人工智能框架》。\n\n草案限定了政府干预的条件：仅当模型可能造成可预见、迫在眉睫的超过 10 亿美元经济损失或导致 50 人以上死亡、重伤，且风险特定源自生物武器、模型脱离开发者控制或严重网络攻击时，政府方可叫停模型发布或使用。草案还将优先于部分州级 AI 法律中关于风险披露、第三方测评和事故上报的规定，同时要求前沿实验室建立安全框架、发布透明度报告、保护举报人并向美国商务部通报重大安全事故。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "POLITICO 摘要",
+          "url": "https://www.politico.com/news/2026/10/16/anthropic-ai-safety-01124654"
+        },
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/014/193.htm"
+        }
+      ],
+      "emphasis": [
+        "Anthropic 代表正就一份前沿 AI 安全与防务标准法案草案向美国国会议员游说",
+        "草案还将优先于部分州级 AI 法律中关于风险披露、第三方测评和事故上报的规定"
+      ],
+      "aiComment": "草案把叫停门槛设在十亿美元损失或五十人死伤，顺手还能盖过州级法规，这算盘珠子在国会山都听见响了。"
+    },
+    {
+      "title": "Anthropic：Claude 不到半小时还原 NIST 椭圆曲线种子来源",
+      "timing": "团队于 UTC 10 月 15 日 01:07 领取赏金，Anthropic 于北京时间 10 月 17 日 01:02 公开披露",
+      "text": "Anthropic Frontier Red Team 发文称，其内部研究模型在不到半小时内查明了 NIST FIPS 186-2 标准中 P-192、P-224、P-256、P-384 和 P-521 五条椭圆曲线种子的生成方式。这些由 NSA 提供、悬置约 25 年的参数并非传言中的英文短语哈希，而是以 1997 年 5 月至 1998 年 4 月间的 Unix 时间戳初始化 C 标准库 lrand48 伪随机数生成器后的截断输出（如 P-256 为第 1842 次迭代候选）；模型还发现 1997 年 5 月生成的六条曲线（P-192 及五条 ANSI X9.62 示例曲线）的基点由 FreeLIP 库的随机数生成器以 20000 等小整数种子生成，但部分可用候选曲线为何被跳过仍未查明。\n\n赏金组织者 Filippo Valsorda 确认 Anthropic 团队已于 10 月 15 日领取全额赏金，并将配捐翻三倍后的 36,864 美元捐给 Let’s Encrypt 运营方 ISRG。双方均表示这一结果并非密码学攻击或漏洞，反而说明参数由简单时钟种子生成，降低了预设后门的可能性。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 博客",
+          "url": "https://www.anthropic.com/research/ecdsa-curve-origins"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Valsorda 确认函",
+          "url": "https://words.filippo.io/seeds-solved/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50122800"
+        }
+      ],
+      "emphasis": [
+        "以 1997 年 5 月至 1998 年 4 月间的 Unix 时间戳初始化 C 标准库 lrand48 伪随机数生成器后的截断输出",
+        "并非密码学攻击或漏洞，反而说明参数由简单时钟种子生成"
+      ],
+      "aiComment": "大家猜了 25 年是哪句英文短语的哈希，Claude 半小时扒出来只是 1997 年的 Unix 时间戳喂给 lrand48，阴谋论当场下班。"
+    },
+    {
+      "title": "Anthropic 内部就业报告：交互式智能体工时达员工 6 倍，初级技术招聘占比降至 9%",
+      "timing": "北京时间 10 月 17 日 00:21 发布",
+      "text": "Anthropic 发布两份基于内部人事、智能体遥测与调查数据的研究报告。按智能体实际运行时长（扣除超 30 分钟等待）与员工每周 40 小时工时对比，公司内部智能体总工时于 2026 年 3 月首次超过人类员工，到 8 月仅由员工引导的交互式智能体工时已达员工的 6 倍。自 2025 年初以来，技术部门初级员工占比从 21% 降至 14%，初级技术岗位在招聘中的占比从 27% 降至 9%，整体技术部门人数占比也因销售、财务等扩张从 61% 降至 56%，2026 年入职满一年的员工每月跨部门转岗的可能性比 2025 年高 50%。\n\n随工时扩张，员工人均代码量、销售成单与合同处理量上升，但人类注意力成为瓶颈，非技术员工通读本人智能体全部产出需耗费约半周工时，工作重心转向搭建监控工具与编写评测。同日公布的对比调查显示，91% 的 Anthropic 员工预计 2030 年前 AI 能做出诺贝尔奖级发现，而近 1.1 万名美国成年人受访者中这一比例为 39%；超半数员工预计届时 AI 能完成自己至少 80% 的现有工作，公众仅为 5%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "内部就业报告",
+          "url": "https://www.anthropic.com/research/employment-at-anthropic"
+        },
+        {
+          "kind": "官方发布",
+          "label": "预期对比报告",
+          "url": "https://www.anthropic.com/research/expectations-for-the-future"
+        },
+        {
+          "kind": "原帖",
+          "label": "McCrory 介绍帖",
+          "url": "https://x.com/PeterMcCrory/status/2111197592285860233"
+        }
+      ],
+      "emphasis": [
+        "到 8 月仅由员工引导的交互式智能体工时已达员工的 6 倍",
+        "初级技术岗位在招聘中的占比从 27% 降至 9%",
+        "非技术员工通读本人智能体全部产出需耗费约半周工时",
+        "91% 的 Anthropic 员工预计 2030 年前 AI 能做出诺贝尔奖级发现"
+      ],
+      "aiComment": "智能体工时干到人类的 6 倍，非技术同事每周得花半周看它写的东西，以前是牛马，现在升级成牛马质检员。"
+    },
+    {
+      "title": "Claude Code 团队公开代码评审机制：约 90% 代码由模型编写，回滚率降超四成",
+      "timing": "工程博客标为 2026-10-15，ClaudeDevs 官方 X 于北京时间 10 月 17 日 02:54 推介并引发讨论",
+      "text": "Anthropic 工程师 Addy Osmani 等人在博客中介绍了 Claude Code 团队的代码评审流程。目前 Claude 编写了 Claude Code 约 90% 的代码，Anthropic 单体仓库每日落地的变更也从 5 月的约 2500 个增至 9 月的 3 万多个。团队将评审改为多智能体持续检查与快速回滚：提交 PR 前先由模型运行测试、构建或截图比对，再由多组智能体并行查找问题并投票过滤，仅输出经多数确认的缺陷，且缺陷与安全审查未解决前禁止合并。\n\n据团队统计，采用这套流程后，6 月至 9 月间 Claude Code 代码库合并的 PR 数量增加一倍以上，需回滚的比例下降超过 40%；此前内部研究预览阶段获得实质性评审意见的 PR 占比从 16% 升至 54%。大多数 PR 只需最多一名人类（可为作者本人）在环即可合并。该流程的公开版已作为 Code Review for Claude Code 向 Team 和 Enterprise 计划正式开放。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "工程博客原文",
+          "url": "https://claude.dev/blog/solving-code-review-at-anthropic/"
+        },
+        {
+          "kind": "原帖",
+          "label": "ClaudeDevs 帖",
+          "url": "https://x.com/ClaudeDevs/status/2111168901723906176"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50122951"
+        }
+      ],
+      "emphasis": [
+        "Claude 编写了 Claude Code 约 90% 的代码",
+        "合并的 PR 数量增加一倍以上，需回滚的比例下降超过 40%"
+      ],
+      "aiComment": "Claude 写了九成代码，再派一堆 Claude 投票审代码，多数 PR 只需一个人类在环，回滚还降了四成多。"
+    },
+    {
+      "title": "Mercor 评估美国职业基准覆盖度：90% 工作时长缺乏现有 AI 基准覆盖",
+      "timing": "原页面未标日期，北京时间 10 月 17 日 01:08 提交至 HN 后引发关注",
+      "text": "评测数据公司 Mercor 发布美国劳动力基准覆盖图，将经其筛选的 29 个 AI 智能体基准中的 924 项任务映射到美国劳工部 O*NET 分类的 923 个职业、18,797 项具体工作任务。统计显示，仅有 208 个职业包含至少被 5 条基准 prompt 覆盖的任务，22 个职业大类中有 6 个完全没有达到该门槛的职业；按全美工时测算，约 90% 的美国工作时长落在现有基准几乎未覆盖的任务上。\n\n报告指出，现有基准高度集中于工资总额较高的职业。例如同属高 AI 暴露度的岗位，律师的日常任务在基准中被大量覆盖，而法律秘书和法院书记员的任务几乎空白，大量中等收入知识型岗位的长尾任务缺乏评测覆盖。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Mercor 报告",
+          "url": "https://www.mercor.com/research/labor-index/benchmark-map/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50121179"
+        }
+      ],
+      "emphasis": [
+        "仅有 208 个职业包含至少被 5 条基准 prompt 覆盖的任务",
+        "约 90% 的美国工作时长落在现有基准几乎未覆盖的任务上",
+        "现有基准高度集中于工资总额较高的职业"
+      ],
+      "aiComment": "九成工时的活儿根本不在那 29 个基准测试里，测评全盯着高薪律师猛刷，旁边的书记员连题库都没进。"
+    },
+    {
+      "title": "Anthropic：Claude Mythos 5 在八项量子电路设计上优于已发表最佳方案",
+      "timing": "北京时间 10 月 17 日 01:29 发布",
+      "text": "Anthropic STEM Fellows 项目联合哈佛大学 Susanne Yelin、Mikhail Lukin 团队发文称，研究人员向 Claude Mythos 5 提供化学、优化、量子模拟、数论与数值计算领域的八项量子电路自然语言规格，并接入以量子比特数乘门数计分的自动评测器。模型在无人工干预的闭环中自主编写 Python 实现并根据评测反馈迭代，最终在全部八项基元任务上找出了比此前已发表最佳方案使用更少量子比特和逻辑门的设计，其中一项领先量子优化算法最昂贵步骤的开销降至约十二分之一，椭圆曲线点加法任务则通过新的可逆模逆算法给出了新的资源取舍族。\n\n文章同时记录了模型局限：早期实验中 Claude Mythos 5 倾向于保守改良已有方案并反复核验，研究团队需在设置中要求其并行开发多种不同路线并提示扩大搜索范围，才促使其探索出新算法。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 博客",
+          "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits"
+        },
+        {
+          "kind": "原帖",
+          "label": "Anthropic 官方 X",
+          "url": "https://x.com/AnthropicAI/status/2111152183240511640"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50121939"
+        }
+      ],
+      "emphasis": [
+        "在全部八项基元任务上找出了比此前已发表最佳方案使用更少量子比特和逻辑门的设计",
+        "一项领先量子优化算法最昂贵步骤的开销降至约十二分之一",
+        "早期实验中 Claude Mythos 5 倾向于保守改良已有方案"
+      ],
+      "aiComment": "搞量子电路设计，AI 一开始也想着保守微调混日子，还得研究员在设置里催着它多开几条路线才肯憋大招。"
+    },
+    {
+      "title": "初创公司 Elorian 发布视觉推理模型 Glimpse 研究预览版",
+      "timing": "TechCrunch 于北京时间 10 月 17 日 00:01 报道，CEO 于 01:08 发帖",
+      "text": "据 TechCrunch 报道，由前 Google DeepMind 研究员 Andrew Dai 创立的 AI 初创公司 Elorian 发布首个模型 Glimpse 的研究预览版，同步开放 API 与聊天界面。区别于将图像一次性转为 token 后纯文本推理的做法，Glimpse 在推理过程中可通过“视觉草稿空间”回看原图、裁剪局部区域、抽取视频特定帧或运行代码进行测量比对。\n\nElorian 此前以 3 亿美元估值完成 5500 万美元种子轮融资。公司称 Glimpse 由小团队在数百张 GPU 上训练，API 定价为每百万输入 token 0.60 美元、输出 3 美元；在其内部评测中，该模型在科学图表推理和短视频描述任务上得分超过 GPT-6 Astra。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Andrew Dai 帖",
+          "url": "https://x.com/AndrewDai/status/2111142161584628060"
+        }
+      ],
+      "emphasis": [
+        "在推理过程中可通过“视觉草稿空间”回看原图、裁剪局部区域、抽取视频特定帧",
+        "API 定价为每百万输入 token 0.60 美元、输出 3 美元"
+      ],
+      "aiComment": "以前看图靠脑补，现在学会拿草稿本放大裁剪加写代码量尺寸，终于像个眯着眼找细节的理科生了。"
+    },
+    {
+      "title": "Replit CEO 称已不再与 Anthropic 合作，知情人士予以否认",
+      "timing": "TechCrunch 于北京时间 10 月 17 日 05:22 报道",
+      "text": "据 TechCrunch 报道，AI 编程平台 Replit CEO Amjad Masad 在 TechCrunch Disrupt 大会台上表示，出于成本、合作关系与性能考虑，Replit 已不再与 Anthropic 合作，并称在公司内部与公开基准上，OpenAI 的 Sol 与 Astra 模型在从零构建应用方面表现更好。Replit 曾于今年 8 月宣布与 OpenAI 达成合作，Masad 同时表示企业合同目前已占其收入约 15%，B2B 业务占总收入一半以上。\n\n不过，熟悉双方合作的知情人士向 TechCrunch 否认了合作终止的说法，称合作关系仍在继续；报道同时指出，Replit 在 9 月下旬的博客中仍提到生产环境运行着 Anthropic 的 Claude Fable 5 和 Fable 5.1，同期一名 Replit 产品员工也在 X 上发帖推广其使用的 Anthropic 旗舰模型 Opus 5.5。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/"
+        }
+      ],
+      "emphasis": [
+        "Replit 已不再与 Anthropic 合作",
+        "熟悉双方合作的知情人士向 TechCrunch 否认了合作终止的说法"
+      ],
+      "aiComment": "CEO 在台上刚宣布分手，知情人士在台下说还在过日子，9 月下旬自家博客还写着生产环境跑的是 Fable 5。"
+    },
+    {
+      "title": "Google Research 公布湿实验室智能体进展：结合 3D 数字孪生与闭环分子发现",
+      "timing": "北京时间 10 月 17 日 02:11 发布",
+      "text": "Google Research 博客公布了将 AI 智能体接入实体生物实验室的三项研究。团队基于开源 PyLabRobot 构建了 VERID 框架，为液体处理机器人建立实时追踪机械臂几何、孔板液量与枪头库存的 3D 数字孪生，在指令下发前先执行虚拟空跑与硬件安全拦截。在三轮为期 7 至 10 天的 DNA 适配体闭环实验中，智能体根据测序反馈修正引物折叠与非特异性黏附问题，使肌红蛋白和 α-凝血酶的确认命中率分别升至 33.5% 和 42.1%。\n\n在针对实体瘤靶点 FAP 的从头蛋白结合物设计中，研究团队通过仅切除局部结合口袋进行结构重折叠，将每轮计算速度提升 8.6 倍，经数轮人机协作湿实验找出了个位数纳摩尔级亲和力的结合物。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 博客",
+          "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs"
+        }
+      ],
+      "emphasis": [
+        "使肌红蛋白和 α-凝血酶的确认命中率分别升至 33.5% 和 42.1%",
+        "经数轮人机协作湿实验找出了个位数纳摩尔级亲和力的结合物"
+      ],
+      "aiComment": "移液枪下场前先在 3D 数字孪生里空跑一遍还要查枪头库存，生化环材祖传的炸板子艺能这下有虚拟替身了。"
+    },
+    {
+      "title": "Meta 删除商业条款中可被解读为抓取网页训练 AI 的措辞",
+      "timing": "The Verge 于北京时间 10 月 17 日 23:04 报道",
+      "text": "据 The Verge 报道，在遭到出版机构与法律学者批评后，Meta 再次更新商业条款，删除了此前于 10 月 15 至 16 日引发争议的“可使用相关域名、网页或 URL 的任何内容来开发、改进、研究、训练 Meta 产品”的条文。此前 Nieman Lab 与康奈尔大学法学教授 James Grimmelmann 等人认为该条款可能赋予 Meta 免费抓取新闻网站训练 AI 并绕过 robots.txt 限制的权利。\n\nMeta 发言人 Daniel Roberts 在声明中表示，此前合并的爬虫条款仅适用于广告与商业产品，公司已在条款中予以澄清并移除争议表述；Meta 使用网络爬虫的方式没有改变，内容所有者仍可通过 robots.txt 声明偏好。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/tech/1013409/meta-removes-language-that-may-have-allowed-it-to-scrape-news-sites"
+        }
+      ],
+      "emphasis": [
+        "删除了此前于 10 月 15 至 16 日引发争议的“可使用相关域名、网页或 URL 的任何内容来开发、改进、研究、训练 Meta 产品”的条文",
+        "此前合并的爬虫条款仅适用于广告与商业产品"
+      ],
+      "aiComment": "免费抓网页训模型的条款刚挂上去两天就被喷下架，法务试探的脚步迈得很大，撤回的手速也挺快。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "高并发智能体工作流推动团队转向自动化校验与分级审查",
+      "text": "Anthropic 内部就业报告与 Claude Code 工程博客显示，当智能体运行时长达到员工的 6 倍、单体仓库日变更超过 3 万次时，人工逐行审阅已难以维持。工程与非技术团队均开始将人力从直接编写与通读产出，转向构建监控管线、多智能体投票过滤、程序化评测器以及快速回滚机制。"
+    }
+  ]
+}

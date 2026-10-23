@@ -1,0 +1,632 @@
+{
+  "protocol_version": "1.1",
+  "mode": "baseline",
+  "source_sha": "4f6160efeb59d87e01c97867f08cc424daa0092c",
+  "corpus_hash": "6f7047e748f22e35fdbefea7719d3798b3251c00137037585240099d2e2428c7",
+  "cases_hash": "d58a66a7d4003054855b52f7229634fed414f64c75d74cc30d72a85e3481a41b",
+  "metrics": {
+    "fixed_api_flow_pass_rate": 0.4375,
+    "successful_tasks": 7,
+    "total_tasks": 16,
+    "retrieval_queries": 8,
+    "hit_at_5": 0.5,
+    "mrr_at_5": 0.4375,
+    "ndcg_at_5": 0.3851989910248148,
+    "library_quality": {
+      "queries": 6,
+      "hit_at_5": 0.6666666666666666,
+      "mrr_at_5": 0.5833333333333334,
+      "ndcg_at_5": 0.5135986546997531
+    },
+    "content_quality": {
+      "queries": 2,
+      "hit_at_5": 0,
+      "mrr_at_5": 0,
+      "ndcg_at_5": 0
+    },
+    "capability_cases": 6,
+    "capability_passed": 0,
+    "unsupported_tasks": 4,
+    "total_response_bytes": 258966,
+    "local_ms": 35.907669000000055
+  },
+  "results": [
+    {
+      "id": "exact-osworld",
+      "mode": "library",
+      "task": "找到 OSWorld 2.0 的论文与源码",
+      "success": true,
+      "unsupported": false,
+      "hit_at_5": true,
+      "mrr_at_5": 1,
+      "ndcg_at_5": 1,
+      "top_ids": [
+        "osworld-2-0",
+        "cua-gym",
+        "qwen-ui-agent-technical-report",
+        "calibforge"
+      ],
+      "top_titles": [
+        "OSWorld 2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks",
+        "CUA-Gym: Scaling Verifiable Training Environments and Tasks for Computer-Use Agents",
+        "Qwen-UI-Agent Technical Report: Toward Next-Generation Real-World Centric Foundation GUI Agents",
+        "CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks"
+      ],
+      "gains": [
+        2,
+        1,
+        1,
+        0
+      ],
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 5860,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 5860,
+      "local_ms": 25.60370899999998,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=OSWorld+2.0&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 5860,
+          "local_ms": 25.60370899999998
+        }
+      ]
+    },
+    {
+      "id": "drawing-colloquial",
+      "mode": "library",
+      "task": "找群里分享过的画图资源",
+      "success": false,
+      "unsupported": false,
+      "hit_at_5": false,
+      "mrr_at_5": 0,
+      "ndcg_at_5": 0,
+      "top_ids": [],
+      "top_titles": [],
+      "gains": [],
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 2320,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 2320,
+      "local_ms": 3.553124999999966,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=%E7%94%BB%E5%9B%BE&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 2320,
+          "local_ms": 3.553124999999966
+        }
+      ]
+    },
+    {
+      "id": "drawing-formal",
+      "mode": "library",
+      "task": "找论文科研绘图工具",
+      "success": false,
+      "unsupported": false,
+      "hit_at_5": false,
+      "mrr_at_5": 0,
+      "ndcg_at_5": 0,
+      "top_ids": [],
+      "top_titles": [],
+      "gains": [],
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 2320,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 2320,
+      "local_ms": 0.5257919999999672,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=%E7%BB%98%E5%9B%BE&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 2320,
+          "local_ms": 0.5257919999999672
+        }
+      ]
+    },
+    {
+      "id": "harness-alias",
+      "mode": "library",
+      "task": "找 DeepSeek 的智能体运行框架分析",
+      "success": true,
+      "unsupported": false,
+      "hit_at_5": true,
+      "mrr_at_5": 1,
+      "ndcg_at_5": 0.7262287617954056,
+      "top_ids": [
+        "deepseek-harness",
+        "deepseek-elastic-compute-dsec",
+        "flashreinforce",
+        "deepgemm-ascend",
+        "deepseek-ascend-components"
+      ],
+      "top_titles": [
+        "DeepSeek Harness 源码深度解析",
+        "DeepSeek Elastic Compute (DSec): A Sandbox Infrastructure for Effective Agentic Training at Scale",
+        "FlashREINFORCE: Critic-Free Single-Rollout Asynchronous RL for Agentic Language Models",
+        "DeepGEMM-Ascend",
+        "DeepSeek 开源昇腾基础组件"
+      ],
+      "gains": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 6371,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 6371,
+      "local_ms": 0.7699170000000208,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=DeepSeek+%E6%99%BA%E8%83%BD%E4%BD%93%E6%A1%86%E6%9E%B6&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 6371,
+          "local_ms": 0.7699170000000208
+        }
+      ]
+    },
+    {
+      "id": "keyword-alias",
+      "mode": "keyword",
+      "task": "用已登记中文别名筛选 agent skills",
+      "success": true,
+      "unsupported": false,
+      "returned": 15,
+      "expected": 15,
+      "duplicates": 0,
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 15947,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 15947,
+      "local_ms": 0.4635830000000283,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?keyword=agent+%E6%8A%80%E8%83%BD&limit=20&offset=0",
+          "category": "search",
+          "status": 200,
+          "bytes": 15947,
+          "local_ms": 0.4635830000000283
+        }
+      ]
+    },
+    {
+      "id": "research-experience",
+      "mode": "library",
+      "task": "找科研经验和对研究工作的个人判断",
+      "success": true,
+      "unsupported": false,
+      "hit_at_5": true,
+      "mrr_at_5": 0.5,
+      "ndcg_at_5": 0.6291344046077069,
+      "top_ids": [
+        "unipat-ai-benchmarks",
+        "podcast-research-and-rsi",
+        "golden-age-of-mathematics",
+        "blueprint-bench-2",
+        "repo-to-skill"
+      ],
+      "top_titles": [
+        "UniPat AI Benchmarks",
+        "播客整理：与大模型合写论文之后，对研究工作和递归自我改进的判断",
+        "数学的黄金时代与数学家的失落时代",
+        "Blueprint-Bench 2",
+        "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills"
+      ],
+      "gains": [
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 7080,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 7080,
+      "local_ms": 0.5956659999999943,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=%E7%A7%91%E7%A0%94%E7%BB%8F%E9%AA%8C&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 7080,
+          "local_ms": 0.5956659999999943
+        }
+      ]
+    },
+    {
+      "id": "distillation-direction",
+      "mode": "library",
+      "task": "找蒸馏变难后研究方向的讨论",
+      "success": true,
+      "unsupported": false,
+      "hit_at_5": true,
+      "mrr_at_5": 1,
+      "ndcg_at_5": 0.7262287617954056,
+      "top_ids": [
+        "closed-door-discussion-on-distillation",
+        "find-1stauthor-com",
+        "awesome-rsi",
+        "repo-to-skill"
+      ],
+      "top_titles": [
+        "和一线研究员的闭门讨论：蒸馏变难后，下一步的重点是什么？",
+        "寻一 | 人才发现",
+        "awesome-rsi",
+        "Repo-To-Skill: Distilling GitHub Repositories Into AI4AI Skills"
+      ],
+      "gains": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 6672,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 6672,
+      "local_ms": 0.7245419999999854,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=%E8%92%B8%E9%A6%8F+%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 6672,
+          "local_ms": 0.7245419999999854
+        }
+      ]
+    },
+    {
+      "id": "type-topic-filter",
+      "mode": "filter",
+      "task": "只查 Computer Use benchmark",
+      "success": true,
+      "unsupported": false,
+      "returned": 6,
+      "expected": 6,
+      "duplicates": 0,
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 7306,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 7306,
+      "local_ms": 0.1624580000000151,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?type=benchmark&topic=computer-use&limit=20&offset=0",
+          "category": "search",
+          "status": 200,
+          "bytes": 7306,
+          "local_ms": 0.1624580000000151
+        }
+      ]
+    },
+    {
+      "id": "no-answer",
+      "mode": "empty",
+      "task": "查询固定语料没有的具体字符串",
+      "success": false,
+      "unsupported": false,
+      "false_positive_items": 2,
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 4331,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 4331,
+      "local_ms": 0.5802919999999858,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=%E9%87%8F%E5%AD%90%E5%BC%95%E5%8A%9B%E7%BA%A0%E7%BC%A0%E6%96%B0%E5%AE%9E%E9%AA%8CZQ9182&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 4331,
+          "local_ms": 0.5802919999999858
+        }
+      ]
+    },
+    {
+      "id": "complete-pagination",
+      "mode": "pagination",
+      "task": "逐页拿完资料库且无重复遗漏",
+      "success": true,
+      "unsupported": false,
+      "returned": 168,
+      "expected": 168,
+      "duplicates": 0,
+      "unsupported_attempts": 0,
+      "requests": 9,
+      "payload_bytes": {
+        "search": 185210,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 185210,
+      "local_ms": 1.930793000000108,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=0",
+          "category": "search",
+          "status": 200,
+          "bytes": 21758,
+          "local_ms": 0.2055000000000291
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=20",
+          "category": "search",
+          "status": 200,
+          "bytes": 22567,
+          "local_ms": 0.19074999999998
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=40",
+          "category": "search",
+          "status": 200,
+          "bytes": 24323,
+          "local_ms": 0.16412500000001273
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=60",
+          "category": "search",
+          "status": 200,
+          "bytes": 21554,
+          "local_ms": 0.14091700000000174
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=80",
+          "category": "search",
+          "status": 200,
+          "bytes": 22026,
+          "local_ms": 0.6975839999999494
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=100",
+          "category": "search",
+          "status": 200,
+          "bytes": 22808,
+          "local_ms": 0.17508400000002666
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=120",
+          "category": "search",
+          "status": 200,
+          "bytes": 21371,
+          "local_ms": 0.134708000000046
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=140",
+          "category": "search",
+          "status": 200,
+          "bytes": 19750,
+          "local_ms": 0.12962500000003274
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?limit=20&offset=160",
+          "category": "search",
+          "status": 200,
+          "bytes": 9053,
+          "local_ms": 0.09250000000002956
+        }
+      ]
+    },
+    {
+      "id": "resource-weekly-citation",
+      "mode": "association",
+      "task": "从田渊栋播客资料找到周报中的相关讨论",
+      "success": false,
+      "unsupported": false,
+      "discussion_found": false,
+      "returned_discussions": 0,
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 3265,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 3265,
+      "local_ms": 0.6797500000000127,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=%E4%B8%8E%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%90%88%E5%86%99%E8%AE%BA%E6%96%87&limit=5",
+          "category": "search",
+          "status": 200,
+          "bytes": 3265,
+          "local_ms": 0.6797500000000127
+        }
+      ]
+    },
+    {
+      "id": "daily-drawing",
+      "mode": "content",
+      "task": "直接搜索10月14日四群的科研绘图经验讨论并读到出处",
+      "success": false,
+      "unsupported": true,
+      "hit_at_5": false,
+      "mrr_at_5": 0,
+      "ndcg_at_5": 0,
+      "top_ids": [],
+      "top_titles": [],
+      "gains": [],
+      "unsupported_attempts": 1,
+      "requests": 0,
+      "payload_bytes": {
+        "search": 0,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 0,
+      "local_ms": 0,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?q=%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE&kind=daily&group=group-4&from=2026-10-14&to=2026-10-14&limit=5",
+          "unsupported": true,
+          "bytes": 0,
+          "local_ms": 0
+        }
+      ]
+    },
+    {
+      "id": "weekly-research",
+      "mode": "content",
+      "task": "搜索周报中科研选方向与领域数据的讨论",
+      "success": false,
+      "unsupported": true,
+      "hit_at_5": false,
+      "mrr_at_5": 0,
+      "ndcg_at_5": 0,
+      "top_ids": [],
+      "top_titles": [],
+      "gains": [],
+      "unsupported_attempts": 1,
+      "requests": 0,
+      "payload_bytes": {
+        "search": 0,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 0,
+      "local_ms": 0,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?q=%E7%A7%91%E7%A0%94%E6%96%B9%E5%90%91+%E9%A2%86%E5%9F%9F%E6%95%B0%E6%8D%AE&kind=weekly&limit=5",
+          "unsupported": true,
+          "bytes": 0,
+          "local_ms": 0
+        }
+      ]
+    },
+    {
+      "id": "topic-read",
+      "mode": "topic-read",
+      "task": "只读科研绘图一个话题而非整群日报",
+      "success": false,
+      "unsupported": false,
+      "contains_required": true,
+      "contains_unrelated": true,
+      "unsupported_attempts": 0,
+      "requests": 1,
+      "payload_bytes": {
+        "search": 0,
+        "read": 12284,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 12284,
+      "local_ms": 0.3180419999999913,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-14/group-4/index.md",
+          "category": "read",
+          "status": 200,
+          "bytes": 12284,
+          "local_ms": 0.3180419999999913
+        }
+      ]
+    },
+    {
+      "id": "missing-edition",
+      "mode": "editions",
+      "task": "10月17日缺刊时找到最近实际日报",
+      "success": false,
+      "unsupported": true,
+      "unsupported_attempts": 1,
+      "requests": 0,
+      "payload_bytes": {
+        "search": 0,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 0,
+      "local_ms": 0,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions?kind=daily&limit=3",
+          "unsupported": true,
+          "bytes": 0,
+          "local_ms": 0
+        }
+      ]
+    },
+    {
+      "id": "exact-related-id",
+      "mode": "detail",
+      "task": "已知related ID figures4papers，直接读原始仓库链接",
+      "success": false,
+      "unsupported": true,
+      "original_link_found": false,
+      "unsupported_attempts": 1,
+      "requests": 0,
+      "payload_bytes": {
+        "search": 0,
+        "read": 0,
+        "detail": 0,
+        "discovery": 0
+      },
+      "response_bytes": 0,
+      "local_ms": 0,
+      "http": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=library%3Afigures4papers",
+          "unsupported": true,
+          "bytes": 0,
+          "local_ms": 0
+        }
+      ]
+    }
+  ]
+}

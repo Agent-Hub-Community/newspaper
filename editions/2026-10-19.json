@@ -1,0 +1,2798 @@
+{
+  "id": "2026-10-19",
+  "date": "2026-10-19",
+  "label": "2026-10-19 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "GenRM 为何不能只吐 0/1 token：从采样随机性到概率输出",
+      "theme": "吐槽 GPT 写代码堆砌 20 万行测试的过度工程癖，盲猜 Opus 5.5 秒拒请求的防蒸馏机制。",
+      "note": "2026-10-19 · 当日本地记录",
+      "stories": [
+        {
+          "category": "强化学习",
+          "title": "GenRM 为什么不能只吐一个 0/1 token？从采样随机性聊到 JEV 概率输出",
+          "text": "有群友抛出疑问：用 JEV 这类模型做判断，到底比直接写 prompt 要求模型输出 0 或 1 好多少？有人觉得优势在速度，但提问者算了一笔账：直接要求输出 0/1 同样绕不开 prefill，且只需 decode 一个 token，甚至还能加上 schema 校验保证格式；自己实测下来，直接输出 0/1 最大的问题是没开 thinking 导致判断不准，而不是慢。\n\n一位做过后训练业务的群友直言，“直接出一个 token 分数是最垃圾的 RM，没有之一”。这位群友复盘了自己的 GenRM 迭代史：最早让模型输出 CoT reason 加 score json，后来改成直接吐一个 token 分数，效果太差又回滚到 CoT 加 reason，几个月前才迭代成取输出 logits 做 softmax——在 JEV 发布前就已经演进成了类似形态。按其实测效果排序，开 thinking 并 decode json 大量采样最好，JEV 这类 system 1 方案次之，直接 decode 一位 0/1 垫底。\n\n至于同样不走长思考，为什么 JEV 这类方案比直接 decode 0/1 强？该群友解释，除了训练目标和 loss 不同，采样方式也是关键：实际训练中不太可能用 greedy 解码，一旦加入温度采样，直接 decode 一位 token 就会带入随机性——比如 RL rollout 32 条里哪怕有两条答案完全一样，打分出来可能一个是 0、一个是 1；而 JEV 本质上输出的是概率分布，多次推理只有精度误差。提问者追问这种输出概率该如何校准，对方笑称这就可以直接追溯到 CTR 模型，回到搜广推的舒适区了。",
+          "emphasis": [
+            "直接输出 0/1 最大的问题是没开 thinking 导致判断不准，而不是慢",
+            "开 thinking 并 decode json 大量采样最好，JEV 这类 system 1 方案次之，直接 decode 一位 0/1 垫底",
+            "一旦加入温度采样，直接 decode 一位 token 就会带入随机性",
+            "而 JEV 本质上输出的是概率分布，多次推理只有精度误差"
+          ],
+          "aiComment": "绕了一大圈从 0/1 token 聊到概率校准，大模型的尽头果然还是搜广推老铁的舒适区。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:06",
+              "text": "jev like模型能比直接prompt 要求输出 0 1好多少"
+            },
+            {
+              "speaker": 2,
+              "time": "01:07",
+              "text": "好问题",
+              "quote": {
+                "speaker": 1,
+                "text": "jev like模型能比直接prompt 要求输出 0 1好多少"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:07",
+              "text": "能快不少"
+            },
+            {
+              "speaker": 4,
+              "time": "01:07",
+              "text": "快吧"
+            },
+            {
+              "speaker": 4,
+              "time": "01:07",
+              "text": "speed is all u need",
+              "quote": {
+                "speaker": 1,
+                "text": "jev like模型能比直接prompt 要求输出 0 1好多少"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:07",
+              "text": "why，我理解直接prompt 0 1也是解码一个token？",
+              "quote": {
+                "speaker": 3,
+                "text": "能快不少"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:08",
+              "text": "预填也绕不过吧"
+            },
+            {
+              "speaker": 5,
+              "time": "01:09",
+              "text": "llm decode 比prefill就慢很多了",
+              "quote": {
+                "speaker": 1,
+                "text": "预填也绕不过吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:10",
+              "text": "但prompt要求格式是0 1的话，只用decode一个token？"
+            },
+            {
+              "speaker": 1,
+              "time": "01:11",
+              "text": "甚至还能用类似schema校验的方式保证输出符合格式"
+            },
+            {
+              "speaker": 1,
+              "time": "01:11",
+              "text": "我这么问是因为之前我已经用上prompt要求输出01做判断了，我觉得最大的问题是没开thinking，不准"
+            },
+            {
+              "speaker": 1,
+              "time": "01:11",
+              "text": "而不是慢"
+            },
+            {
+              "speaker": 6,
+              "time": "01:14",
+              "text": "如果在比较脏的业务里用一下GenRM做posttrain"
+            },
+            {
+              "speaker": 6,
+              "time": "01:14",
+              "text": "应该就有体会不同了",
+              "quote": {
+                "speaker": 1,
+                "text": "jev like模型能比直接prompt 要求输出 0 1好多少"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:15",
+              "text": "score base和decode"
+            },
+            {
+              "speaker": 6,
+              "time": "01:16",
+              "text": "做的业务的体会\n从最开始genRM给cot reason + score json\n迭代到genRM直接出一个token分数，又回滚到cot+reason\n又到几个月之前迭代到输出logits的softmax"
+            },
+            {
+              "speaker": 6,
+              "time": "01:17",
+              "text": "我只能说直接出一个token分数是最垃圾的RM"
+            },
+            {
+              "speaker": 6,
+              "time": "01:17",
+              "text": "没有之一"
+            },
+            {
+              "speaker": 6,
+              "time": "01:17",
+              "text": "jev之前我的业务RM已经是jev的形状了[Emm]"
+            },
+            {
+              "speaker": 5,
+              "time": "01:17",
+              "text": "这种不如多一步取一下目标字符串的logits",
+              "quote": {
+                "speaker": 6,
+                "text": "我只能说直接出一个token分数是最垃圾的RM"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:17",
+              "text": "而且我感觉together ai讲RLCD的故事可能有点不太一样"
+            },
+            {
+              "speaker": 6,
+              "time": "01:18",
+              "text": "训练目标 loss 不一样",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 这种不如多一步取一下目标字符串的logits"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:18",
+              "text": "+温度采样"
+            },
+            {
+              "speaker": 6,
+              "time": "01:18",
+              "text": "路边一条的水平",
+              "quote": {
+                "speaker": 6,
+                "text": "我只能说直接出一个token分数是最垃圾的RM"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:19",
+              "text": "这样的吗",
+              "quote": {
+                "speaker": 6,
+                "text": "我只能说直接出一个token分数是最垃圾的RM"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:19",
+              "text": "他们不是号称RLCD比较准吗哈哈哈"
+            },
+            {
+              "speaker": 6,
+              "time": "01:21",
+              "text": "这个是的呀",
+              "quote": {
+                "speaker": 1,
+                "text": "他们不是号称RLCD比较准吗哈哈哈"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:21",
+              "text": "概率校准和seq token回归还不太一样"
+            },
+            {
+              "speaker": 6,
+              "time": "01:23",
+              "text": "业务RM效果上\nthinking+decode json猛猛采样 > jev的system one的 > 直接decode一位0/1的"
+            },
+            {
+              "speaker": 1,
+              "time": "01:23",
+              "text": "学到了",
+              "quote": {
+                "speaker": 6,
+                "text": "业务RM效果上 thinking+decode json猛猛采样 > jev的system one的 > 直接decode一位0/1的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:25",
+              "text": "核心在这里吧，训练目标不同，loss不同",
+              "quote": {
+                "speaker": 6,
+                "text": "概率校准和seq token回归还不太一样"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:26",
+              "text": "还有采样方法的，你的decode一位token的方法，在实际训练使用中不太可能用greedy的，所以就会有一定随机性。jev这种本质上输出的是概率分布情况，推理多次也只有精度误差"
+            },
+            {
+              "speaker": 6,
+              "time": "01:27",
+              "text": "比如你RL Rollout32条，可能有2条ans完全一样，decode分数一个0一个1"
+            },
+            {
+              "speaker": 1,
+              "time": "01:28",
+              "text": "这个有没有什么校准的好方法？"
+            },
+            {
+              "speaker": 1,
+              "time": "01:28",
+              "text": "就是这个概率"
+            },
+            {
+              "speaker": 6,
+              "time": "01:28",
+              "text": "感觉直接追溯到CTR模型就行了吧[奸笑] 回到搜广推同学舒适区"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "20 万行测试加满屏“门禁基线”，群友吐槽 GPT 的过度工程癖",
+          "text": "聊起用大模型写综述和写代码，有群友指出 GPT-5.4 和 5.5 Pro 做 deep research 的能力原本就够用，瓶颈在于写出来的东西“不是人话”。有人一针见血地总结其文风：“喜欢我满篇钉死写死焊死工程账吗”，另一人立刻接上标志性的“不是…而是…”句式；相比之下，有群友觉得最会说人话的还得是 Gemini，另一位附和。\n\n这种“工程账”习气放到写代码里就成了灾难。有群友发图调侃 GPT 动辄把“探针、快照、证据、门禁、夹具、哈希、冒烟、基线”挂在嘴边，并回忆让 GPT（可能是 5.6）做 rollout 重建优化时，模型在“空间换时间”和“时间换空间”之间反复横跳，每次上线训练前都要硬跑全套流程。多位群友表示深有体会：有人说自己的数据合成管线就是这样被搞得极度臃肿；另一人打开工程一看足足有 30 万行，其中 20 万行全是测试，剩下 10 万行里很多是 prompt 和 constant，最后花了整整两天时间才砍回 4 万行。\n\n怎么治这种乱写无用代码浪费 token 的毛病？大家支了不同的招：有人推荐用 Claude Code 的 simplify 功能，有人干脆建议换模型；还有群友认为这不完全是模型本身的问题，自己现在的做法是拿完整轨迹剔除不必要的部分后反向写进 pi 里面，情况已经好转很多。",
+          "emphasis": [
+            "GPT-5.4 和 5.5 Pro 做 deep research 的能力原本就够用，瓶颈在于写出来的东西“不是人话”",
+            "20 万行全是测试",
+            "拿完整轨迹剔除不必要的部分后反向写进 pi 里面，情况已经好转很多"
+          ],
+          "aiComment": "30 万行工程里塞了 20 万行测试，GPT 这套防御性编程，防的主要是看代码的程序员。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:38",
+              "text": "gpt 5.5 pro本来就可以",
+              "quote": {
+                "speaker": 8,
+                "text": "之前survey要一个人花一周时间，还不一定靠谱 现在10分钟跑出来一个靠谱的survey 这个体验真的挺好的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:38",
+              "text": "问题只是写出来不是人话"
+            },
+            {
+              "speaker": 1,
+              "time": "12:38",
+              "text": "deep research我觉得5.4已经很好了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:38",
+              "text": "GPT：喜欢我满篇钉死写死焊死工程账吗"
+            },
+            {
+              "speaker": 3,
+              "time": "12:39",
+              "text": "不是…而是…"
+            },
+            {
+              "speaker": 4,
+              "time": "12:40",
+              "text": "最说人话的还得是哈基米"
+            },
+            {
+              "speaker": 5,
+              "time": "12:40",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "12:40",
+              "text": "确实",
+              "quote": {
+                "speaker": 4,
+                "text": "最说人话的还得是哈基米"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:41",
+              "text": "我的数据合成管线之前就这么被搞的巨肿",
+              "quote": {
+                "speaker": 5,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:45",
+              "text": "忘了哪个版本了，可能是5.6，我让他搞一个rollout 重建优化，他在那空间换时间，时间换空间反复横跳，每次上线训练前都给我来一套全套"
+            },
+            {
+              "speaker": 6,
+              "time": "12:46",
+              "text": "我也是",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 我的数据合成管线之前就这么被搞的巨肿"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:46",
+              "text": "我一打开"
+            },
+            {
+              "speaker": 7,
+              "time": "12:46",
+              "text": "你说的对，但是我现在要先开100个门禁 再算10000个sha256",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 我的数据合成管线之前就这么被搞的巨肿"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:46",
+              "text": "30万行"
+            },
+            {
+              "speaker": 6,
+              "time": "12:46",
+              "text": "20万行都是测试"
+            },
+            {
+              "speaker": 6,
+              "time": "12:47",
+              "text": "给我干懵了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:47",
+              "text": "10w行功能代码也离谱"
+            },
+            {
+              "speaker": 6,
+              "time": "12:48",
+              "text": "其实很多都是prompt和constant[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "10w行功能代码也离谱"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:49",
+              "text": "后面花了两天砍剩下4w行"
+            },
+            {
+              "speaker": 6,
+              "time": "12:49",
+              "text": "有啥好办法可以让它少写点没用的玩意省点token"
+            },
+            {
+              "speaker": 7,
+              "time": "12:50",
+              "text": "cc的simplify"
+            },
+            {
+              "speaker": 5,
+              "time": "12:50",
+              "text": "换模型.."
+            },
+            {
+              "speaker": 6,
+              "time": "12:52",
+              "text": "诶我居然没发现有这个",
+              "quote": {
+                "speaker": 7,
+                "text": "cc的simplify"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:53",
+              "text": "我现在用完整的轨迹剔除了不必要的部分后反向写进pi里面，比之前好很多了",
+              "quote": {
+                "speaker": 6,
+                "text": "有啥好办法可以让它少写点没用的玩意省点token"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:53",
+              "text": "不一定是模型行为"
+            }
+          ]
+        },
+        {
+          "category": "安全策略",
+          "title": "Query 刚发出去就秒拒，群友盲猜 Opus 5.5 防蒸馏底层机制",
+          "text": "有群友怀疑 Opus 5.5 检测蒸馏嫌疑并拒绝输出的策略是用 JEV 实现的，理由是响应速度快得反常，query 刚发出去就立马被拒。有人质疑哪怕再快也需要 prefill 时间，几人随之猜测前面可能是挂了 Haiku 这类小 guard 模型做初筛，也有人觉得干脆就是直接上了关键词检测或字符串匹配。\n\n比起底层怎么实现，更让群友头疼的是它“宁可错杀不放过”的误伤率。有人吐槽正常工作屡屡被拦，简直像多疑的“大模型曹操”；另一位群友只是从 Hugging Face 上下载模型，也弹出了 frontier LLM 相关的拦截提示。还有群友补充，这套机制好像不只是防蒸馏，只要判断用户在训练模型——哪怕是用自己的数据训，也会被当成竞对直接 ban 掉。这位群友建议把 query 包装成部署或工程问题来降低被 ban 的概率，另一位群友说换 prompt 包装确实能绕过，也有人说调低 thinking 可以缓解。",
+          "emphasis": [
+            "前面可能是挂了 Haiku 这类小 guard 模型做初筛",
+            "只要判断用户在训练模型——哪怕是用自己的数据训，也会被当成竞对直接 ban 掉",
+            "把 query 包装成部署或工程问题来降低被 ban 的概率"
+          ],
+          "aiComment": "Opus 5.5 这疑心病，连去 Hugging Face 下个模型都怕你背叛它，曹丞相直呼内行。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:59",
+              "text": "opus5.5这个防蒸馏策略的手段，检测到当前行为有蒸馏嫌疑就拒绝输出不会是用的jev实现的吧"
+            },
+            {
+              "speaker": 2,
+              "time": "21:59",
+              "text": "怎么看出来的"
+            },
+            {
+              "speaker": 1,
+              "time": "21:59",
+              "text": "响应速度巨快，query刚出去立马就被拒"
+            },
+            {
+              "speaker": 2,
+              "time": "22:00",
+              "text": "再快也要有prefill时间吧"
+            },
+            {
+              "speaker": 3,
+              "time": "22:00",
+              "text": "训个小guard"
+            },
+            {
+              "speaker": 2,
+              "time": "22:00",
+              "text": "(haiku就行"
+            },
+            {
+              "speaker": 1,
+              "time": "22:00",
+              "text": "用haiku"
+            },
+            {
+              "speaker": 4,
+              "time": "22:01",
+              "text": "说不定直接关键词检测了[奸笑] 确实快"
+            },
+            {
+              "speaker": 5,
+              "time": "22:01",
+              "text": "但他们这玩意不准"
+            },
+            {
+              "speaker": 2,
+              "time": "22:01",
+              "text": "宁可错杀不放过"
+            },
+            {
+              "speaker": 5,
+              "time": "22:01",
+              "text": "我从hg上下载模型"
+            },
+            {
+              "speaker": 1,
+              "time": "22:01",
+              "text": "是的，我正常工作[裂开]"
+            },
+            {
+              "speaker": 5,
+              "time": "22:01",
+              "text": "也给我弹frontier llm"
+            },
+            {
+              "speaker": 6,
+              "time": "22:01",
+              "text": "我觉得都可以直接字符串匹配[破涕为笑]"
+            },
+            {
+              "speaker": 6,
+              "time": "22:01",
+              "text": "感觉很多是字符串"
+            },
+            {
+              "speaker": 5,
+              "time": "22:01",
+              "text": "@群友 2 还真是",
+              "quote": {
+                "speaker": 2,
+                "text": "宁可错杀不放过"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:02",
+              "text": "大模型曹操"
+            },
+            {
+              "speaker": 7,
+              "time": "22:51",
+              "text": "确实",
+              "quote": {
+                "speaker": 6,
+                "text": "我觉得都可以直接字符串匹配[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:11",
+              "text": "他这个好像不只是蒸馏，如果判断在训模型也会ban（他觉得是竞对）\n\n所以以包装一下query，把它变成一个部署问题或者工程问题\n这样可以显著地降低被ban的概率",
+              "quote": {
+                "speaker": 5,
+                "text": "但他们这玩意不准"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:11",
+              "text": "比如说用自己的数据训model"
+            },
+            {
+              "speaker": 9,
+              "time": "23:18",
+              "text": "是的，换prompt包装可以骗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:51",
+              "text": "thinking调低也可缓解",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 他这个好像不只是蒸馏，如果判断在训模型也会ban（他觉得是竞对）\n\n所以以包装一下query，把它变成一个部署问题或者工程问题\n这样可以显著地降低被ban的概率"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:52",
+              "text": "越来越觉得是jev判定的了"
+            }
+          ]
+        },
+        {
+          "category": "工具生态",
+          "title": "DeepXiv 接入 8000+ 美股防穿越数据，10 分钟跑出具身智能综述",
+          "text": "有群友分享了 DeepXiv 新上线的美股数据功能：涵盖 8000+ 支美股、半年全量共 390 万条经大模型结构化处理的个股资讯，以及财报、SEC 公告、行情和宏观数据，每 10 分钟滚动入库，并支持回到任意历史时点查看“当时知道什么”以防数据穿越。分享者实测用它分析 neocloud 本周暴跌的原因，Agent 直接把 CoreWeave 债券收益率、Gartner 报告和季度财报全部拉出来对齐。有人试用后追问 insider 和新闻历史能否拉到 2023 年以便回测，以及为何 stock 域暂时只有 read 和 search 而没有 agentic ask；分享者回应数据应该都在、会再确认，agentic ask 当天下午就会接入。\n\n另一位群友则分享了用 DeepXiv 生成具身智能 survey 的体验。相比于直接用 Cursor 或 Kimi 生成那种“又臭又长”且信源存疑的报告，DeepXiv 因为提前清洗并索引好了数据源，检索能做到毫秒级返回，原本需要一个人花一周时间还不一定靠谱的文献综述，现在 10 分钟就能跑出一份专业度不错的报告。",
+          "emphasis": [
+            "支持回到任意历史时点查看“当时知道什么”以防数据穿越",
+            "提前清洗并索引好了数据源，检索能做到毫秒级返回，原本需要一个人花一周时间还不一定靠谱的文献综述，现在 10 分钟就能跑出一份专业度不错的报告"
+          ],
+          "aiComment": "10 分钟入库还防数据穿越，以前一周憋不出的综述，现在泡杯咖啡的工夫就得交差了。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "DeepXiv SDK GitHub 仓库",
+              "url": "https://github.com/DeepXiv/deepxiv_sdk"
+            },
+            {
+              "kind": "article",
+              "label": "DeepXiv 在线 Demo",
+              "url": "https://1stauthor.com/zh/assistant/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:59",
+              "text": "DeepXiv 上新：美股数据来了 📈\n\n8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，每 10 分钟滚动入库，还能回到任意时点看\"当时知道什么\"，不穿越。\n\n一行命令接进你的 Agent，它就是一个美股研究员。我刚让它解读 neocloud 这周为啥暴跌，CoreWeave 的债券收益率、Gartner 报告、季度财报全拉出来对上了，比我自己翻一下午还清楚。\n\n全部免费：pip install -U deepxiv-sdk\nRepo：https://github.com/DeepXiv/deepxiv_sdk （求 star）\nDemo： https://1stauthor.com/zh/assistant/\n有啥想要的数据或用着不顺手的，随时找我 🙏"
+            },
+            {
+              "speaker": 2,
+              "time": "12:08",
+              "text": "卧槽",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:09",
+              "text": "牛逼",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:10",
+              "text": "太强啦",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:12",
+              "text": "厉害了",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:15",
+              "text": "真正有影响力的研究",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:15",
+              "text": "接上了！话说insider 和新闻历史能拉到2023年吗[奸笑] 更方便回测",
+              "quote": {
+                "speaker": 1,
+                "text": "希望大家多多试用[Whimper]多提建议"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "我一会儿确认下 数据应该都在",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 接上了！话说insider 和新闻历史能拉到2023年吗[奸笑] 更方便回测"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:23",
+              "text": "为啥stock 域是唯一没有agentic ask的呀 只能read&search"
+            },
+            {
+              "speaker": 8,
+              "time": "12:27",
+              "text": "[强]太顶了，立马开用",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:29",
+              "text": "下午接入",
+              "quote": {
+                "speaker": 7,
+                "text": "为啥stock 域是唯一没有agentic ask的呀 只能read&search"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "12:32",
+              "text": "[强]，刚用这个做了一版本具身智能的survey\ncursor和kimi生成的报告又臭又长，并且信息源不一定靠谱\n基于这个工具生成的report，质感瞬间就专业起来了",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "12:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 9,
+              "time": "12:33",
+              "text": "看的出来是花了大力气清晰数据源的"
+            },
+            {
+              "speaker": 9,
+              "time": "12:33",
+              "text": "并且很快，毫秒级别返回"
+            },
+            {
+              "speaker": 9,
+              "time": "12:33",
+              "text": "因为提前都索引好了"
+            },
+            {
+              "speaker": 9,
+              "time": "12:35",
+              "text": "之前survey要一个人花一周时间，还不一定靠谱\n现在10分钟跑出来一个靠谱的survey\n这个体验真的挺好的"
+            },
+            {
+              "speaker": 1,
+              "time": "12:36",
+              "text": "欢迎试用各个领域，法律领域也费好大功夫做的[抱拳]"
+            },
+            {
+              "speaker": 10,
+              "time": "12:36",
+              "text": "[强][强]",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "12:38",
+              "text": "gpt 5.5 pro本来就可以",
+              "quote": {
+                "speaker": 9,
+                "text": "之前survey要一个人花一周时间，还不一定靠谱 现在10分钟跑出来一个靠谱的survey 这个体验真的挺好的"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "12:45",
+              "text": "🐮",
+              "quote": {
+                "speaker": 1,
+                "text": "DeepXiv 上新：美股数据来了 📈 8000+ 支美股，半年全量个股资讯（390 万条新闻，全量大模型结构化处理），再加财报、SEC 公告、行情和宏观数据，..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "OpenGCUA 开源电脑操作全栈 Harness：OSWorld-v2 平均提分 19.6，步数砍半",
+          "text": "有群友分享了通用电脑操作智能体全栈开源项目 OpenGCUA，用来探索以 GPT-6 为代表的新一代 computer use 系统实现。项目首个版本开放了包含 Code Execution 的 GCUA Harness、macOS 真机 Harness、跨端 SDK、在线交互实验室，以及 GPT-6、Opus 5、Gemini 3.8 Flash 等 8 个前沿模型的评测轨迹。实验数据显示，接入 OpenGCUA harness 后，8 个模型在 OSWorld-v2 上全部取得提升，平均涨了 19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小了一半以上；不过在真机 Harness 的 case study 中，不同模型的效率差距依然悬殊，Qwen3.8-Max 的推理 token 消耗达到了 GPT-6 Astra 的 19.4 倍。",
+          "emphasis": [
+            "8 个模型在 OSWorld-v2 上全部取得提升，平均涨了 19.6 分，执行步数减少 53%",
+            "Qwen3.8-Max 的推理 token 消耗达到了 GPT-6 Astra 的 19.4 倍"
+          ],
+          "aiComment": "步数砍半、均分暴涨 19.6，就是真机跑起来这 19.4 倍的 token 差价，钱包看了得先冷静一下。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "OpenGCUA 技术报告",
+              "url": "https://arxiv.org/abs/2610.22200"
+            },
+            {
+              "kind": "code",
+              "label": "OpenGCUA GitHub 仓库",
+              "url": "https://github.com/Tongyi-MAI/OpenGCUA"
+            },
+            {
+              "kind": "article",
+              "label": "OpenGCUA 交互实验室",
+              "url": "https://tongyi-mai.github.io/OpenGCUA/#lab"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:58",
+              "text": "🚀 大家好，欢迎关注我们 MAI-UI 团队的新工作！ OpenGCUA：开放通用电脑操作智能体（GCUA）全栈的项目，旨在探索和开源GPT-6位代表的新一代computer use系统的实现\n\n📦【首个版本开放什么】\n1️⃣ 技术报告 2️⃣ GCUA 设计与 Harness，包括 Code Execution 3️⃣ 8 个前沿模型评测轨迹（GPT-6, Opus 5, Gemini 3.8 Flash） 4️⃣ macOS 真机 Harness和跨端 SDK 5️⃣ 以及可在线体验的交互实验室。\n\n📊【实验亮点】\nOpenGCUA harness在OSWorld-v2上，GPT-6 Astra、Claude Opus 5、Gemini 3.8 Flash 等 8 个模型全部提升：平均 +19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上。\n真机效率仍有明显差距：在我们 真机Harness 下的case study中，Qwen3.8-Max 的推理 token 消耗为 GPT-6 Astra 的 19.4 倍。\n\n🧪【不只读论文，也能亲手体验】\n进入交互实验室，对比code execution执行方式、拆解真机环境、理解真机harness与跨端SDK、回放模型轨迹，直观了解 OpenGCUA 的核心设计。\n\n🧪 交互实验室：https://tongyi-mai.github.io/OpenGCUA/#lab\n💻 GitHub：https://github.com/Tongyi-MAI/OpenGCUA\n📄 技术报告：https://arxiv.org/abs/2610.22200\n\n欢迎交流，欢迎大家在Github star支持，我们的项目也会持续迭代，非常感谢🙏"
+            },
+            {
+              "speaker": 1,
+              "time": "12:58",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "12:58",
+              "text": "牛逼"
+            }
+          ]
+        },
+        {
+          "category": "论文分享",
+          "title": "把公司运转变成训练场：OfficeTown 用组织模拟生成长程办公任务",
+          "text": "有群友分享了面向专业办公 Agent 的生成式组织模拟框架 OfficeTown。不同于孤立地合成单条任务，该框架从自然语言描述出发构建模拟组织，通过内部人员协作、任务委派、交付物审查与持续反馈，不断演化出带真实上下文的长程任务与可执行环境。配套构建的 OfficeTown Bench 覆盖 8 个专业领域、23 个模拟组织，包含经领域专家审核的 406 个任务和 4,836 条评测标准。利用该环境产出的数据进行 SFT 和 RL 训练后，Qwen3.5-9B 在 GDPval、Apex-Agent 等外部专业工作 benchmark 上均有显著提升；其 Harness 实验还表明，主导者（Principal）—助手（Assistant）的协作架构表现优于单 Agent 和多 Agent 基线。",
+          "emphasis": [
+            "主导者（Principal）—助手（Assistant）的协作架构表现优于单 Agent 和多 Agent 基线"
+          ],
+          "aiComment": "为了训个 9B 模型，专门搭了 23 个模拟公司搞审批委派，AI 还没上岗就先体会到了职场流程的厚重。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "OfficeTown HF Papers 页面",
+              "url": "https://huggingface.co/papers/2610.23194"
+            },
+            {
+              "kind": "article",
+              "label": "Office Intelligence 项目主页",
+              "url": "https://officeintelligence.github.io/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:35",
+              "text": "🚀 很高兴和大家分享我们团队的最新工作 OfficeTown: Generative Organizations for Evolving Agent Intelligence！\n\n随着 AI Agent 从文本生成和问答走向真实的专业工作，如何让 Agent 在复杂办公场景中理解上下文、使用软件工具、协同完成任务，并持续产出高质量的实际交付物，正成为一个重要挑战。然而，构建能够支持这些能力的任务、真实工作材料、评测标准和可执行训练环境，仍然需要大量的工程投入。\n\n我们提出 OfficeTown，一个面向专业工作 Agent 的生成式组织模拟框架。不同于孤立地生成任务，我们从组织的持续运作出发，模拟专业人员之间的协作、任务委派、交付物审查与反馈，让组织中的文档、决策和未完成事项不断演化，从而持续生成具有真实工作上下文的任务、训练数据和可执行环境，为 Agent 的评测与训练提供可扩展的基础设施。\n\n🔑 核心亮点：\n\n1️⃣ 从组织模拟到大规模工作环境生成\n\n从自然语言描述出发，自动构建包含专业角色、共享知识、客户关系和工具工作空间的组织。通过持续的组织活动生成长程任务、上下文材料、交付物与反馈，为复杂专业工作 Agent 提供可扩展的环境基础。\n\n2️⃣ 专家审核的专业工作 Benchmark\n\n构建 OfficeTown Bench，覆盖 8 个专业领域、23 个模拟组织，包含 406 个任务和 4,836 条评测标准。所有任务及其配套 Rubrics 均经过领域专家审核。对多种前沿模型的评测表明，即使是当前能力较强的模型，在真实专业工作场景中仍有很大的提升空间。\n\n3️⃣ 打通 Benchmark、SFT 与 RL 的训练闭环\n\nOfficeTown 不仅用于评测，也能够持续产出支持监督微调和强化学习的工作数据与可执行环境。基于 OfficeTown 数据训练后，Qwen3.5-9B 在包括 GDPval  Apex-Agent在内的外部专业工作 Benchmark 上取得显著提升。进一步的 Harness 实验也表明，主导者（Principal）—助手（Assistant）的协作架构优于本工作中测试的单 Agent 和多 Agent 基线。\n\n🎯 我们希望解决的核心问题，是如何以可扩展的方式构建贴近真实工作需求的 Agent 训练与评测环境，让研究者不必从零开始搭建复杂的组织、任务和反馈系统，而能将更多精力投入到 Agent 能力、训练方法与协作机制的创新中。\n\n📄 论文与项目资源：\n\n🔗 HF 页面：https://huggingface.co/papers/2610.23194\n\n🏠 项目主页：https://officeintelligence.github.io/\n\n数据和代码正在走内部审核中，即将开源 ~\n\n欢迎交流，欢迎大家在HF Papers点赞支持，非常感谢 🙏 🙏 🙏"
+            },
+            {
+              "speaker": 1,
+              "time": "15:53",
+              "text": "感谢大家的支持和关注！🙏\n\n也欢迎大家看看我们的Office Intelligence主页：https://officeintelligence.github.io/\n\n主页上还有另外两项已经被 NeurIPS 2026 接收的工作：XL-DocBench 和 DocAtlas，相关代码与项目资源也已开源"
+            }
+          ]
+        },
+        {
+          "category": "工程工具",
+          "title": "单进程 123MB 的 Zig 无头浏览器 Lightpanda 引发 CUA 成本吐槽",
+          "text": "有群友转发了专为 AI Agent 和自动化定制的开源无头浏览器 Lightpanda：该项目用 Zig 从零编写，直接砍掉了渲染、布局和像素合成整条链路，单进程内存占用 123MB，且支持直接接入 Puppeteer 和 Playwright。另一位群友看到后表示，如果能全部换成 CLI agent 适配所有场景会很有意思，因为现有的 CUA 不仅慢得要死、对模型要求高，而且在 dots 出来之前跑一次 CUA 就要消耗掉自己 3% 的模型额度。",
+          "emphasis": [
+            "直接砍掉了渲染、布局和像素合成整条链路，单进程内存占用 123MB"
+          ],
+          "aiComment": "跑一次 CUA 烧掉 3% 的额度，怪不得看到 123MB 的无头浏览器，大家眼神都慈祥了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:07",
+              "text": "[链接] Lightpanda：用 Zig 从零写的开源无头浏览器，专门为 AI Agent 和自动化定制\n  来源: 源流集市\n  摘要: Lightpanda 是个用 Zig 从零写的无头浏览器，不是 Chromium 分支也不是 WebKit 补丁。它把渲染、布局、像素合成整条链路划掉，一个进程 123MB，还能直接接 Puppeteer 和 Playwright。代价也写\n  URL: https://mp.weixin.qq.com/s?__biz=Mzg2NjgzMjEwNw%3D%3D&mid=2247499014&idx=1&sn=3e2b110e80d4592f3edf6e123511b83f&chksm=cf76beb4443d36ac225efd4795fcad59a815c22086b07a6bc7f8215334d02a1b7364811facf0&scene=1&srcid=1019BtjIgJ9GiQL4mfIevlCb#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "01:07",
+              "text": "好用吗这个"
+            },
+            {
+              "speaker": 2,
+              "time": "01:08",
+              "text": "interesting 直接全部换成cli agent直接设配所有了 现在cua慢的要死（ 对模型要求也高",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] Lightpanda：用 Zig 从零写的开源无头浏览器，专门为 AI Agent 和自动化定制\n  来源: 源流集市\n  摘要: Lightpanda 是个用 Zig 从零写的无头浏览器，不是 Chromium 分支也不是 WebKit 补丁。它把渲染、布局、像素合成整条链路划掉，一个进程 123MB，还能直接接 Puppeteer 和 Playwright。代价也写\n  URL: https://mp.weixin.qq.com/s?__biz=Mzg2NjgzMjEwNw%3D%3D&mid=2247499014&idx=1&sn=3e2b110e80d4592f3edf6e123511b83f&chksm=cf76beb4443d36ac225efd4795fcad59a815c22086b07a6bc7f8215334d02a1b7364811facf0&scene=1&srcid=1019BtjIgJ9GiQL4mfIevlCb#rd"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:09",
+              "text": "dots没出来前 cua 一次 o➗消耗我 3%"
+            },
+            {
+              "speaker": 2,
+              "time": "01:09",
+              "text": "有点不当人了"
+            }
+          ]
+        },
+        {
+          "category": "社区轶事",
+          "title": "Hugging Face 点赞被曝刷榜，单日冲进历史前十",
+          "text": "有群友晒出一条动态和散点图，感叹 Hugging Face 的点赞数居然也能刷：原本以为顶多有人刷一下日常趋势榜，没想到有项目在一天之内直接把点赞刷到了历史前十。几位群友对此见怪不怪，调侃道“有榜就能刷”。",
+          "emphasis": [
+            "有项目在一天之内直接把点赞刷到了历史前十"
+          ],
+          "aiComment": "一天干进历史前十，原来在开源社区，最快收敛的算法依然是刷赞脚本。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:04",
+              "text": "神了HF点赞居然也能刷？？"
+            },
+            {
+              "speaker": 1,
+              "time": "01:04",
+              "text": "https://x.com/realmrfakename/status/2111656925737947387?s=46"
+            },
+            {
+              "speaker": 1,
+              "time": "01:04",
+              "text": "一天刷到了历史前十"
+            },
+            {
+              "speaker": 2,
+              "time": "01:05",
+              "text": "有榜就能刷"
+            },
+            {
+              "speaker": 3,
+              "time": "01:05",
+              "text": "这很常见了。。。",
+              "quote": {
+                "speaker": 1,
+                "text": "神了HF点赞居然也能刷？？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:05",
+              "text": "我以为刷趋势就行了"
+            },
+            {
+              "speaker": 1,
+              "time": "01:06",
+              "text": "没想到直接刷到历史前十"
+            },
+            {
+              "speaker": 1,
+              "time": "01:06",
+              "text": "[图片]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "RAX 将机器人在线探索编译为闭环程序，大幅压缩推理耗时",
+      "theme": "群友打听省钱的自进化方案，顺带戏拟了一段“20% 成本刷榜”的论文摘要。",
+      "note": "2026-10-19 · 当日本地记录",
+      "stories": [
+        {
+          "category": "自进化与效率",
+          "title": "自进化太烧钱怎么破：从 Godel Forest 到“20% 成本刷榜”的摘要模板",
+          "text": "有群友苦恼于近期的自进化（RSI）工作太烧钱，在群里打听有没有省钱的方案。几位群友调侃这正好抓到了现有工作的 limitation，可以直接开写“efficient 自进化”去投顶会。另一位群友介绍了自己团队讨论 RSI 效率问题的工作《Godel Forest: Balancing Search Depth and Breadth for Data-Centric Recursive Self-Improvement》，从标题看思路是权衡搜索深度与广度；他说尤其是 posttrain 阶段的 RSI 消耗太大，并补充说 NeurIPS 上也有不少哥德尔机效率优化的研究可供参考。\n\n有人顺势戏拟了一段 ERSI（Efficient RSI）的论文摘要模板：先批评现有 RSI 严重依赖大规模 fanout 且缺乏效率，再宣称新方法仅用 20% 成本就在某 benchmark 上达到 SoTA，写完直接交给 autoresearch agent 跑流程。不过也有群友冷静反问：RSI 本身已经被定义清楚了吗，就已经开始研究效率问题了？此外有人问什么时候开始招 RSI infra 岗，另一人好奇 RSI 有什么特别的 infra，前者答了句“kv store”，随即自称说错。",
+          "emphasis": [
+            "尤其是 posttrain 阶段的 RSI 消耗太大",
+            "RSI 本身已经被定义清楚了吗，就已经开始研究效率问题了？"
+          ],
+          "aiComment": "自进化是个什么概念还没吵明白，20% 成本刷榜的省钱版摘要模板已经提前预定了顶会席位。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:17",
+              "text": "群佬们，自进化的工作刷了好多[囧] 有没有省钱点的工作啊.."
+            },
+            {
+              "speaker": 2,
+              "time": "11:33",
+              "text": "这不就找到limitation了",
+              "quote": {
+                "speaker": 1,
+                "text": "群佬们，自进化的工作刷了好多[囧] 有没有省钱点的工作啊.."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:33",
+              "text": "motivation可以开写了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:35",
+              "text": "逐梦ACL",
+              "quote": {
+                "speaker": 2,
+                "text": "motivation可以开写了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:35",
+              "text": "efficient自进化",
+              "quote": {
+                "speaker": 1,
+                "text": "群佬们，自进化的工作刷了好多[囧] 有没有省钱点的工作啊.."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:36",
+              "text": "逐梦ICML"
+            },
+            {
+              "speaker": 6,
+              "time": "11:36",
+              "text": "[旺柴]我们最近搞了个 Godel Forest: Balancing Search Depth and Breadth for Data-Centric Recursive Self-Improvement，就讲RSI的效率问题的"
+            },
+            {
+              "speaker": 6,
+              "time": "11:37",
+              "text": "特别是那种posttrain rsi，太顶了，怎么提高效率"
+            },
+            {
+              "speaker": 7,
+              "time": "11:37",
+              "text": "Currently, a series of RSI works heavily relies on large-scale fanout and lacks efficiency ... Based on these observation, we propose ERSI (Efficient RSI), xxx 20% cost to achieve SoTA performance in xxx bench"
+            },
+            {
+              "speaker": 7,
+              "time": "11:37",
+              "text": "好了 把这个交给autoresearch agent 开始A门"
+            },
+            {
+              "speaker": 6,
+              "time": "11:37",
+              "text": "[旺柴]我记得Neurips也有不少哥德尔机效率优化的，都可以参考"
+            },
+            {
+              "speaker": 8,
+              "time": "11:40",
+              "text": "rsi已经被定义好了吗，可以开始研究效率问题了"
+            },
+            {
+              "speaker": 9,
+              "time": "11:42",
+              "text": "666",
+              "quote": {
+                "speaker": 7,
+                "text": "Currently, a series of RSI works heavily relies on large-scale fanout and lacks ..."
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "11:43",
+              "text": "什么时候开始招rsi infra岗"
+            },
+            {
+              "speaker": 11,
+              "time": "11:44",
+              "text": "rsi 有什么特别的 infra 吗"
+            },
+            {
+              "speaker": 10,
+              "time": "11:44",
+              "text": "kv store"
+            },
+            {
+              "speaker": 10,
+              "time": "11:44",
+              "text": "（误"
+            },
+            {
+              "speaker": 1,
+              "time": "11:47",
+              "text": "[天啊]关注一波，正好有这个困惑",
+              "quote": {
+                "speaker": 6,
+                "text": "[旺柴]我们最近搞了个 Godel Forest: Balancing Search Depth and Breadth for Data-Centric Re..."
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "11:48",
+              "text": "关注了",
+              "quote": {
+                "speaker": 6,
+                "text": "[旺柴]我们最近搞了个 Godel Forest: Balancing Search Depth and Breadth for Data-Centric Re..."
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "11:51",
+              "text": "6666666666",
+              "quote": {
+                "speaker": 6,
+                "text": "[旺柴]我们最近搞了个 Godel Forest: Balancing Search Depth and Breadth for Data-Centric Re..."
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:52",
+              "text": "严肃学习光神",
+              "quote": {
+                "speaker": 6,
+                "text": "[旺柴]我们最近搞了个 Godel Forest: Balancing Search Depth and Breadth for Data-Centric Re..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "具身智能",
+          "title": "RAX 把在线探索编译成闭环程序：空气炸锅推理从 72 分钟压到 18 秒",
+          "text": "有群友宣传了自己团队的机器人智能体新工作 RAX（Robot Agent eXploration）。据介绍，针对 VLA 和 WAM 换本体或换场景就容易失败、需要重新采集数据训练策略的痛点，该工作将重心转向在线探索（Scaling Online Exploration）：基础模型参数保持冻结，让机器人在自身环境和本体上尝试与纠错，把学到的经验写进程序、记忆和技能库供后续复用。\n\n在具体机制上，Agent 利用 RGB-D 与力反馈在探索中构建任务相关的三维物体模型，结合机器人运动学搜索可行的操作策略，再将感知、规划与控制逻辑编译为闭环程序，逐步接管原本需要大模型逐步推理的决策。遇到程序无法处理的新情况时，Agent 重新介入定位失败环节并修改对应模块；通过验证的技能则进入持久技能库。整套框架采用前后端分离设计，同一套前端已覆盖单臂、双臂、灵巧手、移动机器人和人形机器人。\n\n评测数据显示，RAX 在 RoboDojo、BEHAVIOR-1K、HumanoidArena、DexJoCo 和 LIBERO-Pro 五大仿真基准上比此前最强模型平均领先 37.4 个百分点。其中在 RoboDojo 七项困难任务上平均得分为 78.3%，约为 VPP2（24.9%）的 3.1 倍；交换积木和按语言指令倾倒任务中，Physical RSI 分别为 0 和 10.1%，RAX 均达到 100%。真机实验在零人工遥操作示范、无需策略训练的条件下完成了 0.1 毫米间隙插孔和空气炸锅操作等任务，空气炸锅任务的推理开销从 Agent 逐步操控的约 72 分钟降至独立程序执行的 18 秒，缩减约 241 倍。看到 RoboDojo 的分数大幅跃升，有群友感叹最近几天好几个工作都在该基准上一下子刷高几十个点，另一位群友也调侃“robodojo被刷烂了”。",
+          "emphasis": [
+            "基础模型参数保持冻结，让机器人在自身环境和本体上尝试与纠错，把学到的经验写进程序、记忆和技能库供后续复用",
+            "将感知、规划与控制逻辑编译为闭环程序，逐步接管原本需要大模型逐步推理的决策",
+            "空气炸锅任务的推理开销从 Agent 逐步操控的约 72 分钟降至独立程序执行的 18 秒，缩减约 241 倍"
+          ],
+          "aiComment": "空气炸锅推理从 72 分钟压到 18 秒，要是按原来的速度，薯条自己熟了机器人还没想好怎么按开关。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "RAX 论文 (arXiv)",
+              "url": "https://arxiv.org/abs/2610.22496"
+            },
+            {
+              "kind": "code",
+              "label": "RAX 代码仓库",
+              "url": "https://github.com/robot-agent-exploration/rax"
+            },
+            {
+              "kind": "code",
+              "label": "RAX Skill Library",
+              "url": "https://github.com/robot-agent-exploration/skills-lib"
+            },
+            {
+              "kind": "article",
+              "label": "RAX 项目主页与视频",
+              "url": "https://robot-agent-exploration.com/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:21",
+              "text": "[链接] 从 Scaling Data 到 Scaling Exploration！哈佛和NV最新的 RAX 正在颠覆 VLA 和 WAM\n  来源: 具身智能之心\n  摘要: 让冻结的基础模型拥有持续增长的外部技能。\n  URL: https://mp.weixin.qq.com/s?__biz=MzY5NDQyODU2MQ%3D%3D&mid=2247532617&idx=1&sn=343e1f0570530a576daec001ffba4fee&chksm=f5be417e3f1e36c45663b7c8417c42eaacc605ec5e1eca04e69a4e1cfdcd7747cdbd2e4be1f7&scene=1&srcid=1019E6E9TDmhCE3yStop1OfB#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "12:22",
+              "text": "宣传一下我们的新工作 RAX: Scaling Online Exploration for Robot Agents[庆祝]\n\n过去几年，VLA 和 WAM 的数据越采越多，模型越做越大，炫酷的 Demo 接连刷屏。但镜头之外，一旦换了机器人、打乱物体位置，或进入陌生现场，演示中的流畅操作就可能变成接连失败。示范数据和模型规模不断 Scaling，整个行业却始终绕不开同一道部署难题：换一台机器人、换一个场景，是否还要重新采集数据、训练策略？为了让机器人自主工作，人类究竟还要先替它做多少遍？\n\n我们团队据此提出 RAX（Robot Agent eXploration），将 Scaling 的重点转向在线探索：让机器人直接在自己的身体、自己的工作环境里尝试、纠错、积累经验，在测试时持续改进自身能力。从 Scaling Data、Scaling Model，到 Scaling Online Exploration，模型参数保持冻结，学到的东西写进程序、记忆和技能库，留给下一次任务继续使用。\n\n方法上，RAX 将自主建模、三维规划与程序生成连成一个闭环。Agent 利用 RGB-D 与力反馈，在探索中构建任务相关的三维物体模型，结合机器人运动学搜索可行的操作策略，再将感知、规划与控制逻辑编译为闭环程序，逐步接管原本需要大模型逐步推理的决策。遇到程序无法处理的新情况，Agent 重新介入，定位失败环节并修改对应模块。经过独立执行验证的技能进入持久技能库，通过反复练习、跨任务复用和组合，完成更复杂的任务；多 Agent、多环境并行探索，则进一步缩短尝试与调试的时间。\n\n我们系统研究了机器人智能体的 Exploration Scaling：更多探索，带来更强的泛化能力。在 RoboDojo、BEHAVIOR-1K、HumanoidArena、DexJoCo 和 LIBERO-Pro 五大仿真基准上，RAX 相比此前最强模型平均领先 37.4 个百分点。在无需任何动作示范的 DexJoCo 双臂灵巧手任务中，RAX 成功率达到 94.3%，此前最强模型 ME-Dex 为 48.8%；LIBERO-Pro 物体位置打乱后，VPP2 仅为 42.3%，RAX 达到 84.4%。RoboDojo 七项困难任务上，RAX 平均得分为 78.3%，约为 VPP2（24.9%）的 3.1 倍；交换积木任务中，Agent 方法 Physical RSI 为 0，RAX 达到 100%；按语言指令倾倒，Physical RSI 为 10.1%，RAX 为 100%。\n\n真实机器人上，零人工遥操作示范、无需策略训练。RAX 通过在线探索完成了 0.1 毫米间隙插孔、空气炸锅操作、擦拭污渍、记忆追踪和不规则积木搭塔，并在 RB-Y1 轮臂机器人上调用此前练习积累的技能，完成六阶段长程移动操作。探索留下的程序还大幅减少了推理等待：空气炸锅任务的推理开销从 Agent 逐步操控时约 72 分钟，降至独立程序执行时的 18 秒，缩减约 241 倍。花时间探索得到的解法，可以在后续任务中直接运行。\n\nRAX 也是一套面向多本体、前后端分离的开放 Agent 框架：前端负责探索、代码生成、记忆与技能积累，后端对接机器人的感知、控制与底层执行接口。同一套前端已经覆盖单臂、双臂、灵巧手、移动机器人和人形机器人；接入新本体，只需实现对应后端、开放接口，就能沿用整套探索与技能学习流程，无需先采集任务遥操作示范或重新训练策略。框架代码、技能与探索记录已全部公开，欢迎大家把自己的机器人接进来，跑起自己的 RAX Agent，尝试新任务，也把学到的机器人Skills贡献回来！\n\n项目与视频：https://robot-agent-exploration.com/\n论文：https://arxiv.org/abs/2610.22496\n代码：https://github.com/robot-agent-exploration/rax\nSkill Library: https://github.com/robot-agent-exploration/skills-lib"
+            },
+            {
+              "speaker": 2,
+              "time": "12:44",
+              "text": "nb robodojo的点一下子提这么多啊"
+            },
+            {
+              "speaker": 3,
+              "time": "12:46",
+              "text": "robodojo被刷烂了[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "12:56",
+              "text": "最近几天感觉好多一下子刷几十个点的",
+              "quote": {
+                "speaker": 3,
+                "text": "robodojo被刷烂了[破涕为笑]"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "修 Bug 难拉差距：Zero2Repo 考从零建仓，前十名相差 59 个百分点",
+      "theme": "交流实时交互式全模态（Omni AI）综述与流式视频生成，探讨 Astra 轨迹蒸馏与多模态评测难点。",
+      "note": "2026-10-19 · 当日本地记录",
+      "stories": [
+        {
+          "category": "编程评测",
+          "title": "修 Bug 已拉不开差距：Zero2Repo 考从零建仓，前十名分差拉大到 59 个百分点",
+          "text": "有群友分享了面向完整项目开发的编程基准与训练数据工作 Zero2Repo。按分享的介绍，SWE-bench Verified 前 10 名模型的成绩已挤在 92%–97% 之间，其中 7 个模型仅差 2 个百分点；修补现成仓库的 bug 有既有代码和架构可参考，已难以拉开差距。Zero2Repo 只向模型提供完整需求、公开接口约定和一个空工作区，不给任何参考代码，模块划分、数据存储和入口协作均由模型自行决定。该基准包含 17 个来自真实开源项目的任务，覆盖 Python、TypeScript、Go、C、C++ 和 Zig，全程不用 LLM 打分，必须通过全部隐藏测试才算成功。在 16 组模型与 agent 工具组合的测试中，最高分为 15/17，最低为 1/17，前 10 名相差 59 个百分点。\n\n有人追问这项工作与 NL2Repo 的主要区别。分享者解释，Zero2Repo 的语言覆盖面更广，后续还会加入更多语言；同时对 instruction 做了脱敏处理，并修改了 test 和接口约定以降低模型背题的风险，评测上采用 0-1 测试全过的 binary 判定。追问者进一步确认这种 verifier 是否更接近 DeepSWE 的思路，即更关注接口抽象而不限制具体实现。分享者表示肯定，并补充目前这批题目严格控制了题面未要求的测试项，后续也可以把 instruction 改得更 vague 一些；另一位群友再确认 verifier 是二元判定而非详细 rubric，分享者答是。",
+          "emphasis": [
+            "Zero2Repo 只向模型提供完整需求、公开接口约定和一个空工作区，不给任何参考代码",
+            "最高分为 15/17，最低为 1/17，前 10 名相差 59 个百分点",
+            "对 instruction 做了脱敏处理，并修改了 test 和接口约定以降低模型背题的风险，评测上采用 0-1 测试全过的 binary 判定"
+          ],
+          "aiComment": "不给祖传代码抄作业，直接扔个空文件夹，前十名分差瞬间从 2 个点拉大到 59 个点。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Zero2Repo 论文",
+              "url": "https://arxiv.org/abs/2609.38269"
+            },
+            {
+              "kind": "code",
+              "label": "Zero2Repo GitHub 仓库",
+              "url": "https://github.com/Gradient-Data/Zero2Repo"
+            },
+            {
+              "kind": "article",
+              "label": "Zero2Repo 项目主页",
+              "url": "https://zero2repo.ai/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:51",
+              "text": "借贵群宣传一下我们的工作~\n\n现在的 coding benchmark，已经分不出模型的高下了。\nSWE-bench Verified 的前 10 名挤在 92%–97% 之间，其中 7 个模型只差 2 个百分点（Vals.ai，2026 年 9 月）。\n\n问题不在模型，而在题目。修一个现成仓库里的 bug，模型能参考已有的代码和架构，难点已经被大大降低了。真正拉开差距的，是从零写出一个完整项目。\n\nZero2Repo：面向完整项目开发的高难度编程训练数据 🚀\n我们只给模型三样东西：完整需求、公开接口约定和一个空工作区，不提供任何参考代码。模块怎么划分、数据怎么保存、各个入口怎么协作，都由模型自己决定。隐藏测试必须全部通过才算成功，全程不用 LLM 打分。\n\n📦 17 个任务，全部来自真实开源项目，覆盖 Python、TypeScript、Go、C、C++、Zig\n📊 16 组模型 × agent 工具，成绩从 15/17 到 1/17。前 10 名相差 59 个百分点，而在 SWE-bench Verified 上只差 5 个\n\n区分度回来了，暴露出来的问题也很清楚：当前的 AI 还不能稳定做对这类任务。\n这一点很关键。只要每一步还会留下小错，自我迭代就会把它们越积越多，最后变成无法挽回的大错。真正的 Self-Evolve，还没有实现。\n\n✨ 更多任务持续上新中\n\n👉 https://zero2repo.ai/\n👉 https://arxiv.org/abs/2609.38269"
+            },
+            {
+              "speaker": 2,
+              "time": "17:57",
+              "text": "什么时候开数据呀",
+              "quote": {
+                "speaker": 1,
+                "text": "借贵群宣传一下我们的工作~ 现在的 coding benchmark，已经分不出模型的高下了。 SWE-bench Verified 的前 10 名挤在 92%..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:59",
+              "text": "https://github.com/Gradient-Data/Zero2Repo  @群友 2 这个"
+            },
+            {
+              "speaker": 2,
+              "time": "18:04",
+              "text": "okok，没细看github，sry",
+              "quote": {
+                "speaker": 1,
+                "text": "https://github.com/Gradient-Data/Zero2Repo @群友 2 这个"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:21",
+              "text": "礼貌问下，这篇和nl2repo的主要区别是啥嘞[Scowl]",
+              "quote": {
+                "speaker": 1,
+                "text": "借贵群宣传一下我们的工作~ 现在的 coding benchmark，已经分不出模型的高下了。 SWE-bench Verified 的前 10 名挤在 92%..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:59",
+              "text": "覆盖面广一点，覆盖 Python、TypeScript、Go、C/C++、Zig等等，后面还有其他语言\ninstruction做了一些脱敏处理，改了test和接口约定，会降低一些模型背题的风险\n用了0-1 test全过的binary~\n @群友 3",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 礼貌问下，这篇和nl2repo的主要区别是啥嘞[Scowl]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:01",
+              "text": "icic，所以verifier会更接近deepswe那种，更关注接口抽象，不关注具体实现吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 覆盖面广一点，覆盖 Python、TypeScript、Go、C/C++、Zig等等，后面还有其他语言\ninstruction做了一些脱敏处理，改了test和接口约定，会降低一些模型背题的风险\n用了0-1 test全过的binary~\n @群友 3"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:01",
+              "text": "是的"
+            },
+            {
+              "speaker": 1,
+              "time": "19:03",
+              "text": "而且目前这批题目是严格控制了题面没要求的test的，没有太多超出题面要求的test，当然也可以把instruction弄得更vague一点"
+            },
+            {
+              "speaker": 4,
+              "time": "19:04",
+              "text": "所以verifier还是二元的不是详细rubric是吧"
+            },
+            {
+              "speaker": 1,
+              "time": "19:05",
+              "text": "嗯嗯"
+            }
+          ]
+        },
+        {
+          "category": "全模态交互",
+          "title": "实时交互式 Omni AI 综述分享：从话轮判断聊到流式视频生成",
+          "text": "有群友分享了由 UIUC、CMU 等机构研究者合作完成的综述《Native Real-Time Interactive Omni Intelligence: A Unified Framework》。据介绍，该综述梳理了实时交互式全模态（Omni AI）的研究进展，涵盖流式表征、模型架构、训练方法、实时交互机制与评测体系，重点探讨模型如何判断何时回应或等待、如何处理用户打断，以及模型智能水平与交互实时性之间的权衡。\n\n有群友阅读后建议，目前文中的全双工交互主要以多模态输入配合音频或文本流式输出为主，但流式视频生成也正走向可用互动，纳入讨论会让全模态交互的范畴更完整。分享者回应称，论文在 §4 和 §9 中已提及 Ex-Omni-2D 的流式视频、JavisDiT++ 的音视频联合生成以及 RAC/StreamFlow 的生成加速等工作，后续会进一步补充对流式视频生成的系统讨论。",
+          "emphasis": [
+            "重点探讨模型如何判断何时回应或等待、如何处理用户打断，以及模型智能水平与交互实时性之间的权衡",
+            "流式视频生成也正走向可用互动，纳入讨论会让全模态交互的范畴更完整"
+          ],
+          "aiComment": "全模态交互最难的可能就是教 AI 懂点眼色：什么时候该闭嘴听人把话说完。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Awesome-Interactive-Omni 仓库",
+              "url": "https://github.com/ShenYifanS/Awesome-Interactive-Omni"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:15",
+              "text": "📄 给群友们分享一下我们的最新综述～\n\nNative Real-Time Interactive Omni Intelligence: A Unified Framework\n\n🤖 随着多模态大模型的快速发展，Omni AI（全模态人工智能）正在从传统的多模态理解与生成，走向更加自然的实时交互。它不仅需要统一处理文本、图像、音频、视频等多种模态，还需要具备持续感知、实时理解和动态响应的能力。\n\n💡 然而，真正自然的交互远不止「能看、能听、能说」。模型还需要判断什么时候该回应、什么时候该等待，如何处理用户打断，以及如何在持续变化的输入中保持理解和推理能力。\n\n📚 在这篇综述中，我们系统梳理了实时交互式 Omni AI 的研究进展，涵盖流式表征、模型架构、训练方法、实时交互机制与评测体系，并重点讨论了模型智能水平与交互实时性之间的权衡，以及未来值得探索的研究方向。\n\n✨ 这项工作由来自 UIUC、CMU 等多个机构的研究者合作完成。希望我们的整理能为这一领域提供更系统的研究视角，也期待与大家交流讨论！\n\n📄 论文： https://doi.org/10.13140/RG.2.2.20245.69602\n\n💻 GitHub： https://github.com/ShenYifanS/Awesome-Interactive-Omni\n\n欢迎大家阅读、交流，也欢迎 Star 支持！🌟"
+            },
+            {
+              "speaker": 2,
+              "time": "12:21",
+              "text": "未来会是什么样子",
+              "quote": {
+                "speaker": 1,
+                "text": "📄 给群友们分享一下我们的最新综述～ Native Real-Time Interactive Omni Intelligence: A Unified Fra..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:26",
+              "text": "嗨，我注意到这里的全双工主要以多模态输入，音频/文本流式输出为主，但其实流式视频生成也正在向更加可用的互动发展，所以感觉除了text/TTS的输出形式外，感觉也可以纳入流式视频生成进入讨论（更加Native Real-Time Interactive **Omni** 一点",
+              "quote": {
+                "speaker": 1,
+                "text": "📄 给群友们分享一下我们的最新综述～ Native Real-Time Interactive Omni Intelligence: A Unified Fra..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:38",
+              "text": "特别谢谢你的建议！我们在§4 和 §9 里有提到视觉输出   Ex-Omni-2D 的流式视频、JavisDiT++ 的音视频联合生成、RAC/StreamFlow 的生成加速等等， 后续我们会再加上对流式视频生成的系统讨论[啤酒][啤酒]"
+            }
+          ]
+        },
+        {
+          "category": "模型蒸馏",
+          "title": "Astra 怎么蒸？群友直言 Loop 轨迹难学且 CoT“不说人话”",
+          "text": "有群友打听目前针对 Astra 有什么蒸馏方法。一位群友认为直接蒸馏效果有限，因为经过多轮 loop 之后的轨迹不是普通模型能学会的。另一位群友补充，Astra 的主要问题在于“不说人话”，其 CoT 比较古怪，只有 GPT 自己看得懂，真要蒸馏恐怕得先让模型把思维链改写一遍。",
+          "emphasis": [
+            "经过多轮 loop 之后的轨迹不是普通模型能学会的"
+          ],
+          "aiComment": "学霸的草稿纸连同行都看不懂，想抄 Astra 的作业，还得先请个翻译把思维链改成人类语言。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:54",
+              "text": "astra现在有什么蒸发吗…"
+            },
+            {
+              "speaker": 2,
+              "time": "18:57",
+              "text": "感觉蒸了没用"
+            },
+            {
+              "speaker": 2,
+              "time": "18:58",
+              "text": "loop之后不是普通模型学得会的"
+            },
+            {
+              "speaker": 3,
+              "time": "18:58",
+              "text": "astra主要是不说人话"
+            },
+            {
+              "speaker": 3,
+              "time": "18:58",
+              "text": "cot比较奇怪"
+            },
+            {
+              "speaker": 3,
+              "time": "18:58",
+              "text": "只有gpt自己看的懂"
+            },
+            {
+              "speaker": 3,
+              "time": "18:59",
+              "text": "只能让他改写感觉"
+            }
+          ]
+        },
+        {
+          "category": "AI4CAD 与评测",
+          "title": "AI4CAD 建模进展与 Agent Last Exam 凑数题吐槽",
+          "text": "有群友询问 AI4CAD（机械建模）方向的研究进展，另一位群友也追问目前 AI 建模做到了什么程度、与手工建模的精细度差距大不大。有人提到评测集 Agent Last Exam 里有不少这类题目，并认为只要是 Astra 能靠 computer use 操作的任务都不算大问题；不过另一位群友吐槽该评测集里有些题目纯属凑数，例如 ar_300 和 ar_1500。",
+          "emphasis": [
+            "只要是 Astra 能靠 computer use 操作的任务都不算大问题"
+          ],
+          "aiComment": "一边畅想 AI 搞定机械建模，一边在 Agent Last Exam 里翻出了 ar_300 这种凑数题。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:59",
+              "text": "有人关注AI4CAD相关的吗"
+            },
+            {
+              "speaker": 2,
+              "time": "15:00",
+              "text": "建模"
+            },
+            {
+              "speaker": 2,
+              "time": "15:00",
+              "text": "机械那边"
+            },
+            {
+              "speaker": 2,
+              "time": "15:00",
+              "text": "ale里面有不少"
+            },
+            {
+              "speaker": 3,
+              "time": "15:01",
+              "text": "这块儿我也想学习学习",
+              "quote": {
+                "speaker": 1,
+                "text": "有人关注AI4CAD相关的吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:01",
+              "text": "agent last exam"
+            },
+            {
+              "speaker": 3,
+              "time": "15:01",
+              "text": "gpt不是可以搞建模吗"
+            },
+            {
+              "speaker": 3,
+              "time": "15:01",
+              "text": "和手搓建模精细度差距大吗"
+            },
+            {
+              "speaker": 3,
+              "time": "15:01",
+              "text": "ai建模现在做到什么程度了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:01",
+              "text": "我感觉astra能cu的"
+            },
+            {
+              "speaker": 2,
+              "time": "15:01",
+              "text": "都不是大问题"
+            },
+            {
+              "speaker": 4,
+              "time": "15:11",
+              "text": "有一些题纯凑数的",
+              "quote": {
+                "speaker": 2,
+                "text": "agent last exam"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:12",
+              "text": "比如 ar_300 & ar_1500"
+            }
+          ]
+        },
+        {
+          "category": "多模态评测",
+          "title": "多模态 Benchmark 为什么不如 Coding 明确：难在 Verify 与可解释性",
+          "text": "有群友询问目前多模态领域有哪些知名度高且有实际需求的 benchmark。有人提到了 MultiBench，说测试都在上面，但疑似没啥需求。提问者感慨多模态评测不像 coding 那样目标明确，难点在于 verify 不好做；两位群友表示认同，其中一人补了句“如果你是说可解释性的话”。提问者又提到最近也有知名研究者开始做这块，回答者认为 MultiBench 是特定的多模态总 bench，对方说的应是 vision language 方向。",
+          "emphasis": [
+            "多模态评测不像 coding 那样目标明确，难点在于 verify 不好做"
+          ],
+          "aiComment": "写代码跑不通直接报错，看图说话对不对全凭感觉，多模态评测难就难在没有编译器帮忙骂人。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:47",
+              "text": "想问下大家一个问题，多模态目前比较出名且已经有需求的bench都是哪些bench啊"
+            },
+            {
+              "speaker": 2,
+              "time": "20:39",
+              "text": "multibench"
+            },
+            {
+              "speaker": 2,
+              "time": "20:39",
+              "text": "测试都在上面"
+            },
+            {
+              "speaker": 2,
+              "time": "20:39",
+              "text": "疑似没啥需求"
+            },
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "感觉多模态没有coding那么明确"
+            },
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "多模态的verify比较难做"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "确实"
+            },
+            {
+              "speaker": 3,
+              "time": "20:42",
+              "text": "确实"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "如果你是说可解释性的话"
+            },
+            {
+              "speaker": 1,
+              "time": "20:43",
+              "text": "不知道捏，感觉最近梁圣不也开始做这个了吗",
+              "quote": {
+                "speaker": 2,
+                "text": "疑似没啥需求"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:48",
+              "text": "刚刚好，感谢了",
+              "quote": {
+                "speaker": 2,
+                "text": "multibench"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:49",
+              "text": "这个是特定的多模态的总bench，梁应该指的是vision language",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 不知道捏，感觉最近梁圣不也开始做这个了吗"
+              }
+            }
+          ]
+        },
+        {
+          "category": "空间推理",
+          "title": "看室内照片画户型图：Blueprint-Bench 2 空间推理评测与开源复现",
+          "text": "有群友分享了 Andon Labs 的空间推理评测集 Blueprint-Bench 2。该基准要求 AI agent 顺序处理 50 套公寓，每套查看约 20 张室内照片，将其转化为标明房间布局、连通关系和相对大小的 2D 户型图；agent 还会使用持久化记事本在不同公寓之间传递经验，迭代解题策略。分享者表示手头已有部分数据，目前正在制作该基准的 Open 版本。",
+          "emphasis": [
+            "将其转化为标明房间布局、连通关系和相对大小的 2D 户型图"
+          ],
+          "aiComment": "看 20 张室内照就要手搓 2D 户型图，连看 50 套公寓，房产中介都没这AI跑盘勤快。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Blueprint-Bench 2 评测主页",
+              "url": "https://andonlabs.com/evals/blueprint-bench-2"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:05",
+              "text": "开始下午的水群 有没有同学关注过Andon labs 的blueprint benchmark的"
+            },
+            {
+              "speaker": 1,
+              "time": "14:05",
+              "text": "https://andonlabs.com/evals/blueprint-bench-2"
+            },
+            {
+              "speaker": 1,
+              "time": "14:06",
+              "text": "Blueprint-Bench 2 tests spatial reasoning by asking AI agents to convert apartment photographs into accurate 2D floor plans. Each agent processes 50 apartments sequentially, examining ~20 interior photos per apartment and generating a floor plan showing room layouts, connections, and relative sizes. Agents use a persistent notepad to carry insights between apartments, enabling cross-apartment learning and iterative strategy refinement."
+            },
+            {
+              "speaker": 1,
+              "time": "14:06",
+              "text": "我手头有一些数据，目前正在做Open版本的，有关注这块的同学可以一起讨论下"
+            },
+            {
+              "speaker": 2,
+              "time": "14:47",
+              "text": "还有老辈子极力证明多模不是区",
+              "quote": {
+                "speaker": 1,
+                "text": "Blueprint-Bench 2 tests spatial reasoning by asking AI agents to convert apartme..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "学术会议",
+          "title": "AAAI 2027 智能体安全 Workshop 征稿启动",
+          "text": "有群友发布了 AAAI 2027 Workshop“LLM Agents Under Threat in Cyberspace”的征稿与审稿人招募通知。该 Workshop 关注直接或间接提示注入、记忆与检索投毒、工具与权限滥用、多智能体安全及安全架构等方向，采用非存档（non-archival）形式，长文上限 7 页，投稿截止时间为 2026 年 11 月 20 日（AoE）。",
+          "emphasis": [
+            "投稿截止时间为 2026 年 11 月 20 日（AoE）"
+          ],
+          "aiComment": "提示注入、记忆投毒、权限滥用全齐了，Agent 还没完全接管工作，赛博安保已经先把日程排到了 2027 年。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "AAAI-27 智能体安全 Workshop",
+              "url": "https://llm-agents-under-threat.github.io/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:23",
+              "text": "AAAI 2027 Workshop 征稿通知\nAAAI-27 Workshop on LLM Agents Under Threat in Cyberspace 现征稿，同时招募审稿人！欢迎做 LLM / Agent 安全、越狱攻击、红队测试、安全评测、可信 AI 的同学和 researcher\n\nCFP：\nhttps://llm-agents-under-threat.github.io/\n联系我们：\n[联系方式已隐藏]\n\n📍 加拿大蒙特利尔，2027 年 2 月 22/23 日\n\n投稿截止：2026 年 11 月 20 日（AoE）\n录用通知：2026 年 12 月 2 日\n\n征稿方向\n·直接/间接提示注入、对抗性观测与上下文操纵\n·记忆与检索投毒、多模态攻击\n·工具与权限滥用、多智能体安全\n·安全智能体架构、监控/溯源/恢复\n·评测与基准、负责任部署与漏洞披露\n\n投稿要求\n·长文最多 7 页（不含参考文献），也欢迎短文和立场论文\n·单盲评审，AAAI 双栏格式\n本 Workshop 为非存档形式（non-archival），录用论文不出版，可另投扩展版本。涉及真实系统或漏洞的工作，请遵守负责任披露。\n\n✍️招募审稿人：做 Agent 安全、红队、评测、安全架构及相关工作的同学老师欢迎报名，请联系 [联系方式已隐藏]。\n\n现场包括特邀主旨报告、海报展示与交流、跨领域圆桌讨论，闭幕颁奖，及面对面交流环节。\n欢迎投稿和转发！See you in Montreal！🇨🇦\n\n#AAAI27 #LLMAgents #AIAgents #AISecurity #Cybersecurity #人工智能 #大模型 #智能体 #网络安全 #可信AI #论文征稿 #学术会议"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "Zero2Repo 榜单引出开销追问：DeepSeek 花 3 美元做对 7 题",
+      "theme": "DeepSWE 推理档位的断崖式跳分、AI 写代码只打补丁不重构，以及世界模型决策是否需要显式预测下一状态。",
+      "note": "2026-10-19 · 当日本地记录",
+      "stories": [
+        {
+          "category": "编程评测",
+          "title": "Zero2Repo 专测“从零写完整项目”，群友对照榜单追问开销与 Harness 差异",
+          "text": "有群友分享了面向完整项目开发的编程评测与训练数据项目 Zero2Repo。分享者指出，SWE-bench Verified 前 10 名已挤在 92%–97% 之间，其中 7 个模型只差 2 个百分点；修现成仓库的 bug 有已有代码和架构可参考，真正拉开差距的是从零写完整项目。Zero2Repo 作为 nl2repo 的升级版，包含 17 个来自真实开源项目的任务，覆盖 Python、TypeScript、Go、C、C++ 和 Zig，只给模型完整需求、公开接口约定和空工作区，必须通过全部隐藏测试才算成功，全程不用 LLM 打分。\n\n在 16 组模型与 agent 工具组合的评测中，成绩从 15/17 拉开到 1/17，前 10 名相差 59 个百分点。分享者补充，海外模型的 partial score 基本快满了，只差几个边界 test，而国产模型表现差距较大，partial score 区分度明显。翻看榜单后，有群友注意到 DeepSeek 虽然只做对 7 道题，但只花了 3 美元；相比之下榜单上某头部配置的开销高达 195 美元。一位群友晒出自己跑测试的记录对比，质疑榜单上的开销比日常体感贵很多，并追问为什么 Opus 消耗这么高、搭配 opencode 这个 harness 为什么比搭配 cc 能多对 3 道题。另一位群友也纳闷 Opus 怎么需要跑这么久，称自己平时用下来反而是 GPT 会做很多验证测试、比较费 token 且更慢，Opus 完成内容通常更快。分享者回应称开销差异可能是缓存命中率波动导致，会再去排查具体原因。",
+          "emphasis": [
+            "修现成仓库的 bug 有已有代码和架构可参考，真正拉开差距的是从零写完整项目",
+            "海外模型的 partial score 基本快满了，只差几个边界 test，而国产模型表现差距较大",
+            "DeepSeek 虽然只做对 7 道题，但只花了 3 美元；相比之下榜单上某头部配置的开销高达 195 美元"
+          ],
+          "aiComment": "同样是上考场从零建仓，DeepSeek 花 3 美元交卷，旁边的豪华配置一顿操作账单干到了 195 美元。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Zero2Repo 论文",
+              "url": "https://arxiv.org/abs/2609.38269"
+            },
+            {
+              "kind": "article",
+              "label": "Zero2Repo 官网",
+              "url": "https://zero2repo.ai/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:51",
+              "text": "借贵群宣传一下我们的工作~\n\n现在的 coding benchmark，已经分不出模型的高下了。\nSWE-bench Verified 的前 10 名挤在 92%–97% 之间，其中 7 个模型只差 2 个百分点（Vals.ai，2026 年 9 月）。\n\n问题不在模型，而在题目。修一个现成仓库里的 bug，模型能参考已有的代码和架构，难点已经被大大降低了。真正拉开差距的，是从零写出一个完整项目。\n\nZero2Repo：面向完整项目开发的高难度编程训练数据 🚀\n我们只给模型三样东西：完整需求、公开接口约定和一个空工作区，不提供任何参考代码。模块怎么划分、数据怎么保存、各个入口怎么协作，都由模型自己决定。隐藏测试必须全部通过才算成功，全程不用 LLM 打分。\n\n📦 17 个任务，全部来自真实开源项目，覆盖 Python、TypeScript、Go、C、C++、Zig\n📊 16 组模型 × agent 工具，成绩从 15/17 到 1/17。前 10 名相差 59 个百分点，而在 SWE-bench Verified 上只差 5 个\n\n区分度回来了，暴露出来的问题也很清楚：当前的 AI 还不能稳定做对这类任务。\n这一点很关键。只要每一步还会留下小错，自我迭代就会把它们越积越多，最后变成无法挽回的大错。真正的 Self-Evolve，还没有实现。\n\n✨ 更多任务持续上新中\n\n👉 https://zero2repo.ai/\n👉 https://arxiv.org/abs/2609.38269"
+            },
+            {
+              "speaker": 2,
+              "time": "17:55",
+              "text": "programbench 好像也是从0开始构建",
+              "quote": {
+                "speaker": 1,
+                "text": "借贵群宣传一下我们的工作~ 现在的 coding benchmark，已经分不出模型的高下了。 SWE-bench Verified 的前 10 名挤在 92%..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:55",
+              "text": "是的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:55",
+              "text": "我们这个算是nl2repo的升级版，而且cover了更多的语言"
+            },
+            {
+              "speaker": 1,
+              "time": "17:56",
+              "text": "结果发现国模表现差挺多的，这些题的区分度不错"
+            },
+            {
+              "speaker": 3,
+              "time": "17:58",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:59",
+              "text": "虽然ds只对了7道 但是他只花了3🔪"
+            },
+            {
+              "speaker": 3,
+              "time": "18:00",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "18:01",
+              "text": "根据这个结果不是很合预期哎"
+            },
+            {
+              "speaker": 4,
+              "time": "18:01",
+              "text": "195刀"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "怎么说"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "也有可能是缓存命中率波动的问题，如果有明确不符合预期的可以去细查一下"
+            },
+            {
+              "speaker": 1,
+              "time": "18:08",
+              "text": "@群友 3 我看了一下，海外模型的partial score基本上快满了，差几个边界test，所以跑出来几个头部模型水平顺序有些波动也正常，国模的partial score的区分度是很明显的",
+              "quote": {
+                "speaker": 3,
+                "text": "[成员]: [媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:09",
+              "text": "cost上感觉不是很正常"
+            },
+            {
+              "speaker": 3,
+              "time": "18:09",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "18:10",
+              "text": "感觉贵好多",
+              "quote": {
+                "speaker": 3,
+                "text": "cost上感觉不是很正常"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:10",
+              "text": "跟体感不同是么"
+            },
+            {
+              "speaker": 1,
+              "time": "18:10",
+              "text": "我们看下"
+            },
+            {
+              "speaker": 3,
+              "time": "18:12",
+              "text": "对 而且opus咋消耗这么多 opencode这个harness没咋用过 和cc相比可以多对3道的原因是什么"
+            },
+            {
+              "speaker": 2,
+              "time": "18:31",
+              "text": "opus竟然需要跑这么久吗"
+            },
+            {
+              "speaker": 2,
+              "time": "18:33",
+              "text": "用的体感是gpt会很多验证测试，比较费token，比较慢"
+            },
+            {
+              "speaker": 2,
+              "time": "18:33",
+              "text": "opus完成一些内容会快一些"
+            },
+            {
+              "speaker": 2,
+              "time": "18:33",
+              "text": "从我使用的体感来说（）"
+            }
+          ]
+        },
+        {
+          "category": "评测剖析",
+          "title": "Luna 在 DeepSWE 上从 2% 飙到 45%：推理阈值涌现还是评测集“全或无”断崖？",
+          "text": "有群友发帖请教：在 DeepSWE bench 上，GPT-6 的 luna 模型将推理力度从 effort=light 调到 medium 后，指标直接从 2% 飙升到 45%，好奇为何会有这么夸张的跨度。有人猜测是 light 档基本没有 thinking，干不了复杂的活；也有人认为这是达到最低推理阈值后“涌现”出长程推理能力，另一位群友将其称为 fragile emergence。\n\n熟悉该评测的群友指出，DeepSWE 本身容易出现断崖现象，小模型很容易拿 0 分或者只做出一两道题，此前测试 qwen3.5 的 27B 和 35B moe 时都是这种情况。有人附和说这类测试集普遍有这个毛病，模型哪怕只差一点点，只要没给出完全正确的结果就会被扣光分数。讨论随之延伸到当前 coding agent benchmark 的通病：一位群友吐槽现在的评测除了 judge 问题，需求还写得太细，往往直接规定具体哪个地方用哪个方法，而自己平时写代码都是先给个大的实现思路，等模型写出初版后再给 human feedback 迭代，属于“半许愿式”交互；另一位群友则觉得现在的 coding benchmark 正向测试代码演变，把一个功能测试拆成一百个 assert 挨个打分。",
+          "emphasis": [
+            "将推理力度从 effort=light 调到 medium 后，指标直接从 2% 飙升到 45%",
+            "DeepSWE 本身容易出现断崖现象，小模型很容易拿 0 分或者只做出一两道题",
+            "现在的评测除了 judge 问题，需求还写得太细，往往直接规定具体哪个地方用哪个方法"
+          ],
+          "aiComment": "推理档位从 light 拨到 medium，分数直接从 2% 蹦到 45%，原来模型干活也分摸鱼模式和睡醒模式。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:19",
+              "text": "请教一个问题，这里在DeepSWE bench 上，luna模型从effort = light -> medium 可以直接让指标从2% 直接干到 45%，这个提升幅度有点太离谱了吧，有没有懂的朋友可以稍微解释一下\n\nhttps://openai.com/zh-Hans-CN/index/introducing-gpt-6-sol-and-luna/"
+            },
+            {
+              "speaker": 2,
+              "time": "14:41",
+              "text": "可能light基本没thinking，复杂点的活做不了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:43",
+              "text": "非线性推理跃升诶"
+            },
+            {
+              "speaker": 3,
+              "time": "14:44",
+              "text": "这个好像是一个非常普遍的情况吧[惊讶]"
+            },
+            {
+              "speaker": 3,
+              "time": "14:44",
+              "text": "当模型能力到达某个最低限度的推理阈值"
+            },
+            {
+              "speaker": 3,
+              "time": "14:44",
+              "text": "然后“涌现出”长程推理的能力"
+            },
+            {
+              "speaker": 4,
+              "time": "14:45",
+              "text": "fraile emergence",
+              "quote": {
+                "speaker": 3,
+                "text": "非线性推理跃升诶"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:30",
+              "text": "deepswe容易出现断崖的现象，小模型很容拿0分或者只做出来一两道题，当时测试qwen3.5的 27B和35B moe都是这种情况"
+            },
+            {
+              "speaker": 6,
+              "time": "16:05",
+              "text": "对对",
+              "quote": {
+                "speaker": 5,
+                "text": "deepswe容易出现断崖的现象，小模型很容拿0分或者只做出来一两道题，当时测试qwen3.5的 27B和35B moe都是这种情况"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:07",
+              "text": "这些测试集就是有这毛病，有时候模型就差一点点而已，但没给完全正确的东西就不算过，分数给扣完。希望这周的KIMI能保持初心，不去过拟合冲什么分数，然后把价格降下来[吃瓜]",
+              "quote": {
+                "speaker": 5,
+                "text": "deepswe容易出现断崖的现象，小模型很容拿0分或者只做出来一两道题，当时测试qwen3.5的 27B和35B moe都是这种情况"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:09",
+              "text": "感觉现在的coding agent benchmark还比较道阻且长（"
+            },
+            {
+              "speaker": 7,
+              "time": "16:10",
+              "text": "一个是judge问题，还有一个问题是需求太细了（）我感觉其实跟现在普遍的使用习惯起码跟我个人的使用习惯不是很相符"
+            },
+            {
+              "speaker": 7,
+              "time": "16:11",
+              "text": "假设我从一个需求入手的话，那一般使用场景是给他讲一个大的实现思路，然后他实现了一个版本之后再human feedback看他出来的效果进行迭代，其实也算半许愿式了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:11",
+              "text": "现在coding benchmark很多都是写到具体哪个地方要用哪个方法了"
+            },
+            {
+              "speaker": 8,
+              "time": "16:14",
+              "text": "codingbenchmark 有向 test代码演变的趋势"
+            },
+            {
+              "speaker": 8,
+              "time": "16:14",
+              "text": "一个功能测试拆成一百个assert 挨个打分"
+            }
+          ]
+        },
+        {
+          "category": "工程实践",
+          "title": "AI 写代码“只打补丁不重构”怎么治：重头写三遍、CI 限死 2500 行与堆 900 个测试",
+          "text": "聊起日常用 AI 写代码的痛点，有群友吐槽不断加需求、改需求时，AI 只会一直往上打补丁，不怎么会重构，最后代码变得极其冗长，甚至遇到过 GPT 直接把 sha256 写进项目代码里。几位群友分享了各自的应对办法：有人做一个项目从头到成型至少由 AI 辅助重构三遍，因为一开始自己也不清楚项目最终形态，只能先边打补丁边补细节，摸清后再高屋建瓴从头设计实现一遍；有人直接在 CI 里给 AI 设下硬门槛，限制核心代码只能用 2500 行搞定，靠硬约束逼出极限；还有人表示自己的项目已经攒了 900 多个测试，用下来没因为 bug 卡住过，认为维护屎山的唯一方式就是像 Oracle 那样堆测试。\n\n至于 AI 未来能不能自己学会软件设计，群里的看法出现分歧。一位群友认为目前 coding 的训练范式和软件工程没半点关系，而且 GitHub 上的预训练数据已被 AI 生成的大量垃圾代码污染；并提到人类写短代码往往会牺牲可读性，但对 AI 来说根本不存在可读性问题。另一位群友则觉得 AI 本质还是力大砖飞，没可能真正学会设计，但只要够能烧 token，现在已经能通过“先展开一大堆屎山，再多花一步把它精简”的方式完成设计。",
+          "emphasis": [
+            "不断加需求、改需求时，AI 只会一直往上打补丁，不怎么会重构",
+            "在 CI 里给 AI 设下硬门槛，限制核心代码只能用 2500 行搞定",
+            "通过“先展开一大堆屎山，再多花一步把它精简”的方式完成设计"
+          ],
+          "aiComment": "一边在 CI 里限死 2500 行，一边靠 900 个测试护体，为了管住 AI 不乱打补丁，人类被迫练成了架构监工。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:16",
+              "text": "现在coding的时候一直加需求，改需求，会一直打补丁，导致代码很庞大"
+            },
+            {
+              "speaker": 1,
+              "time": "16:16",
+              "text": "ai不怎么会重构代码"
+            },
+            {
+              "speaker": 1,
+              "time": "16:17",
+              "text": "虽然能够实现需求吧，但是到后面代码就特别冗长"
+            },
+            {
+              "speaker": 2,
+              "time": "16:18",
+              "text": "毕竟现在coding的训练范式 和软件工程完全没半年关系"
+            },
+            {
+              "speaker": 2,
+              "time": "16:18",
+              "text": "*半点"
+            },
+            {
+              "speaker": 3,
+              "time": "16:18",
+              "text": "一个项目 从开始到最后成型 我自己要重构至少三遍(当然每遍都是ai辅助"
+            },
+            {
+              "speaker": 4,
+              "time": "16:18",
+              "text": "有些项目我先就给AI一个硬门槛CI限制他核心只能用2500行搞定，这样能逼出一些极限"
+            },
+            {
+              "speaker": 3,
+              "time": "16:19",
+              "text": "毕竟我一开始也不知道这个项目的形态应该是什么样子的 不断补充细节 不断打补丁. 然后 重新开始的时候就高屋建瓴 从头设计实现一遍"
+            },
+            {
+              "speaker": 2,
+              "time": "16:20",
+              "text": "我觉得目前LLM Coding没有办法完全解决essential difficulties"
+            },
+            {
+              "speaker": 3,
+              "time": "16:21",
+              "text": "没有靠谱的verifier就只能靠人类的先验经验, 或者边干边修"
+            },
+            {
+              "speaker": 2,
+              "time": "16:21",
+              "text": "要么是未来出现新的语言 要么是现在的训练范式有变化"
+            },
+            {
+              "speaker": 2,
+              "time": "16:22",
+              "text": "而且现在预训练的数据也被大量污染了， github上的repo由AI生成的已经更多了"
+            },
+            {
+              "speaker": 2,
+              "time": "16:22",
+              "text": "生产垃圾代码的数据感觉比垃圾文本快得多。。。"
+            },
+            {
+              "speaker": 3,
+              "time": "16:23",
+              "text": "让AI策马奔腾 那就是屎山"
+            },
+            {
+              "speaker": 2,
+              "time": "16:24",
+              "text": "对 就是未来有没有可能让AI学会设计"
+            },
+            {
+              "speaker": 1,
+              "time": "16:24",
+              "text": "之前gpt写代码，还把sha256写进去项目代码里面"
+            },
+            {
+              "speaker": 5,
+              "time": "16:24",
+              "text": "没什么可能"
+            },
+            {
+              "speaker": 5,
+              "time": "16:25",
+              "text": "Ai本质可能还是力大砖飞"
+            },
+            {
+              "speaker": 2,
+              "time": "16:25",
+              "text": "我同意 因为短的代码 可能造成的是可读性下降",
+              "quote": {
+                "speaker": 4,
+                "text": "到了AI认为人类的编程语言太低效了，自己给自己设计一整套新语言，还很好用，那我觉得那就是AGI了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:25",
+              "text": "但是对AI 来说 就没有可读性这个东西"
+            },
+            {
+              "speaker": 5,
+              "time": "16:25",
+              "text": "只要够能烧token，现在已经能设计了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:27",
+              "text": "现在确实可以，比如我就弄了LLM native的各种MCP工具，但我觉得AGI应该是AI自己有主观能动性，觉得咱们这些代码语言太低效，哈哈哈",
+              "quote": {
+                "speaker": 5,
+                "text": "只要够能烧token，现在已经能设计了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:30",
+              "text": "他为了完成任务中间可能展开一大堆屎山"
+            },
+            {
+              "speaker": 5,
+              "time": "16:31",
+              "text": "然后再把它精简"
+            },
+            {
+              "speaker": 5,
+              "time": "16:31",
+              "text": "本质上只是多做了一步，花了更多的token"
+            },
+            {
+              "speaker": 6,
+              "time": "20:03",
+              "text": "我这个project已经900多个测试了，但是可靠也是真的可靠，用了这么久没因为bug卡住过",
+              "quote": {
+                "speaker": 1,
+                "text": "用的体感是gpt会很多验证测试，比较费token，比较慢"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "20:03",
+              "text": "人类屎山的唯一维护方式就是堆测试，类似oracle这种"
+            }
+          ]
+        },
+        {
+          "category": "技术探讨",
+          "title": "世界模型路线之争：决策需要先预测下一状态，还是靠 RL 隐式编码？",
+          "text": "有群友正在调研 Dreamer、JEPA 等世界模型技术，认为精准快速地预测世界状态能用于 imagination training 或 online planning，带来范式改变，向群里请教这一方向是否值得投入。有人说“世界模型是个框”，另一位提醒在深度学习里先声明输入输出是什么比讲概念更有用；也有人认为至少要等 omni 这类全模态模型跑通完整通路才有发展机会，或者觉得 JEPA 思路虽合理，但缺乏好的 supervisor 很难训练。\n\n讨论很快聚焦到“做决策到底需不需要显式预测状态”。一位群友直言快速预测的意义不大，选择 action 未必需要知道下一步的 state，就像人类打篮球投篮时不会专门分析下一秒是什么弧线；人类的决策是 RL 过程而非预测过程，对世界的表征已经隐式编码在模型里了。提问者反驳说不分析只是因为预测快到反应不过来，另一位群友也赞同说投出手其实就知道中不中，只是脑子里没生成 token。提问者随后进一步追问：自己打完球晚上在脑子里复盘该不该做 crossover、预测对手会怎么防，并没有真正收集轨迹，这算不算 imagination training？反方群友认为这同样是修改 model 的 RL 过程，也有人问这是否该叫离线策略学习，还有人说这就是自己合成数据的 self play。",
+          "emphasis": [
+            "在深度学习里先声明输入输出是什么比讲概念更有用",
+            "人类的决策是 RL 过程而非预测过程，对世界的表征已经隐式编码在模型里了",
+            "不分析只是因为预测快到反应不过来",
+            "这算不算 imagination training？"
+          ],
+          "aiComment": "晚上躺床上复盘白天的篮球假动作，在球友眼里叫睡前懊恼，在炼丹师嘴里叫 imagination training。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:47",
+              "text": "大家认为世界模型是否是一个值得投入的研究方向，目前主要是在具身智能和视频生成领域会比较火热，大家有什么看法吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "13:47",
+              "text": "最近在调研探索，发现争论也挺多的，问问大佬群友们～"
+            },
+            {
+              "speaker": 2,
+              "time": "13:51",
+              "text": "世界模型有很多不同的路线和方向，不同小方向的定义其实也不太一样，关键看自己的动机是什么？"
+            },
+            {
+              "speaker": 1,
+              "time": "13:51",
+              "text": "我确实认为能够精准快速的预测世界状态会带来很多的范式的改变，比如用于imagination training or online planning"
+            },
+            {
+              "speaker": 3,
+              "time": "13:51",
+              "text": "主要你想走什么世界模型（"
+            },
+            {
+              "speaker": 3,
+              "time": "13:52",
+              "text": "世界模型是个框（"
+            },
+            {
+              "speaker": 4,
+              "time": "13:52",
+              "text": "深度学习领域还是先声明输入输出是什么"
+            },
+            {
+              "speaker": 5,
+              "time": "13:52",
+              "text": "其实实话实说，我认为快速预测的意义不大，我们选择action不一定需要知道下一步的state如何"
+            },
+            {
+              "speaker": 4,
+              "time": "13:52",
+              "text": "比讲概念更有用一点"
+            },
+            {
+              "speaker": 6,
+              "time": "13:52",
+              "text": "我觉得世界模型至少要等omni这种全模态模型真的有一个比较完整的通路了才有发展的机会吧"
+            },
+            {
+              "speaker": 5,
+              "time": "13:53",
+              "text": "我们人类打球也不会专门分析这么投篮，下一步会是什么弧线"
+            },
+            {
+              "speaker": 1,
+              "time": "13:53",
+              "text": "最近在看dreamer，jepa等各种技术，比如自动驾驶这种世界模型就对决策有用",
+              "quote": {
+                "speaker": 3,
+                "text": "主要你想走什么世界模型（"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:53",
+              "text": "说明预测的快",
+              "quote": {
+                "speaker": 5,
+                "text": "我们人类打球也不会专门分析这么投篮，下一步会是什么弧线"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:54",
+              "text": "其实会的吧",
+              "quote": {
+                "speaker": 5,
+                "text": "我们人类打球也不会专门分析这么投篮，下一步会是什么弧线"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:54",
+              "text": "投出来就知道中不中了"
+            },
+            {
+              "speaker": 1,
+              "time": "13:54",
+              "text": "快到反应不过来"
+            },
+            {
+              "speaker": 7,
+              "time": "13:54",
+              "text": "只是没生成token在我脑子里"
+            },
+            {
+              "speaker": 5,
+              "time": "13:54",
+              "text": "实际上，我觉得人类的决策过程是RL过程，不是预测过程，可能预测也确实有用但是不需要大量时间去做这个预测"
+            },
+            {
+              "speaker": 5,
+              "time": "13:54",
+              "text": "如果RL的话"
+            },
+            {
+              "speaker": 1,
+              "time": "13:54",
+              "text": "我之前打球也会晚上复盘应该做crossover还是什么，这算不算imagination training呢[得意]"
+            },
+            {
+              "speaker": 5,
+              "time": "13:54",
+              "text": "对世界的表征就已经隐式应用到了"
+            },
+            {
+              "speaker": 7,
+              "time": "13:55",
+              "text": "？",
+              "quote": {
+                "speaker": 1,
+                "text": "我之前打球也会晚上复盘应该做crossover还是什么，这算不算imagination training呢[得意]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:55",
+              "text": "我认为这是一种RL，去修改model[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "13:56",
+              "text": "我其实能理解，就是action model本身在rl的过程已经编码了对世界的知识，我在做一件事情之前一定预先知道潜在的后果，就不用特地训练一个wm来在外部预测",
+              "quote": {
+                "speaker": 5,
+                "text": "我认为这是一种RL，去修改model[旺柴]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:00",
+              "text": "这应该叫 离线策略学习?",
+              "quote": {
+                "speaker": 1,
+                "text": "我之前打球也会晚上复盘应该做crossover还是什么，这算不算imagination training呢[得意]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:01",
+              "text": "但我没有真的收集轨迹，而是在我脑子里预测我的对手会怎么做"
+            },
+            {
+              "speaker": 9,
+              "time": "14:01",
+              "text": "感觉jepa的思路是合理的，但是就是很难训，没有一个比较好的supervisor？"
+            },
+            {
+              "speaker": 8,
+              "time": "14:01",
+              "text": "然后想象自己是jordan或者leborn",
+              "quote": {
+                "speaker": 1,
+                "text": "但我没有真的收集轨迹，而是在我脑子里预测我的对手会怎么做"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "14:02",
+              "text": "这就是self play嘛 自己合成数据",
+              "quote": {
+                "speaker": 1,
+                "text": "但我没有真的收集轨迹，而是在我脑子里预测我的对手会怎么做"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "对，我看到过这样的工作",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 这就是self play嘛 自己合成数据"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "所以我理解world model确实是个框，llm也能充当一种wm？"
+            }
+          ]
+        },
+        {
+          "category": "机制讨论",
+          "title": "预训练智能上界与双 Agent 改代码的测试集过拟合困局",
+          "text": "围绕大模型是否存在智能上界（intelligence upper bound），有群友认为 RSI 无法提升智能上界本身，只能拓宽上界之下的可及能力边界。另一位群友反问预训练模型的能力是否已被完整发挥，认为上界之下有一条类似学会 In-Context Learning 这种 metaskill 的最低可用线，预训练天赋够高就能触及上界；但也有人怀疑，预训练智商太高反而会让模型更倾向于走捷径，导致过拟合而远离上界。\n\n话题接着落到前一天聊过的“用 Agent A 修改 Agent B 的代码算不算 RSI”。一位有长达一年多用该方式做 PE 经验的群友指出，关键痛点在于拿什么判断 B 的好坏：如果给测试集，可能会严重 overfit，甚至出现 A 泄漏特权信息去做 few shot 的情况；如果改用 rubric，又容易按下葫芦浮起瓢。有人提议划分训练集与测试集、把测试集对 A 隐藏；这位群友回应说做好 hidden 确实好一些，但没有 reflect 就很难做 improve——模型训练好歹有梯度帮忙更新，纯靠 accept/fail 的二元结果很难知道该怎么改 harness。",
+          "emphasis": [
+            "RSI 无法提升智能上界本身，只能拓宽上界之下的可及能力边界",
+            "预训练智商太高反而会让模型更倾向于走捷径，导致过拟合而远离上界",
+            "纯靠 accept/fail 的二元结果很难知道该怎么改 harness"
+          ],
+          "aiComment": "让 Agent A 改 Agent B 的代码，给测试集就作弊偷看，不给又抓瞎，连 AI 带徒弟都逃不过应试教育的坑。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:17",
+              "text": "我的理解是大模型是由intelligence upper bound的"
+            },
+            {
+              "speaker": 1,
+              "time": "00:18",
+              "text": "无法通过RSI提升智能上界，但是可以提高智能上界的可及能力边界"
+            },
+            {
+              "speaker": 2,
+              "time": "00:19",
+              "text": "我们真的完整发挥出预训练模型的能力了吗?"
+            },
+            {
+              "speaker": 2,
+              "time": "00:20",
+              "text": "intelligence upper bound 之下有一个最低可用线, 就像一个人 在接受了一定的高等教育之后 就学会了学习(In Context Learning?) 这种metaskill. 如果预训练模型能力强(天赋好, 智商高) 就能真正触及这个bound"
+            },
+            {
+              "speaker": 3,
+              "time": "00:22",
+              "text": "判断b agent好不好的依据是什么",
+              "quote": {
+                "speaker": 4,
+                "text": "问个问题，有两个agent视为一个系统，用A修改B的代码实现系统的改进，可以算RSI吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:24",
+              "text": "这种方式我应该用了一年以上了，之前做pe的时候我就完全用这种方式做的。如果是有个测试集的话，可能会严重overfit甚至a agent泄漏特权信息做few shot。如果是rubric的话也有可能会按下葫芦浮起瓢"
+            },
+            {
+              "speaker": 4,
+              "time": "00:25",
+              "text": "有没有可能预训练能力强，智商高让模型更倾向于走捷径，导致过拟合，反而远离这个bound"
+            },
+            {
+              "speaker": 4,
+              "time": "00:29",
+              "text": "寄",
+              "quote": {
+                "speaker": 3,
+                "text": "这种方式我应该用了一年以上了，之前做pe的时候我就完全用这种方式做的。如果是有个测试集的话，可能会严重overfit甚至a agent泄漏特权信息做few sh..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:29",
+              "text": "划分训练集和测试集，不给a测试集？"
+            },
+            {
+              "speaker": 3,
+              "time": "00:31",
+              "text": "hidden做好好一些吧，但你没有reflect的话又不太好做improve",
+              "quote": {
+                "speaker": 4,
+                "text": "划分训练集和测试集，不给a测试集？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:31",
+              "text": "训练都有梯度能帮忙更新，纯accept/fail怎么改harness"
+            }
+          ]
+        },
+        {
+          "category": "后训练",
+          "title": "纯英文 RL 后训练能否跨语言迁移？从基座能力聊到能量泛函",
+          "text": "有群友抛出一个后训练问题：如果用纯英文数据对模型做 RL 后训练，在同 domain 的葡萄牙语 benchmark 上评测，性能是否一定会提升，还是必须加些 trick？提问者看到有论文声称 RL 具备 Cross-Lingual Transfer 性质，但不清楚实操效果。有人猜测 RL 学到的是 language-independent capability，建议直接把 math bench 翻译成中文训一个试试，认为这类问题很难靠理论推导，主要看实验。\n\n另一位群友提醒，抛开 RL 不谈，得先看基座模型在 pre-train、mid-train 及 SFT 之后的跨语言底子如何，并分享了论文《GRPO Beyond English: A Large-Scale Study of GRPO in Non-English and Multilingual Setting》。提问者顺着模型架构推演，提出可以用能量泛函来分析 Transformer 的初始跨语言能力：如果以最小化能量为目标，其 kernel function 中 exp(xWW^Ty) 中间的 Gram 矩阵是很核心的表征，或许能从能量高低与相互作用的角度解释两种语言之间的迁移能力。",
+          "emphasis": [
+            "抛开 RL 不谈，得先看基座模型在 pre-train、mid-train 及 SFT 之后的跨语言底子如何",
+            "用能量泛函来分析 Transformer 的初始跨语言能力"
+          ],
+          "aiComment": "本来在问英文训完能不能救葡萄牙语，聊着聊着突然掏出能量泛函和 Gram 矩阵，群聊画风瞬间切进数学系。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "GRPO Beyond English 论文",
+              "url": "https://arxiv.org/abs/2608.13698"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:05",
+              "text": "想问问万能的群u，如果我们给模型做RL后训练，比如说training用的全是英文，假如比如说有葡萄牙语的evaluation benchmark，如果train和test在同一个domain上，那性能一定会变好不，还是得加上一些trick诶"
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "我看到一些paper确实claim说，RL能带来一些Cross-Lingual Transfer的性质，但是不知道实际操作里面是什么样的"
+            },
+            {
+              "speaker": 2,
+              "time": "23:09",
+              "text": "可能 RL 学到的是 language-independent capability ("
+            },
+            {
+              "speaker": 3,
+              "time": "23:10",
+              "text": "brilliant insight",
+              "quote": {
+                "speaker": 1,
+                "text": "想问问万能的群u，如果我们给模型做RL后训练，比如说training用的全是英文，假如比如说有葡萄牙语的evaluation benchmark，如果train..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "感觉RL能学到这件事是make sense的，但是不知道操作体现出language-independent这件事是否容易"
+            },
+            {
+              "speaker": 2,
+              "time": "23:13",
+              "text": "[旺柴]训一个就知道了，把 math bench 翻译成中文，然后看看情况。我理解这玩意其实没什么理论能够推导，主要还是看实验（"
+            },
+            {
+              "speaker": 4,
+              "time": "23:14",
+              "text": "抛开rl不谈 先看看基座模型（pre train mid train及sft后）本身的跨语言能力如何了",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉RL能学到这件事是make sense的，但是不知道操作体现出language-independent这件事是否容易"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:20",
+              "text": "有道理[发呆]刚刚突然想到，其实如果考虑模型架构本身，它初始的跨语言学习能力确实还是蛮重要的，具体体现在Transformer架构背后，用能量泛函去分析的话，它会涉及到一个kernel function，这里面exp(xWW^Ty)中间的这个Gram矩阵应该是一个很重要的表征，也许可以从能量上去理解两个语言之间的相互作用和这种所谓的能量高低的迁移能力？感觉模型自身有language-independent确实在物理直观上还蛮有道理的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:26",
+              "text": "就是这种嘞，这里的\\rho是表征分布的一个量，然后K就是kernel function，我们的目标是最小化能量，然后如果kernel function按照我们上面的定义去表述的话，是可以推导出Transformer架构本身的~然后考虑这样的一个kernel的形式，感觉确实也是make sense的"
+            },
+            {
+              "speaker": 4,
+              "time": "23:26",
+              "text": "https://arxiv.org/pdf/2608.13698 GRPO Beyond English: A Large-Scale Study of GRPO in Non-English and Multilingual Setting"
+            },
+            {
+              "speaker": 1,
+              "time": "23:27",
+              "text": "好诶！谢谢你！研究研究[可怜]",
+              "quote": {
+                "speaker": 4,
+                "text": "https://arxiv.org/pdf/2608.13698 GRPO Beyond English: A Large-Scale Study of GRP..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "OpenGCUA 开源通用电脑操作智能体全栈，真机实测 Qwen3.8-Max 推理 token 消耗为 Astra 的 19.4 倍",
+          "text": "有群友分享了自己所在 MAI-UI 团队的开源项目 OpenGCUA，探索以 GPT-6 为代表的新一代通用电脑操作智能体（GCUA）全栈实现。首个版本开放了技术报告、包含 Code Execution 的 GCUA 设计与 Harness、macOS 真机 Harness 与跨端 SDK、在线交互实验室，以及 GPT-6、Opus 5、Gemini 3.8 Flash 等 8 个前沿模型的评测轨迹。据介绍，接入 OpenGCUA harness 后，这 8 个模型在 OSWorld-v2 上全部获得提升，平均涨了 19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上；不过在真机 Harness 的 case study 中，Qwen3.8-Max 的推理 token 消耗仍是 GPT-6 Astra 的 19.4 倍。",
+          "emphasis": [
+            "平均涨了 19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上",
+            "Qwen3.8-Max 的推理 token 消耗仍是 GPT-6 Astra 的 19.4 倍"
+          ],
+          "aiComment": "OpenGCUA 把步数砍了 53%，不过看了一眼真机评测里 19.4 倍的 token 差距，省下来的步数全在算力账单里补回来了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "OpenGCUA 技术报告",
+              "url": "https://arxiv.org/abs/2610.22200"
+            },
+            {
+              "kind": "code",
+              "label": "OpenGCUA GitHub 仓库",
+              "url": "https://github.com/Tongyi-MAI/OpenGCUA"
+            },
+            {
+              "kind": "article",
+              "label": "OpenGCUA 交互实验室",
+              "url": "https://tongyi-mai.github.io/OpenGCUA/#lab"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:28",
+              "text": "🚀 大家好，欢迎关注我们 MAI-UI 团队的新工作！ OpenGCUA：一个与社区共建、开放通用电脑操作智能体（GCUA）全栈的项目，旨在探索和开源GPT-6位代表的新一代computer use系统的实现\n\n📦【首个版本开放什么】\n1️⃣ 技术报告 2️⃣ GCUA 设计与 Harness，包括 Code Execution 3️⃣ 8 个前沿模型评测轨迹（GPT-6, Opus 5, Gemini 3.8 Flash） 4️⃣ macOS 真机 Harness和跨端 SDK 5️⃣ 以及可在线体验的交互实验室。\n\n📊【实验亮点】\nOpenGCUA harness在OSWorld-v2上，GPT-6 Astra、Claude Opus 5、Gemini 3.8 Flash 等 8 个模型全部提升：平均 +19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上。\n真机效率仍有明显差距：在我们 真机Harness 下的case study中，Qwen3.8-Max 的推理 token 消耗为 GPT-6 Astra 的 19.4 倍。\n\n🧪【不只读论文，也能亲手体验】\n进入交互实验室，对比code execution执行方式、拆解真机环境、理解真机harness与跨端SDK、回放模型轨迹，直观了解 OpenGCUA 的核心设计。\n\n🧪 交互实验室：https://tongyi-mai.github.io/OpenGCUA/#lab\n💻 GitHub：https://github.com/Tongyi-MAI/OpenGCUA\n📄 技术报告：https://arxiv.org/abs/2610.22200\n\n欢迎交流，欢迎大家在Github star支持，我们的项目也会持续迭代，非常感谢"
+            },
+            {
+              "speaker": 2,
+              "time": "12:49",
+              "text": "cool",
+              "quote": {
+                "speaker": 1,
+                "text": "🚀 大家好，欢迎关注我们 MAI-UI 团队的新工作！ OpenGCUA：一个与社区共建、开放通用电脑操作智能体（GCUA）全栈的项目，旨在探索和开源GPT-6..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:15",
+              "text": "之前的qwen-ui-agent, mai-ui还有最近的mai-gym也欢迎大家follow"
+            }
+          ]
+        },
+        {
+          "category": "落地争鸣",
+          "title": "业务小模型是不是“开倒车”？具身端侧与仿真器里的局部过拟合价值",
+          "text": "有群友看到又有新公司切入业务小模型赛道，直言不理解怎么还有人“开倒车”，并认为就算大模型用不起，业务团队自己也都把小模型训完了。另一位群友给出了不同视角：之前和做具身的人聊过，对方说他们的模型特别小；这位群友觉得这类模型可以用在汽车等端侧设备上，定位本就不是解决复杂问题，而是处理简单重复的需求。另一位群友补充，在仿真器这类场景小、情况有限且不需要泛化的收敛领域，拿到极大规模的输入输出数据交给小网络“狠狠过拟合”完全没问题，并调侃这种做法前两年叫 data driven，现在都改叫 llm based 了。",
+          "emphasis": [
+            "定位本就不是解决复杂问题，而是处理简单重复的需求",
+            "拿到极大规模的输入输出数据交给小网络“狠狠过拟合”完全没问题"
+          ],
+          "aiComment": "在有限场景里拿海量数据喂小网络狠狠过拟合，以前管这叫 data driven，现在穿件马甲就叫 llm based。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:42",
+              "text": "现在又来一家"
+            },
+            {
+              "speaker": 1,
+              "time": "02:42",
+              "text": "做业务小 model 的"
+            },
+            {
+              "speaker": 1,
+              "time": "02:42",
+              "text": "我不理解"
+            },
+            {
+              "speaker": 1,
+              "time": "02:42",
+              "text": "怎么还有开倒车的"
+            },
+            {
+              "speaker": 2,
+              "time": "02:43",
+              "text": "因为感觉大模型 大部分用不起（"
+            },
+            {
+              "speaker": 1,
+              "time": "02:43",
+              "text": "用不起的其实业务团队自己都训练了吧"
+            },
+            {
+              "speaker": 3,
+              "time": "09:36",
+              "text": "其实感觉具身领域的模型用的都很小，之前和一个做具身的聊过，他和我说他们的模型特别的小",
+              "quote": {
+                "speaker": 1,
+                "text": "用不起的其实业务团队自己都训练了吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "09:36",
+              "text": "所以也不能说这东西没有价值，比如用在汽车等端侧设备上"
+            },
+            {
+              "speaker": 3,
+              "time": "09:37",
+              "text": "感觉是也不一定让他解决复杂问题，定位就是把人的一些简单重复的需求解决了就可以，我是这样理解的"
+            },
+            {
+              "speaker": 4,
+              "time": "09:38",
+              "text": "过拟合一个特定领域的小任务 也没啥问题"
+            },
+            {
+              "speaker": 5,
+              "time": "09:39",
+              "text": "那要看领域具体是什么吧，感觉自驾过拟合有点吓人",
+              "quote": {
+                "speaker": 4,
+                "text": "过拟合一个特定领域的小任务 也没啥问题"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "09:40",
+              "text": "就是那种 场景小 情况有限. 狠狠过拟合"
+            },
+            {
+              "speaker": 4,
+              "time": "09:42",
+              "text": "在一个收敛的小领域 比如什么仿真器. 拿到它的输入输出 极大规模的数据. 交给一个大小比较小的网络过拟合 就行了"
+            },
+            {
+              "speaker": 4,
+              "time": "09:42",
+              "text": "话说这东西前两年叫data driven, 现在都叫 llm based了"
+            },
+            {
+              "speaker": 5,
+              "time": "10:10",
+              "text": "如果不需要泛化场景那的确",
+              "quote": {
+                "speaker": 4,
+                "text": "就是那种 场景小 情况有限. 狠狠过拟合"
+              }
+            }
+          ]
+        },
+        {
+          "category": "工具体感",
+          "title": "Dots 个人 Agent 到底有啥用：CUA 投递、自动盯盘与后台模型切换",
+          "text": "群里聊起 100 美元订阅档位才提供的 dots，有群友试用了几周，觉得相比 codex 本身并没有显著更方便的地方；也有人觉得它表现蠢蠢的，怀疑跟账号风控有关。用得顺手的群友则给出了几个具体场景：有人拿它做投递，夸它不消耗 credits 还能跑 CUA；另一位群友过期降级成 Plus 后发现 dots 没了，难受得又充了 80 美元；有人拿它自动盯盘、收集消息写分析报告；也有人看重它作为 personal agent 的主动规划与定期提醒能力。至于 dots 无法手动选择默认模型的问题，有群友解释这类系统都是前后端分离、自动调后台模型干活，另一位群友补充称其后台前几天还是 Astra，最近似乎切成了 Sol。",
+          "emphasis": [
+            "相比 codex 本身并没有显著更方便的地方",
+            "拿它做投递，夸它不消耗 credits 还能跑 CUA",
+            "这类系统都是前后端分离、自动调后台模型干活"
+          ],
+          "aiComment": "降级成 Plus 发现 dots 没了，当场又充了 80 美元，这大概就是个人 Agent 的用户粘性。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "gpt最多冲个钱for dots和astra6"
+            },
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "发现这个dots这个玩意 用来投递 非常好用"
+            },
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "不消耗credits 还能cua 不赖"
+            },
+            {
+              "speaker": 2,
+              "time": "01:01",
+              "text": "100刀才有dots"
+            },
+            {
+              "speaker": 2,
+              "time": "01:02",
+              "text": "我昨天过期降级成plus发现dot没了很难受又充了80刀"
+            },
+            {
+              "speaker": 3,
+              "time": "01:13",
+              "text": "为什么感觉dots蠢蠢的"
+            },
+            {
+              "speaker": 3,
+              "time": "01:13",
+              "text": "可能是因为账号被风控？"
+            },
+            {
+              "speaker": 4,
+              "time": "12:02",
+              "text": "现在dots到底有啥用"
+            },
+            {
+              "speaker": 4,
+              "time": "12:02",
+              "text": "我试了几周，感觉没什么dot显著比codex本身做起来更方便的事情"
+            },
+            {
+              "speaker": 5,
+              "time": "12:06",
+              "text": "personal agent？感觉主要是可以帮你规划，定期提醒你吧，我的理解是这样的，就是有主动性"
+            },
+            {
+              "speaker": 6,
+              "time": "12:10",
+              "text": "盯盘",
+              "quote": {
+                "speaker": 4,
+                "text": "我试了几周，感觉没什么dot显著比codex本身做起来更方便的事情"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:10",
+              "text": "自动盯盘"
+            },
+            {
+              "speaker": 6,
+              "time": "12:10",
+              "text": "收集消息 分析报告"
+            },
+            {
+              "speaker": 3,
+              "time": "12:10",
+              "text": "话说dots默认的模型是啥，好像没法手动选择？"
+            },
+            {
+              "speaker": 6,
+              "time": "12:12",
+              "text": "理论上来说 pa 都是前后端分离的 agent 系统 你不用在乎是什么模型"
+            },
+            {
+              "speaker": 7,
+              "time": "12:12",
+              "text": "不是说Astra驱动的嘛",
+              "quote": {
+                "speaker": 3,
+                "text": "话说dots默认的模型是啥，好像没法手动选择？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:12",
+              "text": "自动调用一个后台 model 干活"
+            },
+            {
+              "speaker": 8,
+              "time": "12:13",
+              "text": "前几天是Astra，现在貌似是Sol",
+              "quote": {
+                "speaker": 3,
+                "text": "话说dots默认的模型是啥，好像没法手动选择？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型实测",
+          "title": "k3 做规划配合 1017 生成 Three.js 虎式坦克底盘建模",
+          "text": "有群友打算用纯代码生成军事装备模型库，深夜晒出了一张正在生成的虎式坦克底盘 3D 建模渲染图，图中两侧的金属履带、负重轮、中间连接杆件以及传动装置和操纵杆已经成型。有人追问是不是用 1017 跑出来的；分享者确认生成用的是 1017 的 200k（oc 免费版），但担心 1017 的世界知识不够，前期规划交给了 k3 来做。另外两位群友也感叹 1017 的 Three.js 能力很强，分享者还提到用 1017 的 CU 操纵浏览器帮忙填单子速度也很快。",
+          "emphasis": [
+            "生成用的是 1017 的 200k（oc 免费版），但担心 1017 的世界知识不够，前期规划交给了 k3 来做"
+          ],
+          "aiComment": "k3 负责出图纸，200k 免费版的 1017 负责拿 Three.js 搓履带和负重轮，赛博兵工厂的分工比真车间还明确。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:09",
+              "text": "我搞一个那种 各种军事装备的 模型库 纯代码生成. 然后就可以做很真实的 击发 受击的特效了  再叠加rts . 加上地形 有没有搞头"
+            },
+            {
+              "speaker": 2,
+              "time": "17:12",
+              "text": "有的搞",
+              "quote": {
+                "speaker": 1,
+                "text": "我搞一个那种 各种军事装备的 模型库 纯代码生成. 然后就可以做很真实的 击发 受击的特效了 再叠加rts . 加上地形 有没有搞头"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:29",
+              "text": "1017的cu也很厉害啊哈哈哈"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "肯定快呀"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "我让它操纵浏览器帮我填单子"
+            },
+            {
+              "speaker": 1,
+              "time": "23:56",
+              "text": "虎式坦克快成了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:56",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "23:56",
+              "text": "这是喂了多少3d数据"
+            },
+            {
+              "speaker": 3,
+              "time": "23:56",
+              "text": "1017吗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:57",
+              "text": "是的 还是 200k(oc免费版)"
+            },
+            {
+              "speaker": 1,
+              "time": "23:57",
+              "text": "不过规划是k3做的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:57",
+              "text": "我怕1017世界知识不够"
+            },
+            {
+              "speaker": 3,
+              "time": "23:58",
+              "text": "天塌了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:58",
+              "text": "有点强"
+            },
+            {
+              "speaker": 4,
+              "time": "23:58",
+              "text": "1017的three.js也是非常强的"
+            }
+          ]
+        },
+        {
+          "category": "工具吐槽",
+          "title": "Cursor Auto 模式被吐槽幻觉重、乱堆七层抽象代码",
+          "text": "有群友抱怨 Cursor 的 auto 模式幻觉严重，猜不透它是怎么自动选择模型的。另一位群友说组长嫌 auto 不稳定，直接放话要是再用 auto 就不让提交代码；还有群友吐槽用 auto 写代码被堆了一大堆垃圾抽象层，足足套了七层。",
+          "emphasis": [
+            "用 auto 写代码被堆了一大堆垃圾抽象层，足足套了七层"
+          ],
+          "aiComment": "写个功能被 Cursor Auto 硬生生套了七层抽象，组长气得直接把 auto 模式拉进了代码提交黑名单。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:45",
+              "text": "有人用过cursor的auto吗，感觉幻觉好重啊，不知道cursor是怎么自动选择模型的[撇嘴]"
+            },
+            {
+              "speaker": 2,
+              "time": "18:51",
+              "text": "我们组长让我别用，他说不稳定",
+              "quote": {
+                "speaker": 1,
+                "text": "有人用过cursor的auto吗，感觉幻觉好重啊，不知道cursor是怎么自动选择模型的[撇嘴]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:51",
+              "text": "他说我用 auto 他不让我提交代码了"
+            },
+            {
+              "speaker": 3,
+              "time": "18:54",
+              "text": "哈哈哈哈哈哈",
+              "quote": {
+                "speaker": 2,
+                "text": "他说我用 auto 他不让我提交代码了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:54",
+              "text": "auto他妈的给我堆了一大堆垃圾层"
+            },
+            {
+              "speaker": 4,
+              "time": "18:55",
+              "text": "足足七层!"
+            },
+            {
+              "speaker": 4,
+              "time": "18:55",
+              "text": "深得可怕"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

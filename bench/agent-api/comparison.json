@@ -1,0 +1,94 @@
+{
+  "protocol_version": "1.1",
+  "conditions": [
+    {
+      "mode": "baseline",
+      "metrics": {
+        "fixed_api_flow_pass_rate": 0.4375,
+        "successful_tasks": 7,
+        "total_tasks": 16,
+        "retrieval_queries": 8,
+        "hit_at_5": 0.5,
+        "mrr_at_5": 0.4375,
+        "ndcg_at_5": 0.3851989910248148,
+        "library_quality": {
+          "queries": 6,
+          "hit_at_5": 0.6666666666666666,
+          "mrr_at_5": 0.5833333333333334,
+          "ndcg_at_5": 0.5135986546997531
+        },
+        "content_quality": {
+          "queries": 2,
+          "hit_at_5": 0,
+          "mrr_at_5": 0,
+          "ndcg_at_5": 0
+        },
+        "capability_cases": 6,
+        "capability_passed": 0,
+        "unsupported_tasks": 4,
+        "total_response_bytes": 258966,
+        "local_ms": 35.907669000000055
+      }
+    },
+    {
+      "mode": "candidate-baseline-ranker",
+      "metrics": {
+        "fixed_api_flow_pass_rate": 0.9375,
+        "successful_tasks": 15,
+        "total_tasks": 16,
+        "retrieval_queries": 8,
+        "hit_at_5": 1,
+        "mrr_at_5": 0.9375,
+        "ndcg_at_5": 0.8331997727995591,
+        "library_quality": {
+          "queries": 6,
+          "hit_at_5": 1,
+          "mrr_at_5": 0.9166666666666666,
+          "ndcg_at_5": 0.7775996970660789
+        },
+        "content_quality": {
+          "queries": 2,
+          "hit_at_5": 1,
+          "mrr_at_5": 1,
+          "ndcg_at_5": 1
+        },
+        "capability_cases": 6,
+        "capability_passed": 6,
+        "unsupported_tasks": 0,
+        "total_response_bytes": 397297,
+        "local_ms": 139.26904299999998
+      }
+    },
+    {
+      "mode": "candidate",
+      "metrics": {
+        "fixed_api_flow_pass_rate": 1,
+        "successful_tasks": 16,
+        "total_tasks": 16,
+        "retrieval_queries": 8,
+        "hit_at_5": 1,
+        "mrr_at_5": 0.9375,
+        "ndcg_at_5": 0.8331997727995591,
+        "library_quality": {
+          "queries": 6,
+          "hit_at_5": 1,
+          "mrr_at_5": 0.9166666666666666,
+          "ndcg_at_5": 0.7775996970660789
+        },
+        "content_quality": {
+          "queries": 2,
+          "hit_at_5": 1,
+          "mrr_at_5": 1,
+          "ndcg_at_5": 1
+        },
+        "capability_cases": 6,
+        "capability_passed": 6,
+        "unsupported_tasks": 0,
+        "total_response_bytes": 388230,
+        "local_ms": 134.06700200000006
+      }
+    }
+  ],
+  "corpus_hash": "6f7047e748f22e35fdbefea7719d3798b3251c00137037585240099d2e2428c7",
+  "cases_hash": "d58a66a7d4003054855b52f7229634fed414f64c75d74cc30d72a85e3481a41b"
+}

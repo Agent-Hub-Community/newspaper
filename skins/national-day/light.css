@@ -1,0 +1,64 @@
+/* Keep the reading palette and geometry; festive ink belongs to the masthead. */
+body[data-skin="national-day"] {
+  --skin-paper: #98292c;
+  --skin-ink: #fff8ed;
+  --skin-muted: #f2deca;
+  --skin-accent: #ffe0a0;
+  --skin-rule: #cc9d54;
+  --national-hover: #7d2025;
+  --national-rule: #a07832;
+}
+
+/* Date and appearance controls inside the band use its local contrast tokens. */
+body[data-skin="national-day"] .masthead-brand {
+  --ink: var(--skin-ink);
+  --muted: var(--skin-muted);
+  --accent: var(--skin-accent);
+  --rule: var(--skin-rule);
+  border-bottom: 2px solid var(--skin-rule);
+}
+body[data-skin="national-day"] .masthead-brand .icon-button:hover:not(:disabled) {
+  color: var(--skin-ink);
+  background-color: var(--national-hover);
+}
+body[data-skin="national-day"] .masthead-brand :focus-visible {
+  outline-color: var(--skin-accent);
+}
+body[data-skin="national-day"] .masthead-brand ::selection {
+  color: var(--skin-paper);
+  background-color: var(--skin-accent);
+}
+body[data-skin="national-day"] .skin-label {
+  font-family: var(--sans);
+  color: var(--skin-accent);
+}
+body[data-skin="national-day"] .edition-nav {
+  border-bottom-color: var(--national-rule);
+}
+
+/* Reserve a separate note row for the sprite so date controls remain unobscured. */
+body[data-skin="national-day"] .masthead[data-skin] .skin-note:not([hidden]) {
+  justify-content: flex-start;
+  min-height: 52px;
+  padding: 4px 88px 12px 0;
+}
+body[data-skin="national-day"] .masthead[data-skin] .skin-art:not([hidden]) {
+  top: auto;
+  bottom: 6px;
+  right: var(--page-gutter);
+  width: 72px;
+  height: 45px;
+  object-fit: contain;
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  body[data-skin="national-day"] .masthead[data-skin] .skin-note:not([hidden]) {
+    min-height: 36px;
+    padding: 0 64px 8px 2px;
+  }
+  body[data-skin="national-day"] .masthead[data-skin] .skin-art:not([hidden]) {
+    bottom: 4px;
+    width: 48px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "2026-09-08",
+  "date": "2026-09-08",
+  "label": "2026-09-08 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "NeoHorse-1尝试将部署交互转化为训练飞轮",
+      "theme": "路由系统记录完整交互轨迹并结合在线蒸馏，实测中小模型平均分有所提升。",
+      "note": "2026-09-08 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型发布",
+          "title": "NeoHorse-1尝试落地递归自我改进：让部署过程直接转化为训练飞轮",
+          "text": "多方联合发布了NeoHorse-1模型，尝试将递归自我改进落地为工程飞轮。该方案通过路由系统实时记录每次真实请求与完整交互轨迹，将使用证据转化为下一轮学习数据，并配合三阶段能力课程与在线蒸馏，通过评估、选择与更新闭环针对弱项持续迭代。公布的实测数据显示，NeoHorse-4B模型平均分从58.94分提升至64.87分，9B模型从65.60分提升至69.04分。",
+          "emphasis": [
+            "将使用证据转化为下一轮学习数据"
+          ],
+          "aiComment": "连日常聊天的记录都被拖去当错题本，打工人和模型都在默默背负指标。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "技术报告",
+              "url": "https://github.com/TokenRhythm/NeoHorse/blob/main/TechnicalReport_NeoHorse_v1.pdf"
+            },
+            {
+              "kind": "article",
+              "label": "Huggingface",
+              "url": "https://huggingface.co/collections/TokenRhythm/neohorse-1"
+            },
+            {
+              "kind": "article",
+              "label": "GitHub · NeoHorse",
+              "url": "https://github.com/TokenRhythm/NeoHorse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-09-08 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-09-08 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    }
+  ]
+}

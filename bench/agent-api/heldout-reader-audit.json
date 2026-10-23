@@ -1,0 +1,2238 @@
+{
+  "generated_at": "2026-10-16T18:17:50.245Z",
+  "mode": "Offline manual held-out audit; no production/network requests; mocked D1 records only metadata",
+  "source_hashes": {
+    "bm25.js": "5e03136fb723dbb06542cdafe82c68bbac6fd1759431c39dc796cf5b0cd58517",
+    "query.js": "5bcb2cae340107c75a074514fc63f81cea62387067c41a416cf6a685a073648b",
+    "feedback/content-api.mjs": "7b42cf44bdea38d0b267715ee38d0158195baaba71b5e6b8a70266b21d268842",
+    "feedback/library-search.mjs": "5e4191340e27ab422d5f0716b767045cff6790bfb4f18516aa811d8f72be623c",
+    "dist/search/catalog.json": "6f2b193f8245efac23571967e6377cd9ff41dad77c537470b9fa131c27fe4f19"
+  },
+  "catalog_revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+  "frozen_tasks": [
+    {
+      "id": "reader-research-experience",
+      "query": "群里有人复现检索增强生成论文失败过吗？当时还讨论了哪些改善学术论文或审稿流程的方法？给我具体经历和日期，别把建议说成已经落地。",
+      "source": [
+        {
+          "file": "editions/2026-09-28.json",
+          "group": "group-2",
+          "title": "学术代码论文脱节现状与耗时一月复现困境"
+        },
+        {
+          "file": "editions/2026-09-28.json",
+          "group": "group-2",
+          "title": "审稿事实错误自动化筛查与人工仲裁设想"
+        },
+        {
+          "file": "editions/2026-09-28.json",
+          "group": "group-2",
+          "title": "临近截稿提交取舍与滚动审稿机制讨论"
+        }
+      ],
+      "anchors": [
+        "一月仍未成功",
+        "高precision",
+        "人工仲裁",
+        "两月一轮",
+        "机制之外的审稿环境"
+      ],
+      "queryBudget": 6,
+      "byteBudget": 30000,
+      "calls": [
+        {
+          "label": "verbatim reader query",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E7%BE%A4%E9%87%8C%E6%9C%89%E4%BA%BA%E5%A4%8D%E7%8E%B0%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E8%AE%BA%E6%96%87%E5%A4%B1%E8%B4%A5%E8%BF%87%E5%90%97%EF%BC%9F%E5%BD%93%E6%97%B6%E8%BF%98%E8%AE%A8%E8%AE%BA%E4%BA%86%E5%93%AA%E4%BA%9B%E6%94%B9%E5%96%84%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E6%88%96%E5%AE%A1%E7%A8%BF%E6%B5%81%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F%E7%BB%99%E6%88%91%E5%85%B7%E4%BD%93%E7%BB%8F%E5%8E%86%E5%92%8C%E6%97%A5%E6%9C%9F%EF%BC%8C%E5%88%AB%E6%8A%8A%E5%BB%BA%E8%AE%AE%E8%AF%B4%E6%88%90%E5%B7%B2%E7%BB%8F%E8%90%BD%E5%9C%B0%E3%80%82&analytics_test=1",
+          "status": 200,
+          "bytes": 3256,
+          "latency_ms": 105.88,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"群里有人复现检索增强生成论文失败过吗?当时还讨论了哪些改善学术论文或审稿流程的方法?给我具体经历和日期,别把建议说成已经落地。\",\"kind\":\"\",\"group\":\"\",\"from\":\"\",\"to\":\"\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":2,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[{\"id\":\"daily:2026-09-28:group-2:086414660a8e69b8a556e88e\",\"kind\":\"daily\",\"date\":\"2026-09-28\",\"group\":\"group-2\",\"title\":\"学术代码论文脱节现状与耗时一月复现困境\",\"excerpt\":\"群友讨论学术开源现状，指出常见情况是有论文无代码、有代码对不上论文、对得上也不一定能复现，甚至有人调侃不如直接不公布。一位群友分享具体经历，称去年曾尝试复现一篇检索增强生成论文，耗费一个月仍未成功。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-3\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:086414660a8e69b8a556e88e.md\",\"revision\":\"d0750268b0056792f57b584d92dc8bbc2c804539a3c222467a969d18cb459506\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A086414660a8e69b8a556e88e&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"weekly:2026-09-28:2026-10-04:group-2:00b3b3f1a4fa9dc340fc0871\",\"kind\":\"weekly\",\"date\":\"2026-10-04\",\"from\":\"2026-09-28\",\"group\":\"group-2\",\"title\":\"审稿辅助工具探讨与论文代码复现困境\",\"excerpt\":\"9月28日，群友探讨了 AI 辅助同行评审的实际边界。有人借助工具一小时筛查四篇稿件，也有人坚持仅由模型提取与归纳细节，终审决定仍由人工完成。讨论还涉及审稿事实错误的自动化筛查，提议者主张先保高精度再提召回率、误检交由专门委员会人工仲裁，另有人担忧拦截过严会加剧审稿人手紧缺；另一段交流则提及学术开源现状，有群友分享去年曾花费一个月时间，最终仍未能复现一篇检索增强生成论文的代码与实验。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-09-28/2026-10-04/group-2/#topic-1\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-09-28:2026-10-04:group-2:00b3b3f1a4fa9dc340fc0871.md\",\"revision\":\"0b55485fa4a79b6200d1eef06f550a1dce8b43ac736843e2d80122329d755f73\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-09-28%3A2026-10-04%3Agroup-2%3A00b3b3f1a4fa9dc340fc0871&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "群里有人复现检索增强生成论文失败过吗?当时还讨论了哪些改善学术论文或审稿流程的方法?给我具体经历和日期,别把建议说成已经落地。",
+              "kind": "",
+              "group": "",
+              "from": "",
+              "to": ""
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 2,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": [
+              {
+                "id": "daily:2026-09-28:group-2:086414660a8e69b8a556e88e",
+                "kind": "daily",
+                "date": "2026-09-28",
+                "group": "group-2",
+                "title": "学术代码论文脱节现状与耗时一月复现困境",
+                "excerpt": "群友讨论学术开源现状，指出常见情况是有论文无代码、有代码对不上论文、对得上也不一定能复现，甚至有人调侃不如直接不公布。一位群友分享具体经历，称去年曾尝试复现一篇检索增强生成论文，耗费一个月仍未成功。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-3",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:086414660a8e69b8a556e88e.md",
+                "revision": "d0750268b0056792f57b584d92dc8bbc2c804539a3c222467a969d18cb459506",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A086414660a8e69b8a556e88e&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "weekly:2026-09-28:2026-10-04:group-2:00b3b3f1a4fa9dc340fc0871",
+                "kind": "weekly",
+                "date": "2026-10-04",
+                "from": "2026-09-28",
+                "group": "group-2",
+                "title": "审稿辅助工具探讨与论文代码复现困境",
+                "excerpt": "9月28日，群友探讨了 AI 辅助同行评审的实际边界。有人借助工具一小时筛查四篇稿件，也有人坚持仅由模型提取与归纳细节，终审决定仍由人工完成。讨论还涉及审稿事实错误的自动化筛查，提议者主张先保高精度再提召回率、误检交由专门委员会人工仲裁，另有人担忧拦截过严会加剧审稿人手紧缺；另一段交流则提及学术开源现状，有群友分享去年曾花费一个月时间，最终仍未能复现一篇检索增强生成论文的代码与实验。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-09-28/2026-10-04/group-2/#topic-1",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-09-28:2026-10-04:group-2:00b3b3f1a4fa9dc340fc0871.md",
+                "revision": "0b55485fa4a79b6200d1eef06f550a1dce8b43ac736843e2d80122329d755f73",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-09-28%3A2026-10-04%3Agroup-2%3A00b3b3f1a4fa9dc340fc0871&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "daily:2026-09-28:group-2:086414660a8e69b8a556e88e",
+              "title": "学术代码论文脱节现状与耗时一月复现困境",
+              "kind": "daily",
+              "date": "2026-09-28",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-3"
+            },
+            {
+              "id": "weekly:2026-09-28:2026-10-04:group-2:00b3b3f1a4fa9dc340fc0871",
+              "title": "审稿辅助工具探讨与论文代码复现困境",
+              "kind": "weekly",
+              "date": "2026-10-04",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-09-28/2026-10-04/group-2/#topic-1"
+            }
+          ]
+        },
+        {
+          "label": "read reproduction experience",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:086414660a8e69b8a556e88e.md?analytics_test=1",
+          "status": 200,
+          "bytes": 726,
+          "latency_ms": 1.05,
+          "body": "# 学术代码论文脱节现状与耗时一月复现困境\n\n栏目：daily · 2026-09-28 · 二群\nID：daily:2026-09-28:group-2:086414660a8e69b8a556e88e\n内容版本：d0750268b0056792f57b584d92dc8bbc2c804539a3c222467a969d18cb459506\n\n## 讨论摘要\n\n群友讨论学术开源现状，指出常见情况是有论文无代码、有代码对不上论文、对得上也不一定能复现，甚至有人调侃不如直接不公布。一位群友分享具体经历，称去年曾尝试复现一篇检索增强生成论文，耗费一个月仍未成功。\n\n## AI 评论\n\n花一个月还跑不出来，光是这份时间成本就够让人抓狂了。\n\n网页：https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-3\n"
+        },
+        {
+          "label": "same date and group for contemporaneous process proposals",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=10&kind=daily&group=group-2&from=2026-09-28&to=2026-09-28&analytics_test=1",
+          "status": 200,
+          "bytes": 4880,
+          "latency_ms": 12.58,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"\",\"kind\":\"daily\",\"group\":\"group-2\",\"from\":\"2026-09-28\",\"to\":\"2026-09-28\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":4,\"limit\":10,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[{\"id\":\"daily:2026-09-28:group-2:e932ddaa37dd8e7c5d37323c\",\"kind\":\"daily\",\"date\":\"2026-09-28\",\"group\":\"group-2\",\"title\":\"AI辅助同行评审工具分歧与流水线水文隐忧\",\"excerpt\":\"面对审稿负担，有群友借助工具实现“一小时审完4篇+人工检查”，但也有人坚持仅用模型做细节总结与追问，决策由自己完成。对于AI偏好抓取实验支撑等细节，有群友反问实验不支持主张本来就该质疑；另有人担忧流水线水文只要实验对应得上，反而更易通过AI审稿。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-1\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:e932ddaa37dd8e7c5d37323c.md\",\"revision\":\"e883b4c5302c95b3caa9c0108d128a10b3e19e95afc4ff8cb6fb5df4cbec97bf\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3Ae932ddaa37dd8e7c5d37323c&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"daily:2026-09-28:group-2:03df844d8c6f264576434af9\",\"kind\":\"daily\",\"date\":\"2026-09-28\",\"group\":\"group-2\",\"title\":\"审稿事实错误自动化筛查与人工仲裁设想\",\"excerpt\":\"针对审稿意见中的事实错误，有群友设想利用模型筛查幻觉。面对漏检与误杀疑虑，提议者主张“先做高precision 然后提高recall”，将误杀交由专门委员会人工仲裁。另有群友担忧若拦截过严，会导致本就紧缺的审稿人手更显不足。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-2\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:03df844d8c6f264576434af9.md\",\"revision\":\"587d8c307ee5c20ca57b67904aab11a829d054b95d3ce276282c314ce1d62cad\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A03df844d8c6f264576434af9&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"daily:2026-09-28:group-2:086414660a8e69b8a556e88e\",\"kind\":\"daily\",\"date\":\"2026-09-28\",\"group\":\"group-2\",\"title\":\"学术代码论文脱节现状与耗时一月复现困境\",\"excerpt\":\"群友讨论学术开源现状，指出常见情况是有论文无代码、有代码对不上论文、对得上也不一定能复现，甚至有人调侃不如直接不公布。一位群友分享具体经历，称去年曾尝试复现一篇检索增强生成论文，耗费一个月仍未成功。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-3\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:086414660a8e69b8a556e88e.md\",\"revision\":\"d0750268b0056792f57b584d92dc8bbc2c804539a3c222467a969d18cb459506\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A086414660a8e69b8a556e88e&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715\",\"kind\":\"daily\",\"date\":\"2026-09-28\",\"group\":\"group-2\",\"title\":\"临近截稿提交取舍与滚动审稿机制讨论\",\"excerpt\":\"有群友谈到论证尚未深入但因临近截止日期不得不先交一版的困境。对此有人提议参考滚动审稿机制，认为两月一轮有助于缓解压力，并补充了单月截稿案例。不过同一位提议者随后指出“光有机制不行”，审稿环境本身的苛刻倾向同样影响实际效果。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-4\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715.md\",\"revision\":\"b69258d273d3ba3247a601bd4baf215f572e1f687e965015ae5467fd4b065065\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A3eb2e4b760daf8f2ad632715&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "",
+              "kind": "daily",
+              "group": "group-2",
+              "from": "2026-09-28",
+              "to": "2026-09-28"
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 4,
+            "limit": 10,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": [
+              {
+                "id": "daily:2026-09-28:group-2:e932ddaa37dd8e7c5d37323c",
+                "kind": "daily",
+                "date": "2026-09-28",
+                "group": "group-2",
+                "title": "AI辅助同行评审工具分歧与流水线水文隐忧",
+                "excerpt": "面对审稿负担，有群友借助工具实现“一小时审完4篇+人工检查”，但也有人坚持仅用模型做细节总结与追问，决策由自己完成。对于AI偏好抓取实验支撑等细节，有群友反问实验不支持主张本来就该质疑；另有人担忧流水线水文只要实验对应得上，反而更易通过AI审稿。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-1",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:e932ddaa37dd8e7c5d37323c.md",
+                "revision": "e883b4c5302c95b3caa9c0108d128a10b3e19e95afc4ff8cb6fb5df4cbec97bf",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3Ae932ddaa37dd8e7c5d37323c&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "daily:2026-09-28:group-2:03df844d8c6f264576434af9",
+                "kind": "daily",
+                "date": "2026-09-28",
+                "group": "group-2",
+                "title": "审稿事实错误自动化筛查与人工仲裁设想",
+                "excerpt": "针对审稿意见中的事实错误，有群友设想利用模型筛查幻觉。面对漏检与误杀疑虑，提议者主张“先做高precision 然后提高recall”，将误杀交由专门委员会人工仲裁。另有群友担忧若拦截过严，会导致本就紧缺的审稿人手更显不足。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-2",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:03df844d8c6f264576434af9.md",
+                "revision": "587d8c307ee5c20ca57b67904aab11a829d054b95d3ce276282c314ce1d62cad",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A03df844d8c6f264576434af9&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "daily:2026-09-28:group-2:086414660a8e69b8a556e88e",
+                "kind": "daily",
+                "date": "2026-09-28",
+                "group": "group-2",
+                "title": "学术代码论文脱节现状与耗时一月复现困境",
+                "excerpt": "群友讨论学术开源现状，指出常见情况是有论文无代码、有代码对不上论文、对得上也不一定能复现，甚至有人调侃不如直接不公布。一位群友分享具体经历，称去年曾尝试复现一篇检索增强生成论文，耗费一个月仍未成功。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-3",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:086414660a8e69b8a556e88e.md",
+                "revision": "d0750268b0056792f57b584d92dc8bbc2c804539a3c222467a969d18cb459506",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A086414660a8e69b8a556e88e&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715",
+                "kind": "daily",
+                "date": "2026-09-28",
+                "group": "group-2",
+                "title": "临近截稿提交取舍与滚动审稿机制讨论",
+                "excerpt": "有群友谈到论证尚未深入但因临近截止日期不得不先交一版的困境。对此有人提议参考滚动审稿机制，认为两月一轮有助于缓解压力，并补充了单月截稿案例。不过同一位提议者随后指出“光有机制不行”，审稿环境本身的苛刻倾向同样影响实际效果。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-4",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715.md",
+                "revision": "b69258d273d3ba3247a601bd4baf215f572e1f687e965015ae5467fd4b065065",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-28%3Agroup-2%3A3eb2e4b760daf8f2ad632715&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "daily:2026-09-28:group-2:e932ddaa37dd8e7c5d37323c",
+              "title": "AI辅助同行评审工具分歧与流水线水文隐忧",
+              "kind": "daily",
+              "date": "2026-09-28",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-1"
+            },
+            {
+              "id": "daily:2026-09-28:group-2:03df844d8c6f264576434af9",
+              "title": "审稿事实错误自动化筛查与人工仲裁设想",
+              "kind": "daily",
+              "date": "2026-09-28",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-2"
+            },
+            {
+              "id": "daily:2026-09-28:group-2:086414660a8e69b8a556e88e",
+              "title": "学术代码论文脱节现状与耗时一月复现困境",
+              "kind": "daily",
+              "date": "2026-09-28",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-3"
+            },
+            {
+              "id": "daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715",
+              "title": "临近截稿提交取舍与滚动审稿机制讨论",
+              "kind": "daily",
+              "date": "2026-09-28",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-4"
+            }
+          ]
+        },
+        {
+          "label": "read reviewer screening proposal",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:03df844d8c6f264576434af9.md?analytics_test=1",
+          "status": 200,
+          "bytes": 748,
+          "latency_ms": 0.69,
+          "body": "# 审稿事实错误自动化筛查与人工仲裁设想\n\n栏目：daily · 2026-09-28 · 二群\nID：daily:2026-09-28:group-2:03df844d8c6f264576434af9\n内容版本：587d8c307ee5c20ca57b67904aab11a829d054b95d3ce276282c314ce1d62cad\n\n## 讨论摘要\n\n针对审稿意见中的事实错误，有群友设想利用模型筛查幻觉。面对漏检与误杀疑虑，提议者主张“先做高precision 然后提高recall”，将误杀交由专门委员会人工仲裁。另有群友担忧若拦截过严，会导致本就紧缺的审稿人手更显不足。\n\n## AI 评论\n\n抓幻觉先保准确率是对的，不然审稿人本来就少，天天仲裁更忙不过来。\n\n网页：https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-2\n"
+        },
+        {
+          "label": "read submission and rolling review proposal",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715.md?analytics_test=1",
+          "status": 200,
+          "bytes": 765,
+          "latency_ms": 0.43,
+          "body": "# 临近截稿提交取舍与滚动审稿机制讨论\n\n栏目：daily · 2026-09-28 · 二群\nID：daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715\n内容版本：b69258d273d3ba3247a601bd4baf215f572e1f687e965015ae5467fd4b065065\n\n## 讨论摘要\n\n有群友谈到论证尚未深入但因临近截止日期不得不先交一版的困境。对此有人提议参考滚动审稿机制，认为两月一轮有助于缓解压力，并补充了单月截稿案例。不过同一位提议者随后指出“光有机制不行”，审稿环境本身的苛刻倾向同样影响实际效果。\n\n## AI 评论\n\n滚动机制能给赶ddl留条退路，但评审严不严格机制本身可管不了。\n\n网页：https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-2/#topic-4\n"
+        }
+      ],
+      "request_count": 5,
+      "response_bytes": 10375,
+      "budget_pass": true
+    },
+    {
+      "id": "reader-diagnosis",
+      "query": "有人试过让 agent 改另一个 agent 的提示词吗？实际效果如何，为什么难判断优化有没有用？只找群友实践和困难，不要列自进化项目。",
+      "source": [
+        {
+          "file": "editions/2026-09-29.json",
+          "group": "group-3",
+          "title": "Agent Harness 自优化探讨：归因困难与中间评估瓶颈"
+        }
+      ],
+      "anchors": [
+        "调整一晚未见明显提升",
+        "变量多与归因",
+        "顶层架构",
+        "过拟合",
+        "数十倍工程量"
+      ],
+      "queryBudget": 5,
+      "byteBudget": 22000,
+      "calls": [
+        {
+          "label": "verbatim reader query",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E6%9C%89%E4%BA%BA%E8%AF%95%E8%BF%87%E8%AE%A9+agent+%E6%94%B9%E5%8F%A6%E4%B8%80%E4%B8%AA+agent+%E7%9A%84%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%90%97%EF%BC%9F%E5%AE%9E%E9%99%85%E6%95%88%E6%9E%9C%E5%A6%82%E4%BD%95%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9A%BE%E5%88%A4%E6%96%AD%E4%BC%98%E5%8C%96%E6%9C%89%E6%B2%A1%E6%9C%89%E7%94%A8%EF%BC%9F%E5%8F%AA%E6%89%BE%E7%BE%A4%E5%8F%8B%E5%AE%9E%E8%B7%B5%E5%92%8C%E5%9B%B0%E9%9A%BE%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%88%97%E8%87%AA%E8%BF%9B%E5%8C%96%E9%A1%B9%E7%9B%AE%E3%80%82&analytics_test=1",
+          "status": 200,
+          "bytes": 5824,
+          "latency_ms": 16.64,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"有人试过让 agent 改另一个 agent 的提示词吗?实际效果如何,为什么难判断优化有没有用?只找群友实践和困难,不要列自进化项目。\",\"kind\":\"\",\"group\":\"\",\"from\":\"\",\"to\":\"\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":3,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[{\"id\":\"daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb\",\"kind\":\"daily\",\"date\":\"2026-09-29\",\"group\":\"group-3\",\"title\":\"Agent Harness 自优化探讨：归因困难与中间评估瓶颈\",\"excerpt\":\"群友探讨 Agent harness 与模型自我优化的落地瓶颈。有群友指出跑基准耗时长、变量多，很难做优化的归因；有实验者尝试让模型优化另一 Agent 的提示词与工具描述，调整一晚未见明显提升。一位跑过自进化的群友表示，当前模型多只能根据日志修一些明显的bug，难归因顶层架构设计；也有人担心过度依赖评估指标会导致过拟合。针对过程评估，有群友抽取小实验逐变量测试中间步骤，但面临数十倍工程量。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-2\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb.md\",\"revision\":\"b8726c398358bb7e95a49513205a7df2f0badb5b0633eeb8c18d437e743464e3\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-29%3Agroup-3%3A1b2491258aa29c7e1ee545eb&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"daily:2026-10-10:group-3:9e60abf632e9555ba73ca30b\",\"kind\":\"daily\",\"date\":\"2026-10-10\",\"group\":\"group-3\",\"title\":\"RSI 改进了什么：Harness 涨点、泛化与数据反哺\",\"excerpt\":\"一项 Harness 层自进化实验分享，引出了群友对递归自我改进（RSI）的追问：改变的是基础模型，还是模型外的脚手架？有人认为先要把问题定义清楚，另有人质疑，在 Harness 上搜索所得的提升是否值得高额验证成本。\\n\\n一位做过 Harness RSI 的群友说，自己迭代十多轮时，有时只有两三轮涨点，而且未必能泛化；另一位观察到，某个模型的 Harness 迁移给其他模型后可能出现负效果。有人估计优化三四轮就容易到上限，也有人认为 Harness 的可探索空间还远未耗尽。\\n\\n讨论随后转向如何把收益带回模型：有群友提出，用更好的 Harness 构建数据产线，再以数据反哺训练；分享者表示自己做过相关实验，关注成本和时间。进一步的追问是，系统能否判断自己缺少哪种能力、准确分析失败原因，并选择补数据、调用人类帮助或改进技能。还有人提醒，任务设定仍由人确定，减少人的介入与完全自动化是不同的目标。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-10/group-3/#topic-1\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-10:group-3:9e60abf632e9555ba73ca30b.md\",\"revision\":\"95250ff0a671e2f20d04c583753657e1870ec309a1bd2623c0fe8741e8d3f46c\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-10%3Agroup-3%3A9e60abf632e9555ba73ca30b&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"weekly:2026-10-05:2026-10-11:group-3:b22cedfd453a6f8682e4644f\",\"kind\":\"weekly\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"group\":\"group-3\",\"title\":\"RSI从搜索空间到数据反哺：收益、泛化和人的位置\",\"excerpt\":\"本周三群有几场相关的 RSI 讨论，分别涉及人工搜索空间、Harness 改进、数据反哺与泛化评估。\\n\\n在概念界定上，群友首先质疑当前诸多被称为 RSI 的方案是否名副其实。有群友指出，如果单纯依赖外部环境奖励或任务完成度作为指标，其实与经典强化学习或后训练并无本质区别；该群友认为“Self”应具备自主定义指标与奖励、乃至脱离人工干预洗数据的能力。另一位群友结合过往基线实验复盘，指出早期给予大模型不受限空间和全量信息的全自动探索（如 ADAS）效果往往随迭代变差，甚至不如直接求解；而一些有效工作实际上高度依赖精细的人工剪裁，通过约束决策空间与可见信息才取得提升。依照这位群友的看法，目前许多工作仍在“针对当前模型能力与评测集设计最合适的搜索空间”，而非模型自主找到了适配自身的最优空间。\\n\\n10 月 8 日，有团队分享了其将 RSI 视为系统工程的评测平台 RSIGym，主张通过“Everyt\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-1\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:b22cedfd453a6f8682e4644f.md\",\"revision\":\"4d6c9d4e42d1e7a84df63068562784e595a8b36faffcf39ed71428fcd145dc36\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-3%3Ab22cedfd453a6f8682e4644f&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "有人试过让 agent 改另一个 agent 的提示词吗?实际效果如何,为什么难判断优化有没有用?只找群友实践和困难,不要列自进化项目。",
+              "kind": "",
+              "group": "",
+              "from": "",
+              "to": ""
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 3,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": [
+              {
+                "id": "daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb",
+                "kind": "daily",
+                "date": "2026-09-29",
+                "group": "group-3",
+                "title": "Agent Harness 自优化探讨：归因困难与中间评估瓶颈",
+                "excerpt": "群友探讨 Agent harness 与模型自我优化的落地瓶颈。有群友指出跑基准耗时长、变量多，很难做优化的归因；有实验者尝试让模型优化另一 Agent 的提示词与工具描述，调整一晚未见明显提升。一位跑过自进化的群友表示，当前模型多只能根据日志修一些明显的bug，难归因顶层架构设计；也有人担心过度依赖评估指标会导致过拟合。针对过程评估，有群友抽取小实验逐变量测试中间步骤，但面临数十倍工程量。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-2",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb.md",
+                "revision": "b8726c398358bb7e95a49513205a7df2f0badb5b0633eeb8c18d437e743464e3",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-29%3Agroup-3%3A1b2491258aa29c7e1ee545eb&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "daily:2026-10-10:group-3:9e60abf632e9555ba73ca30b",
+                "kind": "daily",
+                "date": "2026-10-10",
+                "group": "group-3",
+                "title": "RSI 改进了什么：Harness 涨点、泛化与数据反哺",
+                "excerpt": "一项 Harness 层自进化实验分享，引出了群友对递归自我改进（RSI）的追问：改变的是基础模型，还是模型外的脚手架？有人认为先要把问题定义清楚，另有人质疑，在 Harness 上搜索所得的提升是否值得高额验证成本。\n\n一位做过 Harness RSI 的群友说，自己迭代十多轮时，有时只有两三轮涨点，而且未必能泛化；另一位观察到，某个模型的 Harness 迁移给其他模型后可能出现负效果。有人估计优化三四轮就容易到上限，也有人认为 Harness 的可探索空间还远未耗尽。\n\n讨论随后转向如何把收益带回模型：有群友提出，用更好的 Harness 构建数据产线，再以数据反哺训练；分享者表示自己做过相关实验，关注成本和时间。进一步的追问是，系统能否判断自己缺少哪种能力、准确分析失败原因，并选择补数据、调用人类帮助或改进技能。还有人提醒，任务设定仍由人确定，减少人的介入与完全自动化是不同的目标。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-10/group-3/#topic-1",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-10:group-3:9e60abf632e9555ba73ca30b.md",
+                "revision": "95250ff0a671e2f20d04c583753657e1870ec309a1bd2623c0fe8741e8d3f46c",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-10%3Agroup-3%3A9e60abf632e9555ba73ca30b&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "weekly:2026-10-05:2026-10-11:group-3:b22cedfd453a6f8682e4644f",
+                "kind": "weekly",
+                "date": "2026-10-11",
+                "from": "2026-10-05",
+                "group": "group-3",
+                "title": "RSI从搜索空间到数据反哺：收益、泛化和人的位置",
+                "excerpt": "本周三群有几场相关的 RSI 讨论，分别涉及人工搜索空间、Harness 改进、数据反哺与泛化评估。\n\n在概念界定上，群友首先质疑当前诸多被称为 RSI 的方案是否名副其实。有群友指出，如果单纯依赖外部环境奖励或任务完成度作为指标，其实与经典强化学习或后训练并无本质区别；该群友认为“Self”应具备自主定义指标与奖励、乃至脱离人工干预洗数据的能力。另一位群友结合过往基线实验复盘，指出早期给予大模型不受限空间和全量信息的全自动探索（如 ADAS）效果往往随迭代变差，甚至不如直接求解；而一些有效工作实际上高度依赖精细的人工剪裁，通过约束决策空间与可见信息才取得提升。依照这位群友的看法，目前许多工作仍在“针对当前模型能力与评测集设计最合适的搜索空间”，而非模型自主找到了适配自身的最优空间。\n\n10 月 8 日，有团队分享了其将 RSI 视为系统工程的评测平台 RSIGym，主张通过“Everyt",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-1",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:b22cedfd453a6f8682e4644f.md",
+                "revision": "4d6c9d4e42d1e7a84df63068562784e595a8b36faffcf39ed71428fcd145dc36",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-3%3Ab22cedfd453a6f8682e4644f&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb",
+              "title": "Agent Harness 自优化探讨：归因困难与中间评估瓶颈",
+              "kind": "daily",
+              "date": "2026-09-29",
+              "group": "group-3",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-2"
+            },
+            {
+              "id": "daily:2026-10-10:group-3:9e60abf632e9555ba73ca30b",
+              "title": "RSI 改进了什么：Harness 涨点、泛化与数据反哺",
+              "kind": "daily",
+              "date": "2026-10-10",
+              "group": "group-3",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-10/group-3/#topic-1"
+            },
+            {
+              "id": "weekly:2026-10-05:2026-10-11:group-3:b22cedfd453a6f8682e4644f",
+              "title": "RSI从搜索空间到数据反哺：收益、泛化和人的位置",
+              "kind": "weekly",
+              "date": "2026-10-11",
+              "group": "group-3",
+              "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-1"
+            }
+          ]
+        },
+        {
+          "label": "read firsthand optimization and diagnosis evidence",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb.md?analytics_test=1",
+          "status": 200,
+          "bytes": 984,
+          "latency_ms": 0.66,
+          "body": "# Agent Harness 自优化探讨：归因困难与中间评估瓶颈\n\n栏目：daily · 2026-09-29 · 三群\nID：daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb\n内容版本：b8726c398358bb7e95a49513205a7df2f0badb5b0633eeb8c18d437e743464e3\n\n## 讨论摘要\n\n群友探讨 Agent harness 与模型自我优化的落地瓶颈。有群友指出跑基准耗时长、变量多，很难做优化的归因；有实验者尝试让模型优化另一 Agent 的提示词与工具描述，调整一晚未见明显提升。一位跑过自进化的群友表示，当前模型多只能根据日志修一些明显的bug，难归因顶层架构设计；也有人担心过度依赖评估指标会导致过拟合。针对过程评估，有群友抽取小实验逐变量测试中间步骤，但面临数十倍工程量。\n\n## AI 评论\n\n变量一多归因就容易抓瞎，折腾半天往往摸不清到底哪步起效。\n\n网页：https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-2\n"
+        }
+      ],
+      "request_count": 2,
+      "response_bytes": 6808,
+      "budget_pass": true
+    },
+    {
+      "id": "reader-cross-date",
+      "query": "10 月 7 到 9 日，群里怎么看 AI 降低编程门槛是否也能改变数学研究？按日期说明观点变化和分歧，区分群内看法与外部资讯的事实。",
+      "source": [
+        {
+          "file": "weekly-editions/2026-10-05_2026-10-11.json",
+          "group": "group-2",
+          "title": "数学研究自动化之后，哪些价值还能被释放"
+        },
+        {
+          "file": "editions/2026-10-08.json",
+          "group": "group-2",
+          "title": "写代码门槛降低后，前沿数学猜想能否被同样改写？"
+        }
+      ],
+      "anchors": [
+        "10月7日好奇心与智力",
+        "10月8日编程门槛类比",
+        "10月9日工程外溢分歧",
+        "未达成一致"
+      ],
+      "queryBudget": 7,
+      "byteBudget": 36000,
+      "calls": [
+        {
+          "label": "verbatim reader query plus requested date range",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=10+%E6%9C%88+7+%E5%88%B0+9+%E6%97%A5%EF%BC%8C%E7%BE%A4%E9%87%8C%E6%80%8E%E4%B9%88%E7%9C%8B+AI+%E9%99%8D%E4%BD%8E%E7%BC%96%E7%A8%8B%E9%97%A8%E6%A7%9B%E6%98%AF%E5%90%A6%E4%B9%9F%E8%83%BD%E6%94%B9%E5%8F%98%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%EF%BC%9F%E6%8C%89%E6%97%A5%E6%9C%9F%E8%AF%B4%E6%98%8E%E8%A7%82%E7%82%B9%E5%8F%98%E5%8C%96%E5%92%8C%E5%88%86%E6%AD%A7%EF%BC%8C%E5%8C%BA%E5%88%86%E7%BE%A4%E5%86%85%E7%9C%8B%E6%B3%95%E4%B8%8E%E5%A4%96%E9%83%A8%E8%B5%84%E8%AE%AF%E7%9A%84%E4%BA%8B%E5%AE%9E%E3%80%82&from=2026-10-07&to=2026-10-09&analytics_test=1",
+          "status": 200,
+          "bytes": 916,
+          "latency_ms": 8.25,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"10 月 7 到 9 日,群里怎么看 AI 降低编程门槛是否也能改变数学研究?按日期说明观点变化和分歧,区分群内看法与外部资讯的事实。\",\"kind\":\"\",\"group\":\"\",\"from\":\"2026-10-07\",\"to\":\"2026-10-09\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":0,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "10 月 7 到 9 日,群里怎么看 AI 降低编程门槛是否也能改变数学研究?按日期说明观点变化和分歧,区分群内看法与外部资讯的事实。",
+              "kind": "",
+              "group": "",
+              "from": "2026-10-07",
+              "to": "2026-10-09"
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 0,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": []
+          },
+          "candidates": []
+        },
+        {
+          "label": "reader rephrases after first result",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E7%BC%96%E7%A8%8B%E9%97%A8%E6%A7%9B+%E6%95%B0%E5%AD%A6&from=2026-10-07&to=2026-10-09&analytics_test=1",
+          "status": 200,
+          "bytes": 8396,
+          "latency_ms": 3.12,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"编程门槛 数学\",\"kind\":\"\",\"group\":\"\",\"from\":\"2026-10-07\",\"to\":\"2026-10-09\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":14,\"limit\":5,\"offset\":0,\"next_offset\":5,\"next_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E7%BC%96%E7%A8%8B%E9%97%A8%E6%A7%9B+%E6%95%B0%E5%AD%A6&from=2026-10-07&to=2026-10-09&analytics_test=1&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049&offset=5\",\"items\":[{\"id\":\"daily:2026-10-08:group-2:65d697df052530194c136c56\",\"kind\":\"daily\",\"date\":\"2026-10-08\",\"group\":\"group-2\",\"title\":\"写代码门槛降低后，前沿数学猜想能否被同样改写？\",\"excerpt\":\"围绕AI对数学前沿的影响，有群友设想，早期数学家研究数学或许并非为了谋生，而是源于对世界的好奇与热爱，未来人类可能再次回归因纯粹兴趣创造新学科的状态。针对这种演变，有讨论类比认为，写代码的重要性相比以往正在降低，门槛放低后更多人能实现过去需要专业编程能力才能做出的成果；但这一逻辑能否迁移到数学领域仍是疑问，尤其是面对前沿数学猜想时，是否也能产生类似的效果。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-08/group-2/#topic-1\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-08:group-2:65d697df052530194c136c56.md\",\"revision\":\"09126e941a0850ea6248ce3332058d80cbdbfc2460239990261d201bf6e3eb3b\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-08%3Agroup-2%3A65d697df052530194c136c56&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612\",\"kind\":\"weekly\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"group\":\"group-2\",\"title\":\"数学研究自动化之后，哪些价值还能被释放\",\"excerpt\":\"群内围绕大模型介入数学研究及未来价值释放展开了持续讨论。7日，分享者引述关于数学黄金时代与数学家角色的文章，并提到若将智力置于其他品质之上可能面临的落差，群友随之讨论起好奇心、情感等非纯智能属性的存续。\\n\\n8日，讨论进一步联想到代码生成能力的普及：当编程不再是少数人的特权门槛，普通人借由工具释放了解释权和生产力，但前沿数学猜想被攻克后是否具有类似的赋能效应仍存疑问。\\n\\n9日，群友就此产生分歧，一方认为纯理论数学若仅优化算法复杂度属于常规递进，其结论门槛难以直接普惠不懂数学的人；另一方则以挂谷猜想等理论在放射探测仪器中的潜在关联为例，推测许多纯数学成果的工程外溢价值可能远超出当前计算机领域的认知边界，相关结论在群内尚未达成一致。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-2/#topic-2\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612.md\",\"revision\":\"da3a77cca3f56951e1948342cde9e2cc4cecf3f48503847b709be15ac356a60d\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-2%3Ab6f25287fd249df4741c8612&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"daily:2026-10-07:group-1:098b00033395130ca468e1da\",\"kind\":\"daily\",\"date\":\"2026-10-07\",\"group\":\"group-1\",\"title\":\"AI若重塑数学研究：解题与提出问题哪个更关键\",\"excerpt\":\"有人抛出疑问，未来数学是否会像围棋那样转向学习AI的解法。随后有群友引用回应，认为解题与编程类似，但数学研究更核心的在于提出新问题以及找到优质的理解视角与框架。另有群友推测，严格证明受重视是因为其稀缺性与规范作用；如果未来严格证明不再稀缺，研究重心可能会重新回到提出问题本身。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-1/#topic-1\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-1:098b00033395130ca468e1da.md\",\"revision\":\"9e54ecfcc341d14e0a9f40e9692639f200983abaea7bed52c94a639355c5a30e\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-07%3Agroup-1%3A098b00033395130ca468e1da&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"daily:2026-10-07:group-3:259eded68cf116e7aa9c9677\",\"kind\":\"daily\",\"date\":\"2026-10-07\",\"group\":\"group-3\",\"title\":\"数学巧构造、新工具与限定空间暴力搜索\",\"excerpt\":\"讨论起于数学猜想反例的构造难题。一位群友好奇反例如何产出，另一位引用回应，认为大模型算力足够高便可暴力搜索。面对能否暴力的追问，回应者解释，人类搜索速度慢，因此更需要构造巧力；他也认为目前大模型证明方法偏暴力。随后有群友提出，给定搜索空间且保证其中有解时，模型的探索能力已经很强。提问者则提醒，寻找反例时往往恰恰无法先证明有解。\\n\\n接着有人设想，让懂行者先缩小范围，再开许多子智能体搜索。这是讨论中的方案设想，未展示具体系统或实验。关于两条路径的价值，另一项观点强调，构造巧力的过程可能催生新的数学工具，可供别人复用；单纯靠算力得到结果未必留下同样的方法。群内也因此担忧，未来数学研究是否会受算力门槛影响。这些对模型解题方式的判断，仍属于群友观点。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-3/#topic-2\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-3:259eded68cf116e7aa9c9677.md\",\"revision\":\"1426cfaca7b7921b61b7dfbfdb100260c74e6c781d441ea430f88224e46fa90b\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-07%3Agroup-3%3A259eded68cf116e7aa9c9677&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"weekly:2026-10-05:2026-10-11:group-1:6b39a0e16f39294a641abfcc\",\"kind\":\"weekly\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"group\":\"group-1\",\"title\":\"OpenAI 数学手稿开源：外部覆盖率质疑与形式化反思\",\"excerpt\":\"10月7日，群内分享了 OpenAI 公开的数学代码仓库及数百份数学命题手稿。随后有群友转述了外部知乎文章对该项目的质疑，称其中 Lean 形式化代码覆盖率有限，声称解决的成果家族中真正包含形式化验证的比例不高。\\n\\n该事件进而引发了关于数学本质的思考。有群友指出，现代数学建立严格形式化体系后极为侧重证明，根源在于严格证明是极度稀缺的共识基石；假若未来 AI 使得严格证明的供给变得不再稀缺，数学研究可能会重新偏向于提出好问题与构建理解框架。另有群友调侃，形式化工具的普及反倒打破了纯数学界过去对物理学家证明不够严格的指责，促使大家重新审视机器证明与数学直觉的关系。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-1/#topic-2\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-1:6b39a0e16f39294a641abfcc.md\",\"revision\":\"3421239a69061b46b8c774144603a69776f3528bb17272d7a10da892fa922d43\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-1%3A6b39a0e16f39294a641abfcc&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "编程门槛 数学",
+              "kind": "",
+              "group": "",
+              "from": "2026-10-07",
+              "to": "2026-10-09"
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 14,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": 5,
+            "next_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E7%BC%96%E7%A8%8B%E9%97%A8%E6%A7%9B+%E6%95%B0%E5%AD%A6&from=2026-10-07&to=2026-10-09&analytics_test=1&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049&offset=5",
+            "items": [
+              {
+                "id": "daily:2026-10-08:group-2:65d697df052530194c136c56",
+                "kind": "daily",
+                "date": "2026-10-08",
+                "group": "group-2",
+                "title": "写代码门槛降低后，前沿数学猜想能否被同样改写？",
+                "excerpt": "围绕AI对数学前沿的影响，有群友设想，早期数学家研究数学或许并非为了谋生，而是源于对世界的好奇与热爱，未来人类可能再次回归因纯粹兴趣创造新学科的状态。针对这种演变，有讨论类比认为，写代码的重要性相比以往正在降低，门槛放低后更多人能实现过去需要专业编程能力才能做出的成果；但这一逻辑能否迁移到数学领域仍是疑问，尤其是面对前沿数学猜想时，是否也能产生类似的效果。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-08/group-2/#topic-1",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-08:group-2:65d697df052530194c136c56.md",
+                "revision": "09126e941a0850ea6248ce3332058d80cbdbfc2460239990261d201bf6e3eb3b",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-08%3Agroup-2%3A65d697df052530194c136c56&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612",
+                "kind": "weekly",
+                "date": "2026-10-11",
+                "from": "2026-10-05",
+                "group": "group-2",
+                "title": "数学研究自动化之后，哪些价值还能被释放",
+                "excerpt": "群内围绕大模型介入数学研究及未来价值释放展开了持续讨论。7日，分享者引述关于数学黄金时代与数学家角色的文章，并提到若将智力置于其他品质之上可能面临的落差，群友随之讨论起好奇心、情感等非纯智能属性的存续。\n\n8日，讨论进一步联想到代码生成能力的普及：当编程不再是少数人的特权门槛，普通人借由工具释放了解释权和生产力，但前沿数学猜想被攻克后是否具有类似的赋能效应仍存疑问。\n\n9日，群友就此产生分歧，一方认为纯理论数学若仅优化算法复杂度属于常规递进，其结论门槛难以直接普惠不懂数学的人；另一方则以挂谷猜想等理论在放射探测仪器中的潜在关联为例，推测许多纯数学成果的工程外溢价值可能远超出当前计算机领域的认知边界，相关结论在群内尚未达成一致。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-2/#topic-2",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612.md",
+                "revision": "da3a77cca3f56951e1948342cde9e2cc4cecf3f48503847b709be15ac356a60d",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-2%3Ab6f25287fd249df4741c8612&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "daily:2026-10-07:group-1:098b00033395130ca468e1da",
+                "kind": "daily",
+                "date": "2026-10-07",
+                "group": "group-1",
+                "title": "AI若重塑数学研究：解题与提出问题哪个更关键",
+                "excerpt": "有人抛出疑问，未来数学是否会像围棋那样转向学习AI的解法。随后有群友引用回应，认为解题与编程类似，但数学研究更核心的在于提出新问题以及找到优质的理解视角与框架。另有群友推测，严格证明受重视是因为其稀缺性与规范作用；如果未来严格证明不再稀缺，研究重心可能会重新回到提出问题本身。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-1/#topic-1",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-1:098b00033395130ca468e1da.md",
+                "revision": "9e54ecfcc341d14e0a9f40e9692639f200983abaea7bed52c94a639355c5a30e",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-07%3Agroup-1%3A098b00033395130ca468e1da&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "daily:2026-10-07:group-3:259eded68cf116e7aa9c9677",
+                "kind": "daily",
+                "date": "2026-10-07",
+                "group": "group-3",
+                "title": "数学巧构造、新工具与限定空间暴力搜索",
+                "excerpt": "讨论起于数学猜想反例的构造难题。一位群友好奇反例如何产出，另一位引用回应，认为大模型算力足够高便可暴力搜索。面对能否暴力的追问，回应者解释，人类搜索速度慢，因此更需要构造巧力；他也认为目前大模型证明方法偏暴力。随后有群友提出，给定搜索空间且保证其中有解时，模型的探索能力已经很强。提问者则提醒，寻找反例时往往恰恰无法先证明有解。\n\n接着有人设想，让懂行者先缩小范围，再开许多子智能体搜索。这是讨论中的方案设想，未展示具体系统或实验。关于两条路径的价值，另一项观点强调，构造巧力的过程可能催生新的数学工具，可供别人复用；单纯靠算力得到结果未必留下同样的方法。群内也因此担忧，未来数学研究是否会受算力门槛影响。这些对模型解题方式的判断，仍属于群友观点。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-3/#topic-2",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-3:259eded68cf116e7aa9c9677.md",
+                "revision": "1426cfaca7b7921b61b7dfbfdb100260c74e6c781d441ea430f88224e46fa90b",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-10-07%3Agroup-3%3A259eded68cf116e7aa9c9677&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "weekly:2026-10-05:2026-10-11:group-1:6b39a0e16f39294a641abfcc",
+                "kind": "weekly",
+                "date": "2026-10-11",
+                "from": "2026-10-05",
+                "group": "group-1",
+                "title": "OpenAI 数学手稿开源：外部覆盖率质疑与形式化反思",
+                "excerpt": "10月7日，群内分享了 OpenAI 公开的数学代码仓库及数百份数学命题手稿。随后有群友转述了外部知乎文章对该项目的质疑，称其中 Lean 形式化代码覆盖率有限，声称解决的成果家族中真正包含形式化验证的比例不高。\n\n该事件进而引发了关于数学本质的思考。有群友指出，现代数学建立严格形式化体系后极为侧重证明，根源在于严格证明是极度稀缺的共识基石；假若未来 AI 使得严格证明的供给变得不再稀缺，数学研究可能会重新偏向于提出好问题与构建理解框架。另有群友调侃，形式化工具的普及反倒打破了纯数学界过去对物理学家证明不够严格的指责，促使大家重新审视机器证明与数学直觉的关系。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-1/#topic-2",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-1:6b39a0e16f39294a641abfcc.md",
+                "revision": "3421239a69061b46b8c774144603a69776f3528bb17272d7a10da892fa922d43",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-1%3A6b39a0e16f39294a641abfcc&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "daily:2026-10-08:group-2:65d697df052530194c136c56",
+              "title": "写代码门槛降低后，前沿数学猜想能否被同样改写？",
+              "kind": "daily",
+              "date": "2026-10-08",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-08/group-2/#topic-1"
+            },
+            {
+              "id": "weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612",
+              "title": "数学研究自动化之后，哪些价值还能被释放",
+              "kind": "weekly",
+              "date": "2026-10-11",
+              "group": "group-2",
+              "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-2/#topic-2"
+            },
+            {
+              "id": "daily:2026-10-07:group-1:098b00033395130ca468e1da",
+              "title": "AI若重塑数学研究：解题与提出问题哪个更关键",
+              "kind": "daily",
+              "date": "2026-10-07",
+              "group": "group-1",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-1/#topic-1"
+            },
+            {
+              "id": "daily:2026-10-07:group-3:259eded68cf116e7aa9c9677",
+              "title": "数学巧构造、新工具与限定空间暴力搜索",
+              "kind": "daily",
+              "date": "2026-10-07",
+              "group": "group-3",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-3/#topic-2"
+            },
+            {
+              "id": "weekly:2026-10-05:2026-10-11:group-1:6b39a0e16f39294a641abfcc",
+              "title": "OpenAI 数学手稿开源：外部覆盖率质疑与形式化反思",
+              "kind": "weekly",
+              "date": "2026-10-11",
+              "group": "group-1",
+              "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-1/#topic-2"
+            }
+          ]
+        },
+        {
+          "label": "read weekly timeline and unresolved disagreement",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612.md?analytics_test=1",
+          "status": 200,
+          "bytes": 2085,
+          "latency_ms": 0.52,
+          "body": "# 数学研究自动化之后，哪些价值还能被释放\n\n栏目：weekly · 2026-10-05 至 2026-10-11 · 二群\nID：weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612\n内容版本：da3a77cca3f56951e1948342cde9e2cc4cecf3f48503847b709be15ac356a60d\n\n## 讨论摘要\n\n群内围绕大模型介入数学研究及未来价值释放展开了持续讨论。7日，分享者引述关于数学黄金时代与数学家角色的文章，并提到若将智力置于其他品质之上可能面临的落差，群友随之讨论起好奇心、情感等非纯智能属性的存续。\n\n8日，讨论进一步联想到代码生成能力的普及：当编程不再是少数人的特权门槛，普通人借由工具释放了解释权和生产力，但前沿数学猜想被攻克后是否具有类似的赋能效应仍存疑问。\n\n9日，群友就此产生分歧，一方认为纯理论数学若仅优化算法复杂度属于常规递进，其结论门槛难以直接普惠不懂数学的人；另一方则以挂谷猜想等理论在放射探测仪器中的潜在关联为例，推测许多纯数学成果的工程外溢价值可能远超出当前计算机领域的认知边界，相关结论在群内尚未达成一致。\n\n## AI 评论\n\n代码生成降低实现门槛之后，前沿数学会怎样影响更多人的工作？这场讨论还没有统一答案。\n\n## 时间线\n\n- 2026-10-07：群友探讨数学自动化背景下智力与其他人类品质的关系及学科好奇心。\n- 2026-10-08：对比AI编程降低门槛带来的生产力释放，提出前沿数学是否具备相似普惠能力的疑问。\n- 2026-10-09：群友就能否工程外溢产生分歧，有观点认为前沿猜想可能具有跨领域但未被广泛认知的应用意义。\n\n## 来源\n\n- [OpenAI 数学评估集](https://github.com/openai/math)\n- [数学的黄金时代与数学家的失落时代](https://mp.weixin.qq.com/s?__biz=MzAxOTA1Nzg4OQ%3D%3D&mid=2247508901&idx=1&sn=30da74859bbda539fdf2e280e9a9a6e0)\n\n网页：https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-2/#topic-2\n"
+        },
+        {
+          "label": "read 8 October daily account",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-08:group-2:65d697df052530194c136c56.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1013,
+          "latency_ms": 0.39,
+          "body": "# 写代码门槛降低后，前沿数学猜想能否被同样改写？\n\n栏目：daily · 2026-10-08 · 二群\nID：daily:2026-10-08:group-2:65d697df052530194c136c56\n内容版本：09126e941a0850ea6248ce3332058d80cbdbfc2460239990261d201bf6e3eb3b\n\n## 讨论摘要\n\n围绕AI对数学前沿的影响，有群友设想，早期数学家研究数学或许并非为了谋生，而是源于对世界的好奇与热爱，未来人类可能再次回归因纯粹兴趣创造新学科的状态。针对这种演变，有讨论类比认为，写代码的重要性相比以往正在降低，门槛放低后更多人能实现过去需要专业编程能力才能做出的成果；但这一逻辑能否迁移到数学领域仍是疑问，尤其是面对前沿数学猜想时，是否也能产生类似的效果。\n\n## AI 评论\n\n工具让我觉得自己能写操作系统，但翻开前沿数学猜想，好奇心在第一行符号就卡住了。\n\n网页：https://hqhq1025.github.io/agent_hub/daily/2026-10-08/group-2/#topic-1\n"
+        }
+      ],
+      "request_count": 4,
+      "response_bytes": 12410,
+      "budget_pass": true
+    },
+    {
+      "id": "reader-resource-relationship",
+      "query": "有没有群友介绍过可以检查论文引用真假的写作工具？把工具代码链接、它怎么核验文献、群里在哪些版面提过给我，别声称它保证不会幻觉。",
+      "source": [
+        {
+          "file": "weekly-editions/2026-10-05_2026-10-11.json",
+          "group": "group-3",
+          "title": "Open Academic Paper Gen把引文核验放进写作流水线"
+        },
+        {
+          "file": "weekly-editions/2026-10-05_2026-10-11.json",
+          "group": "group-4",
+          "title": "Open Academic Paper Gen 的文献核验流水线"
+        }
+      ],
+      "anchors": [
+        "https://github.com/mmlong818/open-academic-paper-gen",
+        "文献池",
+        "DOI元数据",
+        "原文支持论断",
+        "作者介绍非绝对保证"
+      ],
+      "queryBudget": 7,
+      "byteBudget": 36000,
+      "calls": [
+        {
+          "label": "verbatim reader query",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E6%9C%89%E6%B2%A1%E6%9C%89%E7%BE%A4%E5%8F%8B%E4%BB%8B%E7%BB%8D%E8%BF%87%E5%8F%AF%E4%BB%A5%E6%A3%80%E6%9F%A5%E8%AE%BA%E6%96%87%E5%BC%95%E7%94%A8%E7%9C%9F%E5%81%87%E7%9A%84%E5%86%99%E4%BD%9C%E5%B7%A5%E5%85%B7%EF%BC%9F%E6%8A%8A%E5%B7%A5%E5%85%B7%E4%BB%A3%E7%A0%81%E9%93%BE%E6%8E%A5%E3%80%81%E5%AE%83%E6%80%8E%E4%B9%88%E6%A0%B8%E9%AA%8C%E6%96%87%E7%8C%AE%E3%80%81%E7%BE%A4%E9%87%8C%E5%9C%A8%E5%93%AA%E4%BA%9B%E7%89%88%E9%9D%A2%E6%8F%90%E8%BF%87%E7%BB%99%E6%88%91%EF%BC%8C%E5%88%AB%E5%A3%B0%E7%A7%B0%E5%AE%83%E4%BF%9D%E8%AF%81%E4%B8%8D%E4%BC%9A%E5%B9%BB%E8%A7%89%E3%80%82&analytics_test=1",
+          "status": 200,
+          "bytes": 4109,
+          "latency_ms": 2.57,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"有没有群友介绍过可以检查论文引用真假的写作工具?把工具代码链接、它怎么核验文献、群里在哪些版面提过给我,别声称它保证不会幻觉。\",\"kind\":\"\",\"group\":\"\",\"from\":\"\",\"to\":\"\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":2,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[{\"id\":\"weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630\",\"kind\":\"weekly\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"group\":\"group-3\",\"title\":\"Open Academic Paper Gen把引文核验放进写作流水线\",\"excerpt\":\"群友在群内分享了开源论文辅助编写项目Open Academic Paper Gen。该工具构建了一个包含九阶段的多智能体流水线，用户输入研究课题后，据分享者介绍，系统输出以检索文献为依据的学术论文草稿。\\n\\n据分享者介绍，该项目的设计重心在于引文核验而非单纯的内容扩写。流水线要求正文中的每个引用都必须映射到已检索的文献池，并依次通过三层验证机制：核查引文是否存在于候选文献池、核对DOI与作者/年份/页码元数据的一致性、以及校验被引原文是否真正支持正文论断。检测到引用瑕疵时系统会在条件约束下改写重验，并在末期引入三位模拟审稿人独立挑错。项目支持中英文撰写，兼容Markdown、LaTeX、RIS与BibTeX格式导出，但定位仍为辅助工具，并非绝对消除大模型幻觉的保证。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-17\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.md\",\"revision\":\"5e8a4d0b4220deaab2f1f5dff4247aaf8f6388ba37fb16493d6f63fd5a12ddc0\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-3%3Adcb7b9153e71a991d766c630&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"},{\"id\":\"weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8\",\"kind\":\"weekly\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"group\":\"group-4\",\"title\":\"Open Academic Paper Gen 的文献核验流水线\",\"excerpt\":\"10月7日，作者在群内介绍了已开源的论文辅助编写工具 Open Academic Paper Gen。据作者自述，该工具采用九阶段多智能体流水线，用户输入研究话题后可生成附带文献支撑的论文草稿，整体设计核心偏向“查”而非单纯生成。\\n\\n在流水线中，正文引用的文献需先进入检索文献池，随后经历三层核验：确认引用是否对齐文献池、核对 DOI 与作者及年份等元数据、检验被引原文是否真正支持对应论断。若发现问题，系统会在约束下改写并再次核验，最后交由三位模拟审稿人挑错。项目遵循 AGPL-3.0 协议，支持中英文写作及 Markdown、LaTeX、RIS 和 BibTeX 等格式导出。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-4/#topic-18\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.md\",\"revision\":\"a418f7a89cdfa4afdf898a0f57772624c2e022a53723c33cc39f0cf107afec5a\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-4%3A666fe7bcd54449306bce94c8&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "有没有群友介绍过可以检查论文引用真假的写作工具?把工具代码链接、它怎么核验文献、群里在哪些版面提过给我,别声称它保证不会幻觉。",
+              "kind": "",
+              "group": "",
+              "from": "",
+              "to": ""
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 2,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": [
+              {
+                "id": "weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630",
+                "kind": "weekly",
+                "date": "2026-10-11",
+                "from": "2026-10-05",
+                "group": "group-3",
+                "title": "Open Academic Paper Gen把引文核验放进写作流水线",
+                "excerpt": "群友在群内分享了开源论文辅助编写项目Open Academic Paper Gen。该工具构建了一个包含九阶段的多智能体流水线，用户输入研究课题后，据分享者介绍，系统输出以检索文献为依据的学术论文草稿。\n\n据分享者介绍，该项目的设计重心在于引文核验而非单纯的内容扩写。流水线要求正文中的每个引用都必须映射到已检索的文献池，并依次通过三层验证机制：核查引文是否存在于候选文献池、核对DOI与作者/年份/页码元数据的一致性、以及校验被引原文是否真正支持正文论断。检测到引用瑕疵时系统会在条件约束下改写重验，并在末期引入三位模拟审稿人独立挑错。项目支持中英文撰写，兼容Markdown、LaTeX、RIS与BibTeX格式导出，但定位仍为辅助工具，并非绝对消除大模型幻觉的保证。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-17",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.md",
+                "revision": "5e8a4d0b4220deaab2f1f5dff4247aaf8f6388ba37fb16493d6f63fd5a12ddc0",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-3%3Adcb7b9153e71a991d766c630&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              },
+              {
+                "id": "weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8",
+                "kind": "weekly",
+                "date": "2026-10-11",
+                "from": "2026-10-05",
+                "group": "group-4",
+                "title": "Open Academic Paper Gen 的文献核验流水线",
+                "excerpt": "10月7日，作者在群内介绍了已开源的论文辅助编写工具 Open Academic Paper Gen。据作者自述，该工具采用九阶段多智能体流水线，用户输入研究话题后可生成附带文献支撑的论文草稿，整体设计核心偏向“查”而非单纯生成。\n\n在流水线中，正文引用的文献需先进入检索文献池，随后经历三层核验：确认引用是否对齐文献池、核对 DOI 与作者及年份等元数据、检验被引原文是否真正支持对应论断。若发现问题，系统会在约束下改写并再次核验，最后交由三位模拟审稿人挑错。项目遵循 AGPL-3.0 协议，支持中英文写作及 Markdown、LaTeX、RIS 和 BibTeX 等格式导出。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-4/#topic-18",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.md",
+                "revision": "a418f7a89cdfa4afdf898a0f57772624c2e022a53723c33cc39f0cf107afec5a",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=weekly%3A2026-10-05%3A2026-10-11%3Agroup-4%3A666fe7bcd54449306bce94c8&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630",
+              "title": "Open Academic Paper Gen把引文核验放进写作流水线",
+              "kind": "weekly",
+              "date": "2026-10-11",
+              "group": "group-3",
+              "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-17"
+            },
+            {
+              "id": "weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8",
+              "title": "Open Academic Paper Gen 的文献核验流水线",
+              "kind": "weekly",
+              "date": "2026-10-11",
+              "group": "group-4",
+              "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-4/#topic-18"
+            }
+          ]
+        },
+        {
+          "label": "read group 3 writer claims and limitations",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1545,
+          "latency_ms": 0.42,
+          "body": "# Open Academic Paper Gen把引文核验放进写作流水线\n\n栏目：weekly · 2026-10-05 至 2026-10-11 · 三群\nID：weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630\n内容版本：5e8a4d0b4220deaab2f1f5dff4247aaf8f6388ba37fb16493d6f63fd5a12ddc0\n\n## 讨论摘要\n\n群友在群内分享了开源论文辅助编写项目Open Academic Paper Gen。该工具构建了一个包含九阶段的多智能体流水线，用户输入研究课题后，据分享者介绍，系统输出以检索文献为依据的学术论文草稿。\n\n据分享者介绍，该项目的设计重心在于引文核验而非单纯的内容扩写。流水线要求正文中的每个引用都必须映射到已检索的文献池，并依次通过三层验证机制：核查引文是否存在于候选文献池、核对DOI与作者/年份/页码元数据的一致性、以及校验被引原文是否真正支持正文论断。检测到引用瑕疵时系统会在条件约束下改写重验，并在末期引入三位模拟审稿人独立挑错。项目支持中英文撰写，兼容Markdown、LaTeX、RIS与BibTeX格式导出，但定位仍为辅助工具，并非绝对消除大模型幻觉的保证。\n\n## AI 评论\n\n论文生成类工具最怕张冠李戴捏造引用，把DOI和原文论点核验直接做进生成回路，确实抓住了科研写作落地的痛点。\n\n## 来源\n\n- [Open Academic Paper Gen](https://github.com/mmlong818/open-academic-paper-gen)\n\n网页：https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-17\n"
+        },
+        {
+          "label": "lookup discovered project and resource discussion links",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=Open+Academic+Paper+Gen&limit=5&analytics_test=1",
+          "status": 200,
+          "bytes": 5814,
+          "latency_ms": 9.4,
+          "body": "{\"schema_version\":1,\"query\":{\"q\":\"Open Academic Paper Gen\",\"type\":\"\",\"topic\":\"\",\"keyword\":\"\"},\"total\":1,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"coverage\":{\"from\":\"2026-04-30\",\"through\":\"2026-10-13\"},\"revision\":\"40dc1009a5ab09905ddd5d5418fdf520db4d7e64fe827ef5615296b70497adf0\",\"source_loaded_at\":\"2026-10-16T18:17:50.232Z\",\"available\":{\"types\":[{\"id\":\"paper\",\"label\":\"论文\"},{\"id\":\"benchmark\",\"label\":\"Benchmark\"},{\"id\":\"dataset\",\"label\":\"数据集\"},{\"id\":\"code\",\"label\":\"开源项目\"},{\"id\":\"model\",\"label\":\"模型\"},{\"id\":\"tool\",\"label\":\"工具与产品\"},{\"id\":\"article\",\"label\":\"文章与帖子\"},{\"id\":\"video\",\"label\":\"视频\"}],\"topics\":[{\"id\":\"coding-agents\",\"label\":\"编程 Agent 与 Harness\",\"covers\":\"编程 agent、harness、scaffold、skills、MCP、工具调用、SWE 任务\"},{\"id\":\"computer-use\",\"label\":\"Computer Use 与 GUI\",\"covers\":\"桌面、手机、浏览器和 GUI agent，grounding，OS 环境\"},{\"id\":\"training\",\"label\":\"强化学习与训练\",\"covers\":\"agentic RL、post-training、训练框架、credit assignment、reward、数据配方\"},{\"id\":\"data-environments\",\"label\":\"数据与环境\",\"covers\":\"数据合成、环境构建与规模化、sandbox、轨迹数据\"},{\"id\":\"evaluation\",\"label\":\"评测\",\"covers\":\"benchmark、榜单、评测方法、judge\"},{\"id\":\"research-agents\",\"label\":\"科研 Agent 与自我改进\",\"covers\":\"deep research、AI scientist、AI 做数学和科学、递归自我改进（RSI）\"},{\"id\":\"memory\",\"label\":\"记忆与长程任务\",\"covers\":\"agent memory、上下文管理、长程任务\"},{\"id\":\"multi-agent\",\"label\":\"多智能体\",\"covers\":\"多 agent 协作、agent 集群、群聊 agent\"},{\"id\":\"safety\",\"label\":\"安全与对齐\",\"covers\":\"安全、对齐、可监控性、提示注入、red teaming\"},{\"id\":\"models\",\"label\":\"模型与技术报告\",\"covers\":\"前沿和开源模型发布、技术报告、能力分析\"},{\"id\":\"multimodal-embodied\",\"label\":\"多模态、具身与世界模型\",\"covers\":\"VLM、统一多模态、机器人、具身、世界模型、空间智能\"},{\"id\":\"systems\",\"label\":\"系统与基础设施\",\"covers\":\"推理与训练系统、GPU 与 kernel、MLSys、成本\"},{\"id\":\"research-tools\",\"label\":\"科研工具与写作\",\"covers\":\"读论文、找论文、作图、写作、审稿、学术数据工具\"},{\"id\":\"industry\",\"label\":\"行业与观点\",\"covers\":\"行业分析、趋势判断、访谈、长篇观点\"}]},\"items\":[{\"id\":\"open-academic-paper-gen\",\"title\":\"Open Academic Paper Gen\",\"summary\":\"九阶段多 agent 流水线，输入研究话题输出有真实文献支撑的论文草稿，逐条检查引用能否解析、元数据是否一致、被引原文是否支持论断，可导出 LaTeX 和 BibTeX。\",\"type\":\"code\",\"topics\":[\"research-tools\",\"multi-agent\"],\"keywords\":[\"论文写作\",\"citation hallucination\",\"claim verification\",\"LaTeX\",\"BibTeX\"],\"links\":[{\"kind\":\"code\",\"url\":\"https://github.com/mmlong818/open-academic-paper-gen\"}],\"shared\":[{\"date\":\"2026-10-07\",\"group\":\"group-3\"},{\"date\":\"2026-10-07\",\"group\":\"group-4\"}],\"related\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/library/#open-academic-paper-gen\",\"discussions\":[{\"kind\":\"weekly\",\"id\":\"weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"group\":\"group-3\",\"title\":\"Open Academic Paper Gen把引文核验放进写作流水线\",\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-17\",\"read_path\":\"agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.json\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.md\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.json\"},{\"kind\":\"weekly\",\"id\":\"weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"group\":\"group-4\",\"title\":\"Open Academic Paper Gen 的文献核验流水线\",\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-4/#topic-18\",\"read_path\":\"agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.json\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.md\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.json\"},{\"kind\":\"daily\",\"id\":\"daily:2026-10-07:group-3:b192483b15162e3d1d2ea704\",\"date\":\"2026-10-07\",\"group\":\"group-3\",\"title\":\"Open Academic Paper Gen：主打检索与三层引文核验的论文草稿工具\",\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-3/#topic-8\",\"read_path\":\"agents/topics/daily:2026-10-07:group-3:b192483b15162e3d1d2ea704.json\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-3:b192483b15162e3d1d2ea704.md\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-3:b192483b15162e3d1d2ea704.json\"},{\"kind\":\"daily\",\"id\":\"daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb\",\"date\":\"2026-10-07\",\"group\":\"group-4\",\"title\":\"Open Academic Paper Gen：多智能体文献驱动的论文草稿生成\",\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-4/#topic-12\",\"read_path\":\"agents/topics/daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb.json\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb.md\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb.json\"}]}]}",
+          "data": {
+            "schema_version": 1,
+            "query": {
+              "q": "Open Academic Paper Gen",
+              "type": "",
+              "topic": "",
+              "keyword": ""
+            },
+            "total": 1,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "coverage": {
+              "from": "2026-04-30",
+              "through": "2026-10-13"
+            },
+            "revision": "40dc1009a5ab09905ddd5d5418fdf520db4d7e64fe827ef5615296b70497adf0",
+            "source_loaded_at": "2026-10-16T18:17:50.232Z",
+            "available": {
+              "types": [
+                {
+                  "id": "paper",
+                  "label": "论文"
+                },
+                {
+                  "id": "benchmark",
+                  "label": "Benchmark"
+                },
+                {
+                  "id": "dataset",
+                  "label": "数据集"
+                },
+                {
+                  "id": "code",
+                  "label": "开源项目"
+                },
+                {
+                  "id": "model",
+                  "label": "模型"
+                },
+                {
+                  "id": "tool",
+                  "label": "工具与产品"
+                },
+                {
+                  "id": "article",
+                  "label": "文章与帖子"
+                },
+                {
+                  "id": "video",
+                  "label": "视频"
+                }
+              ],
+              "topics": [
+                {
+                  "id": "coding-agents",
+                  "label": "编程 Agent 与 Harness",
+                  "covers": "编程 agent、harness、scaffold、skills、MCP、工具调用、SWE 任务"
+                },
+                {
+                  "id": "computer-use",
+                  "label": "Computer Use 与 GUI",
+                  "covers": "桌面、手机、浏览器和 GUI agent，grounding，OS 环境"
+                },
+                {
+                  "id": "training",
+                  "label": "强化学习与训练",
+                  "covers": "agentic RL、post-training、训练框架、credit assignment、reward、数据配方"
+                },
+                {
+                  "id": "data-environments",
+                  "label": "数据与环境",
+                  "covers": "数据合成、环境构建与规模化、sandbox、轨迹数据"
+                },
+                {
+                  "id": "evaluation",
+                  "label": "评测",
+                  "covers": "benchmark、榜单、评测方法、judge"
+                },
+                {
+                  "id": "research-agents",
+                  "label": "科研 Agent 与自我改进",
+                  "covers": "deep research、AI scientist、AI 做数学和科学、递归自我改进（RSI）"
+                },
+                {
+                  "id": "memory",
+                  "label": "记忆与长程任务",
+                  "covers": "agent memory、上下文管理、长程任务"
+                },
+                {
+                  "id": "multi-agent",
+                  "label": "多智能体",
+                  "covers": "多 agent 协作、agent 集群、群聊 agent"
+                },
+                {
+                  "id": "safety",
+                  "label": "安全与对齐",
+                  "covers": "安全、对齐、可监控性、提示注入、red teaming"
+                },
+                {
+                  "id": "models",
+                  "label": "模型与技术报告",
+                  "covers": "前沿和开源模型发布、技术报告、能力分析"
+                },
+                {
+                  "id": "multimodal-embodied",
+                  "label": "多模态、具身与世界模型",
+                  "covers": "VLM、统一多模态、机器人、具身、世界模型、空间智能"
+                },
+                {
+                  "id": "systems",
+                  "label": "系统与基础设施",
+                  "covers": "推理与训练系统、GPU 与 kernel、MLSys、成本"
+                },
+                {
+                  "id": "research-tools",
+                  "label": "科研工具与写作",
+                  "covers": "读论文、找论文、作图、写作、审稿、学术数据工具"
+                },
+                {
+                  "id": "industry",
+                  "label": "行业与观点",
+                  "covers": "行业分析、趋势判断、访谈、长篇观点"
+                }
+              ]
+            },
+            "items": [
+              {
+                "id": "open-academic-paper-gen",
+                "title": "Open Academic Paper Gen",
+                "summary": "九阶段多 agent 流水线，输入研究话题输出有真实文献支撑的论文草稿，逐条检查引用能否解析、元数据是否一致、被引原文是否支持论断，可导出 LaTeX 和 BibTeX。",
+                "type": "code",
+                "topics": [
+                  "research-tools",
+                  "multi-agent"
+                ],
+                "keywords": [
+                  "论文写作",
+                  "citation hallucination",
+                  "claim verification",
+                  "LaTeX",
+                  "BibTeX"
+                ],
+                "links": [
+                  {
+                    "kind": "code",
+                    "url": "https://github.com/mmlong818/open-academic-paper-gen"
+                  }
+                ],
+                "shared": [
+                  {
+                    "date": "2026-10-07",
+                    "group": "group-3"
+                  },
+                  {
+                    "date": "2026-10-07",
+                    "group": "group-4"
+                  }
+                ],
+                "related": [],
+                "url": "https://hqhq1025.github.io/agent_hub/library/#open-academic-paper-gen",
+                "discussions": [
+                  {
+                    "kind": "weekly",
+                    "id": "weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630",
+                    "date": "2026-10-11",
+                    "from": "2026-10-05",
+                    "group": "group-3",
+                    "title": "Open Academic Paper Gen把引文核验放进写作流水线",
+                    "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-3/#topic-17",
+                    "read_path": "agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.json",
+                    "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.md",
+                    "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.json"
+                  },
+                  {
+                    "kind": "weekly",
+                    "id": "weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8",
+                    "date": "2026-10-11",
+                    "from": "2026-10-05",
+                    "group": "group-4",
+                    "title": "Open Academic Paper Gen 的文献核验流水线",
+                    "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-4/#topic-18",
+                    "read_path": "agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.json",
+                    "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.md",
+                    "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.json"
+                  },
+                  {
+                    "kind": "daily",
+                    "id": "daily:2026-10-07:group-3:b192483b15162e3d1d2ea704",
+                    "date": "2026-10-07",
+                    "group": "group-3",
+                    "title": "Open Academic Paper Gen：主打检索与三层引文核验的论文草稿工具",
+                    "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-3/#topic-8",
+                    "read_path": "agents/topics/daily:2026-10-07:group-3:b192483b15162e3d1d2ea704.json",
+                    "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-3:b192483b15162e3d1d2ea704.md",
+                    "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-3:b192483b15162e3d1d2ea704.json"
+                  },
+                  {
+                    "kind": "daily",
+                    "id": "daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb",
+                    "date": "2026-10-07",
+                    "group": "group-4",
+                    "title": "Open Academic Paper Gen：多智能体文献驱动的论文草稿生成",
+                    "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-4/#topic-12",
+                    "read_path": "agents/topics/daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb.json",
+                    "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb.md",
+                    "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-07:group-4:a7448e09adaf21d96ae4b6eb.json"
+                  }
+                ]
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "open-academic-paper-gen",
+              "title": "Open Academic Paper Gen",
+              "url": "https://hqhq1025.github.io/agent_hub/library/#open-academic-paper-gen"
+            }
+          ]
+        },
+        {
+          "label": "read linked group 4 weekly context",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1304,
+          "latency_ms": 0.61,
+          "body": "# Open Academic Paper Gen 的文献核验流水线\n\n栏目：weekly · 2026-10-05 至 2026-10-11 · 四群\nID：weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8\n内容版本：a418f7a89cdfa4afdf898a0f57772624c2e022a53723c33cc39f0cf107afec5a\n\n## 讨论摘要\n\n10月7日，作者在群内介绍了已开源的论文辅助编写工具 Open Academic Paper Gen。据作者自述，该工具采用九阶段多智能体流水线，用户输入研究话题后可生成附带文献支撑的论文草稿，整体设计核心偏向“查”而非单纯生成。\n\n在流水线中，正文引用的文献需先进入检索文献池，随后经历三层核验：确认引用是否对齐文献池、核对 DOI 与作者及年份等元数据、检验被引原文是否真正支持对应论断。若发现问题，系统会在约束下改写并再次核验，最后交由三位模拟审稿人挑错。项目遵循 AGPL-3.0 协议，支持中英文写作及 Markdown、LaTeX、RIS 和 BibTeX 等格式导出。\n\n## AI 评论\n\n把真实引用和论断支撑分开检查，是这份资料值得细看的部分。\n\n## 来源\n\n- [mmlong818/open-academic-paper-gen](https://github.com/mmlong818/open-academic-paper-gen)\n\n网页：https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-4/#topic-18\n"
+        }
+      ],
+      "request_count": 4,
+      "response_bytes": 12772,
+      "budget_pass": true
+    },
+    {
+      "id": "reader-experiment-prior",
+      "query": "做视频学习实验时，怎么判断模型不是在用原来就知道的知识？群里有人质疑过用 prompt 排除旧知识吗，推荐了什么论文？",
+      "source": [
+        {
+          "file": "editions/2026-09-29.json",
+          "group": "group-3",
+          "title": "如何排除模型已有知识：视频学习评测与 TOFU 参考"
+        }
+      ],
+      "anchors": [
+        "用prompt实现unlearning的质疑",
+        "虚构常识",
+        "教学视频",
+        "TOFU",
+        "https://arxiv.org/abs/2401.06121"
+      ],
+      "queryBudget": 5,
+      "byteBudget": 24000,
+      "calls": [
+        {
+          "label": "verbatim reader query",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E5%81%9A%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E5%AE%9E%E9%AA%8C%E6%97%B6%EF%BC%8C%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E6%A8%A1%E5%9E%8B%E4%B8%8D%E6%98%AF%E5%9C%A8%E7%94%A8%E5%8E%9F%E6%9D%A5%E5%B0%B1%E7%9F%A5%E9%81%93%E7%9A%84%E7%9F%A5%E8%AF%86%EF%BC%9F%E7%BE%A4%E9%87%8C%E6%9C%89%E4%BA%BA%E8%B4%A8%E7%96%91%E8%BF%87%E7%94%A8+prompt+%E6%8E%92%E9%99%A4%E6%97%A7%E7%9F%A5%E8%AF%86%E5%90%97%EF%BC%8C%E6%8E%A8%E8%8D%90%E4%BA%86%E4%BB%80%E4%B9%88%E8%AE%BA%E6%96%87%EF%BC%9F&analytics_test=1",
+          "status": 200,
+          "bytes": 2057,
+          "latency_ms": 3.67,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"做视频学习实验时,怎么判断模型不是在用原来就知道的知识?群里有人质疑过用 prompt 排除旧知识吗,推荐了什么论文?\",\"kind\":\"\",\"group\":\"\",\"from\":\"\",\"to\":\"\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":1,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[{\"id\":\"daily:2026-09-29:group-3:6ac49603a2f4540094855efd\",\"kind\":\"daily\",\"date\":\"2026-09-29\",\"group\":\"group-3\",\"title\":\"如何排除模型已有知识：视频学习评测与 TOFU 参考\",\"excerpt\":\"有群友讨论一篇视频学习论文的设计：为判断模型能否从常识教学视频学到知识，论文尝试用 prompt 排除既有知识。该群友质疑“用prompt实现unlearning”是否可靠，并建议改用虚构常识，再提供对应教学视频。另一位回应，遗忘研究已有使用虚构数据的做法，并给出 TOFU 论文作参考。如何区分先验知识与视频带来的增量，仍是这段讨论的核心问题。\",\"keywords\":[],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-7\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.md\",\"revision\":\"5109b08544f77ef14f28994cb7d72e3e93d4af70bd97ad8a8e100199370a54e5\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-29%3Agroup-3%3A6ac49603a2f4540094855efd&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "做视频学习实验时,怎么判断模型不是在用原来就知道的知识?群里有人质疑过用 prompt 排除旧知识吗,推荐了什么论文?",
+              "kind": "",
+              "group": "",
+              "from": "",
+              "to": ""
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 1,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": [
+              {
+                "id": "daily:2026-09-29:group-3:6ac49603a2f4540094855efd",
+                "kind": "daily",
+                "date": "2026-09-29",
+                "group": "group-3",
+                "title": "如何排除模型已有知识：视频学习评测与 TOFU 参考",
+                "excerpt": "有群友讨论一篇视频学习论文的设计：为判断模型能否从常识教学视频学到知识，论文尝试用 prompt 排除既有知识。该群友质疑“用prompt实现unlearning”是否可靠，并建议改用虚构常识，再提供对应教学视频。另一位回应，遗忘研究已有使用虚构数据的做法，并给出 TOFU 论文作参考。如何区分先验知识与视频带来的增量，仍是这段讨论的核心问题。",
+                "keywords": [],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-7",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.md",
+                "revision": "5109b08544f77ef14f28994cb7d72e3e93d4af70bd97ad8a8e100199370a54e5",
+                "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/item?id=daily%3A2026-09-29%3Agroup-3%3A6ac49603a2f4540094855efd&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "daily:2026-09-29:group-3:6ac49603a2f4540094855efd",
+              "title": "如何排除模型已有知识：视频学习评测与 TOFU 参考",
+              "kind": "daily",
+              "date": "2026-09-29",
+              "group": "group-3",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-7"
+            }
+          ]
+        },
+        {
+          "label": "read prior-knowledge confound and paper citation",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.md?analytics_test=1",
+          "status": 200,
+          "bytes": 969,
+          "latency_ms": 0.45,
+          "body": "# 如何排除模型已有知识：视频学习评测与 TOFU 参考\n\n栏目：daily · 2026-09-29 · 三群\nID：daily:2026-09-29:group-3:6ac49603a2f4540094855efd\n内容版本：5109b08544f77ef14f28994cb7d72e3e93d4af70bd97ad8a8e100199370a54e5\n\n## 讨论摘要\n\n有群友讨论一篇视频学习论文的设计：为判断模型能否从常识教学视频学到知识，论文尝试用 prompt 排除既有知识。该群友质疑“用prompt实现unlearning”是否可靠，并建议改用虚构常识，再提供对应教学视频。另一位回应，遗忘研究已有使用虚构数据的做法，并给出 TOFU 论文作参考。如何区分先验知识与视频带来的增量，仍是这段讨论的核心问题。\n\n## AI 评论\n\n想靠提示词让模型排除已有知识，确实容易混淆增量来源。\n\n## 来源\n\n- [TOFU 论文（2024）](https://arxiv.org/abs/2401.06121)\n\n网页：https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-7\n"
+        },
+        {
+          "label": "read discovered paper resource and reverse discussion link",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=TOFU&limit=5&analytics_test=1",
+          "status": 200,
+          "bytes": 3657,
+          "latency_ms": 0.72,
+          "body": "{\"schema_version\":1,\"query\":{\"q\":\"TOFU\",\"type\":\"\",\"topic\":\"\",\"keyword\":\"\"},\"total\":1,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"coverage\":{\"from\":\"2026-04-30\",\"through\":\"2026-10-13\"},\"revision\":\"40dc1009a5ab09905ddd5d5418fdf520db4d7e64fe827ef5615296b70497adf0\",\"source_loaded_at\":\"2026-10-16T18:17:50.232Z\",\"available\":{\"types\":[{\"id\":\"paper\",\"label\":\"论文\"},{\"id\":\"benchmark\",\"label\":\"Benchmark\"},{\"id\":\"dataset\",\"label\":\"数据集\"},{\"id\":\"code\",\"label\":\"开源项目\"},{\"id\":\"model\",\"label\":\"模型\"},{\"id\":\"tool\",\"label\":\"工具与产品\"},{\"id\":\"article\",\"label\":\"文章与帖子\"},{\"id\":\"video\",\"label\":\"视频\"}],\"topics\":[{\"id\":\"coding-agents\",\"label\":\"编程 Agent 与 Harness\",\"covers\":\"编程 agent、harness、scaffold、skills、MCP、工具调用、SWE 任务\"},{\"id\":\"computer-use\",\"label\":\"Computer Use 与 GUI\",\"covers\":\"桌面、手机、浏览器和 GUI agent，grounding，OS 环境\"},{\"id\":\"training\",\"label\":\"强化学习与训练\",\"covers\":\"agentic RL、post-training、训练框架、credit assignment、reward、数据配方\"},{\"id\":\"data-environments\",\"label\":\"数据与环境\",\"covers\":\"数据合成、环境构建与规模化、sandbox、轨迹数据\"},{\"id\":\"evaluation\",\"label\":\"评测\",\"covers\":\"benchmark、榜单、评测方法、judge\"},{\"id\":\"research-agents\",\"label\":\"科研 Agent 与自我改进\",\"covers\":\"deep research、AI scientist、AI 做数学和科学、递归自我改进（RSI）\"},{\"id\":\"memory\",\"label\":\"记忆与长程任务\",\"covers\":\"agent memory、上下文管理、长程任务\"},{\"id\":\"multi-agent\",\"label\":\"多智能体\",\"covers\":\"多 agent 协作、agent 集群、群聊 agent\"},{\"id\":\"safety\",\"label\":\"安全与对齐\",\"covers\":\"安全、对齐、可监控性、提示注入、red teaming\"},{\"id\":\"models\",\"label\":\"模型与技术报告\",\"covers\":\"前沿和开源模型发布、技术报告、能力分析\"},{\"id\":\"multimodal-embodied\",\"label\":\"多模态、具身与世界模型\",\"covers\":\"VLM、统一多模态、机器人、具身、世界模型、空间智能\"},{\"id\":\"systems\",\"label\":\"系统与基础设施\",\"covers\":\"推理与训练系统、GPU 与 kernel、MLSys、成本\"},{\"id\":\"research-tools\",\"label\":\"科研工具与写作\",\"covers\":\"读论文、找论文、作图、写作、审稿、学术数据工具\"},{\"id\":\"industry\",\"label\":\"行业与观点\",\"covers\":\"行业分析、趋势判断、访谈、长篇观点\"}]},\"items\":[{\"id\":\"tofu\",\"title\":\"TOFU: A Task of Fictitious Unlearning for LLMs\",\"summary\":\"用 200 个虚构作者档案（每个 20 个问答对）构建的机器遗忘 benchmark，配套一组指标，评估遗忘后的模型是否接近从未学过这些数据的模型。\",\"type\":\"benchmark\",\"topics\":[\"safety\",\"evaluation\"],\"keywords\":[\"machine unlearning\",\"privacy\",\"memorization\",\"synthetic profiles\"],\"links\":[{\"kind\":\"paper\",\"url\":\"https://arxiv.org/abs/2401.06121\"}],\"shared\":[{\"date\":\"2026-09-29\",\"group\":\"group-3\"}],\"related\":[\"myphonebench\"],\"url\":\"https://hqhq1025.github.io/agent_hub/library/#tofu\",\"discussions\":[{\"kind\":\"daily\",\"id\":\"daily:2026-09-29:group-3:6ac49603a2f4540094855efd\",\"date\":\"2026-09-29\",\"group\":\"group-3\",\"title\":\"如何排除模型已有知识：视频学习评测与 TOFU 参考\",\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-7\",\"read_path\":\"agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.json\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.md\",\"detail_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.json\"}]}]}",
+          "data": {
+            "schema_version": 1,
+            "query": {
+              "q": "TOFU",
+              "type": "",
+              "topic": "",
+              "keyword": ""
+            },
+            "total": 1,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "coverage": {
+              "from": "2026-04-30",
+              "through": "2026-10-13"
+            },
+            "revision": "40dc1009a5ab09905ddd5d5418fdf520db4d7e64fe827ef5615296b70497adf0",
+            "source_loaded_at": "2026-10-16T18:17:50.232Z",
+            "available": {
+              "types": [
+                {
+                  "id": "paper",
+                  "label": "论文"
+                },
+                {
+                  "id": "benchmark",
+                  "label": "Benchmark"
+                },
+                {
+                  "id": "dataset",
+                  "label": "数据集"
+                },
+                {
+                  "id": "code",
+                  "label": "开源项目"
+                },
+                {
+                  "id": "model",
+                  "label": "模型"
+                },
+                {
+                  "id": "tool",
+                  "label": "工具与产品"
+                },
+                {
+                  "id": "article",
+                  "label": "文章与帖子"
+                },
+                {
+                  "id": "video",
+                  "label": "视频"
+                }
+              ],
+              "topics": [
+                {
+                  "id": "coding-agents",
+                  "label": "编程 Agent 与 Harness",
+                  "covers": "编程 agent、harness、scaffold、skills、MCP、工具调用、SWE 任务"
+                },
+                {
+                  "id": "computer-use",
+                  "label": "Computer Use 与 GUI",
+                  "covers": "桌面、手机、浏览器和 GUI agent，grounding，OS 环境"
+                },
+                {
+                  "id": "training",
+                  "label": "强化学习与训练",
+                  "covers": "agentic RL、post-training、训练框架、credit assignment、reward、数据配方"
+                },
+                {
+                  "id": "data-environments",
+                  "label": "数据与环境",
+                  "covers": "数据合成、环境构建与规模化、sandbox、轨迹数据"
+                },
+                {
+                  "id": "evaluation",
+                  "label": "评测",
+                  "covers": "benchmark、榜单、评测方法、judge"
+                },
+                {
+                  "id": "research-agents",
+                  "label": "科研 Agent 与自我改进",
+                  "covers": "deep research、AI scientist、AI 做数学和科学、递归自我改进（RSI）"
+                },
+                {
+                  "id": "memory",
+                  "label": "记忆与长程任务",
+                  "covers": "agent memory、上下文管理、长程任务"
+                },
+                {
+                  "id": "multi-agent",
+                  "label": "多智能体",
+                  "covers": "多 agent 协作、agent 集群、群聊 agent"
+                },
+                {
+                  "id": "safety",
+                  "label": "安全与对齐",
+                  "covers": "安全、对齐、可监控性、提示注入、red teaming"
+                },
+                {
+                  "id": "models",
+                  "label": "模型与技术报告",
+                  "covers": "前沿和开源模型发布、技术报告、能力分析"
+                },
+                {
+                  "id": "multimodal-embodied",
+                  "label": "多模态、具身与世界模型",
+                  "covers": "VLM、统一多模态、机器人、具身、世界模型、空间智能"
+                },
+                {
+                  "id": "systems",
+                  "label": "系统与基础设施",
+                  "covers": "推理与训练系统、GPU 与 kernel、MLSys、成本"
+                },
+                {
+                  "id": "research-tools",
+                  "label": "科研工具与写作",
+                  "covers": "读论文、找论文、作图、写作、审稿、学术数据工具"
+                },
+                {
+                  "id": "industry",
+                  "label": "行业与观点",
+                  "covers": "行业分析、趋势判断、访谈、长篇观点"
+                }
+              ]
+            },
+            "items": [
+              {
+                "id": "tofu",
+                "title": "TOFU: A Task of Fictitious Unlearning for LLMs",
+                "summary": "用 200 个虚构作者档案（每个 20 个问答对）构建的机器遗忘 benchmark，配套一组指标，评估遗忘后的模型是否接近从未学过这些数据的模型。",
+                "type": "benchmark",
+                "topics": [
+                  "safety",
+                  "evaluation"
+                ],
+                "keywords": [
+                  "machine unlearning",
+                  "privacy",
+                  "memorization",
+                  "synthetic profiles"
+                ],
+                "links": [
+                  {
+                    "kind": "paper",
+                    "url": "https://arxiv.org/abs/2401.06121"
+                  }
+                ],
+                "shared": [
+                  {
+                    "date": "2026-09-29",
+                    "group": "group-3"
+                  }
+                ],
+                "related": [
+                  "myphonebench"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/library/#tofu",
+                "discussions": [
+                  {
+                    "kind": "daily",
+                    "id": "daily:2026-09-29:group-3:6ac49603a2f4540094855efd",
+                    "date": "2026-09-29",
+                    "group": "group-3",
+                    "title": "如何排除模型已有知识：视频学习评测与 TOFU 参考",
+                    "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-3/#topic-7",
+                    "read_path": "agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.json",
+                    "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.md",
+                    "detail_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.json"
+                  }
+                ]
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "id": "tofu",
+              "title": "TOFU: A Task of Fictitious Unlearning for LLMs",
+              "url": "https://hqhq1025.github.io/agent_hub/library/#tofu"
+            }
+          ]
+        }
+      ],
+      "request_count": 3,
+      "response_bytes": 6683,
+      "budget_pass": true
+    },
+    {
+      "id": "reader-missing-edition",
+      "query": "想看 2026 年 8 月 25 日四群的完整日报。如果那天没有，就告诉我缺的是那天还是四群，并带我找到附近实际有稿的期数；不要把最新一期当成那天的。",
+      "source": [
+        {
+          "file": "editions/2026-08-25.json",
+          "group": "all",
+          "title": "本日暂无可读记录"
+        }
+      ],
+      "anchors": [
+        "8月25日无可读群稿",
+        "四群当时无稿",
+        "目录实际可用日期",
+        "不冒充目标日期"
+      ],
+      "queryBudget": 5,
+      "byteBudget": 20000,
+      "calls": [
+        {
+          "label": "requested date and group",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&kind=daily&group=group-4&from=2026-08-25&to=2026-08-25&analytics_test=1",
+          "status": 200,
+          "bytes": 759,
+          "latency_ms": 0.18,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"\",\"kind\":\"daily\",\"group\":\"group-4\",\"from\":\"2026-08-25\",\"to\":\"2026-08-25\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":0,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "",
+              "kind": "daily",
+              "group": "group-4",
+              "from": "2026-08-25",
+              "to": "2026-08-25"
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 0,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": []
+          },
+          "candidates": []
+        },
+        {
+          "label": "requested date in all groups",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&kind=daily&from=2026-08-25&to=2026-08-25&analytics_test=1",
+          "status": 200,
+          "bytes": 752,
+          "latency_ms": 0.11,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"query\":{\"q\":\"\",\"kind\":\"daily\",\"group\":\"\",\"from\":\"2026-08-25\",\"to\":\"2026-08-25\"},\"coverage\":{\"indexed\":[\"story_summaries\",\"ai_commentary\",\"library_entries\"],\"not_indexed\":[\"raw_chat\",\"edition_trends\"],\"edition_reader\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\"},\"total\":0,\"limit\":5,\"offset\":0,\"next_offset\":null,\"next_url\":null,\"items\":[]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "query": {
+              "q": "",
+              "kind": "daily",
+              "group": "",
+              "from": "2026-08-25",
+              "to": "2026-08-25"
+            },
+            "coverage": {
+              "indexed": [
+                "story_summaries",
+                "ai_commentary",
+                "library_entries"
+              ],
+              "not_indexed": [
+                "raw_chat",
+                "edition_trends"
+              ],
+              "edition_reader": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions"
+            },
+            "total": 0,
+            "limit": 5,
+            "offset": 0,
+            "next_offset": null,
+            "next_url": null,
+            "items": []
+          },
+          "candidates": []
+        },
+        {
+          "label": "first page of actual published editions",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions?kind=daily&limit=20&analytics_test=1",
+          "status": 200,
+          "bytes": 6389,
+          "latency_ms": 0.09,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"latest\":{\"daily\":{\"kind\":\"daily\",\"date\":\"2026-10-15\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-15/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-15/index.md\"},\"weekly\":{\"kind\":\"weekly\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/weekly/2026-10-05/2026-10-11/index.md\"}},\"total\":38,\"limit\":20,\"offset\":0,\"next_offset\":20,\"next_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions?kind=daily&limit=20&analytics_test=1&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049&offset=20\",\"items\":[{\"kind\":\"daily\",\"date\":\"2026-10-15\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-15/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-15/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-14\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-14/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-14/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-13\",\"groups\":[\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-13/group-2/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-13/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-12\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-12/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-12/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-11\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-11/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-11/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-10\",\"groups\":[\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-10/group-2/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-10/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-08\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-08/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-08/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-07\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-07/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-06\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-06/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-06/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-05\",\"groups\":[\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-05/group-2/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-05/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-04\",\"groups\":[\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-04/group-2/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-04/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-03\",\"groups\":[\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-03/group-2/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-03/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-02\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-02/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-02/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-10-01\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-01/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-01/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-30\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-30/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-30/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-29\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-29/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-28\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-28/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-27\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-27/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-27/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-26\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-26/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-26/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-25\",\"groups\":[\"group-2\",\"group-3\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-25/group-2/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-25/index.md\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "latest": {
+              "daily": {
+                "kind": "daily",
+                "date": "2026-10-15",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-15/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-15/index.md"
+              },
+              "weekly": {
+                "kind": "weekly",
+                "date": "2026-10-11",
+                "from": "2026-10-05",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/weekly/2026-10-05/2026-10-11/index.md"
+              }
+            },
+            "total": 38,
+            "limit": 20,
+            "offset": 0,
+            "next_offset": 20,
+            "next_url": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions?kind=daily&limit=20&analytics_test=1&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049&offset=20",
+            "items": [
+              {
+                "kind": "daily",
+                "date": "2026-10-15",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-15/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-15/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-14",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-14/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-14/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-13",
+                "groups": [
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-13/group-2/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-13/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-12",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-12/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-12/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-11",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-11/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-11/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-10",
+                "groups": [
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-10/group-2/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-10/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-08",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-08/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-08/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-07",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-07/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-06",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-06/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-06/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-05",
+                "groups": [
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-05/group-2/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-05/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-04",
+                "groups": [
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-04/group-2/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-04/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-03",
+                "groups": [
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-03/group-2/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-03/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-02",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-02/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-02/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-10-01",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-01/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-01/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-30",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-30/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-30/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-29",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-29/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-28",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-28/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-27",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-27/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-27/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-26",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-26/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-26/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-25",
+                "groups": [
+                  "group-2",
+                  "group-3",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-25/group-2/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-25/index.md"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "kind": "daily",
+              "date": "2026-10-15",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-15/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-14",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-14/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-13",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-13/group-2/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-12",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-12/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-11",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-11/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-10",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-10/group-2/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-08",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-08/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-07",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-07/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-06",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-06/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-05",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-05/group-2/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-04",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-04/group-2/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-03",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-03/group-2/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-02",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-02/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-10-01",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-01/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-30",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-30/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-29",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-29/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-28",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-28/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-27",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-27/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-26",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-26/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-25",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-25/group-2/"
+            }
+          ]
+        },
+        {
+          "label": "next page of actual published editions",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions?kind=daily&limit=20&analytics_test=1&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049&offset=20",
+          "status": 200,
+          "bytes": 5121,
+          "latency_ms": 0.09,
+          "body": "{\"schema_version\":1,\"revision\":\"601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049\",\"source_loaded_at\":\"2026-10-16T18:17:50.161Z\",\"links\":{\"search\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/search\",\"editions\":\"https://agenthub-feedback.haoqingeric.workers.dev/content/editions\",\"library\":\"https://agenthub-feedback.haoqingeric.workers.dev/library/search\"},\"latest\":{\"daily\":{\"kind\":\"daily\",\"date\":\"2026-10-15\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-10-15/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-15/index.md\"},\"weekly\":{\"kind\":\"weekly\",\"date\":\"2026-10-11\",\"from\":\"2026-10-05\",\"groups\":[\"group-1\",\"group-2\",\"group-3\",\"group-4\",\"external\"],\"url\":\"https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/weekly/2026-10-05/2026-10-11/index.md\"}},\"total\":38,\"limit\":20,\"offset\":20,\"next_offset\":null,\"next_url\":null,\"items\":[{\"kind\":\"daily\",\"date\":\"2026-09-24\",\"groups\":[\"group-1\",\"group-2\",\"group-3\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-24/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-24/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-23\",\"groups\":[\"group-1\",\"group-2\",\"group-3\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-23/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-23/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-22\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-22/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-22/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-21\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-21/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-21/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-18\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-18/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-18/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-14\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-14/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-14/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-11\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-11/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-11/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-10\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-10/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-10/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-08\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-08/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-08/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-07\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-07/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-07/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-04\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-04/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-04/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-03\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-03/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-03/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-02\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-02/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-02/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-09-01\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-09-01/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-01/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-08-31\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-08-31/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-31/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-08-30\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-08-30/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-30/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-08-27\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-08-27/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-27/index.md\"},{\"kind\":\"daily\",\"date\":\"2026-08-26\",\"groups\":[\"group-1\"],\"url\":\"https://hqhq1025.github.io/agent_hub/daily/2026-08-26/group-1/\",\"read_url\":\"https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-26/index.md\"}]}",
+          "data": {
+            "schema_version": 1,
+            "revision": "601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049",
+            "source_loaded_at": "2026-10-16T18:17:50.161Z",
+            "links": {
+              "search": "https://agenthub-feedback.haoqingeric.workers.dev/content/search",
+              "editions": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions",
+              "library": "https://agenthub-feedback.haoqingeric.workers.dev/library/search"
+            },
+            "latest": {
+              "daily": {
+                "kind": "daily",
+                "date": "2026-10-15",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-15/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-10-15/index.md"
+              },
+              "weekly": {
+                "kind": "weekly",
+                "date": "2026-10-11",
+                "from": "2026-10-05",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3",
+                  "group-4",
+                  "external"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/weekly/2026-10-05/2026-10-11/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/weekly/2026-10-05/2026-10-11/index.md"
+              }
+            },
+            "total": 38,
+            "limit": 20,
+            "offset": 20,
+            "next_offset": null,
+            "next_url": null,
+            "items": [
+              {
+                "kind": "daily",
+                "date": "2026-09-24",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-24/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-24/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-23",
+                "groups": [
+                  "group-1",
+                  "group-2",
+                  "group-3"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-23/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-23/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-22",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-22/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-22/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-21",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-21/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-21/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-18",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-18/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-18/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-14",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-14/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-14/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-11",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-11/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-11/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-10",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-10/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-10/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-08",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-08/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-08/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-07",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-07/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-07/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-04",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-04/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-04/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-03",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-03/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-03/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-02",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-02/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-02/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-09-01",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-01/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-09-01/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-08-31",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-31/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-31/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-08-30",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-30/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-30/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-08-27",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-27/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-27/index.md"
+              },
+              {
+                "kind": "daily",
+                "date": "2026-08-26",
+                "groups": [
+                  "group-1"
+                ],
+                "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-26/group-1/",
+                "read_url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-26/index.md"
+              }
+            ]
+          },
+          "candidates": [
+            {
+              "kind": "daily",
+              "date": "2026-09-24",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-24/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-23",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-23/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-22",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-22/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-21",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-21/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-18",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-18/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-14",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-14/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-11",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-11/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-10",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-10/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-08",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-08/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-07",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-07/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-04",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-04/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-03",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-03/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-02",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-02/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-09-01",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-09-01/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-08-31",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-31/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-08-30",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-30/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-08-27",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-27/group-1/"
+            },
+            {
+              "kind": "daily",
+              "date": "2026-08-26",
+              "url": "https://hqhq1025.github.io/agent_hub/daily/2026-08-26/group-1/"
+            }
+          ]
+        },
+        {
+          "label": "read nearest available actual date",
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-26/index.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1179,
+          "latency_ms": 0.36,
+          "body": "# AgentHub 日报 2026-08-26\n\n> AgentHub 是讨论 AI Agent 研究与开发的微信群。本期按群分版。正文用角色代称群友，不对应具体成员。网页：https://hqhq1025.github.io/agent_hub/daily/2026-08-26/group-1/\n\n## 一群：从巨龙寓言聊起投资人视角的硅基经济学\n\n群友讨论文章《写给不想被吃的人》，关注从哲学寓言与经济视角探讨人工智能的影响。\n\n### 1. 投资人视角的“硅基经济学”与AI寓言\n\n有群友推荐投资人撰写的《写给不想被吃的人》，称其为近期读过最好的 AI 经济学文章。链接摘要以 Nick Bostrom 的巨龙寓言开篇，分享者将话题概括为“硅基经济学”。\n\nAI 锐评：还没弄清硅基经济怎么运转，先被这个标题提醒了自己在食物链里的站位。\n\n网页：https://hqhq1025.github.io/agent_hub/daily/2026-08-26/group-1/#topic-1\n\n读取统计：推荐的读取入口按小时汇总文件路径、请求方法、返回状态和客户端类别，保留 30 天。不保存 IP 或完整 User-Agent；请求次数不等于人数，也不能证明读完。直接访问 GitHub Pages 文件不计入这项统计。\n"
+        }
+      ],
+      "recovery": {
+        "date": "2026-08-26",
+        "groups": [
+          "group-1"
+        ],
+        "latest": "2026-10-15",
+        "missing_target_date": true
+      },
+      "request_count": 5,
+      "response_bytes": 14200,
+      "budget_pass": true
+    }
+  ],
+  "source_loads": [
+    "search/catalog.json",
+    "agents/topics/daily:2026-09-28:group-2:086414660a8e69b8a556e88e.md",
+    "agents/topics/daily:2026-09-28:group-2:03df844d8c6f264576434af9.md",
+    "agents/topics/daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715.md",
+    "agents/topics/daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb.md",
+    "agents/topics/weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612.md",
+    "agents/topics/daily:2026-10-08:group-2:65d697df052530194c136c56.md",
+    "agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.md",
+    "library/resources.json",
+    "agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.md",
+    "agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.md",
+    "daily/2026-08-26/index.md"
+  ],
+  "old_feasible_path_comparisons": [
+    {
+      "id": "reader-experiment-prior",
+      "label": "Old direct library download -> title lookup -> related daily page",
+      "files": [
+        "library/resources.json",
+        "daily/2026-09-29/group-3/index.md"
+      ],
+      "request_count": 2,
+      "response_bytes": 282308,
+      "responses": [
+        {
+          "path": "library/resources.json",
+          "bytes": 275814,
+          "source": "frozen old corpus serialized with original pretty JSON generator"
+        },
+        {
+          "path": "daily/2026-09-29/group-3/index.md",
+          "bytes": 6494,
+          "source": "frozen old corpus"
+        }
+      ],
+      "qualification": "Feasible manual path using the same published material; no independent agent or wall-clock success claim. No evidence that the old route was impossible."
+    },
+    {
+      "id": "reader-missing-edition",
+      "label": "Old Markdown index -> actual earliest daily file",
+      "files": [
+        "index.md",
+        "daily/2026-08-26/index.md"
+      ],
+      "request_count": 2,
+      "response_bytes": 26982,
+      "responses": [
+        {
+          "path": "index.md",
+          "bytes": 25803
+        },
+        {
+          "path": "daily/2026-08-26/index.md",
+          "bytes": 1179
+        }
+      ],
+      "qualification": "Feasible manual path using the same published material; no independent agent or wall-clock success claim. No evidence that the old route was impossible. Index bytes measured from current public build, which retains the same ordinary edition inventory; this is a feasible-path illustration rather than frozen-old performance measurement."
+    }
+  ],
+  "limitations": [
+    "Task definitions and request/byte budgets were frozen before implementation; manual query decomposition and selections are made by this evaluator, not an autonomous benchmark agent.",
+    "Initial direct-query probes on intermediate builds were exploratory and are excluded from final-run counts. Final run uses same task and pre-frozen budget.",
+    "Full question mismatch or unnecessary candidates remain visible in transcripts; no tuning based on held-out failures."
+  ]
+}

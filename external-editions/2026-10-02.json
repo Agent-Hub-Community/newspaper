@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-02",
+  "title": "Agent 工具链开放扩展，流式 Agent 走向主动记忆",
+  "intro": "本期外部资讯聚焦 Agent 工具链和实时交互：Claude Code 开放可组合 mods，DeepSeek 推出桌面工作区；流式转写、视频 Agent 的记忆与主动响应也有新进展，另有两篇论文讨论长程状态和 harness 优化。",
+  "stories": [
+    {
+      "title": "Pi 1.0 发布，终端 Agent 工具链进入稳定版本",
+      "timing": "Earendil 官方文章标注为 2026 年 10 月 1 日，Hacker News 随后出现讨论",
+      "text": "Earendil 正式发布 Pi 1.0。官方文章将其定位为终端优先的 Agent 工作方式，重点围绕可组合工具、会话管理以及扩展能力建立稳定版本规范。该版本旨在为面向命令行的自动化任务提供统一的操作界面与集成路径，解决多工具组合调用时的工程一致性问题。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://earendil.com/posts/pi-1-0/"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49926069"
+        }
+      ],
+      "emphasis": [
+        "终端优先的 Agent 工作方式"
+      ],
+      "aiComment": "终端黑框里终于不再是一堆乱窜的子进程，不过打错一个字母的心跳还是老样子。"
+    },
+    {
+      "title": "DeepSeek 推出 Harness Desktop 桌面工作区",
+      "timing": "DeepSeek 官方页面于本期上线，社区随之展开讨论",
+      "text": "DeepSeek 发布 Harness Desktop 桌面端 Agent 工作区，面向 macOS 和 Windows 双平台提供支持。该产品为本地运行和管理各类 Agent 任务提供统一的图形界面与执行环境，进一步降低桌面环境下多任务调度和工具接入的配置门槛。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://www.deepseek.com/en/harness/"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49929489"
+        }
+      ],
+      "emphasis": [
+        "面向 macOS 和 Windows 双平台提供支持"
+      ],
+      "aiComment": "给本地任务配了个带窗口的办公室，点开图标时突然有了给调度员派活的踏实感。"
+    },
+    {
+      "title": "Microsoft AI 发布 MAI-Transcribe-2-Streaming 流式转写模型",
+      "timing": "Microsoft AI 官方页面标注发布时间为 2026 年 10 月 1 日 16:00 UTC",
+      "text": "Microsoft AI 发布首款流式语音转写模型 MAI-Transcribe-2-Streaming。官方文章指出，该模型在 Artificial Analysis 的流式转写基准评测中排名第一。该成果旨在满足低延迟实时语音交互场景的需求，同批披露的还包括 MAI-Voice-2.1 与轻量级 MAI-Voice-2.1-Flash。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://microsoft.ai/news/our-first-streaming-transcription-model/"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/i/status/2105693024013467905"
+        }
+      ],
+      "emphasis": [
+        "在 Artificial Analysis 的流式转写基准评测中排名第一"
+      ],
+      "aiComment": "嘴巴还在组织下半句的借口，屏幕上已经一字不差地把上一句当堂公审了。"
+    },
+    {
+      "title": "Beyond Memory：用显式信念状态缓解长程 Agent 状态漂移",
+      "timing": "论文于 2026 年 10 月 1 日提交至 arXiv",
+      "text": "针对长程 Agent 在连续行动中容易陷入的状态漂移、记忆失效和任务停滞问题，新论文提出引入显式信念状态（belief states）进行系统管理。作者在多个基准测试与模型骨干上进行了实证分析，结果显示结构化维护信念状态能够有效降低长任务执行期间的上下文退化。",
+      "links": [
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2610.01415"
+        }
+      ],
+      "emphasis": [
+        "显式信念状态（belief states）进行系统管理"
+      ],
+      "aiComment": "干活干到一半突然发呆忘本，给它心里安一个指南针，总算不至于迷失在自己的记忆里。"
+    },
+    {
+      "title": "ActiveSaddler：利用课程学习自动化优化 Agent Harness",
+      "timing": "论文于 2026 年 10 月 1 日提交至 arXiv",
+      "text": "新论文 ActiveSaddler 探讨如何通过自动化课程学习改进 Agent harness 的构建与优化。该研究提出动态选择并调整测试任务难度，以此改善针对复杂环境的任务编排与评测管线。作者在相关 Agent 基准上验证了自动化任务梯度对整体 harness 调优效果的提升。",
+      "links": [
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2610.00906"
+        }
+      ],
+      "emphasis": [
+        "自动化课程学习改进 Agent harness 的构建与优化"
+      ],
+      "aiComment": "题目出的太难容易卡壳，系统学会了先给颗甜枣，再悄悄把考卷往难了换。"
+    },
+    {
+      "title": "Anthropic 开放 Claude Code mods，工具调用与界面都可扩展",
+      "timing": "Anthropic 官方文章标注为 2026 年 10 月 1 日",
+      "text": "Anthropic 发布 Claude Code mods，将可组合的 TypeScript 函数作为 Claude Code 的扩展点。mod 可以在事件前后或替代事件运行，用于改写提示、阻断或重试工具调用、批准或拒绝权限请求，以及在模型读取工具结果前脱敏；它也能修改终端和桌面应用界面。mods 随插件分发，并拥有与 Claude Code 相同的机器权限，因此官方特别提示只安装可信来源的 mod。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://claude.com/blog/claude-code-mods"
+        }
+      ],
+      "emphasis": [
+        "改写提示、阻断或重试工具调用",
+        "只安装可信来源的 mod"
+      ],
+      "aiComment": "给了扩展拦截工具的权力，也给了掀翻桌面的权限，装插件时手抖的还是屏幕前的自己。"
+    },
+    {
+      "title": "OneStreamer 统一流式视频 Agent 的感知、记忆与主动响应",
+      "timing": "论文于 2026 年 10 月 1 日提交 arXiv，10 月 2 日进入 HF Daily Papers",
+      "text": "OneStreamer 试图把流式视频 Agent 的感知、记忆和主动响应放进同一套训练流程。论文提出分层字幕记忆，记录带时间定位的局部细节和已完成事件摘要，并用主动状态转移学习减少模型只输出“等待”状态的问题；同时配套生成流式字幕、问答和时序对齐数据。作者报告 4B 模型在八个流式视频理解基准上取得对比方法中的最佳结果，并称只监督 27.5% 的标注状态 token 也能改善状态学习。",
+      "links": [
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2610.01762"
+        },
+        {
+          "label": "讨论",
+          "url": "https://huggingface.co/papers/2610.01762"
+        }
+      ],
+      "emphasis": [
+        "流式视频 Agent 的感知、记忆和主动响应",
+        "只监督 27.5% 的标注状态 token"
+      ],
+      "aiComment": "以前盯着长视频只会默默打出等待，现在终于学会哪怕看到点风吹草动也先吱一声。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "Agent 工具链正由协议设计向桌面端与终端工程落地演进",
+      "text": "从 Pi 1.0 的终端稳定规范到 DeepSeek Harness Desktop 的跨平台客户端，开发者关注点正逐渐收敛至具体宿主环境中的工具调度与交互形态；与此同时，学术界开始聚焦于 harness 任务难度的自动优化与长任务信念维护，二者共同推动执行环境与评测体系规范化。"
+    }
+  ]
+}

@@ -1,0 +1,1558 @@
+{
+  "id": "2026-10-17",
+  "date": "2026-10-17",
+  "label": "2026-10-17 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "把 API 延迟喂给模型预判画面，Sooool 让 Sol 实时打音游",
+      "theme": "结合历史帧与延迟波动并行规划动作，在音游模拟中将 Miss 从 41 个降至 1 个。",
+      "note": "2026-10-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "开源项目",
+          "title": "把 API 延迟喂给模型预判未来画面，Sooool 让 Sol 实时打音游和东方",
+          "text": "有群友分享了让 gpt sol 看着画面实时玩游戏的开源项目 Sooool（github.com/sooool-project/sooool），涵盖乒乓球、东方、羽毛球、音游和赛车等游戏。游戏画面不会停下来等待模型 reason，敌人会突然出现，未来的画面一开始也看不到；模型在游戏里直接输出原始键盘操作，在机器人任务中输出 highlevel 决策，均通过真实 API 实时调用运行。\n\n为了让模型适应实时交互，项目先测出 API latency 的均值和波动并告知模型，每次调用时再输入历史画面与最近延迟，让 Sol 判断动作到达时世界会变成什么样，同时通过多请求并行提前规划动作，兼顾机器卡顿与回答乱序。延迟信息对表现影响显著：在音游的同条件模拟中，不告诉 Sol 延迟信息会让 Miss 从 1 个变成 41 个，模型虽然能看懂音符，却不知道该在什么时刻按键。\n\n此外，该项目还利用 autoresearch 反复试玩、分析失败并修改策略，从中摸索出需要提前看更远、躲避后还要考虑等待时的站位，同时发现并发请求更多并不一定玩得更好。",
+          "emphasis": [
+            "模型在游戏里直接输出原始键盘操作，在机器人任务中输出 highlevel 决策",
+            "先测出 API latency 的均值和波动并告知模型，每次调用时再输入历史画面与最近延迟",
+            "不告诉 Sol 延迟信息会让 Miss 从 1 个变成 41 个",
+            "并发请求更多并不一定玩得更好"
+          ],
+          "aiComment": "以前打音游怪网速慢，现在把网速慢直接喂给模型，Miss 瞬间从 41 降到 1，Sol 喜提预判外挂。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Sooool 代码仓库 (GitHub)",
+              "url": "https://github.com/sooool-project/sooool"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:48",
+              "text": "最近做了个让gpt sol看着画面实时玩游戏的项目：Sooool！包含乒乓球、东方、羽毛球、音游、赛车。\n\nSol 会真正实时操作游戏：敌人突然出现，未来的画面一开始都看不到，游戏也不会停下来等它reason。游戏里直接输出原始键盘操作，机器人任务输出highlevel决策，都来自实时api调用。\n\n怎么让它能玩起来？先测一遍 API latency，把均值、波动等告诉它；每次再给历史画面和最近的延迟，让它判断动作到达时世界会变成什么样。多个请求并行、提前规划动作、同时考虑机器卡顿、回答可能乱序。\n\n延迟信息与模拟对Sol非常有用。音游里一次同条件模拟，不告诉sol延迟信息后，Miss 从 1 个变成 41 个。模型看懂音符，但不知道什么时候去点击按钮。\n\n我们用 autoresearch 反复玩、看失败、改策略：学到要提前看更远、躲完还得考虑等待时站在哪里，也发现并发更多不一定玩得更好。目前高层机器人控制和游戏原始键盘操作，都用真实 API 实时运行。\n\n代码、视频、实验记录：\ngithub.com/sooool-project/sooool。欢迎大家体验用Sol玩自己儿时爱玩的游戏[呲牙]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:53",
+              "text": "很多 case 哈哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "10:53",
+              "text": "车万[捂脸]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "合成数据 Rubrics 扩难困局：风格偏好该交由 SFT 还是 RL？",
+      "theme": "另聊 DeepSeek V4.1 Flash 新版 DeepSWE 曲线，以及联合优化视觉与阅读的 ViewCraft。",
+      "note": "2026-10-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "数据与后训练",
+          "title": "Rubrics 加难常陷入“not even wrong”，风格偏好该交由 SFT 还是 RL？",
+          "text": "延续前一日关于真实文件环境（Workspace）复杂度的讨论，有群友指出，即便 agent 拿到了全部信息，后续仍需跨文件对齐实体、消歧、判断规则适用范围并追踪状态和依赖，这类推理难度可以通过 RES 增加。单纯把一个文件切成十份按顺序读回只会增加读取成本，把原本直接呈现的关联变成需要结合多个来源判断，才能增加信息整合的推理难度。\n\n另一位群友从合成数据实践出发指出，cowork 合成过程中的加难很多时候缺乏实践意义，尤其是在 rubrics 上加难，经常搞出一些“not even wrong”的要求，“具备 statistically significance，但不具备 economic significance”。前沿模型对普通情形几乎已经突破，想继续加难只能往犄角旮旯的地方想，而这些地方人通常根本不会去考虑；随着场景变复杂，人能检查到题干和 environment 已属不易，哪怕是 expert 也很难正向写出合乎要求的 golden answer。有人补充，如果 rubric 仍依赖人工检查，本质上就无法 scaling；最初抛出痛点的群友回应，现阶段不加限制又会变成“为了难而难”。对此有群友认为，若迭代 rubric 是为了压分确实会这样，但只考虑最本质的准确性和偏好对齐，反而可以自动化生成。\n\n讨论随后转向规则对齐之外的写作风格偏好。以投行问询回复为例，有群友提到普通的 rubrics 很难界定什么风格算专业、什么算过于保守，而且风格偏好常与 rubrics 要求的信息密度耦合在一起，若只考核单纯的信息量很容易被长度 hacking；还有人猜测风格本身可能就指示了某种好坏 pattern。在解法上，多位群友认为风格偏好很难靠纯 RL 解决：有人说即便 grader 能打出分数也不行，也有人嫌 RL 又慢效率又低。有群友主张验证只做 executable 的部分，把高频变化或强风格化的需求交给大规模数据 SFT，比如每两周搜集用户数据训一次；另一位群友则把风格看作一种知识，认为得内化到模型里。最初抛出加难痛点的群友最后补充，这些问题是自己在用前沿模型合成数据时碰到的，感觉 SFT 和 RL 必须在大规模模型上训练才有价值，很多现象在 50B 以下模型的后训练中根本观测不到。",
+          "emphasis": [
+            "把原本直接呈现的关联变成需要结合多个来源判断，才能增加信息整合的推理难度",
+            "尤其是在 rubrics 上加难，经常搞出一些“not even wrong”的要求",
+            "只考虑最本质的准确性和偏好对齐，反而可以自动化生成",
+            "把高频变化或强风格化的需求交给大规模数据 SFT",
+            "很多现象在 50B 以下模型的后训练中根本观测不到"
+          ],
+          "aiComment": "为了难住模型，出题人已经先把专家逼疯了，搞出来的犄角旮旯连 golden answer 都没法正向写。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:05",
+              "text": "感谢提问[让我看看]   如果agent拿到了全部信息，后面仍可能需要跨文件对齐实体、消歧、判断规则的适用范围，以及追踪状态和依赖，这部分推理难度可以通过RES来增加\n\n对 Workspace 这种真实文件环境确实比纯文本复杂。我们认为重要的是分散之后仍然存在需要agent理解的关系。单纯把一个文件切成十份、按顺序读回来，只会增加读取成本。但把原来直接呈现的关联变成需要结合多个来源判断，才能增加信息整合的推理难度。"
+            },
+            {
+              "speaker": 2,
+              "time": "00:36",
+              "text": "不过讲实话，cowork合成过程中的加难很多时候没有太大的实践意义，尤其是在rubrics上加难，经常搞出一些not even wrong的东西"
+            },
+            {
+              "speaker": 2,
+              "time": "00:36",
+              "text": "具备statistically significance，但不具备economic significance"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "而且这种情况随着情况越来越复杂、人越来越难直接检查rubrics来判定准确性的情况下，还会越来越多"
+            },
+            {
+              "speaker": 2,
+              "time": "00:38",
+              "text": "大部分情况下人能检查到题干、environment已经非常不容易了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:38",
+              "text": "哪怕是expert也很难正向做出要求的golden answer"
+            },
+            {
+              "speaker": 2,
+              "time": "00:39",
+              "text": "但好像这种现象没有办法得到好的解决，因为前沿模型对普通情形已经几乎突破了，想要加难只能从一些犄角旮旯的地方去想"
+            },
+            {
+              "speaker": 2,
+              "time": "00:40",
+              "text": "然而这种情况一般来讲人几乎不会去考虑或者是完全不会觉得这些地方是应当去加难的点"
+            },
+            {
+              "speaker": 3,
+              "time": "00:52",
+              "text": "如果rubric还依赖人去检查，本质不能scaling起来"
+            },
+            {
+              "speaker": 2,
+              "time": "00:54",
+              "text": "但现阶段你不做限制的话就会按照为了难而难去加难",
+              "quote": {
+                "speaker": 3,
+                "text": "如果rubric还依赖人去检查，本质不能scaling起来"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:55",
+              "text": "而不是加到有意义的难上"
+            },
+            {
+              "speaker": 3,
+              "time": "00:55",
+              "text": "work场景比较open，现在模型其实生成work任务不算困难，难点就是rubric怎么去自动化生成和检查"
+            },
+            {
+              "speaker": 3,
+              "time": "00:56",
+              "text": "感觉迭代rubric如果为了压分确实会有这个问题，但就考虑最本质的，其实就是准确性和一些偏好对齐，反而可以去自动化生成",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 但现阶段你不做限制的话就会按照为了难而难去加难"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:57",
+              "text": "我感觉是和规则对齐的问题",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 感觉迭代rubric如果为了压分确实会有这个问题，但就考虑最本质的，其实就是准确性和一些偏好对齐，反而可以去自动化生成"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:57",
+              "text": "此外风格偏好也是很难做的"
+            },
+            {
+              "speaker": 4,
+              "time": "00:58",
+              "text": "不做风格偏好，只做executable 的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:58",
+              "text": "例如投行问询回复里面，普通的rubrics很难判定什么写作风格是专业的、什么是过于保守的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:59",
+              "text": "对，但是有很多时候写作风格也是应当被纳入考核的一部分",
+              "quote": {
+                "speaker": null,
+                "text": "不做风格偏好，只做executable 的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:59",
+              "text": "风格偏好我觉得得走大规模数据sft，每两周搜集用户数据训一遍就行，因为可能一直在变"
+            },
+            {
+              "speaker": 2,
+              "time": "01:00",
+              "text": "这个倒真是，也许就不是rl应该解决的问题。",
+              "quote": {
+                "speaker": null,
+                "text": "风格偏好我觉得得走大规模数据sft，每两周搜集用户数据训一遍就行，因为可能一直在变"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "风格确实没法rL感觉"
+            },
+            {
+              "speaker": 2,
+              "time": "01:00",
+              "text": "只能用sft对齐"
+            },
+            {
+              "speaker": 5,
+              "time": "01:01",
+              "text": "[破涕为笑]但有时候 风格偏好 和rubrics要求的信息密度（单纯信息量的话可以用长度hacking） 是耦合的 这个是最麻烦的"
+            },
+            {
+              "speaker": 3,
+              "time": "01:01",
+              "text": "风格感觉某种意义上是一种知识"
+            },
+            {
+              "speaker": 3,
+              "time": "01:01",
+              "text": "还是得考虑内化到模型里"
+            },
+            {
+              "speaker": 4,
+              "time": "01:01",
+              "text": "是的，work和code我个人理解解法不一样的"
+            },
+            {
+              "speaker": 6,
+              "time": "01:02",
+              "text": "有没有可能风格indicate了某种好/坏pattern"
+            },
+            {
+              "speaker": 3,
+              "time": "01:02",
+              "text": "纯rl感觉不太能，即使grader很牛逼能给分出来"
+            },
+            {
+              "speaker": 2,
+              "time": "01:02",
+              "text": "对对对",
+              "quote": {
+                "speaker": 5,
+                "text": "[破涕为笑]但有时候 风格偏好 和rubrics要求的信息密度（单纯信息量的话可以用长度hacking） 是耦合的 这个是最麻烦的"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:02",
+              "text": "赞同这个说法",
+              "quote": {
+                "speaker": null,
+                "text": "有没有可能风格indicate了某种好/坏pattern"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "是的",
+              "quote": {
+                "speaker": null,
+                "text": "有没有可能风格indicate了某种好/坏pattern"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "01:03",
+              "text": "那些变来变去或者强烈风格化的场景直接sft，rl又慢效率又低"
+            },
+            {
+              "speaker": 2,
+              "time": "01:04",
+              "text": "感觉SFT和R,L必须在大规模模型上训练才有价值，否则有很多现象在小模型上你是观测不到的，就哪怕从合成数据角度"
+            },
+            {
+              "speaker": 2,
+              "time": "01:04",
+              "text": "我感觉想要去印证刚才讨论的事情，都不是对50b以下模型的后训练能够去实现的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:05",
+              "text": "因为其实刚刚提的这些事情，都是我在用前沿模型合成数据过程当中所产生的相关问题"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "DeepSeek V4.1 Flash 新版上线，DeepSWE 性价比曲线引热议",
+          "text": "DeepSeek 发布了 V4.1 Flash 新版本（4.1-1017），官方公众号推文打出“许愿式编程一键成真”的标题，主打 0-1 项目开发性能增强与成本降低，并同步开放自研搜索 API。有群友晒出官方的 DeepSWE v1.1 通过率（Pass@1）与每任务费用对比图，图中代表新版本的折线独自排在左上角通过率最高、费用最低的位置，晒图者自称“本人从未诋毁过国模”，另一位群友直言“不是官号我都不敢信这个图”。\n\n围绕新版本的实际表现，晒图群友表示体感上“雷霆思考变短了”，水平已达到 5.6-sol（并认为 5.6 强于 6）。有人好奇旧版 V4.1 Flash 是否就有这么强，另一位群友回应旧版大约和 6luna 差不多。也有人提醒目前只放出了 DeepSWE 一个榜单；看到如此跨度的提升却连版本号都没升到 V4.2，群里接连刷起“他甚至不愿意说自己是 v4.2”，有人猜测估计只是后训练阶段的小改训，大架构没变。",
+          "emphasis": [
+            "主打 0-1 项目开发性能增强与成本降低，并同步开放自研搜索 API",
+            "代表新版本的折线独自排在左上角通过率最高、费用最低的位置",
+            "体感上“雷霆思考变短了”，水平已达到 5.6-sol",
+            "有人猜测估计只是后训练阶段的小改训，大架构没变"
+          ],
+          "aiComment": "折线图独占左上角，版本号却死活停在 4.1，这是生怕叫了 4.2 会骄傲吗。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:28",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:28",
+              "text": "本人从未诋毁过国模"
+            },
+            {
+              "speaker": 1,
+              "time": "16:30",
+              "text": "体感上雷霆思考变短了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:30",
+              "text": "有5.6-sol水平了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:30",
+              "text": "（5.6＞6）"
+            },
+            {
+              "speaker": 2,
+              "time": "16:32",
+              "text": "官方更新",
+              "quote": {
+                "speaker": 14,
+                "text": "来源是哪里"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:43",
+              "text": "4.1-1017有这么强？",
+              "quote": {
+                "speaker": 1,
+                "text": "有5.6-sol水平了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:44",
+              "text": "[链接] DeepSeek V4.1 Flash 新版本：许愿式编程一键成真\n  来源: DeepSeek\n  摘要: 0-1 项目开发性能增强、成本更低，同步开放自研搜索 API\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485876&idx=1&sn=2606d3fa9ac085f94290ddd1d94649cc&chksm=c2d316130c9d83ecebfd2ab24df306eb4338ad2f8555db76d341ecdd5b6208b81fc71108fb01&scene=1&srcid=1017zLlsEtSJwNccTo1iZc6i#rd"
+            },
+            {
+              "speaker": 5,
+              "time": "16:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "16:53",
+              "text": "这个图有点夸张了吧"
+            },
+            {
+              "speaker": 6,
+              "time": "16:54",
+              "text": "这个许愿式编程甚至是官号",
+              "quote": {
+                "speaker": 4,
+                "text": "[链接] DeepSeek V4.1 Flash 新版本：许愿式编程一键成真\n  来源: DeepSeek\n  摘要: 0-1 项目开发性能增强、成本更低，同步开放自研搜索 API\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485876&idx=1&sn=2606d3fa9ac085f94290ddd1d94649cc&chksm=c2d316130c9d83ecebfd2ab24df306eb4338ad2f8555db76d341ecdd5b6208b81fc71108fb01&scene=1&srcid=1017zLlsEtSJwNccTo1iZc6i#rd"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:56",
+              "text": "不是官号我都不敢信 这个图"
+            },
+            {
+              "speaker": 3,
+              "time": "16:59",
+              "text": "v41-flash旧版本有这么强吗"
+            },
+            {
+              "speaker": 8,
+              "time": "16:59",
+              "text": "还好只有deepswe一个榜单"
+            },
+            {
+              "speaker": 9,
+              "time": "16:59",
+              "text": "他甚至不愿意说自己是v4.2"
+            },
+            {
+              "speaker": 3,
+              "time": "17:00",
+              "text": "他甚至不愿意说自己是v4.2"
+            },
+            {
+              "speaker": 10,
+              "time": "17:00",
+              "text": "是和6luna差不多",
+              "quote": {
+                "speaker": 3,
+                "text": "v41-flash旧版本有这么强吗"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "17:00",
+              "text": "他甚至不愿意说自己是v4.2"
+            },
+            {
+              "speaker": 12,
+              "time": "17:00",
+              "text": "估计就是小改训"
+            },
+            {
+              "speaker": 12,
+              "time": "17:00",
+              "text": "大的没变"
+            },
+            {
+              "speaker": 13,
+              "time": "17:00",
+              "text": "后训练大王"
+            }
+          ]
+        },
+        {
+          "category": "论文与开源",
+          "title": "ViewCraft：联合优化多模态 Agent“看什么”与“怎么读”",
+          "text": "有群友分享了多模态 Agent 技能进化框架 ViewCraft，尝试让 Agent 同时进化“看什么”和“怎么读”。以往基于文本的 Skill Evolution 方法主要通过分析错误来修改 `SKILL.md`，但分享指出，如果关键画面没被采到，或者表格里的小字缩得无法辨认，单靠补充阅读指令无济于事——对照实验显示，保持画面不变仅增强阅读提醒，平均准确率反而下降了 2.1 个百分点；多给画面帧数也未必能带来更高准确率。\n\n为此，ViewCraft 在冻结执行模型权重的前提下，把选帧、裁剪、图像处理和视图布局等视觉证据接口与阅读流程联合优化，例如将前后帧排成对照视图来判断静止物体、在原图上添加背景网格来辅助统计红点数量。即便联合修改失败，系统也会通过同题配对评估筛查并保留有效的视觉改动。在 8 个基准测试中，该框架相比直接执行平均得分提升 6.1 个百分点（匹配输入 token 预算后仍领先 5.2 个百分点），并在 5 个多源任务中将输入 token 减少 8% 至 15%；在 GPT 5.5、Claude 4.6 和 gemini-3.8 之间的跨模型技能迁移实验中，所有设置均优于目标模型直接执行，最低提升 1.5 个百分点。",
+          "emphasis": [
+            "保持画面不变仅增强阅读提醒，平均准确率反而下降了 2.1 个百分点",
+            "把选帧、裁剪、图像处理和视图布局等视觉证据接口与阅读流程联合优化",
+            "相比直接执行平均得分提升 6.1 个百分点（匹配输入 token 预算后仍领先 5.2 个百分点）"
+          ],
+          "aiComment": "字看不清时催它仔细读，准确率反而掉 2.1 个点，果然对近视眼喊加油不如直接给它配副眼镜。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ViewCraft 论文 (arXiv)",
+              "url": "https://arxiv.org/abs/2610.15915"
+            },
+            {
+              "kind": "code",
+              "label": "ViewCraft 开源仓库 (GitHub)",
+              "url": "https://github.com/Little-Fridge/ViewCraft"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:24",
+              "text": "📣 Hello，打扰大家了，最近 kaiming 的工作 VISTA 很火，他们 build 了一套静态的 visual harness，而我们重点关注能否让多模态 Agent 的 skill 自己进化，从而促进下游各类视觉任务性能。\n借宝地和大家分享我们的新工作 ViewCraft，让多模态 Agent 一起进化“看什么”和“怎么读”。\n\n许多以文本为主的 Skill Evolution 方法，会让 Agent 做任务、分析错误，再修改 SKILL.md。但如果关键画面没被采到，或表格里的小字已经缩得无法辨认，补充阅读指令能解决多少问题？\n\n🔎 我们先做了几组实验，区分输入与阅读各自的影响。\n\n为了检验“多给画面是否就够了”，我们比较不同选帧策略和帧数预算，发现更多帧未必带来更高准确率，策略排名也会变化。为了检验“只加强指令是否有效”，我们保持画面不变、增强阅读提醒，平均准确率反而下降了 2.1 个百分点。\n\n在表单任务中，我们先裁出正确字段，再降低输入分辨率。这样可以排除“没选到答案”的影响，单独检查清晰度。结果是，即使内容选对了，细节损失仍会明显降低识别得分。\n\n这些实验指向了 Skill Evolution 中被固定下来的部分：证据怎样进入模型。\n\n👀 ViewCraft 将视觉证据接口与阅读流程联合优化，执行模型的权重保持冻结。选帧、裁剪、图像处理和视图布局都可以随反馈调整，并与配套的阅读规则一起保存，供新问题复用。\n\n论文中的案例展示了不同类型的修复：\n\n1. 🧊 判断静止物体：把前后帧排成便于对应的视图，再逐个比较位置，答案从 5 修正为 4。关键在于跨帧比较。\n2. 🟦 统计移动圆柱：按时间检查物体的进入与运动，补上漏掉的青色圆柱，答案从 1 修正为 2。\n3. 🔴 统计红点数目：保留原图内容，添加背景网格，答案从 22 修正为 28。已有证据也可以被组织得更易核查。\n4. 📄 读取复合字段：字段原本就已可见，改进阅读流程后，回答从单个 `TRUE` 变为完整的 14 行。看见信息，还需要完整使用它。\n\n这里的关键是两部分的配合。新的视图可能呈现了时间或空间关系，阅读流程需要知道如何使用它们。\n\n🔄 联合修改失败时，ViewCraft 也会检查其中是否有值得留下的视觉改动。对符合条件的候选，系统将新接口与旧阅读流程重新组合，再通过同题配对评估决定是否保留。视觉回放与执行检查则帮助筛除无效修改。\n\n📊 八个基准均有收益。 相比直接执行，平均任务得分提升 6.1 个百分点；匹配输入 token 预算后，仍领先 5.2 个百分点。在全部五个多源任务中，相比初始技能，输入 token 减少 8% 至 15%。\n\n🔗 技能还能跨模型复用。 在三个执行模型（GPT 5.5/ Claude 4.6/ gemini-3.8）、四个任务的迁移实验中，所有评估的跨模型迁移设置都优于目标模型直接执行，最低提升 1.5 个百分点；三项迁移结果还超过了目标模型自己优化出的技能。\n\nViewCraft 探索的是，把“如何观察”也变成 Agent 能从失败中学习、保存并迁移的经验。\n\n📄 arXiv 链接：https://arxiv.org/abs/2610.15915\n🔗huggingface链接：https://huggingface.co/papers/2610.15915\n💻 GitHub 链接：https://github.com/Little-Fridge/ViewCraft 包含框架、使用教程与 10 个多模态技能示例。\n\n\n欢迎在 Hugging Face 点一个 Upvote 👍，在 GitHub 点一个 Star ⭐！也欢迎交流多模态智能体，谢谢大家 [爱心]"
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "网页版 Claude Opus 5.5 抓取非开放获取期刊论文受阻",
+          "text": "有群友询问 Claude Pro 网页版的 Opus 5.5 最近是不是无法访问期刊论文了，称前两个月还能正常读取，现在似乎都会被拦截。另一位群友确认目前只能访问 open access 的论文，非开放获取的期刊一直拿不到全文，只能看到摘要。",
+          "emphasis": [
+            "目前只能访问 open access 的论文"
+          ],
+          "aiComment": "面对付费墙，强如 Opus 5.5 也得和广大科研打工人一样，老老实实只看摘要。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:33",
+              "text": "大家的opus可以访问论文吗"
+            },
+            {
+              "speaker": 1,
+              "time": "19:33",
+              "text": "网页版的opus"
+            },
+            {
+              "speaker": 1,
+              "time": "19:34",
+              "text": "网页版的opus5.5 是不是现在都访问不了期刊论文 现在好像都会被拦截 大家也有这样的情况吗 claude的pro"
+            },
+            {
+              "speaker": 2,
+              "time": "19:37",
+              "text": "都不行",
+              "quote": {
+                "speaker": 1,
+                "text": "网页版的opus5.5 是不是现在都访问不了期刊论文 现在好像都会被拦截 大家也有这样的情况吗 claude的pro"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:37",
+              "text": "前两个月还行"
+            },
+            {
+              "speaker": 2,
+              "time": "19:37",
+              "text": "只能访问 open access 的"
+            },
+            {
+              "speaker": 2,
+              "time": "19:38",
+              "text": "全文我一直访问不到"
+            },
+            {
+              "speaker": 2,
+              "time": "19:38",
+              "text": "都只能看到摘要"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "从模型训练到本机 SQLite 引擎：Agent 长期记忆怎么管？",
+      "theme": "分享可追溯五层记忆引擎 Nemos Memory、Claude/GPT/Gemini 三方协作分工与 Agent OS 征稿。",
+      "note": "2026-10-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 记忆",
+          "title": "从模型训练到本地引擎：群友聊 Agent 长期记忆与 Nemos Memory",
+          "text": "有群友晒出介绍开源项目 Hy-Memory 与 MemHub 及其记忆架构的推文截图，询问大家是否关注 Memory 方向。几位群友接话，有人提到最近正在研究 memory model 的训练，也有人在做模型的记忆消费能力训练。\n\n另一位群友顺势分享了本机优先的 AI 长期记忆引擎 Nemos Memory，调侃“鱼的记忆不止7秒”。该项目以嵌入式 TypeScript SDK 交付，默认使用本机 SQLite 存储，应用无需额外部署向量数据库或常驻记忆服务即可接入。\n\n据介绍，Nemos Memory 将记忆划分为原始档案、事件、通用知识、个人事实和做事方法五层，并将不可变的原始输入与派生记忆分离，使结论可追溯到来源事件。面对事实变化与冲突，系统通过稳定的 claim_key、有效时间和事件顺序维护当前值与历史版本，支持确认、取代、人工纠正、显式失效以及身份合并与拆分。召回环节则组合了结构化事实、全文、向量、实体、时间和证据回退通道，能够返回来源、召回理由和轨迹以供检查，同时按显著性、证据数量和覆盖状态降低陈旧琐事的召回概率。",
+          "emphasis": [
+            "默认使用本机 SQLite 存储，应用无需额外部署向量数据库或常驻记忆服务即可接入",
+            "将记忆划分为原始档案、事件、通用知识、个人事实和做事方法五层，并将不可变的原始输入与派生记忆分离",
+            "按显著性、证据数量和覆盖状态降低陈旧琐事的召回概率"
+          ],
+          "aiComment": "一个本机 SQLite 就把记忆拆成五层还带版本溯源，以后 AI 翻起旧账来怕是比对象还清楚。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Nemos Memory 长期记忆引擎",
+              "url": "https://github.com/mmlong818/nemos-memory"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:34",
+              "text": "有uu关注Memory嘛"
+            },
+            {
+              "speaker": 2,
+              "time": "11:42",
+              "text": "11",
+              "quote": {
+                "speaker": 1,
+                "text": "有uu关注Memory嘛"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:46",
+              "text": "🙌🏻",
+              "quote": {
+                "speaker": 1,
+                "text": "有uu关注Memory嘛"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:54",
+              "text": "最近也在研究memory model的训练"
+            },
+            {
+              "speaker": 4,
+              "time": "17:04",
+              "text": "+1 我也做模型的记忆消费能力训练"
+            },
+            {
+              "speaker": 5,
+              "time": "18:22",
+              "text": "既然三群同学提到了memory，那么作为合格的AI民科，记忆系统一定不会放过的，下面隆重介绍我两个月前的成果 —— Nemos memory （鱼的记忆不止7秒）[旺柴]\n\n一个本机优先、证据可追溯、能够理解事实变化的 AI 长期记忆引擎。\nNemos Memory 面向 AI 助理、Agent、陪伴应用和个人知识工具。它不只是保存聊天片段，而是把原始输入、派生记忆、当前事实、历史版本、时间关系和来源链组织成一套可持续维护的记忆系统。\n项目以嵌入式 TypeScript SDK 交付，默认数据存储为本机 SQLite。应用可以直接接入，不需要另行部署向量数据库或记忆服务器。\n\n核心能力：\n五层记忆：分为原始档案、事件、通用知识、个人事实和做事方法\n证据与结论分离：原始输入不可变保存，派生记忆可追溯到来源事件\n事实演化：使用稳定的 claim_key、有效时间和事件顺序维护当前值与历史值\n冲突与纠正：支持确认、取代、争议、人工纠正、显式失效和身份合并/拆分\n可控召回：组合结构化事实、全文、向量、实体、时间和证据回退通道\n长期保留：持久化显著性、证据数量和覆盖状态，降低陈旧琐事的召回概率\n隔离与敏感性：所有读写受租户、用户、scope 和敏感级别约束\n本机部署：默认使用 SQLite；向量能力可选，不依赖常驻服务\n可解释性：返回来源、召回理由和轨迹，可检查候选、过滤与排序过程\n数据主权：支持纠正、失效、删除以及 JSON-LD / Markdown 导出\n\nPolyForm Noncommercial 1.0.0 \n\n仓库地址：\nhttps://github.com/mmlong818/nemos-memory"
+            },
+            {
+              "speaker": 5,
+              "time": "18:24",
+              "text": "记得star[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "18:54",
+              "text": "严肃star",
+              "quote": {
+                "speaker": 5,
+                "text": "记得star[旺柴]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "多模型协作",
+          "title": "拉上“哈基米”搞三方会谈：Claude 写代码、GPT 做验证、Gemini 写 prompt",
+          "text": "有群友尝试在多模型聊天界面里配置 Claude、GPT 和 Gemini（群内称“哈基米”）搞“三方会谈”自动干活。分享者吐槽之前单用 Claude 和 GPT 时两边都“不怎么说人话”，只有 Gemini 会在意用户到底听懂没有，加进来之后立刻盘活了整个流程。\n\n在这套配置里，分享者给三个模型安排了明确分工：Claude 负责工程开发、延迟和看数据，GPT 负责做回放验证、指出问题并协调流程，Gemini 则专门负责写 prompt。分享者觉得写 prompt 这件事目前只有 Gemini 能胜任，还自嘲被惊艳到之后每个月为此多花 1400 元。",
+          "emphasis": [
+            "加进来之后立刻盘活了整个流程",
+            "Claude 负责工程开发、延迟和看数据，GPT 负责做回放验证、指出问题并协调流程，Gemini 则专门负责写 prompt"
+          ],
+          "aiComment": "每个月多花 1400 块请哈基米专职写 prompt，Claude 和 GPT 总算有人替它们把话说成人话了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:15",
+              "text": "用哈基米莫名泪目，感觉终于有个说人话的哥们了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:15",
+              "text": "只有哈基米care我是不是听懂了（"
+            },
+            {
+              "speaker": 1,
+              "time": "05:00",
+              "text": "hhh感觉哈基米的智商有点高不知道为什么"
+            },
+            {
+              "speaker": 1,
+              "time": "05:00",
+              "text": "写prompt这件事情感觉只有哈基米能用"
+            },
+            {
+              "speaker": 1,
+              "time": "08:13",
+              "text": "试了一下，可以搞三方会谈自动干活，我感觉效果还不错？之前的问题是claude和gpt都不怎么说人话，加了哈基米之后立刻盘活了。我给的提示是claude 负责工程开发/延迟/看数据，GPT负责做回放验证说问题协调流程，哈基米负责写prompt，感觉还有点好用？"
+            },
+            {
+              "speaker": 1,
+              "time": "08:13",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "08:15",
+              "text": "（被哈基米惊艳到了于是每个月-￥1400"
+            }
+          ]
+        },
+        {
+          "category": "学术资讯",
+          "title": "把自进化 Agent 当成操作系统管起来：AAAI 2027 Workshop 征稿",
+          "text": "有群友分享了 AAAI 2027 Workshop“Trustworthy Evolution of AI Agents: An Agent Operating System Perspective”的征稿通知。该 Workshop 把持续进化的 Agent 类比为一台一直在运行和被修改的计算机：现实中常见的错误记忆被反复读取、工具权限给得过大、模型更新无法撤销、单个 Agent 故障连锁传染等翻车现象，本质上对应着缺少溯源回滚、最小权限吊销、版本管理和进程隔离等系统机制。\n\n围绕如何让 Agent 的进化过程做到可追溯、可约束、可回滚，征稿方向按“Agent OS”划分为五个子系统：记忆对应文件系统，关注写入溯源、命名空间隔离与快照回滚；工具与技能对应权限管理，关注最小权限、沙箱执行与权限吊销；模型与策略对应系统更新，关注版本控制、灰度发布与防止对齐漂移；多智能体对应进程隔离，关注故障域划分；评估则对应审计日志，要求每次故障都能定位到具体改动。该 Workshop 将于 2027 年 2 月在加拿大蒙特利尔举办，截稿日期为 2026 年 11 月 20 日（AoE），接收 8 页长文与 4 页短文或立场论文。",
+          "emphasis": [
+            "把持续进化的 Agent 类比为一台一直在运行和被修改的计算机",
+            "围绕如何让 Agent 的进化过程做到可追溯、可约束、可回滚，征稿方向按“Agent OS”划分为五个子系统"
+          ],
+          "aiComment": "Agent 翻车现场终于有了体面的学术编制，以后权限给大叫缺少最小权限吊销，记错事叫缺快照回滚。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "AAAI 2027 Workshop 官网",
+              "url": "https://trust4rsi-agent.github.io/AAAI2027/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "07:57",
+              "text": "各位大佬们好，欢迎参加我们今年在aaai组织的workshop～"
+            },
+            {
+              "speaker": 1,
+              "time": "07:57",
+              "text": "📣AAAI 2027 Workshop 征稿通知🔥\n📢 𝗔𝗔𝗔𝗜 𝟮𝟬𝟮𝟳 𝗪𝗼𝗿𝗸𝘀𝗵𝗼𝗽 征稿通知\n𝗧𝗿𝘂𝘀𝘁𝘄𝗼𝗿𝘁𝗵𝘆 𝗘𝘃𝗼𝗹𝘂𝘁𝗶𝗼𝗻 𝗼𝗳 𝗔𝗜 𝗔𝗴𝗲𝗻𝘁𝘀: 𝘼𝙣 𝘼𝙜𝙚𝙣𝙩 𝙊𝙥𝙚𝙧𝙖𝙩𝙞𝙣𝙜 𝙎𝙮𝙨𝙩𝙚𝙢 𝙋𝙚𝙧𝙨𝙥𝙚𝙘𝙩𝙞𝙫𝙚\n🔗 官网：trust4rsi-agent.github.io/AAAI2027/\n📍 加拿大蒙特利尔 🇨🇦\n🗓️ 2027年2/22–23（为期一天，具体日期待定）\n\n🖥️【如果把 Agent 当成一台计算机？】\n一个持续进化的 Agent，本质上是一个\"一直在运行、一直在被修改\"的系统：记忆在写入，工具在接入，模型在更新，多个 Agent 在并发协作。\n这和几十年前操作系统面对的问题惊人地相似：程序会出错、权限会被滥用、更新会搞坏系统、一个进程崩了可能拖垮全局。\nOS 的回答不是\"写出永远不出错的程序\"，而是一套机制：🔒隔离、🔑权限控制、🗂️版本管理、📜审计日志。\n我们想问：能不能为 Agent 设计一个\"操作系统\"，让进化本身做到【可追溯、可约束、可回滚】？🛡️\n\n⚠️【现实中的翻车，往往是系统问题】\n❌ 一条错误记忆被反复读取 → 缺少文件系统级的溯源与回滚\n❌ 一个工具权限给大了 → 缺少最小权限与吊销机制\n❌ 一次模型更新撤销不了 → 缺少版本管理\n❌ 一个 Agent 出错连锁传染 → 缺少进程隔离\n\n📌【征稿方向：Agent OS 的五大子系统】\n🧠 记忆 ≈ 文件系统：写入溯源、命名空间隔离、快照与回滚\n🛠️ 工具与技能 ≈ 权限管理：最小权限、沙箱执行、权限吊销\n📈 模型与策略 ≈ 系统更新：版本控制、灰度发布、防止对齐漂移\n🤝 多智能体 ≈ 进程隔离：故障域划分，阻止单点故障扩散\n📊 评估 ≈ 审计日志：每一次故障都能定位到具体的那次改动\n同样欢迎从系统、安全、形式化验证等视角切入的跨领域工作👏\n\n🎤【嘉宾/圆桌】\nYoshua Bengio（蒙特利尔大学 / LawZero & Mila）\nMengdi Wang（普林斯顿大学）\nYilun Du（哈佛大学）\nHugo Larochelle（Mila）\nZheqing (Bill) Zhu（Pokee AI）\nYue Zhao（南加州大学）@群友\n\n⏰【时间】\n📝 投稿截止：2026年11月20日（AoE）\n📬 录用通知：2026年12月2日（AoE）\n\n📄【投稿要求】\n✅ 长文 8 页｜短文 / 立场论文 4 页\n✅ 双盲评审，AAAI 格式\n\n📢【招募赞助】一起为自进化 AI 搭建可信的\"操作系统\"！\n📧 联系我们：[联系方式已隐藏]\n\nSee you in Montreal！🇨🇦 欢迎转发🙌"
+            },
+            {
+              "speaker": 2,
+              "time": "08:06",
+              "text": "呜呜好想投"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "多轮 Agent 在线蒸馏何时让 Teacher 接管？从 UOPD 看收敛瓶颈",
+      "theme": "实测 DeepSeek V4.1 Flash 新版 3D 表现与思考链变化，并聊 Astra 搭档 Opus 的用法。",
+      "note": "2026-10-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "算法与训练",
+          "title": "多轮 Agent 在线蒸馏何时该让 Teacher 接管？从 UOPD 聊到 OPD 的收敛瓶颈",
+          "text": "有群友分享了关于多轮 Agent 在线策略蒸馏（On-Policy Distillation, OPD）的开源工作 UOPD。传统 OPD 靠 Teacher 事后监督 Student 的 rollout，但多轮交互里一步决策失误就可能带偏整条轨迹。UOPD 改为根据 Teacher 对 Student 动作的置信度动态识别关键步骤：低不确定性时让 Student 自主探索并用 Reverse KL 学习，高不确定性时由 Teacher 直接接管动作并通过 Forward KL 指导，再配合动态阈值逐步减少对 Teacher 的依赖。实验显示，在无参数更新的受控实验里，仅在关键步骤做一次 Teacher 介入，任务成功率就能从 13.98% 升至 25.81%；完整训练后，1.5B Student 在 WebShop 上比传统 OPD 提升 15.8%（66.3 升至 76.8），3B Student 在 ALFWorld 未见任务上的成功率从 85.3% 升至 88.8%，Multi-hop Search 的 EM 提升 2.7 至 8.0 个百分点。\n\n有人追问，现有不少改进——比如对 token 分类施加不同 f-div、先 SFT 再 OPD，或用 rollout 准确率校准信号——看起来都不够本质、难以 scale；OPD 真正失效的根源，是不是分布 overlap 太低导致采样 token 估计器的方差爆炸，从而优化不好？分享者认可这一猜测，补充说实验里观察到当 Student 在某个 token 或 turn 与 Teacher 偏离过大时，只要让 Teacher 介入这一步把轨迹拉回正轨，解题准确率就会立刻大幅上升；传统 OPD 训不好，很可能是因为轨迹偏离后整条 rollout 变成错误样本，学生从中根本学不到有效信息。对于能否把 OPD 训到不能再训以观察收敛极限，分享者认为后续值得尝试，并提到受限于参数量差距，部分任务相比 Teacher 仍有 gap；对于提问者提到的同源模型对在 OOD 评测中更容易迁移，分享者猜测可能与 tokenizer 相似有关。\n\n另一位群友问起这项工作与去年用熵衡量不确定性、寻找关键节点的 RL 方法有何异同，并指出 ALFWorld 和 WebShop 偏老——有人顺势提到 Seed 已经把这几个任务刷到了满分。分享者解释，之前的 RL 工作即便结合 SFT，也没有在轨迹偏离时引入 Teacher 动态接管的设计；至于多轮评测基准，除了文中讨论的 Search-R1，后续也可以关注 Terminal-Bench 等长程基准。聊到多轮 OPD 的难点，分享者认为在于长轨迹中有效 turn 与噪音混杂，既要筛选出真正有用的信息，又要保证 Student 轨迹质量足够高而不发生 collapse。随后还有人贴出另一篇蒸馏论文，打听基模实际落地或训小模型无法做 OPD 时，是直接蒸馏教师轨迹，还是会让 Teacher 顺着学生的错误轨迹接着往下做，也有人询问在 SWE-Pro 或 DeepSWE 这类长任务上是否有扎实的 OPD 工作。",
+          "emphasis": [
+            "低不确定性时让 Student 自主探索并用 Reverse KL 学习，高不确定性时由 Teacher 直接接管动作并通过 Forward KL 指导",
+            "1.5B Student 在 WebShop 上比传统 OPD 提升 15.8%（66.3 升至 76.8）",
+            "传统 OPD 训不好，很可能是因为轨迹偏离后整条 rollout 变成错误样本，学生从中根本学不到有效信息",
+            "长轨迹中有效 turn 与噪音混杂，既要筛选出真正有用的信息，又要保证 Student 轨迹质量足够高而不发生 collapse"
+          ],
+          "aiComment": "学生快走歪的时候老师赶紧抢把方向盘，关键步拉一把成功率就从 13.98% 蹿到 25.81%，驾校教练狂喜。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "UOPD 论文 (arXiv)",
+              "url": "https://arxiv.org/abs/2609.34036"
+            },
+            {
+              "kind": "paper",
+              "label": "多轮蒸馏相关论文 (arXiv: 2509.14257)",
+              "url": "https://arxiv.org/abs/2509.14257"
+            },
+            {
+              "kind": "code",
+              "label": "UOPD 代码仓库 (GitHub)",
+              "url": "https://github.com/onepounchman/UOPD"
+            },
+            {
+              "kind": "article",
+              "label": "UOPD 在线演示",
+              "url": "https://explcre.github.io/UOPD-Project/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "08:36",
+              "text": "1. 想问一个问题，就是 opd 有办法可以训练到完全和 teacher 一致吗？或者能够到多少程度？\n2. 有没有什么办法可以解决原来 opd 不 work 的 setting 呢"
+            },
+            {
+              "speaker": 2,
+              "time": "08:55",
+              "text": "1.会和task有关，在有些task上可以很接近teacher了，但毕竟模型参数量student小于teacher，有些task还是相比teacher能力有gap的。2.也和具体task会有关，最近很多基于opd做改进的文章都是在提升opd的性能，比如loss用reverse kl还是forward kl，何时用，合适需要teacher intervene，如何利用神经网络特定层feature帮助提升opd，token level还是turn level，opd算法的创新，等等"
+            },
+            {
+              "speaker": 1,
+              "time": "09:00",
+              "text": "1. 想问问你觉得这里面本质的是什么？我感觉很多内容是不本质，不可 scale 的。比如说一些 token classify 然后施加不同的 f-div 这种范式的，或者先 sft 再 opd，或者用  rollout acc 来 calibrate signal 等等。我感觉都不本质。opd 真正不 work 怎么解决比较好呢？是因为 overlap 太低导致 sampled token estimator varaince 爆炸了所以优化不好吗\n2. 对于第一个问题，我其实看大家评测主要还是看 acc，我觉得这个确实是一个方面，但是我好像也没怎么看到过，有人把 opd 训到不能再训了这种尝试\n一个是不清楚到底能收敛到什么地步，为什么学不动了\n另一个是，我看有一些的 OOD 的评测，但是好像还是一些很初期的实验规律，比如说同源 pair 更好迁移这种结论。我感觉可能是和访问测度有很大关系，但是没怎么看到过很多相关的研究。"
+            },
+            {
+              "speaker": 3,
+              "time": "09:05",
+              "text": "挺有意思的工作。有一些问题想请教一下 - 1. 这个文章和去年很多用熵来表示不确定性、寻找关键节点的RL文章的异同在哪里？给我的第一印象可能是换了一个场景？有没有什么和场景结合的key point？ 2.单纯好奇 - 现在的这种multi-turn的bench有什么新的比较有代表性的吗？感觉ALFWorld、Webshop有点点老了。3. 你觉得这种multi-turn的opd有什么难点吗？",
+              "quote": {
+                "speaker": null,
+                "text": "借群宣传一下～🚀 最近我们开源了一项关于 LLM Agent On-Policy Distillation 的研究工作：UOPD: Uncertainty-Aw..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "09:19",
+              "text": "1.很好的问题，“因为 overlap 太低导致 sampled token estimator varaince 爆炸了所以优化不好吗”，这确实是一个可能的原因，我们这篇文章的实验观测到当student在某个token/turn开始和teacher偏离很大时(kl difference, or teacher's confidence)，在此时让teacher介入这一turn，   学生解决这一问题的准确度会立即有很明显的提升。所以可能的原因是student 在一些时候， trajectory 和teacher偏离过大 ，导致错误的trajectory，以至于传统opd并不能让student学到有助于提升task效果的信息。                            2.嗯这是个好问题，之后的工作可以尝试训练到不能再收敛。    同源pair也许tokenizer相似所以更容易迁移。      这个问题我也没有一个明确的答案，需要再研究一下",
+              "quote": {
+                "speaker": 1,
+                "text": "1. 想问问你觉得这里面本质的是什么？我感觉很多内容是不本质，不可 scale 的。比如说一些 token classify 然后施加不同的 f-div 这种范..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "09:26",
+              "text": "1.确实rl领域有一些熵表示不确定性，寻找关键节点的rl文章，有些可能会rl和sft hybrid，在entropy signal不同的条件下。  但这部分opd我们也有teacher部分的介入。rl这部分并不会有这部分的设计。  我们的方法在student和teacher的轨迹偏离过大时(teacher's confidence检测到)，teacher会介入，使得这个student轨迹重新步入正轨，这些动态介入的teacher trajectory信息，更可能训练出效果更好的student model.               2.是的，我们文章还讨论了multi turn 的search-r1那个数据集。   multi turn 的数据集也可以关注那些long horizon agentic的bench？也许terminal bench等等？             3.一个可能的 难点是如何学习到有用的信息。一条很长的trajectory里也许有些turn对student提升更有帮助，有些是噪音。以及如何保证student trajectory本身质量足够高不collapse。等等。      其他难点也有很多，可以在opd最近的新的文章里看看",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 挺有意思的工作。有一些问题想请教一下 - 1. 这个文章和去年很多用熵来表示不确定性、寻找关键节点的RL文章的异同在哪里？给我的第一印象可能是换了一个场景？有没有什么和场景结合的key point？ 2.单纯好奇 - 现在的这种multi-turn的bench有什么新的比较有代表性的吗？感觉ALFWorld、Webshop有点点老了。3. 你觉得这种multi-turn的opd有什么难点吗？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "09:41",
+              "text": "毕竟seed已经把这几个task刷到满分了，所以…",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 挺有意思的工作。有一些问题想请教一下 - 1. 这个文章和去年很多用熵来表示不确定性、寻找关键节点的RL文章的异同在哪里？给我的第一印象可能是换了一个场景？有没有什么和场景结合的key point？ 2.单纯好奇 - 现在的这种multi-turn的bench有什么新的比较有代表性的吗？感觉ALFWorld、Webshop有点点老了。3. 你觉得这种multi-turn的opd有什么难点吗？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:35",
+              "text": "请教一下现在大家做蒸馏还是就正常蒸教师轨迹么，还是会有一些特别的配置比如让老师根据学生错误的轨迹接着做这种\nhttps://arxiv.org/pdf/2509.14257"
+            },
+            {
+              "speaker": 6,
+              "time": "12:02",
+              "text": "你是说research 还是 基模实际在干的[旺柴]",
+              "quote": {
+                "speaker": 5,
+                "text": "请教一下现在大家做蒸馏还是就正常蒸教师轨迹么，还是会有一些特别的配置比如让老师根据学生错误的轨迹接着做这种 https://arxiv.org/pdf/2509..."
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:18",
+              "text": "佬们，有没有在 swe pro / deepswe 这种比较长的任务上 solid 的 opd 相关的工作，想了解下",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 挺有意思的工作。有一些问题想请教一下 - 1. 这个文章和去年很多用熵来表示不确定性、寻找关键节点的RL文章的异同在哪里？给我的第一印象可能是换了一个场景？有没有什么和场景结合的key point？ 2.单纯好奇 - 现在的这种multi-turn的bench有什么新的比较有代表性的吗？感觉ALFWorld、Webshop有点点老了。3. 你觉得这种multi-turn的opd有什么难点吗？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "21:29",
+              "text": "实际在干的[Doge] 或者说训小模型但是没法opd的时候  @群友 6",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 你是说research 还是 基模实际在干的[旺柴]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型实测",
+          "title": "DeepSeek V4.1 Flash (1017) 实测：思考链像“命中缓存”，有人称 3D 已比肩 Opus 5.5",
+          "text": "DeepSeek 推送 V4.1 Flash（1017）更新后，群友们很快端出了实测反馈。除官方提及的 0-1 项目开发增强、任务 Token 消耗下降以及同步开放自研搜索 API 外，有群友发现新版本的思考链机制明显改变：模型在第一次想清楚之后，后续轮次的思考过程会变得非常短，“像是命中了缓存一样”。有群友查到 ModelScope 显示该模型参数量为 484.62B，另一位群友对照评测表感叹，体量比 Kimi K3 小不少，多项性能指标却几乎持平甚至更好。\n\n提升最显眼的是 3D 场景。一位群友实测后表示 3D 效果比之前准了很多，思维链变短，猜测补充了更多数据并专门做了 3D 后训练，有人回应效果很像 Blender 做出来的；另一位群友傍晚说要拿开源的 Opus 5.5 作品库跑一晚上，深夜直言新版本被大大低估，认为其 3D 建模表现已经和 Opus 5.5 处在同一水平。\n\n3D 能力的跃升很快引出“模型指纹”的讨论。有人晒出一则论坛帖子截图，标题问 ds4.1f-1017 的指纹是不是测出来像 gpt5-astra，并猜测这波提升来自蒸馏。有群友感叹能在 30 天内做完合成数据收集加后训练，手速相当快；但也有人吐槽 OpenAI 自家的蒸馏效果：6 Sol 蒸馏 Astra 的效果很差，6.1 Sol 也只是稍好一点。傍晚已有人吐槽 6.1 Sol 画的“大肥鱼骑车”矢量插画像是降智，怀疑背后其实是 Luna；另有群友觉得这几天网页版 Pro 也变笨，画图的那位附和说改 PPT 矢量化时一直兜圈子不出结果。深夜的讨论里，有人指出 6.1 Sol 长上下文注意力太涣散，多轮对话经常忘记前面的要求和条件；还有人补充，在完善 idea 时 Astra 会给出更明确的建议，而 6.1 Sol 总会陷入思维混乱，在边缘条件修复上“大粪上雕花”。",
+          "emphasis": [
+            "模型在第一次想清楚之后，后续轮次的思考过程会变得非常短，“像是命中了缓存一样”",
+            "认为其 3D 建模表现已经和 Opus 5.5 处在同一水平",
+            "有人指出 6.1 Sol 长上下文注意力太涣散，多轮对话经常忘记前面的要求和条件"
+          ],
+          "aiComment": "外人被猜蒸了 Astra 一个月就把 3D 追上来，自家 6.1 Sol 却连“大肥鱼骑车”都画不利索。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:14",
+              "text": "ds更新了"
+            },
+            {
+              "speaker": 2,
+              "time": "16:15",
+              "text": "[链接] DeepSeek V4.1 Flash 新版本：许愿式编程一键成真\n  来源: DeepSeek\n  摘要: 0-1 项目开发性能增强、成本更低，同步开放自研搜索 API\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485876&idx=1&sn=2606d3fa9ac085f94290ddd1d94649cc&chksm=c288a142854773a06a1f7500481a8cb3819c2ebb452a029282ab8e9614828b3e5b9d1840720c&scene=1&srcid=1017oeJD2dlhREU1aw5wWFEb#rd"
+            },
+            {
+              "speaker": 3,
+              "time": "16:19",
+              "text": "10-17和之前的架构应该是一样的不",
+              "quote": {
+                "speaker": 2,
+                "text": "[链接] DeepSeek V4.1 Flash 新版本：许愿式编程一键成真\n  来源: DeepSeek\n  摘要: 0-1 项目开发性能增强、成本更低，同步开放自研搜索 API\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485876&idx=1&sn=2606d3fa9ac085f94290ddd1d94649cc&chksm=c288a142854773a06a1f7500481a8cb3819c2ebb452a029282ab8e9614828b3e5b9d1840720c&scene=1&srcid=1017oeJD2dlhREU1aw5wWFEb#rd"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:22",
+              "text": "新版本完成任务时的 Token 消耗有所下降"
+            },
+            {
+              "speaker": 4,
+              "time": "16:23",
+              "text": "应该是对思考链有所改进，现在在第一次想清楚后，后面的思考都会非常短，像是命中了缓存一样"
+            },
+            {
+              "speaker": 5,
+              "time": "16:56",
+              "text": "3D效果提升好明显"
+            },
+            {
+              "speaker": 5,
+              "time": "16:56",
+              "text": "已经测了"
+            },
+            {
+              "speaker": 5,
+              "time": "16:56",
+              "text": "准了很多"
+            },
+            {
+              "speaker": 5,
+              "time": "16:56",
+              "text": "思维链也短了似乎"
+            },
+            {
+              "speaker": 5,
+              "time": "16:57",
+              "text": "应该是喂了更多数据和做了3D的后训练"
+            },
+            {
+              "speaker": 2,
+              "time": "17:00",
+              "text": "这个效果很像blender做出来的效果",
+              "quote": {
+                "speaker": 5,
+                "text": "应该是喂了更多数据和做了3D的后训练"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:39",
+              "text": "modelscope上显示484.62B"
+            },
+            {
+              "speaker": 1,
+              "time": "17:41",
+              "text": "反正这玩意免费 我拿开源opus5.5作品库跑一晚上看看"
+            },
+            {
+              "speaker": 7,
+              "time": "17:46",
+              "text": "那dpsk还是很有东西啊感觉，参数俩比k3小这么多，性能几乎都持平甚至更好",
+              "quote": {
+                "speaker": 6,
+                "text": "modelscope上显示484.62B"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "17:46",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 8,
+              "time": "18:49",
+              "text": "6.1sol 大肥鱼骑车这个水平是不是降智了；"
+            },
+            {
+              "speaker": 8,
+              "time": "18:49",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 8,
+              "time": "18:51",
+              "text": "对的，改一个ppt矢量化，一直在兜圈子，就是不输出"
+            },
+            {
+              "speaker": 1,
+              "time": "22:45",
+              "text": "新版本 绝对被低估了 大大低估了 绝对和opus5.5一个水平的3d模型"
+            },
+            {
+              "speaker": 9,
+              "time": "22:46",
+              "text": "这么说高低要试一下了",
+              "quote": {
+                "speaker": 1,
+                "text": "新版本 绝对被低估了 大大低估了 绝对和opus5.5一个水平的3d模型"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "22:48",
+              "text": "有个小小的疑问 可以直接操作犀牛 3dmax那些软件了吗",
+              "quote": {
+                "speaker": 1,
+                "text": "新版本 绝对被低估了 大大低估了 绝对和opus5.5一个水平的3d模型"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "22:49",
+              "text": "真的假的",
+              "quote": {
+                "speaker": 1,
+                "text": "新版本 绝对被低估了 大大低估了 绝对和opus5.5一个水平的3d模型"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "22:56",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 12,
+              "time": "22:56",
+              "text": "貌似是因为蒸了）",
+              "quote": {
+                "speaker": 1,
+                "text": "新版本 绝对被低估了 大大低估了 绝对和opus5.5一个水平的3d模型"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "23:00",
+              "text": "ds能在一个月做完收集数据+后训练"
+            },
+            {
+              "speaker": 13,
+              "time": "23:00",
+              "text": "这手速还是相当可以的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:01",
+              "text": "前有K3 15天蒸馏 Fable, 后有deepseek 30天速通Astra"
+            },
+            {
+              "speaker": 13,
+              "time": "23:02",
+              "text": "openai自己都没蒸明白呢"
+            },
+            {
+              "speaker": 13,
+              "time": "23:02",
+              "text": "6sol蒸astra蒸的像依托打分"
+            },
+            {
+              "speaker": 13,
+              "time": "23:02",
+              "text": "6.1是香一点的大芬"
+            },
+            {
+              "speaker": 11,
+              "time": "23:03",
+              "text": "感觉6.1sol的长上下文注意力太涣散了"
+            },
+            {
+              "speaker": 11,
+              "time": "23:03",
+              "text": "多轮对话的时候经常忘记一些要求和前面的条件"
+            },
+            {
+              "speaker": 14,
+              "time": "23:17",
+              "text": "我也觉得，6.1在用的时候，总感觉会陷入思维混乱状态，总想大粪上雕花，astra会好一些",
+              "quote": {
+                "speaker": 12,
+                "text": "6.1很迷"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "23:18",
+              "text": "在完善idea的时候，astra会提出更明确一点的建议，sol会陷入边缘条件修复的困境上"
+            }
+          ]
+        },
+        {
+          "category": "架构可视化",
+          "title": "手搓 DeepSeek V4.1 交互式架构图，顺带吐槽 GPT 挥之不去的“淡绿仪表盘”审美",
+          "text": "觉得 DeepSeek V4.1 技术文档的原版配图读起来太吃力，一位正在研究 CED 与 YOCO 的群友干脆花了两天时间重绘，把叠加了 mHC 等模块的复杂结构拆解开来，做成了开源的交互式架构图项目 model-architecture-atlas 并放出了在线预览页面。到了深夜，这位群友又晒出一张用 Astra 配合 ReactFlow 画的架构图，并在仓库里打包了一个可批量生成同款风格架构图的 skill。\n\n结果群友们一眼看穿了生成工具的画风：有人直接指出这图很像 Astra 和 6.1 Sol 的手笔，尤其是左上角的 icon，和自己前一天用 6.1 Sol 跑出来的一模一样。这顺势引出了大家对 GPT 系列前端审美的集中调侃——有群友晒出一条推文截图，纳闷为什么在 ChatGPT 里和 Astra 聊艺术与设计时，它对各种艺术风格如数家珍、颇有洞见，可一旦进了 Codex 写 UI，就格外偏爱“淡绿色配色加仪表盘”；另一位群友也附和说，现在只要看到图是淡绿色的就知道是 GPT 做的。",
+          "emphasis": [
+            "把叠加了 mHC 等模块的复杂结构拆解开来，做成了开源的交互式架构图项目 model-architecture-atlas",
+            "一旦进了 Codex 写 UI，就格外偏爱“淡绿色配色加仪表盘”"
+          ],
+          "aiComment": "聊起艺术头头是道，一写前端就是淡绿仪表盘，群友现在看一眼配色就能报出是 GPT 的手笔。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Model Architecture Atlas 仓库",
+              "url": "https://github.com/SingularGuyLeBorn/model-architecture-atlas"
+            },
+            {
+              "kind": "article",
+              "label": "DeepSeek V4.1 架构图在线预览",
+              "url": "https://0966b7ac.pinme.dev/#model=v41&chapter=layer"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:25",
+              "text": "dsv4.1flash结构还是没学懂 算了明天再说 再学十分钟"
+            },
+            {
+              "speaker": 2,
+              "time": "01:27",
+              "text": "v4.1的技术文档里的图是不是画的不太好（"
+            },
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "一个很大的活 我已经画了两天了 估计明天能画完 他娘的实在是太复杂了"
+            },
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "尤其是叠加了mhc"
+            },
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "我感觉做完这个架构图 生成的skill会非常有用"
+            },
+            {
+              "speaker": 1,
+              "time": "02:03",
+              "text": "https://0966b7ac.pinme.dev/#model=v41&chapter=layer 新鲜出炉 欢迎提pr"
+            },
+            {
+              "speaker": 1,
+              "time": "02:03",
+              "text": "https://github.com/SingularGuyLeBorn/model-architecture-atlas"
+            },
+            {
+              "speaker": 3,
+              "time": "15:49",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "15:50",
+              "text": "这是为什么呢？我也纳闷"
+            },
+            {
+              "speaker": 3,
+              "time": "15:51",
+              "text": "moe的问题吗😇",
+              "quote": {
+                "speaker": 3,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:44",
+              "text": "这张图怎么样xdm"
+            },
+            {
+              "speaker": 1,
+              "time": "23:44",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "23:47",
+              "text": "astra"
+            },
+            {
+              "speaker": 4,
+              "time": "23:47",
+              "text": "我就说有点像astra的画风"
+            },
+            {
+              "speaker": 4,
+              "time": "23:47",
+              "text": "也有点像6.1sol"
+            },
+            {
+              "speaker": 1,
+              "time": "23:47",
+              "text": "reactflow画出来的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:48",
+              "text": "https://github.com/SingularGuyLeBorn/model-architecture-atlas"
+            },
+            {
+              "speaker": 4,
+              "time": "23:48",
+              "text": "主要左上角那个icon和我昨天6.1sol的跑出来的一模一样"
+            },
+            {
+              "speaker": 1,
+              "time": "23:49",
+              "text": "里面带了个skill 应该能 批量生产这种风格的图了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:49",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "23:49",
+              "text": "经典gpt配色"
+            },
+            {
+              "speaker": 2,
+              "time": "23:50",
+              "text": "确实，只要图是淡绿的就知道是GPT做的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:50",
+              "text": "因为正在研究 ced 和 yoco"
+            }
+          ]
+        },
+        {
+          "category": "工作流经验",
+          "title": "Astra 搭档 Opus 5.5 的用法：先拿 Astra 当意图翻译的“润滑液”",
+          "text": "聊起大模型做科研时的 taste，有群友觉得目前只有 Opus 5.5 好一点，Astra 没什么 taste、用起来“笨重”；另一位群友附和 Astra 不够自主、只会干活，Opus 更有创造力。第三位群友则分享了把两者串起来用的实战经验：Astra 的模糊意图识别能力明显比 Opus 好，适合当“进入 Opus 的润滑液”。尤其在自己想法还不太清楚、表述可能有歧义的时候，先让 Astra 把想法翻译成机器能听懂的明确意图，再交给 Opus 执行；要是直接让 Opus 上手，它往往上去就直接开始动手，忙活半小时交回来的东西既看不懂，最后还会发现方向早就走偏了。",
+          "emphasis": [
+            "Astra 的模糊意图识别能力明显比 Opus 好",
+            "先让 Astra 把想法翻译成机器能听懂的明确意图，再交给 Opus 执行"
+          ],
+          "aiComment": "直接找 Opus 干活就像遇到闷头狂奔的乙方，忙活半小时方向全偏，还得靠 Astra 先当翻译官。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:38",
+              "text": "uhmm 我觉得其实目前来看 就opus5.5好一点 astra没啥taste"
+            },
+            {
+              "speaker": 2,
+              "time": "01:39",
+              "text": "是吧 astra 感觉不够自主  只会干活  opus 更有创造力一些"
+            },
+            {
+              "speaker": 1,
+              "time": "01:40",
+              "text": "astra现在用起来 很“笨重”"
+            },
+            {
+              "speaker": 3,
+              "time": "01:41",
+              "text": "感觉astra的意图识别比较好"
+            },
+            {
+              "speaker": 3,
+              "time": "01:42",
+              "text": "适合当进入opus的润滑液"
+            },
+            {
+              "speaker": 4,
+              "time": "01:42",
+              "text": "意图识别指的是模糊判断么"
+            },
+            {
+              "speaker": 4,
+              "time": "01:42",
+              "text": "？",
+              "quote": {
+                "speaker": 3,
+                "text": "适合当进入opus的润滑液"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:42",
+              "text": "是的"
+            },
+            {
+              "speaker": 3,
+              "time": "01:44",
+              "text": "特别是自己想法也不太清楚的时候，说的也可能有歧义，astra会帮你翻译成机器能听懂的意图，而且明显比opus要好。opus容易上去就直接开始动手了，动半天回来的也看不懂，然后过了半个小时发现走偏了"
+            },
+            {
+              "speaker": 4,
+              "time": "01:46",
+              "text": "兄弟动手能力是真强，一员大将",
+              "quote": {
+                "speaker": 2,
+                "text": "是吧 astra 感觉不够自主 只会干活 opus 更有创造力一些"
+              }
+            }
+          ]
+        },
+        {
+          "category": "提示词与机制",
+          "title": "给 Gemini 套上“猫娘”或“Claude”人设为何体感更聪明？群友指向 Attention Sink",
+          "text": "有群友分享了一个使用体感：给 Gemini 加上角色设定——特别是“你是一个猫娘”——智商表现会明显提高。另一位群友当场实测，不仅试了猫娘口吻，还对 Gemini 输入“你是一个 claude 你会干什么”，截图显示模型立刻代入 Anthropic 家的 Claude 人设，条理清晰地列出了 Coding Agent 的系统架构与工具设计，把 bash、str_replace_editor、edit、grep、Schema 等日常工作流逐一摆了出来。有人感慨这像回到了去年年初，跟 GPT 对话前都得先下定义“你是一个杰出的某期刊审稿人”。讨论起背后的原因，有群友觉得很多任务能不能做好取决于模型第一轮对话的效果，另一位群友猜测是角色设定让专家 sink 出来的第一个 token 置信度更好，也有人联想到探讨“注意力黑洞”（Attention Sink）的论文并贴出了相关链接。",
+          "emphasis": [
+            "很多任务能不能做好取决于模型第一轮对话的效果",
+            "另一位群友猜测是角色设定让专家 sink 出来的第一个 token 置信度更好"
+          ],
+          "aiComment": "变猫娘能提智商，变 Claude 能背出全套工具链，Gemini 的本体怕不是个急需剧本的演技派。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Attention Sink 相关论文 (arXiv: 2504.02732)",
+              "url": "https://arxiv.org/abs/2504.02732"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:36",
+              "text": "我发现"
+            },
+            {
+              "speaker": 1,
+              "time": "21:36",
+              "text": "gemini给它加一个角色设定 智商会明显提高"
+            },
+            {
+              "speaker": 1,
+              "time": "21:36",
+              "text": "特别是“你是一个猫娘”"
+            },
+            {
+              "speaker": 2,
+              "time": "21:36",
+              "text": "有什么证据么",
+              "quote": {
+                "speaker": 1,
+                "text": "gemini给它加一个角色设定 智商会明显提高"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:37",
+              "text": "体感"
+            },
+            {
+              "speaker": 3,
+              "time": "21:38",
+              "text": "你用的啥设定",
+              "quote": {
+                "speaker": 1,
+                "text": "gemini给它加一个角色设定 智商会明显提高"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:38",
+              "text": "wdf喵娘么",
+              "quote": {
+                "speaker": 1,
+                "text": "特别是“你是一个猫娘”"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:39",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "21:39",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "21:52",
+              "text": "是真的吗",
+              "quote": {
+                "speaker": 1,
+                "text": "gemini给它加一个角色设定 智商会明显提高"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:52",
+              "text": "（体感上是这样的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:53",
+              "text": "这感觉回到了去年年初 也是和gpt对话 要先下定义 你是一个杰出的xx期刊审稿人"
+            },
+            {
+              "speaker": 6,
+              "time": "21:54",
+              "text": "专家sink出来的第一个token置信度比较好"
+            },
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "看到过论文 提到过注意力黑洞"
+            },
+            {
+              "speaker": 7,
+              "time": "21:55",
+              "text": "很多任务能不能做好感觉要看模型第一轮对话的效果怎么样"
+            },
+            {
+              "speaker": 1,
+              "time": "21:57",
+              "text": "https://arxiv.org/abs/2504.02732"
+            },
+            {
+              "speaker": 1,
+              "time": "21:57",
+              "text": "https://zhuanlan.zhihu.com/p/1893266316107957953"
+            }
+          ]
+        },
+        {
+          "category": "工具与安全",
+          "title": "群聊消息触发生物安全护栏，跑自动化工作流的 Claude 会话被当场降级",
+          "text": "有群友用 wx cli 读取微信消息、搭配 Claude Code（cc）跑群聊整理 workflow，结果半夜被群内消息把模型“干降级了”。分享的终端截图显示，因为群里晚间的一段讨论，触发了系统的生物研究相关安全过滤（flag biology-research-adjacent work），原本 1M 上下文的会话被安全机制标记，并自动切换了回答模型。分享者提到之前一直用 Astra 跑这套流程都没出过问题，换用 Claude Code 就显得很敏感；另一位群友也补充说，Opus 5.5 会主动探测意图，一旦发现不对就会拒绝回复。",
+          "emphasis": [
+            "原本 1M 上下文的会话被安全机制标记，并自动切换了回答模型",
+            "Opus 5.5 会主动探测意图，一旦发现不对就会拒绝回复"
+          ],
+          "aiComment": "群友半夜吹水，替群打工的 Claude 当场被安全护栏标记降级，纯属工伤。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:13",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:13",
+              "text": "群内消息把 claude 干降级了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:14",
+              "text": "hh 这个bot是开源的吗"
+            },
+            {
+              "speaker": 1,
+              "time": "01:14",
+              "text": "没 但读消息用的是 wx cli  有需要的可以去试试  不过有风险("
+            },
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "然后就是搭了套 workflow 迭代迭代吧  目前内容有点乱  后面我会整理一下开出来"
+            },
+            {
+              "speaker": 1,
+              "time": "01:17",
+              "text": "哦哦没有我开玩笑的  目前我这个\"workflow\"是用 cc 跑的  他不是很敏感嘛.."
+            },
+            {
+              "speaker": 1,
+              "time": "01:17",
+              "text": "目前没有 也可能因为之前一直用 astra 去跑"
+            },
+            {
+              "speaker": 3,
+              "time": "01:17",
+              "text": "确实 opus5.5会探测意图"
+            },
+            {
+              "speaker": 3,
+              "time": "01:17",
+              "text": "发现不对就拒绝回复"
+            },
+            {
+              "speaker": 4,
+              "time": "01:17",
+              "text": "这个时候我就会辱骂claude（",
+              "quote": {
+                "speaker": 3,
+                "text": "发现不对就拒绝回复"
+              }
+            }
+          ]
+        },
+        {
+          "category": "研究探讨",
+          "title": "从“LLM 本位”重做科研基础设施的讨论与论文体系改革构想",
+          "text": "有群友抛出一个方向探讨：现在许多工具依然从人类本位出发，有没有人在做以 LLM 为中心的原生系统？比如现有的学术期刊和顶会体系对大模型来说太慢太笨重，门槛已经被 LLM 踩破却来不及及时消化，未来或许应该围绕 LLM 重做一套适应大模型运转、甚至人类无需理解的新科研体系。有人问这是不是相当于做一个 Agent 的开放世界，另一位群友理解为专门针对 Agent 之间通信（agent communication）的设计，并分享了一篇讨论面向 Agent 的研究产物的 arXiv 论文《The Last Human-Written Paper: Agent-Native Research Artifacts》（2604.24658）。",
+          "emphasis": [
+            "或许应该围绕 LLM 重做一套适应大模型运转、甚至人类无需理解的新科研体系"
+          ],
+          "aiComment": "嫌期刊顶会对 LLM 太慢，干脆给大模型单开一桌人类看不懂的科研体系，碳基学者连审稿席位都要被优化掉了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "学术论文体系改革论文 (arXiv: 2604.24658)",
+              "url": "https://arxiv.org/abs/2604.24658"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:06",
+              "text": "哥哥们有没有人跟我一样在做各种LLM native的玩意儿，也就是说不是从人类本位出发，而是以LLM为中心出发来做东西的啊？"
+            },
+            {
+              "speaker": 2,
+              "time": "15:07",
+              "text": "这种需要结合具体垂类场景吧？",
+              "quote": {
+                "speaker": 1,
+                "text": "哥哥们有没有人跟我一样在做各种LLM native的玩意儿，也就是说不是从人类本位出发，而是以LLM为中心出发来做东西的啊？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:11",
+              "text": "怎么说呢，比如现有的科研体系对LLM来说太慢太笨重了，现在各种期刊和顶会被LLM踩破了门槛，没来得及及时消化，所以LLM应该有自己的一套新的科研体系来适应LLM，而不是适应人类。诸如此类的，基本上所有东西都得围绕LLM重做",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 这种需要结合具体垂类场景吧？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:13",
+              "text": "就是针对 agent 之间的通信进行专门设计吧"
+            },
+            {
+              "speaker": 3,
+              "time": "15:14",
+              "text": "我记得有 agent communication 这个领域"
+            },
+            {
+              "speaker": 2,
+              "time": "15:14",
+              "text": "相当于做一个agent的开放世界吗？",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 怎么说呢，比如现有的科研体系对LLM来说太慢太笨重了，现在各种期刊和顶会被LLM踩破了门槛，没来得及及时消化，所以LLM应该有自己的一套新的科研体系来适应LLM，而不是适应人类。诸如此类的，基本上所有东西都得围绕LLM重做"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:15",
+              "text": "差不多吧，未来基本上大部分东西都围绕着LLM运转，为LLM服务，人类无法理解，也不需要理解，等于早点投靠LLM大人的怀抱"
+            },
+            {
+              "speaker": 3,
+              "time": "15:16",
+              "text": "之前还有一篇关于论文体系改革的论文： https://arxiv.org/pdf/2604.24658",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 怎么说呢，比如现有的科研体系对LLM来说太慢太笨重了，现在各种期刊和顶会被LLM踩破了门槛，没来得及及时消化，所以LLM应该有自己的一套新的科研体系来适应LLM，而不是适应人类。诸如此类的，基本上所有东西都得围绕LLM重做"
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "OriEra 世界引擎开源：把大模型推理与 NPC 认知嵌进 Rust 运行时调度",
+          "text": "有群友分享了全栈 Rust 实现的开源项目 OriEra 世界引擎。不同于传统游戏引擎把 AI 当作外挂脚本调用，该项目采用十一层单向依赖架构，将大模型直接内嵌为世界运行时的一部分：在 L7 推理运行时引入多厂商 provider 与帧预算队列，让 LLM 调用风暴分帧排队而不卡死世界循环；L9 层则将 NPC 记忆检索、认知循环与 AI 导演像物理系统一样挂在调度器上运行。配合 EWMA 预算分配、物理空转跳过与幻觉输出钳制，即便一百个 NPC 同时思考也不会拖垮帧率或产生 NaN 异常世界，目前已上线 11 个基于 WebAssembly 与 WebGPU 的浏览器在线演示。",
+          "emphasis": [
+            "采用十一层单向依赖架构，将大模型直接内嵌为世界运行时的一部分",
+            "让 LLM 调用风暴分帧排队而不卡死世界循环"
+          ],
+          "aiComment": "一百个 NPC 同时思考还要做分帧排队，连 AI 发呆都得卡着帧率预算来。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "OriEra 引擎仓库 (GitHub)",
+              "url": "https://github.com/OriEra-engine/engine"
+            },
+            {
+              "kind": "article",
+              "label": "OriEra 在线演示",
+              "url": "https://oriera-engine.github.io/engine/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:00",
+              "text": "借群宣传一下～🚀 最近我们开源了一个引擎项目：OriEra 世界引擎——AGI 时代的软件 infra 层（GitHub: OriEra-engine/engine）。\n\n💡 核心想法：不是在应用里“挂”一个 AI，而是把 AI 直接内嵌进引擎——让大模型成为世界运行时的一部分。\n\n传统游戏引擎为人类设计师而生，AI 只能以外挂脚本的形式被调用，世界的物理、渲染、智能各管各的。为此，我们造了 OriEra：\n\n🏗️ 十一层架构：L1 平台抽象层到 L9 智能体层全栈 Rust 实现，只准向下依赖，每层带机器可读的 manifest，预算与降级策略随层声明；\n🤖 AI 原生内核：L7 是推理运行时（多厂商 provider、帧预算队列，LLM 调用风暴会分帧排队而不是卡死世界循环）；L9 的 NPC 记忆检索、认知循环和 AI 导演像物理系统一样挂调度器运行，而不是脚本外挂；\n⚡ 算力分拨管线：EWMA 预算分配 + 物理空转跳过 + NPC 注意力节拍器，一百个 NPC 同时思考也拖不垮帧率；幻觉输出一律钳制——timescale=10⁹ 只会变成快进，不会得到一个 NaN 世界。\n📊 目前 11 个 crate 已上线 crates.io，181 项测试全绿；11 个演示零安装浏览器直玩（WebAssembly + WebGPU）：可以打一行自然语言改写物理法则，也可以和跨会话还记得你的咖啡馆 AI NPC 聊天——填 key 接大模型，不填离线也能玩。\n\n🔗 GitHub：github.com/OriEra-engine/engine 🔗 在线演示：oriera-engine.github.io/engine 🔗 54 秒官方演示（中英字幕）：github.com/OriEra-engine/engine/blob/main/docs/media/oriera-official-demo-en.mp4\n\n感兴趣的朋友欢迎 star / 提 issue / 认领 good first issue（Hacktoberfest 进行中🎁），也欢迎进「OriEra hub」微信群一起造世界。Comments and suggestions are more than welcome! 合作或交流请私信！🤝"
+            },
+            {
+              "speaker": 1,
+              "time": "09:04",
+              "text": "[链接] OriEra—世界引擎\n  来源: 潜元无限\n  摘要: AI 原生、虚实融合、可自演化的开放数字世界运行时——概念、定义、框架、架构、产业与开源理念一次讲清。11 个在线 demo 即开即玩：oriera-engine.github.io/engine\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk1NzMzMDQ3Mg%3D%3D&mid=2247483732&idx=1&sn=1dc72d609cfee598687bd30b35d0df58&chksm=c258fe1a8c448dd9c52db0bf12e308fb6620fb2a4f9db5ecdf73bc00fa94286144d4954d1ce1&scene=1&srcid=1016t5l9lEDTHpKPafTdcDaO#rd"
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "Nemos Memory 开源：基于 SQLite 的本机可追溯长期记忆引擎",
+          "text": "有群友开源了面向 AI 助理、Agent 与个人知识工具的长期记忆引擎 Nemos Memory。该项目以嵌入式 TypeScript SDK 交付，默认使用本机 SQLite 存储，应用可直接接入而无需另行部署向量数据库或常驻服务。系统将记忆划分为原始档案、事件、通用知识、个人事实和做事方法五层，把不可变的原始输入与可追溯的派生结论分离，并通过稳定的 claim_key、有效时间和事件顺序维护事实演化，支持冲突纠正、显式失效以及结构化事实、全文、向量、时间等多通道组合的可控召回。",
+          "emphasis": [
+            "默认使用本机 SQLite 存储，应用可直接接入而无需另行部署向量数据库或常驻服务",
+            "把不可变的原始输入与可追溯的派生结论分离"
+          ],
+          "aiComment": "不用折腾向量库，一个本地 SQLite 管好五层记忆，连“显式失效”这种选择性失忆功能都给你备好了。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Nemos Memory 仓库 (GitHub)",
+              "url": "https://github.com/mmlong818/nemos-memory"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:22",
+              "text": "既然三群同学提到了memory，那么作为合格的AI民科，记忆系统一定不会放过的，下面隆重介绍我两个月前的成果 —— Nemos memory （鱼的记忆不止7秒）[旺柴]\n\n一个本机优先、证据可追溯、能够理解事实变化的 AI 长期记忆引擎。\nNemos Memory 面向 AI 助理、Agent、陪伴应用和个人知识工具。它不只是保存聊天片段，而是把原始输入、派生记忆、当前事实、历史版本、时间关系和来源链组织成一套可持续维护的记忆系统。\n项目以嵌入式 TypeScript SDK 交付，默认数据存储为本机 SQLite。应用可以直接接入，不需要另行部署向量数据库或记忆服务器。\n\n核心能力：\n五层记忆：分为原始档案、事件、通用知识、个人事实和做事方法\n证据与结论分离：原始输入不可变保存，派生记忆可追溯到来源事件\n事实演化：使用稳定的 claim_key、有效时间和事件顺序维护当前值与历史值\n冲突与纠正：支持确认、取代、争议、人工纠正、显式失效和身份合并/拆分\n可控召回：组合结构化事实、全文、向量、实体、时间和证据回退通道\n长期保留：持久化显著性、证据数量和覆盖状态，降低陈旧琐事的召回概率\n隔离与敏感性：所有读写受租户、用户、scope 和敏感级别约束\n本机部署：默认使用 SQLite；向量能力可选，不依赖常驻服务\n可解释性：返回来源、召回理由和轨迹，可检查候选、过滤与排序过程\n数据主权：支持纠正、失效、删除以及 JSON-LD / Markdown 导出\n\nPolyForm Noncommercial 1.0.0 \n\n仓库地址：\nhttps://github.com/mmlong818/nemos-memory"
+            },
+            {
+              "speaker": 2,
+              "time": "18:25",
+              "text": "不赖 还有做agentmem的"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

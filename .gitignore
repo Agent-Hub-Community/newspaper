@@ -1,0 +1,11 @@
+node_modules
+dist/
+dist-*/
+output/
+# Private working data never belongs in this repository: daily batches, raw chat, local overrides.
+scratch/
+*.local.*
+.env*
+.perf.mjs
+.shot.mjs
+.DS_Store

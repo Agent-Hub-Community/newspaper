@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-10-16T18:39:54.268Z",
+  "mode": "Offline replay of recorded requests; no new retrieval choices, model run, or network calls",
+  "ignored_response_fields": [
+    "source_loaded_at"
+  ],
+  "source_hashes": {
+    "bm25.js": "3d3351698e814a90cd11321d5d8f2d0338c8d893167f0eee2715488f9ab5cbc9",
+    "query.js": "5bcb2cae340107c75a074514fc63f81cea62387067c41a416cf6a685a073648b",
+    "feedback/content-api.mjs": "7b42cf44bdea38d0b267715ee38d0158195baaba71b5e6b8a70266b21d268842",
+    "feedback/library-search.mjs": "5e4191340e27ab422d5f0716b767045cff6790bfb4f18516aa811d8f72be623c",
+    "dist/search/catalog.json": "6f2b193f8245efac23571967e6377cd9ff41dad77c537470b9fa131c27fe4f19",
+    "feedback/agent-reads.mjs": "0f47ec7501155d7982282b955acfd3c49b04901ea26226711394eb526c1c2ec8"
+  },
+  "requests": 23,
+  "response_bytes": 63248,
+  "passed": true,
+  "tasks": [
+    {
+      "id": "reader-research-experience",
+      "requests": 5,
+      "response_bytes": 10375,
+      "within_budget": true,
+      "matches_recording": true,
+      "calls": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E7%BE%A4%E9%87%8C%E6%9C%89%E4%BA%BA%E5%A4%8D%E7%8E%B0%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%94%9F%E6%88%90%E8%AE%BA%E6%96%87%E5%A4%B1%E8%B4%A5%E8%BF%87%E5%90%97%EF%BC%9F%E5%BD%93%E6%97%B6%E8%BF%98%E8%AE%A8%E8%AE%BA%E4%BA%86%E5%93%AA%E4%BA%9B%E6%94%B9%E5%96%84%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87%E6%88%96%E5%AE%A1%E7%A8%BF%E6%B5%81%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F%E7%BB%99%E6%88%91%E5%85%B7%E4%BD%93%E7%BB%8F%E5%8E%86%E5%92%8C%E6%97%A5%E6%9C%9F%EF%BC%8C%E5%88%AB%E6%8A%8A%E5%BB%BA%E8%AE%AE%E8%AF%B4%E6%88%90%E5%B7%B2%E7%BB%8F%E8%90%BD%E5%9C%B0%E3%80%82&analytics_test=1",
+          "status": 200,
+          "bytes": 3256,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:086414660a8e69b8a556e88e.md?analytics_test=1",
+          "status": 200,
+          "bytes": 726,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=10&kind=daily&group=group-2&from=2026-09-28&to=2026-09-28&analytics_test=1",
+          "status": 200,
+          "bytes": 4880,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:03df844d8c6f264576434af9.md?analytics_test=1",
+          "status": 200,
+          "bytes": 748,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-28:group-2:3eb2e4b760daf8f2ad632715.md?analytics_test=1",
+          "status": 200,
+          "bytes": 765,
+          "matches_recording": true
+        }
+      ]
+    },
+    {
+      "id": "reader-diagnosis",
+      "requests": 2,
+      "response_bytes": 6808,
+      "within_budget": true,
+      "matches_recording": true,
+      "calls": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E6%9C%89%E4%BA%BA%E8%AF%95%E8%BF%87%E8%AE%A9+agent+%E6%94%B9%E5%8F%A6%E4%B8%80%E4%B8%AA+agent+%E7%9A%84%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%90%97%EF%BC%9F%E5%AE%9E%E9%99%85%E6%95%88%E6%9E%9C%E5%A6%82%E4%BD%95%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9A%BE%E5%88%A4%E6%96%AD%E4%BC%98%E5%8C%96%E6%9C%89%E6%B2%A1%E6%9C%89%E7%94%A8%EF%BC%9F%E5%8F%AA%E6%89%BE%E7%BE%A4%E5%8F%8B%E5%AE%9E%E8%B7%B5%E5%92%8C%E5%9B%B0%E9%9A%BE%EF%BC%8C%E4%B8%8D%E8%A6%81%E5%88%97%E8%87%AA%E8%BF%9B%E5%8C%96%E9%A1%B9%E7%9B%AE%E3%80%82&analytics_test=1",
+          "status": 200,
+          "bytes": 5824,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:1b2491258aa29c7e1ee545eb.md?analytics_test=1",
+          "status": 200,
+          "bytes": 984,
+          "matches_recording": true
+        }
+      ]
+    },
+    {
+      "id": "reader-cross-date",
+      "requests": 4,
+      "response_bytes": 12410,
+      "within_budget": true,
+      "matches_recording": true,
+      "calls": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=10+%E6%9C%88+7+%E5%88%B0+9+%E6%97%A5%EF%BC%8C%E7%BE%A4%E9%87%8C%E6%80%8E%E4%B9%88%E7%9C%8B+AI+%E9%99%8D%E4%BD%8E%E7%BC%96%E7%A8%8B%E9%97%A8%E6%A7%9B%E6%98%AF%E5%90%A6%E4%B9%9F%E8%83%BD%E6%94%B9%E5%8F%98%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%EF%BC%9F%E6%8C%89%E6%97%A5%E6%9C%9F%E8%AF%B4%E6%98%8E%E8%A7%82%E7%82%B9%E5%8F%98%E5%8C%96%E5%92%8C%E5%88%86%E6%AD%A7%EF%BC%8C%E5%8C%BA%E5%88%86%E7%BE%A4%E5%86%85%E7%9C%8B%E6%B3%95%E4%B8%8E%E5%A4%96%E9%83%A8%E8%B5%84%E8%AE%AF%E7%9A%84%E4%BA%8B%E5%AE%9E%E3%80%82&from=2026-10-07&to=2026-10-09&analytics_test=1",
+          "status": 200,
+          "bytes": 916,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E7%BC%96%E7%A8%8B%E9%97%A8%E6%A7%9B+%E6%95%B0%E5%AD%A6&from=2026-10-07&to=2026-10-09&analytics_test=1",
+          "status": 200,
+          "bytes": 8396,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-2:b6f25287fd249df4741c8612.md?analytics_test=1",
+          "status": 200,
+          "bytes": 2085,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-10-08:group-2:65d697df052530194c136c56.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1013,
+          "matches_recording": true
+        }
+      ]
+    },
+    {
+      "id": "reader-resource-relationship",
+      "requests": 4,
+      "response_bytes": 12772,
+      "within_budget": true,
+      "matches_recording": true,
+      "calls": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E6%9C%89%E6%B2%A1%E6%9C%89%E7%BE%A4%E5%8F%8B%E4%BB%8B%E7%BB%8D%E8%BF%87%E5%8F%AF%E4%BB%A5%E6%A3%80%E6%9F%A5%E8%AE%BA%E6%96%87%E5%BC%95%E7%94%A8%E7%9C%9F%E5%81%87%E7%9A%84%E5%86%99%E4%BD%9C%E5%B7%A5%E5%85%B7%EF%BC%9F%E6%8A%8A%E5%B7%A5%E5%85%B7%E4%BB%A3%E7%A0%81%E9%93%BE%E6%8E%A5%E3%80%81%E5%AE%83%E6%80%8E%E4%B9%88%E6%A0%B8%E9%AA%8C%E6%96%87%E7%8C%AE%E3%80%81%E7%BE%A4%E9%87%8C%E5%9C%A8%E5%93%AA%E4%BA%9B%E7%89%88%E9%9D%A2%E6%8F%90%E8%BF%87%E7%BB%99%E6%88%91%EF%BC%8C%E5%88%AB%E5%A3%B0%E7%A7%B0%E5%AE%83%E4%BF%9D%E8%AF%81%E4%B8%8D%E4%BC%9A%E5%B9%BB%E8%A7%89%E3%80%82&analytics_test=1",
+          "status": 200,
+          "bytes": 4109,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-3:dcb7b9153e71a991d766c630.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1545,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=Open+Academic+Paper+Gen&limit=5&analytics_test=1",
+          "status": 200,
+          "bytes": 5814,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/weekly:2026-10-05:2026-10-11:group-4:666fe7bcd54449306bce94c8.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1304,
+          "matches_recording": true
+        }
+      ]
+    },
+    {
+      "id": "reader-experiment-prior",
+      "requests": 3,
+      "response_bytes": 6683,
+      "within_budget": true,
+      "matches_recording": true,
+      "calls": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&q=%E5%81%9A%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E5%AE%9E%E9%AA%8C%E6%97%B6%EF%BC%8C%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E6%A8%A1%E5%9E%8B%E4%B8%8D%E6%98%AF%E5%9C%A8%E7%94%A8%E5%8E%9F%E6%9D%A5%E5%B0%B1%E7%9F%A5%E9%81%93%E7%9A%84%E7%9F%A5%E8%AF%86%EF%BC%9F%E7%BE%A4%E9%87%8C%E6%9C%89%E4%BA%BA%E8%B4%A8%E7%96%91%E8%BF%87%E7%94%A8+prompt+%E6%8E%92%E9%99%A4%E6%97%A7%E7%9F%A5%E8%AF%86%E5%90%97%EF%BC%8C%E6%8E%A8%E8%8D%90%E4%BA%86%E4%BB%80%E4%B9%88%E8%AE%BA%E6%96%87%EF%BC%9F&analytics_test=1",
+          "status": 200,
+          "bytes": 2057,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/agents/topics/daily:2026-09-29:group-3:6ac49603a2f4540094855efd.md?analytics_test=1",
+          "status": 200,
+          "bytes": 969,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/library/search?q=TOFU&limit=5&analytics_test=1",
+          "status": 200,
+          "bytes": 3657,
+          "matches_recording": true
+        }
+      ]
+    },
+    {
+      "id": "reader-missing-edition",
+      "requests": 5,
+      "response_bytes": 14200,
+      "within_budget": true,
+      "matches_recording": true,
+      "calls": [
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&kind=daily&group=group-4&from=2026-08-25&to=2026-08-25&analytics_test=1",
+          "status": 200,
+          "bytes": 759,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/search?limit=5&kind=daily&from=2026-08-25&to=2026-08-25&analytics_test=1",
+          "status": 200,
+          "bytes": 752,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions?kind=daily&limit=20&analytics_test=1",
+          "status": 200,
+          "bytes": 6389,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/content/editions?kind=daily&limit=20&analytics_test=1&revision=601e84afb0ba06e12eaea5c6902ae0892651b922c31c1708c5f8a67b0d13b049&offset=20",
+          "status": 200,
+          "bytes": 5121,
+          "matches_recording": true
+        },
+        {
+          "url": "https://agenthub-feedback.haoqingeric.workers.dev/read/daily/2026-08-26/index.md?analytics_test=1",
+          "status": 200,
+          "bytes": 1179,
+          "matches_recording": true
+        }
+      ]
+    }
+  ]
+}

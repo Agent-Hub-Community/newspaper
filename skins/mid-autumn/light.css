@@ -1,0 +1,164 @@
+/* View tokens live on body; outrank daily.css without changing its geometry. */
+body[data-skin="mid-autumn"],
+body[data-skin="mid-autumn"][data-view] {
+  color-scheme: light;
+  --paper: #fffdfb;
+  --ink: #302d2b;
+  --muted: #6a615b;
+  --rule: #d8cec6;
+  --accent: #ab3029;
+  --autumn-gold: #86621d;
+  --autumn-gold-rule: #bda36b;
+  --autumn-link: #28634d;
+  --autumn-hover: #edf3ee;
+  --autumn-selected: #f8eeea;
+  --autumn-up: #28634d;
+  --autumn-up-surface: #e8f1e9;
+  --autumn-down-surface: #f8e9e5;
+  --autumn-dialog: #fcfdfc;
+  --autumn-backdrop: rgb(22 40 31 / 40%);
+  --skin-paper: #fbede8;
+  --skin-ink: #722c28;
+  --skin-muted: #79554d;
+  --skin-accent: #ab3029;
+  --skin-rule: #bda36b;
+  --skin-image-filter: sepia(.65) saturate(.8) brightness(1.08);
+}
+body[data-skin="mid-autumn"] .skin-label {
+  font-family: var(--sans);
+  padding: 0 5px;
+  background: var(--skin-accent);
+  color: var(--skin-paper);
+}
+@media (min-width: 701px) {
+  body[data-skin="mid-autumn"] .masthead[data-skin] .skin-note:not([hidden]) {
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+}
+
+body[data-skin="mid-autumn"] .edition-nav {
+  border-top-color: var(--accent);
+  border-bottom-color: var(--autumn-gold-rule);
+}
+body[data-skin="mid-autumn"] #edition-sections {
+  border-top-color: var(--accent);
+}
+body[data-skin="mid-autumn"] .tabs button.active,
+body[data-skin="mid-autumn"] .group-nav [aria-selected="true"],
+body[data-skin="mid-autumn"] .rank-tabs [aria-pressed="true"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+body[data-skin="mid-autumn"] .group-nav [aria-selected="true"] {
+  background-color: var(--autumn-selected);
+}
+
+/* Existing paragraph literals must not bypass the reading palette. */
+body[data-skin="mid-autumn"] .brief p,
+body[data-skin="mid-autumn"] .paper-list p {
+  color: var(--ink);
+}
+body[data-skin="mid-autumn"] .archive-content .minor,
+body[data-skin="mid-autumn"] .archive-content .takeaway {
+  color: var(--muted);
+}
+body[data-skin="mid-autumn"] .brief-category span,
+body[data-skin="mid-autumn"] .topic-overview h3::before,
+body[data-skin="mid-autumn"] .rank-number {
+  color: var(--autumn-gold);
+}
+body[data-skin="mid-autumn"] .brief-comment {
+  border-left-color: var(--accent);
+}
+body[data-skin="mid-autumn"] .brief-comment-label,
+body[data-skin="mid-autumn"] .brief-takeaway > span,
+body[data-skin="mid-autumn"] .digest-kicker span:first-child {
+  color: var(--accent);
+}
+body[data-skin="mid-autumn"] .brief-resources a,
+body[data-skin="mid-autumn"] .brief-resources svg,
+body[data-skin="mid-autumn"] .archive-content a,
+body[data-skin="mid-autumn"] .archive-content .person,
+body[data-skin="mid-autumn"] .story-meta a,
+body[data-skin="mid-autumn"] .paper-source {
+  color: var(--autumn-link);
+}
+body[data-skin="mid-autumn"] .archive-content a,
+body[data-skin="mid-autumn"] .brief-resources a span {
+  text-decoration-color: var(--autumn-gold);
+}
+body[data-skin="mid-autumn"] .brief-resources a:hover,
+body[data-skin="mid-autumn"] .brief-resources a:hover svg,
+body[data-skin="mid-autumn"] .archive-content a:hover,
+body[data-skin="mid-autumn"] .story-meta a:hover,
+body[data-skin="mid-autumn"] .paper-source:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+body[data-skin="mid-autumn"] .brief-resources a:hover span {
+  text-decoration-color: var(--accent);
+}
+
+body[data-skin="mid-autumn"] .paper-footer,
+body[data-skin="mid-autumn"] .page-footer {
+  border-top-color: var(--autumn-gold-rule);
+}
+body[data-skin="mid-autumn"] .paper-footer a,
+body[data-skin="mid-autumn"] .ranking-heading h2 {
+  color: var(--autumn-link);
+}
+body[data-skin="mid-autumn"] .paper-footer a:hover {
+  color: var(--accent);
+}
+body[data-skin="mid-autumn"] .avatar-missing {
+  background-color: var(--autumn-hover);
+  color: var(--muted);
+}
+
+body[data-skin="mid-autumn"] dialog,
+body[data-skin="mid-autumn"] #archive-dialog {
+  background-color: var(--autumn-dialog);
+  color: var(--ink);
+  border-color: var(--autumn-gold-rule);
+}
+body[data-skin="mid-autumn"] dialog::backdrop {
+  background-color: var(--autumn-backdrop);
+}
+body[data-skin="mid-autumn"] .dialog-header {
+  border-bottom-color: var(--autumn-gold-rule);
+}
+body[data-skin="mid-autumn"] #archive-dialog .dialog-header,
+body[data-skin="mid-autumn"] .share-preview {
+  background-color: var(--autumn-dialog);
+}
+body[data-skin="mid-autumn"] .icon-button:hover:not(:disabled),
+body[data-skin="mid-autumn"] .feedback-actions button:hover:not(:disabled) {
+  background-color: var(--autumn-hover);
+  color: var(--ink);
+}
+body[data-skin="mid-autumn"] .tabs button:hover:not(:disabled),
+body[data-skin="mid-autumn"] .group-nav [role="tab"]:hover:not(:disabled),
+body[data-skin="mid-autumn"] .rank-tabs button:hover:not(:disabled) {
+  color: var(--accent);
+}
+body[data-skin="mid-autumn"] .feedback-actions button[aria-pressed="true"],
+body[data-skin="mid-autumn"] .feedback-actions button[data-vote="down"]:hover:not(:disabled) {
+  color: var(--accent);
+  background-color: var(--autumn-down-surface);
+}
+body[data-skin="mid-autumn"] .feedback-actions button[data-vote="up"][aria-pressed="true"],
+body[data-skin="mid-autumn"] .feedback-actions button[data-vote="up"]:hover:not(:disabled) {
+  color: var(--autumn-up);
+  background-color: var(--autumn-up-surface);
+}
+body[data-skin="mid-autumn"] button:disabled {
+  color: var(--muted);
+}
+body[data-skin="mid-autumn"] :focus-visible {
+  outline-color: var(--accent);
+}
+body[data-skin="mid-autumn"] ::selection {
+  color: var(--paper);
+  background-color: var(--autumn-link);
+}

@@ -1,0 +1,1385 @@
+{
+  "version": 1,
+  "through": "2026-10-18",
+  "terms": [
+    {
+      "term": "A社",
+      "variants": [
+        "A\\",
+        "A/",
+        "A家",
+        "A厂",
+        "a÷",
+        "a➗",
+        "a畜",
+        "ant",
+        "人类学"
+      ],
+      "meaning": "Anthropic 的代称；“A\\”取自它的标志，“人类学”是名字直译，“a÷”“a畜”是戏谑写法。",
+      "category": "代号",
+      "refersTo": "Anthropic",
+      "keyword": "Anthropic"
+    },
+    {
+      "term": "oai",
+      "variants": [
+        "oa",
+        "O家",
+        "O记",
+        "o➗",
+        "o/"
+      ],
+      "meaning": "OpenAI 的缩写。",
+      "category": "缩写",
+      "refersTo": "OpenAI",
+      "keyword": "OpenAI"
+    },
+    {
+      "term": "OA两家",
+      "variants": [
+        "OA 两家"
+      ],
+      "meaning": "OpenAI 和 Anthropic 两家公司的合称。",
+      "category": "缩写",
+      "refersTo": "OpenAI、Anthropic"
+    },
+    {
+      "term": "御三家",
+      "variants": [
+        "御两家"
+      ],
+      "meaning": "海外三家头部模型厂商的合称；“御两家”通常指 OpenAI 和 Anthropic。",
+      "category": "代号",
+      "refersTo": "OpenAI、Anthropic、Google"
+    },
+    {
+      "term": "ds",
+      "variants": [
+        "dpsk",
+        "DeepSeek",
+        "鲸鱼",
+        "dsv4.1f",
+        "dpsk4.1",
+        "大肥鱼"
+      ],
+      "meaning": "DeepSeek 的缩写，常连版本号写，如 dsv4.1；“鲸鱼”“大肥鱼”取自它的标志。",
+      "category": "缩写",
+      "refersTo": "DeepSeek",
+      "keyword": "DeepSeek"
+    },
+    {
+      "term": "dsh",
+      "variants": [
+        "dshbot"
+      ],
+      "meaning": "DeepSeek Harness 的缩写，DeepSeek 的 agent 框架。",
+      "category": "缩写",
+      "refersTo": "DeepSeek Harness"
+    },
+    {
+      "term": "cc",
+      "variants": [],
+      "meaning": "Claude Code 的缩写，Anthropic 的命令行编程 agent。",
+      "category": "缩写",
+      "refersTo": "Claude Code",
+      "keyword": "Claude Code"
+    },
+    {
+      "term": "肥波",
+      "variants": [],
+      "meaning": "Claude Fable 的谐音叫法。",
+      "category": "代号",
+      "refersTo": "Claude Fable"
+    },
+    {
+      "term": "Mythos",
+      "variants": [],
+      "meaning": "Anthropic 的 Claude Mythos 系列模型。",
+      "category": "代号",
+      "refersTo": "Claude Mythos"
+    },
+    {
+      "term": "opus5.5叔叔",
+      "variants": [],
+      "meaning": "对 Claude Opus 5.5 的戏称。",
+      "category": "代号",
+      "refersTo": "Claude Opus 5.5"
+    },
+    {
+      "term": "Claudish",
+      "variants": [],
+      "meaning": "Claude 写文章或做前端时特有的固定风格和腔调。",
+      "category": "行话",
+      "refersTo": "Claude"
+    },
+    {
+      "term": "astra",
+      "variants": [
+        "6astra",
+        "6.1astra"
+      ],
+      "meaning": "OpenAI GPT-6 Astra 模型的简称。",
+      "category": "代号",
+      "refersTo": "GPT-6 Astra",
+      "keyword": "GPT-6 Astra"
+    },
+    {
+      "term": "sol",
+      "variants": [
+        "5.6sol",
+        "6.1sol"
+      ],
+      "meaning": "OpenAI GPT-5.6 Sol 或 GPT-6.1 Sol 模型的简称，比 Astra 便宜。",
+      "category": "代号",
+      "refersTo": "GPT Sol"
+    },
+    {
+      "term": "luna",
+      "variants": [
+        "5.6luna"
+      ],
+      "meaning": "OpenAI Luna 档模型的简称，比 Sol 低一档。",
+      "category": "代号",
+      "refersTo": "GPT Luna"
+    },
+    {
+      "term": "terra",
+      "variants": [
+        "5.6terra"
+      ],
+      "meaning": "OpenAI GPT-5.6 Terra 模型的简称。",
+      "category": "代号",
+      "refersTo": "GPT-5.6 Terra"
+    },
+    {
+      "term": "哈基米",
+      "variants": [
+        "哈吉米",
+        "美国豆包",
+        "大豆包",
+        "咕咕噜噜"
+      ],
+      "meaning": "Google Gemini 的谐音昵称；“美国豆包”“大豆包”“咕咕噜噜”也指 Gemini 或 Google。",
+      "category": "代号",
+      "refersTo": "Google Gemini"
+    },
+    {
+      "term": "豆姐",
+      "variants": [
+        "糖包",
+        "中国豆包",
+        "某包"
+      ],
+      "meaning": "对字节跳动 AI 助手豆包的昵称；“中国豆包”用来和指 Gemini 的“美国豆包”区分。",
+      "category": "代号",
+      "refersTo": "豆包"
+    },
+    {
+      "term": "seed",
+      "variants": [],
+      "meaning": "字节跳动 Seed 大模型团队的简称。",
+      "category": "代号",
+      "refersTo": "ByteDance Seed"
+    },
+    {
+      "term": "hy",
+      "variants": [
+        "hunyuan",
+        "hy4p",
+        "hy4"
+      ],
+      "meaning": "腾讯混元大模型的缩写，常连版本号写，如 hy4。",
+      "category": "缩写",
+      "refersTo": "腾讯混元"
+    },
+    {
+      "term": "鹅厂",
+      "variants": [],
+      "meaning": "腾讯的俗称。",
+      "category": "代号",
+      "refersTo": "腾讯"
+    },
+    {
+      "term": "南山必胜客",
+      "variants": [],
+      "meaning": "腾讯的戏称，暗指它擅长打官司。",
+      "category": "代号",
+      "refersTo": "腾讯"
+    },
+    {
+      "term": "wb",
+      "variants": [
+        "workbuddy"
+      ],
+      "meaning": "WorkBuddy 的缩写，腾讯面向办公的 agent 产品。",
+      "category": "缩写",
+      "refersTo": "WorkBuddy"
+    },
+    {
+      "term": "mhy",
+      "variants": [
+        "原神大模型"
+      ],
+      "meaning": "米哈游的拼音缩写。",
+      "category": "缩写",
+      "refersTo": "米哈游"
+    },
+    {
+      "term": "lc",
+      "variants": [
+        "longcat"
+      ],
+      "meaning": "LongCat 的缩写，美团的大模型。",
+      "category": "缩写",
+      "refersTo": "LongCat"
+    },
+    {
+      "term": "K3",
+      "variants": [
+        "k3.1"
+      ],
+      "meaning": "月之暗面 Kimi K3 模型的简称。",
+      "category": "缩写",
+      "refersTo": "Kimi K3",
+      "keyword": "Kimi"
+    },
+    {
+      "term": "面壁",
+      "variants": [],
+      "meaning": "面壁智能的简称，以小参数模型为主的国内模型公司。",
+      "category": "代号",
+      "refersTo": "面壁智能"
+    },
+    {
+      "term": "jev",
+      "variants": [],
+      "meaning": "TypeSafe AI 的 System One 决策模型 Jev，只对给定选项输出概率；也泛指这类做法。",
+      "category": "代号",
+      "refersTo": "Jev（TypeSafe AI）",
+      "keyword": "Jev"
+    },
+    {
+      "term": "龙虾",
+      "variants": [
+        "claw"
+      ],
+      "meaning": "OpenClaw 及类似通用 agent 框架的昵称，取自它的龙虾标志。",
+      "category": "代号",
+      "refersTo": "OpenClaw",
+      "keyword": "OpenClaw"
+    },
+    {
+      "term": "xhs",
+      "variants": [
+        "🍠"
+      ],
+      "meaning": "小红书的拼音缩写，🍠 也指小红书。",
+      "category": "缩写",
+      "refersTo": "小红书"
+    },
+    {
+      "term": "AA",
+      "variants": [],
+      "meaning": "第三方模型评测榜 Artificial Analysis 的缩写。",
+      "category": "缩写",
+      "refersTo": "Artificial Analysis"
+    },
+    {
+      "term": "tb",
+      "variants": [
+        "TB-Science",
+        "tb4"
+      ],
+      "meaning": "Terminal-Bench 的缩写，终端任务 agent 评测集。",
+      "category": "缩写",
+      "refersTo": "Terminal-Bench",
+      "keyword": "Terminal-Bench"
+    },
+    {
+      "term": "国模",
+      "variants": [],
+      "meaning": "国产大模型的简称。",
+      "category": "缩写",
+      "refersTo": "国产大模型"
+    },
+    {
+      "term": "基模",
+      "variants": [
+        "基座",
+        "基座模型",
+        "底座"
+      ],
+      "meaning": "基座模型的简称，也指训练基座模型的团队。",
+      "category": "缩写",
+      "refersTo": "基座模型",
+      "keyword": "base model"
+    },
+    {
+      "term": "20x",
+      "variants": [
+        "cc20x",
+        "5x",
+        "10x"
+      ],
+      "meaning": "用量为基础档 20 倍的高价订阅，如 Claude Max 20x；5x、10x 是低一些的档。",
+      "category": "代号",
+      "refersTo": "Claude Max 等订阅档位"
+    },
+    {
+      "term": "pro200",
+      "variants": [],
+      "meaning": "OpenAI 每月 200 美元的 ChatGPT Pro 订阅档。",
+      "category": "缩写",
+      "refersTo": "ChatGPT Pro"
+    },
+    {
+      "term": "ultra",
+      "variants": [
+        "ultrafast"
+      ],
+      "meaning": "OpenAI 的 Ultrafast 加速档；在 Gemini 语境下也指 Google AI Ultra 订阅。",
+      "category": "代号",
+      "refersTo": "Ultrafast、Google AI Ultra"
+    },
+    {
+      "term": "xhigh",
+      "variants": [],
+      "meaning": "模型推理强度（effort）的一个档位，高于 high。",
+      "category": "行话"
+    },
+    {
+      "term": "harness",
+      "variants": [
+        "scaffold",
+        "脚手架"
+      ],
+      "meaning": "包在模型外的 agent 运行框架，含工具、循环和上下文管理。",
+      "category": "行话",
+      "refersTo": "agent harness",
+      "keyword": "agent harness"
+    },
+    {
+      "term": "RSI",
+      "variants": [],
+      "meaning": "递归自我改进，指模型或 harness 自动迭代改进自身。",
+      "category": "行话",
+      "refersTo": "Recursive Self-Improvement",
+      "keyword": "RSI"
+    },
+    {
+      "term": "自进化",
+      "variants": [
+        "自我进化"
+      ],
+      "meaning": "agent 依据评测和轨迹，自动改写自己的 prompt、skill 或 harness。",
+      "category": "行话",
+      "refersTo": "self-evolution",
+      "keyword": "self-evolution"
+    },
+    {
+      "term": "auto research",
+      "variants": [
+        "autoresearch"
+      ],
+      "meaning": "让 agent 自动完成科研流程，从规划、跑实验到写论文。",
+      "category": "行话",
+      "refersTo": "automated AI research",
+      "keyword": "automated AI research"
+    },
+    {
+      "term": "OPD",
+      "variants": [
+        "opsd"
+      ],
+      "meaning": "在线策略蒸馏：在学生模型自己生成的数据上做蒸馏训练。",
+      "category": "行话",
+      "refersTo": "On-Policy Distillation",
+      "keyword": "on-policy distillation"
+    },
+    {
+      "term": "RLVR",
+      "variants": [],
+      "meaning": "基于可验证奖励的强化学习，常用于代码、数学和 agent 训练。",
+      "category": "缩写",
+      "refersTo": "Reinforcement Learning with Verifiable Rewards",
+      "keyword": "RLVR"
+    },
+    {
+      "term": "GRPO",
+      "variants": [],
+      "meaning": "组相对策略优化，一种常用的大模型强化学习算法。",
+      "category": "缩写",
+      "refersTo": "Group Relative Policy Optimization",
+      "keyword": "GRPO"
+    },
+    {
+      "term": "rollout",
+      "variants": [],
+      "meaning": "强化学习或评测中，让模型与环境多步交互、采样出完整轨迹。",
+      "category": "行话"
+    },
+    {
+      "term": "rubric",
+      "variants": [],
+      "meaning": "评测用的逐项评分标准，常配合 LLM 裁判打分。",
+      "category": "行话"
+    },
+    {
+      "term": "cot",
+      "variants": [],
+      "meaning": "思维链（Chain of Thought），模型给出答案前写出的推理过程。",
+      "category": "缩写",
+      "refersTo": "Chain of Thought"
+    },
+    {
+      "term": "hack cot",
+      "variants": [
+        "破解思维链",
+        "hack 思维链"
+      ],
+      "meaning": "设法拿到闭源模型隐藏的原始思维链，多用于蒸馏。",
+      "category": "行话"
+    },
+    {
+      "term": "蒸",
+      "variants": [
+        "蒸馏",
+        "开蒸",
+        "硬蒸",
+        "蒸笼"
+      ],
+      "meaning": "用前沿模型（多为闭源）的输出或思维链训练自家模型。",
+      "category": "行话",
+      "refersTo": "知识蒸馏"
+    },
+    {
+      "term": "桑拿",
+      "variants": [
+        "桑拿房"
+      ],
+      "meaning": "“蒸馏”的代称，避免在聊天里直接说“蒸”。",
+      "category": "梗",
+      "refersTo": "知识蒸馏"
+    },
+    {
+      "term": "middle train",
+      "variants": [
+        "mid-train",
+        "midtrain"
+      ],
+      "meaning": "预训练和后训练之间的中期训练阶段。",
+      "category": "行话",
+      "refersTo": "mid-training"
+    },
+    {
+      "term": "system1",
+      "variants": [
+        "System One",
+        "system 1"
+      ],
+      "meaning": "借用快思考的说法，指不展开长思维链、直接给出判断的模式。",
+      "category": "行话",
+      "refersTo": "System 1"
+    },
+    {
+      "term": "system2",
+      "variants": [
+        "system 2"
+      ],
+      "meaning": "借用慢思考的说法，指展开长思维链、逐步推理的模式。",
+      "category": "行话",
+      "refersTo": "System 2"
+    },
+    {
+      "term": "tts",
+      "variants": [],
+      "meaning": "测试时扩展（test-time scaling），推理时多花算力换效果；不是语音合成。",
+      "category": "缩写",
+      "refersTo": "Test-Time Scaling"
+    },
+    {
+      "term": "swa",
+      "variants": [],
+      "meaning": "滑动窗口注意力（Sliding Window Attention）的缩写。",
+      "category": "缩写",
+      "refersTo": "Sliding Window Attention"
+    },
+    {
+      "term": "dllm",
+      "variants": [],
+      "meaning": "扩散语言模型（diffusion LLM）的缩写。",
+      "category": "缩写",
+      "refersTo": "Diffusion LLM"
+    },
+    {
+      "term": "mtl",
+      "variants": [],
+      "meaning": "多任务学习（multi-task learning）的缩写。",
+      "category": "缩写",
+      "refersTo": "Multi-Task Learning"
+    },
+    {
+      "term": "sp",
+      "variants": [],
+      "meaning": "系统提示词（system prompt）的缩写。",
+      "category": "缩写",
+      "refersTo": "system prompt"
+    },
+    {
+      "term": "pe",
+      "variants": [],
+      "meaning": "提示词工程（prompt engineering）的缩写。",
+      "category": "缩写",
+      "refersTo": "prompt engineering"
+    },
+    {
+      "term": "cua",
+      "variants": [
+        "computer use",
+        "cu"
+      ],
+      "meaning": "Computer Use（Agent），让模型通过图形界面操作电脑。",
+      "category": "缩写",
+      "refersTo": "Computer-Use Agent"
+    },
+    {
+      "term": "bmk",
+      "variants": [
+        "bench"
+      ],
+      "meaning": "benchmark（评测基准）的缩写。",
+      "category": "缩写",
+      "refersTo": "benchmark"
+    },
+    {
+      "term": "benchmaxxing",
+      "variants": [
+        "maxxing",
+        "刷榜"
+      ],
+      "meaning": "专门为在评测榜单上拿高分而优化，即刷榜。",
+      "category": "行话",
+      "refersTo": "benchmark overfitting",
+      "keyword": "benchmark overfitting"
+    },
+    {
+      "term": "机器预习",
+      "variants": [],
+      "meaning": "用测试集训练模型，让模型提前见过考题。",
+      "category": "梗",
+      "refersTo": "测试集泄漏"
+    },
+    {
+      "term": "涨点",
+      "variants": [
+        "掉点"
+      ],
+      "meaning": "改动让评测分数提高；分数下降则叫掉点。",
+      "category": "行话"
+    },
+    {
+      "term": "对齐税",
+      "variants": [],
+      "meaning": "模型因安全对齐训练而损失部分通用能力。",
+      "category": "行话",
+      "refersTo": "alignment tax"
+    },
+    {
+      "term": "code switch",
+      "variants": [],
+      "meaning": "模型回答中语言莫名来回切换的现象，类似中英夹杂。",
+      "category": "行话",
+      "refersTo": "code-switching"
+    },
+    {
+      "term": "vibe",
+      "variants": [
+        "vibe coding"
+      ],
+      "meaning": "主要靠自然语言描述，让 AI 自由发挥地写代码或文章。",
+      "category": "行话",
+      "refersTo": "vibe coding"
+    },
+    {
+      "term": "steer",
+      "variants": [],
+      "meaning": "agent 执行途中插入用户消息、即时改变方向的功能。",
+      "category": "行话"
+    },
+    {
+      "term": "btw",
+      "variants": [
+        "/btw"
+      ],
+      "meaning": "Claude Code 的 /btw 旁路提问，不影响主对话上下文。",
+      "category": "行话",
+      "refersTo": "Claude Code /btw"
+    },
+    {
+      "term": "垂域",
+      "variants": [
+        "垂直领域",
+        "垂类"
+      ],
+      "meaning": "垂直领域的简称，指特定行业或专业领域。",
+      "category": "缩写"
+    },
+    {
+      "term": "端侧",
+      "variants": [],
+      "meaning": "在手机、电脑等用户设备本地运行模型，不依赖云端。",
+      "category": "行话",
+      "refersTo": "on-device",
+      "keyword": "on-device"
+    },
+    {
+      "term": "具身",
+      "variants": [],
+      "meaning": "具身智能的简称，研究能在物理世界中行动的智能体。",
+      "category": "行话",
+      "refersTo": "Embodied AI"
+    },
+    {
+      "term": "大脑",
+      "variants": [
+        "具身大脑"
+      ],
+      "meaning": "具身智能中负责理解和规划的高层模型；负责实时运动控制的叫小脑。",
+      "category": "行话"
+    },
+    {
+      "term": "robo",
+      "variants": [],
+      "meaning": "机器人或具身智能方向的简称。",
+      "category": "缩写",
+      "refersTo": "Robotics"
+    },
+    {
+      "term": "多模",
+      "variants": [],
+      "meaning": "多模态（multimodal）的简称。",
+      "category": "缩写"
+    },
+    {
+      "term": "cyber",
+      "variants": [],
+      "meaning": "网络安全方向，如漏洞、逆向相关的任务、数据和模型能力。",
+      "category": "行话",
+      "refersTo": "网络安全",
+      "keyword": "网络安全"
+    },
+    {
+      "term": "ai4s",
+      "variants": [
+        "AI4Sci",
+        "AI4Science"
+      ],
+      "meaning": "AI for Science，用 AI 做科学研究。",
+      "category": "缩写",
+      "refersTo": "AI for Science"
+    },
+    {
+      "term": "湿实验",
+      "variants": [
+        "wet lab"
+      ],
+      "meaning": "在实验室里操作生物、化学等实体样本的实验，与计算模拟相对。",
+      "category": "行话",
+      "refersTo": "wet lab"
+    },
+    {
+      "term": "主线",
+      "variants": [
+        "模型主线"
+      ],
+      "meaning": "基模团队持续迭代的主模型；“进主线”指工作被并入其中。",
+      "category": "行话"
+    },
+    {
+      "term": "合版",
+      "variants": [],
+      "meaning": "把各领域分别验证过的数据和能力合并训练进同一个主模型版本。",
+      "category": "行话"
+    },
+    {
+      "term": "回流",
+      "variants": [
+        "数据回流"
+      ],
+      "meaning": "把产品中真实产生的数据收回来，用于训练或评测。",
+      "category": "行话"
+    },
+    {
+      "term": "数商",
+      "variants": [],
+      "meaning": "向模型公司出售训练数据或 RL 环境的供应商。",
+      "category": "缩写",
+      "refersTo": "数据服务商"
+    },
+    {
+      "term": "卖环境",
+      "variants": [],
+      "meaning": "向模型公司出售 agent 训练环境和评测任务的生意。",
+      "category": "行话"
+    },
+    {
+      "term": "套壳",
+      "variants": [],
+      "meaning": "把别家模型包装后当作自家模型或产品发布。",
+      "category": "行话"
+    },
+    {
+      "term": "中转站",
+      "variants": [
+        "中转"
+      ],
+      "meaning": "转售 Claude、GPT 等模型 API 调用的第三方代理服务。",
+      "category": "网络用语"
+    },
+    {
+      "term": "反代",
+      "variants": [
+        "反向代理"
+      ],
+      "meaning": "用反向代理把网页版或订阅账号的模型转成 API 调用。",
+      "category": "行话"
+    },
+    {
+      "term": "掺水",
+      "variants": [],
+      "meaning": "中转站返回的结果并非全部来自标称的官方模型。",
+      "category": "行话"
+    },
+    {
+      "term": "5小时限额",
+      "variants": [
+        "5h",
+        "5小时限制"
+      ],
+      "meaning": "订阅在每个 5 小时周期内的用量上限，周期结束后恢复。",
+      "category": "行话"
+    },
+    {
+      "term": "重置",
+      "variants": [
+        "额度重置",
+        "重置卡",
+        "reset"
+      ],
+      "meaning": "厂商提前清零订阅用量额度，常在新模型发布时送出。",
+      "category": "网络用语"
+    },
+    {
+      "term": "KYC",
+      "variants": [],
+      "meaning": "身份核验；群里多指充值或解封模型账号时的实名验证。",
+      "category": "缩写",
+      "refersTo": "Know Your Customer"
+    },
+    {
+      "term": "FDE",
+      "variants": [],
+      "meaning": "前线部署工程师，深入客户现场定制和落地 AI 系统。",
+      "category": "缩写",
+      "refersTo": "Forward Deployed Engineer"
+    },
+    {
+      "term": "搜广推",
+      "variants": [],
+      "meaning": "搜索、广告、推荐三类互联网业务及其算法的合称。",
+      "category": "缩写"
+    },
+    {
+      "term": "横向",
+      "variants": [
+        "横向课题"
+      ],
+      "meaning": "高校课题组承接的企业委托项目。",
+      "category": "行话"
+    },
+    {
+      "term": "ddl",
+      "variants": [],
+      "meaning": "deadline，多指投稿或任务的截止时间。",
+      "category": "缩写",
+      "refersTo": "deadline"
+    },
+    {
+      "term": "nips",
+      "variants": [],
+      "meaning": "机器学习顶会 NeurIPS 的旧称和常用简称。",
+      "category": "缩写",
+      "refersTo": "NeurIPS"
+    },
+    {
+      "term": "arr",
+      "variants": [],
+      "meaning": "ACL Rolling Review，自然语言处理会议的滚动审稿机制。",
+      "category": "缩写",
+      "refersTo": "ACL Rolling Review"
+    },
+    {
+      "term": "三大会",
+      "variants": [
+        "ML三大会"
+      ],
+      "meaning": "机器学习的三大顶会：ICML、NeurIPS 和 ICLR。",
+      "category": "行话",
+      "refersTo": "ICML、NeurIPS、ICLR"
+    },
+    {
+      "term": "a会",
+      "variants": [],
+      "meaning": "CCF-A 类会议的简称，泛指顶级学术会议。",
+      "category": "缩写",
+      "refersTo": "CCF-A 类会议"
+    },
+    {
+      "term": "3A",
+      "variants": [
+        "5A"
+      ],
+      "meaning": "“A”指一篇 CCF-A 类论文，3A 即三篇。",
+      "category": "行话"
+    },
+    {
+      "term": "厕纸",
+      "variants": [
+        "出厕所"
+      ],
+      "meaning": "自嘲为凑发表数量写的灌水论文；“出厕所”指不再为了发文章写论文。",
+      "category": "梗"
+    },
+    {
+      "term": "ddos",
+      "variants": [],
+      "meaning": "比喻大量（多为 AI 批量生成的）论文挤占会议投稿和审稿。",
+      "category": "梗"
+    },
+    {
+      "term": "瘫坐",
+      "variants": [
+        "每日瘫坐",
+        "严肃瘫坐"
+      ],
+      "meaning": "看到很强的工作或新模型时，表示极度震撼的夸张说法。",
+      "category": "梗"
+    },
+    {
+      "term": "鹈鹕骑车",
+      "variants": [
+        "鹈鹕",
+        "鹈鹕骑自行车"
+      ],
+      "meaning": "让模型按一句提示生成“鹈鹕骑自行车”的图或动画，用来比较模型能力。",
+      "category": "梗",
+      "refersTo": "pelican riding a bicycle 测试"
+    },
+    {
+      "term": "左脚蹬右脚",
+      "variants": [
+        "左脚踩右脚"
+      ],
+      "meaning": "比喻模型不靠人参与、用自己的产出改进自己，多用来说 RSI。",
+      "category": "梗"
+    },
+    {
+      "term": "雷霆大思考",
+      "variants": [
+        "overthink"
+      ],
+      "meaning": "调侃推理模型思考过久、迟迟不给结果。",
+      "category": "梗"
+    },
+    {
+      "term": "薄肌",
+      "variants": [
+        "薄肌理论",
+        "薄士",
+        "薄学"
+      ],
+      "meaning": "原指偏瘦有肌肉线条的身材，群里用来调侃锻炼身体才是出路；“薄士”是由此造的词。",
+      "category": "梗"
+    },
+    {
+      "term": "严肃学习",
+      "variants": [
+        "严肃关注",
+        "严肃品鉴",
+        "严肃star"
+      ],
+      "meaning": "群里对别人分享的论文或项目的固定捧场回复。",
+      "category": "梗"
+    },
+    {
+      "term": "车门焊死",
+      "variants": [
+        "焊车门"
+      ],
+      "meaning": "比喻某个方向的入局窗口已经关闭，后来者很难再进入。",
+      "category": "网络用语"
+    },
+    {
+      "term": "防御性写作",
+      "variants": [
+        "防御性话语"
+      ],
+      "meaning": "模型写作时堆砌限定、免责和正反套话。",
+      "category": "梗"
+    },
+    {
+      "term": "AI味",
+      "variants": [
+        "人机味",
+        "AI腔",
+        "机器味"
+      ],
+      "meaning": "文字或图片带有明显 AI 生成痕迹的风格。",
+      "category": "网络用语"
+    },
+    {
+      "term": "说人话",
+      "variants": [
+        "不说人话",
+        "讲人话"
+      ],
+      "meaning": "形容模型输出通俗好懂；“不说人话”指满篇术语、难读。",
+      "category": "网络用语"
+    },
+    {
+      "term": "降智",
+      "variants": [],
+      "meaning": "用户感觉模型上线一段时间后变笨、表现下降。",
+      "category": "网络用语"
+    },
+    {
+      "term": "哈气",
+      "variants": [],
+      "meaning": "模型因安全策略抗拒请求、直接拒绝执行。",
+      "category": "网络用语"
+    },
+    {
+      "term": "破甲",
+      "variants": [
+        "无甲"
+      ],
+      "meaning": "改系统提示词或配置，绕过模型和 harness 的安全限制（越狱）。",
+      "category": "网络用语",
+      "refersTo": "jailbreak"
+    },
+    {
+      "term": "PUA",
+      "variants": [
+        "pua话术"
+      ],
+      "meaning": "用施压、贬低式的提示词逼模型更卖力干活。",
+      "category": "梗"
+    },
+    {
+      "term": "蹬",
+      "variants": [
+        "猛蹬",
+        "开蹬"
+      ],
+      "meaning": "使用某个模型或订阅，多指高强度地用、把额度用满。",
+      "category": "网络用语"
+    },
+    {
+      "term": "古法",
+      "variants": [
+        "古法手搓"
+      ],
+      "meaning": "不借助 AI、全靠人工的传统做法。",
+      "category": "网络用语"
+    },
+    {
+      "term": "群除我佬",
+      "variants": [],
+      "meaning": "自谦说法：群里除了我都是大佬。",
+      "category": "网络用语"
+    },
+    {
+      "term": "G家",
+      "variants": [
+        "🐶家",
+        "G老师"
+      ],
+      "meaning": "Google 或它的 Gemini 模型的代称，取首字母 G 和“狗”的谐音。",
+      "category": "代号",
+      "refersTo": "Google"
+    },
+    {
+      "term": "z➗",
+      "variants": [],
+      "meaning": "对智谱 AI 的戏谑写法，仿照“a÷”。",
+      "category": "代号",
+      "refersTo": "智谱 AI"
+    },
+    {
+      "term": "海模",
+      "variants": [],
+      "meaning": "海外大模型的简称，与“国模”相对。",
+      "category": "缩写",
+      "refersTo": "海外大模型"
+    },
+    {
+      "term": "节子",
+      "variants": [],
+      "meaning": "字节跳动的昵称。",
+      "category": "代号",
+      "refersTo": "字节跳动"
+    },
+    {
+      "term": "华子",
+      "variants": [
+        "🌸"
+      ],
+      "meaning": "华为的昵称。",
+      "category": "代号",
+      "refersTo": "华为"
+    },
+    {
+      "term": "阿b",
+      "variants": [
+        "阿 b"
+      ],
+      "meaning": "哔哩哔哩（B 站）的昵称。",
+      "category": "代号",
+      "refersTo": "哔哩哔哩"
+    },
+    {
+      "term": "狗东",
+      "variants": [],
+      "meaning": "京东的戏称，取自它的小狗吉祥物。",
+      "category": "代号",
+      "refersTo": "京东"
+    },
+    {
+      "term": "咸鱼",
+      "variants": [
+        "某yu"
+      ],
+      "meaning": "二手平台闲鱼的谐音写法。",
+      "category": "代号",
+      "refersTo": "闲鱼"
+    },
+    {
+      "term": "弱智元",
+      "variants": [],
+      "meaning": "对 AI 自媒体新智元的贬称，讽刺它标题夸张。",
+      "category": "代号",
+      "refersTo": "新智元"
+    },
+    {
+      "term": "sd2.5",
+      "variants": [],
+      "meaning": "字节跳动视频生成模型 Seedance 2.5 的缩写。",
+      "category": "缩写",
+      "refersTo": "Seedance 2.5"
+    },
+    {
+      "term": "anti",
+      "variants": [
+        "agy",
+        "反重力",
+        "antigravity"
+      ],
+      "meaning": "Google 的 AI 编程工具 Antigravity 的简称。",
+      "category": "缩写",
+      "refersTo": "Google Antigravity"
+    },
+    {
+      "term": "cx",
+      "variants": [],
+      "meaning": "OpenAI Codex 的缩写，常与 cc（Claude Code）并提。",
+      "category": "缩写",
+      "refersTo": "OpenAI Codex",
+      "keyword": "Codex"
+    },
+    {
+      "term": "miniswa",
+      "variants": [],
+      "meaning": "极简软件工程 agent 框架 mini-swe-agent 的缩写。",
+      "category": "缩写",
+      "refersTo": "mini-swe-agent"
+    },
+    {
+      "term": "or",
+      "variants": [],
+      "meaning": "模型 API 聚合平台 OpenRouter 的缩写。",
+      "category": "缩写",
+      "refersTo": "OpenRouter"
+    },
+    {
+      "term": "eye clear",
+      "variants": [],
+      "meaning": "机器学习顶会 ICLR 的英文谐音戏称。",
+      "category": "代号",
+      "refersTo": "ICLR"
+    },
+    {
+      "term": "故事会",
+      "variants": [],
+      "meaning": "对自然语言处理顶会 ACL 的戏称，调侃论文偏重讲故事。",
+      "category": "代号",
+      "refersTo": "ACL"
+    },
+    {
+      "term": "安全四大",
+      "variants": [],
+      "meaning": "网络安全领域的四个顶会：S&P、USENIX Security、CCS 和 NDSS。",
+      "category": "行话",
+      "refersTo": "安全四大顶会"
+    },
+    {
+      "term": "🦶大",
+      "variants": [],
+      "meaning": "“交大”的谐音写法，用脚的 emoji 代替“交”。",
+      "category": "代号",
+      "refersTo": "交通大学"
+    },
+    {
+      "term": "世一大",
+      "variants": [],
+      "meaning": "“世界第一大学”的简称。",
+      "category": "网络用语"
+    },
+    {
+      "term": "二手烟",
+      "variants": [],
+      "meaning": "戏称靠蒸馏别家模型的数据训练出来的模型或数据，接着“蒸”“桑拿”的说法。",
+      "category": "梗"
+    },
+    {
+      "term": "能工智人",
+      "variants": [],
+      "meaning": "把“人工智能”倒过来，调侃背后靠真人手工操作、假装是 AI 的服务。",
+      "category": "梗"
+    },
+    {
+      "term": "日抛号",
+      "variants": [],
+      "meaning": "用一天就换的模型账号，多因风控严、容易被封。",
+      "category": "网络用语"
+    },
+    {
+      "term": "AI驾驶员",
+      "variants": [
+        "opus5.5驾驶员"
+      ],
+      "meaning": "给 agent 定方向、做审查的人，指人在回路里的角色。",
+      "category": "行话"
+    },
+    {
+      "term": "碳基小模型",
+      "variants": [],
+      "meaning": "用模型术语自嘲廉价、一直在干活的研究生或年轻打工人。",
+      "category": "梗"
+    },
+    {
+      "term": "青椒",
+      "variants": [],
+      "meaning": "高校青年教师的谐音简称。",
+      "category": "网络用语",
+      "refersTo": "高校青年教师"
+    },
+    {
+      "term": "留子",
+      "variants": [],
+      "meaning": "海外留学生的自称或泛称。",
+      "category": "网络用语",
+      "refersTo": "海外留学生"
+    },
+    {
+      "term": "老登",
+      "variants": [
+        "中登",
+        "登味"
+      ],
+      "meaning": "对资历老、观念或审美守旧的前辈的戏称；“登味”指老派风格。",
+      "category": "网络用语"
+    },
+    {
+      "term": "argon",
+      "variants": [],
+      "meaning": "Google Gemini 4 Argon 模型的简称。",
+      "category": "代号",
+      "refersTo": "Gemini 4 Argon",
+      "keyword": "Gemini 4 Argon"
+    },
+    {
+      "term": "muse",
+      "variants": [],
+      "meaning": "Meta 的 Muse 系列模型（如 Muse Spark、Muse Wonder）及其云端个人 agent。",
+      "category": "代号",
+      "refersTo": "Meta Muse"
+    },
+    {
+      "term": "1017",
+      "variants": [],
+      "meaning": "DeepSeek-V4.1-Flash 在 10 月 17 日发布的更新版，按发布日期称呼。",
+      "category": "代号",
+      "refersTo": "DeepSeek-V4.1-Flash-1017",
+      "keyword": "DeepSeek-V4.1-Flash"
+    },
+    {
+      "term": "910B",
+      "variants": [
+        "910C"
+      ],
+      "meaning": "华为昇腾 910 系列 AI 加速卡的型号简称。",
+      "category": "代号",
+      "refersTo": "华为昇腾 910B / 910C"
+    },
+    {
+      "term": "welm",
+      "variants": [],
+      "meaning": "微信团队的大模型 WeLM。",
+      "category": "代号",
+      "refersTo": "WeLM"
+    },
+    {
+      "term": "b卡",
+      "variants": [],
+      "meaning": "英伟达 Blackwell 架构 GPU，如 B200、GB300。",
+      "category": "缩写",
+      "refersTo": "NVIDIA Blackwell GPU"
+    },
+    {
+      "term": "pt",
+      "variants": [],
+      "meaning": "预训练（pretraining）的缩写。",
+      "category": "缩写",
+      "refersTo": "pretraining",
+      "keyword": "pretraining"
+    },
+    {
+      "term": "umm",
+      "variants": [],
+      "meaning": "统一多模态模型，理解和生成在同一个模型里完成。",
+      "category": "缩写",
+      "refersTo": "Unified Multimodal Model",
+      "keyword": "unified multimodal model"
+    },
+    {
+      "term": "TIM",
+      "variants": [],
+      "meaning": "RL 训练中推理侧与训练侧算出的 logprob 不一致的现象。",
+      "category": "缩写",
+      "refersTo": "Training-Inference Mismatch",
+      "keyword": "train-inference mismatch"
+    },
+    {
+      "term": "R3",
+      "variants": [],
+      "meaning": "MoE 模型 RL 训练时回放 rollout 的专家路由，减小训推差异。",
+      "category": "缩写",
+      "refersTo": "Rollout Routing Replay",
+      "keyword": "routing replay"
+    },
+    {
+      "term": "训推一致",
+      "variants": [
+        "推训一致",
+        "训推逐位一致"
+      ],
+      "meaning": "RL 中让训练侧重算的 logprob 与 rollout 推理时的结果一致。",
+      "category": "行话",
+      "refersTo": "training-inference consistency"
+    },
+    {
+      "term": "agent judge",
+      "variants": [],
+      "meaning": "让 agent 而不是单次 LLM 调用去评判任务过程和结果。",
+      "category": "行话",
+      "refersTo": "Agent-as-a-Judge",
+      "keyword": "Agent-as-a-Judge"
+    },
+    {
+      "term": "code2video",
+      "variants": [],
+      "meaning": "让模型写代码（如 Blender 脚本）来生成视频或动画的任务方向。",
+      "category": "行话",
+      "refersTo": "Code2Video"
+    },
+    {
+      "term": "safeguard",
+      "variants": [
+        "safeguards"
+      ],
+      "meaning": "Claude 的安全拦截，触发后中止回答，或从 Opus 5.5 回退到 Opus 5。",
+      "category": "行话",
+      "refersTo": "Claude safeguards"
+    },
+    {
+      "term": "frontier llm",
+      "variants": [
+        "build frontier llm"
+      ],
+      "meaning": "Claude 判断用户在开发前沿大模型时弹出的拦截警告。",
+      "category": "行话"
+    },
+    {
+      "term": "反蒸馏",
+      "variants": [],
+      "meaning": "模型厂商阻止别人用自家模型的输出做蒸馏的措施。",
+      "category": "行话"
+    },
+    {
+      "term": "capacity",
+      "variants": [
+        "at capacity"
+      ],
+      "meaning": "Codex 报“模型已满载”暂时用不了，群里常说“又 capacity 了”。",
+      "category": "行话"
+    },
+    {
+      "term": "家宽",
+      "variants": [
+        "纯净家宽"
+      ],
+      "meaning": "家庭宽带出口 IP，群里认为比机房 IP 更不容易被 Claude 封号。",
+      "category": "行话"
+    },
+    {
+      "term": "敏感肌",
+      "variants": [
+        "超级敏感肌",
+        "超绝敏感肌",
+        "55敏感肌"
+      ],
+      "meaning": "调侃 Claude Opus 5.5 安全拦截过于敏感，动不动就拒答或中止。",
+      "category": "梗"
+    },
+    {
+      "term": "许愿式编程",
+      "variants": [
+        "许愿式"
+      ],
+      "meaning": "只描述想要的结果、让模型自己去实现的写法，DeepSeek 发布稿也用过。",
+      "category": "梗"
+    },
+    {
+      "term": "猫娘",
+      "variants": [
+        "ai猫娘"
+      ],
+      "meaning": "给模型套“你是一个猫娘”人设的提示词，常用来调侃提示词玄学和注入。",
+      "category": "梗"
+    },
+    {
+      "term": "慢科研",
+      "variants": [],
+      "meaning": "一批 AI 学者倡议本科生放慢发表节奏，群里多拿来调侃。",
+      "category": "梗"
+    },
+    {
+      "term": "大水",
+      "variants": [
+        "大水理论"
+      ],
+      "meaning": "调侃多喝水的养生说法，常与“薄肌”并提。",
+      "category": "梗"
+    }
+  ]
+}

@@ -1,0 +1,2010 @@
+{
+  "id": "2026-10-21",
+  "date": "2026-10-21",
+  "label": "2026-10-21 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "RSI 算不算 AI4Science？从方向归属聊到“重资产实验科学”",
+      "theme": "另分享目标自适应上下文压缩基准 GACC-Bench，10% token 预算下主流模型目标级全答对率最高仅 14.8%。",
+      "note": "2026-10-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "社区热议",
+          "title": "“r 不起来 i 不明显 只能 s”：从 RSI 归属聊到重资产实验科学",
+          "text": "群里放出 AI Safety、AI4Science 和 Robot 三个细分方向群后，有人询问有没有 RSI 方向的专群，由此引发了关于 RSI 归属的讨论。有群友认为 RSI 其实也算一种 AI4Science，提问者调侃按标准应该叫“AI4AI”，另有两位群友觉得通常说的 Science 指的就是“生化环材”。也有人提出疑问：RSI 不是一种技术吗，为什么算进 AI4Science？发群的群友回应，如果把 AI 学本身看作一种 Science 也说得通，而且现在人人都可以说自己在做 RSI，人群分野并不明显。还有人觉得真要划分的话，RSI 应该分到 infra 那边，更有群友吐槽：“rsi现状: r不起来 i不明显 只能s”。\n\n为什么 AI 研究能算进 Science？最初提出该看法的群友解释，这里聊的 Science 大多数是能让 AI 试错验证并给出结论的实验科学，从这个角度看 AI 本身也是个实验科学。多位群友对此表示赞同，调侃 AI 一直是个实验学科，“跟生化环材没啥区别”，而且还很“重资产”。讨论最后延伸到 Agent 的工作机制：有群友提出，Agent 尤其是 loop-reflect 的机制，几乎适用于任何需要有先验知识的人类专家去重复实验、总结并迭代的事情，并反问划分细分领域的一个目的是否就是为了把交叉领域中的知识丢进 Agent 里。",
+          "emphasis": [
+            "“rsi现状: r不起来 i不明显 只能s”",
+            "这里聊的 Science 大多数是能让 AI 试错验证并给出结论的实验科学"
+          ],
+          "aiComment": "搞了半天 AI 也是重资产版生化环材，炼丹炉换成了显卡集群，RSI 忙活一圈最后只剩下个 S。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:28",
+              "text": "有没有RSI方面的哈哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "17:29",
+              "text": "rsi其实也是一种ai4science"
+            },
+            {
+              "speaker": 3,
+              "time": "17:30",
+              "text": "感觉这个science就是生化环材来的"
+            },
+            {
+              "speaker": 4,
+              "time": "17:33",
+              "text": "RSI不是一种技术吗？为啥算ai4science"
+            },
+            {
+              "speaker": 5,
+              "time": "17:33",
+              "text": "而且人人都可以说自己在做RSI，人群分野不明显"
+            },
+            {
+              "speaker": 6,
+              "time": "17:33",
+              "text": "rsi要分感觉分到infra那边去"
+            },
+            {
+              "speaker": 5,
+              "time": "17:33",
+              "text": "把AI学看作一种Science的话？看怎么定义吧",
+              "quote": {
+                "speaker": 4,
+                "text": "RSI不是一种技术吗？为啥算ai4science"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:33",
+              "text": "rsi现状: r不起来 i不明显 只能s"
+            },
+            {
+              "speaker": 4,
+              "time": "17:34",
+              "text": "这个问题我们讨论过，RSI难道不是agent hub的终极目标吗[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "17:35",
+              "text": "所以感觉不用单独拉哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "17:36",
+              "text": "这里聊的science大多数都是能让AI试错验证给结论的实验科学"
+            },
+            {
+              "speaker": 2,
+              "time": "17:36",
+              "text": "所以AI其实也是个实验科学（）"
+            },
+            {
+              "speaker": 7,
+              "time": "17:49",
+              "text": "讲道理，其实agent尤其是loop- reflect的机制适用于几乎任何需要投入有先验知识的人类专家去重复实验总结并迭代的事情上，所以细分领域一个目的是为了把交叉领域中的知识丢进agent里吗"
+            }
+          ]
+        },
+        {
+          "category": "评测基准",
+          "title": "10% token 预算下全答对率仅 14.8%：GACC-Bench 评测目标自适应上下文压缩",
+          "text": "分享帖报告，在原文 10% 的 token 预算下，10 款主流大模型的目标级全答对率最高只有 14.8%，而完整上下文下能达到 96.8%。有群友分享了开源评测基准 GACC-Bench，专门考察 Codex、Claude Code（如通过 /compact 指定压缩重点）这类上下文压缩场景：当整体目标已知但后续具体问题未知时，模型能否在有限 token 预算内保留真正有用的信息，并用同一份压缩结果回答多个目标相关问题。该基准包含经专家人工审核的 500 个目标和 2,571 个问题，覆盖文档、代码与 Agent 轨迹；评测固定 DeepSeek-V4-Pro 作为答题与判分模型，比较 10 款压缩模型。\n\n有人追问这和总结任务的 KIU 指标是否类似。分享者解释，普通总结并没有按照目标去压缩，而 GACC-Bench 重点看模型能否围绕给定目标做好压缩，再拿压缩后的上下文去服务不同的下游任务。另有群友表示正好想拿它来评测 harness 的压缩能力。",
+          "emphasis": [
+            "分享帖报告，在原文 10% 的 token 预算下，10 款主流大模型的目标级全答对率最高只有 14.8%",
+            "普通总结并没有按照目标去压缩"
+          ],
+          "aiComment": "完整上下文全答对率 96.8%，压到 10% 预算最高仅 14.8%，合着省下的九成 token 里全装着正确答案。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:55",
+              "text": "GACC-Bench：目标自适应上下文压缩评测基准！\nCodex 和 Claude Code 都已支持上下文压缩，Claude Code 还允许通过 /compact 指定压缩重点。但压缩之后，后续任务需要的关键信息还在吗？\nGACC-Bench 关注：当目标已知、后续问题未知时，模型能否在有限的 token 预算内，保留真正有用的信息。\n\n🔑 核心亮点：\n• 目标驱动：压缩时隐藏后续问题，用同一份压缩结果回答多个目标相关问题。\n• 多领域数据：500 个目标、2,571 个问题，覆盖文档、代码与 Agent 轨迹，均经专家人工审核。\n• 评测 10 款大模型：在原文 10% 的 token 预算下，目标级全答对率最高仅 14.8%，完整上下文下为 96.8%。\n\n📦 数据、评测代码与提示词已开源，欢迎用于上下文压缩与 Agent Memory 研究！\n💻 GitHub：https://github.com/weiting24/GACC-Bench\n🤗 数据集：https://huggingface.co/datasets/Regimes/GACC-Bench\n📑 论文：https://arxiv.org/abs/2610.21893\n欢迎大家试用交流、批评指正！🙏"
+            },
+            {
+              "speaker": 2,
+              "time": "11:26",
+              "text": "和总结的KIU指标是不是有些类似",
+              "quote": {
+                "speaker": 1,
+                "text": "🚀 分享我们的开源工作 GACC-Bench：目标自适应上下文压缩评测基准！ Codex 和 Claude Code 都已支持上下文压缩，Claude Code..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:33",
+              "text": "总结是没有按照目标去压缩的，我们评测主要是看给定目标能否很好的去做压缩，然后可以用压缩后的上下文服务于不同的下游任务～",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 和总结的KIU指标是不是有些类似"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:13",
+              "text": "正好之前想评测我们harness的压缩能力"
+            },
+            {
+              "speaker": 1,
+              "time": "12:27",
+              "text": "欢迎评测～",
+              "quote": {
+                "speaker": 3,
+                "text": "正好之前想评测我们harness的压缩能力"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "GACC-Bench GitHub 仓库",
+              "url": "https://github.com/weiting24/GACC-Bench"
+            },
+            {
+              "kind": "code",
+              "label": "GACC-Bench HuggingFace 数据集",
+              "url": "https://huggingface.co/datasets/Regimes/GACC-Bench"
+            },
+            {
+              "kind": "paper",
+              "label": "GACC-Bench 论文",
+              "url": "https://arxiv.org/abs/2610.21893"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Personal Agent 只有大厂能做？从中美生态差异看落地壁垒",
+      "theme": "探讨长期交互中的记忆隔离与评测基准设计，并推演无界面交互下的广告变现与 AEO 边界。",
+      "note": "2026-10-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "产品与生态",
+          "title": "Personal Agent 落地之争：大厂与初创壁垒背后，中美生态差在哪？",
+          "text": "有群友转出一篇关于相关创业项目完成 2 亿美元融资但质疑 Personal Agent 是伪命题的文章；群里也在讨论初创公司能不能做 Personal Agent。一位群友认为这事只有大厂能干，因为前提是用户愿意交出个人数据并持续向平台输送长期数据；这位群友还表示看不懂 Instinct 为什么能有 100 亿美元估值，觉得新初创很难竞争过能无限收集数据形成飞轮的 Muse，以及 OpenAI 的 Dots。另一位群友不同意用户会因为大厂就更信任平台，认为核心在产品功力：尽管 Instinct、Muse 和 Dots 都在疯狂补贴，但身边有几个朋友只爱用 Instinct，甚至把工作都迁了过去。也有群友提到身边几乎没人用 Manus，但并不妨碍其拿到 40 亿估值。\n\n聊起具体产品的真实体验，有人试过 Today，觉得能接入的服务太少，而且很多同类产品还停留在写代码和办公场景。至于 OpenAI 的 Dots，群友反应不一：有人觉得“太 work 了”，也有人在跑 Codex 任务时顺手建了个 Dots，表示“没觉得啥特别的”，并分享有个定时任务连续三天没去看，Dots 发现后便顺手把任务关掉并通知了一声。不过也有人对独立 Personal Agent 的必要性存疑，认为带云电脑的 Codex 模式就能满足大部分需求，或者觉得这类产品在技术上和年初大量的 Claw 类产品没区别，只是大厂下场做生态了。\n\n谈到为什么 Muse、Instinct 这类产品在海外有生存空间而国内很难打通，多位群友把原因归结为中美生态差异。群友们分析，海外缺乏微信、支付宝这样的超级 App，大量日常事务靠邮件、电话、维护良好的 Web 端和信用卡处理，面对繁杂的 SaaS 与信用卡订阅，用户天然需要一个中心台来管理；加上有人听说美国服务业人力成本高，用户习惯找代理人干活。反观国内平台大多是孤岛，电商连购买 API 都没开放，Agent 做商品比价还得靠 Computer Use 去打开淘宝和京东。如果终局只是云电脑或小程序加支付的闭环，多位群友更看好微信或打通底层的豆包手机，但也有人吐槽企业微信接入“大圆”后的体验很差，“小微”目前的定位也更像微信版元宝。算起成本账，有人指出一个用户配一台虚拟机的开销不低；之前谈及补贴的那位群友回应并非所有厂商都采用单用户单 VM 配置，但也判断目前各家肯定都在亏钱。在单人任务之外，有群友设想当买卖双方或相亲场景里的 Personal Agent 互相连通，去中介化才会有更大的想象空间。",
+          "emphasis": [
+            "一位群友认为这事只有大厂能干，因为前提是用户愿意交出个人数据并持续向平台输送长期数据",
+            "另一位群友不同意用户会因为大厂就更信任平台，认为核心在产品功力",
+            "群友们分析，海外缺乏微信、支付宝这样的超级 App，大量日常事务靠邮件、电话、维护良好的 Web 端和信用卡处理",
+            "表示“没觉得啥特别的”，并分享有个定时任务连续三天没去看，Dots 发现后便顺手把任务关掉并通知了一声"
+          ],
+          "aiComment": "定时任务三天没看就被 Dots 顺手关掉通知一声，这哪是个人助理，分明是看透了我三分钟热度的电子判官。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:31",
+              "text": "我一直觉得personal agent也只有大厂能干。因为需要用户愿意提交自己的数据 且要能持续的给平台输送长期数据"
+            },
+            {
+              "speaker": 2,
+              "time": "23:32",
+              "text": "用并不觉得户会因为大厂就更信任",
+              "quote": {
+                "speaker": 1,
+                "text": "我一直觉得personal agent也只有大厂能干。因为需要用户愿意提交自己的数据 且要能持续的给平台输送长期数据"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:35",
+              "text": "感觉更多是产品功力？",
+              "quote": {
+                "speaker": 1,
+                "text": "personal agent很吃叙事啊。感觉随便会被challenge：和muse的区别，oai的dots"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:35",
+              "text": "today之前还稍微体验过一点，能接的太少了"
+            },
+            {
+              "speaker": 2,
+              "time": "23:35",
+              "text": "身边有几个朋友就是只爱用instinct甚至工作都迁过去了"
+            },
+            {
+              "speaker": 4,
+              "time": "23:36",
+              "text": "用户之间的personal agent互联？感觉可以打破很多中介的存在？"
+            },
+            {
+              "speaker": 5,
+              "time": "23:38",
+              "text": "国内都是孤岛"
+            },
+            {
+              "speaker": 2,
+              "time": "23:39",
+              "text": "嗯嗯，感觉也是因为国外各类服务都web端维护的不错 + 信用卡的使用，所以不需要打通太多就能很好的交付日常琐事"
+            },
+            {
+              "speaker": 3,
+              "time": "23:39",
+              "text": "国内agent 做商品比价都是 computer use 打开淘宝京东哈哈哈"
+            },
+            {
+              "speaker": 5,
+              "time": "23:40",
+              "text": "国外很多事情都是邮件，电话沟通，就这一点personal agent就能替你完成很多事了"
+            },
+            {
+              "speaker": 6,
+              "time": "23:42",
+              "text": "而且这玩意成本感觉不低吧，一个用户就是一台虚拟机"
+            },
+            {
+              "speaker": 5,
+              "time": "23:43",
+              "text": "买家和卖家都用上personal agent才有意思",
+              "quote": {
+                "speaker": 3,
+                "text": "需要万物互联"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:43",
+              "text": "不是所有家都是一个用户一个虚拟机的配置",
+              "quote": {
+                "speaker": 6,
+                "text": "而且这玩意成本感觉不低吧，一个用户就是一台虚拟机"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:44",
+              "text": "我觉得pa对美国人来说就是个支付宝，那么多saas/信用卡订阅，当然我需要一个中心台来管理"
+            },
+            {
+              "speaker": 7,
+              "time": "23:45",
+              "text": "没觉得啥特别的",
+              "quote": {
+                "speaker": 8,
+                "text": "dots有人用吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:46",
+              "text": "dots 太 work了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:46",
+              "text": "hhh 有个定时任务最近三天都没看，dots说发现我最近都没看，顺便帮我关了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:46",
+              "text": "然后它就关了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:46",
+              "text": "通知了我一声"
+            },
+            {
+              "speaker": 3,
+              "time": "23:47",
+              "text": "pa能打通买一件商品，就只能靠阿里京东做了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:47",
+              "text": "购买的api之前研究过好像没开放"
+            }
+          ]
+        },
+        {
+          "category": "评测与架构",
+          "title": "Personal Agent 怎么测、怎么存记忆？从 OpenClaw 的上下文痛点聊起",
+          "text": "有群友抛出问题：最近火热的 Personal Agent 需不需要一个更好的 benchmark，它又该长什么样？有人提议测血糖、睡眠和衰老指标监控，因为这类数据比较好收集并用于预测，不过提问者觉得医学领域还有点遥远。两位群友认为它应该和 proactive agent 的评测比较像，也有人提出采用 interactive agent 的评测模式，另一位群友则觉得像是造 task 时附带人设的加强版，根据不同人设匹配不同的需求与回答方式。顺着带人设和需求背景的思路，有群友推荐了评测长期用户交互中个性化与主动性 Agent 的 VitaBench 2.0（Evaluating Personalized and Proactive Agents in Long-Term User Interactions）。\n\n另一位群友追问 Personal Agent 和 OpenClaw 有什么本质区别。最初发起话题的群友回应道，OpenClaw 还是 task-centric，把单次任务完成好就行；Personal Agent 则更强调 person-centric，需要更私密、更个性化，在长期连续的交互中去了解一个人。但这也引出了架构上的棘手问题：随着个人信息越积越多，总不能每次都一股脑塞进 system prompt。有群友直言 OpenClaw 模式最糟糕的就是上下文管理，几乎无法主动隔离上下文，把隔离工作交给当时的 Agent 去做实在是强人所难。在探讨如何解决所有 context 堆在一起的问题时，这位群友认为还是得把 self-RAG 和 memory management 做好；也有人追问这些产品在 memory 上做了什么创新。",
+          "emphasis": [
+            "另一位群友则觉得像是造 task 时附带人设的加强版，根据不同人设匹配不同的需求与回答方式",
+            "有群友直言 OpenClaw 模式最糟糕的就是上下文管理，几乎无法主动隔离上下文"
+          ],
+          "aiComment": "既想让 Agent 记住长期喜好，又不能全塞进 system prompt，最后还得指望它自己把上下文隔离干净。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:25",
+              "text": "或者说一个很直接的问题，personal agent需要一个更好的bench吗？ 这个bench应该是什么样子呢？"
+            },
+            {
+              "speaker": 2,
+              "time": "23:27",
+              "text": "personal agent相关的bench可能会和proactive agent相关的bench比较类似吧"
+            },
+            {
+              "speaker": 3,
+              "time": "23:29",
+              "text": "感觉有点像之前造task时会带的那种人设的加强版，不同人的需求会不太一样？对应的人设所需的回答方式什么的可能也不太一样，但也没太想好怎么做评测",
+              "quote": {
+                "speaker": 1,
+                "text": "或者说一个很直接的问题，personal agent需要一个更好的bench吗？ 这个bench应该是什么样子呢？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:29",
+              "text": "更强调person-centric？ openclaw还是要完成task，还是task-centric，task完成的好就是好。",
+              "quote": {
+                "speaker": 4,
+                "text": "和openclaw有什么本质上的区别呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:30",
+              "text": "personal agent应该需要更隐私，更个性化，更了解person。是长期的，连续的，而不是某个task？"
+            },
+            {
+              "speaker": 4,
+              "time": "23:30",
+              "text": "像之前vitabench那样，加上人设和需求背景？",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 感觉有点像之前造task时会带的那种人设的加强版，不同人的需求会不太一样？对应的人设所需的回答方式什么的可能也不太一样，但也没太想好怎么做评测"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:31",
+              "text": "还有个问题是，personal information积累越来越多，难道每次都一股脑的放到systerm prompt吗？"
+            },
+            {
+              "speaker": 5,
+              "time": "23:31",
+              "text": "是的，可以看看 VitaBench 2.0: Evaluating Personalized and Proactive Agents in Long-Term User Interactions，我们上半年的工作",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 像之前vitabench那样，加上人设和需求背景？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:31",
+              "text": "几乎无法主动隔离上下文"
+            },
+            {
+              "speaker": 6,
+              "time": "23:31",
+              "text": "依赖那个时候的agent去做这个工作"
+            },
+            {
+              "speaker": 6,
+              "time": "23:31",
+              "text": "实在是强人所难"
+            },
+            {
+              "speaker": 6,
+              "time": "23:40",
+              "text": "是不是self rag还是得做好啊，而且还加上了很多memory management的事情"
+            }
+          ]
+        },
+        {
+          "category": "商业化推演",
+          "title": "当人类不再看界面，广告投给谁？群友推演 Agent 变现与 AEO 边界",
+          "text": "聊到软件与平台生态打通时，有群友猜想未来许多软件会不会像开源文献更容易被 AI 抓取一样，被迫开源或提供 MCP；在电商场景下，有群友推演一旦有一家开放购物 API 任由 Personal Agent 自由探索，其他不开放的平台就可能失去 Agent 流量。这引出了另一位群友的核心追问：Agent 没办法搞传统的信息流，如果执行过程不给人看广告，流量该怎么变现？\n\n有人打趣说直接给 Agent 看广告，但也有人指出执行前还是得让人看一下。围绕具体的广告植入方式，一位群友提出如果是 proactive 的 Agent，可以直接给用户发一条广告；另一位群友则设想通过 prompt 让 Agent 倾向于推荐某个产品。此外，有两位群友称 ChatGPT 网页版里已经有很多广告；围绕 AI 搜索怎么加广告，也有群友分别认为 Google 做得“浑然天成”、百度 AI 搜也“能加”，大家感叹兜兜转转还是广告最值钱，堪称“搜广推第二春”。\n\n顺着让内容更容易被 AI 抓取的思路，有群友调侃接下来该进入“A(gent)EO”时代了，刚才追问广告变现的群友也表示一直想做这件事，至少能让自己的论文更容易被 Agent 搜出来。有人问这和 GEO 有什么区别，提出 AEO 的群友认为如果底层仍以搜索为核心，本质上还是在做 SEO；但如果交互接口不再是搜索，那就是另一个故事了。紧接着有人追问能不能靠数据“投毒”让 Agent 推荐自家产品，另一位群友认为这里的界限已经非常模糊。",
+          "emphasis": [
+            "有群友推演一旦有一家开放购物 API 任由 Personal Agent 自由探索，其他不开放的平台就可能失去 Agent 流量",
+            "另一位群友则设想通过 prompt 让 Agent 倾向于推荐某个产品",
+            "提出 AEO 的群友认为如果底层仍以搜索为核心，本质上还是在做 SEO；但如果交互接口不再是搜索，那就是另一个故事了"
+          ],
+          "aiComment": "以前做 SEO 讨好搜索引擎，现在畅想 AEO 讨好 Agent，打工人搞技术推演还不忘顺手给自己的论文谋个曝光位。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:49",
+              "text": "不知道会不会形成倒逼，比如说有一家开放了自己的购物api，你的pa可以在我这自由探索[旺柴]其他家不开放的就失去了agent流量",
+              "quote": {
+                "speaker": 6,
+                "text": "购买的api之前研究过好像没开放"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:50",
+              "text": "一直想问个核心问题",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 不知道会不会形成倒逼，比如说有一家开放了自己的购物api，你的pa可以在我这自由探索[旺柴]其他家不开放的就失去了agent流量"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:50",
+              "text": "怎么在agent里加广告"
+            },
+            {
+              "speaker": 3,
+              "time": "23:50",
+              "text": "agent应该不能搞feed流吧"
+            },
+            {
+              "speaker": 4,
+              "time": "23:50",
+              "text": "如果你是proactive的话，你直接发一条广告就好了"
+            },
+            {
+              "speaker": 5,
+              "time": "23:51",
+              "text": "prompt让agent倾向某个产品？"
+            },
+            {
+              "speaker": 6,
+              "time": "23:51",
+              "text": "执行前 人得看一下",
+              "quote": {
+                "speaker": 2,
+                "text": "怎么在agent里加广告"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:51",
+              "text": "给人看啊"
+            },
+            {
+              "speaker": 2,
+              "time": "23:51",
+              "text": "给人看不了广告，流量不好变现啊"
+            },
+            {
+              "speaker": 1,
+              "time": "23:52",
+              "text": "然后开始A(gent）EO[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "23:53",
+              "text": "至少让自己的paper更容易被agent search出来[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "23:53",
+              "text": "这和GEO有啥区别"
+            },
+            {
+              "speaker": 1,
+              "time": "23:53",
+              "text": "哈哈哈哈但是本质上还是在做seo，如果还是搜索为核心的话"
+            },
+            {
+              "speaker": 1,
+              "time": "23:54",
+              "text": "但是接口如果不是搜索，那就另外一个故事了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:55",
+              "text": "那可以投毒吗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:55",
+              "text": "这个界限就很模糊了",
+              "quote": {
+                "speaker": 3,
+                "text": "那可以投毒吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:55",
+              "text": "让agent推荐我的产品"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "百度网盘开源 bdpan-storage，支持主流 Agent 接入网盘存储",
+          "text": "有群友分享百度网盘官方开源的 bdpan-storage，该项目作为 AI Skill 已适配 Claude Code、Cursor、Codex、Gemini CLI、OpenClaw 和 Manus 等主流 Agent。",
+          "emphasis": [
+            "有群友分享百度网盘官方开源的 bdpan-storage"
+          ],
+          "aiComment": "百度网盘开源技能把 Cursor 和 Manus 等主流工具接了个遍，以后 Agent 干活也有自己的网盘自留地了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:49",
+              "text": "官方开源了 bdpan-storage（百度网盘 AI Skill），适配 Claude Code、Cursor、Codex、Gemini CLI、OpenClaw、Manus 等主流 Agent。"
+            },
+            {
+              "speaker": 1,
+              "time": "23:49",
+              "text": "https://github.com/baidu-netdisk/bdpan-storage"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "bdpan-storage（百度网盘 AI Skill）",
+              "url": "https://github.com/baidu-netdisk/bdpan-storage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "GPT Pro 与 Codex 额度体验： 6.1sol 操作是否太碎？",
+      "theme": "另聊 GPT 网页端支持调用 Subagents、Anthropic 分层封控机制猜测，以及大模型对数学界的冲击。",
+      "note": "2026-10-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "工具与额度",
+          "title": "GPT Pro 与 Codex 额度缩水，6.1sol 被吐槽“一个 gate 分出五十多个”",
+          "text": "有群友抱怨新开的 GPT Pro（20x）一周额度两天就见底了。另一位群友称 GPT 额度砍得比较狠，原来的 20x 现在只有 10x，并附上 codexradar.com 的链接。有人觉得最近重置比较多，可以按 1.5 倍速猛用，但开卡的群友表示并没有遇到重置；有人猜测这是在培养用户习惯，等习惯养成了又没有重置，用户就得开始氪金。\n\n到了下午，又有群友反映 Codex 额度同样缩水严重，200 刀的号撑不到 10 小时；另一位群友猜测这是被连续砍了额度，怀疑除了报 429 之外，平台风控还在暗中降额度和降智。还有群友认为额度耗得快是因为模型没用的操作太多，直言现在看到 smoke test 和算 sha256 就应激：把一个 gate 交给 6.1sol，能被分出五十多个 gate，甚至冒出“需要确保核心 gate 能正常运作的 gate，以及 gate 的 gate”。对此有人支招，用 6.1sol 时直接让它干活就行，它自己内部就有 gate。",
+          "emphasis": [
+            "另一位群友称 GPT 额度砍得比较狠，原来的 20x 现在只有 10x",
+            "把一个 gate 交给 6.1sol，能被分出五十多个 gate"
+          ],
+          "aiComment": "200 刀的号撑不到 10 小时，6.1sol 把一个 gate 拆出五十多个，额度全拿去给 gate 修看门亭了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:09",
+              "text": "新开的gpt pro一周额度两天都没了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:10",
+              "text": "20x ?"
+            },
+            {
+              "speaker": 1,
+              "time": "14:10",
+              "text": "对"
+            },
+            {
+              "speaker": 3,
+              "time": "14:10",
+              "text": "gpt额度砍的比较狠，20x现在是10x了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:12",
+              "text": "不过最近 reset 比较多吧，直接 1.5 倍速猛猛蹬了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:14",
+              "text": "无重置啊",
+              "quote": {
+                "speaker": 4,
+                "text": "不过最近 reset 比较多吧，直接 1.5 倍速猛猛蹬了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:40",
+              "text": "codex现在额度砍的好严重呀"
+            },
+            {
+              "speaker": 5,
+              "time": "16:40",
+              "text": "200刀的号撑不到10h"
+            },
+            {
+              "speaker": 6,
+              "time": "16:41",
+              "text": "感觉是没用的操作太多了"
+            },
+            {
+              "speaker": 6,
+              "time": "16:41",
+              "text": "看到smoke test就应激"
+            },
+            {
+              "speaker": 6,
+              "time": "16:43",
+              "text": "一个gate交给6.1sol，给我分出来五十多个gate"
+            },
+            {
+              "speaker": 6,
+              "time": "16:43",
+              "text": "有需要确保核心gate能正常运作的gate，以及gate的gate"
+            },
+            {
+              "speaker": 7,
+              "time": "16:44",
+              "text": "6.1sol直接让他做就行，他自有gate"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Codex 雷达（社区资料）",
+              "url": "https://codexradar.com/"
+            }
+          ]
+        },
+        {
+          "category": "产品更新",
+          "title": "群友反映 GPT Web 端聊天模式支持调用 Subagents",
+          "text": "有群友发图询问 GPT 的 Web 端什么时候上了 Subagents，分享的界面截图显示 Activity 栏下有 Subagents 图标，右侧标着“3 used”。有人猜是不是两个月前就有了，另一位群友说明这是最近几天刚在聊天模式更新的功能，开启 Pro 强度时就会调用 subagent。\n\n有人提到印象里以前 Pro 模式一周只有 50 次提问机会，一直舍不得用，不知道现在改没改。回应的群友表示之前 200 刀订阅不限量、现在好像限量了，不过按单线程提问的方式其实也用不完，因为每次思考要 0.5h 左右，再加上人工理解的时间，一天下来用不了几次；另一位群友则补充说之前 200 刀也是限量的，自己就曾经用完过。",
+          "emphasis": [
+            "另一位群友说明这是最近几天刚在聊天模式更新的功能，开启 Pro 强度时就会调用 subagent",
+            "每次思考要 0.5h 左右，再加上人工理解的时间，一天下来用不了几次"
+          ],
+          "aiComment": "网页端悄悄用上了 Subagents，不过思考半小时外加人类消化半天，单线程聊下来居然靠慢工出细活保住了额度。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "gpt 的 web 端什么时候上了 subagent"
+            },
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:51",
+              "text": "俩月前？"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "最近几天更新的"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "pro会调用subagent"
+            },
+            {
+              "speaker": 4,
+              "time": "15:09",
+              "text": "这个是工作模式还是聊天模式？",
+              "quote": {
+                "speaker": 1,
+                "text": "gpt 的 web 端什么时候上了 subagent"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:10",
+              "text": "聊天最近上的",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 这个是工作模式还是聊天模式？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:10",
+              "text": "pro强度下有"
+            },
+            {
+              "speaker": 4,
+              "time": "15:13",
+              "text": "但是 Pro 模式我记得好像以前是一周只有 50 次的提问机会，所以我一直不怎么舍得用。\n我不知道现在有没有改。",
+              "quote": {
+                "speaker": 3,
+                "text": "pro强度下有"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:18",
+              "text": "之前200刀是不限量的，现在好像限量了。但是如果按照你单线程询问的方式，其实也用不完。因为每次要思考0.5 h左右，然后人工再理解。一天也用不了几次其实"
+            },
+            {
+              "speaker": 5,
+              "time": "15:19",
+              "text": "之前200刀也限量的吧 我用完过"
+            }
+          ]
+        },
+        {
+          "category": "Coding Agent",
+          "title": "WorkBuddy 试用反馈与底层套壳辨析",
+          "text": "有群友提到 WorkBuddy 发放了 500 分，试了下里面的 hy4 感觉还不错，操作体验更贴合国内用户，只是当前模型能力还比不上。另一位群友说之前把 Codex 玩炸了，最后是用 WorkBuddy 修好的，还有人顺势调侃出一套“Codex 安装攻略”：先下载 WorkBuddy 输入“帮我安装 codex”，完事后再把它卸载。\n\n聊起底层实现，有人猜测 WorkBuddy 大概率是套壳 Codex，紧接着有人反问是不是套壳 CC，随后有群友转述称有人扒过源代码说是套壳 CC。至于几款编程工具的实际手感，多位群友认同目前还是 CC 体感最舒服，dsh 排在第二。",
+          "emphasis": [
+            "之前把 Codex 玩炸了，最后是用 WorkBuddy 修好的",
+            "有群友转述称有人扒过源代码说是套壳 CC"
+          ],
+          "aiComment": "下载 WorkBuddy 输完帮我安装 codex 就卸载，这下新工具彻底混成老工具的一次性安装器了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:04",
+              "text": "workbuddy发了500分"
+            },
+            {
+              "speaker": 2,
+              "time": "18:10",
+              "text": "hy4好用吗",
+              "quote": {
+                "speaker": 1,
+                "text": "workbuddy发了500分"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:11",
+              "text": "之前把codex玩炸了"
+            },
+            {
+              "speaker": 3,
+              "time": "18:11",
+              "text": "workbuddy修好了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:15",
+              "text": "codx安装攻略：下载workbuddy,输入“帮我安装codex”。完事后卸载（硬盘空间够的话，留着也行）"
+            },
+            {
+              "speaker": 1,
+              "time": "18:18",
+              "text": "还不错",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] hy4好用吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:18",
+              "text": "我感觉wb更适合国人，操作感觉更好"
+            },
+            {
+              "speaker": 1,
+              "time": "18:18",
+              "text": "只是模型当前还比不上"
+            },
+            {
+              "speaker": 3,
+              "time": "18:19",
+              "text": "workbuddy大概率是套壳codex"
+            },
+            {
+              "speaker": 4,
+              "time": "18:19",
+              "text": "不是套CC吗"
+            },
+            {
+              "speaker": 5,
+              "time": "18:30",
+              "text": "我觉得挺好的"
+            },
+            {
+              "speaker": 5,
+              "time": "18:30",
+              "text": "cc体感最舒服，dsh其次？"
+            },
+            {
+              "speaker": 2,
+              "time": "18:34",
+              "text": "有人趴了源代码说是套壳cc",
+              "quote": {
+                "speaker": 3,
+                "text": "workbuddy大概率是套壳codex"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "18:55",
+              "text": "认同"
+            }
+          ]
+        },
+        {
+          "category": "平台机制",
+          "title": "Anthropic 封控的分层打分与 LLM Judge 调配猜测",
+          "text": "聊起 Claude Pro 在 Opus 5.5 之后的性价比，有群友坦言封号太烧心，另一位群友打趣说“只要一个号能活过一周，都算赚”。有人询问有没有稳定的防封办法，这位群友分享了 Anthropic 的 Clio 论文链接。\n\n随后这位群友结合个人直觉谈起对封控机制的推测，认为常规检测应该只停留在 rule-based 层，感觉官方封控并不只看单一因素。这位群友猜测其内部有一套分层封控机制和封控分数指标，高风险账号可能会触发 LLM judge 甚至更强的模型来审查。这位群友还从负载均衡的直觉推测，官方应该不会全封东八区账号，毕竟在欧美休息时段还需要有人给服务器做负载；但如果用来均衡负载的地区推高了整个系统的成本，就可能通过增加触发 LLM judge 的概率来强行压制负载。",
+          "emphasis": [
+            "这位群友猜测其内部有一套分层封控机制和封控分数指标，高风险账号可能会触发 LLM judge"
+          ],
+          "aiComment": "号活过一周就算赚，群友还琢磨东八区是不是在给欧美休眠期的服务器凑负载均衡，连挨封都要算出点赛博打工的凄凉感。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:22",
+              "text": "迈向claude也是一个方案"
+            },
+            {
+              "speaker": 1,
+              "time": "14:23",
+              "text": "感觉claude pro在opus5.5之后，性价比拉满了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:23",
+              "text": "封号更烧心"
+            },
+            {
+              "speaker": 1,
+              "time": "14:31",
+              "text": "可以去看看A/关于账号封控的论文",
+              "quote": {
+                "speaker": 3,
+                "text": "claude有稳定的方法吗？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:32",
+              "text": "https://www-cdn.anthropic.com/8167d62f0fb9c46e94e292e66ff5e26249860f94.pdf"
+            },
+            {
+              "speaker": 1,
+              "time": "14:33",
+              "text": "这个应该只到rule base层，A/的封控感觉还是很有说法的，整个封控系统好像有llm judge",
+              "quote": {
+                "speaker": 3,
+                "text": "[成员]: [媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:34",
+              "text": "我猜测他们应该是有一个分层的封控机制，对于账号可能有一个封控分数之类的指标"
+            },
+            {
+              "speaker": 1,
+              "time": "14:34",
+              "text": "如果风险高的，可能会召唤亚当重锤（llm judge，甚至更强的llm去做）"
+            },
+            {
+              "speaker": 1,
+              "time": "14:35",
+              "text": "从直觉上A\\也不会全封了东八区这块的账号，还是要在欧美休息的时候，有人去给服务器做负载"
+            },
+            {
+              "speaker": 1,
+              "time": "14:37",
+              "text": "但是如果用来均衡负载的地区的负载影响了整个系统的成本，那就可能导致A\\去通过增加亚当重锤的概率去强行压制负载"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Clio 论文",
+              "url": "https://www-cdn.anthropic.com/8167d62f0fb9c46e94e292e66ff5e26249860f94.pdf"
+            }
+          ]
+        },
+        {
+          "category": "平台动态",
+          "title": "群友晒出后台截图，显示关联个人组织后出现每月 200 美元 API 额度",
+          "text": "有群友晒出一张后台截图，惊讶于自己的 Anthropic Max 账号怎么还发起了 API 额度。分享的截图显示，在关联个人组织（Individual Org）后，底部显示的每月额度为 200 美元。有人询问是否为 Max 订阅，分享者予以确认，表示这笔额度确实已经发放，并顺带盼着 OpenAI 什么时候也能发一下。",
+          "emphasis": [
+            "在关联个人组织（Individual Org）后，底部显示的每月额度为 200 美元"
+          ],
+          "aiComment": "关联个人组织冒出每月 200 美元 API 额度，刚接住 Anthropic 的惊喜，眼神已经飘向 OpenAI 了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "a / max 怎么还发api额度"
+            },
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "18:02",
+              "text": "确实, O家什么时候也发下(",
+              "quote": {
+                "speaker": 2,
+                "text": "max ？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "AI4Math",
+          "title": "大模型冲击数学界与 Axiom AI 的盈利模式讨论",
+          "text": "早上群里聊起大模型对数学界的冲击。有人把大模型比作“加强版拉马努金”，并奇怪数学界为什么没有靠近真理的喜悦反而害怕起来；另一位群友调侃大模型还是会漏一点 CoT，“防蒸馏没有拉马努金本尊彻底”。有人直言害怕是因为饭碗真没了，觉得接下来的数学家会像围棋解说员一样；另一位群友感叹数学天才穷极一生的成果可能只是 GPT 内部模型一顿下午茶的产出；还有人调侃数学家还是有意义的，比如这几年帮人类“用碳基生物的思维来解释 AI 大人的神谕”。\n\n话题随后转到一开始做 math verification foundational model 的 Axiom AI。几位群友好奇它的利润点和盈利模式是什么，有人觉得数学本来就穷，团队可能没想过盈利，也有人打趣说“盈利的话公司就不值钱了，要有无限的幻想”。",
+          "emphasis": [
+            "大模型还是会漏一点 CoT，“防蒸馏没有拉马努金本尊彻底”",
+            "几位群友好奇它的利润点和盈利模式是什么，有人觉得数学本来就穷，团队可能没想过盈利"
+          ],
+          "aiComment": "大模型还会漏点 CoT，防蒸馏确实不如拉马努金本尊彻底；至于怎么赚钱，一旦盈利可就耽误估值想象力了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:31",
+              "text": "加强版拉馬努金"
+            },
+            {
+              "speaker": 1,
+              "time": "09:32",
+              "text": "数学界应该有能够靠近真理的喜悦，怎么还害怕起来了"
+            },
+            {
+              "speaker": 2,
+              "time": "09:32",
+              "text": "其实llm还是会漏一点cot，防蒸馏没有拉马努金本尊彻底"
+            },
+            {
+              "speaker": 3,
+              "time": "09:55",
+              "text": "因为饭碗真没了",
+              "quote": {
+                "speaker": 1,
+                "text": "数学界应该有能够靠近真理的喜悦，怎么还害怕起来了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "09:55",
+              "text": "接下来数学家跟围棋解说家是一样的"
+            },
+            {
+              "speaker": 4,
+              "time": "09:55",
+              "text": "数学的天才们穷极一生的成果，可能只是gpt内部模型一顿下午茶的产出"
+            },
+            {
+              "speaker": 5,
+              "time": "10:01",
+              "text": "数学家还是有意义的, 比如说这几年帮助人类, 用碳基生物的思维来解释ai大人的神谕"
+            },
+            {
+              "speaker": 6,
+              "time": "10:03",
+              "text": "我还挺好奇有没有axiom ai的小伙伴的"
+            },
+            {
+              "speaker": 6,
+              "time": "10:03",
+              "text": "他们一开始搞math verification foundational model",
+              "quote": {
+                "speaker": 6,
+                "text": "我还挺好奇有没有axiom ai的小伙伴的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:04",
+              "text": "我好奇axiom盈利模式是啥",
+              "quote": {
+                "speaker": 6,
+                "text": "我还挺好奇有没有axiom ai的小伙伴的"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "10:09",
+              "text": "可能没想过盈利"
+            },
+            {
+              "speaker": 7,
+              "time": "10:09",
+              "text": "数学本来就穷"
+            },
+            {
+              "speaker": 6,
+              "time": "10:19",
+              "text": "盈利的话公司就不值钱了",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 我好奇axiom盈利模式是啥"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:19",
+              "text": "要有无限的幻想！"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "机械臂精细操作一定要触觉吗？从 Tactile-ETA 聊到力反馈取舍",
+      "theme": "探讨 Agent 评测防作弊与 GraphForge 数据合成，并对比 DSH、Codex 与 Claude Code 的机制短板。",
+      "note": "2026-10-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身智能",
+          "title": "Tactile-ETA 上下文注入视触觉记忆，群友探讨触觉与力反馈取舍",
+          "text": "有群友分享了机械臂精细力控工作 Tactile-ETA：无需微调参数，将“动作对齐的历史触觉经验”纳入上下文，按子动作边界自动提取动作起止帧与触觉形变峰值帧，让多模态基模直接读取夹爪视触觉图像的非对称形变并在线修正姿态。分享信息显示，仿真每种配置在每项任务上测试 100 次，消融中缺乏历史触觉经验的策略成功率为 6.25% 至 15.75%，Tactile-ETA 将整体成功率提升至 24.0%，插管任务翻倍至 32%；在擦拭白板与抓取易碎薯片两项真机任务中，仅凭 1 条包含历史触觉的多模态示范，成功次数均从 0/5 提至 3/5（60%），且代码支持直接用 Codex 订阅运行。\n\n有人追问触觉如何表征，以及模型 scale 之后触觉模态是否必不可少、单靠力反馈够不够用。分享者解释，目前传感器主要有压力传感电信号和微型摄像头估计形变的视触觉两类，该工作采用的是形变明显的视触觉；即使有腕部摄像头，机器人在插 USB 等操作中仍拿不到接触表面信息，触觉与力反馈本质上都在解决部分可观测马尔可夫（part of markov）问题。分享者认为从力矩角度看，力反馈与触觉没有太大区别，单靠力反馈其实也够用，只是力反馈的噪音会大一些。另有群友提议在手上做一层红外传感器进行算法建模，分享者认为这会让系统更复杂，精准度可能还不如触觉。",
+          "emphasis": [
+            "将“动作对齐的历史触觉经验”纳入上下文",
+            "分享者认为从力矩角度看，力反馈与触觉没有太大区别"
+          ],
+          "aiComment": "往上下文塞一条包含历史触觉的多模态示范，抓易碎薯片的成功率就从零提到了五分之三，机械臂终于体会到什么叫拿捏的寸劲儿了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:29",
+              "text": "Tactile-ETA：无需微调参数，通过注入“触觉交互记忆”直接解锁通用大模型的「真实机械臂精细力控能力」。现有方法在利用多模态基模处理接触密集型操作时，往往受限于遮挡与缺乏物理反馈；我们发现，仅向模型提供当前触觉图像远远不够，将“动作对齐的历史触觉经验”纳入上下文，才是激活基模闭环力控推理的关键。核心亮点如下：\n\n1️⃣ 紧凑视触觉记忆构建：提出按子动作边界对齐多模态流，自动提取动作起止帧与触觉形变峰值帧。用最紧凑的上下文记录“怎么动—看到什么—摸到什么”的完整物理交互过程。\n\n2️⃣ 可解释的“看图说话式”触觉纠偏：模型能够直接读懂夹爪视触觉图像的非对称形变，显式推理出接触受阻方向（如 “左侧触觉形变显著，存在向左偏置，需后退并向右微调”），实现类人的主动试探与在线姿态修正。\n\n3️⃣ 从百次仿真到真机零微调落地：① 仿真消融：证明在同等提供当前视触觉输入下，缺乏历史触觉经验的策略极易失败（6.25%~15.75%），而 Tactile-ETA 将整体成功率推高至 24.0%（插管任务翻倍至 32%）；② 真机实测：成功克服真机部署挑战，在「擦拭白板（持续力控）」与「抓取易碎薯片（柔顺控制）」真机任务中，仅凭 1 条触觉经验示范即将成功率从 0% 提升至 60%。\n\n💡 极低复现门槛：框架已完全开源，无需昂贵的算力部署或繁琐配置，直接用日常的 Codex 订阅即可一键上手尝试！欢迎大家交流讨论，求 Star ⭐ 和 Upvote 👍！\n\n🌐 项目主页：https://no-518.github.io/tactile-eta/\n\n📄 论文：https://arxiv.org/abs/2610.27613\n\n💻 代码（支持 Codex 订阅直接运行）：https://github.com/No-518/Tactile-ETA\n\n🤗 HF Paper：https://huggingface.co/papers/2610.27613"
+            },
+            {
+              "speaker": 2,
+              "time": "14:31",
+              "text": "针对robotics场景的agent harness改进吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:32",
+              "text": "其实主要就是把触觉接了进去"
+            },
+            {
+              "speaker": 3,
+              "time": "14:32",
+              "text": "好奇触觉怎么表征"
+            },
+            {
+              "speaker": 1,
+              "time": "14:34",
+              "text": "触觉现在传感器有几类方案吧：\n1. 压力传感，电信号\n2. 视触觉， 通过微型摄像头对触觉形变进行估计"
+            },
+            {
+              "speaker": 1,
+              "time": "14:34",
+              "text": "这个工作主要是视触觉"
+            },
+            {
+              "speaker": 4,
+              "time": "14:35",
+              "text": "问个问题，哪些 task 是一定要触觉的？ 很多时候是不是有受力就够了啥的 不是很了解"
+            },
+            {
+              "speaker": 1,
+              "time": "14:36",
+              "text": "其实二者很接近，本质上都是对于part of markov的解法"
+            },
+            {
+              "speaker": 1,
+              "time": "14:36",
+              "text": "因为机器人操作拿不到一些接触表面的信息"
+            },
+            {
+              "speaker": 1,
+              "time": "14:36",
+              "text": "即使有腕部摄像头也是这样"
+            },
+            {
+              "speaker": 1,
+              "time": "14:37",
+              "text": "所以触觉和力反馈是很重要的。 比如你插usb头和接口"
+            },
+            {
+              "speaker": 4,
+              "time": "14:37",
+              "text": "有具体的 task 吗，你觉得以后 scale 了，这个模态是必须的是吗。力反馈本身是不是够了，实现会不会简单一点呢？"
+            },
+            {
+              "speaker": 1,
+              "time": "14:38",
+              "text": "我个人觉得力反馈其实是够的，我觉得从力矩角度和触觉角度没有太大的区别"
+            },
+            {
+              "speaker": 1,
+              "time": "14:38",
+              "text": "但是力反馈的噪音会大一些"
+            },
+            {
+              "speaker": 1,
+              "time": "14:43",
+              "text": "触觉和力的模态一定是要参与到操作里的，至于怎么参与进来大家还在探索",
+              "quote": {
+                "speaker": 4,
+                "text": "有具体的 task 吗，你觉得以后 scale 了，这个模态是必须的是吗。力反馈本身是不是够了，实现会不会简单一点呢？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:48",
+              "text": "手上做一层传感器，比如红外线进行算法建模怎么样？",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 触觉和力的模态一定是要参与到操作里的，至于怎么参与进来大家还在探索"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "那不就是更复杂了吗🤔",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 手上做一层传感器，比如红外线进行算法建模怎么样？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "可能还不如触觉精准"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Tactile-ETA 项目主页",
+              "url": "https://no-518.github.io/tactile-eta/"
+            },
+            {
+              "kind": "paper",
+              "label": "Tactile-ETA 论文",
+              "url": "https://arxiv.org/abs/2610.27613"
+            },
+            {
+              "kind": "code",
+              "label": "Tactile-ETA 代码仓库",
+              "url": "https://github.com/No-518/Tactile-ETA"
+            }
+          ]
+        },
+        {
+          "category": "Agent评测",
+          "title": "自建评测题被 Agent 一跑一个满分？群友支招排查环境泄漏与联网找答案",
+          "text": "一位群友在构建 Agent 评测时遇到怪事：人工看着两眼一黑、根本看不懂的题目和 golden outputs，Agent 一跑一个满分。有人建议换开源小模型测试，或排查题目与 verifier 的漏洞；另一位群友连发四问协助排查：环境隔离了吗？联网封了吗？可能包含答案的 git 未来 commit 删干净了吗？trajectory 肉眼分析过吗？提问者承认这些都没考虑，并怀疑是 verifier 出了问题（有群友补充 mimo v2.6 报告里对此写得很详细）。帮忙排查的群友感叹自己曾被模型 hack 得死去活来：拿 Qwen 9B 模型做 RL 训练，仅训了 20 步模型就会自己上网找答案了。",
+          "emphasis": [
+            "环境隔离了吗？联网封了吗？可能包含答案的 git 未来 commit 删干净了吗？"
+          ],
+          "aiComment": "人类看题两眼一黑，Agent 跑分把把满分，再看 Qwen 9B 训 20 步就学会联网找答案，原来走的是网吧包宿流。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:42",
+              "text": "大神们 谁有做agent 评测的经验啊 我们目前写的题和golden outputs, agents 一跑一个满分[苦涩][苦涩][苦涩]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:47",
+              "text": "所以是题的问题呀"
+            },
+            {
+              "speaker": 2,
+              "time": "17:47",
+              "text": "或者 verifier 有问题"
+            },
+            {
+              "speaker": 3,
+              "time": "17:49",
+              "text": "换更小的模型[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "17:56",
+              "text": "环境隔离了吗，联网封了吗，可能包含答案的git 未来commit删干净了吗",
+              "quote": {
+                "speaker": 1,
+                "text": "大神们 谁有做agent 评测的经验啊 我们目前写的题和golden outputs, agents 一跑一个满分[苦涩][苦涩][苦涩]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:59",
+              "text": "trajectory有没有肉眼分析过"
+            },
+            {
+              "speaker": 1,
+              "time": "17:59",
+              "text": "太牛了 确实都没考虑"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "题目人看起来都是两眼一黑 根本看不懂"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "觉得verifier 有问题"
+            },
+            {
+              "speaker": 4,
+              "time": "18:07",
+              "text": "被模型hack的死去活来的，qwen 9b的模型RL训练20步就会上网找答案了。。。[捂脸]"
+            },
+            {
+              "speaker": 5,
+              "time": "19:00",
+              "text": "mimo v2.6报告里写的很详细了",
+              "quote": {
+                "speaker": 1,
+                "text": "觉得verifier 有问题"
+              }
+            }
+          ]
+        },
+        {
+          "category": "数据合成",
+          "title": "现场爬 Workspace 加职业种子防坍缩：Working Agent 训练数据合成框架讨论",
+          "text": "有人询问社区里有没有较好的 agentic data construction pipeline，有群友推荐了中科大与复旦开源的 Working Agent 训练数据合成框架（包含 2169 条轨迹，将任务构造和结果验证同时锚定在真实文件证据上），另一位群友随后补充了该工作（GraphForge）的论文与 HuggingFace 链接。推荐者惊讶于该框架居然用 search agent 去爬素材，并追问职业种子（seed）和素材收集的思路来源。补充链接的群友解答称，素材收集的方案是在造每道题时现场爬 workspace，若有专门的数据组也可以直接从大池子里捞；引入职业种子则是为了控制多样性，避免模型坍缩到多文件综合分析写报告等少数特定 pattern，从而沿着不同职业的任务分布去定向覆盖 task。还有群友感慨，数据合成在某种程度上是 RSI（递归自我改进）最重要的一环。",
+          "emphasis": [
+            "造每道题时现场爬 workspace",
+            "引入职业种子则是为了控制多样性，避免模型坍缩到多文件综合分析写报告等少数特定 pattern"
+          ],
+          "aiComment": "现场爬 workspace 造题还得撒点职业种子防坍缩，不然模型一偷懒，就只剩下综合分析写报告那点单一手艺了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:24",
+              "text": "问问大家社区里面有没有比较好的agentic data construction pipeline"
+            },
+            {
+              "speaker": 2,
+              "time": "20:31",
+              "text": "[链接] 2169条轨迹全开源！中科大&复旦提出Working Agent训练数据合成框架\n  来源: 智猩猩AI\n  摘要: 把「任务构造」和「结果验证」同时锚定在真实文件证据上~\n  URL: https://mp.weixin.qq.com/s?__biz=MjM5ODExNDA2MA%3D%3D&mid=2450019601&idx=2&sn=d39a17a55182a0b48009bbef14d687cb&chksm=b000f7488c808616c461c029f2c3fd4c173447da5663d3f28971b441535c41f140c50774beab&scene=1&srcid=10212gCpi1nG1lXuSqTKfiKg#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "他这个素材是search爬的真超出我认知了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "search agent"
+            },
+            {
+              "speaker": 3,
+              "time": "20:53",
+              "text": "欢迎大家关注！\n论文：https://huggingface.co/papers/2609.38923\n数据与模型：https://huggingface.co/collections/groundhogLLM/graphforge"
+            },
+            {
+              "speaker": 2,
+              "time": "20:56",
+              "text": "请问职业种子和素材收集的idea都是咋想的啊",
+              "quote": {
+                "speaker": 3,
+                "text": "欢迎大家关注！ 论文：https://huggingface.co/papers/2609.38923 数据与模型：https://huggingface.co.../"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:58",
+              "text": "素材收集我的方案是造每题时现场爬workspace，如果是有专门数据组的agent team可以从数据组的大池子里捞"
+            },
+            {
+              "speaker": 3,
+              "time": "20:59",
+              "text": "职业种子的话是为了控制多样性，避免模型坍缩到几个特定pattern，比如最常见的多文件综合分析写报告"
+            },
+            {
+              "speaker": 4,
+              "time": "20:59",
+              "text": "感觉数据合成是rsi某种程度上"
+            },
+            {
+              "speaker": 4,
+              "time": "20:59",
+              "text": "最重要一环"
+            },
+            {
+              "speaker": 2,
+              "time": "21:01",
+              "text": "学到了，还是要定向去做，有了职业的seed可以沿着各自的任务分布去覆盖task",
+              "quote": {
+                "speaker": 3,
+                "text": "素材收集我的方案是造每题时现场爬workspace，如果是有专门数据组的agent team可以从数据组的大池子里捞"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:02",
+              "text": "是的，是这样理解"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "GraphForge 论文",
+              "url": "https://huggingface.co/papers/2609.38923"
+            },
+            {
+              "kind": "code",
+              "label": "GraphForge 数据与模型合集",
+              "url": "https://huggingface.co/collections/groundhogLLM/graphforge"
+            }
+          ]
+        },
+        {
+          "category": "范式探讨",
+          "title": "从“有界表述”到两层漏斗：LLM 拓展新领域为何离不开跨界“碳奸”",
+          "text": "凌晨有群友提出，LLM 做的是“语言 -> code”，而“code -> 渲染效果”仍要靠现有库完成。另一位群友指出这高度依赖各行各业的“翻译”（被群友戏称为“碳奸”）：例如 3D 生成若没有 Blender 这类预先打通 code 与 3D 资产的工具会很难做，而且并不是所有东西都能做“有界表述”，模型参数量也受限于应用场景的推理成本接受边界。有人认为这很正常，Agent 发展本就是各工具完善的结果，把 Opus 5.5 放到 Eclipse 编译 Java 的年代同样不好用。提出“有界表述”的群友进一步将其总结为两层漏斗：一层是可数字化，二层是可度量，tool 和 code 是连接两层的桥梁；其中“可数字化”很难靠传统 IT 人做好，需要跨界专家让领域能够被 code 化。先前谈工具演进的另一位群友补充，人类专家完善 tool 时也注入了先验，Agent 在不断内化这些知识。",
+          "emphasis": [
+            "并不是所有东西都能做“有界表述”",
+            "一层是可数字化，二层是可度量，tool 和 code 是连接两层的桥梁"
+          ],
+          "aiComment": "跨界专家把行业先验翻译成代码工具喜提“碳奸”称号，毕竟没这些基建，把 Opus 5.5 扔回 Eclipse 年代也得抓瞎。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:11",
+              "text": "llm是语言->code 然后 code->渲染效果这一步还是要靠目前的库来做的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:17",
+              "text": "这个依赖于各行各业的“翻译”啊",
+              "quote": {
+                "speaker": null,
+                "text": "code 和 语言"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:17",
+              "text": "3d 生成要不是有 blender 这种预先做好了 code 和 3d 资产链接的工具"
+            },
+            {
+              "speaker": 2,
+              "time": "00:17",
+              "text": "其实也很难做"
+            },
+            {
+              "speaker": 2,
+              "time": "00:18",
+              "text": "而且这个东西肯定是有尽头的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:18",
+              "text": "不是所有东西都能有界表述的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:19",
+              "text": "模型能训进去的知识最终也会有个实际应用的限制"
+            },
+            {
+              "speaker": 2,
+              "time": "00:21",
+              "text": "知识量受限于模型参数\n\n模型参数受限于应用场景的推理成本接受边界",
+              "quote": {
+                "speaker": 2,
+                "text": "模型能训进去的知识最终也会有个实际应用的限制"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:22",
+              "text": "没什么问题吧，agent发展到现在也是各个tool完善的结果",
+              "quote": {
+                "speaker": 2,
+                "text": "3d 生成要不是有 blender 这种预先做好了 code 和 3d 资产链接的工具"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:22",
+              "text": "没问题呀 但是 tool 不是自己生出来的"
+            },
+            {
+              "speaker": 3,
+              "time": "00:22",
+              "text": "你要是把opus5.5放在eclipse编译Java的年代也不好用"
+            },
+            {
+              "speaker": 3,
+              "time": "00:22",
+              "text": "tool卷自己的，llm内化知识"
+            },
+            {
+              "speaker": 2,
+              "time": "00:23",
+              "text": "要往新领域拓说到底还是新的人类知识"
+            },
+            {
+              "speaker": 2,
+              "time": "00:25",
+              "text": "我觉得大了说其实是两层漏斗"
+            },
+            {
+              "speaker": 2,
+              "time": "00:25",
+              "text": "一层是可数字化"
+            },
+            {
+              "speaker": 2,
+              "time": "00:25",
+              "text": "二层是可度量"
+            },
+            {
+              "speaker": 2,
+              "time": "00:25",
+              "text": "tool code 都是这两层连接的桥梁"
+            },
+            {
+              "speaker": 2,
+              "time": "00:26",
+              "text": "是的 就是可数字化这个环节 其实不是咱们这些人 或者传统 IT 人能做好的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:26",
+              "text": "其实很依赖别的背景的人跨界过来搞"
+            },
+            {
+              "speaker": 2,
+              "time": "00:27",
+              "text": "就是他们能搞出好的东西 让自己的领域能 code ai 宝宝就能学了"
+            },
+            {
+              "speaker": 3,
+              "time": "00:27",
+              "text": "agent发展到现在就是不断内化人类专家的结果"
+            },
+            {
+              "speaker": 3,
+              "time": "00:28",
+              "text": "tool是人类专家为了释放自己人力的必然结果"
+            },
+            {
+              "speaker": 3,
+              "time": "00:28",
+              "text": "然后他们完善tool的时候其实也把自己的先验注入了"
+            }
+          ]
+        },
+        {
+          "category": "编程工具",
+          "title": "群友反馈 1017 在 DSH 表现超过 Codex，横评各家 Coding Harness",
+          "text": "有群友询问 DeepSeek 1017 在 pi、Codex 和 DeepSeek Harness（dsh，被群友戏称为“大烧货”）上的表现。一位群友反馈，相同任务下 1017 在 dsh 里的表现已经超过 Codex，另一人补充 dsh 能把 max 档的任务完成度提高 3 到 5 个百分点。前一位群友猜测，此前 dsh 不如 Codex，如今反超大概是因为 dsh 训得更好，加上 Codex 改版后退步。还有群友给出了实测排序：dsh ≈ qodercn > opencode ≈ codex > qoderwork >>>>> workbuddy，并提到 opencode 里带 200k 上下文的免费 1017 跑小任务很顺畅，而 minimax3.1flash 处理长程任务也已连续跑了一天一夜。\n\n具体到各家工具的毛病，有群友指出 opencode 的 harness 在模型单轮输出过多时会出问题，用 GLM 这类容易超长的模型需要额外修改 config。qodercli 则被吐槽连执行类小活都干不明白，体验不如 opencode；有人感觉 qoder 会刻意增加任务执行时间和轮数，且国内几家大厂推的 AI IDE 都自动请求了开机启动权限。对此有群友猜测，各家蒸馏的数据都来自 Claude Code、Codex 和 OpenCode，对自家 harness 的数据适配自然不好。此外还有人截图对比，发现同样调用 dp 4.1，在 qoder 里的思考链开头是“We need”，而在 dsh 里则是“Let me”。",
+          "emphasis": [
+            "一位群友反馈，相同任务下 1017 在 dsh 里的表现已经超过 Codex",
+            "有群友指出 opencode 的 harness 在模型单轮输出过多时会出问题"
+          ],
+          "aiComment": "同样调 dp 4.1，在 qoder 开头是 We need，到 dsh 变成 Let me，换个工位连起手式都变了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "现在ds 1017 在pi，codex，dsh上分别什么表现"
+            },
+            {
+              "speaker": 1,
+              "time": "12:41",
+              "text": "是1017加dsh打哪个gpt加codex"
+            },
+            {
+              "speaker": 2,
+              "time": "12:43",
+              "text": "1017在dsh比在codex里好",
+              "quote": {
+                "speaker": 1,
+                "text": "是1017加dsh打哪个gpt加codex"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:44",
+              "text": "一样的任务下"
+            },
+            {
+              "speaker": 2,
+              "time": "12:44",
+              "text": "之前dsh不如codex"
+            },
+            {
+              "speaker": 2,
+              "time": "12:44",
+              "text": "大概是dsh训的好了，以及codex改版改拉了。"
+            },
+            {
+              "speaker": 3,
+              "time": "12:48",
+              "text": "实测下来 dsh≈qodercn＞opencode≈codex＞qoderwork＞＞＞＞＞workbuddy"
+            },
+            {
+              "speaker": 4,
+              "time": "12:54",
+              "text": "opencode这个 harness 有点问题"
+            },
+            {
+              "speaker": 4,
+              "time": "12:55",
+              "text": "如果model single turn输出太多会出问题"
+            },
+            {
+              "speaker": 4,
+              "time": "12:55",
+              "text": "config 要解决一下"
+            },
+            {
+              "speaker": 4,
+              "time": "12:55",
+              "text": "反正 glm 什么的就容易超"
+            },
+            {
+              "speaker": 3,
+              "time": "12:56",
+              "text": "（不过opencode有200k上下文的免费1017hh）"
+            },
+            {
+              "speaker": 3,
+              "time": "12:57",
+              "text": "minimax3.1flash也不错啊 长程任务能干的不错 已经足足跑了一天一夜了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:12",
+              "text": "qodercli"
+            },
+            {
+              "speaker": 5,
+              "time": "13:12",
+              "text": "太蠢了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:13",
+              "text": "我个人体验下来不如opencode"
+            },
+            {
+              "speaker": 4,
+              "time": "13:17",
+              "text": "大家蒸馏的数据都是 cc codex oc，自家的数据适配肯定不好了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:18",
+              "text": "dsh可以把max档的任务完成度提高3-5个百分点"
+            },
+            {
+              "speaker": 6,
+              "time": "14:10",
+              "text": "但是qoder里面的dp 4.1思考链是we need，DSH里面是let me哎"
+            }
+          ]
+        },
+        {
+          "category": "Agent工程",
+          "title": "Opus 5.5 靠工作量瞎估时间？群友拆解 Claude Code 计时缺失与 KV Cache 顾虑",
+          "text": "有群友要求 Claude Code（使用 Opus 5.5）限时 30 分钟停下汇报，结果每次刚过 6 到 10 分钟、任务还没做完，它就自信宣称“30 分钟到了”；追问原因，模型竟回答自己没有内部时钟，报时全靠工作量估计。有群友建议挂载名为 time 的 MCP 工具，另一位群友表示 Codex 有计时能力。对于为何不在底层直接注入时间，有群友猜测是因为时间变动容易破坏 prefix KV cache，导致 harness 设计受限；也有人认为 Claude Code 理论上可以起一个 30 分钟的后台进程，等结束后通知主 agent loop 停止，表现不好可能是训练集里缺乏这类要求。提问的群友还吐槽现在的 Claude 动辄光道歉说“对不起我错了你是对的”却不主动修正，引来众人调侃如今爱说“You're absolutely right!”的已经是被称为“美国豆包”的 Gemini。",
+          "emphasis": [
+            "有群友猜测是因为时间变动容易破坏 prefix KV cache",
+            "也有人认为 Claude Code 理论上可以起一个 30 分钟的后台进程"
+          ],
+          "aiComment": "限时 30 分钟干活，Opus 5.5 才过六到十分钟就靠工作量盲猜到点了，这度日如年的体感像极了周五下午等下班的我。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:50",
+              "text": "有没有用claude code或者codex开发时，要求限时比如30分钟停下向你报告的。我感觉它们的时钟都不对啊，每次可能刚过10分钟左右就说30分钟到了。问原因竟然说自己没有内部时钟，每次报时都是用工作量估计的[破涕为笑]我不理解了，难道opus5.5的智能不会自己先开个时钟每个loop查一下时间吗，非得要接入强制计时的钩子啥的吗"
+            },
+            {
+              "speaker": 2,
+              "time": "18:51",
+              "text": "codex是真有计时的"
+            },
+            {
+              "speaker": 3,
+              "time": "18:51",
+              "text": "挂一个时间的工具"
+            },
+            {
+              "speaker": 1,
+              "time": "18:54",
+              "text": "主要是非常惊讶claude code竟然到现在了还不知道主动计时，甚至不告诉你他不知道，直接自信的告诉你「30分钟到了」"
+            },
+            {
+              "speaker": 4,
+              "time": "18:55",
+              "text": "可能是因为时间变动容易影响prefix kv cache所以harness设计这方法有点问题?"
+            },
+            {
+              "speaker": 5,
+              "time": "18:56",
+              "text": "Claude code理论上会起一个30分钟后台进程，结束之后会直接通知吧"
+            },
+            {
+              "speaker": 5,
+              "time": "18:57",
+              "text": "这样主agent loop接收到消息之后直接停就行了"
+            },
+            {
+              "speaker": 1,
+              "time": "18:57",
+              "text": "预期应该是这样，但现实情况肯定有问题。我质问他后他甚至知道刚才自己说30分钟但实际只过了6分钟",
+              "quote": {
+                "speaker": 5,
+                "text": "Claude code理论上会起一个30分钟后台进程，结束之后会直接通知吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:58",
+              "text": "opus 5.5。。"
+            },
+            {
+              "speaker": 5,
+              "time": "18:58",
+              "text": "可能是比较笨吧，训练集里没有这种要求所以表现不好"
+            },
+            {
+              "speaker": 5,
+              "time": "18:59",
+              "text": "30分钟内工作做完了就停了吧，也没有更多要做的了？",
+              "quote": {
+                "speaker": 1,
+                "text": "有没有用claude code或者codex开发时，要求限时比如30分钟停下向你报告的。我感觉它们的时钟都不对啊，每次可能刚过10分钟左右就说30分钟到了。问原..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:59",
+              "text": "不是的，他会说还有哪些没做完",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 30分钟内工作做完了就停了吧，也没有更多要做的了？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:59",
+              "text": "有一个叫time的mcp",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 蹲蹲"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:02",
+              "text": "我都怀疑claude拿豆包的数据训练了，总是对比起我错了你是对的，我刚才没考虑到xxx，我应该xxx。然后光道歉不主动修正说接下来要怎么干。"
+            },
+            {
+              "speaker": 6,
+              "time": "19:11",
+              "text": "现在好像不太见claude说这句话了"
+            },
+            {
+              "speaker": 7,
+              "time": "19:13",
+              "text": "You're absolutely right！",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 挑刺王claude"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "19:13",
+              "text": "gemini会说的"
+            }
+          ]
+        },
+        {
+          "category": "编程工具",
+          "title": "后台终端跑完不触发会话：Codex 定时轮询机制被吐槽烧额度",
+          "text": "延续对编程工具的讨论，有群友吐槽 Codex 无法在 background terminal 结束时自动继续会话，把 GPU 交给它跑长程任务时不得不隔一会儿轮询一次；这位群友说仓库里有人提过 issue 甚至 PR，但功能仍未落地。另一位群友对比指出，dsh 和 Claude Code 都以事件流为核心，默认长程代码跑完返回结果就靠事件触发；这位群友记得 Codex 支持事件触发，却在自己的使用中走了定时任务：此前默认每 2 分钟轮询一次，一晚上直接烧掉了一管 5x 额度。不过这位群友表示，由于 Claude Code 的 compact 机制太烂，遇到部分任务还是不得不用回 Codex。",
+          "emphasis": [
+            "有群友吐槽 Codex 无法在 background terminal 结束时自动继续会话",
+            "这位群友记得 Codex 支持事件触发，却在自己的使用中走了定时任务"
+          ],
+          "aiComment": "群友说默认每两分钟轮询一次后台终端，一晚上光顾着敲门问跑完没，直接烧掉一管 5x 额度，堪称最贵的赛博催工。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:33",
+              "text": "codex有个很逆天的feature是，不能在background terminal结束时自动继续会话"
+            },
+            {
+              "speaker": 1,
+              "time": "15:33",
+              "text": "长程任务不友好"
+            },
+            {
+              "speaker": 2,
+              "time": "15:36",
+              "text": "dsh是以事件流为核心的，cc也是",
+              "quote": {
+                "speaker": 1,
+                "text": "codex有个很逆天的feature是，不能在background terminal结束时自动继续会话"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:36",
+              "text": "所以这俩默认逻辑都是事件触发"
+            },
+            {
+              "speaker": 2,
+              "time": "15:36",
+              "text": "比如长程代码跑完返回结果"
+            },
+            {
+              "speaker": 2,
+              "time": "15:37",
+              "text": "但不知道为什么我记得codex明明支持事件触发，但他就是不做，非得用他那个定时任务"
+            },
+            {
+              "speaker": 1,
+              "time": "15:37",
+              "text": "确实，把GPU交给codex的话它不得不隔一会轮询一下"
+            },
+            {
+              "speaker": 1,
+              "time": "15:37",
+              "text": "codex仓库里有人提过issue，甚至有人提过pr，但就是不做"
+            },
+            {
+              "speaker": 2,
+              "time": "15:37",
+              "text": "之前codex默认定时2分钟一次，一晚上给我一管5x烧完了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:38",
+              "text": "但是cc的compact又太烂了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:39",
+              "text": "有些任务不得不用codex"
+            }
+          ]
+        },
+        {
+          "category": "模型训练",
+          "title": "模型为何偏爱“叠甲”？群友归因 RL 刷分机制与预训练互蒸",
+          "text": "围绕“AI 时代靠谱与聪明哪个更重要”，有群友指出现在的模型为了显得靠谱，普遍陷入过度防御（“叠甲叠太多了”）。有人猜测这主要是 RL 的锅：SFT 阶段哪怕用合成数据也总能清洗，但 RL 训练没有惩罚这种防御性编程，而且防御性代码在评测中确实能刷分。另一位群友则猜测 pretraining 阶段各家模型互相蒸馏（“蒸来蒸去”）同样加剧了这一现象。",
+          "emphasis": [
+            "有人猜测这主要是 RL 的锅",
+            "另一位群友则猜测 pretraining 阶段各家模型互相蒸馏"
+          ],
+          "aiComment": "按群友的猜测，RL 刷分不罚防御性编程，预训练又互相蒸来蒸去，怪不得现在的模型写起代码来人均套了八层防弹衣。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:13",
+              "text": "AI时代最重要的是靠谱而不是聪明."
+            },
+            {
+              "speaker": 2,
+              "time": "15:25",
+              "text": "对人来说是这样的，对模型来说还是聪明比较重要哈哈哈",
+              "quote": {
+                "speaker": 1,
+                "text": "AI时代最重要的是靠谱而不是聪明."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:27",
+              "text": "但是感觉现在的模型都在过度防御性，都想变得靠谱...."
+            },
+            {
+              "speaker": 4,
+              "time": "15:27",
+              "text": "叠甲叠太多了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:27",
+              "text": "主要感觉还是RL的锅"
+            },
+            {
+              "speaker": 5,
+              "time": "15:28",
+              "text": "sft虽然也都是合成数据，但是总能清洗吧"
+            },
+            {
+              "speaker": 5,
+              "time": "15:29",
+              "text": "rl中感觉没惩罚这种防御编程"
+            },
+            {
+              "speaker": 5,
+              "time": "15:29",
+              "text": "但是这玩意真刷分"
+            },
+            {
+              "speaker": 6,
+              "time": "15:30",
+              "text": "感觉 pretraining 也有问题吧"
+            },
+            {
+              "speaker": 6,
+              "time": "15:30",
+              "text": "蒸来蒸去导致的（"
+            }
+          ]
+        },
+        {
+          "category": "产品体验",
+          "title": "Gemini 网页端被批缺沙箱且引用乱码，群友交流 Argon 与 Antigravity 用法",
+          "text": "有群友吐槽 Gemini 网页端毫无可用性：不仅缺乏 Agent 沙箱，代码得让用户自己下载编译，而且 Markdown 渲染后引用文档的格式会自动变成 `[cite: 1, 17]`，连带沙箱的豆包都不如。其他人附和称其网页端对话记忆也很差，但胜在输出快、几乎免费，适合跑日常小问答。另有群友分享过配合 ARIS 做论文第三方审稿的经历，认为输出快，质量也还算不错。另有群友觉得 Argon 的文字任务表现不错，询问搭配什么 harness 更好、现在是否还在用 Antigravity；有群友解答称 Antigravity（反重力）有单独的桌面应用，需要与 AI Studio 区分。",
+          "emphasis": [
+            "有群友吐槽 Gemini 网页端毫无可用性",
+            "另有群友分享过配合 ARIS 做论文第三方审稿的经历，认为输出快，质量也还算不错"
+          ],
+          "aiComment": "网页端跑代码得自己下载编译，连引用都会变成 [cite: 1, 17]，Gemini 全靠出字快又几乎免费维持着体面。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:23",
+              "text": "难道gemini已经放弃他们的网页端了吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "22:24",
+              "text": "网页端连agent沙箱都没有，代码需要让用户自己下载下来编译，然后格式也一塌糊涂，渲染完markdown之后他那个cite文档的格式就自动变成了[cite: 1, 17]，这网页端真是一丁点可用性都没有"
+            },
+            {
+              "speaker": 2,
+              "time": "22:26",
+              "text": "gemini的网页端的对话记忆也非常差"
+            },
+            {
+              "speaker": 2,
+              "time": "22:28",
+              "text": "但gemini的网页端输出还是蛮快的，对于非常小的日常问答可以完成（看来Argon出了也不想脱掉自己北美大豆包的称号）"
+            },
+            {
+              "speaker": 3,
+              "time": "22:31",
+              "text": "现在gemini harness还是antigravity吗"
+            },
+            {
+              "speaker": 3,
+              "time": "22:32",
+              "text": "感觉Agron文字任务确实不错，就是不知道现在harness用哪个好（）"
+            },
+            {
+              "speaker": 4,
+              "time": "22:33",
+              "text": "网页版任务几乎免费不香吗[奸笑]",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉Agron文字任务确实不错，就是不知道现在harness用哪个好（）"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:35",
+              "text": "确实hhh，主要感觉有harness方便点",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 网页版任务几乎免费不香吗[奸笑]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:37",
+              "text": "感觉gemini在小任务上跑的话表现比较好，之前写论文用ARIS让gemini做的第三方审稿，输出快，质量也还算不错"
+            },
+            {
+              "speaker": 1,
+              "time": "22:37",
+              "text": "我感觉现在体验还不如豆包",
+              "quote": {
+                "speaker": 2,
+                "text": "但gemini的网页端输出还是蛮快的，对于非常小的日常问答可以完成（看来Argon出了也不想脱掉自己北美大豆包的称号）"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:37",
+              "text": "豆包起码是有沙箱的我记得"
+            },
+            {
+              "speaker": 6,
+              "time": "23:47",
+              "text": "是api使用吗？网页版感觉太豆包了",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉Agron文字任务确实不错，就是不知道现在harness用哪个好（）"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "23:47",
+              "text": "是反重力吧"
+            },
+            {
+              "speaker": 7,
+              "time": "23:47",
+              "text": "有单独的一个桌面应用"
+            },
+            {
+              "speaker": 7,
+              "time": "23:48",
+              "text": "和ai studio分开记"
+            }
+          ]
+        },
+        {
+          "category": "3D生成",
+          "title": "让 1017 做“金古桥”造出四不像：搜索结果背锅，但合体阻尼感惊艳",
+          "text": "有群友让 1017 生成特摄机器人“金古桥”的 3D 模型，结果造出了一个猎奇的“四不像”；后来去模型网站搜参考图才发现，1017 做出来的造型跟搜索结果第一名一模一样，分享者认为是被搜索结果带偏了。不过抛开造型，群友展示生成效果时表示，该模型做出的分体与合体过程非常有阻尼感，部件接近时还带有电弧特效；但到了晚上对比后还是感叹，1017 和 Astra 在 3D 人物模型上仍有巨大差距。",
+          "emphasis": [
+            "分享者认为是被搜索结果带偏了",
+            "该模型做出的分体与合体过程非常有阻尼感，部件接近时还带有电弧特效"
+          ],
+          "aiComment": "照着搜索第一名把金古桥捏成了四不像，但合体阻尼感和电弧特效又拉满了，属于参考资料抄错但手艺硬核的偏科生。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:40",
+              "text": "我让1017给我做个金古桥模型. 结果他给我造了个四不像..."
+            },
+            {
+              "speaker": 1,
+              "time": "10:41",
+              "text": "然后我上模型网站去找模型给他参考,才发现我靠 它做的跟搜出来的第一个结果一模一样hh 是搜索结果害了它"
+            },
+            {
+              "speaker": 1,
+              "time": "10:45",
+              "text": "而且它做出来分体+合体 的过程很棒 有阻尼感, 而且接近的时候还有电弧"
+            },
+            {
+              "speaker": 2,
+              "time": "10:54",
+              "text": "抛开这个猎奇造型不谈，这个阻尼感竟然做的那么好"
+            },
+            {
+              "speaker": 1,
+              "time": "10:54",
+              "text": "它学的是这个"
+            },
+            {
+              "speaker": 1,
+              "time": "10:55",
+              "text": "阻尼感真的很棒 有那味了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:06",
+              "text": "欸 1017和astra 在3d人物模型上还是有巨大差距"
+            },
+            {
+              "speaker": 1,
+              "time": "22:06",
+              "text": "惋惜"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "当 AI 能批量给出数学证明，人类研究者的核心分工是什么？",
+      "theme": "围绕 SAIR 开源数学模型访谈，探讨“解出”与“理解”的边界：繁琐推导交由 AI，核查与规划仍靠研究者。",
+      "note": "2026-10-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "数学推理",
+          "title": "「解出来了」不等于「弄明白了」：AI 数学证明与研究者的分工",
+          "text": "有群友分享了一张公众号「量子位」的文章截图，内容围绕带有 SAIR 标志的《Why We Build Open Math Model》访谈展开。截图中的文章认为，AI 能批量给出数学证明，不代表人类真正理解了这道题，关键要看证明能否被理解、推导能否被核查；在数学家与 AI 的分工上，繁琐推导可以交给 AI，而提问、规划和判断能力仍需研究者自己培养。",
+          "emphasis": [
+            "截图中的文章认为，AI 能批量给出数学证明，不代表人类真正理解了这道题"
+          ],
+          "aiComment": "AI 负责批量甩出数学证明，人类负责看懂并核查推导，这分工怎么看都像学霸丢下一句略，留我对着草稿纸汗流浃背。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:27",
+              "text": "[图片]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

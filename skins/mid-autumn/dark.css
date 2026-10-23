@@ -1,0 +1,39 @@
+/* Independently tuned night palette; the loader wraps this file in dark media. */
+body[data-skin="mid-autumn"],
+body[data-skin="mid-autumn"][data-view] {
+  color-scheme: dark;
+  --paper: #242222;
+  --ink: #eeeae0;
+  --muted: #c5b8b1;
+  --rule: #574746;
+  --accent: #f29884;
+  --autumn-gold: #d9bb74;
+  --autumn-gold-rule: #80704b;
+  --autumn-link: #b4d4bc;
+  --autumn-hover: #303c33;
+  --autumn-selected: #3c2e29;
+  --autumn-up: #b4d4bc;
+  --autumn-up-surface: #2b4133;
+  --autumn-down-surface: #482e29;
+  --autumn-dialog: #2e2827;
+  --autumn-backdrop: rgb(8 13 10 / 76%);
+  --skin-paper: #422b2a;
+  --skin-ink: #eeeae0;
+  --skin-muted: #b5beb3;
+  --skin-accent: #f29884;
+  --skin-rule: #80704b;
+  --skin-image-filter: sepia(.5) saturate(.75) brightness(1.05);
+}
+
+/* Gold anchors the night edition; coral remains the active-state signal. */
+body[data-skin="mid-autumn"] .edition-nav,
+body[data-skin="mid-autumn"] #edition-sections {
+  border-top-color: var(--autumn-gold-rule);
+}
+body[data-skin="mid-autumn"] .ranking-heading h2 {
+  color: var(--ink);
+}
+body[data-skin="mid-autumn"] ::selection {
+  color: var(--paper);
+  background-color: var(--autumn-gold);
+}

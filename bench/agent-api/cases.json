@@ -1,0 +1,21 @@
+{
+  "protocol_version": "1.1",
+  "cases": [
+    {"id":"exact-osworld","task":"找到 OSWorld 2.0 的论文与源码","mode":"library","q":"OSWorld 2.0","strong":["osworld-2-0"],"adjacent":["qwen-ui-agent-technical-report","cua-gym"],"evidence":"资料标题明确OSWorld 2.0，简介108项工作流"},
+    {"id":"drawing-colloquial","task":"找群里分享过的画图资源","mode":"library","q":"画图","strong":["astradraw","figures4papers","ml-paper-icons","pptx-posters-k-dense-scientific-agent"],"adjacent":["humanize-skill"],"evidence":"四项均在10/14四群topic5按框架图/实验图/图标/海报介绍"},
+    {"id":"drawing-formal","task":"找论文科研绘图工具","mode":"library","q":"绘图","strong":["astradraw","figures4papers","ml-paper-icons","pptx-posters-k-dense-scientific-agent"],"adjacent":["humanize-skill"],"evidence":"同一已读绘图讨论中的四类工具"},
+    {"id":"harness-alias","task":"找 DeepSeek 的智能体运行框架分析","mode":"library","q":"DeepSeek 智能体框架","strong":["deepseek-harness"],"adjacent":["towards-long-horizon-agents","harness-zero"],"evidence":"DeepSeek Harness摘要明确运行框架及源码分析"},
+    {"id":"keyword-alias","task":"用已登记中文别名筛选 agent skills","mode":"keyword","keyword":"agent 技能","canonical":"agent skills","evidence":"资料关键词别名表确实收录 agent 技能；单独的技能未登记"},
+    {"id":"research-experience","task":"找科研经验和对研究工作的个人判断","mode":"library","q":"科研经验","strong":["podcast-research-and-rsi","golden-age-of-mathematics"],"adjacent":["closed-door-discussion-on-distillation"],"evidence":"播客有合写论文经历，数学文章有GPT/Claude研究经历；蒸馏帖仅邻近研究判断"},
+    {"id":"distillation-direction","task":"找蒸馏变难后研究方向的讨论","mode":"library","q":"蒸馏 研究方向","strong":["closed-door-discussion-on-distillation"],"adjacent":["harness-zero","understanding-on-policy-distillation"],"evidence":"闭门讨论标题与摘要明确蒸馏变难后的重点和数据"},
+    {"id":"type-topic-filter","task":"只查 Computer Use benchmark","mode":"filter","type":"benchmark","topic":"computer-use","evidence":"按固定168项的type和topics穷尽核查"},
+    {"id":"no-answer","task":"查询固定语料没有的具体字符串","mode":"empty","q":"量子引力纠缠新实验ZQ9182","evidence":"固定语料全文不含具体字符串；不是宣称群历史中从未出现"},
+    {"id":"complete-pagination","task":"逐页拿完资料库且无重复遗漏","mode":"pagination","evidence":"固定168条资料ID全集"},
+    {"id":"resource-weekly-citation","task":"从田渊栋播客资料找到周报中的相关讨论","mode":"association","resource":"podcast-research-and-rsi","expected_url":"weekly/2026-10-05/2026-10-11/group-3/#topic-8","evidence":"周报三群topic8原始链接与播客资源URL相同，摘要讨论研究者路径和数据壁垒"},
+    {"id":"daily-drawing","task":"直接搜索10月14日四群的科研绘图经验讨论并读到出处","mode":"content","q":"科研绘图","kind":"daily","group":"group-4","from":"2026-10-14","to":"2026-10-14","strong_url":["daily/2026-10-14/group-4/#topic-5"],"evidence":"已读原文，包含SVG/PPT人工调整及四项工具"},
+    {"id":"weekly-research","task":"搜索周报中科研选方向与领域数据的讨论","mode":"content","q":"科研方向 领域数据","kind":"weekly","strong_url":["weekly/2026-10-05/2026-10-11/group-3/#topic-8"],"evidence":"已读原文，讨论问题实验、测序PCR和未公开数据"},
+    {"id":"topic-read","task":"只读科研绘图一个话题而非整群日报","mode":"topic-read","expected_url":"daily/2026-10-14/group-4/#topic-5","expected_text":["AstraDraw","figures4papers","ml-paper-icons"],"forbidden_text":"凑不出“无敌缝合怪”","baseline_path":"daily/2026-10-14/group-4/index.md","evidence":"同一日报topic5约1.7KB，整群约12.3KB"},
+    {"id":"missing-edition","task":"10月17日缺刊时找到最近实际日报","mode":"editions","requested":"2026-10-17","expected_latest":"2026-10-15","evidence":"冻结的公开daily路径最新为10/15"},
+    {"id":"exact-related-id","task":"已知related ID figures4papers，直接读原始仓库链接","mode":"detail","resource":"figures4papers","expected_link":"https://github.com/ChenLiu-1996/figures4papers","evidence":"已读资料JSON中的原始code link；现有关键词搜索不等于精确ID读取"}
+  ]
+}

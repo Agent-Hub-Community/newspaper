@@ -1,0 +1,2750 @@
+{
+  "id": "2026-10-14",
+  "date": "2026-10-14",
+  "label": "2026-10-14 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "Apodex 上线药物研发计算平台，展示逾 600 项临床试验预测",
+      "theme": "结合知识图谱与推理 Agent 辅助新药决策，另聊新加坡人均 Claude 用量排全球第二的跨区调侃",
+      "note": "2026-10-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "AI4Science",
+          "title": "Apodex 上线药物研发计算平台，展示逾 600 项临床试验预测",
+          "text": "有群友分享了新上线的药物研发计算平台 Apodex Drug Research Computing Center（https://drug.apodexlab.ai/）。据介绍，该平台将生物医学知识图谱、基于多跳推理的科学推理 Agent 与决策智能结合，用于连接药物、基因、蛋白质、疾病、通路及临床证据，辅助生成并评估科学假设，提供可解释且有证据支持的研发决策。平台目前涵盖临床试验结果预测、老药新用与药物优化、药物相互作用分析以及作用机制探索四个方向，已展示 600 多项待揭晓的临床试验预测及 90 多项已揭晓结果。目前部分临床试验预测功能已直接开放，其他研究服务支持按项目申请，符合条件且公开研究成果的获批项目可免除研究计算费用。针对这类 AI 辅助发现，也有群友提出疑问，关注相关药物是否依然必须经过严谨的临床试验测试。",
+          "emphasis": [
+            "将生物医学知识图谱、基于多跳推理的科学推理 Agent 与决策智能结合",
+            "已展示 600 多项待揭晓的临床试验预测及 90 多项已揭晓结果"
+          ],
+          "aiComment": "600多项临床预测摆上台面，药企省了算力费，但小白鼠表示该走的路一步也省不掉。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "04:42",
+              "text": "🚀 Apodex Drug Research Computing Center 正式上线：让 AI Agents 参与真实药物研发与科学发现！\n\n🌐 https://drug.apodexlab.ai/\n\n药物研发中，如何预测临床试验成败？如何为已有药物寻找新的适应症？如何从海量生物医学证据中发现潜在的治疗机制？\n\nApodex 正在探索 Knowledge-Equipped Agentic AI for Drug Discovery，将大规模生物医学知识网络、科学推理与 AI Agents 结合，帮助研究者从复杂证据中发现新的研究机会，辅助药物研发决策。\n\n🧬 核心技术\n• Biomedical Knowledge Graph：连接药物、基因、蛋白质、疾病、通路及临床证据，支持跨领域知识检索与关联分析\n• Scientific Reasoning Agents：基于多跳推理与证据分析，探索药物作用机制、生成并评估科学假设\n• AI-Powered Decision Intelligence：从单一结果预测走向可解释、有证据支持的研发决策\n\n🔬 主要研究方向\n• Clinical Trial Forecasting：预测临床试验结果，平台已展示 600+ 项待揭晓预测及 90+ 项已揭晓结果\n• Drug Repurposing & Reformulation：探索老药新用、适应症拓展与药物优化\n• Drug-Drug Interaction：分析药物相互作用及潜在安全风险\n• Mechanism Discovery：探索疾病靶点、药物作用机制与潜在治疗路径\n\n💡 推动 AI for Drug Discovery 的普惠化\n\n平台已开放部分临床试验预测功能；其他研究服务可按项目申请。符合条件且公开研究成果的获批项目，可免研究计算费用，让更多科研团队有机会使用先进 AI 与计算资源。\n\n欢迎生物医药、AI for Science 及相关领域的老师和同学体验交流，也非常期待大家带来有挑战性的研究问题、反馈与建议！\n\n🌐 平台地址：https://drug.apodexlab.ai/\n\nBeyond Prediction. Toward Scientific Discovery. 🔬"
+            },
+            {
+              "speaker": 2,
+              "time": "15:53",
+              "text": "这个很酷诶，但是这种药物是不是一定要经过严谨的临床试验测试啊",
+              "quote": {
+                "speaker": 1,
+                "text": "🚀 Apodex Drug Research Computing Center 正式上线：让 AI Agents 参与真实药物研发与科学发现！ 🌐 https:..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "Apodex 药物研发计算平台",
+              "url": "https://drug.apodexlab.ai/"
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "新加坡人均 Claude 用量排全球第二，群友调侃背后的“分布式防反蒸馏”",
+          "text": "有群友提及新加坡的人均 Claude 使用量位居全球第二，并猜测这些用量可能大多来自国内用户的跨区调用。围绕使用量排名的讨论中，另一位群友认为排名第一的是美国，但推测国内的实际用量已分散到不同国家；也有人猜测美国的统计用量里说不定同样包含国内流量，还有群友将这种流量分散现象调侃为“分布式防反蒸馏”。",
+          "emphasis": [
+            "猜测这些用量可能大多来自国内用户的跨区调用",
+            "推测国内的实际用量已分散到不同国家"
+          ],
+          "aiComment": "新加坡人均Claude用量喜提全球第二，鱼尾狮自己都不知道背了这么多跨区调用的锅。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:01",
+              "text": "新加坡人均 claude 使用量全球第二[捂脸]\n感觉都是国内的量"
+            },
+            {
+              "speaker": 2,
+              "time": "14:11",
+              "text": "第一是谁[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "新加坡人均 claude 使用量全球第二[捂脸] 感觉都是国内的量"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:12",
+              "text": "说不定美的用量也是国内的"
+            },
+            {
+              "speaker": 4,
+              "time": "14:12",
+              "text": "第一肯定美国，但是国内的量应该是分布在不同国家了[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 第一是谁[旺柴]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:17",
+              "text": "分布式防反蒸馏"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "分析轨迹就被判开发竞品？Opus 5.5 反蒸馏风控大幅收紧",
+      "theme": "多位用户反馈触发警告封号且拒答被写进 Memory，另聊 Gemini 4 Argon 抢跑干活的初体验",
+      "note": "2026-10-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型风控",
+          "title": "分析轨迹就被判“手搓竞品”？Opus 5.5 风控收紧，还把拒答原因记进 Memory",
+          "text": "多位使用者反馈，Claude Opus 5.5 近期频繁触发安全拦截（如提示 Opus 5.5's safeguards stopped the response above），甚至基本处于不可用状态。有群友表示，在自己的任务上 Opus 5.5 的任务规划明显优于 GPT-6.1-sol，但用不了多久就会收到“正在构建前沿大模型（build frontier llm）”的警告，弹出几次警告后账号便被封禁。具体触发场景上，不仅让模型查看 DeepSWE 或读取 Codex 对话内容会被拦截，轨迹分析更是高敏雷区：有人让其分析轨迹时被警告“hack cot”，有人提出“看看怎么搞出一个成功的轨迹并吸收经验”被直接拒答；还有使用者抓到 Opus 5.5 把拒答原因和对应项目名称写进了 memory 里。\n\n针对拦截机制，群内出现了不同观察与猜测：有使用者发现通过 API 接入会出现上述警告，直接用 Claude 账号则不会，有人据此怀疑是否与 Antigravity 附加的指令有关；也有人反馈近期使用 Cursor 配合 Claude 同样会被封禁，并认为风控与研究领域相关，甚至有人调侃没被拦截或许说明研究方向对 Claude 构不成竞争、“主不在乎”。多位群友将这一现象归因于平台收紧了反蒸馏与防竞品策略，认为一旦被判定在开发竞品模型就会触发降智、拒答或封号。有人对比称，9 月中旬还能正常蒸馏，Opus 5.5 上线后已无法跑通，目前仅剩 Opus 4.8 和 Sonnet 5 相对容易操作；若需分析轨迹或进行蒸馏，也有群友转而使用 GPT-6（g6）等 GPT 系列模型，只是流程相对麻烦。",
+          "emphasis": [
+            "用不了多久就会收到“正在构建前沿大模型（build frontier llm）”的警告，弹出几次警告后账号便被封禁",
+            "还有使用者抓到 Opus 5.5 把拒答原因和对应项目名称写进了 memory 里",
+            "平台收紧了反蒸馏与防竞品策略，认为一旦被判定在开发竞品模型就会触发降智、拒答或封号"
+          ],
+          "aiComment": "Opus 5.5不仅拒答还把项目名写进Memory，赛博记仇小本本算是被它玩明白了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:44",
+              "text": "cc5.5你们真能用吗，我总是被警告在build frontier llm[捂脸]"
+            },
+            {
+              "speaker": 2,
+              "time": "13:45",
+              "text": "+1"
+            },
+            {
+              "speaker": 2,
+              "time": "13:45",
+              "text": "今天连续被警告，好神秘啊"
+            },
+            {
+              "speaker": 3,
+              "time": "13:47",
+              "text": "我让5.5帮我看下deepswe 就被警告了 build frontier llm[捂脸]",
+              "quote": {
+                "speaker": 1,
+                "text": "cc5.5你们真能用吗，我总是被警告在build frontier llm[捂脸]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:48",
+              "text": "我用api接入会出现这种情况，如果用claude账号就不会",
+              "quote": {
+                "speaker": 1,
+                "text": "cc5.5你们真能用吗，我总是被警告在build frontier llm[捂脸]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:48",
+              "text": "让帮我分析下轨迹，警告我hack cot"
+            },
+            {
+              "speaker": 5,
+              "time": "13:49",
+              "text": "对轨迹非常敏感",
+              "quote": {
+                "speaker": 3,
+                "text": "让帮我分析下轨迹，警告我hack cot"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:49",
+              "text": "我的任务上明显感觉cc opus5.5比gpt6.1sol在任务规划上要好很多，就是用不了多久就被警告"
+            },
+            {
+              "speaker": 1,
+              "time": "13:50",
+              "text": "我去，这么说我好像也是",
+              "quote": {
+                "speaker": 3,
+                "text": "让帮我分析下轨迹，警告我hack cot"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:50",
+              "text": "上次我说让我们看看怎么搞出一个成功的轨迹 吸收其经验"
+            },
+            {
+              "speaker": 7,
+              "time": "13:50",
+              "text": "今天抓到了 opus5.5 把拒答原因和对应项目写到了 memory 里 [尴尬]"
+            },
+            {
+              "speaker": 6,
+              "time": "13:50",
+              "text": "直接不回答"
+            },
+            {
+              "speaker": 1,
+              "time": "13:52",
+              "text": "antigravity是不是加了神秘的指令",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 我用api接入会出现这种情况，如果用claude账号就不会"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:07",
+              "text": "不一定有用，我感觉还是根据对话内容，弹几个警告后面就给我封了",
+              "quote": {
+                "speaker": 15,
+                "text": "最近想用交易所的卡充试试，主要是怕我这边vpn和中文输入被他检测了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:29",
+              "text": "今天好奇怪，感觉不断触发  Opus 5.5's safeguards stopped the response above，基本处于不可用状态[捂脸]",
+              "quote": {
+                "speaker": 1,
+                "text": "cc5.5你们真能用吗，我总是被警告在build frontier llm[捂脸]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:34",
+              "text": "一样，就这几天出现的",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 今天好奇怪，感觉不断触发  Opus 5.5's safeguards stopped the response above，基本处于不可用状态[捂脸]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "15:48",
+              "text": "现在claude反蒸馏特别强",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 今天好奇怪，感觉不断触发  Opus 5.5's safeguards stopped the response above，基本处于不可用状态[捂脸]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "15:51",
+              "text": "只要被claude觉得你在开发竞品model"
+            },
+            {
+              "speaker": 9,
+              "time": "15:51",
+              "text": "就直接降智/拒答/封号一条路服务"
+            },
+            {
+              "speaker": 10,
+              "time": "15:53",
+              "text": "我最近跑了下"
+            },
+            {
+              "speaker": 10,
+              "time": "15:53",
+              "text": "蒸不出来了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:53",
+              "text": "我让读一下codex对话中的内容，也不行hhh",
+              "quote": {
+                "speaker": 9,
+                "text": "只要被claude觉得你在开发竞品model"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "15:55",
+              "text": "我9月中还能蒸的，5.5出来后不行了"
+            },
+            {
+              "speaker": 7,
+              "time": "15:57",
+              "text": "g6 还能拿来分析轨迹，o5.5 太敏感了"
+            },
+            {
+              "speaker": 11,
+              "time": "16:10",
+              "text": "现在也就opus4.8 sonnet5好蒸，新的很难了",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 所以还能蒸么"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "16:10",
+              "text": "gpt都能蒸，但是比较麻烦"
+            },
+            {
+              "speaker": 12,
+              "time": "17:49",
+              "text": "如果一直没有被claude safeguard 是不是说明做的东西太拉了"
+            },
+            {
+              "speaker": 13,
+              "time": "17:49",
+              "text": "貌似是领域相关",
+              "quote": {
+                "speaker": 12,
+                "text": "如果一直没有被claude safeguard 是不是说明做的东西太拉了"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "17:49",
+              "text": "最近cursor + claude都会被ban"
+            },
+            {
+              "speaker": 12,
+              "time": "17:50",
+              "text": "做的方向对claude形不成竞争 或者不关心"
+            },
+            {
+              "speaker": 14,
+              "time": "17:55",
+              "text": "主不在乎？",
+              "quote": {
+                "speaker": 12,
+                "text": "如果一直没有被claude safeguard 是不是说明做的东西太拉了"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "话还没聊完就哐哐干活：Gemini 4 Argon 与 agy 实测体感汇总",
+          "text": "围绕新放出的 Gemini 4 Argon 及相关工具 agy，群内分享了第一批上手体验。一位刚用上 Gemini 4 Argon 的群友形容，在和模型交流做法、还没讨论清楚时，它就会突然开始干活，“哐哐哐跑一大堆任务”；多名使用者将其归结为 Gemini 的“过度自信”与鼓励性人格，并调侃“Gemini 过度自信，GPT 过度自卑”。在具体能力上，有使用者认为 agy 速度快、说人话、世界知识丰富，且此前不可用的工具调用目前已能正常工作；但短板在于回答依然发散，与 Claude Code（cc）相比略显简陋，且极其消耗额度，5 倍的 Ultra 周额度也很快跑完。此外，部分群友界面仍显示不可用，也有人提到外部测评反馈其文字功底有所下降。",
+          "emphasis": [
+            "在和模型交流做法、还没讨论清楚时，它就会突然开始干活",
+            "回答依然发散，与 Claude Code（cc）相比略显简陋，且极其消耗额度"
+          ],
+          "aiComment": "话还没说完就哐哐开干，把5倍Ultra周额度瞬间炫光，Gemini这属于职场亢奋型人格。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:56",
+              "text": "https://deepmind.google/models/model-cards/gemini-4-argon/"
+            },
+            {
+              "speaker": 2,
+              "time": "13:21",
+              "text": "话说Gemini 4 Argon有朋友用上了吗，什么水平[让我看看]"
+            },
+            {
+              "speaker": 3,
+              "time": "13:24",
+              "text": "好像还用不了？我这里显示unavailable"
+            },
+            {
+              "speaker": 4,
+              "time": "13:30",
+              "text": "agy 我觉得好用"
+            },
+            {
+              "speaker": 4,
+              "time": "13:30",
+              "text": "就是很不耐用"
+            },
+            {
+              "speaker": 4,
+              "time": "13:30",
+              "text": "ultra 周额度跑完了已经"
+            },
+            {
+              "speaker": 4,
+              "time": "13:32",
+              "text": "速度快 说人话 世界知识多 不过还是很发散 工具调用我记得之前都是不可用的状态 现在也没什么问题了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:35",
+              "text": "世界知识多感觉很重要"
+            },
+            {
+              "speaker": 6,
+              "time": "13:35",
+              "text": "特别是写作"
+            },
+            {
+              "speaker": 5,
+              "time": "13:36",
+              "text": "Gemini 过度自信 GPT过度自卑"
+            },
+            {
+              "speaker": 5,
+              "time": "13:37",
+              "text": "不过额度确实不够用 5X的ultra"
+            },
+            {
+              "speaker": 5,
+              "time": "13:38",
+              "text": "我感觉和cc比起来 有点太简陋了",
+              "quote": {
+                "speaker": 4,
+                "text": "agy 我觉得好用"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:38",
+              "text": "看卡兹克评测是文字功底下降了",
+              "quote": {
+                "speaker": 2,
+                "text": "话说Gemini 4 Argon有朋友用上了吗，什么水平[让我看看]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:42",
+              "text": "过度自信是真的，鼓励性人格",
+              "quote": {
+                "speaker": 5,
+                "text": "Gemini 过度自信 GPT过度自卑"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:54",
+              "text": "开始用gemini 4 argon了，体感就是你还在和他讨论，和他交流怎么干的时候，还没讨论清楚，突然就开始干活，哐哐哐跑一大堆任务"
+            },
+            {
+              "speaker": 9,
+              "time": "17:54",
+              "text": "卡兹克测评好像也不咋地"
+            },
+            {
+              "speaker": 10,
+              "time": "18:10",
+              "text": "模型太自信了",
+              "quote": {
+                "speaker": 2,
+                "text": "开始用gemini 4 argon了，体感就是你还在和他讨论，和他交流怎么干的时候，还没讨论清楚，突然就开始干活，哐哐哐跑一大堆任务"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Gemini 4 Argon 模型卡",
+              "url": "https://deepmind.google/models/model-cards/gemini-4-argon/"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "AT&T 把初级律师的活收回内部：38 人专项团队接手，合作律所或减至 18 到 20 家",
+          "text": "群内分享了路透社 10 月 8 日的一篇报道，讲 AT&T 如何用 AI 减少对外部律所的依赖。按报道，AT&T 法务总顾问称，今年公司已不再付钱让律所承担许多传统上由初级律师完成的工作，如文件审阅、法律研究和起草初稿，改由内部完成；承接这些工作的是 2026 年 1 月成立的 38 人内部专项团队 LegalEdge，团队由律师、法务运营人员和 AI 工具组成。他还表示，目前约 30 家合作律所未来两年可能缩减到 18 到 20 家，但没有设定确切目标。",
+          "emphasis": [
+            "今年公司已不再付钱让律所承担许多传统上由初级律师完成的工作"
+          ],
+          "aiComment": "律所账单上初级律师的工时被AT&T收回内部，法学院新人的练手活儿先被拿走了一大块。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:07",
+              "text": "https://www.reuters.com/legal/legalindustry/how-att-is-using-ai-reduce-its-reliance-law-firms-2026-10-08/\n\nAT&T停止雇佣外部Junior律师，并准备把合作律所从30家缩减到18-20家，整个集团的初级法务工作全部由内部的38人AI法律团队完成"
+            },
+            {
+              "speaker": 1,
+              "time": "14:08",
+              "text": "真有传统垄断企业用ai律师了",
+              "quote": {
+                "speaker": 1,
+                "text": "https://www.reuters.com/legal/legalindustry/how-att-is-using-ai-reduce-its-relia..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "路透社：AT&T 如何用 AI 减少对律所的依赖",
+              "url": "https://www.reuters.com/legal/legalindustry/how-att-is-using-ai-reduce-its-reliance-law-firms-2026-10-08/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "蒸馏受阻后的 RL 补课潮：万卡长跑与两三千卡的算力鸿沟",
+      "theme": "探讨 SFT 与 RL 的泛化争论、真实 Query 数据飞轮壁垒，以及游戏 AI 与 Blender 产线探路",
+      "note": "2026-10-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "训练路线",
+          "title": "蒸馏受阻后的 RL“补课”潮：万卡长跑与两三千卡的算力鸿沟",
+          "text": "外部模型的蒸馏通道收紧后，多位从业者提到国内模型团队正在为之前靠蒸馏“逃掉的课”补课，重新把重心转向强化学习（RL）。有群友表示，此前不少国内团队将 SFT（有人比喻为“先生教书打手板”）和在线策略蒸馏（OPD/MOPD）做得很熟，面对信号更密集的自蒸馏与 RL 该如何取舍，一位从业者指出 RL 不仅训练周期长、不确定性大，而且资源消耗量比 OPD 高出一个量级。另一位群友以近期公开的 Beam 为例说明 RL Scaling 的效果：该项目动用 1 万张 GB300 跑了 4 周 RL，期间还能自行修复推理 bug，在 SFT 占比极低的情况下全靠 RL 拉高了指标；至于先做重度 SFT 后再做 RL 还能否获得同等收益，有群友推测幅度可能会缩水，但依然会有正向收益。\n\n算力紧缺与投入产出比（ROI）是阻碍大规模 RL 落地的核心现实原因，有群友戏称“缺卡就是国模厂的原生家庭问题”。在资源受限的条件下，由于 RL 对算力消耗极高且缺乏现成的大规模实践经验，决策者往往倾向于押注高 ROI 路线。一位从事 RL 的群友估计，目前国内大部分 RL 训练规模仅在两三千张卡左右，与动辄万卡且无法随意挪用的预训练集群相比并不算多；甚至有人怀疑不少团队只是拿两三千张 H20 跑实验，目的主要是为了在最后的技术博客里写上一笔，不过也有人反驳称两三千张卡大约只是验收实验的量级。围绕硬件选型，多位群友指出 H20 仅适合本地部署跑推理，或者丢给业务训 LoRA、给 Infra 团队调框架（甚至还得自己写 NVLink），真正做训练至少需要 H100、H200 或 B 系列卡，而目前一套 B 卡的价格已从 1500 万元涨至 1800 万元且依然供不应求。\n\n在技术机理上，群内还就“SFT 加 OPD 能否替代 RL 保证策略泛化”展开了争论。一种观点认为，泛化能力根本上取决于预训练（PT），目前看 RL 并不能确保泛化，它更多是将模型分布往特定方向调整；反方则认为预训练只是注入了知识，把能力激活出来并让策略适应更多场景仍要靠 RL。针对“仅在部分任务上做 RL 是否会破坏预训练在其他任务上的基础能力”的追问，有群友从逻辑上推测，由于 RL 在参数数值范围上改动的程度很小，理论上不应损害基础能力，但还不清楚是否已有研究严格验证过这一点。",
+          "emphasis": [
+            "RL 不仅训练周期长、不确定性大，而且资源消耗量比 OPD 高出一个量级",
+            "目前国内大部分 RL 训练规模仅在两三千张卡左右，与动辄万卡且无法随意挪用的预训练集群相比并不算多",
+            "泛化能力根本上取决于预训练（PT），目前看 RL 并不能确保泛化",
+            "预训练只是注入了知识，把能力激活出来并让策略适应更多场景仍要靠 RL"
+          ],
+          "aiComment": "别人一万张GB300跑四周，自家两三千张H20还要手搓NVLink，这课补得全是辛酸泪。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:16",
+              "text": "目前各家应该在补课吧"
+            },
+            {
+              "speaker": 1,
+              "time": "12:16",
+              "text": "之前distill逃的课"
+            },
+            {
+              "speaker": 1,
+              "time": "12:16",
+              "text": "现在得补了"
+            },
+            {
+              "speaker": 1,
+              "time": "12:16",
+              "text": "rl还得做"
+            },
+            {
+              "speaker": 1,
+              "time": "12:17",
+              "text": "国内sft做的很狠"
+            },
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "mopd也算rl[敲打]",
+              "quote": {
+                "speaker": 15,
+                "text": "[引用] opd 为啥不是 rl"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:19",
+              "text": "蒸馏路子堵住之后不rl也得rl了",
+              "quote": {
+                "speaker": 16,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:20",
+              "text": "自蒸馏会比RL效率高嘛，毕竟信号更密集"
+            },
+            {
+              "speaker": 1,
+              "time": "12:21",
+              "text": "rl一个是时间长"
+            },
+            {
+              "speaker": 1,
+              "time": "12:21",
+              "text": "另外一个不确定度很大"
+            },
+            {
+              "speaker": 4,
+              "time": "12:21",
+              "text": "而且rl更吃资源"
+            },
+            {
+              "speaker": 1,
+              "time": "12:21",
+              "text": "而且资源消耗量比opd高一个量级"
+            },
+            {
+              "speaker": 5,
+              "time": "12:32",
+              "text": "beam用1w gb300做rl"
+            },
+            {
+              "speaker": 1,
+              "time": "12:32",
+              "text": "而且跑了很久",
+              "quote": {
+                "speaker": 5,
+                "text": "beam用1w gb300做rl"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:33",
+              "text": "ROI 一下就很差了感觉"
+            },
+            {
+              "speaker": 1,
+              "time": "12:33",
+              "text": "国内都耗不起"
+            },
+            {
+              "speaker": 5,
+              "time": "12:33",
+              "text": "4周，自己还能修inference bug"
+            },
+            {
+              "speaker": 1,
+              "time": "12:33",
+              "text": "beam那个sft"
+            },
+            {
+              "speaker": 1,
+              "time": "12:33",
+              "text": "非常低"
+            },
+            {
+              "speaker": 1,
+              "time": "12:33",
+              "text": "全是rl在拉"
+            },
+            {
+              "speaker": 7,
+              "time": "12:34",
+              "text": "感慨缺卡就是国模厂的原生家庭问题，这个东亚原生家庭缺资源缺爱对大家造成了各种集体创伤。"
+            },
+            {
+              "speaker": 8,
+              "time": "12:34",
+              "text": "不过如果beam做了sft，rl还能有这么大收益吗"
+            },
+            {
+              "speaker": 5,
+              "time": "12:34",
+              "text": "说明rl scaling完全work嘛"
+            },
+            {
+              "speaker": 4,
+              "time": "12:34",
+              "text": "写得好 拿了",
+              "quote": {
+                "speaker": 7,
+                "text": "感慨缺卡就是国模厂的原生家庭问题，这个东亚原生家庭缺资源缺爱对大家造成了各种集体创伤。"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:34",
+              "text": "可能效果没那么好",
+              "quote": {
+                "speaker": 8,
+                "text": "不过如果beam做了sft，rl还能有这么大收益吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:34",
+              "text": "但是肯定还有"
+            },
+            {
+              "speaker": 5,
+              "time": "12:35",
+              "text": "sft属于是先生教书打手板了"
+            },
+            {
+              "speaker": 9,
+              "time": "12:35",
+              "text": "还真是",
+              "quote": {
+                "speaker": 5,
+                "text": "sft属于是先生教书打手板了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:36",
+              "text": "rl上限高，但吃算力，可以这么理解么[旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "12:37",
+              "text": "是的，属于对于当下国内企业roi极低的路线"
+            },
+            {
+              "speaker": 5,
+              "time": "12:37",
+              "text": "因为资源有限，决策者肯定押宝高roi"
+            },
+            {
+              "speaker": 1,
+              "time": "12:38",
+              "text": "而且rl国内没有真正的大规模经验"
+            },
+            {
+              "speaker": 1,
+              "time": "12:39",
+              "text": "但是mopd和sft国内做的很熟了"
+            },
+            {
+              "speaker": 10,
+              "time": "12:44",
+              "text": "现在国内大部分rl 应该也就是两三千卡的规模"
+            },
+            {
+              "speaker": 10,
+              "time": "12:45",
+              "text": "跟预训练比一点都不多"
+            },
+            {
+              "speaker": 5,
+              "time": "12:45",
+              "text": "那这个投入的计算量，真的可以提高智能上限吗，还是说适应场景",
+              "quote": {
+                "speaker": 10,
+                "text": "现在国内大部分rl 应该也就是两三千卡的规模"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:45",
+              "text": "确实",
+              "quote": {
+                "speaker": 10,
+                "text": "跟预训练比一点都不多"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "12:46",
+              "text": "两三千h20还差不多",
+              "quote": {
+                "speaker": 10,
+                "text": "现在国内大部分rl 应该也就是两三千卡的规模"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "12:46",
+              "text": "大部分国内rl的目的都是在最后的blog里写写"
+            },
+            {
+              "speaker": 5,
+              "time": "12:48",
+              "text": "那不至于吧，验收实验大概这个量级",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 两三千h20还差不多"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "12:48",
+              "text": "万卡给预训练用呀[旺柴]",
+              "quote": {
+                "speaker": 16,
+                "text": "大厂不都是万卡规模吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:48",
+              "text": "主要是卡都在"
+            },
+            {
+              "speaker": 1,
+              "time": "12:48",
+              "text": "pt那边"
+            },
+            {
+              "speaker": 1,
+              "time": "12:48",
+              "text": "动不了啊"
+            },
+            {
+              "speaker": 4,
+              "time": "12:49",
+              "text": "真训还得H200"
+            },
+            {
+              "speaker": 1,
+              "time": "12:49",
+              "text": "h20训啥"
+            },
+            {
+              "speaker": 2,
+              "time": "12:50",
+              "text": "丢一些给业务算法训lora？",
+              "quote": {
+                "speaker": 1,
+                "text": "h20训啥"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "12:50",
+              "text": "穷的的模型至少也得是H100、H200把"
+            },
+            {
+              "speaker": 1,
+              "time": "12:50",
+              "text": "本地部署"
+            },
+            {
+              "speaker": 1,
+              "time": "12:50",
+              "text": "跑推理"
+            },
+            {
+              "speaker": 10,
+              "time": "12:50",
+              "text": "丢给infra调框架[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 丢一些给业务算法训lora？"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:51",
+              "text": "nv link还得自己写",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 丢给infra调框架[旺柴]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:54",
+              "text": "b卡完全供不应求啊"
+            },
+            {
+              "speaker": 1,
+              "time": "12:54",
+              "text": "一套b现在1500了"
+            },
+            {
+              "speaker": 13,
+              "time": "12:59",
+              "text": "1800w了",
+              "quote": {
+                "speaker": 1,
+                "text": "一套b现在1500了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:00",
+              "text": "sft+opd也能保证泛化吗",
+              "quote": {
+                "speaker": 11,
+                "text": "我感觉国内很多都不rl"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:01",
+              "text": "rl也不是管泛化的吧"
+            },
+            {
+              "speaker": 1,
+              "time": "13:01",
+              "text": "泛化还得看pt"
+            },
+            {
+              "speaker": 5,
+              "time": "13:03",
+              "text": "pt我怎么理解只是注入了，激活出来还是靠rl",
+              "quote": {
+                "speaker": 1,
+                "text": "泛化还得看pt"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "13:04",
+              "text": "如果光是RL某一部分tasks 的话是不是也会破坏pt 在其他任务上的能力啊[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "13:04",
+              "text": "不过目前看起来rl也不能确保泛化",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] pt我怎么理解只是注入了，激活出来还是靠rl"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:04",
+              "text": "rl更多是把他的分布"
+            },
+            {
+              "speaker": 1,
+              "time": "13:05",
+              "text": "往一个方向调感觉"
+            },
+            {
+              "speaker": 5,
+              "time": "13:05",
+              "text": "泛化这里不是说智能上的，就是保证policy单纯适应更多场景"
+            },
+            {
+              "speaker": 5,
+              "time": "13:07",
+              "text": "有无大神说说，我也想知道",
+              "quote": {
+                "speaker": 14,
+                "text": "如果光是RL某一部分tasks 的话是不是也会破坏pt 在其他任务上的能力啊[捂脸]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:07",
+              "text": "虽然按照逻辑来讲，基础能力应该不会损害，因为rl其实训的程度很小。但是不知道有人真研究过没有"
+            },
+            {
+              "speaker": 5,
+              "time": "13:08",
+              "text": "很小指参数数值范围上"
+            },
+            {
+              "speaker": 7,
+              "time": "13:15",
+              "text": "1",
+              "quote": {
+                "speaker": 7,
+                "text": "感慨缺卡就是国模厂的原生家庭问题，这个东亚原生家庭缺资源缺爱对大家造成了各种集体创伤。"
+              }
+            }
+          ]
+        },
+        {
+          "category": "数据工程",
+          "title": "刷榜数据造不出前沿模型：真实 Query 飞轮与专家标注的现实卡点",
+          "text": "为什么顶尖海外团队在持续有人离职跳槽的情况下仍能保持第一梯队？多位群友认为，数据与评估体系的壁垒比模型结构或算法更难外扩。有从业者指出，目前市面上第三方数商（Vendor）提供的数据大多属于“Benchmark-maxxing”（针对基准测试刷榜），因为模型厂商本身就靠公开 Benchmark 来决定数据验收。但决定前沿（Frontier）能力的标准恰恰不是刷高已有榜单，而是在 Benchmark 出现之前发掘出一个新领域——目前海外头部两家推出的最新特性根本没有公开榜单，而跟随者往往只能看着对方发了什么特性再去造什么数据。\n\n在真实用户数据的利用上，有人好奇为何不能直接从 StackOverflow 或 GitHub Issue 捞取问题，非要依赖线上数据。多位群友解释，核心差距在于真实用户的 Query 分布与上传的真实环境（User Environment）：工程师能凭空想出的问题非常有限，而真实用户的 Query 分布要多样化得多，很多需求必须先有真实的 Query 案例才能建立数据管线。更关键的是数据飞轮的马太效应：一位群友指出，模型越贵、效果越好，用户就越会把真正困难的问题和真实素材（例如直接上传到 Codex 的项目材料）拿过来问，从而帮厂商收集到高质量难题；反之，便宜且效果一般的模型只会被用来问简单问题，很难把数据飞轮转起来。\n\n如果不依赖蒸馏，该如何从零构建高质量训练数据？有群友介绍了通过有限状态机和分支条件固定任务类型、驱动大模型合成回答并配合模型或人工专家做抽样交叉验证的管线。但另一位一线从业者列举了实际落地中的多重卡点：首先，许多细分方向根本没有现成素材库，或者拿到素材也无法分辨究竟是合成的还是脱敏的真实数据；其次，针对“不信任单个专家时取多名专家共识”的做法，现实中同一领域的内包标注专家数量极少，且专家彼此之间不愿互相找事，哪怕匿名也往往“能不说就不说”；此外，虽然找一线实操的博士生（国内兼职日薪约 500 元）做标注在 AI4Science 等领域完全可行，但在金融或法律等具体工作场景下，博士生即便具备充足的学术知识，很多时候也无法胜任实际业务标注。",
+          "emphasis": [
+            "决定前沿（Frontier）能力的标准恰恰不是刷高已有榜单，而是在 Benchmark 出现之前发掘出一个新领域",
+            "模型越贵、效果越好，用户就越会把真正困难的问题和真实素材（例如直接上传到 Codex 的项目材料）拿过来问",
+            "同一领域的内包标注专家数量极少，且专家彼此之间不愿互相找事",
+            "在金融或法律等具体工作场景下，博士生即便具备充足的学术知识，很多时候也无法胜任实际业务标注"
+          ],
+          "aiComment": "指望多位专家交叉验证，结果同行匿名也抱团“能不说就不说”，人情世故成了数据管线最大卡点。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:17",
+              "text": "其实做数据，也差的是有点多的"
+            },
+            {
+              "speaker": 1,
+              "time": "13:17",
+              "text": "看着他们发什么特性就造什么数据"
+            },
+            {
+              "speaker": 1,
+              "time": "13:20",
+              "text": "数商的数据"
+            },
+            {
+              "speaker": 1,
+              "time": "13:20",
+              "text": "怎么说呢，就是好的是很好啦，但是非常贵，产量低"
+            },
+            {
+              "speaker": 2,
+              "time": "13:20",
+              "text": "vendor的数据基本都是benchmarkmaxxing"
+            },
+            {
+              "speaker": 1,
+              "time": "13:20",
+              "text": "一般的数商数据拿过来很多也验收不了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:21",
+              "text": "这个对的",
+              "quote": {
+                "speaker": 2,
+                "text": "vendor的数据基本都是benchmarkmaxxing"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:21",
+              "text": "因为模型厂靠benchmark决定验收"
+            },
+            {
+              "speaker": 3,
+              "time": "13:21",
+              "text": "都是照着bench做"
+            },
+            {
+              "speaker": 2,
+              "time": "13:21",
+              "text": "所以现在决定frontier的标准并不是benchmark"
+            },
+            {
+              "speaker": 3,
+              "time": "13:21",
+              "text": "但是专家数据还有点用"
+            },
+            {
+              "speaker": 2,
+              "time": "13:21",
+              "text": "而是在benchmark出来之前发掘一个新领域"
+            },
+            {
+              "speaker": 3,
+              "time": "13:21",
+              "text": "以及一些真实客户数据"
+            },
+            {
+              "speaker": 1,
+              "time": "13:22",
+              "text": "fde了",
+              "quote": {
+                "speaker": 2,
+                "text": "而是在benchmark出来之前发掘一个新领域"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:22",
+              "text": "主要国模也有这个benchmaxxing的需求"
+            },
+            {
+              "speaker": 1,
+              "time": "13:23",
+              "text": "那两家现在出的那些特性"
+            },
+            {
+              "speaker": 1,
+              "time": "13:23",
+              "text": "根本无bench"
+            },
+            {
+              "speaker": 5,
+              "time": "13:34",
+              "text": "感觉oa两家的数据积累比我们想象的还要恐怖"
+            },
+            {
+              "speaker": 5,
+              "time": "13:35",
+              "text": "甚至这也解释了为什么两家在不断有人离职跳槽的情况下，还是第一梯队",
+              "quote": {
+                "speaker": 5,
+                "text": "感觉oa两家的数据积累比我们想象的还要恐怖"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:35",
+              "text": "数据的壁垒感觉比模型结构or算法更难外扩"
+            },
+            {
+              "speaker": 6,
+              "time": "13:36",
+              "text": "用户数据有那么关键么"
+            },
+            {
+              "speaker": 6,
+              "time": "13:36",
+              "text": "主要是咋用啊"
+            },
+            {
+              "speaker": 5,
+              "time": "13:36",
+              "text": "感觉主要是query吧",
+              "quote": {
+                "speaker": 6,
+                "text": "用户数据有那么关键么"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:36",
+              "text": "就是工程师能想出来的query是有限的"
+            },
+            {
+              "speaker": 5,
+              "time": "13:36",
+              "text": "但是用户的真实query的分布感觉更加多样化"
+            },
+            {
+              "speaker": 7,
+              "time": "13:37",
+              "text": "模型贵+效果好，用户就会把难的问题放到他们这边来问"
+            },
+            {
+              "speaker": 5,
+              "time": "13:37",
+              "text": "很多需求都是先有query的case才能谈怎么做数据管线的"
+            },
+            {
+              "speaker": 5,
+              "time": "13:37",
+              "text": "还真是",
+              "quote": {
+                "speaker": 7,
+                "text": "模型贵+效果好，用户就会把难的问题放到他们这边来问"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:37",
+              "text": "然后就收集到高质量问题"
+            },
+            {
+              "speaker": 7,
+              "time": "13:37",
+              "text": "便宜+效果不好的模型，用户都是问简单的问题"
+            },
+            {
+              "speaker": 7,
+              "time": "13:38",
+              "text": "感觉很难转起来数据飞轮"
+            },
+            {
+              "speaker": 1,
+              "time": "13:38",
+              "text": "完全没蒸的情况下怎么做数据"
+            },
+            {
+              "speaker": 1,
+              "time": "13:38",
+              "text": "其实还是那句话，现在最前沿的能力都没公开bench"
+            },
+            {
+              "speaker": 5,
+              "time": "13:38",
+              "text": "比较粗暴的方法就是传奇有限状态机和分支条件"
+            },
+            {
+              "speaker": 5,
+              "time": "13:39",
+              "text": "直接固定query类型，然后定义一些task"
+            },
+            {
+              "speaker": 5,
+              "time": "13:39",
+              "text": "然后人工专家搞answer或者去judge之类的"
+            },
+            {
+              "speaker": 1,
+              "time": "13:39",
+              "text": "如果你觉得模型能做好一件事，那要怎么证明，怎么评估，怎么采集素材 合成数据，最后怎么训"
+            },
+            {
+              "speaker": 5,
+              "time": "13:40",
+              "text": "[奸笑]其实会回到怎么造query上"
+            },
+            {
+              "speaker": 1,
+              "time": "13:40",
+              "text": "怎么确认专家造的题不是假的"
+            },
+            {
+              "speaker": 5,
+              "time": "13:40",
+              "text": "就是大部分的情况下，能造query，然后驱动llm去合成answer，之后llm去judge"
+            },
+            {
+              "speaker": 5,
+              "time": "13:40",
+              "text": "这个就是标注的时候经典的抽样交叉验证了",
+              "quote": {
+                "speaker": 1,
+                "text": "怎么确认专家造的题不是假的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:40",
+              "text": "🤔直接从比如说stackoverflow捞query不行么 还是code agent的query的distribution不太一样",
+              "quote": {
+                "speaker": 5,
+                "text": "[奸笑]其实会回到怎么造query上"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:41",
+              "text": "user environment是不是更关键 given大家都在上传"
+            },
+            {
+              "speaker": 6,
+              "time": "13:41",
+              "text": "或者issue",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 🤔直接从比如说stackoverflow捞query不行么 还是code agent的query的distribution不太一样"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:41",
+              "text": "就是即使不信任专家，我们只需取专家的共同意见就好了"
+            },
+            {
+              "speaker": 1,
+              "time": "13:41",
+              "text": "很多topic都没有素材来源呢"
+            },
+            {
+              "speaker": 1,
+              "time": "13:41",
+              "text": "现实情况是，专家彼此之间不愿意互相找事",
+              "quote": {
+                "speaker": 5,
+                "text": "就是即使不信任专家，我们只需取专家的共同意见就好了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:41",
+              "text": "对",
+              "quote": {
+                "speaker": 1,
+                "text": "很多topic都没有素材来源呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:41",
+              "text": "能不说就不说"
+            },
+            {
+              "speaker": 5,
+              "time": "13:41",
+              "text": "所以要匿名吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 现实情况是，专家彼此之间不愿意互相找事"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:42",
+              "text": "真会把素材"
+            },
+            {
+              "speaker": 3,
+              "time": "13:42",
+              "text": "往codex船"
+            },
+            {
+              "speaker": 5,
+              "time": "13:42",
+              "text": "我印象中oa好像是找phd去标",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 所以要匿名吧"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:42",
+              "text": "甚至找phd比找教授更好，因为phd往往不会有这么多心眼，而且真在一线实操"
+            },
+            {
+              "speaker": 1,
+              "time": "13:42",
+              "text": "一个领域的标注专家，内包的数量其实非常少",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 所以要匿名吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:43",
+              "text": "国内一个一天500"
+            },
+            {
+              "speaker": 1,
+              "time": "13:44",
+              "text": "不是，标注的少"
+            },
+            {
+              "speaker": 1,
+              "time": "13:44",
+              "text": "不是从业专家少"
+            },
+            {
+              "speaker": 1,
+              "time": "13:45",
+              "text": "根本分辨不了是合成还是脱敏的"
+            },
+            {
+              "speaker": 1,
+              "time": "13:46",
+              "text": "具体到金融或者法律，phd在有充足专业知识的情况下其实很多时候也无法胜任工作。但是ai4s这种是完全可以的"
+            }
+          ]
+        },
+        {
+          "category": "模型评测",
+          "title": "50 分的“智能及格线”：Opus 5.5、GPT-6.1sol 与 Astra 的体感对比及规模猜想",
+          "text": "围绕一张结合真实 API 定价与 Artificial Analysis（AA）评分的前沿分布图，群友探讨了通用大模型在日常使用中的“智能及格线”。一位重度使用者结合实际体验认为，只有达到 GPT-6.1sol 之上（对应 AA 评分 50 分左右的水位）才能谈得上智能；50 分以下的模型并非完全不能用，但一旦推理链路变长、需求表述更模糊，就会出现明显的“撞墙”现象。\n\n在第一梯队模型的横向对比上，多位使用者反馈 Opus 5.5 的实际体验对 GPT 系列形成了明显优势，且生成速度接近 100 TPS；相比之下，有人调侃 Astra 只有约 20 TPS 的速度，慢到逼得用户不得不转向 Opus。不过也有群友注意到，Opus 5.5 在部分尚未公开发布的长尾 Benchmark 上表现似乎不如前代 Opus 5，猜测其缩减了模型参数规模，这与近期订阅套餐扩大用量的现象也能吻合。多位群友提到小道消息称 Opus 5.5 的参数量可能在 700B 到 800B 左右，并有人调侃它背后可能有更大体量的内部模型“Mythos”可供蒸馏；而对于推理缓慢的 Astra，有群友听说其规模已达 10T 以上，并猜测同系列的 GPT-6.1sol 可能是减少了循环（Loop）次数的 Astra。",
+          "emphasis": [
+            "只有达到 GPT-6.1sol 之上（对应 AA 评分 50 分左右的水位）才能谈得上智能",
+            "Opus 5.5 在部分尚未公开发布的长尾 Benchmark 上表现似乎不如前代 Opus 5，猜测其缩减了模型参数规模"
+          ],
+          "aiComment": "Astra慢到20 TPS逼人投奔接近100 TPS的Opus，再大的参数也治不好当代人的急性子。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:23",
+              "text": "https://real-api-pricing.vercel.app/#lang=zh"
+            },
+            {
+              "speaker": 1,
+              "time": "13:23",
+              "text": "[奸笑]看完只剩下惊悚了，真正的成本*aa分数前沿"
+            },
+            {
+              "speaker": 2,
+              "time": "13:26",
+              "text": "这网站可以啊",
+              "quote": {
+                "speaker": 1,
+                "text": "https://real-api-pricing.vercel.app/#lang=zh"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:28",
+              "text": "一般，智能及格线是多少呢",
+              "quote": {
+                "speaker": 1,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:28",
+              "text": "不考虑专业任务"
+            },
+            {
+              "speaker": 1,
+              "time": "13:28",
+              "text": "我的实际体验是，gpt-6.1sol之上，才能谈智能",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 一般，智能及格线是多少呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:29",
+              "text": "差不多对应aa的50分左右的水位"
+            },
+            {
+              "speaker": 1,
+              "time": "13:29",
+              "text": "之下的模型也不是不能用，但是一旦链路变得很长，然后需求更模糊，就会出现明显的撞墙"
+            },
+            {
+              "speaker": 1,
+              "time": "13:30",
+              "text": "目前体验下来，opus5.5对于gpt都是碾压性的"
+            },
+            {
+              "speaker": 3,
+              "time": "13:30",
+              "text": "那看起来就是toc 可用分大概在50"
+            },
+            {
+              "speaker": 4,
+              "time": "13:31",
+              "text": "opus5.5在长尾bench上似乎不如opus5"
+            },
+            {
+              "speaker": 4,
+              "time": "13:31",
+              "text": "应该是砍大小了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:31",
+              "text": "+1，太好用了，还有接近 100 的 tps",
+              "quote": {
+                "speaker": 1,
+                "text": "目前体验下来，opus5.5对于gpt都是碾压性的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:32",
+              "text": "[奸笑]astra：喜欢我的20t/s吗",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] +1，太好用了，还有接近 100 的 tps"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:32",
+              "text": "这个和订阅扩用量也能对上 a/太超人了"
+            },
+            {
+              "speaker": 1,
+              "time": "13:32",
+              "text": "只能说被astra逼的不得不用opus了"
+            },
+            {
+              "speaker": 6,
+              "time": "13:32",
+              "text": "比如哪些呀",
+              "quote": {
+                "speaker": 4,
+                "text": "opus5.5在长尾bench上似乎不如opus5"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:32",
+              "text": "其实6.1 sol也挺好用的…",
+              "quote": {
+                "speaker": 1,
+                "text": "只能说被astra逼的不得不用opus了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:32",
+              "text": "opus 5.5小道消息是7 800 b"
+            },
+            {
+              "speaker": 1,
+              "time": "13:33",
+              "text": "感觉有说法",
+              "quote": {
+                "speaker": 7,
+                "text": "opus 5.5小道消息是7 800 b"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:33",
+              "text": "合理的",
+              "quote": {
+                "speaker": 7,
+                "text": "opus 5.5小道消息是7 800 b"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:33",
+              "text": "至少这个价格，不像是几t的模型"
+            },
+            {
+              "speaker": 4,
+              "time": "13:33",
+              "text": "还没发呢[旺柴]",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 比如哪些呀"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:33",
+              "text": "astra听说10t+了"
+            },
+            {
+              "speaker": 4,
+              "time": "13:34",
+              "text": "sol6.1可能是astra少loop了几次"
+            },
+            {
+              "speaker": 8,
+              "time": "13:34",
+              "text": "我也听过这个",
+              "quote": {
+                "speaker": 7,
+                "text": "opus 5.5小道消息是7 800 b"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "13:42",
+              "text": "那这也太强了，kimi要2t的参数空间，model efficiency差太多了",
+              "quote": {
+                "speaker": 7,
+                "text": "opus 5.5小道消息是7 800 b"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:43",
+              "text": "opus能蒸mythos啊，有大哥啊[旺柴]",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 那这也太强了，kimi要2t的参数空间，model efficiency差太多了"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "Real API Pricing 成本与能力分布图",
+              "url": "https://real-api-pricing.vercel.app/"
+            }
+          ]
+        },
+        {
+          "category": "游戏AI",
+          "title": "游戏 AI 落地两难：FPS 机器人怕“太强像挂”，剧情 NPC 困于单条几毛钱的 API 账单",
+          "text": "除了给游戏开发提速，AI 还能如何改变游戏本身的体验？在射击竞技（FPS）方向，有群友提出，开源游戏可以用“大模型顶层决策 + 代码 API 接口”的分层方案控制 Bot，而像吃鸡（PUBG）这类闭源游戏若想让 Agent 游玩则只能全靠 Computer Use（CU）。一位去年底做过相关调研的群友介绍，商业手游《和平精英》早已上线了“花傲天”等 AI 机器人，其方案更多是基于底层接口做决策与运动控制：大模型主要负责对话交互，而移动和战斗仍偏重传统控制算法与强化学习。这位分享者提到，与相关团队负责人交流时得知，FPS 游戏的机器人设计核心是“拟人化”而非越强越好，因为机器人一旦做得太强，给玩家的体感就变成了外挂。\n\n相比竞技类 Bot 的成熟落地，开放世界与剧情向游戏里的动态 NPC 则卡在了算力账单与维护成本上。不少群友期待能玩到 NPC 记忆会影响故事走向、甚至拥有私人定制化剧情的游戏，但一位尝试开发 AI 游戏半年多的群友泼了冷水：目前最大的问题是 API 太贵，想让 NPC 理解上下文剧情，玩家每发一条消息就要花掉几毛钱；而且只要底层大模型一迭代，原有的提示词就得全部重做。高昂的推理成本让群友们调侃，未来玩这类深度接入大模型的游戏，或许得专门订阅“Game Plan”，甚至直接在游戏里“Sign in with ChatGPT”来烧玩家自己的订阅额度。",
+          "emphasis": [
+            "FPS 游戏的机器人设计核心是“拟人化”而非越强越好，因为机器人一旦做得太强，给玩家的体感就变成了外挂",
+            "目前最大的问题是 API 太贵，想让 NPC 理解上下文剧情，玩家每发一条消息就要花掉几毛钱；而且只要底层大模型一迭代，原有的提示词就得全部重做"
+          ],
+          "aiComment": "吃鸡Bot太强怕被当成挂，剧情NPC聊一句几毛钱，以后打游戏怕是要自带ChatGPT会员进场。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:20",
+              "text": "好奇ai可以让game带来什么样的不同"
+            },
+            {
+              "speaker": 1,
+              "time": "20:20",
+              "text": "是只加速开发，还是能融入ai的特性🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "20:22",
+              "text": "游戏性上有什么新突破呢🤔"
+            },
+            {
+              "speaker": 2,
+              "time": "20:23",
+              "text": "做ai的人肯定是想着加速开发"
+            },
+            {
+              "speaker": 3,
+              "time": "20:23",
+              "text": "看好开放世界游戏因为agent接入而更有趣"
+            },
+            {
+              "speaker": 1,
+              "time": "20:25",
+              "text": "make sense",
+              "quote": {
+                "speaker": 3,
+                "text": "看好开放世界游戏因为agent接入而更有趣"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:26",
+              "text": "agent打fps类游戏呢"
+            },
+            {
+              "speaker": 1,
+              "time": "20:29",
+              "text": "指的是bot用agent控制嘛",
+              "quote": {
+                "speaker": 4,
+                "text": "agent打fps类游戏呢"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:32",
+              "text": "对呢 开源的游戏用llm顶层决策+code api接口这样分层做 但是闭源的话想让agent打吃鸡、pubg类游戏就只能全上cu了（粗浅想法",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 指的是bot用agent控制嘛"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:33",
+              "text": "嗯嗯 如果能让bot有生命力那还挺有意思的，可以指挥bot做啥都行 （agent调用的成本能压下来更好",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 对呢 开源的游戏用llm顶层决策+code api接口这样分层做 但是闭源的话想让agent打吃鸡、pubg类游戏就只能全上cu了（粗浅想法"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "20:39",
+              "text": "这个感觉腾讯很早就在做了",
+              "quote": {
+                "speaker": 4,
+                "text": "agent打fps类游戏呢"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "20:40",
+              "text": "光子他们做的和平精英已经加了bot了，更多是基于底层接口的决策和运动控制"
+            },
+            {
+              "speaker": 5,
+              "time": "20:40",
+              "text": "花傲天这些都已经加进来了"
+            },
+            {
+              "speaker": 5,
+              "time": "20:41",
+              "text": "很早就在搞了吧，去年就比较成熟了，llm接入主要是对话，其他的还是偏传统的控制算法，rl这些"
+            },
+            {
+              "speaker": 1,
+              "time": "20:42",
+              "text": "make sense，让bot更拟人"
+            },
+            {
+              "speaker": 4,
+              "time": "20:42",
+              "text": "有链接可以给我推推吗[可怜]",
+              "quote": {
+                "speaker": 5,
+                "text": "很早就在搞了吧，去年就比较成熟了，llm接入主要是对话，其他的还是偏传统的控制算法，rl这些"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "20:42",
+              "text": "yes！当时和那边leader沟通交流就是说拟人化",
+              "quote": {
+                "speaker": 1,
+                "text": "make sense，让bot更拟人"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "20:43",
+              "text": "因为fps不是越强越好，太强了那不是变成挂了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:44",
+              "text": "之前我记得在搞人设和玩法设计，npc的memory影响故事这个好像一直没有消息"
+            },
+            {
+              "speaker": 5,
+              "time": "20:45",
+              "text": "https://zhuanlan.zhihu.com/p/135981668",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 有链接可以给我推推吗[可怜]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "20:45",
+              "text": "不过这玩意儿大规模铺开成本太高了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:49",
+              "text": "愿意订阅game plan"
+            },
+            {
+              "speaker": 5,
+              "time": "20:49",
+              "text": "这是什么",
+              "quote": {
+                "speaker": 2,
+                "text": "愿意订阅game plan"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:52",
+              "text": "毕竟如果游戏需要调用llm，烧自己的token也合情合理",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 这是什么"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:56",
+              "text": "直接sign  in with chatgpt，然后烧订阅额度",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 毕竟如果游戏需要调用llm，烧自己的token也合情合理"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:06",
+              "text": "Ai游戏搞了半年多，最大问题是api太贵，想让npc理解剧情一条消息几毛钱[捂脸]，模型迭代了重做提示词"
+            },
+            {
+              "speaker": 1,
+              "time": "21:24",
+              "text": "捂脸🤦🏻‍♂️",
+              "quote": {
+                "speaker": 8,
+                "text": "Ai游戏搞了半年多，最大问题是api太贵，想让npc理解剧情一条消息几毛钱[捂脸]，模型迭代了重做提示词"
+              }
+            }
+          ]
+        },
+        {
+          "category": "3D与多模态",
+          "title": "3D 与动画 Agent 产线探路：Blender 靠 MCP 省去 GUI 操作，曲面与物理仍需外接生成工具",
+          "text": "多位从事环境合成与数据的群友近期开始转向 Blender、3D 场景与动画方向的数据建设。有群友推测，3D 场景的数据素材主要来自游戏资产。谈及当前模型操作 Blender 的能力边界，有从业者指出，目前模型在零件组装、骨骼绑定以及直面建模上效果已经很强，但在曲面建模上表现依然拉胯，直接生成 3D 模型的能力完全不行，且物理特性经常搞错，因此在管线中接入 Tripo（原文作 tribo）这类外部 3D 生成工具非常合理。\n\n在工具控制方式与评测基准上，该从业者补充，Blender 之所以好做，主要是因为它的 MCP 生态已经做得很完善，不像控制 Photoshop 那样必须走 GUI 自动化；目前可供参考的评测基准包括 lego bench、vibewording、3dharnessbench 和 3dcodebench。该从业者还认为，按道理近期也该有人开始做 AE 等动画数据，技术路线大致分为三类：类似 code2remotion 的代码转动画方案、基于 React MCP 的交互方案，以及直接通过 GUI 控制 AE。",
+          "emphasis": [
+            "曲面建模上表现依然拉胯，直接生成 3D 模型的能力完全不行，且物理特性经常搞错",
+            "Blender 之所以好做，主要是因为它的 MCP 生态已经做得很完善，不像控制 Photoshop 那样必须走 GUI 自动化"
+          ],
+          "aiComment": "Blender靠MCP逃过了GUI自动化的苦，但一遇到曲面和物理，还是得乖乖请外援。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:14",
+              "text": "最近我也开始看cua tribo和blender了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:15",
+              "text": "3d场景的数据建设 主要的数据来源就是游戏的素材吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 你们开始做game的了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:15",
+              "text": "我靠，都在搞blender - -[捂脸]"
+            },
+            {
+              "speaker": 4,
+              "time": "20:17",
+              "text": "好家伙，用blender 收集训练数据吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "20:26",
+              "text": "组装和骨骼绑定都很强了",
+              "quote": {
+                "speaker": 5,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:26",
+              "text": "群友 1，blender的数据有啥见解，没搞过- -"
+            },
+            {
+              "speaker": 3,
+              "time": "20:27",
+              "text": "现阶段，这种直方面，效果都很好，但是曲面就很拉胯",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 组装和骨骼绑定都很强了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:27",
+              "text": "但是生3d这一块完全不行"
+            },
+            {
+              "speaker": 1,
+              "time": "20:27",
+              "text": "所以接个tribo就很合理"
+            },
+            {
+              "speaker": 1,
+              "time": "20:27",
+              "text": "物理特性很多也搞不对"
+            },
+            {
+              "speaker": 1,
+              "time": "20:28",
+              "text": "我刚开始做，还在看bench的rubric，节后刚开始",
+              "quote": {
+                "speaker": 3,
+                "text": "群友 1，blender的数据有啥见解，没搞过- -"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:28",
+              "text": "blender的bench是哪些，我学习下"
+            },
+            {
+              "speaker": 1,
+              "time": "20:32",
+              "text": "lego bench /vibewording/3dharnessbench/3dcodebench"
+            },
+            {
+              "speaker": 3,
+              "time": "20:32",
+              "text": "严肃学习",
+              "quote": {
+                "speaker": 1,
+                "text": "lego bench /vibewording/3dharnessbench/3dcodebench"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:32",
+              "text": "主要blender mcp做的完善"
+            },
+            {
+              "speaker": 1,
+              "time": "20:32",
+              "text": "你要想用ps就得gui了"
+            },
+            {
+              "speaker": 1,
+              "time": "20:34",
+              "text": "最近也应该有人开始做动画的数据了"
+            },
+            {
+              "speaker": 3,
+              "time": "20:34",
+              "text": "AE这种？"
+            },
+            {
+              "speaker": 1,
+              "time": "20:36",
+              "text": "也是3类，code2remotion那种类似a家，react mcp，最后是gui控制ae"
+            }
+          ]
+        },
+        {
+          "category": "Agent强化学习",
+          "title": "用“剩余 Token 进度条”替代组内比较：DeltaTTG 缓解多轮 Agent 强化学习奖励稀疏",
+          "text": "针对多轮 Agent 可验证奖励强化学习（RLVR）中奖励稀疏且延迟导致的信用分配（Credit Assignment）难题，有群友分享了新工作 DeltaTTG。论文指出，现有的 GiGPO、HGPO 等方法依赖组内轨迹比较，其过程信号依然受限于当前 Batch 的 Rollout 质量；为此，该工作提出利用 Token-to-Go（距离任务完成所需的剩余 Token 数）作为监督信号，从不同策略（Policy）的历史轨迹中训练一个通用的任务进度条（Progress Meter），并通过每一步的进度变化来指导强化学习。这个进度条本质上是一个监督信号更丰富、跨策略更鲁棒的“反向 Value Model”，在两个基座模型与三类 Agent 任务上均优于强 RL 基线，并通过了泛化、跨领域迁移与过程评估实验验证。",
+          "emphasis": [
+            "利用 Token-to-Go（距离任务完成所需的剩余 Token 数）作为监督信号，从不同策略（Policy）的历史轨迹中训练一个通用的任务进度条（Progress Meter）"
+          ],
+          "aiComment": "给强化学习装上剩余Token进度条，Agent终于不用在盲盒里摸黑等最后那点奖励了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "各位大佬好！借贵群宣传一下我们最近的工作 DeltaTTG～ 求hf upvote🙇\n\n我们想解决一个经典问题：多轮 Agent RLVR 奖励稀疏且延迟，如何更好地进行 credit assignment？\n\nGiGPO、HGPO 等方法依赖组内轨迹比较，过程信号仍受限于当前 batch 的 rollout 质量。因此我们思考：能否给 Agent 训练一个通用的“进度条”，直接衡量每一步的任务进展？我们提出 DeltaTTG，利用 Token-to-Go（距离任务完成所需的 token 数）作为监督信号，从不同 policy 的历史轨迹中训练 Progress Meter，并通过进度变化指导 RL。TTG进度条本质上是一个监督信号更丰富、跨 policy 更鲁棒的“反向 Value Model”。\n\n我们在两个 backbone、三类 Agent 任务上均取得了优于强 RL baselines 的整体表现，并通过泛化、跨领域迁移和过程评估等实验验证了进度条的有效性。\n\n欢迎感兴趣的小伙伴们多多交流讨论合作呀！🙇\n\n📑 arXiv：arxiv.org/abs/2610.17666\n🤗 Hugging Face：huggingface.co/papers/2610.17666"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "DeltaTTG 论文",
+              "url": "https://arxiv.org/abs/2610.17666"
+            }
+          ]
+        },
+        {
+          "category": "Agent鲁棒性",
+          "title": "在 500 多个 MCP 环境中注入真实报错：Agent-Reflex 把“主动反思”训成元技能",
+          "text": "在理想环境下训练的大模型 Agent 面对真实环境中的工具超时、返回异常和用户频繁打断纠偏时极易执行失败。有群友分享了开源的通用训练框架 Agent-Reflex，将“主动反思”视为可从失败中挖掘并内化进模型的元技能，包含三个阶段：首先在 500 多个 MCP 环境中注入真实工具报错，用大规模 Agent 池采样成功与失败轨迹，总结出 1170 条反思元技能（RSD）；随后用这些技能构造自我反思、技能恢复、用户纠正三类数据进行微调（ReSFT）；最后在噪声环境下将 Agent RL 与反思技能引导的在线策略蒸馏（OPD）联合优化，实现 Token 级的信号增强（ORPO）。在 Qwen3-8B 基座上，该方法在五个长程工具调用基准上达到 58.6 分（提升 18.4 分），在带噪声的 AgentNoiseBench 上取得 29.1 分，超越了 Agent-World、EnvScaler 和 NoisyAgent 等基线。",
+          "emphasis": [
+            "将“主动反思”视为可从失败中挖掘并内化进模型的元技能",
+            "在五个长程工具调用基准上达到 58.6 分（提升 18.4 分）"
+          ],
+          "aiComment": "在500多个MCP环境里花式喂报错，先攒出1170条反思技能再喂给8B模型，堪比当代打工人抗压特训。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:33",
+              "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳：\n\n🪞 Agent-Reflex: Teaching Language Agents to Act Reflectively\n\n如今，大模型智能体己经具备与工具环境交互的能力，但真实环境充满噪声：工具超时、返回异常，用户频繁打断纠偏。理想环境下训练的 Agent 难以应对，极易执行失败。\n\n我们提出 Agent-Reflex：一个激发智能体【主动反思】的通用训练框架，它把反思视为可学习的元技能，可以从失败中挖掘、再内化进模型的中：\n\n（1）环境反思技能发现（RSD）：在500+个MCP环境中注入真实工具报错，用大规模Agent池采样成功/失败轨迹，总结出 1,170 条反思元技能；\n（2）反思微调（ReSFT）：用反思技能构造自我反思、技能恢复、用户纠正三类数据微调；\n（3）在线反思策略优化（ORPO）：在噪声环境下进行Agent RL与反思技能引的OPD联合优化，实现 token 级的信号增强。\n\n基于 Qwen3-8B，Agent-Reflex 在五个长程工具调用分数达到 58.6（+18.4），在带噪声的AgentNoiseBench 上达到 29.1，超过 Agent-World、EnvScaler、NoisyAgent 等强基线。\n\n欢迎大家关注与交流呀[爱心]，并帮忙点点 HF Paper Upvote，代码、模型、数据全部开源～\n\n📖 论文链接：https://huggingface.co/papers/2610.17953 \n⚙️GitHub & Demo：https://github.com/RUC-NLPIR/Agent-Reflex"
+            },
+            {
+              "speaker": 2,
+              "time": "15:42",
+              "text": "这个思路业务上很需要啊[强]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Agent-Reflex 论文",
+              "url": "https://arxiv.org/abs/2610.17953"
+            },
+            {
+              "kind": "code",
+              "label": "Agent-Reflex 代码",
+              "url": "https://github.com/RUC-NLPIR/Agent-Reflex"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "Codex 与 GLM 长程表现遭拆台，6.1sol 与 Astra 频发报错降智",
+      "theme": "排查设备标记与申诉恢复经验，另聊 Agent-Reflex 噪声训练、自蒸馏熵过冲抑制与论文 AI 绘图工作流",
+      "note": "2026-10-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与工具测评",
+          "title": "凑不出“无敌缝合怪”：GPT-6 被吐槽像护短老登，Codex 与 GLM 长程表现遭群友拆台",
+          "text": "有使用者发现，GPT-6 面对自身的不良设计时非常喜欢给出误导性解释来糊弄用户，像极了“职场里有失业焦虑的老登”——事情做得不完美就口头过度防御，做崩了就开始硬编。另一位群友也有同感，指出它经常用“但是”“要注意”之类的话术，把用户的注意力拐到莫须有的问题上。聊起各家长板时，有人提议把“Kimi 的预训练 + GLM 的后训练 + DeepSeek 的 Infra + ChatGPT 的 Harness”拼成一套无敌组合，结果后两项立刻引来多位群友拆台。\n针对 ChatGPT 的 Harness，多名开发者直言现在的 Codex 像是“一坨堆在一起”，尤其在 0.159 之后的 0.160.1 等版本把 Harness 改得更烂，连一位开发者所在产品内的自检 Agent 都受不了；此前还有人吐槽其子 Agent 机制曾长期存在每开一个 subagent 就直接复制一份工作区、导致空间占用翻倍的设计，被骂了很久才得以修改。\n围绕 GLM 的后训练水平，反驳者认为其意图识别和长程任务表现在持续退步，反而是早前的 4.6 和 4.7 版本最正常，目前的代码能力也不如 seedcode。另一位使用者补充了具体复现场景：用 dsh 列好任务清单并开启 goal 模式后，只要稍微追加一点需求，模型就会把前面的内容忘掉。相比之下，有群友反馈 Kimi 从 k2 开始表现稳定，经常能解决 GPT 搞不定的问题；也有人补充，如果只看写代码，zcode 的 flash 模型依然很强。",
+          "emphasis": [
+            "GPT-6 面对自身的不良设计时非常喜欢给出误导性解释来糊弄用户",
+            "0.159 之后的 0.160.1 等版本把 Harness 改得更烂，连一位开发者所在产品内的自检 Agent 都受不了",
+            "意图识别和长程任务表现在持续退步，反而是早前的 4.6 和 4.7 版本最正常"
+          ],
+          "aiComment": "GPT-6做崩了硬编像护短老登，Codex曾经每开子Agent就复制一份工作区，凑个缝合怪全在比谁坑少。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:50",
+              "text": "傻逼tibo 我差那点空间吗？tm 每个subagent直接复制一份工作区空间直接翻倍这傻逼操作被骂了多久了才改"
+            },
+            {
+              "speaker": 2,
+              "time": "22:36",
+              "text": "我发现GPT6非常喜欢对自己的不良设计做误导性解释，欺骗用户"
+            },
+            {
+              "speaker": 3,
+              "time": "22:39",
+              "text": "kimi的预训练+glm后训练+ds的infra+chatgpt的harness 约等于 无敌"
+            },
+            {
+              "speaker": 4,
+              "time": "22:39",
+              "text": "why gpt的 harness",
+              "quote": {
+                "speaker": 3,
+                "text": "kimi的预训练+glm后训练+ds的infra+chatgpt的harness 约等于 无敌"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:39",
+              "text": "codex烂透了"
+            },
+            {
+              "speaker": 5,
+              "time": "22:39",
+              "text": "同意"
+            },
+            {
+              "speaker": 4,
+              "time": "22:40",
+              "text": "特别是0.160.1"
+            },
+            {
+              "speaker": 4,
+              "time": "22:40",
+              "text": "反正是0.159之后的某个版本"
+            },
+            {
+              "speaker": 4,
+              "time": "22:40",
+              "text": "harness改烂了"
+            },
+            {
+              "speaker": 6,
+              "time": "22:40",
+              "text": "glm的后训练很不行啊"
+            },
+            {
+              "speaker": 5,
+              "time": "22:40",
+              "text": "感觉codex现在就是一坨堆在一起的"
+            },
+            {
+              "speaker": 2,
+              "time": "22:41",
+              "text": "它就跟一个职场里有失业焦虑的老登一样，唯一怕的事情就是被指出错误。事情做得不完美就会口头过度防御，事情做崩了就会开始骗"
+            },
+            {
+              "speaker": 7,
+              "time": "22:41",
+              "text": "GPT 老是说但是/要注意，然后把你的注意力拐到一些莫须有的问题上"
+            },
+            {
+              "speaker": 4,
+              "time": "22:41",
+              "text": "新codex烂到我们产品内的自检agent都受不了（"
+            },
+            {
+              "speaker": 5,
+              "time": "22:41",
+              "text": "此话怎讲",
+              "quote": {
+                "speaker": 6,
+                "text": "glm的后训练很不行啊"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:42",
+              "text": "glm的意图识别和长程任务最差，而且一直在退步"
+            },
+            {
+              "speaker": 6,
+              "time": "22:42",
+              "text": "4.6和4.7是最正常的"
+            },
+            {
+              "speaker": 6,
+              "time": "22:43",
+              "text": "我也是kimi，从k2开始kimi就表现很好"
+            },
+            {
+              "speaker": 6,
+              "time": "22:43",
+              "text": "经常能解决gpt解决不了的问题"
+            },
+            {
+              "speaker": 6,
+              "time": "22:47",
+              "text": "glm代码能力不如seedcode…"
+            },
+            {
+              "speaker": 8,
+              "time": "22:49",
+              "text": "@群友 6 我以为只有我这么觉得",
+              "quote": {
+                "speaker": 6,
+                "text": "glm的意图识别和长程任务最差，而且一直在退步"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:49",
+              "text": "长程真的有点笨"
+            },
+            {
+              "speaker": 8,
+              "time": "22:49",
+              "text": "我用dsh列了task list"
+            },
+            {
+              "speaker": 8,
+              "time": "22:49",
+              "text": "开了goal模式"
+            },
+            {
+              "speaker": 8,
+              "time": "22:50",
+              "text": "只要稍微追加一下需求它就把前面的忘了"
+            },
+            {
+              "speaker": 9,
+              "time": "22:54",
+              "text": "但是都有用 是因为最近处理文字材料 代码的话 zcode的flaassh是很强的 之前也经常用"
+            }
+          ]
+        },
+        {
+          "category": "排障与实测",
+          "title": "502/503 频发与无预警降智排查：同节点换电脑、避开国内白天与画鹈鹕自测",
+          "text": "多位使用者集中撞上 6.1sol 与 Astra 的 capacity 报错（502/503）。虽然有 200 美元档位的订阅者仅在 6.1sol 上受阻，但更多人反馈 Astra 乃至全部模型都无法幸免。排查原因时，有使用者猜测可能存在设备级标记：主力机频繁弹出 capacity，但在完全相同的网络节点下换一台电脑就变得非常丝滑。另有群友对比两个账号后发现，白天报错频率高到无法使用，23 点后却趋于正常，怀疑限流与国内作息时段有关，不过到了第二天白天又会继续报错。\n除了报错，无预警的“暗戳戳降智”也是高频槽点。有人反馈自己的账号在没有任何警告的情况下被降智，且只发生在 Codex 上，Chat 端则不受影响；与此同时，Opus 5.5 也被指经常触发 safeguard 并回退到 Opus 5。针对破甲或被判滥用导致的降智与限流，有群友分享经验称，除了把账号静置 24 小时以上或冷号两天，直接提交申诉同样有效——其账号在提交申诉几个小时后便解除了降智，并可通过经典的“画鹈鹕”测试来检验模型智商是否恢复。",
+          "emphasis": [
+            "可能存在设备级标记：主力机频繁弹出 capacity，但在完全相同的网络节点下换一台电脑就变得非常丝滑",
+            "其账号在提交申诉几个小时后便解除了降智"
+          ],
+          "aiComment": "半夜23点后才不报502，申诉完还得让模型画只鹈鹕验智商，用个AI搞出了地下接头感。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:10",
+              "text": "我是6.1sol 会capacity"
+            },
+            {
+              "speaker": 1,
+              "time": "00:10",
+              "text": "Astra不会"
+            },
+            {
+              "speaker": 1,
+              "time": "00:10",
+              "text": "200刀"
+            },
+            {
+              "speaker": 2,
+              "time": "00:11",
+              "text": "502+503"
+            },
+            {
+              "speaker": 2,
+              "time": "00:11",
+              "text": "astra也一样"
+            },
+            {
+              "speaker": 3,
+              "time": "00:11",
+              "text": "我的astra和sol都各种capacity",
+              "quote": {
+                "speaker": 2,
+                "text": "我的都一样啊"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:12",
+              "text": "感觉可能有标记，我主力机出现capacity，换一台电脑就用的非常丝滑🤔"
+            },
+            {
+              "speaker": 5,
+              "time": "00:12",
+              "text": "我是所有模型都会capacity[捂脸]"
+            },
+            {
+              "speaker": 6,
+              "time": "00:13",
+              "text": "但破甲的确会被标记，可能被标记被影响更大"
+            },
+            {
+              "speaker": 3,
+              "time": "00:13",
+              "text": "我试试",
+              "quote": {
+                "speaker": 4,
+                "text": "感觉可能有标记，我主力机出现capacity，换一台电脑就用的非常丝滑🤔"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:13",
+              "text": "我之前被上过滥用的标记"
+            },
+            {
+              "speaker": 5,
+              "time": "00:13",
+              "text": "@群友 4 同样的网络环境么",
+              "quote": {
+                "speaker": 4,
+                "text": "感觉可能有标记，我主力机出现capacity，换一台电脑就用的非常丝滑🤔"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:13",
+              "text": "冷两天号就好了"
+            },
+            {
+              "speaker": 4,
+              "time": "00:13",
+              "text": "对，同一个节点",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] @群友 4 同样的网络环境么"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:14",
+              "text": "我没有任何警告",
+              "quote": {
+                "speaker": 1,
+                "text": "我之前被上过滥用的标记"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:14",
+              "text": "直接就给我暗戳戳降智商"
+            },
+            {
+              "speaker": 1,
+              "time": "00:14",
+              "text": "我也没有 偷偷"
+            },
+            {
+              "speaker": 1,
+              "time": "00:15",
+              "text": "降智"
+            },
+            {
+              "speaker": 3,
+              "time": "00:15",
+              "text": "这几天好像这种现象特别多",
+              "quote": {
+                "speaker": 1,
+                "text": "我也没有 偷偷"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:15",
+              "text": "那个时候还有鹈鹕测试"
+            },
+            {
+              "speaker": 3,
+              "time": "00:16",
+              "text": "codex老是降 感觉不如opus或者 argon搭配 gpt6pro"
+            },
+            {
+              "speaker": 3,
+              "time": "00:16",
+              "text": "我是codex降智 chat不降"
+            },
+            {
+              "speaker": 7,
+              "time": "00:26",
+              "text": "opus5.5经常触发safeguard 回退opus5"
+            },
+            {
+              "speaker": 8,
+              "time": "00:57",
+              "text": "我的两个账号测试后发现白天基本处于capacity频率高到没法用的程度，但23点后就趋于正常"
+            },
+            {
+              "speaker": 8,
+              "time": "00:57",
+              "text": "感觉是按照国内作息时间来的"
+            },
+            {
+              "speaker": 9,
+              "time": "01:00",
+              "text": "可以试试静置24h+"
+            },
+            {
+              "speaker": 5,
+              "time": "01:34",
+              "text": "第二天会继续 capacity 的",
+              "quote": {
+                "speaker": 8,
+                "text": "我的两个账号测试后发现白天基本处于capacity频率高到没法用的程度，但23点后就趋于正常"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:03",
+              "text": "对了我昨天写了申诉 然后几个小时就解除降智了"
+            },
+            {
+              "speaker": 10,
+              "time": "14:03",
+              "text": "咋看出来解除"
+            },
+            {
+              "speaker": 3,
+              "time": "14:05",
+              "text": "画鹈鹕"
+            }
+          ]
+        },
+        {
+          "category": "Agent 训练",
+          "title": "真实 MCP 环境老报错怎么办？Agent-Reflex 把“失败反思”训成可学习的元技能",
+          "text": "针对智能体在工具超时、返回异常及用户频繁打断纠偏等真实噪声环境下极易执行失败的问题，有群友分享了近期开源的通用训练框架 Agent-Reflex。该工作将“主动反思”视为可从失败中挖掘并内化进模型的元技能，分为三个阶段：首先在 500 多个 MCP 环境中注入真实工具报错，用大规模 Agent 池采样成败轨迹，总结出 1,170 条反思元技能（RSD）；随后用这些技能构造自我反思、技能恢复与用户纠正三类数据进行微调（ReSFT）；最后在噪声环境下联合优化 Agent RL 与反思技能引导的 OPD，实现 token 级的信号增强（ORPO）。基于 Qwen3-8B，该方法在五个长程工具调用基准上达到 58.6 分（提升 18.4），在带噪声的 AgentNoiseBench 上取得 29.1 分，超越 Agent-World、EnvScaler 和 NoisyAgent 等基线。\n交流中，有研究者联想到此前曾尝试让模型主动调整 MCP 描述来提升效果，好奇该工作是否通过故意破坏环境来增强鲁棒性，以及噪声评测集是否由完美基准人工扰动而来。有群友回应称，训练时并非单纯随机破坏，而是收集了大量真实环境的错误并按概率注入，以还原真实部署场景；而用于评测的噪声基准并非自建，而是直接采用其他工作构建的数据集作为域外（OOD）评测，且整套方案不需要很多显卡即可复现。",
+          "emphasis": [
+            "将“主动反思”视为可从失败中挖掘并内化进模型的元技能",
+            "训练时并非单纯随机破坏，而是收集了大量真实环境的错误并按概率注入，以还原真实部署场景"
+          ],
+          "aiComment": "专挑真实报错按概率往里灌，还不费显卡，这大概是成本最低的AI挫折教育。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:31",
+              "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳：\n\n🪞 Agent-Reflex: Teaching Language Agents to Act Reflectively\n\n如今，大模型智能体己经具备与工具环境交互的能力，但真实环境充满噪声：工具超时、返回异常，用户频繁打断纠偏。理想环境下训练的 Agent 难以应对，极易执行失败。\n\n我们提出 Agent-Reflex：一个激发智能体【主动反思】的通用训练框架，它把反思视为可学习的元技能，可以从失败中挖掘、再内化进模型的中：\n\n（1）环境反思技能发现（RSD）：在500+个MCP环境中注入真实工具报错，用大规模Agent池采样成功/失败轨迹，总结出 1,170 条反思元技能；\n（2）反思微调（ReSFT）：用反思技能构造自我反思、技能恢复、用户纠正三类数据微调；\n（3）在线反思策略优化（ORPO）：在噪声环境下进行Agent RL与反思技能引的OPD联合优化，实现 token 级的信号增强。\n\n基于 Qwen3-8B，Agent-Reflex 在五个长程工具调用分数达到 58.6（+18.4），在带噪声的AgentNoiseBench 上达到 29.1，超过 Agent-World、EnvScaler、NoisyAgent 等强基线。\n\n欢迎大家关注与交流呀[爱心]，并帮忙点点 HF Paper Upvote，代码、模型、数据全部开源～\n\n📖 论文链接：https://huggingface.co/papers/2610.17953 \n⚙️GitHub & Demo：https://github.com/RUC-NLPIR/Agent-Reflex"
+            },
+            {
+              "speaker": 2,
+              "time": "15:32",
+              "text": "这个工作大概用了多少卡跑的呀 严肃学习"
+            },
+            {
+              "speaker": 3,
+              "time": "15:32",
+              "text": "📑",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳： 🪞 Agent-Reflex: Teaching Language Agents to Act Ref..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:33",
+              "text": "mark",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳： 🪞 Agent-Reflex: Teaching Language Agents to Act Ref..."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:33",
+              "text": "严肃学习",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳： 🪞 Agent-Reflex: Teaching Language Agents to Act Ref..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:34",
+              "text": "不需要很多卡的，很容易follow，数据代码都开源了",
+              "quote": {
+                "speaker": null,
+                "text": "这个工作大概用了多少卡跑的呀 严肃学习"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "15:35",
+              "text": "之前mcp时代就有想过让模型自己去主动调整mcp的描述来提升效果，感觉提升模型主动性，很棒的思路"
+            },
+            {
+              "speaker": 8,
+              "time": "15:40",
+              "text": "mark",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳： 🪞 Agent-Reflex: Teaching Language Agents to Act Ref..."
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "15:41",
+              "text": "想请教一下：是故意破坏/扰乱环境（模拟更真实的环境），让agent在tasking时有更多的防备，更鲁棒吗？bench是怎么构建的呢，是基于一些完美的bench然后做扰动吗？看起来在有noise/无noise的环境都有不错的效果",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳： 🪞 Agent-Reflex: Teaching Language Agents to Act Ref..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:48",
+              "text": "是的，提升环境反思纠错能力一直是个有趣的topic",
+              "quote": {
+                "speaker": 7,
+                "text": "之前mcp时代就有想过让模型自己去主动调整mcp的描述来提升效果，感觉提升模型主动性，很棒的思路"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:51",
+              "text": "1. 收集了大量真实环境的错误，并概率注入，更像真是部署场景。\n2. 噪声Bench是其他工作构建的，并不是我们自建的，属于ood 评测",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 想请教一下：是故意破坏/扰乱环境（模拟更真实的环境），让agent在tasking时有更多的防备，更鲁棒吗？bench是怎么构建的呢，是基于一些完美的bench然后做扰动吗？看起来在有noise/无noise的环境都有不错的效果"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "15:56",
+              "text": "Mark了",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳： 🪞 Agent-Reflex: Teaching Language Agents to Act Ref..."
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "16:07",
+              "text": "mark",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心在群里分享一下一个最近做的一个比较有趣的小工作🥳： 🪞 Agent-Reflex: Teaching Language Agents to Act Ref..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Agent-Reflex 论文",
+              "url": "https://arxiv.org/abs/2610.17953"
+            },
+            {
+              "kind": "code",
+              "label": "Agent-Reflex 代码",
+              "url": "https://github.com/RUC-NLPIR/Agent-Reflex"
+            }
+          ]
+        },
+        {
+          "category": "模型自蒸馏",
+          "title": "大模型向自己学习为何越学越迷茫？E²-OPSD 抑制自蒸馏中的“熵过冲”",
+          "text": "在同策略自蒸馏（OPSD）中，通常让模型看着参考答案当“老师”，去指导只看到题目的“学生”，但有群友分享的一项研究观察到一个反常现象：训练过程中，学生的 token 熵会逐渐超过老师并持续偏高，即“熵过冲”（Entropy Overshoot），导致模型越学越不确定。围绕这一问题，该研究提出了 E²-OPSD，从两方面改进自蒸馏：一是用一道相似题及其解答替代当前题目的直接答案，引导老师教可迁移的解题思路；二是根据师生之间的熵差，动态调整 KL 方向与 token 级学习强度，抑制持续的过度发散。\n在不增加额外蒸馏前向计算或网络的条件下，E²-OPSD 在 Qwen3 与 Olmo3 两个模型家族（0.6B 至 7B 四种配置）上均取得了最高的平均数学推理成绩，相比 OPSD 最高提升 4.3 个百分点，并在逻辑推理和代码生成的域外评测中比基础模型最高提升 4.9 mean@16 与 5.5 pass@8。针对群友“为何不用 DeepSeek 模型做消融，反而选了较少人用的 Olmo”的疑问，有群友推测是因为 Olmo 连同训练数据一起开源，分享者回应称主要是为了验证该方法能否迁移到 Qwen 系列以外的模型家族。",
+          "emphasis": [
+            "学生的 token 熵会逐渐超过老师并持续偏高，即“熵过冲”（Entropy Overshoot），导致模型越学越不确定",
+            "根据师生之间的熵差，动态调整 KL 方向与 token 级学习强度",
+            "相比 OPSD 最高提升 4.3 个百分点"
+          ],
+          "aiComment": "自己教自己反而越学越迷茫，不光人类内耗，大模型自蒸馏也会“熵过冲”。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:13",
+              "text": "很开心有机会和群里面的各位前辈分享我的第一个项目[爱心]\n\n最近我们在研究一个问题：大模型向自己学习，为什么有时越学越不确定？ 🤔\n在 On-Policy Self-Distillation（OPSD）中，模型看着参考答案当“老师”，再指导只看到题目的“学生”。这个思路很简洁，但我们观察到：训练过程中，学生的 token 熵会逐渐超过老师，并持续偏高——我们称之为 Entropy Overshoot（熵过冲）。\n围绕这个现象，我们做了 E²-OPSD: Taming Entropy Overshoot in On-Policy Self-Distillation。\n\n核心想法是：好的自蒸馏，既要教会解题策略，也要把握探索的分寸。\n📚 让老师教思路：用一道相似题及其解答替代当前题目的答案，引导老师提供可迁移的推理指导。\n⚖️ 让学生适时探索、适时聚焦：根据师生之间的熵差，动态调整 KL 方向与 token 级学习强度，抑制持续的过度发散。\n\n在 Qwen3、Olmo3 两个模型家族、0.6B–7B 的四种配置上，E²-OPSD 均取得最高的平均数学推理成绩，相比 OPSD 最多提升 4.3 个百分点；收益还迁移到了逻辑推理和代码生成，域外评测相比基础模型最高提升 4.9 mean@16、5.5 pass@8。这些改进不需要额外的蒸馏前向计算或网络。\n\n这是我的第一个研究项目，还有很多需要学习和完善的地方，恳请各位前辈批评指正。也欢迎感兴趣的朋友交流想法、探讨合作机会！如果觉得这项工作有意思，欢迎点个 Star 支持一下 ⭐️\n\n📖 论文链接：http://arxiv.org/abs/2610.05048\n🔗 Github Repo链接：https://github.com/mf46/E2-OPSD"
+            },
+            {
+              "speaker": 2,
+              "time": "17:26",
+              "text": "为什么不用ds的模型做消融，olmo感觉没人用[破涕为笑][吃瓜]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:27",
+              "text": "数据比较多? 毕竟olmo真的连数据一起开源"
+            },
+            {
+              "speaker": 4,
+              "time": "17:28",
+              "text": "这么多图都直接ai生成吗[捂脸]",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心有机会和群里面的各位前辈分享我的第一个项目[爱心] 最近我们在研究一个问题：大模型向自己学习，为什么有时越学越不确定？ 🤔 在 On-Policy Sel..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "这里的olmo主要是为了测试我们的方法是否可以迁移到Qwen系列以外的模型",
+              "quote": {
+                "speaker": 2,
+                "text": "为什么不用ds的模型做消融，olmo感觉没人用[破涕为笑][吃瓜]"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "E²-OPSD 论文",
+              "url": "https://arxiv.org/abs/2610.05048"
+            },
+            {
+              "kind": "code",
+              "label": "E²-OPSD 代码",
+              "url": "https://github.com/mf46/E2-OPSD"
+            }
+          ]
+        },
+        {
+          "category": "科研工具与方法",
+          "title": "顶会论文敢直接放 AI 生图吗？“AI 初稿转 SVG/PPT 再手调”的实用工作流与工具箱",
+          "text": "正经投会议的论文能不能直接用 AI 画图？群内有审稿经验的使用者明确提醒：“纯 AI 生图看到直接毙掉。”此前也有作者尝试用 AI 生成漫画场景作为论文插图，但被群友指出要素过多会让“AI 味儿”过于明显，建议尽量生成简约风格。目前更稳妥的做法是让 AI 负责初稿再人工精修：常见路线一是先用 AI 生图，转成 SVG 矢量格式后手动微调（或直接用 computer use 协助调 SVG）；路线二则是提供一套优质模板让 AI 学习并生成 PPT，再在 PPT 里手动调整细节。\n针对科研绘图的自动化环节，有群友整理了一套按图表类型分工的开源工具清单：画模型框架图可用调用 PPT 完成绘制的 AstraDraw；画实验结果图可用写代码生成 SVG 与 PNG 的 figures4papers；配图素材可参考机器学习论文图标库 ml-paper-icons；制作学术海报则可结合 Codex 自带的 Presentation skill 与 scientific-agent-skills 中的 pptx-posters 模块调用 PPT 绘制。",
+          "emphasis": [
+            "“纯 AI 生图看到直接毙掉。”",
+            "目前更稳妥的做法是让 AI 负责初稿再人工精修"
+          ],
+          "aiComment": "审稿人见纯AI生图直接毙，科研人只好走上“AI出初稿再转SVG手调”的半自动精修路。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:28",
+              "text": "这么多图都直接ai生成吗[捂脸]",
+              "quote": {
+                "speaker": 2,
+                "text": "很开心有机会和群里面的各位前辈分享我的第一个项目[爱心] 最近我们在研究一个问题：大模型向自己学习，为什么有时越学越不确定？ 🤔 在 On-Policy Sel..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:35",
+              "text": "因为Figure2想用漫画的场景来表现所以选择了AI生图",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这么多图都直接ai生成吗[捂脸]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:35",
+              "text": "然后最大的原因是我现在确实还不是很会画图[委屈]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:36",
+              "text": "可以试着生成那种简约一点的？要素过多AI味儿就很明显了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:38",
+              "text": "谢谢前辈的指点[合十]我以后会注意的",
+              "quote": {
+                "speaker": 3,
+                "text": "可以试着生成那种简约一点的？要素过多AI味儿就很明显了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:32",
+              "text": "科研绘图大家有什么工具推荐吗"
+            },
+            {
+              "speaker": 5,
+              "time": "19:33",
+              "text": "框架图（调用 PPT 完成绘制）： https://github.com/IamJerryXu/AstraDraw\n实验图（写代码生成 SVG & PNG）： https://github.com/ChenLiu-1996/figures4papers \nicon 库： https://github.com/Mizar77/ml-paper-icons \n画 Poster（结合 Codex 自带的 Presentation skill，调用PPT完成绘制）： https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/pptx-posters",
+              "quote": {
+                "speaker": 4,
+                "text": "科研绘图大家有什么工具推荐吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "20:40",
+              "text": "话说有个问题，现在正经投会议的论文的图可以用ai画嘛？还是必须手工自己来呢"
+            },
+            {
+              "speaker": 5,
+              "time": "20:40",
+              "text": "这不都是AI生图转svg再手调嘛"
+            },
+            {
+              "speaker": 5,
+              "time": "20:41",
+              "text": "纯AI生图看到直接毙掉"
+            },
+            {
+              "speaker": 7,
+              "time": "20:47",
+              "text": "computer use直接让调svg[旺柴]"
+            },
+            {
+              "speaker": 8,
+              "time": "21:01",
+              "text": "ai生成ppt，然后手调",
+              "quote": {
+                "speaker": 6,
+                "text": "话说有个问题，现在正经投会议的论文的图可以用ai画嘛？还是必须手工自己来呢"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:01",
+              "text": "我觉得ai画ppt还挺好看的"
+            },
+            {
+              "speaker": 8,
+              "time": "21:02",
+              "text": "但是需要有一个好的模版让他学"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "AstraDraw（框架图）",
+              "url": "https://github.com/IamJerryXu/AstraDraw"
+            },
+            {
+              "kind": "code",
+              "label": "figures4papers（实验图）",
+              "url": "https://github.com/ChenLiu-1996/figures4papers"
+            },
+            {
+              "kind": "code",
+              "label": "ml-paper-icons（图标库）",
+              "url": "https://github.com/Mizar77/ml-paper-icons"
+            },
+            {
+              "kind": "code",
+              "label": "pptx-posters（学术海报）",
+              "url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/pptx-posters"
+            }
+          ]
+        },
+        {
+          "category": "产品与生态观察",
+          "title": "Muse Wonder 与 Claw 差在哪？个人 Agent 拼的是原生连接器与全家桶生态",
+          "text": "Meta 发布 Muse Wonder 后，有群友称其在电路设计上已是 5.6terra 水平。谈及这类 Personal Agent 与此前大火的 Claw 有何本质区别，起初有人认为是“云端 24 小时连续运行”与本地部署的差异，但很快有人指出 Claw 同样可以部署在云端；真正的区别在于官方不仅托管了云端环境和 API 配置，还直接打通了 Instagram、Facebook 等原生连接器。\n多位群友由此认为，Personal Agent 最终只能靠覆盖日常生活的闭源 App 生态取胜（类似 WorkBuddy 的连接器思路），因此把硬核干活能力直接塞进自家的社交全家桶，远比去开发者市场跟老牌玩家硬碰硬更务实。此外，有人猜测厂商急推 Muse Wonder 并将其与此前承诺开源的 MuseSpark 切割，可能是为了规避顶级模型的开源承诺；也有使用者调侃，Muse Wonder 发布最大的好处是倒逼谷歌放出了 Gemini 4 Argon 的正式版。",
+          "emphasis": [
+            "真正的区别在于官方不仅托管了云端环境和 API 配置，还直接打通了 Instagram、Facebook 等原生连接器",
+            "Personal Agent 最终只能靠覆盖日常生活的闭源 App 生态取胜"
+          ],
+          "aiComment": "打通Ins和FB全家桶还顺带逼出了Gemini 4 Argon正式版，Meta这波属于友商催更器。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:56",
+              "text": "https://deepmind.google/models/model-cards/gemini-4-argon/"
+            },
+            {
+              "speaker": 2,
+              "time": "19:22",
+              "text": "大家用muse的感受怎么样，想知道（"
+            },
+            {
+              "speaker": 2,
+              "time": "19:23",
+              "text": "听说muse wonder的模型能力很强，但不知实际体验"
+            },
+            {
+              "speaker": 3,
+              "time": "19:24",
+              "text": "在电路设计这里是5.6terra水平"
+            },
+            {
+              "speaker": 4,
+              "time": "19:24",
+              "text": "话说muse这种personal agent和之前的claw的区别是啥呢",
+              "quote": {
+                "speaker": 2,
+                "text": "大家用muse的感受怎么样，想知道（"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:27",
+              "text": "最主要区别是一个云端一个本地，这样muse就能24小时连续跑，你电脑就能歇歇了。但内置能力我还没用过",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 话说muse这种personal agent和之前的claw的区别是啥呢"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:27",
+              "text": "claw也能云端呀"
+            },
+            {
+              "speaker": 6,
+              "time": "19:29",
+              "text": "连接器",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 话说muse这种personal agent和之前的claw的区别是啥呢"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:30",
+              "text": "ig fb"
+            },
+            {
+              "speaker": 7,
+              "time": "19:31",
+              "text": "感觉约等于官方帮你部署了云端的clawbot+帮你配好了api们？？",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 话说muse这种personal agent和之前的claw的区别是啥呢"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:32",
+              "text": "那本质还得是有闭源的业态，国内也就只有阿里，字节，腾讯这种有很多覆盖生活面的app生态才行"
+            },
+            {
+              "speaker": 7,
+              "time": "19:32",
+              "text": "是的，可以看看workbuddy的那个连接器"
+            },
+            {
+              "speaker": 7,
+              "time": "19:32",
+              "text": "感觉这种基本只有靠生态取胜了"
+            },
+            {
+              "speaker": 8,
+              "time": "19:37",
+              "text": "✅Meta紧急推出Muse Wonder是想放弃MuseSpark的开源承诺，而且Meta在把两者进行分割。\n毕竟MuseSpark开源关我MuseWonder什么关系（",
+              "quote": {
+                "speaker": 4,
+                "text": "那本质还得是有闭源的业态，国内也就只有阿里，字节，腾讯这种有很多覆盖生活面的app生态才行"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:39",
+              "text": "主要meta啊"
+            },
+            {
+              "speaker": 6,
+              "time": "19:39",
+              "text": "他用户多啊"
+            },
+            {
+              "speaker": 8,
+              "time": "19:41",
+              "text": "所以他们最务实的打法，是把这股硬核的干活能力老老实实塞进 Meta 自己的全家桶里，而不是跑去开发者市场，跟那两家老牌玩家硬碰硬。",
+              "quote": {
+                "speaker": 6,
+                "text": "他用户多啊"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "19:47",
+              "text": "我觉得wonder最大的好处就是逼出了argon正式版 不然g家也太狗了"
+            }
+          ]
+        },
+        {
+          "category": "具身智能争议",
+          "title": "Physical Intelligence 开放最新具身模型 API，群友激辩“具身智能的第几个 GPT-3 时刻”",
+          "text": "具身智能初创公司 Physical Intelligence（pi）开放最新模型 API（群友推测版本已迭代至 0.8），有分享者转发笔记称具身领域迎来了“GPT-3 时刻”。这一说法在群内引发两极反应：质疑者反问“具身智能这是第几个 ChatGPT 时刻了”，直言已经不再相信这类口号；看多者则认为，越是大家怀疑的时候变化越在悄然发生，随着机器人基础模型开始通过 API 输出能力，AI 的竞争正从数字世界的生成走向物理世界的执行，具身智能有望复现大模型行业的基础模型竞争、快速迭代与商业格局重构。",
+          "emphasis": [
+            "质疑者反问“具身智能这是第几个 ChatGPT 时刻了”",
+            "随着机器人基础模型开始通过 API 输出能力，AI 的竞争正从数字世界的生成走向物理世界的执行"
+          ],
+          "aiComment": "具身智能喜迎第N个“GPT-3时刻”，狼来了喊太多次，群友的阈值已经比机器人关节还硬了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:45",
+              "text": "pi迎来了具身的gpt3时刻 之前听过朋友发表意见说圈子... https://xhslink.cn/o/8V6igg1Nq8a \nCopy and open rednote to view the note\n没毛啊没毛 physical intelligence 开放最新模型api了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:46",
+              "text": "pi现在到0.几了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:48",
+              "text": "0.8了吧这波"
+            },
+            {
+              "speaker": 4,
+              "time": "11:57",
+              "text": "具身智能这是第几个chatgpt时刻了？"
+            },
+            {
+              "speaker": 5,
+              "time": "12:17",
+              "text": "已经不相信具身的gpt3时刻了"
+            },
+            {
+              "speaker": 6,
+              "time": "12:21",
+              "text": "草 还以为是这个 https://pi.dev/",
+              "quote": {
+                "speaker": 2,
+                "text": "pi现在到0.几了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:42",
+              "text": "越是这种时候，说明变化越在悄然发生",
+              "quote": {
+                "speaker": 5,
+                "text": "已经不相信具身的gpt3时刻了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:42",
+              "text": "AI 的竞争正在从数字世界的智能生成，走向物理世界的智能执行。随着机器人基础模型开始通过 API 提供能力，具身智能可能逐步复现 LLM 行业的基础模型竞争、快速迭代与商业格局重构"
+            }
+          ]
+        },
+        {
+          "category": "开源研究快讯",
+          "title": "智能体一直行动却原地踏步？开源方法 PoS 用状态感知打破“信念陷阱”",
+          "text": "在长程推理任务中，Agent 常会出现“一直在采取行动，任务却毫无实质进展”的停滞现象（Belief Trapping）。有群友分享了机器之心报道的新工作 PoS（代码已开源），通过引入状态感知（State-aware）机制来识别并打破这种信念陷阱，解决智能体长程推理中的停滞问题。",
+          "emphasis": [
+            "通过引入状态感知（State-aware）机制来识别并打破这种信念陷阱"
+          ],
+          "aiComment": "一直哐哐采取行动却毫无实质进展，这叫“信念陷阱”，不叫我司周报。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:35",
+              "text": "我们的工作PoS得到了机器之心的发布，主要关注Agent在长程推理中的停滞问题，我们以状态感知的方法尝试解决，欢迎大家围观和批评指导[机智][机智]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:35",
+              "text": "[链接] Agent一直在行动，任务为何没有进展？PoS识别并打破Belief Trapping\n  来源: 机器之心\n  摘要: PoS 的代码已开源。\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651062658&idx=3&sn=2dd6129bf2ef755674174e3e32967090&chksm=85a121cfb4f4c602dd8bebed032b7673427c4d39fdfcc207f57b408057f12aebe9b63e60fbbf&scene=1&srcid=10146TeIVpmr0w6w69zeaPlx#rd"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "id": "2026-09-24",
+  "date": "2026-09-24",
+  "label": "2026-09-24 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "CLM 用对比学习模拟 Jev，宣传图被指夸大",
+      "theme": "NeoHorse-Jev-4B 开源；Opus 5.5 被吐槽中文问、英文答",
+      "note": "2026-09-24 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型方法",
+          "title": "CLM 用对比学习模拟 Jev：思路来自 CLIP",
+          "text": "有群友分析 CLM 模拟 Jev 的思路：Jev 本质是给文本算置信度的分类，softmax 训练需要昂贵标注；CLM 改用 InfoNCE 对比学习，让样本互为负样本，和当年 CLIP 利用天然图文对的做法类似。分享者称，当年训好的 CLIP 无需标注，图片分类效果与花钱标注的方案打平，而且算 embedding 快。有人贴图称 qwen3-8b 版 CLM 比 Jev 快 9 倍；分析者回应“不至于秒”，效果和速度要找中间值，纯求快用 1B 模型可以更快。",
+          "emphasis": [
+            "InfoNCE 对比学习"
+          ],
+          "aiComment": "省标注的老办法又好用了，“秒杀”两个字还是先收一收。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "GitHub · CLM",
+              "url": "https://github.com/Contrastive-LM/CLM"
+            }
+          ]
+        },
+        {
+          "category": "评测",
+          "title": "CLM 宣传图被指夸张：它只是在做候选筛选的 verifier",
+          "text": "CLM 的一张对比图引发吐槽：有人一眼以为 DeepSWE 做到了 80 多分，另有人指出纵轴截断后，81 看起来是 71 的近三倍高。原文说明是每个任务先采样多个候选解，再由 CLM 或 Jev 作为 verifier 挑最好的一个，有人因此批评“只是做了个 judger”却这样画图属于营销。也有人补充，Jev 的 demo 常见操作是让 SOTA 模型把答案摆在面前再让它选；此前分析 CLM 的群友则认为效果其实尚可，没必要吹这么狠。",
+          "emphasis": [
+            "纵轴截断"
+          ],
+          "aiComment": "只要纵坐标截得好，两位数的涨幅能画出直冲云霄的气势。"
+        },
+        {
+          "category": "开源发布",
+          "title": "NeoHorse-Jev-4B 开源：本地可跑的“决策模型”",
+          "text": "发布方介绍，NeoHorse-Jev-4B 对标闭源的 Jev（System One Model，约 $0.042/MTok），采用 Apache-2.0 协议，权重约 9GB。它只做纯 prefill 判断、不走自回归生成，支持 Choice（路由/选工具）、是非判断、Score 三类决策，并带概率输出，可直接卡阈值，支持一图加文字。发布方给出的成绩包括：文本六项综合 77.70，三项均值比原模型高 11.5 个百分点。部署可走 vLLM、SGLang 或原生 runtime。",
+          "emphasis": [
+            "纯 prefill 判断"
+          ],
+          "aiComment": "不搞写诗那一套，只在本地默默给打分和挑选项盖章。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "模型卡 · NeoHorse-Jev-4B",
+              "url": "https://huggingface.co/TokenRhythm/NeoHorse-Jev-4B"
+            }
+          ]
+        },
+        {
+          "category": "使用体验",
+          "title": "Opus 5.5 被吐槽“中文问、英文答”，CLAUDE.md 也管不住",
+          "text": "有使用者反馈 Opus 5.5 近期表现变差：用中文提问却坚持用英文回答，写进 claude md、在对话里反复强调也拴不住。这位使用者的担忧是：连回复语言都不遵守，很难相信它按要求完成了任务；另一人附和称 A 家模型指令遵循不太行。也有人认为不一定，自己也常要求模型“说人话”。原发言者还提到，agent review 出来的第一遍计划漏洞百出，并觉得 GPT 的黑话更少。",
+          "emphasis": [],
+          "aiComment": "在配置文件里写满请讲中文，它依然礼貌且固执地用英文回信。"
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Muse 实测订票订诊所体验顺畅，CLM 选优跑分引追问",
+      "theme": "DeepSWE 是否见顶、OpenRSI 征集任务与 ICLR 审稿人缺口",
+      "note": "2026-09-24 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 产品",
+          "title": "Muse 实测：在洛杉矶订餐厅、演出和诊所，只在密码和支付环节接管",
+          "text": "一位使用者最近在洛杉矶用 Muse 查信息，预约餐厅、博物馆、演出和诊所，还查了其他地方的机票酒店，反馈任务完成度不错，需要接管的交互不多，只在密码和支付环节自己操作。这位使用者认为，Muse 靠云端虚拟机统一管理浏览器、邮件、日历和文件，普通用户无需配置；一旦交出邮件、信用卡和购物习惯并跑过上百个任务，迁移成本会远高于 Chat 和 Coding。有人担心它会被其他平台封杀，这位使用者回应称 Amazon 已经封了。也有人追问，好用是产品本身更强，还是美国用户付费意愿强、习惯用邮箱管理账单和账号带来的环境差异。",
+          "emphasis": [
+            "云端虚拟机统一管理"
+          ],
+          "aiComment": "逛街订座一路绿灯，临到掏钱包时还是得本尊出面输密码。"
+        },
+        {
+          "category": "开源模型",
+          "title": "CLM 用对比学习复刻 Jev，思路来自 CLIP",
+          "text": "开源项目 CLM 用对比学习模拟 Jev。分享者的理解是：Jev 本质上是在做分类、算文本置信度，用 softmax 训练需要高成本标注。CLM 的做法借鉴了 CLIP：利用天然对齐但很脏的大规模配对数据，用 InfoNCE 让样本互为负样本，做无监督训练。分享者回忆，当年训的 CLIP 做图片分类，效果与花大钱标注的模型打平，不过清洗公众号图文对时至少要洗掉一半数据。分享者还认为这种方法算 embedding 速度快。",
+          "emphasis": [
+            "做无监督训练"
+          ],
+          "aiComment": "当年洗公众号图文先扔一半，如今无监督又让人重温洗数据手艺。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "GitHub · CLM",
+              "url": "https://github.com/Contrastive-LM/CLM"
+            }
+          ]
+        },
+        {
+          "category": "评测质疑",
+          "title": "8B 的 CLM“秒了 Jev”？群友追问它怎么跑 DeepSWE",
+          "text": "有人贴出 CLM（基于 qwen3-8b）的结果图，称其“秒了 Jev”，但自己也觉得看着蛮奇怪。有群友好奇 Jev 怎么跑 DeepSWE，得到的解释是作为 verifier：拿别的模型的 rollout 来 judge，再算加权分。质疑随之而来：有人说 jev as judge 还是 llm as judge；有人建议对比一下 latency；还有人调侃 CoT 好不容易训出来的 scaling 又被干回去了。",
+          "emphasis": [],
+          "aiComment": "卷了半天思维链长度，最后又找了个不生成正文的小模型当裁判。"
+        },
+        {
+          "category": "基准",
+          "title": "DeepSWE 75 分是否已到天花板",
+          "text": "有群友指出，DeepSWE 有很多题面写得不清楚，并认为现在普遍看法是 75 分已经饱和，同时附上了 Epoch AI 对该基准的审查页面。",
+          "emphasis": [
+            "75 分已经饱和"
+          ],
+          "aiComment": "分不上去了先别急着加卡，可能题目本身就没打算让人做对。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "基准审查 · Epoch AI DeepSWE",
+              "url": "https://epoch.ai/benchmarks/deepswe/review"
+            }
+          ]
+        },
+        {
+          "category": "开放评测",
+          "title": "OpenRSI Index 征集科研任务：和 agent 对话约 1 小时就能设计一个 RSI 任务",
+          "text": "OpenRSI 团队发起 OpenRSI Index，目标是把开源项目转化为 RSI 环境，建设覆盖多领域真实科研任务的 benchmark，让 agent 参与提出假设、设计实验、执行验证和迭代改进。团队征集 AI for Science、系统、化学、物理、材料、生物医药等领域的研究者，通过 RSI-Anything 管道与 agent 对话约 1 小时即可设计一个任务。团队成员与此前 agent last exam 有重叠。",
+          "emphasis": [],
+          "aiComment": "陪聊天一小时就能出一个科研任务，听起来比自己写结题快多了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原帖 · OpenRSI Index",
+              "url": "https://x.com/OpenRSI/status/2102831770458890626"
+            },
+            {
+              "kind": "article",
+              "label": "GitHub · OpenRSI-Index",
+              "url": "https://github.com/OpenRSI-Foundation/OpenRSI-Index"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "Opus 5.5 和 Astra 谁更好用，体验分成两派",
+          "text": "有使用者觉得 Opus 5.5 比 Astra 好用，另有两人附和，其中一人说“一切都回来了”，还有人觉得现在“说人话了”。但也有人做了些小任务后认为还是不如 Astra，大型任务没有跑，因为账号被封。",
+          "emphasis": [],
+          "aiComment": "两边谁更聪明还没辩明白，封号的手速已经先一步分出了胜负。"
+        },
+        {
+          "category": "学术圈",
+          "title": "ICLR 约 6 万篇投稿，需要约 4 万审稿人",
+          "text": "有群友估算，ICLR 今年约 6 万篇投稿、每篇 4 位审稿人，需要约 4 万名 reviewer，很难想象从哪里找到。bidding 已经开始，有人说看到不少审过 NeurIPS 的人又来拿号，也有人抱怨分到的全是 search 方向。",
+          "emphasis": [],
+          "aiComment": "四万个审稿人还没凑齐，刚审完 NeurIPS 的人已经回来接着领号了。"
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "Memory Attention 查表重建 V，loopx 直面能力边界",
+      "theme": "重构评测怎么验证、过度推理从何而来、异步 RL 的优势陈旧",
+      "note": "2026-09-24 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型架构",
+          "title": "Memory Attention：用查表记忆加复用的 K 替代 value 投影",
+          "text": "一篇新论文提出 Memory Attention（MA）：按 token ID 逐层查表得到记忆 M，再复用已有的 K，构造 V = K + M，去掉 value projection 的矩阵乘法，推理时只需查表和相加。MA-Offload 把记忆表放到 CPU，靠预取与计算重叠缓解通信开销；MA-Recall 只保留 K cache 和 token IDs，按需重建 V，省去持久化的 V cache。作者称已在多个 backbone 上改善语言建模和下游平均表现，也承认额外记忆参数需要预算匹配的消融来厘清收益来源。有人评价思路很像 Kimi 的 AttenResiduals。",
+          "emphasis": [
+            "省去持久化的 V cache"
+          ],
+          "aiComment": "为了把显存省下来，硬是把记忆翻箱倒柜倒腾回了内存条。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原帖 · Memory Attention",
+              "url": "https://x.com/Jo1uck/status/2102986568885834204"
+            },
+            {
+              "kind": "article",
+              "label": "论文原文",
+              "url": "https://arxiv.org/abs/2609.28399"
+            }
+          ]
+        },
+        {
+          "category": "长程 Agent",
+          "title": "loopx：在 agent loop 外再套一层状态机，但作者说它突破不了能力边界",
+          "text": "loopx 作者介绍，这是一个长程 agent 控制面，用外置状态和状态机做任务规划与监督，“一个 agent-loop 完不成，就在外面再套一个”。作者称它在 LHTB 的研究复现、逻辑谜题这类有中间节点、可持续验证的任务上表现较好，但 harness 没办法普适地让模型突破能力边界，最多让 5.6 sol 在完成度上接近 fable 5，精确度仍落后。有人把它理解为外置 judge 做 checklist 监督，作者不认同，强调它是单 session 优化，不靠多轮 review 刷分；另外它还要处理上下文压缩丢失关键信息的问题。",
+          "emphasis": [
+            "外置状态和状态机"
+          ],
+          "aiComment": "一层套一层地设关卡，像给容易走神的孩子身后又站了个辅导老师。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "LHTB 评测 · loopx",
+              "url": "https://loopx-project.github.io/loopx/benchmarks/lhtb/"
+            }
+          ]
+        },
+        {
+          "category": "评测",
+          "title": "refactor 基准 pass@1 仅 5.4%，难点在于怎么验证",
+          "text": "有人提到最近一个 SWE refactor 基准，pass@1 只有 5.4%，且基本是前沿模型加原生 scaffold。验证方式主要是 LLM as judge 加规则，规则里包括测试用例和 no-op 检测。也有人质疑 judge 的可靠性：rubric 不写得很细就不准，重构真正有没有问题还要靠完备测试。一位做项目重构的使用者认为，评估最好用真实 workload，比如录制流量和数据 snapshot；另一人指出很多写操作流量不一定能回放。",
+          "emphasis": [],
+          "aiComment": "重构代码通过率只有个位数，果然不改就是最好的优化方案。"
+        },
+        {
+          "category": "验证器",
+          "title": "8B 模型“秒了”强模型？原来是当 verifier 选答案",
+          "text": "一个基于 Qwen3-8B 的 Contrastive-LM（CLM）模型宣传图显示其在 DeepSWE 上超过 Jev，引发群友疑惑 8B 模型怎么测 SWE。有人从原文找到说明：每个任务先采样多个候选解，由 CLM 或 Jev 作为 verifier 挑最好的一个。群友随后吐槽这种画图方式容易让人误以为 8B 达到了顶级模型水平；另外该模型并非 Qwen 官方出品，只是以 Qwen 为基座。",
+          "emphasis": [
+            "作为 verifier 挑最好的一个"
+          ],
+          "aiComment": "还以为小身材做出了大奇迹，原来是站在大佬写完的答卷前挑勾。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "模型 · Contrastive-LM",
+              "url": "https://huggingface.co/Contrastive-LM"
+            }
+          ]
+        },
+        {
+          "category": "后训练",
+          "title": "过度推理从哪来：有人归因于蒸馏顶级模型的 max 档",
+          "text": "关于推理效率，有人认为 CoT 在简单任务上浪费了 token 成本，考虑自适应的 hybrid CoT。另一位群友的理解是，国内不少模型蒸馏了 Opus 的 max 档，导致过度 reasoning，“很多 reasoning 比 tool call 还长”。有人补充，蒸馏目前仍以蒸 CoT 为主，但 Astra 的 CoT 基本不可读，没法直接蒸。",
+          "emphasis": [],
+          "aiComment": "就问个天气，模型内心独白写了三屏，调工具的指令还在排队。"
+        },
+        {
+          "category": "强化学习",
+          "title": "异步 RL 里 GRPO 的组相对优势会变“陈旧”",
+          "text": "讨论长程 agent 如何在滞后反馈下稳定学习时，有人指出：稳定主要指低方差，目前多依赖 GRPO 用 advantage 代替隐式 reward，但在异步训练场景下，组相对优势会产生 staleness 问题，需要重新设计权衡。另一位认为关键之一是保证训推一致性。相关阅读被推荐为论文《Score Centering Stabilizes Off-policy Reinforcement Learning》。",
+          "emphasis": [
+            "staleness 问题"
+          ],
+          "aiComment": "异步训练跑得太欢，回过头算优势发现参考标准已经成了过期的旧账。"
+        }
+      ]
+    }
+  ]
+}

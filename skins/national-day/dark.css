@@ -1,0 +1,10 @@
+/* The loader scopes this palette to the resolved dark appearance. */
+body[data-skin="national-day"] {
+  --skin-paper: #532224;
+  --skin-ink: #fff8ed;
+  --skin-muted: #ead1b0;
+  --skin-accent: #f4cc77;
+  --skin-rule: #ad854b;
+  --national-hover: #703236;
+  --national-rule: #ad854b;
+}

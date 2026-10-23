@@ -1,0 +1,195 @@
+/* Library page. Masthead, tabs, heading and footer come from weekly.css; color-scheme.css loads after this file. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Heading links sit together on the right of the kicker row. */
+.heading-links { display: flex; gap: 16px; }
+
+/* Search and filters. */
+.filters { display: grid; gap: 12px; padding: 18px 0 8px; border-top: 1px solid var(--rule); }
+.search { display: flex; align-items: center; gap: 10px; max-width: 560px; min-height: 44px; padding: 0 16px; border: 1px solid var(--rule); border-radius: 999px; color: var(--muted); }
+.search:focus-within { border-color: var(--ink); }
+.search input { flex: 1; min-width: 0; padding: 0; border: 0; background: none; color: var(--ink); font: 15px/1.6 var(--sans); outline: none; }
+.filter-row { display: flex; align-items: flex-start; gap: 12px; }
+.filter-label { flex: none; width: 3.4em; color: var(--muted); font: 12px/32px var(--sans); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+/* A value is quiet tinted text until chosen; a chosen one is set in reverse, so the two never look alike.
+   Nothing chosen in a row means the row does not filter; choosing again takes the value back out. */
+.chips button { display: inline-flex; align-items: baseline; gap: 5px; min-height: 32px; padding: 7px 10px; border: 0; border-radius: 4px; background: color-mix(in srgb, var(--ink) 5%, transparent); color: var(--ink); font: 13px/18px var(--sans); white-space: nowrap; }
+@media (hover: hover) { .chips button:not([aria-pressed="true"]):hover { background: color-mix(in srgb, var(--ink) 11%, transparent); } }
+.chips button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.chips button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chips button.is-empty:not([aria-pressed="true"]) { color: var(--muted); background: none; }
+/* Less common keywords wait behind the last chip; an active one always stays visible. */
+.chips .is-extra:not([aria-pressed="true"]) { display: none; }
+.chips.show-all .is-extra { display: inline-flex; }
+.chips button.chips-more { min-height: 32px; padding: 7px 6px; background: none; color: var(--accent); font: 13px/18px var(--sans); white-space: nowrap; }
+@media (hover: hover) { .chips button.chips-more:hover { background: none; text-decoration: underline; text-underline-offset: 3px; } }
+.more-filters > summary { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; color: var(--muted); font: 12px/1.6 var(--sans); list-style: none; }
+.more-filters > summary::-webkit-details-marker { display: none; }
+.more-filters > summary::after { content: ""; width: 6px; height: 6px; margin-top: -3px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg); }
+.more-filters[open] > summary::after { margin-top: 3px; transform: rotate(-135deg); }
+.more-filters > summary:hover { color: var(--accent); }
+/* details does not lay its content out as a grid, so the rows inside keep their own spacing. */
+.more-filters > .filter-row { margin-top: 12px; }
+.chip-count { color: var(--muted); font: 11px/18px var(--sans); font-variant-numeric: tabular-nums; }
+.chips button[aria-pressed="true"] .chip-count { color: inherit; opacity: .7; }
+/* Applied conditions: each tag removes one; values chosen on cards stay visible here even without a chip. */
+.applied { display: flex; flex-wrap: wrap; gap: 6px 8px; }
+.applied[hidden] { display: none; }
+.applied button { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 12%, var(--paper)); color: var(--ink); font: 13px/1 var(--sans); }
+.applied button:hover { background: color-mix(in srgb, var(--accent) 20%, var(--paper)); }
+.applied .applied-clear { background: none; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.relax { display: grid; justify-items: center; gap: 6px; margin: 12px 0; padding: 0; list-style: none; }
+.relax button { min-height: 40px; padding: 0 14px; border: 1px solid var(--rule); border-radius: 999px; color: var(--accent); font-size: 14px; }
+.inline-link { color: var(--accent); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.filter-status { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 36px; color: var(--muted); font: 12px/1.6 var(--sans); }
+.sort { display: flex; gap: 2px; }
+.sort[hidden] { display: none; }
+.sort button { min-height: 36px; padding: 0 10px; border-radius: 4px; color: var(--muted); font-size: 12px; }
+.sort button:hover { color: var(--accent); }
+.sort button[aria-pressed="true"] { color: var(--accent); font-weight: 600; }
+
+/* Entries: three columns on wide screens, each card ends with its sources and heart on one row. */
+.entries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 36px; margin: 0; padding: 0; list-style: none; }
+.entry { display: flex; flex-direction: column; min-width: 0; padding: 20px 0 14px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+.entry[hidden] { display: none; }
+.entry:target { border-top: 2px solid var(--accent); }
+.entry-meta { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; color: var(--muted); font: 11px/1.5 var(--sans); }
+.entry-type { color: var(--accent); font-weight: 600; }
+.entry-meta time { font: 12px var(--latin); font-variant-numeric: tabular-nums; }
+.entry-title { font: 700 19px/1.5 var(--serif); text-wrap: pretty; }
+.entry-title a { overflow-wrap: anywhere; }
+.entry-summary { margin-top: 8px; font: 15px/1.8 var(--serif); }
+/* Links are bordered buttons, the first thing to act on after the summary: kind, then the site. */
+.entry-links { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.entry-links li { min-width: 0; max-width: 100%; }
+.entry-links a {
+  display: inline-flex; align-items: center; gap: 7px; max-width: 100%; min-height: 34px; padding: 5px 10px 5px 11px;
+  border: 1px solid var(--rule); border-radius: 8px; color: var(--ink); font: 13px/1.4 var(--sans);
+  transition: border-color 150ms ease-out, background-color 150ms ease-out;
+}
+@media (hover: hover) { .entry-links a:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 5%, var(--paper)); color: var(--ink); } }
+.link-kind { flex: none; font-weight: 600; }
+.link-host { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); }
+.entry-links .icon { flex: none; width: 13px; height: 13px; color: var(--accent); }
+/* Topics read as #tags; keywords are lighter so the two kinds stay distinct. */
+/* Tags look like the filter chips above, one size smaller: topics in ink first, then keywords in grey. */
+.entry-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 10px; }
+.entry-tags a { display: inline-flex; align-items: center; min-height: 24px; padding: 2px 8px; border-radius: 4px; background: color-mix(in srgb, var(--ink) 5%, transparent); color: var(--muted); font: 12px/1.5 var(--sans); }
+.entry-tags .tag-topic { color: var(--ink); }
+@media (hover: hover) { .entry-tags a:hover { background: color-mix(in srgb, var(--ink) 11%, transparent); color: var(--accent); } }
+.entry-foot { display: flex; align-items: center; gap: 4px 12px; margin-top: auto; padding-top: 10px; }
+.entry-sources { display: flex; flex: 1; flex-wrap: wrap; align-items: center; gap: 4px 12px; min-width: 0; }
+.source { display: inline-flex; align-items: center; }
+.source img { width: 22px; height: 22px; margin-right: -6px; border: 1.5px solid var(--paper); border-radius: 50%; background: var(--rule); object-fit: cover; }
+.source-group { margin-left: 10px; color: var(--muted); font: 12px/1.5 var(--sans); white-space: nowrap; }
+.source-group:first-child { margin-left: 0; }
+.entry-discussion { display: inline-flex; align-items: center; min-height: 32px; color: var(--muted); font: 12px/1.5 var(--sans); white-space: nowrap; }
+.entry-discussion:hover { color: var(--accent); }
+.heart { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-width: 44px; height: 32px; padding: 0 8px; border-radius: 999px; color: var(--muted); font: 12px var(--latin); font-variant-numeric: tabular-nums; }
+.heart:hover:not(:disabled) { background: color-mix(in srgb, var(--ink) 6%, var(--paper)); color: var(--accent); }
+.heart[aria-pressed="true"] { color: var(--accent); }
+.heart[aria-pressed="true"] svg { fill: currentColor; }
+.heart:disabled { opacity: .6; cursor: progress; }
+.heart .icon { width: 16px; height: 16px; }
+.library-empty { padding: 40px 0; border-top: 1px solid var(--rule); color: var(--muted); text-align: center; }
+.library-empty[hidden] { display: none; }
+.library-empty button { min-height: 44px; margin-top: 8px; padding: 0 16px; border: 1px solid var(--rule); border-radius: 999px; font-size: 14px; }
+
+/* Opportunities have their own type view. Open ones are cards; closed ones stay folded away. */
+.opportunities { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--ink); scroll-margin-top: 16px; }
+.entries[hidden], .opportunities[hidden], .opportunity[hidden], .filter-row[hidden], .more-filters[hidden], .opportunity-list[hidden], .opportunities-closed[hidden] { display: none; }
+.opportunities-head h2 { margin-bottom: 6px; font: 700 26px/1.4 var(--serif); }
+.opportunities-head p { max-width: 46em; color: var(--muted); font: 14px/1.8 var(--sans); }
+.opportunity-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 36px; margin: 8px 0 0; padding: 0; list-style: none; }
+.opportunity { display: flex; flex-direction: column; min-width: 0; padding: 18px 0 14px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+.opportunity:target { border-top: 2px solid var(--accent); }
+.opportunity-posted { margin-left: auto; color: var(--ink); white-space: nowrap; }
+.opportunity-when { margin-top: 4px; color: var(--ink); font: 600 13px/1.6 var(--sans); font-variant-numeric: tabular-nums; }
+.opportunity-when.is-inferred { color: var(--muted); font-weight: 400; }
+.opportunity-title { font: 700 18px/1.5 var(--serif); text-wrap: pretty; }
+.opportunity-title a { overflow-wrap: anywhere; }
+.opportunity-org { margin-top: 2px; color: var(--muted); font: 13px/1.6 var(--sans); }
+.opportunity-contact, .opportunity-shared { margin-top: 10px; color: var(--muted); font: 12px/1.6 var(--sans); }
+.opportunity-shared { margin-top: auto; padding-top: 10px; }
+.opportunities-closed { margin-top: 16px; }
+.opportunities-closed summary { min-height: 44px; display: flex; align-items: center; color: var(--muted); font: 13px/1.6 var(--sans); cursor: pointer; }
+.opportunities-closed .opportunity { opacity: .72; }
+@media (min-width: 701px) and (max-width: 1199px) { .opportunity-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; } }
+@media (max-width: 700px) { .opportunity-list { grid-template-columns: minmax(0, 1fr); } }
+
+/* Agent access. */
+.agents { margin-top: 32px; padding: 24px 0 8px; border-top: 1px solid var(--ink); scroll-margin-top: 16px; }
+.agents h2 { margin-bottom: 8px; font: 700 26px/1.4 var(--serif); }
+.agents h3 { margin: 24px 0 4px; font: 600 15px/1.6 var(--sans); }
+.agents p { max-width: 46em; font: 14px/1.8 var(--sans); }
+/* The path column takes the width of the longest path, so descriptions line up. */
+.agent-files { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 20px; margin: 14px 0 0; padding: 0; list-style: none; font: 14px/1.8 var(--sans); }
+.agent-files li { display: contents; }
+.agent-files a { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.agent-files span { color: var(--muted); }
+.command { display: flex; max-width: 980px; margin: 6px 0 4px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.command pre { flex: 1; min-width: 0; margin: 0; padding: 10px 14px; background: color-mix(in srgb, var(--ink) 4%, var(--paper)); font: 12.5px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; word-break: break-all; }
+.copy { flex: none; min-width: 72px; border-left: 1px solid var(--rule); color: var(--muted); font-size: 12px; }
+.copy:hover { color: var(--accent); }
+.command + p, .agent-files + p { margin-top: 12px; }
+
+@media (any-pointer: coarse) {
+  .chips button, .applied button { min-height: 40px; }
+  .entry-links a, .entry-discussion, .more-filters > summary { min-height: 40px; }
+  .entry-tags a { min-height: 32px; }
+  .heart { height: 44px; }
+}
+/* The tools sit behind a rule, as the daily and weekly archive button does. */
+@media (min-width: 701px) { .edition-tools { padding-left: 8px; border-left: 1px solid var(--rule); } }
+@media (min-width: 701px) and (max-width: 1199px) {
+  .entries { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+}
+@media (max-width: 700px) {
+  /* Phone readers do not run agents from this page; the agent entry points stay on wider screens. */
+  body[data-page="library"] .agents { display: none; }
+  .filters { gap: 10px; padding-top: 14px; }
+  .search { max-width: none; }
+  /* Each filter is one swipeable row so the list starts within the first screen. */
+  .filter-row { display: grid; gap: 2px; }
+  .filter-label { width: auto; line-height: 1.6; }
+  .chips { flex-wrap: nowrap; margin-inline: calc(-1 * var(--gutter)); padding: 2px var(--gutter); overflow-x: auto; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips.show-all { flex-wrap: wrap; overflow-x: visible; }
+  .entries { grid-template-columns: minmax(0, 1fr); }
+  .entry, .agents { scroll-margin-top: 56px; }
+  .entry-title { font-size: 18px; }
+  .entry-summary { font-size: 16px; }
+  .agents h2 { font-size: 23px; }
+  .agent-files { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}
+
+/* Glossary page. */
+.term-index { display: flex; flex-wrap: wrap; gap: 6px 8px; margin-top: 16px; }
+.term-index a { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 12px; border: 1px solid var(--rule); border-radius: 999px; font-size: 13px; }
+.term-index a:hover { border-color: var(--muted); }
+.term-section { padding: 20px 0 8px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+.term-section h2 { margin-bottom: 8px; color: var(--accent); font: 600 14px/1.6 var(--sans); }
+.glossary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; margin: 0; }
+.term { padding: 12px 0; border-top: 1px solid color-mix(in srgb, var(--rule) 60%, var(--paper)); scroll-margin-top: 16px; }
+.term:target { background: color-mix(in srgb, var(--accent) 8%, var(--paper)); }
+.term dt { font: 700 18px/1.5 var(--serif); }
+.term-variants { margin-left: 10px; color: var(--muted); font: 12px/1.5 var(--sans); }
+.term dd { margin: 4px 0 0; font: 15px/1.8 var(--serif); }
+.term-refers { margin-left: 8px; color: var(--muted); font: 13px/1.6 var(--sans); }
+.term dd .inline-link { margin-left: 10px; font: 13px/1.6 var(--sans); white-space: nowrap; }
+@media (max-width: 700px) {
+  .glossary { grid-template-columns: minmax(0, 1fr); }
+  .term-section, .term { scroll-margin-top: 56px; }
+}
+
+/* Site search page. */
+.results { margin: 0; padding: 0; list-style: none; }
+.result { padding: 18px 0; border-top: 1px solid var(--rule); }
+.result-meta { color: var(--muted); font: 12px/1.6 var(--sans); }
+.result h2 { margin-top: 4px; font: 700 19px/1.5 var(--serif); }
+.result-snippet { margin-top: 6px; font: 15px/1.8 var(--serif); }
+.result mark, .result-snippet mark { padding: 0 1px; background: var(--emphasis-marker, #ede5b6); color: inherit; }
+.results-more { display: block; min-height: 44px; margin: 16px auto 0; padding: 0 20px; border: 1px solid var(--rule); border-radius: 999px; font-size: 14px; }
+.results-more[hidden] { display: none; }
+.search-entry { display: inline-grid; place-items: center; width: 44px; min-height: 44px; }

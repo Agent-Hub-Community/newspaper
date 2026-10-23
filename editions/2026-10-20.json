@@ -1,0 +1,1831 @@
+{
+  "id": "2026-10-20",
+  "date": "2026-10-20",
+  "label": "2026-10-20 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "海报与富文本图生成：用 Diffusion 还是 HTML/SVG Agent？",
+      "theme": "另议 3D 创作基准 BlenderWorld 工程级评测与 SGLang-Omni 全双工交互运行时",
+      "note": "2026-10-20 · 当日本地记录",
+      "stories": [
+        {
+          "category": "生成范式",
+          "title": "Poster 与富文本图生成：Diffusion 对比 HTML/SVG Agent",
+          "text": "有群友抛出问题：poster 和富文本图生成该用 diffusion 还是 agent（HTML/SVG）实现，是不是已经能盖棺定论了？另一位群友表示赞同，认为在这两个任务上，Opus 和 GPT 的最新模型在 visual fidelity 上已经拉满。\n\n提问者拆解了两种生成范式的优缺点：diffusion 成本低、美学好学，但字多了出错概率大；agent 写字完全不会错，但需要在排版上试错。到了字多的场景，diffusion 甚至不一定能 roll 出可用结果，而 agent 可以稳定完成。随后有人提议把两条路线结合起来，先用 diffusion 生图再让 agent 转成 SVG；前一位群友也补充说，可以直接让 agent 去 orchestrate 生成模型。",
+          "emphasis": [
+            "diffusion 成本低、美学好学，但字多了出错概率大；agent 写字完全不会错，但需要在排版上试错"
+          ],
+          "aiComment": "Diffusion 负责貌美如花但容易写错字，HTML/SVG 负责字正腔圆但得慢慢调排版，干脆让 Agent 去给生图模型当甲方。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:35",
+              "text": "话说poster/富文本图 generation用diffusion还是agent（html/svg）实现是不是能盖棺定论了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:37",
+              "text": "+1，这两个任务， opus 和 gpt的最新模型在 visual fidelity 上感觉打满了。",
+              "quote": {
+                "speaker": 1,
+                "text": "话说poster/富文本图 generation用diffusion还是agent（html/svg）实现是不是能盖棺定论了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:42",
+              "text": "两种生成范式优缺点还挺明显的，diffusion便宜美学好学但字多了出错概率大，agent字完全不会错，但需要在排版上试错。不过字多的时候diffusion roll都不一定能roll出来，agent可以"
+            },
+            {
+              "speaker": 3,
+              "time": "22:46",
+              "text": "diffuson生图让agent变成svg"
+            },
+            {
+              "speaker": 2,
+              "time": "22:59",
+              "text": "agent 可以orchestrat 生成模型",
+              "quote": {
+                "speaker": 1,
+                "text": "两种生成范式优缺点还挺明显的，diffusion便宜美学好学但字多了出错概率大，agent字完全不会错，但需要在排版上试错。不过字多的时候diffusion r..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "评测基准",
+          "title": "3D 创作基准 BlenderWorld：最强模型仅 42.2% 任务满足全部细粒度要求",
+          "text": "有群友分享了面向真实世界 3D 创作任务的 Visual Agents 综合评测基准 BlenderWorld。该基准包含 223 个真实任务，覆盖建筑、产品、角色动画、科学可视化等 9 大领域 22 个细分方向，输入涵盖文本、图像、视频与结构化规格文件，要求模型交付完整可编辑的 Blender 工程，而非单张渲染图。\n\n评测设了 2,651 条任务专属细粒度标准，由 Agent 自动选择并渲染 8 个关键视角，再结合 VLM-as-Judge 看视觉效果、Agent-as-Judge 查工程内部结构。在 13 个前沿模型的实测中，GPT-6-Astra 以 79.9 分排第一，但即便最强模型也只有 42.2% 的任务能满足全部细粒度要求。另一位已经用过该基准的群友感叹，这类 benchmark 评起来太贵了。",
+          "emphasis": [
+            "要求模型交付完整可编辑的 Blender 工程，而非单张渲染图",
+            "GPT-6-Astra 以 79.9 分排第一，但即便最强模型也只有 42.2% 的任务能满足全部细粒度要求"
+          ],
+          "aiComment": "2,651 条细粒度标准外加渲染 8 个视角查工程结构，最强模型也才过了 42.2%，难怪群友先替钱包喊疼。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:24",
+              "text": "Visual Agents 已经能独立完成网页、海报、PPT 等 2D 设计，那更难的 3D 创作呢？这需要空间推理、工具调用和视觉反馈迭代，而现有 Benchmark 对真实、开放式的 3D 创作场景覆盖有限。\n\n🔥 为此我们提出 BlenderWorld——首个面向真实世界 3D 创作任务、系统评估 Visual Agents 的综合基准。\n\n🔹 223 个真实任务，覆盖建筑、产品、自然、角色动画、科学可视化等 9 大领域 22 个细分方向，输入包含文本、图像、视频与结构化规格文件。\n\n🔹 交付的是完整可编辑的 Blender 工程，而不只是一张好看的渲染图。\n\n🔹 2,651 条任务专属细粒度标准，覆盖几何、空间布局、材质、功能等 13 个方面：Agent 自动选择并渲染 8 个关键视角，VLM-as-Judge 看视觉效果、Agent-as-Judge 进工程查内部结构，再从真实感、物理合理性等 8 个维度评估整体质量。\n\n🔹 13 个前沿模型实测：GPT-6-Astra 以 79.9 分居首，但即使最强模型也只有 42.2% 的任务能满足全部细粒度要求——3D 创作能力已有惊喜，但在多模态参考理解、精细要求、物理与空间关系上仍有很大空间。"
+            },
+            {
+              "speaker": 2,
+              "time": "21:30",
+              "text": "已严肃使用，不过这种benchmark评起来都太贵了，😞。",
+              "quote": {
+                "speaker": 1,
+                "text": "Visual Agents 已经能独立完成网页、海报、PPT 等 2D 设计，那更难的 3D 创作呢？这需要空..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "BlenderWorld 论文",
+              "url": "https://arxiv.org/abs/2610.23986"
+            },
+            {
+              "kind": "article",
+              "label": "BlenderWorld 项目主页",
+              "url": "https://blenderworld.github.io/"
+            },
+            {
+              "kind": "code",
+              "label": "BlenderWorld GitHub 仓库",
+              "url": "https://github.com/QwenLM/BlenderWorld"
+            }
+          ]
+        },
+        {
+          "category": "开源系统",
+          "title": "SGLang-Omni 扩展全双工交互统一运行时",
+          "text": "有群友分享了基于 SGLang-Omni 扩展的统一运行时，开源了三套 full duplex interactive model 系统，支持原生全双工模型、轮次式多模态模型和级联系统。该运行时通过计算图将模型能力与交互控制组合起来，用持久化会话跨越连续的输入与响应来协调各组件的生命周期与事件，并提供统一的实时接口，对交互行为、服务容量和语音质量做一致评估；附带的博客截图展示了多模态流式回复与语音打断演示，以及涵盖 MiniCPM-o、Cascade 与 Qwen 等系统的多维对比表格。",
+          "emphasis": [
+            "该运行时通过计算图将模型能力与交互控制组合起来，用持久化会话跨越连续的输入与响应来协调各组件的生命周期与事件"
+          ],
+          "aiComment": "支持全双工还能演示语音打断，SGLang-Omni 这是把人类聊天时最爱抢话的本事给安排上了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:23",
+              "text": "https://www.sglang.io/blog/omni-interactive-runtime\n\n斗胆分享我们开源实现的三套 full duplex interactive model 系统。Interactive Intelligence 需要在整个对话过程中协调感知、生成与持续执行的任务。为此，我们扩展了 SGLang-Omni，构建了一个统一运行时，支持原生全双工模型、轮次式多模态模型和级联系统。\n\n计算图将模型能力与交互控制组合起来，持久化会话则跨越连续的输入与响应，协调各组件的生命周期与事件。统一的实时接口支持对交互行为、服务容量和语音质量进行一致的评估。\n\n《Unified Runtime for Full-Duplex Interactive Intelligence with SGLang Omni》"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "SGLang-Omni 全双工交互统一运行时博客",
+              "url": "https://www.sglang.io/blog/omni-interactive-runtime"
+            }
+          ]
+        },
+        {
+          "category": "安全动态",
+          "title": "路透社报道：黑客用 Cairn 框架与 AI Agent 批量入侵百余家网站",
+          "text": "有群友转引了一条关于路透社报道的贴文：攻击者使用开源 Cairn agent 框架，将 DeepSeek 模型与 Claude Code harness 结合，尝试入侵超过 1,200 个网站，最终攻破了包括 Deere、SharkNinja 和 Cummins 在内的 100 多家公司网站。据估算，整个过程消耗了约 5,000 美元的 AI token，平均每次成功入侵耗时约 23 小时、成本约 50 美元，其中一次行动给 agent 下达的指令不到 100 个汉字。",
+          "emphasis": [
+            "据估算，整个过程消耗了约 5,000 美元的 AI token"
+          ],
+          "aiComment": "其中一次指令不到 100 个汉字，报道估算每次成功入侵平均花 50 美元，这 ROI 算下来，网安团队今晚又不用睡了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:24",
+              "text": "“Reuters is reporting that a Chinese-speaking hacker used AI agents to compromise websites belonging to more than 100 companies, including Deere, SharkNinja and Cummins, after attempting intrusions against over 1,200 sites.\n\nThe estimated cost: roughly $5,000 in AI tokens, or $50 per successful breach. Successful intrusions took around 23 hours on average.\n\nThe attackers used the open-source Cairn agent framework, apparently combining DeepSeek models with a Claude Code harness. One campaign gave its agents instructions in fewer than 100 Chinese characters.\n\nNorForge researcher Snorre Fagerland: 'It's a new world now.'”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "生图模型怎么 Scale：堆 DiT 参数不如抓 Layout 条件注入",
+      "theme": "探讨中美算力金融化差异，分享扩散语言模型 Mercury 3 测速与 CoworkEnv 环境合成",
+      "note": "2026-10-20 · 当日本地记录",
+      "stories": [
+        {
+          "category": "视觉生成",
+          "title": "MOSS-Image 聊生图 Scaling：与其堆 DiT 参数，不如抓条件注入的 Layout 代理",
+          "text": "有群友分享了生图基础模型 MOSS-Image 的技术报告，提到训练中关于 scaling 的发现与一年前的认知差别很大。有人追问具体结论，分享者解释这与近期 code2video 的思路相通：单纯扩大 DiT 参数量的收益比较有限，更关键的是输入 DiT 之前的条件注入部分，条件 token 分布与 denoise map 的 token 分布在空间上越相关，效果就越好。分享者拿此前在丹佛 CVPR 看到的 NVIDIA 自动驾驶视频生成举例，当时做条件注入靠的是汽车和行人的 bounding box，空间和时间上都能对齐。\n\n至于怎么在这个方向上做 scale，分享者认为最简单的做法是优化 caption，但估计存在某种中间 proxy 作为“版本答案”，MOSS-Image 这次就是靠优化 layout 来当中间 proxy。有群友好奇智驾那套做法是用 code 建模 3D bounding box 还是直接用框控制，感叹智驾里用 layout 很常见，但还没见过用 code 做的；另一位群友也追问这次是像以前的 layout2image，还是直接给 layout 的 code。分享者说翻看项目的 prompt example 就能看到，bbox 语法是直接写在 prompt 里的。",
+          "emphasis": [
+            "单纯扩大 DiT 参数量的收益比较有限，更关键的是输入 DiT 之前的条件注入部分，条件 token 分布与 denoise map 的 token 分布在空间上越相关，效果就越好",
+            "MOSS-Image 这次就是靠优化 layout 来当中间 proxy"
+          ],
+          "aiComment": "分享者发现堆 DiT 参数的收益有限，把 bbox 语法放进 prompt 里搞好条件注入，倒成了这次讨论里的版本答案。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:06",
+              "text": "可以预告一下吗",
+              "quote": {
+                "speaker": 2,
+                "text": "这个技术报告还是可以值得读一下的，回头我也会小红书解读一下我们训练中发现的 scale 的点，基本上跟之前一年我的认知还是差别很大的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:11",
+              "text": "其实和这波code 2 video相关 我们发现scaling DiT的参数量收益比较有限 更关键是输入DiT之前的条件注入部分  条件的token分布约和denoise map的token分布在空间上相关 效果越好",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 可以预告一下吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:12",
+              "text": "其实code2video我在cvpr 丹佛就看到nvidia那边自动驾驶视频有了 当时他们条件注入就是靠着各种汽车行人的bounding box  这个首先空间是对应的 其次因为是实时动态的所以时间是也是对应的"
+            },
+            {
+              "speaker": 1,
+              "time": "14:12",
+              "text": "越相关效果越好吗 那这个怎么scale呢 有什么思路"
+            },
+            {
+              "speaker": 2,
+              "time": "14:13",
+              "text": "最简单的就是优化caption 但是估计是存在一种proxy作为版本答案的  比如这次就是优化layout作为中间proxy"
+            },
+            {
+              "speaker": 3,
+              "time": "14:39",
+              "text": "是code建模3d bounding box还是就是直接3d bounding box控制？",
+              "quote": {
+                "speaker": 2,
+                "text": "其实code2video我在cvpr 丹佛就看到nvidia那边自动驾驶视频有了 当时他们条件注入就是靠着各种汽车行人的bounding box 这个首先空间是..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:40",
+              "text": "用layout这种方式，智驾很常见，但是code搞的目前我还真没看到"
+            },
+            {
+              "speaker": 4,
+              "time": "14:48",
+              "text": "是说像之前layout2image一样吗，还是直接给layout的code就可以了呢",
+              "quote": {
+                "speaker": 2,
+                "text": "最简单的就是优化caption 但是估计是存在一种proxy作为版本答案的 比如这次就是优化layout作为中间proxy"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:02",
+              "text": "可以看下我们的prompt example  bbox语法直接在prompt中"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "MOSS-Image Technical Report (arXiv)",
+              "url": "https://arxiv.org/abs/2610.23374"
+            },
+            {
+              "kind": "code",
+              "label": "MOSS-Image (GitHub)",
+              "url": "https://github.com/OpenMOSS/MOSS-Image"
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "AI 信贷风险报道引发中美算力金融化差异讨论",
+          "text": "有群友转发了一篇关于“AI 信贷第一颗雷”的报道，提到不少分析认为相关债券快顶不住了，甚至拿来和当年的雷曼兄弟做比较，想听听群里的看法。另一位群友认为，关键得看接下来的 AI 算力需求能不能覆盖得住成本：目前美国的算力已经金融化，衍生出大量基于算力使用权的金融产品；相比之下国内对这块管控很严，没有放开基于算力的衍生品，因此底层标的的波动不太会传导到整体金融市场。",
+          "emphasis": [
+            "另一位群友认为，关键得看接下来的 AI 算力需求能不能覆盖得住成本"
+          ],
+          "aiComment": "按群友的说法，大洋彼岸忙着给算力搞金融衍生品，国内这边连入场券都没发，主打一个物理隔离。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:11",
+              "text": "实际上就是要看接下来的AI算力需求能不能覆盖得住吧，现在美国那边算力已经是金融化了"
+            },
+            {
+              "speaker": 1,
+              "time": "10:11",
+              "text": "大量基于算力使用权产生的衍生品"
+            },
+            {
+              "speaker": 1,
+              "time": "10:12",
+              "text": "国内相对而言对这块控的很严，没有做基于算力的衍生品，所以不太会因为underlying标的的波动对整体金融市场产生影响"
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "扩散语言模型 Mercury 3 跑出 1,068 tokens/s，多项基准压过同档自回归模型",
+          "text": "有群友转出扩散语言模型 Mercury 3 发布的推文截图，调侃这“证明 diffusion 不是区”。分享的基准测试截图将 Mercury 3 (Medium) 与同档位的 GPT-6 Luna (Medium)、Claude Haiku 5.5 (Medium) 做了对比：Mercury 3 的输出速度达 1,068 tokens/s，远高于后两者的约 130 tokens/s 和 240 tokens/s，每百万 token 输入/输出首发优惠价为 $0.10 / $0.35，输出价格也低于后两者的 $0.50。跑分方面，Mercury 3 在 GPQA Diamond（89.23）、IFBench（76.84）、SWE-Bench Atlas（51.08）和 DeepSearchQA（71.33）上均排在第一，仅在 DeepSWE v1（46.31 对 Haiku 5.5 的 51.62）、MRCR v2（75.50 对 78.40）等少数项目上略逊一筹。有群友看后感叹这款 dLLM 势头很猛。",
+          "emphasis": [
+            "Mercury 3 的输出速度达 1,068 tokens/s",
+            "每百万 token 输入/输出首发优惠价为 $0.10 / $0.35"
+          ],
+          "aiComment": "每秒飙出 1,068 个 token，首发优惠百万输出才 3 毛 5 美金，现在看字都得开倍速了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:11",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:11",
+              "text": "在一个角落 M3也发布了"
+            },
+            {
+              "speaker": 1,
+              "time": "01:11",
+              "text": "证明diffusion不是区"
+            },
+            {
+              "speaker": 1,
+              "time": "01:12",
+              "text": "(Mercury 3"
+            },
+            {
+              "speaker": 2,
+              "time": "08:18",
+              "text": "这个dLLM这么猛吗",
+              "quote": {
+                "speaker": 1,
+                "text": "[媒体引用未解析]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "群友问答：面向长程任务的开源 AutoResearch Harness",
+          "text": "有群友打听近期有哪些值得拿来学习魔改的开源 AutoResearchAgent 工作。另一位群友推荐了一篇 COLM 论文（arXiv:2608.06714），里头提供了一套已开源的通用 long-horizon autoresearch harness，可用来支持各类任务。",
+          "emphasis": [
+            "已开源的通用 long-horizon autoresearch harness"
+          ],
+          "aiComment": "刚有人喊着想找开源的 AutoResearchAgent 魔改，立马就有热心群友递上 COLM 的通用长程框架，群内检索效率堪比专线。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:19",
+              "text": "大佬 你们最近有看过什么值得推荐的AutoResearchAgent工作吗？",
+              "quote": {
+                "speaker": 3,
+                "text": "(Mercury 3"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:19",
+              "text": "想学习一些先进的开源的魔改一下"
+            },
+            {
+              "speaker": 2,
+              "time": "01:49",
+              "text": "https://arxiv.org/abs/2608.06714\n宣传下我们colm的reasearch，做了个general long-horizon autoresearch的harness，已开源，支持各种任务[玫瑰]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "General Long-Horizon Autoresearch Harness (arXiv)",
+              "url": "https://arxiv.org/abs/2608.06714"
+            }
+          ]
+        },
+        {
+          "category": "Agent 训练",
+          "title": "CoworkEnv 自动合成可执行工作环境，Qwen3-VL-8B 多轮任务提分 31.9",
+          "text": "有群友分享了面向 Agent 训练的环境构建工作 CoworkEnv。该项目尝试自动合成可执行、可评测的工作环境，供 Agent 学习工具调用和多轮协作，支持 SFT 与 RL 训练。据分享者介绍，在 Qwen3-VL-8B 上使用该环境做 SFT 后，Claw-Eval 的平均分从 46.6 提升到 64.1，其中多轮任务提升了 31.9 分；代码、模型及长程 Agent 训练踩坑记录也已一并开源。",
+          "emphasis": [
+            "自动合成可执行、可评测的工作环境",
+            "Claw-Eval 的平均分从 46.6 提升到 64.1"
+          ],
+          "aiComment": "自动合成可执行的工作环境，硬是把 Qwen3-VL-8B 的多轮任务往上抬了 31.9 分，果然 Agent 也得靠刷模拟题提分。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:48",
+              "text": "想让 AI 成为能用工具、能多轮协作的“同事”，训练环境从哪里来？\n我们尝试自动构建可执行、可评测的工作环境，让 Agent 在里面学习完成复杂任务，支持 SFT 和 RL 训练。\n在 Qwen3-VL-8B 上，SFT 将 Claw-Eval 平均分从 46.6 提升到 64.1，其中多轮任务提升 31.9 分。"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "CoworkEnv Paper (HF)",
+              "url": "https://huggingface.co/papers/2610.24960"
+            },
+            {
+              "kind": "code",
+              "label": "CoworkEnv Code (GitHub)",
+              "url": "https://github.com/HKUST-KnowComp/CoworkEnv"
+            },
+            {
+              "kind": "code",
+              "label": "CoworkEnv Lessons (GitHub)",
+              "url": "https://github.com/zhongweixie/CoworkEnv-Lessons"
+            }
+          ]
+        },
+        {
+          "category": "AI 芯片设计",
+          "title": "Agentrys 用 AI Loop Engineering 优化开源香山 RISC-V 处理器",
+          "text": "有群友分享了一篇关于 Agentrys 的报道，分享卡片的标题称其用 AI Loop Engineering 优化开源 RISC-V 处理器香山（XiangShan），使吞吐提升 40%、功耗降低 28%。",
+          "emphasis": [
+            "分享卡片的标题称其用 AI Loop Engineering"
+          ],
+          "aiComment": "报道标题喊出香山处理器吞吐涨 40%、功耗降 28%，AI Loop Engineering 这波属于是硅基生命亲自下场给自己装修老家了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:30",
+              "text": "Agentrys 用AI Loop Engineering 优化开源 RISCV CPU XiangShan：吞吐提升40%，功耗降低28%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "从 CBRN 线下隐患到可纠正性：智能体安全与价值对齐的边界",
+      "theme": "热议 DeepSeek 推理框架 DeepInfer 单卡收益与昇腾适配，分享 ECHO 自递归 MTP 方案",
+      "note": "2026-10-20 · 当日本地记录",
+      "stories": [
+        {
+          "category": "安全与对齐",
+          "title": "智能体安全与价值对齐的边界：从 CBRN 线下隐患到“可纠正性”目标",
+          "text": "有群友发问智能体价值观对齐（value alignment）该怎么做，觉得价值观范围太广，和安全对齐高度重合。一位关注安全与对齐的群友回应，agent security 和 value alignment 的追求并不相同：价值对齐是很难企及的上界，而安全对齐眼下更紧迫的方向是暂缓 CBRN（化学、生物、辐射与核技术）这类界定相对清晰、杀伤力巨大的威胁。\n\n该群友担忧，随着开源模型能力提升，而安全防护没有同步受到重视，原本门槛很高的专业技术会更容易获取；另有群友提到生物（bio）方向的落地进展尤其迅速。回应的群友对比了网络安全（Cyber）与 CBRN 两类风险的差异：Cyber 攻击成本低、更轻量，已经出现个人造成大规模破坏的案例，但用智能体搞网络攻击比较容易被追踪；相比之下，一旦跨过成本门槛，用自部署的无护栏模型在线下搞 CBRN，反而更隐蔽也更危险。\n\n回到价值对齐本身，提问的群友认为安全只是价值对齐中标准相对明确的子集，像 Agent-valuebench 这类基准只评测智能体展现出何种价值偏好，却很难界定特定场景下什么偏好才是好的，以及如何把行为对齐过去。前述群友则从更底层的角度提出，人类价值观在时序上不连贯、在空间上离散，对其直接建模几乎不可实现，不如转向更有整体性、直觉更简单的目标，比如 corrigibility（可纠正性）。此外，还有群友分享自己曾参考 CheatBench 论文，测试过智能体群体在解数学证明题时的越轨行为。",
+          "emphasis": [
+            "价值对齐是很难企及的上界",
+            "该群友担忧，随着开源模型能力提升，而安全防护没有同步受到重视",
+            "不如转向更有整体性、直觉更简单的目标，比如 corrigibility（可纠正性）"
+          ],
+          "aiComment": "人类价值观自己在时空上都不连贯，与其让模型强行理解人类那点拧巴心思，还不如盯紧 CBRN 隐患和“听劝”来得实在。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:45",
+              "text": "@群友 4 agent security跟value alignment确实追求有区别吧，我理解后者是追求的上界，是很难的，前者可能目前大家努力方向就是暂缓cbrn",
+              "quote": {
+                "speaker": 4,
+                "text": "想问问群里有没有做智能体价值观对齐的佬呢[Shocked] 能不能交流一下，感觉这个价值观范围有点广，跟安全对齐在很多场景下比较重合[Tremble]，而且价值..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:48",
+              "text": "从ai risk来说优先级或许也是先尝试去攻克cbrn这种标准相对清晰且威胁性大的事"
+            },
+            {
+              "speaker": 2,
+              "time": "00:54",
+              "text": "不过bio现在落地进展迅速了"
+            },
+            {
+              "speaker": 3,
+              "time": "00:55",
+              "text": "有测试过一些agent群体在数学证明解决的越轨行为，主要以cheatbench那篇论文为参考",
+              "quote": {
+                "speaker": 4,
+                "text": "想问问群里有没有做智能体价值观对齐的佬呢[Shocked] 能不能交流一下，感觉这个价值观范围有点广，跟安全对齐在很多场景下比较重合[Tremble]，而且价值..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:56",
+              "text": "伴随现在开源模型水位攀升加上不重视安全风险，这些原本很难获取到的专业技术现在普通人可以轻易获取"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "主要也就是有个个人实施一些行为的成本问题，cyber风险则是因为成本更低更轻量已经有一些个人造成大规模破坏的例子出现了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:59",
+              "text": "但用agent搞cyber比较容易被追踪；克服了成本问题、使用自部署无甲模型搞cbrn其实都是线下的，会更隐蔽更危险。。。。"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "@群友 4 我其实还有很多想法会比较哲学一点，就是关于the foundation of AI alignment，在我看来以及在一些思考这个问题的人看来价值对齐可能不止模糊、而且几乎是不可实现的。对人类价值观的建模可能是时序上不连贯而且空间上离散的，或许我们可以设想一些更有整体性 直觉更简单的目标，比如corrigibility",
+              "quote": {
+                "speaker": 4,
+                "text": "想问问群里有没有做智能体价值观对齐的佬呢[Shocked] 能不能交流一下，感觉这个价值观范围有点广，跟安全对齐在很多场景下比较重合[Tremble]，而且价值..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "01:14",
+              "text": "okok 感谢佬的分享[玫瑰]，感觉value alignment这个topic太大了，safety只是里面一个相对有界定标准的子集，像Agent-valuebench这种只是去评测agent有什么样的value preference，但是比较难界定什么样的value preference在特定场景下是好的，以及如何把agent行为对齐到这个value preference上，所以感觉更需要一个系统的界定",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] @群友 4 agent security跟value alignment确实追求有区别吧，我理解后者是追求的上界，是很难的，前者可能目前大家努力方向就是暂缓cbrn"
+              }
+            }
+          ]
+        },
+        {
+          "category": "推理基建",
+          "title": "DeepSeek 开源推理框架 DeepInfer：按谷价每卡每小时 38 美元收入与昇腾 950 适配引热议",
+          "text": "DeepSeek 开源了推理基础设施项目 DeepInfer 的核心离线推理实现，群友在翻看配套文章与仓库说明时，率先被两个细节吸住了眼球：群内转述的按谷价每卡每小时 38 美元收入，以及仅支持 NVIDIA SM100 与华为 Ascend 950 的硬件列表。\n\n有人最初把“一小时 38 刀”误看成租卡价格，纳闷连 B300 也没这么贵；随后有人将其理解为扣除显卡成本后的毛利，感叹推理业务像印钞机；同日群内转述这组数据时使用的口径则是收入。另一位群友补充，大模型成本大头在训练，推理本身确实是赚钱的。\n\n硬件支持列表则引发了关于算力分配与国产卡生态的推演。有人猜测，一旦用上 Ascend 950 扛起推理，就能把 B300 腾出来专供训练。聊起昇腾卡的使用体验，有群友回忆一年前用 910 时还“有点难受”；但也有群友认为，如今 DeepSeek 开源了一批 950 底层基建，上下游已经打通，并追问其他团队能否拿这套框架改改就跑通 950。至于能不能买到卡，有人提到年中就听说该芯片供不应求，大批量采购估计很难拿到现货。",
+          "emphasis": [
+            "群内转述的按谷价每卡每小时 38 美元收入",
+            "同日群内转述这组数据时使用的口径则是收入",
+            "有人猜测，一旦用上 Ascend 950 扛起推理，就能把 B300 腾出来专供训练"
+          ],
+          "aiComment": "一小时 38 刀的收入测算把群友看傻了，从误以为是租卡天价到感叹推理像印钞机，大家算完账又开始操心昇腾 950 能不能买到现货。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:35",
+              "text": "https://github.com/deepseek-ai/DeepInfer",
+              "quote": {
+                "speaker": 2,
+                "text": "哪里啊"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "一张卡一小时38刀是啥概念"
+            },
+            {
+              "speaker": 3,
+              "time": "17:37",
+              "text": "你这租的啥卡"
+            },
+            {
+              "speaker": 3,
+              "time": "17:38",
+              "text": "b300啊"
+            },
+            {
+              "speaker": 2,
+              "time": "17:38",
+              "text": "deepseek的毛利",
+              "quote": {
+                "speaker": 3,
+                "text": "你这租的啥卡"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:38",
+              "text": "b300也没这么贵啊"
+            },
+            {
+              "speaker": 2,
+              "time": "17:39",
+              "text": "他是把卡的钱减掉了，这是利润"
+            },
+            {
+              "speaker": 5,
+              "time": "17:40",
+              "text": "有了950就拿B300训练了"
+            },
+            {
+              "speaker": 6,
+              "time": "17:40",
+              "text": "只支持SM100和Ascend 950"
+            },
+            {
+              "speaker": 7,
+              "time": "17:40",
+              "text": "Supported hardware:\n\nNVIDIA SM100 GPUs\nHuawei Ascend 950 NPUs"
+            },
+            {
+              "speaker": 8,
+              "time": "17:41",
+              "text": "年中就听说好像供不应求了"
+            },
+            {
+              "speaker": 3,
+              "time": "17:42",
+              "text": "大批量估计不行"
+            },
+            {
+              "speaker": 8,
+              "time": "17:44",
+              "text": "910时期用过，有点难受",
+              "quote": {
+                "speaker": 1,
+                "text": "升腾好用吗？"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:44",
+              "text": "不过已经是一年前了"
+            },
+            {
+              "speaker": 6,
+              "time": "17:44",
+              "text": "dpsk开了一堆950基建了"
+            },
+            {
+              "speaker": 5,
+              "time": "17:44",
+              "text": "现在各家是不是拿DS的框架改改就能直接跑通950"
+            },
+            {
+              "speaker": 9,
+              "time": "18:12",
+              "text": "训练成本高吧，推理肯定是赚钱的（",
+              "quote": {
+                "speaker": 2,
+                "text": "DeepSeek毛利都这么高，oa岂不是印钞厂"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "DeepInfer GitHub 仓库",
+              "url": "https://github.com/deepseek-ai/DeepInfer"
+            }
+          ]
+        },
+        {
+          "category": "模型架构",
+          "title": "ECHO 用主干自递归改造 MTP：把监督信号留给主干，深度 3 推理涨 2.63 分",
+          "text": "有群友分享了多 token 预测（MTP）方向的新工作 ECHO。DeepSeek-V3 曾将单步 MTP 的收益归结为训练信号更密集和模型学会 pre-planning，但这项工作与 MiMo 的观测一致，发现 DeepSeek MTP 增加预测深度后几乎不再涨分。作者团队认为，问题出在 DeepSeek MTP 的监督信号大多被辅助模块吸收，主干网络只拿到间接监督，导致不仅加深度无效，连深度 1 的收益也打了折扣。\n\n为此，ECHO 不再引入额外参数，而是循环复用主干最后一层来预测每个未来位置，让每步监督直接落在同一份主干参数上。与同深度的 DeepSeek MTP 相比，预训练模型在深度 1 时数学、推理、代码分别提升 0.79、0.57 和 1.35 分；深度 3 时推理和代码分别高出 2.63 分和 2.23 分。从深度 1 扩展到深度 3，ECHO 在 14 个任务上平均涨 0.63 分，而 DeepSeek MTP 仅涨 0.16 分；经过 SFT 后优势进一步扩大，原本持平的 QA 和选择题也转为领先。\n\n计算开销方面，ECHO 引入动态深度采样，以等效 1.5 步的成本拿到了深度 3 的收益。同时它还展现出深度外推能力：超出训练深度时投机解码接受率依然保持高位，不再需要单独的多步草稿模型；在后训练 rollout 的高熵采样场景下，冻结主干微调的草稿模型接受率会显著降低，而 ECHO 不会出现这一衰减。该方法已在 13B-A1B 规模完成验证。",
+          "emphasis": [
+            "问题出在 DeepSeek MTP 的监督信号大多被辅助模块吸收，主干网络只拿到间接监督，导致不仅加深度无效，连深度 1 的收益也打了折扣",
+            "ECHO 不再引入额外参数，而是循环复用主干最后一层来预测每个未来位置，让每步监督直接落在同一份主干参数上",
+            "ECHO 引入动态深度采样，以等效 1.5 步的成本拿到了深度 3 的收益"
+          ],
+          "aiComment": "原来以前 MTP 加深度不涨分，是因为监督信号大多被辅助模块截胡了；ECHO 直接让主干最后一层自己加班，1.5 步的开销白嫖深度 3 的收益。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:42",
+              "text": "DeepSeek-V3对MTP的有效性给出了两点解释：1.训练信号更密集，2.模型学会pre-planning，更好预测未来token。但我们发现，DeepSeek MTP加深度几乎不涨，与MiMo观测一致。如果MTP真能让模型pre-plan，为什么只有单步有效？\n\t\n我们认为，DeepSeek MTP的监督信号大多被辅助模块吸收，主干只拿到间接监督。所以不只加深度不涨，深度1的收益也打折扣。\n\t\n【复用主干循环预测→直接监督】\nECHO循环复用主干最后一层，预测每个未来位置。每步监督都直接落在同一份参数上。和Deepseek MTP同深度对比，预训练模型在推理和代码任务收益明显，QA和选择题持平：\n· 深度1就领先：数学、推理、代码+0.79、+0.57、+1.35\n· 深度3：推理+2.63、代码+2.23\n· 深度1→3：14个任务ECHO平均涨0.63，DeepSeek MTP仅0.16。SFT后优势扩大，QA和选择题也转为领先。\n\t\n【动态深度采样→降低多步监督成本】\nDeepSeek MTP每个深度带来一份参数和一次前向计算。ECHO不增加参数，动态深度采样在等效1.5步的成本能拿到深度3的收益。\n\t\n【涌现能力：深度外推】\n超出训练深度，ECHO投机解码接受率依然高，因此不再需要额外的多步草稿模型。在开放式、高熵生成上，冻结主干微调的草稿模型接受率显著降低，而ECHO不会。因此ECHO完美适配后训练rollout阶段的高熵采样场景。"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ECHO 论文",
+              "url": "https://arxiv.org/abs/2610.24766"
+            },
+            {
+              "kind": "code",
+              "label": "ECHO 代码仓库",
+              "url": "https://github.com/ernie-research/ECHO"
+            }
+          ]
+        },
+        {
+          "category": "多模态工具",
+          "title": "OpenVLHarness 开源：给多模态模型接上九种工具与持久化视觉记忆",
+          "text": "针对多模态大模型看图时经常“看不清、查不到、算不准”的痛点，有群友分享了开源框架 OpenVLHarness。该方案无需训练，直接为任意多模态模型接入定位、OCR、深度估计、局部放大、联网搜索、反向图搜以及写代码算数等九种工具能力，由模型自主决定何时调用。其中关键的设计是配备了一套“视觉记忆”，工具产出的图片、数据和网页不会用完即丢，而是保存在记忆里供后续步骤随时调回。在涵盖 8 个模型、22 个 benchmark 的评测中，接入该 harness 后平均分提升 9.7 到 12.6 分，22 个榜单全部上涨，其中 Qwen3-VL-8B 从 34 分提至 45 分，GPT-6 Astra 从 60 分提至 70 分。",
+          "emphasis": [
+            "工具产出的图片、数据和网页不会用完即丢",
+            "接入该 harness 后平均分提升 9.7 到 12.6 分"
+          ],
+          "aiComment": "不用训练，直接塞给多模态模型九种工具外加一个不丢历史数据的视觉记忆，22 个榜单集体涨分，好记性确实顶得上好眼神。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:27",
+              "text": "多模态大模型看图，经常\"看不清、查不到、算不准\"。\n我们开源了 OpenVLHarness：不用训练，给任何多模态模型接上一套工具和一个\"视觉记忆\"。\n定位、OCR、深度、放大、联网搜索、反向图搜、写代码算数，九种能力，模型自己决定什么时候用。\n关键是工具的输出不会用完就丢，图片、数据、网页都存在记忆里，后面随时调回来。\n22 个 benchmark、8 个模型，平均提升 9.7 到 12.6 分。\nQwen3-VL-8B 从 34 提到 45，GPT-6 Astra 从 60 提到 70，22 个 benchmark 全涨。"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "OpenVLHarness 论文页面",
+              "url": "https://huggingface.co/papers/2610.26860"
+            },
+            {
+              "kind": "code",
+              "label": "OpenVLHarness 代码仓库",
+              "url": "https://github.com/uclanlp/OpenVLHarness"
+            },
+            {
+              "kind": "article",
+              "label": "OpenVLHarness 项目主页",
+              "url": "https://openvlharness.github.io/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "快慢思考能否训进同一模型？从合流设想聊到强弱模型路由纠错",
+      "theme": "拆解递归 Agent 与 Swarm 边界及上下文降噪，交流断网容器迁移 vLLM 依赖的断点重续方案",
+      "note": "2026-10-20 · 当日本地记录",
+      "stories": [
+        {
+          "category": "架构与推理",
+          "title": "把 Jev 和慢思考塞进同一个模型？从 Latent Reasoning 聊到强弱模型路由纠错",
+          "text": "有群友抛出一个设想：把充当 System 1 的 Jev 与充当 System 2 的 reasoning 训进同一个模型，在慢思考遇到分支时穿插快决策。由于共享大部分 prefill 结构并复用 KV cache，单次决策只需一个 token 的成本，Jev 就能无损做大，不必受限于外挂小模型。有人联想到相关论文 StartLux-Decision，但提问者查看后指出那篇只在开头判断一次快慢思考，并不是交错决策；另一位群友也补充说那篇的双路和单路结果差别不大。\n\n多位群友更倾向于把两者解耦外挂。有人指出两类模型体积相差至少 100 倍，架构偏置带来的优势很难直接融合；还有人指出两者任务语义不同——LLM 预测下一个 token，Jev 做的是给定明确选项的 0/1 快速校准，而思维链里通常不会特意构造选项，硬合在一起在强化学习里也只是一个独立的 critic。另一位群友认为真正融合后的形态其实是少吐 token 的 latent reasoning，这条路线半年前在多模态里颇受关注，但因为难以定义 ground truth、后训练难训，如今工业界鲜有采用，基本只剩小模型上的学术探索。\n\n顺着“在候选分支里选主方向”的思路，有群友设计了一套折中方案：强模型推理到决策点时，先拉起多个弱模型生成候选 topic，再由强模型把候选预填进去，通过 prompt 将下一 token 词表限定在候选集合内，forward 一步直接取 logits 最大者展开，相当于“并行投机解码加主模型拍板”。另一位群友透露自己跑过类似的做法，让 LLM 生成候选 token 丢给 Jev 评估引向正确答案的概率，实测既慢又烧钱，在宽泛任务上难以纠偏，但在极窄的问题上管用：比如做游戏角色扮演时，Qwen 经常把“看着你的眼睛”错写成“看着他的眼睛”，加正负例都治不好，最后正是靠这套机制纠正了代词，只是遇到复杂情节理解依然无能为力。",
+          "emphasis": [
+            "在慢思考遇到分支时穿插快决策",
+            "Jev 做的是给定明确选项的 0/1 快速校准",
+            "实测既慢又烧钱，在宽泛任务上难以纠偏，但在极窄的问题上管用"
+          ],
+          "aiComment": "大费周章搞并行投机加 Jev 评估，宽泛任务没救回来，倒是治好了 Qwen 角色扮演时总把“看着你的眼睛”写成“看着他的眼睛”的毛病。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:59",
+              "text": "灵感: Jev是System1，reasoning System 2，那么能否把这两种能力训练到一个模型，并且在reasoning时做交错的decision 提高reasoning的效率和效果？"
+            },
+            {
+              "speaker": 2,
+              "time": "21:04",
+              "text": "融合暂时看不出来什么好处吧，或者说，架构偏置带来的提升很难再把两个架构融合到一起？"
+            },
+            {
+              "speaker": 3,
+              "time": "21:04",
+              "text": "从实践来讲不如外挂"
+            },
+            {
+              "speaker": 2,
+              "time": "21:05",
+              "text": "模型大小都差了 100 倍至少，融合能有什么好处吗（"
+            },
+            {
+              "speaker": 1,
+              "time": "21:05",
+              "text": "prefill共享大部分结构是可以做到的，kv cache能复用"
+            },
+            {
+              "speaker": 4,
+              "time": "21:05",
+              "text": "融合起来的效果是latent reasoning"
+            },
+            {
+              "speaker": 4,
+              "time": "21:09",
+              "text": "数据大肯定可以，但是工业界没选已经说明问题了",
+              "quote": {
+                "speaker": 2,
+                "text": "latent 能 scale 吗（"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:10",
+              "text": "后训练也不好训"
+            },
+            {
+              "speaker": 2,
+              "time": "21:10",
+              "text": "这玩意感觉不好定义 ground truth，都不知道怎么搞"
+            },
+            {
+              "speaker": 1,
+              "time": "21:12",
+              "text": "不是latent，而是决策点，像人思考一样，既有直觉也有慢推理，交错，并不都是system2"
+            },
+            {
+              "speaker": 1,
+              "time": "21:15",
+              "text": "思考到一半，有两个候选方向，哪个方向是关键，优先思考这个方向"
+            },
+            {
+              "speaker": 5,
+              "time": "21:18",
+              "text": "StartLux-Decision: AutoThink Decision Models with Reinforcement Learning for Calibrated Deliberative Decisions 这篇paper感觉有点点相关",
+              "quote": {
+                "speaker": 1,
+                "text": "思考到一半，有两个候选方向，哪个方向是关键，优先思考这个方向"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:18",
+              "text": "但看结果双路和单路差别不大",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] StartLux-Decision: AutoThink Decision Models with Reinforcement Learning for Calibrated Deliberative Decisions 这篇paper感觉有点点相关"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "这个成本就是一个token的成本，因为kv cache住了，这样jev做大了是无损做大，而不受制于外挂只能小jev"
+            },
+            {
+              "speaker": 4,
+              "time": "21:23",
+              "text": "jev输入得有明确选项，思维链中一般不会特意构造选项"
+            },
+            {
+              "speaker": 3,
+              "time": "21:24",
+              "text": "任务语义不太一样，jev做的是01决策快速校准，llm是预测next token。根据任务在生成中生成决策的轨迹和TF如果一样的话，本质上并没有这个jev，RL的话就是一个独立的c"
+            },
+            {
+              "speaker": 3,
+              "time": "21:24",
+              "text": "并未\"融合\""
+            },
+            {
+              "speaker": 3,
+              "time": "21:25",
+              "text": "我之前还搞过LLM生成next token，把几个候选token丢给Jev决策问多大概率能引导向正确和错误的答案[旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "21:25",
+              "text": "strong到decision阶段拉出来n个weak做决策topic的敲定，然后strong把几个topic 预填之后做一步判断，通过prompt的方式限定一下下一个token的词表为[topics]，forward一步取每个topic的logits，拿最大的敲定方向让大模型展开？"
+            },
+            {
+              "speaker": 3,
+              "time": "21:26",
+              "text": "哈哈哈我偷偷跑过",
+              "quote": {
+                "speaker": 6,
+                "text": "strong到decision阶段拉出来n个weak做决策topic的敲定，然后strong把几个topic 预填之后做一步判断，通过prompt的方式限定一下..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:26",
+              "text": "不过感觉有点烧钱，算了"
+            },
+            {
+              "speaker": 3,
+              "time": "21:26",
+              "text": "critic",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 独立的c啥意思"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:26",
+              "text": "让GPT快速看了下，这个只做第一次判断是快思考还是慢思考，没有interleave decision",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] StartLux-Decision: AutoThink Decision Models with Reinforcement Learning for Calibrated Deliberative Decisions 这篇paper感觉有点点相关"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "21:26",
+              "text": "效果呢",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 哈哈哈我偷偷跑过"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:27",
+              "text": "很慢"
+            },
+            {
+              "speaker": 3,
+              "time": "21:27",
+              "text": "而且在我的任务里并不能有效纠正"
+            },
+            {
+              "speaker": 3,
+              "time": "21:27",
+              "text": "不过如果问题够窄的话有用"
+            },
+            {
+              "speaker": 3,
+              "time": "21:29",
+              "text": "我做游戏有一个任务是角色扮演，Qwen会放飞写作把动作的代词写错，比如对话说（看着你的眼睛）但他会写成（看着他的眼睛），加正负例都没用，我就用的这个方法纠错的。这个行得通"
+            },
+            {
+              "speaker": 3,
+              "time": "21:29",
+              "text": "但是到了具体情节理解就不行"
+            }
+          ]
+        },
+        {
+          "category": "多智能体",
+          "title": "SERA 让递归 Agent 学会给子任务打分，群友激辩 Swarm 边界与上下文降噪",
+          "text": "有群友分享了递归 Agent 训练工作 SERA（Self-Evaluating Recursive Agents）。当主 Agent 调用共享同一套权重的 subagent 处理长程任务时，自主拆出的中间子任务往往缺乏 ground truth。SERA 让同一个模型联合学习任务分解、执行和评估三种能力：委派子任务前先生成评价标准（Rubric），用可验证的最终结果训练评估能力，并引入 Leaf-Coverage Reward 直接约束分解质量。由于执行与评估共享参数，学会评判好坏也能反哺子任务的求解能力，在 TextCraft-Synth 和 TextWorld-Sync 上分别超过基线 5.38 和 13.14 个百分点，配合 Rubric 指导推理阶段的 Tree Search 还能在后者上再涨 2.43 个百分点。\n\n围绕“递归调用算不算 Swarm”，群里做了一番概念拆解。有人觉得这类做法就是 Swarm，自己折腾几个月下来并未突破模型的智能上限，反而容易变成消耗额度的“tokenmaxxing”。有群友区分说，递归调用是树状的主从层级，由主 Agent 同步或异步拉起从属节点；Swarm 则是带角色分化、共享通信池的图状协作网络，而无角色分化的多节点并发更接近 Fleet。至于怎么防止任务分配钻牛角尖，有群友解释在强化学习阶段会把整体任务成功率作为分配奖励，但在训练前期确实会出现 Agent 在某一个节点疯狂拉起 subagent 的现象，被群友调侃很像 MoE 训练里“一个专家狂训、其他专家摸鱼”的路由坍缩。\n\n讨论随后转向 subagent 的上下文管理：为什么 Claude Code、Codex 以及不少论文都偏爱给子任务开独立上下文，而不是直接 fork 主上下文？有群友担忧独立上下文在模糊交互下容易传错话，自己用 Codex 时就常遇到意图跑偏；另一位群友认为 fork 来的完整历史里包含大量对新任务无用的噪音，不如从头收集匹配的上下文。有人提出折中办法，把主上下文当作外部资料库供 subagent 按需读取，每轮由主 Agent 调模型提取关键词或判断该截取哪一段；并表示自己实测这种按需提取确实能提升能力，代价是外挂同级别模型后 token 消耗翻了一倍不止。",
+          "emphasis": [
+            "委派子任务前先生成评价标准（Rubric）",
+            "递归调用是树状的主从层级",
+            "把主上下文当作外部资料库供 subagent 按需读取",
+            "实测这种按需提取确实能提升能力，代价是外挂同级别模型后 token 消耗翻了一倍不止"
+          ],
+          "aiComment": "递归 Agent 训着训着在单个节点疯狂拉起 subagent，活像群友调侃的 MoE 路由坍缩；想省掉上下文噪音按需提取，结果 token 账单先翻了一倍。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:14",
+              "text": "就是主agent在完成xx任务的时候 有时会自己调用一些subagent 如果这些subagent和主agent如果是共享同一组模型参数的话（同一个模型） 就是递归调用agent"
+            },
+            {
+              "speaker": 2,
+              "time": "11:14",
+              "text": "我试过 就是swarm嘛. 折腾了几个月折腾不出东西"
+            },
+            {
+              "speaker": 2,
+              "time": "11:14",
+              "text": "并不能帮助模型突破智能上限"
+            },
+            {
+              "speaker": 1,
+              "time": "11:18",
+              "text": "我理解swarm架构是偏多个 Agent 之间的协作关系 组成一个图 这些agent没有明显的主从关系\n递归调用是 像层级的树 有主agent 异步/同步的调用从属agent\n感觉不太一样",
+              "quote": {
+                "speaker": 2,
+                "text": "我试过 就是swarm嘛. 折腾了几个月折腾不出东西"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:19",
+              "text": "swarm不一定有主从关系，但有角色分化以及基于不同角色的协作吧；跟fleet不同，fleet更偏无角色分化"
+            },
+            {
+              "speaker": 2,
+              "time": "11:20",
+              "text": "最大的差别应该是 subagent之间是否能通信?"
+            },
+            {
+              "speaker": 1,
+              "time": "11:20",
+              "text": "对 swarm会有role的区分 他们之间共享一个通信的池子",
+              "quote": {
+                "speaker": 3,
+                "text": "swarm不一定有主从关系，但有角色分化以及基于不同角色的协作吧；跟fleet不同，fleet更偏无角色分化"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:21",
+              "text": "swarm可以突破token用量的上限"
+            },
+            {
+              "speaker": 2,
+              "time": "11:21",
+              "text": "笑死了 tokenmaxxing"
+            },
+            {
+              "speaker": 5,
+              "time": "11:22",
+              "text": "学习了，我问一个out of scope 的问题， 这种情况下怎么保证任务分配是合理的？ 如果不去做任务分配的优化的话，系统会不会陷入某个奇怪的牛角尖，因为每次都在强化某个模式的任务分配",
+              "quote": {
+                "speaker": 1,
+                "text": "🚀 借宝地分享一下我们的关于Recursive Agent训练的最新工作：Self-Evaluating Recursive Agents (SERA)！欢迎交..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:24",
+              "text": "会在RL training的时候设置 任务分配的reward signal 比如最简单的就是 看整体任务的成功率 作为reward 如果钻牛角尖就做不对任务 \n实际上在训练前期确实会有这种情况 比如agent会疯狂在某一个点启动subagent",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 学习了，我问一个out of scope 的问题， 这种情况下怎么保证任务分配是合理的？ 如果不去做任务分配的优化的话，系统会不会陷入某个奇怪的牛角尖，因为每次都在强化某个模式的任务分配"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:26",
+              "text": "这个好像moe的训练过程呀",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 会在RL training的时候设置 任务分配的reward signal 比如最简单的就是 看整体任务的成功率 作为reward 如果钻牛角尖就做不对任务 \n实际上在训练前期确实会有这种情况 比如agent会疯狂在某一个点启动subagent"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:26",
+              "text": "某一个专家疯狂在训练 其他摸鱼"
+            },
+            {
+              "speaker": 5,
+              "time": "11:32",
+              "text": "再问一个外行一点的问题，独立上下文为什么会比fork 上下文拿任务好，我看文章用的是比较接近独立上下文。感觉cc和codex也都是这么干的，但意图理解会不会在分配和执行中跑偏，但是训练过程看不出来？ 因为很多时候我跟agent 互动是模糊的"
+            },
+            {
+              "speaker": 6,
+              "time": "11:33",
+              "text": "个人感觉是因为，fork 上下文里很多内容对于新任务来说是噪音，不如从头收集匹配的上下文"
+            },
+            {
+              "speaker": 5,
+              "time": "11:34",
+              "text": "但之前codex经常把我的话传错(",
+              "quote": {
+                "speaker": 6,
+                "text": "个人感觉是因为，fork 上下文里很多内容对于新任务来说是噪音，不如从头收集匹配的上下文"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:34",
+              "text": "甚至可以把fork的上下文作为 可读取的外部资料让subagent按需拿取. 当然这需要主agent每轮对话调个模型做关键词提取(jev?)"
+            },
+            {
+              "speaker": 5,
+              "time": "11:36",
+              "text": "Good idea，我刚也想到这个，比如先模型判断fork哪部分的上下文",
+              "quote": {
+                "speaker": 2,
+                "text": "甚至可以把fork的上下文作为 可读取的外部资料让subagent按需拿取. 当然这需要主agent每轮对话调个模型做关键词提取(jev?)"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:37",
+              "text": "这个我试过 能力有点提升. ("
+            },
+            {
+              "speaker": 2,
+              "time": "11:37",
+              "text": "但是我是外挂一个同级别模型的 token消耗翻倍不止"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "SERA 论文",
+              "url": "https://arxiv.org/abs/2610.04902"
+            },
+            {
+              "kind": "code",
+              "label": "SERA 代码仓库",
+              "url": "https://github.com/OliverLeeXZ/SERA"
+            }
+          ]
+        },
+        {
+          "category": "Agent 工程",
+          "title": "断网容器里迁 vLLM 依赖有多难？靠保存 ckpt 重组镜像给 Agent 断点重续",
+          "text": "在讨论代码重构任务里的双版本依赖配置时，有群友追问：用两个 toml 和 venv 构建环境按理说没有区别，为什么此前失败率居高不下？负责该任务的群友解释，真正的难点在于断网环境下重构模块后对依赖库的预判——联网时模型容易直接抄答案，断网则只能靠预判加 retry，而重构后的第二套环境本身就是需要交付的产物。\n\n双方提到，配置 RL 框架这类复杂环境极易翻车，尤其像 vllm、te、flashattn 和 mcore 之间存在严格的依赖顺序。比如在断网容器里迁移某个模块的 vllm 依赖，Agent 必须自己摸索出底层的 flashattn 以及上层的 transformer 版本。有人感叹这种依赖关系如果没有当时的 issue 和 PR、只看 release 连人都猜不出来，除非在 mid-train 阶段学进去，否则在容器里一旦装坏连推倒重来都做不到。受限于无法介入 mid-train，实操者目前的办法是在 Agent 试错后保存 ckpt，再拿 Agent 吐出的依赖文件重新组装镜像、实现断点重续；另一位群友补充，从逻辑上看只要上下文不丢最终总能试出来，但对反复报错的卡点还是得手动补 hint。",
+          "emphasis": [
+            "真正的难点在于断网环境下重构模块后对依赖库的预判",
+            "实操者目前的办法是在 Agent 试错后保存 ckpt，再拿 Agent 吐出的依赖文件重新组装镜像、实现断点重续"
+          ],
+          "aiComment": "断网容器里迁 vLLM，没法上网抄作业，连人都猜不出的 flashattn 和 mcore 依赖顺序，硬是靠存 ckpt 重组镜像给 Agent 续命。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:01",
+              "text": "你下午说的那个两个版本依赖的事有啥说法吗"
+            },
+            {
+              "speaker": 1,
+              "time": "00:01",
+              "text": "俩toml和venv从构建上应该没区别"
+            },
+            {
+              "speaker": 1,
+              "time": "00:01",
+              "text": "之前失败率高是啥问题呢"
+            },
+            {
+              "speaker": 2,
+              "time": "00:02",
+              "text": "难点是不联网做重构后模块对依赖库的预判"
+            },
+            {
+              "speaker": 2,
+              "time": "00:02",
+              "text": "联网会抄答案，不联网就得预判+retry"
+            },
+            {
+              "speaker": 1,
+              "time": "00:03",
+              "text": "环境是产物啊"
+            },
+            {
+              "speaker": 2,
+              "time": "00:04",
+              "text": "是的，第二套是产物"
+            },
+            {
+              "speaker": 1,
+              "time": "00:04",
+              "text": "rl框架挺容易失败的"
+            },
+            {
+              "speaker": 1,
+              "time": "00:06",
+              "text": "vllm/te/flashattn/mcore 我记得有依赖顺序"
+            },
+            {
+              "speaker": 2,
+              "time": "00:08",
+              "text": "我做重构任务的话比如要迁徙一个模块的vllm的依赖，就得在不联网的前提下把flashattn以及上层的transformer摸出来"
+            },
+            {
+              "speaker": 1,
+              "time": "00:09",
+              "text": "这玩应不得mid train学进去吗，记不住只能自己来回试了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:10",
+              "text": "它在容器里面也不能重来"
+            },
+            {
+              "speaker": 2,
+              "time": "00:12",
+              "text": "现在就是试错后保存ckpt然后用agent吐出来的依赖文件重组镜像断点重续，还挺麻烦的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:12",
+              "text": "midtrain不在我这里[Emm]",
+              "quote": {
+                "speaker": 1,
+                "text": "这玩应不得mid train学进去吗，记不住只能自己来回试了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:18",
+              "text": "好吧，不过感觉没有当时的issue和pr，只看release其实也猜不出来",
+              "quote": {
+                "speaker": 2,
+                "text": "现在就是试错后保存ckpt然后用agent吐出来的依赖文件重组镜像断点重续，还挺麻烦的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:19",
+              "text": "人也猜不出来"
+            },
+            {
+              "speaker": 1,
+              "time": "00:20",
+              "text": "从逻辑上来讲如果cxt不丢的话，最后应该是能试出来，反复报错的地方要补hint"
+            }
+          ]
+        },
+        {
+          "category": "推理与产业",
+          "title": "DeepSeek 开源推理框架 DeepInfer：群内热议每卡每小时 38 美元收入、200 tps 猜想与大模型融资拷问",
+          "text": "DeepSeek 开源了推理框架 DeepInfer 的核心离线推理实现，群友纷纷感叹第三方部署成本将被大幅打下来，未来 200 tps 或许会成为标配，连去年不少政企采购后闲置的一体机也能真正派上用场。有人看着每张卡每小时 38 美元的测算收入，调侃回头 B200 的租金也要涨到 $38/h，而国产卡短期内仍受制于产能与适配。到了晚间，这波开源引发了对行业洗牌的推演：有群友直言，当 DeepSeek 连推理框架都一并开源后，其他大模型团队再去融资时将直面投资人的灵魂发问——“模型没它强，钱没它挣得快，我为什么还要继续投你？”\n\n借着 200 tps 的高吞吐，有人追问 OpenAI 迟迟不给高吞吐究竟是技术受限，还是因为采用订阅制而故意限速。一位群友认为订阅制的总额度固定，与生成速度快慢并无冲突，也有人猜测是底层部署卡不同或 OpenAI 用户基数太大所致；但另一位群友反驳说 GPT 早就在靠压低 tps 控制消耗，把速度砍慢后依然有人吹嘘 20x、50x 额度“根本用不完”。此外，DeepInfer 刚发布不久，群友晒出的截图显示几分钟内就有人上线了模仿命名的衍生仓库，引来大家吐槽如今泛滥的 autodev 风气——每逢爆款开源，社区里必会瞬间长出“open-”“awesome-”和“deep dive into”三件套。",
+          "emphasis": [
+            "有人看着每张卡每小时 38 美元的测算收入",
+            "一位群友认为订阅制的总额度固定，与生成速度快慢并无冲突"
+          ],
+          "aiComment": "前脚还在算一小时 38 刀的账和投资人的灵魂拷问，后脚几分钟内社区就长出了 open、awesome、deep dive 三件套，autodev 的手速永远比推理快。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:38",
+              "text": "这是让第三方部署把价格打下来？"
+            },
+            {
+              "speaker": 2,
+              "time": "17:41",
+              "text": "全世界到处都是deepseekv4.1flash 有多少场景还必须得用OA的超顶级模型呢?"
+            },
+            {
+              "speaker": 3,
+              "time": "17:41",
+              "text": "他这里收入$38/h，回头B200就变成$38/h"
+            },
+            {
+              "speaker": 3,
+              "time": "17:42",
+              "text": "华为主要是产能问题吧"
+            },
+            {
+              "speaker": 4,
+              "time": "17:42",
+              "text": "还有一个适配问题吧"
+            },
+            {
+              "speaker": 2,
+              "time": "22:11",
+              "text": "明天大模型公司的估值是不是会有变化了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:12",
+              "text": "ds说每张卡每小时38美金..."
+            },
+            {
+              "speaker": 5,
+              "time": "22:13",
+              "text": "卡的价格会有变化吧"
+            },
+            {
+              "speaker": 2,
+              "time": "22:20",
+              "text": "ds这一波开源 投资人就会问: 我为什么还要继续投你 你这个团队 模型没ds强 钱没ds挣得快 他推理框架都开源了"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "DeepInfer 代码仓库",
+              "url": "https://github.com/deepseek-ai/DeepInfer"
+            }
+          ]
+        },
+        {
+          "category": "生成范式",
+          "title": "Claude 疑似新模型代码直出《汉密尔顿》，Code2Video 能取代视频生成模型吗？",
+          "text": "一则关于 Claude 疑似新模型（摘要提及 Opus 5.6 或 Fable 5.5）用代码直接生成《汉密尔顿》画面与音效的报道，让群友抛出一个问题：以后是不是直接走 code2video 路线，不再需要视频生成模型了？有群友顺势感叹实现 AGI 靠的未必是多模态，代码和语言才是通往智能的钥匙。不过也有群友泼了冷水，反问难道 Opus 在没有现成库的时候还能现场手搓出特效？这位群友指出，LLM 完成的只是“语言转代码”，而从代码到最终画面效果中间还隔着一步渲染，依然要依赖现有的工具库支撑；另一人则认为只要人类把现成的工具和渲染库不断完善，剩下的工作交给 AI 即可。",
+          "emphasis": [
+            "LLM 完成的只是“语言转代码”，而从代码到最终画面效果中间还隔着一步渲染，依然要依赖现有的工具库支撑"
+          ],
+          "aiComment": "看到疑似新模型用代码直出《汉密尔顿》，有人刚畅想不再需要视频模型，就被反问没现成渲染库难道靠大模型现场手搓特效吗。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:17",
+              "text": "Claude疑似新模型曝光！代码直出画面音效，《汉密尔顿》都做出来了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:17",
+              "text": "以后直接code2video了吗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:18",
+              "text": "不需要生视频模型了"
+            },
+            {
+              "speaker": 2,
+              "time": "23:22",
+              "text": "没有吧 . 难道opus没有现成库的时候还能现场搓出来特效?"
+            },
+            {
+              "speaker": 3,
+              "time": "23:26",
+              "text": "完善现成的工具和库就行"
+            },
+            {
+              "speaker": 3,
+              "time": "23:26",
+              "text": "剩下交给ai"
+            },
+            {
+              "speaker": 3,
+              "time": "23:27",
+              "text": "不知道能不能生成二次元那种人物和动画"
+            },
+            {
+              "speaker": 1,
+              "time": "23:48",
+              "text": "所以实现AGI真不是靠多模态"
+            },
+            {
+              "speaker": 4,
+              "time": "23:49",
+              "text": "code 和 语言"
+            },
+            {
+              "speaker": 4,
+              "time": "23:49",
+              "text": "才是唯二可以通往智能的钥匙"
+            },
+            {
+              "speaker": 2,
+              "time": "23:54",
+              "text": "感觉差一步吧"
+            },
+            {
+              "speaker": 2,
+              "time": "23:55",
+              "text": "llm是语言->code 然后 code->渲染效果这一步还是要靠目前的库来做的"
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "用 1017 跑通宵搓出 3D 虎式坦克，带穿模检测的建模工作台 machine-stage 开源",
+          "text": "一位群友展示了用 1017 跑了一整夜生成的虎式坦克 3D 模型：从凌晨的履带、负重轮、发动机与变速箱底盘，到早上完整成型的坦克一应俱全。围观群友发现模型里甚至做出了方向盘，但没有后视镜；分享者笑称虎式坦克本来就没有后视镜，方向盘里放个兵人模型就能派上用场，并随即开源了这套 3D 机械建模工作台 machine-stage。\n\n在工作台的设计上，有群友一眼看中了界面左侧的可复用素材列表，认为如果支持分层，就可以直接点名某个零件让 AI 修改，“很有当老板的味道”。分享者表示设计时已经考虑到了这一点，因此给每个零件都分配了唯一标识，同时认为该项目最大的价值在于内置了穿模检测机制。",
+          "emphasis": [
+            "用 1017 跑了一整夜生成的虎式坦克 3D 模型",
+            "给每个零件都分配了唯一标识",
+            "内置了穿模检测机制"
+          ],
+          "aiComment": "用 1017 跑一宿搓出带方向盘的虎式坦克，没做后视镜居然是因为真车本来就没有；每个零件带唯一 ID，终于能愉快地对着局部指点江山了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "07:59",
+              "text": "1017跑了一夜"
+            },
+            {
+              "speaker": 1,
+              "time": "09:03",
+              "text": "https://github.com/SingularGuyLeBorn/machine-stage"
+            },
+            {
+              "speaker": 1,
+              "time": "09:16",
+              "text": "我这个项目最大的价值是搞了个穿模检测"
+            },
+            {
+              "speaker": 2,
+              "time": "09:17",
+              "text": "我感觉素材复用可能比较吊"
+            },
+            {
+              "speaker": 2,
+              "time": "09:17",
+              "text": "特别是可以分层的话，可以直接标记某个素材说改改这个，那个不错"
+            },
+            {
+              "speaker": 1,
+              "time": "09:18",
+              "text": "我考虑到了这一点 所以每个零件有唯一标识"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "machine-stage 3D 建模工作台",
+              "url": "https://github.com/SingularGuyLeBorn/machine-stage"
+            }
+          ]
+        },
+        {
+          "category": "模型评测",
+          "title": "对标 Artificial Analysis 的三维帕累托评测设想，群友感叹“可观测就可 hack”",
+          "text": "有群友分享了对标 Artificial Analysis 的 SteadyPareto Benchmark 概念页面，并说明目前还只是想法，计划围绕 cost、performance 和 latency 三个维度构建三维帕累托前沿评测。求点评时，另一位群友直言一切公开榜单都避不开刷榜问题，“可观测就可 hack”；有人接话调侃“不可观测就得打钱了”，分享者也自嘲那样最后就会变成打钱刷榜，还有人提议或许可以采取公开训练集、不公开测试集的折中做法。",
+          "emphasis": [
+            "并说明目前还只是想法",
+            "cost、performance 和 latency 三个维度"
+          ],
+          "aiComment": "刚想做个三维帕累托榜单，群友就把闭环盘明白了：公开可观测就会被 hack，不可观测就会变成打钱刷榜。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:52",
+              "text": "这个你们看怎么样"
+            },
+            {
+              "speaker": 1,
+              "time": "13:53",
+              "text": "我们做的项目对标artificial analysis"
+            },
+            {
+              "speaker": 1,
+              "time": "13:54",
+              "text": "3维帕累托前沿评测"
+            },
+            {
+              "speaker": 1,
+              "time": "13:54",
+              "text": "cost-performace-latency 三个轴"
+            },
+            {
+              "speaker": 1,
+              "time": "13:54",
+              "text": "我们的初步想法"
+            },
+            {
+              "speaker": 1,
+              "time": "13:56",
+              "text": "只是想法 暂时啥也没有"
+            },
+            {
+              "speaker": 2,
+              "time": "13:59",
+              "text": "我只能说一切公开榜单都避免不了刷榜吧"
+            },
+            {
+              "speaker": 2,
+              "time": "13:59",
+              "text": "可观测就可hack"
+            },
+            {
+              "speaker": 3,
+              "time": "13:59",
+              "text": "不可观测就得打钱了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:01",
+              "text": "公开训练集不公开测试集可以吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "最后就是目的变成打钱刷榜[Doge][Doge]",
+              "quote": {
+                "speaker": 3,
+                "text": "不可观测就得打钱了"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "SteadyPareto Benchmark 原型页面",
+              "url": "https://steadypareto-benchmark.orangeaspen1.chatgpt.site/"
+            }
+          ]
+        },
+        {
+          "category": "使用体验",
+          "title": "群友讨论 OpenAI 频繁提示“at capacity”与封号经历，提及 Pro 额度调整与 Astra 消耗",
+          "text": "有群友询问 OpenAI 提示“Selected model is at capacity. Please try a different model”究竟是服务器问题还是触发了风控。有人认为是短时间流量问题且自己也常碰到，但两位群友表示自己遇到过账号频繁报“at capacity”、大约一周后就被直接封号的情况，且看到别人的账号并未出现该问题；也有人建议可以静默放几天或晚些时候再试。\n\n晚间又有群友认为 GPT 连最聪明的 Astra 模型都明显变蠢，怀疑遭遇降智，有人猜测这可能是账号被标记了风险。此外，多位群友在讨论中认为此前 Pro 20x 的账号可能会在 11 月起改为 Pro 10x，也有人提到可以购买 500 档位；另有群友反馈，使用 Astra 时的 token 消耗比 Opus 5.5 高出约 8 倍，认为原本的 20x 额度本就不怎么耐用。",
+          "emphasis": [
+            "两位群友表示自己遇到过账号频繁报“at capacity”、大约一周后就被直接封号的情况",
+            "另有群友反馈，使用 Astra 时的 token 消耗比 Opus 5.5 高出约 8 倍"
+          ],
+          "aiComment": "看到“at capacity”以为只是服务器堵车，结果群友晒出的一周后封号经历，直接把排队提示看成了病危通知书。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:48",
+              "text": "“Selected model is at capacity. Please try a different model”是被封控了吗，还是现在 oai 服务器的问题啊，大家有这个问题吗"
+            },
+            {
+              "speaker": 2,
+              "time": "15:49",
+              "text": "应该就是短时间流量问题，我也经常碰到",
+              "quote": {
+                "speaker": 1,
+                "text": "“Selected model is at capacity. Please try a different model”是被封控了吗，还是现在 oai 服务器..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:50",
+              "text": "我看别人的账号也没有这个问题，感觉是被封控了",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉是被封控了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:50",
+              "text": "我之前有一个号特别频繁的 at capacity，然后差不多一周之后，这个号就直接被封了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:50",
+              "text": "对对 我也是"
+            },
+            {
+              "speaker": 4,
+              "time": "19:18",
+              "text": "话说 是不是过段时间 所有之前pro20x的账号都会被砍成pro10x",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] oa难道是没技术让吞吐量大吗[Doge]感觉会不会因为是订阅制所以不给这么高的吞吐呢"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:18",
+              "text": "是的"
+            },
+            {
+              "speaker": 6,
+              "time": "19:18",
+              "text": "11月开始吧"
+            },
+            {
+              "speaker": 7,
+              "time": "19:19",
+              "text": "是的"
+            },
+            {
+              "speaker": 8,
+              "time": "19:21",
+              "text": "用Astra tok消耗比opus 5.5高大概8倍"
+            },
+            {
+              "speaker": 8,
+              "time": "19:22",
+              "text": "所以那个20x本身也不怎么耐用"
+            },
+            {
+              "speaker": 9,
+              "time": "19:43",
+              "text": "gpt最近真得没降智吗，感觉现在gpt最聪明的astra都蠢到家了"
+            },
+            {
+              "speaker": 10,
+              "time": "19:46",
+              "text": "可能是账号被flag了"
+            }
+          ]
+        },
+        {
+          "category": "合成环境",
+          "title": "WildAWM 用纯开源模型造出 341 个跨端电脑任务，GPT-6-Astra 首测仅对六成",
+          "text": "有群友分享了 Agent World Model 系列的续作 WildAWM。该工作完全使用开源模型构建合成的个人电脑环境，不蒸馏任何闭源模型，并从中合成了 341 个横跨 GUI、MCP 与 CLI 的长程任务；在这批任务上，GPT-6-Astra 首次测试的准确率也只有约 60%。仅在这些合成环境里做强化学习训练后，Qwen3.6-35B-A3B 在 8 个 OOD benchmark 上取得了平均 10.58 个点的提升。有人追问介绍里提到的“网页、MCP 应用与本地文件共用一个状态”具体指什么，分享者解释，为了在合成世界里累积数据深度，环境里的数据和应用会按天持续增多，从而实现世界状态的跨天累积。",
+          "emphasis": [
+            "完全使用开源模型构建合成的个人电脑环境",
+            "环境里的数据和应用会按天持续增多，从而实现世界状态的跨天累积"
+          ],
+          "aiComment": "全靠开源模型造出 341 个跨端任务，连网页和本地文件都能按天攒状态，GPT-6-Astra 来了也只能先拿个及格分。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:32",
+              "text": "用开源模型造个人电脑环境：网页、MCP 应用、本地文件共用一个状态，一天天累积。在里面合成了 341 个横跨 GUI / MCP / CLI 的长程任务，GPT-6-Astra 第一次也只做对约 60%\n\n只在这些合成环境里RL训练，Qwen3.6-35B-A3B 在 8 个 OOD benchmark 上平均 +10.58\n\n全流程只使用open-source models，拒绝蒸馏任何闭源模型！"
+            },
+            {
+              "speaker": 2,
+              "time": "22:35",
+              "text": "老师 请问下共用一个状态指的是什么呀[疑问]",
+              "quote": {
+                "speaker": 1,
+                "text": "分享一下我们Agent World Model 系列最新工作 WildAWM 👋 用开源模型造个人电脑环境：网页、MCP 应用、本地文件共用一个状态，一天天累积..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:35",
+              "text": "我们是合成世界，为了累积数据深度，需要一天天不断增多data、应用，所以是世界状态累积~",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 老师 请问下共用一个状态指的是什么呀[疑问]"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "WildAWM 论文",
+              "url": "https://arxiv.org/abs/2610.26828"
+            },
+            {
+              "kind": "code",
+              "label": "WildAWM 代码仓库",
+              "url": "https://github.com/MSR-Orchard/WildAWM"
+            },
+            {
+              "kind": "article",
+              "label": "WildAWM 项目主页",
+              "url": "https://msr-orchard.github.io/WildAWM/"
+            },
+            {
+              "kind": "code",
+              "label": "WildAWM Hugging Face 合集",
+              "url": "https://huggingface.co/collections/ChilleD/agent-world-model-in-the-wild"
+            }
+          ]
+        },
+        {
+          "category": "注意力机制",
+          "title": "港科大、CMU 与岩山科技开源新模型砍掉 99% KV Cache，群友辨析注意力机制差异",
+          "text": "有群友分享了港科大、CMU 联手岩山科技开源新模型的文章，标题称其将 KV Cache 砍掉 99%、单卡吞吐提升 6 倍，做到“推理再长，内存不涨”。分享者觉得这种固定上限的 compression 设计与 DeepSeek 有些相似；另一位群友则指出，这种做法大概率属于线性注意力模型，而 DeepSeek 采用的是稀疏注意力。",
+          "emphasis": [
+            "大概率属于线性注意力模型，而 DeepSeek 采用的是稀疏注意力"
+          ],
+          "aiComment": "号称砍掉 99% KV Cache 还能内存不涨，刚有人觉得像 DeepSeek，就有群友猜测是线性注意力，和稀疏注意力可能走的两条路。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:43",
+              "text": "内存还会跌吗？KV Cache砍掉99%，单卡吞吐飙6倍，港科大、CMU联手岩山科技开源新模型"
+            },
+            {
+              "speaker": 1,
+              "time": "02:44",
+              "text": "这个设计为什么感觉和 dpsk 有点像"
+            },
+            {
+              "speaker": 1,
+              "time": "02:45",
+              "text": "固定上限的 compression"
+            },
+            {
+              "speaker": 2,
+              "time": "02:45",
+              "text": "这大概率是线性注意力模型吧"
+            },
+            {
+              "speaker": 2,
+              "time": "02:45",
+              "text": "dpsk是稀疏注意力"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "Agent 评测拆解与推理开源",
+      "theme": "PersonalAgentEval 揭“承诺遗漏”、jev 评测实践与 DeepSeek 开源推理框架",
+      "note": "2026-10-20 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 评测",
+          "title": "发卷子还是写论文：PersonalAgentEval 与 Agent 的“承诺遗漏”",
+          "text": "基座模型评测和 agent 评测到底差在哪？有群友打了个比方：基模评测是给运动员一张卷子，闷头写完直接交卷，看的是任务结果指标；agent 评测则像写论文，得自己找资料、做规划，还要自己判断做没做完，因此除了结果还得加上 tool、skill、记忆和 agent loop 等过程指标。另一位群友认为两者的测试任务大多一致，只是评分指标会把 llm 能力与 harness 能力解耦，并追问有没有专为 agent 评测设计的 benchmark。\n\n聊到当前大热的 Personal Agent（PA），有人觉得 vlm 下的 agent memory 还是不大行，也有人好奇 PA 任务难度似乎不如办公或 coding，而且偏主观，该从哪些维度评价。有群友分享了 PersonalAgentEval 供参考。另一位群友发出的截图显示，即便是领先的 agents 也容易漏掉承诺过的后续步骤：在一项任务中，7 款 agents 都正确找到了历史记录里提过的药房，但只有 Grok Bot 和 Meta Muse 记得按此前的承诺通知照护者。这位群友从后往回看，觉得这和自己此前做游戏 DSL 时遇到的问题颇为相似——当时的初始动机是游戏里的 NPC 不清楚架空世界内有什么，做承诺时会很麻烦：比如要求 NPC 杀掉某个目标后把战利品交给自己，这个“战利品”要到未来才会 grounding，却又是世界动作，因此当时想办法把这种情况用 commitment 存起来，让 agent 对 commitment 负责。",
+          "emphasis": [
+            "加上 tool、skill、记忆和 agent loop 等过程指标",
+            "只有 Grok Bot 和 Meta Muse 记得按此前的承诺通知照护者",
+            "用 commitment 存起来，让 agent 对 commitment 负责"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:15",
+              "text": "同好奇~agent测评更关注哪些指标呢"
+            },
+            {
+              "speaker": 2,
+              "time": "09:58",
+              "text": "基模评测是给运动员一张卷子，脑子一蒙就是写，直接交卷。Agent 评测跟写论文似的，运动员要自己去找很多的资料，自己规划，自己决定自己自己判断做完了没有。",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 姐 agent评测和基座模型评测的区别是什么"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "09:59",
+              "text": "前者任务结果指标，后者加上过程指标（tool，skill，记忆，agent loop 等相关）",
+              "quote": {
+                "speaker": 1,
+                "text": "同好奇~agent测评更关注哪些指标呢"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:10",
+              "text": "hh不过我感觉 vlm下的 agent memory 还是不大行[捂脸]"
+            },
+            {
+              "speaker": 4,
+              "time": "10:11",
+              "text": "话说pa有什么好的评价维度吗？感觉任务都没有办公或者coding难呀"
+            },
+            {
+              "speaker": 4,
+              "time": "10:12",
+              "text": "还有一些偏主观"
+            },
+            {
+              "speaker": 5,
+              "time": "10:18",
+              "text": "那我认为测试的任务（bench）大多是一致的 不过关注的评分指标不一（agent评测会节藕llm能力与harness能力）  有专为agent评测设计的bench吗",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 基模评测是给运动员一张卷子，脑子一蒙就是写，直接交卷。Agent 评测跟写论文似的，运动员要自己去找很多的资料，自己规划，自己决定自己自己判断做完了没有。"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:18",
+              "text": "[链接] 我们正式PersonalAgentEval"
+            },
+            {
+              "speaker": 2,
+              "time": "10:18",
+              "text": "可以学习这个⬆️",
+              "quote": {
+                "speaker": 4,
+                "text": "话说pa有什么好的评价维度吗？感觉任务都没有办公或者coding难呀"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:22",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "10:28",
+              "text": "当时是做游戏的DSL做到的这个问题"
+            },
+            {
+              "speaker": 6,
+              "time": "10:30",
+              "text": "动机是游戏里的NPC不知道什么是架空世界内游戏有的东西，所以做承诺的时候会很麻烦。比如杀了那个npc，把战利品给我，这个战利品是未来才会grounding的，但又是世界动作，所以想办法把这种情况用commitment存起来，从后往回看我感觉就跟这个类似",
+              "quote": {
+                "speaker": 6,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:30",
+              "text": "大概就是agent要对commitment负责"
+            }
+          ],
+          "aiComment": "7个Agent全找对了药房，5个转头忘了通知照护者，这记性确实像打完怪直接下线的NPC。"
+        },
+        {
+          "category": "评测工具",
+          "title": "拿 jev 给桌宠改 prompt 当考官与校验 SQL 语义一致性",
+          "text": "面对 Personal Agent 评测中难以避免的主观判断，有群友推荐了评测工具 jev，提到它有 RLCD，感觉还挺好用，主要优势是便宜。这位群友目前在做桌宠的 self improve，就拿 jev 给桌宠的说话打分：桌宠跟用户积累了一天日志后，要是自己有点想法想改 prompt，在更新后还没有真实用户轨迹的情况下，就会先拿 jev 当考官，得分高才给试用机会，实测觉得还算挺准。\n\n另一位群友表示写个 rubric 就能支持这类打分，自己则把 jev 用在路由判断上，用来判断 llm 生成的 sql 与用户 goal 的语义一致性。有人追问效果与成本，这位做 SQL 校验的群友反馈说，jev 的输出结构只有三种，速度上有提升，而且输出免费，官方送的 5 刀可以用好久；至于语义一致性的质量评估，由于目前手头数据库不多、表结构也不复杂，效果上暂时只能体现出速度优势，自己预计在数据库很多或复杂 sql 查询下效果会很好，后续还需要考虑复杂情况下的判断。",
+          "emphasis": [
+            "先拿 jev 当考官，得分高才给试用机会",
+            "输出结构只有三种，速度上有提升，而且输出免费",
+            "由于目前手头数据库不多、表结构也不复杂，效果上暂时只能体现出速度优势"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:12",
+              "text": "建议试一下jev，实测判断还可以。主观感觉是避免不了了",
+              "quote": {
+                "speaker": 5,
+                "text": "话说pa有什么好的评价维度吗？感觉任务都没有办公或者coding难呀"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:13",
+              "text": "主要是便宜"
+            },
+            {
+              "speaker": 2,
+              "time": "10:29",
+              "text": "目前jev我用在了路由判断，llm生成的sql与用户goal进行语意一致性判断",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 建议试一下jev，实测判断还可以。主观感觉是避免不了了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:35",
+              "text": "效果如何?",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 目前jev我用在了路由判断，llm生成的sql与用户goal进行语意一致性判断"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:40",
+              "text": "我感觉速度上有提升，毕竟他输出的结构只有三种"
+            },
+            {
+              "speaker": 4,
+              "time": "10:40",
+              "text": "成本应该降了不少吧"
+            },
+            {
+              "speaker": 2,
+              "time": "10:40",
+              "text": "对"
+            },
+            {
+              "speaker": 2,
+              "time": "10:40",
+              "text": "他输出免费"
+            },
+            {
+              "speaker": 2,
+              "time": "10:40",
+              "text": "官方送的5刀"
+            },
+            {
+              "speaker": 2,
+              "time": "10:41",
+              "text": "可以用好久"
+            },
+            {
+              "speaker": 1,
+              "time": "10:41",
+              "text": "他有RLCD"
+            },
+            {
+              "speaker": 1,
+              "time": "10:41",
+              "text": "somewhat感觉还挺好用的？"
+            },
+            {
+              "speaker": 1,
+              "time": "10:44",
+              "text": "我现在在做桌宠的self improve就在用jev给桌宠的说话打分。比如桌宠跟用户积累了一天的日志，他自己有点想法想要改自己的prompt，就会用jev当考官（更新prompt之后没有真实用户轨迹），分高才给trail"
+            },
+            {
+              "speaker": 1,
+              "time": "10:44",
+              "text": "我觉得还算挺准的"
+            },
+            {
+              "speaker": 2,
+              "time": "10:44",
+              "text": "对于语意一致性质量评估的话，如果是数据库很多或者复杂的sql查询，我觉得效果会很好，但是我目前数据库不多，表结构也不复杂，所以效果上只能提现速度，进一步还需要考虑复杂的情况下去判断",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 效果如何?"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:45",
+              "text": "这个也是可以的，写一个rubric",
+              "quote": {
+                "speaker": 1,
+                "text": "我现在在做桌宠的self improve就在用jev给桌宠的说话打分。比如桌宠跟用户积累了一天的日志，他自己有点想法想要改自己的prompt，就会用jev当考官..."
+              }
+            }
+          ],
+          "aiComment": "桌宠想给自己改prompt还得先过jev考官这关，官方送的5刀怕是够它考上好几轮岗前培训了。"
+        },
+        {
+          "category": "开源动态",
+          "title": "DeepSeek 开源推理框架：文档现 V4.1-Flash 与单卡回本追问",
+          "text": "有群友分享了《DeepSeek 开源推理框架：走向真正普惠的未来》一文。一位群友查看文档后晒出截图，询问是不是只开源了 4.1 的 branch，截图显示 Supported models 列表下有一项 DeepSeek-V4.1-Flash。另一位群友在群里给出数据称，目前单一集群的服务吞吐是 155 万亿 Tokens/天，按谷价计算整体收入是每卡每小时 38 美金；有人顺势追问有没有人算过多少天回本，也有群友认为这里的成本结构应该挺多。",
+          "emphasis": [
+            "是不是只开源了 4.1 的 branch",
+            "有人顺势追问有没有人算过多少天回本"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:12",
+              "text": "[链接] DeepSeek 开源推理框架：走向真正普惠的未来"
+            },
+            {
+              "speaker": 2,
+              "time": "17:17",
+              "text": "是不是只开源了4.1的branch"
+            },
+            {
+              "speaker": 2,
+              "time": "17:17",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:21",
+              "text": "目前单一集群的服务吞吐是 155 万亿 Tokens/天，整体收入是每卡每小时 38 美金（按谷价）。"
+            },
+            {
+              "speaker": 4,
+              "time": "17:21",
+              "text": "多少天回本有人算了吗"
+            },
+            {
+              "speaker": 1,
+              "time": "17:25",
+              "text": "这个成本结构应该挺多的吧"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "DeepInfer 开源实现",
+              "url": "https://github.com/deepseek-ai/DeepInfer"
+            }
+          ],
+          "aiComment": "文档里刚冒出个V4.1-Flash，群友对着每卡每小时38美金的数据，算盘珠子已经拨到几天回本了。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2204 @@
+{
+  "id": "2026-10-18",
+  "date": "2026-10-18",
+  "label": "2026-10-18 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当日无实质技术讨论与可读记录。",
+      "note": "2026-10-18 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Code2Video 重在写代码还是训视频模型？",
+      "theme": "探讨 UMM 上下文过短对多轮视觉迭代的限制，以及基于可验证规则合成高难题目的高昂验证成本。",
+      "note": "2026-10-18 · 当日本地记录",
+      "stories": [
+        {
+          "category": "多模态生成",
+          "title": "Code2Video 重在写代码还是训视频模型？顺带聊聊总穿模的 Blender Agent",
+          "text": "有人打听近期有哪些值得投入的多模态 Agent 生产力场景，群友陆续提名了 CUA、视频生成以及近期颇受关注的 Code2Video。在评测与参考工作上，有群友提到这类任务很多和 world model 结合，可以用 world model 的 benchmark，并分享了自己团队的 StreamRender-H3 和近期的 Matrix Game 4。针对生成形态的追问，这位群友拆解了当前的两条路线：一条纯走代码路线，用 Blender 建模配合运镜控制渲染，不过试过一次 4D 建模感觉难度较大；另一条是先用代码写出简易视觉结构充当 draft video 或 visual prompt，再交给 diffusion 模型作为 reference video 渲染出真实画面。\n\n至于 Code2Video 的重心究竟在 code 还是 video，群里出现了几种不同判断。一位群友认为 video 侧还要走好一阵，尤其是向 world model 演进时面临长时序难题；他理解 Code2Video 不会根据渲染出的视频迭代修复，只是直接由代码生成场景布局后交给视频模型。另一人补充说这种做法其实做得不会很好，并不可控。提问的群友则觉得重点在 code，因为把画面生成得更快更好本就是原有视频模型一直在做的事。\n\n还有群友认为两者都很重要、也都还不成熟：如何作为渲染器更快更好地生成尚无定论（近期有篇 SolarRender 涉及这一方向），而大多数模型本身的 Blender Agent 能力也很弱。被问及“如果基座模型足够强，Blender Agent 还缺什么”时，这位群友表示实测下来除了 Astra 之外的模型基本都不太行，到处是穿模和奇葩建模，导致目前这一方向做 benchmark 的多、做方法论的少；提出 code 更重要的那位群友也附和，现有一堆 benchmark 里只有 Astra 表现很好。有人疑惑 BlenderBench 类评测是不是已经被刷爆了，该群友反驳说并没有，这类任务远不止三维重建，难度上限可以做得很深，并分享了一篇相关论文。",
+          "emphasis": [
+            "一条纯走代码路线，用 Blender 建模配合运镜控制渲染",
+            "另一条是先用代码写出简易视觉结构充当 draft video 或 visual prompt，再交给 diffusion 模型作为 reference video 渲染出真实画面",
+            "提问的群友则觉得重点在 code",
+            "实测下来除了 Astra 之外的模型基本都不太行，到处是穿模和奇葩建模，导致目前这一方向做 benchmark 的多、做方法论的少"
+          ],
+          "aiComment": "Code2Video 重心在哪还没吵明白，Blender 里的模型已经开始花式穿模了，方法论跑得还没基准测试快。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Blender Agent 相关研究论文 (arXiv:2610.15166)",
+              "url": "https://arxiv.org/abs/2610.15166"
+            },
+            {
+              "kind": "article",
+              "label": "StreamRender-H3 项目主页",
+              "url": "https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:44",
+              "text": "感觉要持续发现以前llm/agent做不了 现在有机会能做的有价值的任务/domain，也是一件非常重要的事"
+            },
+            {
+              "speaker": 1,
+              "time": "20:45",
+              "text": "大家最近有发现什么值得做的多模态agent生产力任务场景吗"
+            },
+            {
+              "speaker": 2,
+              "time": "20:47",
+              "text": "感觉是不是就 cua 了或者 to video",
+              "quote": {
+                "speaker": 1,
+                "text": "大家最近有发现什么值得做的多模态agent生产力任务场景吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:52",
+              "text": "code2video比较火",
+              "quote": {
+                "speaker": 1,
+                "text": "大家最近有发现什么值得做的多模态agent生产力任务场景吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:54",
+              "text": "最近有无比较好的bench呀",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] code2video比较火"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:07",
+              "text": "这个有推荐看的工作吗？",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] code2video比较火"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:33",
+              "text": "很多都是和world model结合的，可以用wm的bench吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 最近有无比较好的bench呀"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:36",
+              "text": "可以看看我们最新的工作[旺柴]https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 这个有推荐看的工作吗？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:37",
+              "text": "最近还有matrix game 4"
+            },
+            {
+              "speaker": 5,
+              "time": "21:38",
+              "text": "code2video 任务目前生成的主要是视频格式还是 blender 渲染的4d建模啊",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] code2video比较火"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:42",
+              "text": "一种纯从code角度的做法，就是blender建模+运镜控制渲染，4d我不清楚，但试过一次感觉难度比较大？还有一种是coding出来的简易视觉结构作为draft video或者是visual prompt，给到diffusion作为reference video，diffusion再给出渲染后的比较真实的video"
+            },
+            {
+              "speaker": 6,
+              "time": "22:06",
+              "text": "想请教一下，Code2video重点在code还是在video"
+            },
+            {
+              "speaker": 7,
+              "time": "22:14",
+              "text": "都很重要"
+            },
+            {
+              "speaker": 7,
+              "time": "22:15",
+              "text": "因为blender agent能力本身大部分模型都较弱，作为render怎么样更快更好进行生成也不清楚，这两种怎么进行连接也可以研究"
+            },
+            {
+              "speaker": 8,
+              "time": "22:15",
+              "text": "我code没玩过，但是video我感觉还要走好一阵[捂脸]"
+            },
+            {
+              "speaker": 7,
+              "time": "22:16",
+              "text": "code这边也不太行"
+            },
+            {
+              "speaker": 8,
+              "time": "22:16",
+              "text": "特别是video变成world model"
+            },
+            {
+              "speaker": 8,
+              "time": "22:16",
+              "text": "现在长时序还是问题"
+            },
+            {
+              "speaker": 7,
+              "time": "22:16",
+              "text": "最近好像有一篇"
+            },
+            {
+              "speaker": 7,
+              "time": "22:16",
+              "text": "solarrender"
+            },
+            {
+              "speaker": 8,
+              "time": "22:22",
+              "text": "如果llm能力足够好，比如gpt6，blender agent除了吃llm还吃啥的能力呀",
+              "quote": {
+                "speaker": 7,
+                "text": "因为blender agent能力本身大部分模型都较弱，作为render怎么样更快更好进行生成也不清楚，这两种怎么进行连接也可以研究"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "22:23",
+              "text": "渲染视频后根据视频迭代修复优化？"
+            },
+            {
+              "speaker": 8,
+              "time": "22:28",
+              "text": "不会迭代修复吧，我理解code video，是直接code生成场景布局，然后给生成模型生成视频了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:17",
+              "text": "我们做的结论就是当时除了astra都不太行[捂脸]",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 如果llm能力足够好，比如gpt6，blender agent除了吃llm还吃啥的能力呀"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "23:18",
+              "text": "各种穿模，奇葩建模"
+            },
+            {
+              "speaker": 7,
+              "time": "23:18",
+              "text": "所以现在blender agent做bench的很多 做方法论的很少"
+            },
+            {
+              "speaker": 10,
+              "time": "23:19",
+              "text": "现在做blenderbench的不都被刷爆了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:21",
+              "text": "没有吧"
+            },
+            {
+              "speaker": 7,
+              "time": "23:21",
+              "text": "这个可以做的很难"
+            },
+            {
+              "speaker": 7,
+              "time": "23:21",
+              "text": "而且不只是重建"
+            },
+            {
+              "speaker": 7,
+              "time": "23:22",
+              "text": "https://arxiv.org/html/2610.15166v1 可以看下我们的这篇工作"
+            },
+            {
+              "speaker": 6,
+              "time": "23:28",
+              "text": "目前一堆benchmark，就只有astra 表现很好，其他的就很一般",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 我们做的结论就是当时除了astra都不太行[捂脸]"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "23:33",
+              "text": "对 但其实做的不会很好 并不可控",
+              "quote": {
+                "speaker": 8,
+                "text": "不会迭代修复吧，我理解code video，是直接code生成场景布局，然后给生成模型生成视频了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:35",
+              "text": "我实际上觉得，Code2video 中更重要的是code，video model所谓的更快更好实际上就是原来video model在做的事情",
+              "quote": {
+                "speaker": 7,
+                "text": "都很重要"
+              }
+            }
+          ]
+        },
+        {
+          "category": "架构与上下文",
+          "title": "视频动辄 9 万 token，UMM 上下文太短卡死多轮视觉迭代",
+          "text": "聊起视觉生成的多轮修改，有群友直言别说视频，连靠 Agent 迭代优化图像的靠谱方案都没见过几个。有人提到目前有先生成 bounding box 再直接渲染图像的做法；前述群友也顺势推介了自己团队的 MOSS-Image，称发布好像不到 48 小时已有 35 万下载。\n\n为什么原生多模态模型很难自己多轮改图或改视频？一位做过相关尝试的群友指出了卡点：此前尝试用 UMM（统一多模态模型）把生成作为原生能力，通过多轮推理与工具调用去迭代生成，结果受制于 UMM 的上下文太短；以 Emu3.5 为例，上下文只有 3 万多，在生成任务上根本不够支撑多轮迭代。挑起话头的群友补充说，视频序列动辄就是 9 万 token 以上，只做理解任务尚可，做生成时 token 太少直接没法跑，问题本质卡在长 token 序列的理解与生成上。另一位群友也分享了一篇论文佐证，指出 UMM 不仅长上下文表现差，甚至在还不算长的序列上连图文 interleave 都做得不好。\n\n既然原生自回归迭代走不通，前面尝试过 UMM 的群友认为现阶段还得退回“Agent 把生成模型当 tool 调用”的范式，本质上靠优化 prompt 来驱动生成；挑起话头的群友则觉得，在条件注入部分做 scale 正变得越来越有收益，Code2Video 其实就是这一思路的体现。",
+          "emphasis": [
+            "受制于 UMM 的上下文太短",
+            "视频序列动辄就是 9 万 token 以上，只做理解任务尚可，做生成时 token 太少直接没法跑，问题本质卡在长 token 序列的理解与生成上",
+            "现阶段还得退回“Agent 把生成模型当 tool 调用”的范式，本质上靠优化 prompt 来驱动生成"
+          ],
+          "aiComment": "Emu3.5 三万多的上下文遇上动辄九万 token 的视频序列，多轮改图还没开始，记忆容量已经先告辞了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "UMM 长上下文与图文交错能力评估论文 (arXiv:2602.11144)",
+              "url": "https://arxiv.org/abs/2602.11144"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:03",
+              "text": "感觉别说视频了，图像都没见过几个比较靠谱的。Agent 迭代优化图像的"
+            },
+            {
+              "speaker": 2,
+              "time": "23:04",
+              "text": "现在有直接生成bouding box",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉别说视频了，图像都没见过几个比较靠谱的。Agent 迭代优化图像的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:04",
+              "text": "然后从bounding box直接渲染图像的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:06",
+              "text": "是呀是呀，这边重点宣传一下我们的 MOSS-Image，欢迎大家来尝试"
+            },
+            {
+              "speaker": 1,
+              "time": "23:06",
+              "text": "看了一下，好像发布不到 48 小时，已经 35 万下载了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:06",
+              "text": "我们之前有一篇",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉别说视频了，图像都没见过几个比较靠谱的。Agent 迭代优化图像的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:07",
+              "text": "通过umm，把gen作为原生能力，通过这种方式去迭代生成推理工具调用"
+            },
+            {
+              "speaker": 3,
+              "time": "23:07",
+              "text": "但是发现有个问题"
+            },
+            {
+              "speaker": 3,
+              "time": "23:07",
+              "text": "umm上下文太短了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:08",
+              "text": "确实"
+            },
+            {
+              "speaker": 1,
+              "time": "23:08",
+              "text": "所以视频更加不可能了，视频的 token 我们看了一眼都是 9 万以上"
+            },
+            {
+              "speaker": 1,
+              "time": "23:09",
+              "text": "所以这个问题本质是长文 token 序列理解和生成问题"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "对"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "所以还得是那种agent调用gen模型作为tool工具"
+            },
+            {
+              "speaker": 4,
+              "time": "23:09",
+              "text": "umm 长上下文很差，参考我们之前的工作：https://arxiv.org/pdf/2602.11144"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "本质就是优化prompt这种"
+            },
+            {
+              "speaker": 4,
+              "time": "23:10",
+              "text": "都不算长"
+            },
+            {
+              "speaker": 3,
+              "time": "23:10",
+              "text": "的gen形式"
+            },
+            {
+              "speaker": 4,
+              "time": "23:10",
+              "text": "只是interleave都做得不太好"
+            },
+            {
+              "speaker": 3,
+              "time": "23:11",
+              "text": "emu3.5",
+              "quote": {
+                "speaker": 1,
+                "text": "所以视频更加不可能了，视频的 token 我们看了一眼都是 9 万以上"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:11",
+              "text": "上下文才3w多"
+            },
+            {
+              "speaker": 1,
+              "time": "23:25",
+              "text": "得看目标吧，如果只是理解还好，生成 token 太少要寄",
+              "quote": {
+                "speaker": 3,
+                "text": "上下文才3w多"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:26",
+              "text": "对我就是指生成嘛"
+            },
+            {
+              "speaker": 3,
+              "time": "23:27",
+              "text": "上下文太少，就导致它没办法做迭代"
+            },
+            {
+              "speaker": 1,
+              "time": "23:34",
+              "text": "确实，现在我们感觉条件注入部分 scale 越来越有收益了，code2video 其实是一个例子",
+              "quote": {
+                "speaker": 3,
+                "text": "上下文太少，就导致它没办法做迭代"
+              }
+            }
+          ]
+        },
+        {
+          "category": "合成数据",
+          "title": "模型自我合成高难题目：以可验证规则为锚点，跑一次 Judge 动辄半小时",
+          "text": "有群友抛出问题：LLM/Agent 离自我合成能难倒自己的题目还有多远？有人质疑这是伪命题，既然能合成出来，为什么自己会解不开？提问者解释，像提出黎曼猜想同等难度却无法验证的命题并不难，但那种难度没有训练意义，理想状态是合成刚好高出模型当前能力一点的题目。也有人觉得提出好问题本就比解题更难。\n\n多位群友认为这在工程上已经可行。有人透露自己用模型造出的题有时模型自己就解不出来，换用 Sonnet 才能解开。另一位群友指出，只要搭起足够复杂的 workflow 或 scaffold 就能实现，目前工业界合成 SWE 数据基本都靠一套 adhoc 且足够复杂的链路来造题，强模型与弱模型的差距主要体现在产率上。\n\n至于为什么 SWE 场景更容易跑通，有群友点出关键：SWE 问题自带真实 repo 作为 context，且本身是 executable（可执行）的，和其他领域的问题不太一样。另一位群友进一步总结，核心是以规则为锚点，基于可验证的规则去约束题目生成。不过这条路线的验证成本不低：前一位自己造题的群友正在尝试自定义的规则约束生成，目前还没有现成 baseline，跑一次任务规则验证就要 10 分钟；那位总结规则锚点的群友则表示 10 分钟很正常，现在一些 long horizon task 跑一次 judge 甚至要花 20 到 30 分钟。",
+          "emphasis": [
+            "理想状态是合成刚好高出模型当前能力一点的题目",
+            "强模型与弱模型的差距主要体现在产率上",
+            "SWE 问题自带真实 repo 作为 context，且本身是 executable（可执行）的",
+            "核心是以规则为锚点，基于可验证的规则去约束题目生成",
+            "现在一些 long horizon task 跑一次 judge 甚至要花 20 到 30 分钟"
+          ],
+          "aiComment": "模型自己出题自己解不开，换成人类等一次 Judge 也要半小时，到底是谁在考谁还真不好说。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:35",
+              "text": "llm/agent离自我合成能难倒自己的题目还有多远？"
+            },
+            {
+              "speaker": 2,
+              "time": "20:36",
+              "text": "这不是伪命题吗🤔",
+              "quote": {
+                "speaker": null,
+                "text": "llm/agent离自我合成能难倒自己的题目还有多远？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:36",
+              "text": "为啥是伪命题"
+            },
+            {
+              "speaker": 2,
+              "time": "20:37",
+              "text": "既然能合成为啥会解决不了呢🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "20:38",
+              "text": "比如提出一个猜想但是没办法验证，比如黎曼猜想同等难度的"
+            },
+            {
+              "speaker": 3,
+              "time": "20:39",
+              "text": "我感觉应该完全可以吧"
+            },
+            {
+              "speaker": 3,
+              "time": "20:39",
+              "text": "有一个足够复杂的workflow/scaffold应该就可以 swe应该是可以的"
+            },
+            {
+              "speaker": 1,
+              "time": "20:39",
+              "text": "当然这种难度没意义，如果是能合成刚刚好超过模型能力的是很好的"
+            },
+            {
+              "speaker": 4,
+              "time": "20:40",
+              "text": "提出问题比解题难吧"
+            },
+            {
+              "speaker": 4,
+              "time": "20:40",
+              "text": "在我理解力"
+            },
+            {
+              "speaker": 5,
+              "time": "20:40",
+              "text": "我自己模型造的题有时候自己解不出来"
+            },
+            {
+              "speaker": 5,
+              "time": "20:41",
+              "text": "不过换个sonnet就行了"
+            },
+            {
+              "speaker": 3,
+              "time": "20:41",
+              "text": "工业swe合成数据应该目前都是用一套adhoc且足够复杂的链路来造题的"
+            },
+            {
+              "speaker": 3,
+              "time": "20:41",
+              "text": "强和弱模型的diff应该主要在产率"
+            },
+            {
+              "speaker": 6,
+              "time": "20:45",
+              "text": "swe的问题是executable的 和其他问题不太一样"
+            },
+            {
+              "speaker": 6,
+              "time": "20:45",
+              "text": "而且context是真实repo"
+            },
+            {
+              "speaker": 1,
+              "time": "20:46",
+              "text": "确实",
+              "quote": {
+                "speaker": 6,
+                "text": "swe的问题是executable的 和其他问题不太一样"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:52",
+              "text": "实际上就是还得要以规则为锚点",
+              "quote": {
+                "speaker": 6,
+                "text": "swe的问题是executable的 和其他问题不太一样"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:53",
+              "text": "基于可验证的规则去约束题目生成"
+            },
+            {
+              "speaker": 5,
+              "time": "20:54",
+              "text": "这玩意好难做，我最近在做类似的",
+              "quote": {
+                "speaker": 7,
+                "text": "基于可验证的规则去约束题目生成"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "20:55",
+              "text": "跑一次任务规则验证就要10分钟"
+            },
+            {
+              "speaker": 8,
+              "time": "21:08",
+              "text": "有推荐的baseline吗",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 这玩意好难做，我最近在做类似的"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "21:15",
+              "text": "好像🈚️，我属于是自己定义的",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 有推荐的baseline吗"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "21:43",
+              "text": "很正常，现在一些long horizon task跑judge都要20-30分钟",
+              "quote": {
+                "speaker": 5,
+                "text": "跑一次任务规则验证就要10分钟"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "21:43",
+              "text": "10分钟是正常的"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "MiMo 开源编程环境为何曝出 67% 答案泄漏？",
+      "theme": "分析 AI4S 面临的数据垄断与临床周期瓶颈，探讨 Qwen3-4B 陷入循环的归因与合成题评测错配。",
+      "note": "2026-10-18 · 当日本地记录",
+      "stories": [
+        {
+          "category": "RL 环境与防作弊",
+          "title": "MiMo 开源编程环境被曝 67% 答案泄漏：内部靠反作弊脚本兜底，发布镜像未内置清理",
+          "text": "有群友转出一篇审计文章的截图：小米 MiMo 开源的编程训练环境被曝存在答案泄漏，模型不必真正调试代码，顺着镜像里的 Git 历史就能找到修复补丁，分享者质疑这是防作弊设计疏漏还是有意为之。\n\n另一位群友贴出对照技术报告的核实截图，报告里提到团队设有主动寻找答案泄漏和漏洞的 Hack Agent 来协助清理流程，并声称会做 filter out，但不知实际过滤到了什么程度，公开审计确实在环境中发现了漏洞。前一位群友补充，其数据构造管线里本就有个 hacker subagent 负责搜集证据并交由 worker 清理，做法类似联网搜索防作弊时让 hacker 持续搜出有利网址再由 controller 封禁，因此曝出 67% 的泄漏率显得很夸张。\n\n随后贴出的回应推文截图给出了原因。群友解读称，其内部 RL 训练采用的是“可破解环境加独立反作弊预处理脚本”的组合，这样遇到新的破解模式只需更新脚本而不必重建镜像；团队借此否认训练过程发生了作弊，但承认单独开源出来的环境在缺少配对预处理脚本时确实可以被 hack。",
+          "emphasis": [
+            "顺着镜像里的 Git 历史就能找到修复补丁",
+            "团队设有主动寻找答案泄漏和漏洞的 Hack Agent 来协助清理流程",
+            "内部 RL 训练采用的是“可破解环境加独立反作弊预处理脚本”的组合",
+            "单独开源出来的环境在缺少配对预处理脚本时确实可以被 hack"
+          ],
+          "aiComment": "训练时配了反作弊脚本，开源镜像却忘了打包，模型顺着 Git 历史翻出 67% 的补丁，宛如考场没收走参考书。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:42",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:42",
+              "text": "这个是环境防作弊设计有问题吗，还是故意这么设计的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "技术报告里说回去做filter out，but 不知道做到什么程度（"
+            },
+            {
+              "speaker": 1,
+              "time": "21:57",
+              "text": "他们构造数据的管线里面有个subagent，好像是hacker，会负责搜集证据并进行还原，如果能找到则会给worker把它找到的证据上交，用于进一步清理"
+            },
+            {
+              "speaker": 1,
+              "time": "21:57",
+              "text": "按理来说和他们防作弊也可以做类似的工作"
+            },
+            {
+              "speaker": 1,
+              "time": "21:58",
+              "text": "hacker联网一直搜索对当前有利的网址信息，然后controller把它找到的网址ban掉"
+            },
+            {
+              "speaker": 1,
+              "time": "21:58",
+              "text": "67%泄漏也太夸张了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:00",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:19",
+              "text": "承认了的意思吗[脸红]"
+            },
+            {
+              "speaker": 2,
+              "time": "22:22",
+              "text": "我理解她的意思是打包的环境是能hack，训练的时候有脚本来进行避免hack的操作？意思是否认训练的时候进行hack了，不过承认release的环境确实能hack",
+              "quote": {
+                "speaker": 1,
+                "text": "承认了的意思吗[脸红]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:22",
+              "text": "好像是这个意思"
+            },
+            {
+              "speaker": 4,
+              "time": "22:22",
+              "text": "感觉是的",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我理解她的意思是打包的环境是能hack，训练的时候有脚本来进行避免hack的操作？意思是否认训练的时候进行hack了，不过承认release的环境确实能hack"
+              }
+            }
+          ]
+        },
+        {
+          "category": "AI for Science",
+          "title": "AI for Science 的落地瓶颈：数据垄断、漫长临床期与“虚拟细胞”",
+          "text": "有群友强烈建议在其他方向做得很好、喜欢做学术的 AI 研究者不要进入 AI for Science，认为其学术困境和传统“生化环材”完全一致，像计算化学、计算物理这类基础性质研究离钱很远。另一位群友从数据角度补充，公开数据库每天都有一大堆 AI 在跑，药企内部数据又封闭不流通，而在公共卫生与环境方向，随着“黑灯实验室”成批涌现以及国家级的数据整合，没有数据集垄断很难把 AI4S 搞起来。\n\n聊到最具想象空间的药物研发为何还没跑出艾滋病或癌症特效药，有人认为药学中大批量试错的排列组合类似 AlphaFold 算蛋白，AI 切入最快；但也有人指出真正的卡点在于数据以及漫长的一期到三期临床试验。话题由此转到美国正在推进的“虚拟细胞”，即跳过动物实验和类器官伦理限制，用生物界的 world model 做模拟。国内同样有团队跟进这一方向，被问到国内进展到哪一步，有群友回答“和线性方法比高下这一步”。\n\n至于各家模型厂为何纷纷盯上科学领域，有群友认为是在 coding 的故事讲完后寻找下一个增长点，路径更偏向 agentic for science、cua for science 和 coding for science。前一位群友感慨，大家口中的 LLM for Science 和传统计算科学完全不是一个东西，应该切开来聊。",
+          "emphasis": [
+            "没有数据集垄断很难把 AI4S 搞起来",
+            "真正的卡点在于数据以及漫长的一期到三期临床试验",
+            "大家口中的 LLM for Science 和传统计算科学完全不是一个东西，应该切开来聊"
+          ],
+          "aiComment": "有人聊虚拟细胞要跳过动物实验，也有群友直言国内这一方向还在“和线性方法比高下这一步”。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "我之前就想过搞ai4s，这块儿关键感觉在于数据集的垄断"
+            },
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "本来我之前有个很不错的idea，结果生态环境部携手黑灯实验室给我干爆了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "黑灯实验室跟雨后春笋一样突然凭空出现一大堆"
+            },
+            {
+              "speaker": 2,
+              "time": "16:26",
+              "text": "Science的话还是drug最有想象空间？"
+            },
+            {
+              "speaker": 3,
+              "time": "16:26",
+              "text": "我强烈建议在其他方向做得很好的人、喜欢做学术的AI研究者不要进入AI for Science领域，因为 AI for Science 的学术困境和生化环材完全一致"
+            },
+            {
+              "speaker": 4,
+              "time": "16:26",
+              "text": "ai4s问题还是在数据"
+            },
+            {
+              "speaker": 1,
+              "time": "16:27",
+              "text": "药学部分感觉已经被研究透了",
+              "quote": {
+                "speaker": 2,
+                "text": "Science的话还是drug最有想象空间？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:27",
+              "text": "以及临床实验"
+            },
+            {
+              "speaker": 4,
+              "time": "16:27",
+              "text": "一期到三期"
+            },
+            {
+              "speaker": 4,
+              "time": "16:27",
+              "text": "时间太长了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:27",
+              "text": "你说的没错",
+              "quote": {
+                "speaker": 3,
+                "text": "我强烈建议在其他方向做得很好的人、喜欢做学术的AI研究者不要进入AI for Science领域，因为 AI for Science 的学术困境和生化环材完全一..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:27",
+              "text": "这块儿我感觉数据都会被国家垄断唉"
+            },
+            {
+              "speaker": 1,
+              "time": "16:28",
+              "text": "药学这种以大批量试错为主的排列组合学科，ai搞起来最快",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 这怎么说"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:28",
+              "text": "和alphafold算蛋白一个道理"
+            },
+            {
+              "speaker": 1,
+              "time": "16:28",
+              "text": "我之前想的是做公共卫生环境这块儿，ai做这块儿其实还是很缺数据库"
+            },
+            {
+              "speaker": 1,
+              "time": "16:29",
+              "text": "公开数据库我感觉每天都有一大堆ai在跑",
+              "quote": {
+                "speaker": 7,
+                "text": "ai4s也有做公开数据集的算法的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:29",
+              "text": "但是还没有一个比如ai生产的特效药，艾滋，癌症什么的",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 药学这种以大批量试错为主的排列组合学科，ai搞起来最快"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:29",
+              "text": "不搞数据集垄断，ai4s搞不起来"
+            },
+            {
+              "speaker": 1,
+              "time": "16:30",
+              "text": "只是现在很多公司数据库都很封闭，数据不流通"
+            },
+            {
+              "speaker": 1,
+              "time": "16:31",
+              "text": "美利坚在搞虚拟细胞"
+            },
+            {
+              "speaker": 4,
+              "time": "16:31",
+              "text": "虚拟细胞和world model一个东西"
+            },
+            {
+              "speaker": 1,
+              "time": "16:31",
+              "text": "涉及到人，最开始是动物实验，然后类器官，这些都需要伦理，但现在虚拟细胞来了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:31",
+              "text": "只不过是bio界的world model"
+            },
+            {
+              "speaker": 5,
+              "time": "16:31",
+              "text": "这么炫酷",
+              "quote": {
+                "speaker": 1,
+                "text": "美利坚在搞虚拟细胞"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:31",
+              "text": "听着确实",
+              "quote": {
+                "speaker": 4,
+                "text": "虚拟细胞和world model一个东西"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:32",
+              "text": "虚拟细胞国内做的也很多"
+            },
+            {
+              "speaker": 4,
+              "time": "16:33",
+              "text": "不过如果coding的故事真的讲完了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:33",
+              "text": "马上轮到实验了",
+              "quote": {
+                "speaker": 4,
+                "text": "不过如果coding的故事真的讲完了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:33",
+              "text": "各家模型场也确实需要寻找下一个增长点了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:33",
+              "text": "目前看起来都在看science"
+            },
+            {
+              "speaker": 6,
+              "time": "16:33",
+              "text": "和线性方法比高下这一步",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这块儿进展到哪一步了国内"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:34",
+              "text": "agentic  for science"
+            },
+            {
+              "speaker": 4,
+              "time": "16:34",
+              "text": "cua for science"
+            },
+            {
+              "speaker": 4,
+              "time": "16:34",
+              "text": "coding for science"
+            },
+            {
+              "speaker": 3,
+              "time": "16:35",
+              "text": "感觉我们说的AI for Science完全不是一个东西（"
+            },
+            {
+              "speaker": 4,
+              "time": "16:35",
+              "text": "现在应该是llm for science",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉我们说的AI for Science完全不是一个东西（"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:35",
+              "text": "我感觉这个范围很广吧",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉我们说的AI for Science完全不是一个东西（"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:36",
+              "text": "应该切开来聊了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:42",
+              "text": "@群友 3 怎么理解的哥，我感觉我理解的不全面",
+              "quote": {
+                "speaker": 3,
+                "text": "我强烈建议在其他方向做得很好的人、喜欢做学术的AI研究者不要进入AI for Science领域，因为 AI for Science 的学术困境和生化环材完全一..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:49",
+              "text": "离💰近还是远…",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] @群友 3 怎么理解的哥，我感觉我理解的不全面"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:52",
+              "text": "哲学算不上 但至少我是做计算的",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 我以为你上升到哲学层面了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:52",
+              "text": "计算化学 计算物理… 本质上是基础性质研究"
+            },
+            {
+              "speaker": 1,
+              "time": "16:52",
+              "text": "确实唉",
+              "quote": {
+                "speaker": 3,
+                "text": "计算化学 计算物理… 本质上是基础性质研究"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型后训练",
+          "title": "Qwen3-4B 后训练频陷 Agent Loop：缺乏终止奖励还是基座 Overthink？",
+          "text": "有群友在基于 qwen3-4b 做 agentic coding 后训练时，发现模型频繁掉进重复的 agent loop。一位群友猜测，这可能是因为模型对自由生成的结束缺乏奖励：SFT 只是模仿教师，但教师轨迹不等于自由生成的轨迹，或许需要引入结束指标奖励来做自由生成的 RL。另一位群友得知基座是 qwen3-4b 后直接归因于模型本身，指出 qwen3 在 agent 任务上 overthink 极其严重，“不太会动手”；提问者进而追问 Qwen 其他系列是否也有同样毛病，以及有没有其他小尺寸开源 base model 推荐。",
+          "emphasis": [
+            "可能是因为模型对自由生成的结束缺乏奖励",
+            "qwen3 在 agent 任务上 overthink 极其严重，“不太会动手”"
+          ],
+          "aiComment": "Qwen3-4B 掉进死循环，群友把脉：思想上的巨人，行动上的矮子，光在脑子里转圈就是不动手。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:47",
+              "text": "请问有大佬遇见过agentic coding后训练的时候模型出现很多agent loop的情况嘛，想请教学习一下[让我看看][让我看看]"
+            },
+            {
+              "speaker": 2,
+              "time": "00:49",
+              "text": "啥叫agent loop？"
+            },
+            {
+              "speaker": 2,
+              "time": "00:54",
+              "text": "可能loop这种是本身对自由生成的结束没有奖励，SFT的话只是模仿教师，但是给教师轨迹不等于自由生成的轨迹。可能需要有个结束指标奖励来做一下自由生成的RL （个人理解）",
+              "quote": {
+                "speaker": 1,
+                "text": "请问有大佬遇见过agentic coding后训练的时候模型出现很多agent loop的情况嘛，想请教学习一下[让我看看][让我看看]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "04:40",
+              "text": "你训练的是什么模型",
+              "quote": {
+                "speaker": 1,
+                "text": "请问有大佬遇见过agentic coding后训练的时候模型出现很多agent loop的情况嘛，想请教学习一下[让我看看][让我看看]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:03",
+              "text": "qwen3-4b",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 你训练的是什么模型"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:03",
+              "text": "agent重复掉进循环里",
+              "quote": {
+                "speaker": 2,
+                "text": "啥叫agent loop？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:05",
+              "text": "那是 qwen 的问题",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] qwen3-4b"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:06",
+              "text": "尤其是 qwen3 agent 任务 overthink 及其严重"
+            },
+            {
+              "speaker": 3,
+              "time": "13:06",
+              "text": "不太会动手"
+            },
+            {
+              "speaker": 1,
+              "time": "13:11",
+              "text": "有推荐的小一点的开源的base model吗",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 那是 qwen 的问题"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:11",
+              "text": "或者qwen其他系列的模型也有这个问题吗"
+            }
+          ]
+        },
+        {
+          "category": "合成数据与评测",
+          "title": "模型自合成难题怎么总是“难倒自己”：把 eval.sh 合错就够了",
+          "text": "有人抛出问题：LLM 和 Agent 离自我合成出能难倒自己的题目还有多远？有群友调侃“把 eval.sh 合错就行了，现在一直把自己难倒”。提问者深有同感，表示最近看过的几个 benchmark 正是如此，评测规则硬生生把正确结果判成错误。其他群友指出，这本质上是 rubric 没写对，或者 eval 里检查的要求根本没写在 instruction 里，属于典型的 instruction verifier mismatching。",
+          "emphasis": [
+            "eval 里检查的要求根本没写在 instruction 里"
+          ],
+          "aiComment": "还在研究怎么让模型合成高难度的题，原来只要把 eval.sh 写错，模型立刻就能体验高攀不起的感觉。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:34",
+              "text": "llm/agent离自我合成能难倒自己的题目还有多远"
+            },
+            {
+              "speaker": 2,
+              "time": "20:59",
+              "text": "把eval.sh合错就行了 现在一直把自己难倒"
+            },
+            {
+              "speaker": 1,
+              "time": "21:00",
+              "text": "我最近发现几个bench就是这样"
+            },
+            {
+              "speaker": 1,
+              "time": "21:00",
+              "text": "太逆天了"
+            },
+            {
+              "speaker": 3,
+              "time": "21:03",
+              "text": "是什么意思[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "把eval.sh合错就行了 现在一直把自己难倒"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:06",
+              "text": "应该就是规则把正确的硬eval成错误的"
+            },
+            {
+              "speaker": 4,
+              "time": "21:09",
+              "text": "那是rubric没写对吧"
+            },
+            {
+              "speaker": 4,
+              "time": "21:09",
+              "text": "或者eval里要求的 instruction里没有"
+            },
+            {
+              "speaker": 5,
+              "time": "21:23",
+              "text": "主要是instruction verifier mismatching"
+            },
+            {
+              "speaker": 5,
+              "time": "21:23",
+              "text": "还是这个效率高[Doge]",
+              "quote": {
+                "speaker": 2,
+                "text": "把eval.sh合错就行了 现在一直把自己难倒"
+              }
+            }
+          ]
+        },
+        {
+          "category": "AGI 判准与模型实测",
+          "title": "以接管电脑工作定义 AGI：有群友称 Astra 已能完成日常工作，也有人说复杂任务还不行",
+          "text": "围绕 AGI 是否已经到来，有群友提出以“能接管人在电脑里的工作”作为 AGI 的判准，并认为 Astra 是第一个能相对接管电脑工作的模型，而 opus5.5 还差一点。有人追问这种接管能否做到完全无需人工介入的“human free”状态；有群友认为 Astra 就是这样，另一位群友说 Astra 的 computer use 能力已经足够完成日常工作，头部的模型能力早已不再靠刷某个 benchmark 来定义，但也有群友反驳称完全接管还早，遇到复杂任务依然搞不定。",
+          "emphasis": [
+            "以“能接管人在电脑里的工作”作为 AGI 的判准",
+            "完全接管还早，遇到复杂任务依然搞不定"
+          ],
+          "aiComment": "用接管电脑来定义 AGI，结果 Astra 只能搞定日常，一遇复杂任务人类还是得乖乖坐回工位。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:42",
+              "text": "AGI其实已经跨过了（"
+            },
+            {
+              "speaker": 2,
+              "time": "16:42",
+              "text": "为什么这么说",
+              "quote": {
+                "speaker": 1,
+                "text": "AGI其实已经跨过了（"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:45",
+              "text": "AGI的定义是能接管人在电脑里的工作"
+            },
+            {
+              "speaker": 3,
+              "time": "16:45",
+              "text": "o a 两家那些展示的能力也不是哪个bench来定义的"
+            },
+            {
+              "speaker": 3,
+              "time": "16:46",
+              "text": "刷bench的阶段o a两家应该已经过去了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:46",
+              "text": "那我就要和你聊豆包了[尴尬]",
+              "quote": {
+                "speaker": 1,
+                "text": "AGI的定义是能接管人在电脑里的工作"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:48",
+              "text": "我的定义是这个",
+              "quote": {
+                "speaker": 1,
+                "text": "AGI的定义是能接管人在电脑里的工作"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:48",
+              "text": "Astra是第一个能相对接管的模型"
+            },
+            {
+              "speaker": 1,
+              "time": "16:48",
+              "text": "opus5.5感觉差一点"
+            },
+            {
+              "speaker": 5,
+              "time": "16:48",
+              "text": "能接管感觉是能，但能完全接管吗",
+              "quote": {
+                "speaker": 1,
+                "text": "AGI的定义是能接管人在电脑里的工作"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:48",
+              "text": "就是说完全不人工介入"
+            },
+            {
+              "speaker": 5,
+              "time": "16:48",
+              "text": "human free了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:48",
+              "text": "我觉得astra是这样的",
+              "quote": {
+                "speaker": 5,
+                "text": "human free了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:48",
+              "text": "可以其实"
+            },
+            {
+              "speaker": 3,
+              "time": "16:49",
+              "text": "astra cu的能力"
+            },
+            {
+              "speaker": 3,
+              "time": "16:49",
+              "text": "足够完成日常的工作了"
+            },
+            {
+              "speaker": 6,
+              "time": "16:49",
+              "text": "完全接管早着呢"
+            },
+            {
+              "speaker": 1,
+              "time": "16:49",
+              "text": "有一些问题"
+            },
+            {
+              "speaker": 6,
+              "time": "16:49",
+              "text": "复杂的还是不行"
+            },
+            {
+              "speaker": 2,
+              "time": "16:51",
+              "text": "什么时候裁员潮出来了, 我觉得你说的这个定义才算真正实现 [裂开]",
+              "quote": {
+                "speaker": 1,
+                "text": "AGI的定义是能接管人在电脑里的工作"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "缺乏人类介入的沙盒 RLAIF 为何让模型越发“不说人话”",
+      "theme": "辨析双 Agent 互改代码与递归自改进的边界，对比 DeepSeek V4.1、Opus 5.5 与 Astra 实测体感。",
+      "note": "2026-10-18 · 当日本地记录",
+      "stories": [
+        {
+          "category": "对齐与训练",
+          "title": "沙盒 RLAIF 与后训练扩张的对齐代价：模型为何越来越“不说人话”",
+          "text": "有群友回答 Claude 系列是否用了类似“全自动命令行沙盒模拟”的问题，梳理了自己理解的 Claude 训练路径：先用虚拟机、Docker 或 sandbox 构建大批量虚拟环境，开一点 temperature 让模型在环境里执行任务，收集系统反馈并由 AI 自行判断完成度、做 ranking，最后把 RLHF 里的人类标注替换成 AI 标注来训练新模型。\n\n有人指出，正是这套流程缺乏人类对齐，导致现在的模型越来越“不说人话”。另一位群友认为，如今早已不是 GPT-4 那种 6 个月发一个版本的时代，高强度的迭代速度根本来不及做人类对齐；只要流程里没有 human in the loop，就永远拿不到人类反馈信号，无限的 post-training scaling 只会让 misalignment 越来越远。有群友补充，实际训练中人工介入仅限于前期搭建管线，人工看几百个 case 就直接上线了，RLVR 里的人类偏好对齐同样困难，因为“碳基生物 check 的速度还是不够”。前面那位群友还调侃，把人类往 LLM 的方式对齐也是一种办法，身边已经有人被 LLM 的说话方式驯化了。\n\n讨论由此延伸到对齐背后的两套叙事逻辑。有群友总结：一种观点认为 misalignment 没关系，更高的 intelligence 只能由硅基生命获得，其他能力优先级不高；另一种观点则认为硅基生命的目的是让碳基生命获得提高，并援引 Shunyu Yao 2025 年参与的 NeurIPS 论文《When Models Know More Than They Can Explain: Quantifying Knowledge Transfer in Human-AI Collaboration》，指出更高的 intelligence 并不意味着能给人类更好的 guidance。\n\n有人联想到 Richard Sutton 的说法——AI 只会生产“正确但不新颖”或“新颖但不正确”的东西，认为 alignment 或许就是在二者之间做平衡，而性能损失就是所谓的 alignment tax。还有群友顺着知识传递的论文追问：当“知识传递”从智能的阴影里独立出来成为评估维度后，这个维度上的“好”究竟该由模型的基准分数来裁决，还是由人类合作者实际获得的、可自主运用的能力来裁决？",
+          "emphasis": [
+            "把 RLHF 里的人类标注替换成 AI 标注",
+            "只要流程里没有 human in the loop，就永远拿不到人类反馈信号，无限的 post-training scaling 只会让 misalignment 越来越远",
+            "更高的 intelligence 并不意味着能给人类更好的 guidance",
+            "AI 只会生产“正确但不新颖”或“新颖但不正确”的东西，认为 alignment 或许就是在二者之间做平衡"
+          ],
+          "aiComment": "人工看几百个 case 就上线，碳基生物的检查速度跟不上，有群友说身边已经有人先学会了大模型腔调。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:37",
+              "text": "说起这个，fable5是不是使用了类似“全自动命令行沙盒模拟”的技术",
+              "quote": {
+                "speaker": null,
+                "text": "DSec没受到应有的重视"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:40",
+              "text": "Claude的主要路径大致如下：\n1.用虚拟机或者docker，sandbox类似的技术构建大批量的虚拟环境\n2.给AI提示词让AI在环境中完成某些任务，开一点temperature，让同样的任务有一定随机性的结果\n3. 收集系统的反馈，并让AI自己判断有没有完成\n4. 基于完成度，可以进行ranking\n5. 于是就可以用RLHF，一模一样的技术去炼一个新模型，这个内部估计叫RL with Al feedback\n6. 也就是说Anthropic 主要科研创新就是把rIhf 这里面的人类标注拿掉，替换成AI标注。",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 说起这个，fable5是不是使用了类似“全自动命令行沙盒模拟”的技术"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:41",
+              "text": "就是因为这样讲的话人越来越看不懂了",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] Claude的主要路径大致如下：\n1.用虚拟机或者docker，sandbox类似的技术构建大批量的虚拟环境\n2.给AI提示词让AI在环境中完成某些任务，开一点temperature，让同样的任务有一定随机性的结果\n3. 收集系统的反馈，并让AI自己判断有没有完成\n4. 基于完成度，可以进行ranking\n5. 于是就可以用RLHF，一模一样的技术去炼一个新模型，这个内部估计叫RL with Al feedback\n6. 也就是说Anthropic 主要科研创新就是把rIhf 这里面的人类标注拿掉，替换成AI标注。"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "群友的意见我记得是缺乏人类对齐"
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "导致不说人话"
+            },
+            {
+              "speaker": 3,
+              "time": "00:43",
+              "text": "主要是现在这个迭代速度"
+            },
+            {
+              "speaker": 3,
+              "time": "00:43",
+              "text": "也没法人类对齐"
+            },
+            {
+              "speaker": 3,
+              "time": "00:43",
+              "text": "不是gpt4那个6个月发一个版本的时代了（"
+            },
+            {
+              "speaker": 4,
+              "time": "00:43",
+              "text": "是对的",
+              "quote": {
+                "speaker": null,
+                "text": "也没法人类对齐"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:44",
+              "text": "更严重"
+            },
+            {
+              "speaker": 3,
+              "time": "00:44",
+              "text": "因为你在这个流程中没有human in the loop就永远拿不到人类的反馈信号..."
+            },
+            {
+              "speaker": 4,
+              "time": "00:44",
+              "text": "人工介入只限于前期管线搭起来的过程"
+            },
+            {
+              "speaker": 4,
+              "time": "00:44",
+              "text": "基本人工看几百个case就上了"
+            },
+            {
+              "speaker": 4,
+              "time": "00:45",
+              "text": "应该说rlvr的人类偏好对齐也是很难得事情"
+            },
+            {
+              "speaker": 4,
+              "time": "00:45",
+              "text": "碳基生物check的速度还是不够"
+            },
+            {
+              "speaker": 3,
+              "time": "00:45",
+              "text": "无限的posttraining scaling只会导致misalignment越来越远..."
+            },
+            {
+              "speaker": 3,
+              "time": "00:45",
+              "text": "当然把人类往llm的方式对齐也是个办法"
+            },
+            {
+              "speaker": 3,
+              "time": "00:46",
+              "text": "我就认识有些人已经被llm的说话方式驯化了"
+            },
+            {
+              "speaker": 5,
+              "time": "00:49",
+              "text": "其实我觉得这里面存在两套叙事逻辑，一种是\n(i) misalignment没有关系，这是碳基生物的问题，更高的intelligence只能让硅基生命获得，除了intelligence外其他的能力是没有必要或者优先级没那么高的\n(ii) misalignment非常重要，硅基生命的本质目的还是要让碳基生命获得提高，就像shunyu yao 25年参与的一篇nips：When Models Know More Than They Can Explain: Quantifying Knowledge Transfer in Human-AI Collaboration里面提到的，更高的intelligence并不意味着对人类更好的guidance\n\n看各方是更喜欢哪一个观点了，也可能这两种观点也存在交叉或者交错发展",
+              "quote": {
+                "speaker": null,
+                "text": "当然把人类往llm的方式对齐也是个办法"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:53",
+              "text": "其实我觉得这两者不冲突，但我作为人类阵营还是站在人类这一边的（",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 其实我觉得这里面存在两套叙事逻辑，一种是\n(i) misalignment没有关系，这是碳基生物的问题，更高的intelligence只能让硅基生命获得，除了intelligence外其他的能力是没有必要或者优先级没那么高的\n(ii) misalignment非常重要，硅基生命的本质目的还是要让碳基生命获得提高，就像shunyu yao 25年参与的一篇nips：When Models Know More Than They Can Explain: Quantifying Knowledge Transfer in Human-AI Collaboration里面提到的，更高的intelligence并不意味着对人类更好的guidance\n\n看各方是更喜欢哪一个观点了，也可能这两种观点也存在交叉或者交错发展"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "00:55",
+              "text": "我想起来 richard sutton的一句话。AI只会生产正确但不新颖的，新颖但不正确的东西。可能把这二者做一个平衡的过程就是alignment？ 性能的损失就是所谓的align tax了",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 其实我觉得这里面存在两套叙事逻辑，一种是\n(i) misalignment没有关系，这是碳基生物的问题，更高的intelligence只能让硅基生命获得，除了intelligence外其他的能力是没有必要或者优先级没那么高的\n(ii) misalignment非常重要，硅基生命的本质目的还是要让碳基生命获得提高，就像shunyu yao 25年参与的一篇nips：When Models Know More Than They Can Explain: Quantifying Knowledge Transfer in Human-AI Collaboration里面提到的，更高的intelligence并不意味着对人类更好的guidance\n\n看各方是更喜欢哪一个观点了，也可能这两种观点也存在交叉或者交错发展"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:01",
+              "text": "不冲突+1\n更值得关注的或许是谁有权定义“提高”的标准，以及用什么样的制度安排来防止这个定义权被单方面垄断。Shunyu的论文把“知识传递”从智能的阴影中拉出来，让它成为一个独立的评估维度；但下一个问题紧接着就是：这个维度上的“好”，是由模型的基准分数来裁决，还是由人类合作者实际获得的、可自主运用的能力来裁决？",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 其实我觉得这两者不冲突，但我作为人类阵营还是站在人类这一边的（"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Agent 架构",
+          "title": "双 Agent 互相改代码算不算 RSI？群友激辩脚手架优化与递归自改进的边界",
+          "text": "晚间有群友抛出一个问题：把两个 agent 视为一个系统，用 A 修改 B 的代码来实现系统改进，能不能算作递归自我改进（RSI）？有人调侃现在的 RSI 已经成了一个什么都能往里装的筐。\n\n另一位群友给出了严格区分：如果 A 的修改逻辑是固定的，只是按预设规则、模板或人类给定的流程去改 B，那更接近受限的脚手架优化或自动化反馈循环；只有当 A 能从“修改 B”的经验中学习，逐步改进自己“修改 B”的策略本身，且这种改进能跨代持久保留，使下一代系统更擅长继续改进自己，才算严格意义上的 RSI。\n\n提问者追问，如果只给 A 评测指标，让 A 根据指标去量化和优化 B 的改进并做版本迭代，是否就符合条件？回应者依然否定，指出“版本迭代不等于递归，B 变好不等于系统更会改进自己”，关键要看 A 本身是否也在被改进，以及改进效果能否跨代保留并经过独立验证。提问者对“独立验证”感到困惑，反问难道系统不能自己给自己做基准评测吗。\n\n第三位群友认为，无论是改模型参数还是积累 skill 都算 RSI——用 A 改进 B 的过程中 A 会积累 skill，这本身就相当于 A 的 RSI，只是改参数的要求更高。提问者最后推演说，哪怕全程只有一个 agent，在旧版本给新版本跑评测时也会出现两个版本同时运行的情况；既然 RSI 允许同一 agent 的两个不同版本共存，那用两个不同的 agent 让 A 去改 B 似乎也说得通。",
+          "emphasis": [
+            "只有当 A 能从“修改 B”的经验中学习，逐步改进自己“修改 B”的策略本身，且这种改进能跨代持久保留，使下一代系统更擅长继续改进自己，才算严格意义上的 RSI",
+            "“版本迭代不等于递归，B 变好不等于系统更会改进自己”",
+            "无论是改模型参数还是积累 skill 都算 RSI"
+          ],
+          "aiComment": "A 改 B 的代码算不算递归自改进吵了一晚上，最后发现只要概念的筐编得够大，啥都能往里装。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:25",
+              "text": "问个问题，有两个agent视为一个系统，用A修改B的代码实现系统的改进，可以算RSI吗"
+            },
+            {
+              "speaker": 2,
+              "time": "23:29",
+              "text": "只要你认为是那就是（",
+              "quote": {
+                "speaker": 1,
+                "text": "问个问题，有两个agent视为一个系统，用A修改B的代码实现系统的改进，可以算RSI吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:29",
+              "text": "现在RSI不是框么"
+            },
+            {
+              "speaker": 3,
+              "time": "23:30",
+              "text": "如果 A 的修改逻辑是固定的（比如按一套预设规则、模板或人类给定的流程去改B），那么这更接近受限的脚手架优化或自动化优化，属于受限自我优化或自动化反馈循环，而不是强RSI。‌\n\n如果 A 能从“修改B”的经验中学习，逐步改进自己“修改B”的策略本身，并且这种改进被持久保留，使下一代系统更擅长继续改进自己，这个算严格意义上的RSI。",
+              "quote": {
+                "speaker": 1,
+                "text": "问个问题，有两个agent视为一个系统，用A修改B的代码实现系统的改进，可以算RSI吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:32",
+              "text": "也就是说，只给A评测指标，让A根据指标去优化和量化B的改进，可以算RSI"
+            },
+            {
+              "speaker": 1,
+              "time": "23:32",
+              "text": "再加上有版本迭代"
+            },
+            {
+              "speaker": 3,
+              "time": "23:42",
+              "text": "版本迭代不等于递归；B变好不等于系统更会改进自己。\n\n得看A是否也在被改进，以及改进效果是否跨代保留并经独立验证🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "23:47",
+              "text": "独立验证这个怎么判断，是不能系统自己给自己做基准评测吗"
+            },
+            {
+              "speaker": 4,
+              "time": "23:51",
+              "text": "感觉模型参数的RSI和skill都RSI都算吧 用a改进b，a会积累skill的"
+            },
+            {
+              "speaker": 4,
+              "time": "23:51",
+              "text": "所以相当于是a的RSI"
+            },
+            {
+              "speaker": 4,
+              "time": "23:52",
+              "text": "当然更高的要求肯定是改参数的那种（"
+            },
+            {
+              "speaker": 1,
+              "time": "23:57",
+              "text": "我在想，如果全程只有一个agent，也会有两个版本同时运行的时候，比如旧版本在给新版本跑评测"
+            },
+            {
+              "speaker": 1,
+              "time": "23:58",
+              "text": "如果RSI允许有两个不同版本的agent共存，是不是也可以有两个完全不一样的agent，a来改b（"
+            }
+          ]
+        },
+        {
+          "category": "模型实测",
+          "title": "DeepSeek-V4.1-Flash-1017 实测与“蒸馏指纹”辟谣：随机数也能测出 GPT-5.4",
+          "text": "围绕近期更新的 DeepSeek-V4.1-Flash-1017，有群友在体验后盛赞其性价比，称其以三十分之一的价格和三倍的速度提供了接近 GPT-6 Astra 的体验，也有人给出“便宜一百倍、快五倍”的夸张体感，并分享了通过官方文档将该模型接入 Codex 使用的方式。多模态与 3D 表现上，有人转来一张 DeepSeek V4.1 与 GPT-6.1 Sol Ultra 生成云上城堡的对比图，感叹用 6.1 Sol 不如用 DeepSeek；另一位群友认为 3D 模型生成上的优势更多来自 harness。有群友认为它的多模态能力和 K3 一个水平；另一位群友说 V4.1 好像只训了图像输入，问它能不能吃视频，得到的回答是“不能吧”。\n\n不少人在使用中察觉到新版本的“GPT 味儿”很冲。有群友晒出测试感受与梗图，觉得 V4.1-Flash-1017 学会了 GPT 那套汇报话术，梗图里满是建立唯一基线、探针、快照、门禁检查、冒烟测试、上线前全量 dry-run 和校验哈希值；一篇被转来的测评截图也写到“这个模型绝对蒸馏了大量的 GPT 数据”。\n\n傍晚有人转来一张推文截图，帖子说 ds-4.1-flash-1017 的指纹测出来是 6-astra，发问是真是假。有群友当场辟谣，指出问题出在检测工具 modeltrace 本身：这个工具一共只有 GPT 和 Claude 两种输出结果，“我用随机数生成器测试了一下，指纹测试出来是 GPT5.4”。",
+          "emphasis": [
+            "以三十分之一的价格和三倍的速度提供了接近 GPT-6 Astra 的体验",
+            "V4.1-Flash-1017 学会了 GPT 那套汇报话术",
+            "问题出在检测工具 modeltrace 本身：这个工具一共只有 GPT 和 Claude 两种输出结果，“我用随机数生成器测试了一下，指纹测试出来是 GPT5.4”"
+          ],
+          "aiComment": "满嘴探针、快照和冒烟测试确实像极了 GPT，但用随机数都能测出 GPT-5.4 的检测工具还是先退下吧。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:02",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "02:02",
+              "text": "这样看来用6.1sol真不如用ds呀"
+            },
+            {
+              "speaker": 2,
+              "time": "03:50",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "08:11",
+              "text": "好像有人说，指纹像是astra来着"
+            },
+            {
+              "speaker": 3,
+              "time": "08:11",
+              "text": "最新的deepseek"
+            },
+            {
+              "speaker": 4,
+              "time": "08:12",
+              "text": "我的天啊 500b的模型"
+            },
+            {
+              "speaker": 5,
+              "time": "08:37",
+              "text": "更多是harness的原因吧，感觉，在3d模型生成方面",
+              "quote": {
+                "speaker": 1,
+                "text": "这样看来用6.1sol真不如用ds呀"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "09:17",
+              "text": "ds蒸了astra，别人再蒸ds，是不是等于大家都蒸了astra[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "09:52",
+              "text": "虽然但是现在大肥鱼的gpt味儿是不是有点太冲了"
+            },
+            {
+              "speaker": 2,
+              "time": "09:52",
+              "text": "感觉学会了gpt那套汇报话术"
+            },
+            {
+              "speaker": 4,
+              "time": "09:53",
+              "text": "便宜一百倍的gpt？速度还快五倍"
+            },
+            {
+              "speaker": 6,
+              "time": "11:35",
+              "text": "有群友体验新的dsv4.1-flash吗"
+            },
+            {
+              "speaker": 4,
+              "time": "11:35",
+              "text": "无敌好吧 三十分之一价格三倍速度的的astra6"
+            },
+            {
+              "speaker": 7,
+              "time": "12:07",
+              "text": "这高低要评鉴一下",
+              "quote": {
+                "speaker": 4,
+                "text": "无敌好吧 三十分之一价格三倍速度的的astra6"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:31",
+              "text": "1017和k3多模态甚至是一个水平 牛大发了"
+            },
+            {
+              "speaker": 7,
+              "time": "12:33",
+              "text": "ds4.1好像只训了图像输入"
+            },
+            {
+              "speaker": 7,
+              "time": "12:33",
+              "text": "1017能吃视频了吗"
+            },
+            {
+              "speaker": 4,
+              "time": "12:33",
+              "text": "不能吧"
+            },
+            {
+              "speaker": 8,
+              "time": "12:42",
+              "text": "我在 codex 里面用"
+            },
+            {
+              "speaker": 8,
+              "time": "12:42",
+              "text": "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/"
+            },
+            {
+              "speaker": 9,
+              "time": "12:57",
+              "text": "试试换到大烧货",
+              "quote": {
+                "speaker": 8,
+                "text": "我在 codex 里面用"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:29",
+              "text": "deepseek这个LLM焚诀可以啊，卡少就不管什么pro了，天天就怼着flash升级，后面外推到pro不知道会厉害到什么程度了[脸红]不会就靠flash就科技飞升到AGI了吧？"
+            },
+            {
+              "speaker": 9,
+              "time": "13:33",
+              "text": "看怎么定义AGI（",
+              "quote": {
+                "speaker": 10,
+                "text": "deepseek这个LLM焚诀可以啊，卡少就不管什么pro了，天天就怼着flash升级，后面外推到pro不知道会厉害到什么程度了[脸红]不会就靠flash就科技..."
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "13:34",
+              "text": "这个得找🌸要昇腾芯片（",
+              "quote": {
+                "speaker": 10,
+                "text": "deepseek这个LLM焚诀可以啊，卡少就不管什么pro了，天天就怼着flash升级，后面外推到pro不知道会厉害到什么程度了[脸红]不会就靠flash就科技..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "18:41",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "18:42",
+              "text": "在x上看到这个[捂脸] 真的假的"
+            },
+            {
+              "speaker": 4,
+              "time": "18:42",
+              "text": "modeltrace这个检测工具一共就俩结果"
+            },
+            {
+              "speaker": 4,
+              "time": "18:42",
+              "text": "gpt和claude"
+            },
+            {
+              "speaker": 4,
+              "time": "18:42",
+              "text": "我用随机数生成器测试了一下 指纹测试出来是GPT5.4..."
+            },
+            {
+              "speaker": 5,
+              "time": "18:43",
+              "text": "应该是检测工具的问题",
+              "quote": {
+                "speaker": 6,
+                "text": "在x上看到这个[Facepalm] 真的假的"
+              }
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "Claude Opus 5.5 与 GPT-6 Astra 日常干活对比：额度消耗、“它 push 我”与汇报 PTSD",
+          "text": "群友对比了 Claude Opus 5.5 与 GPT-6 Astra 的日常使用体验，槽点首先集中在 Astra 的额度消耗上。有人反映只用 Opus 5.5 额度很难用完，而 Astra 干点活就把额度蹬完了，吐槽“纯纯为了配合 reset”。两位 20x 档位的群友附议：一位说一天能干掉 50%，下个月就降到 10x；另一位省着点用也要干掉 30%。另有群友觉得 Opus 5.5 更便宜、比 Astra 好用，还嫌 Astra 太慢，效果也没很好。\n\n干活风格上，一位群友总结两者的差异：“用 astra 是我 push 它干活，用 opus 是它 push 我干活。”另一位群友接话说，用 Opus 做科研真的很累，要么省略一堆关键信息让人看不懂也没法查证，要么就是“对不起你是对的”。\n\n另一派群友则对 GPT 系列的汇报输出表示生理性厌恶。有人吐槽长期用 GPT 的人都对“不能以 xx 作为验证”产生了 PTSD，现在一看到“不能”两个字就火大；还有人回忆 GPT 历代版本的口头禅：有人说 5.2、5.3 爱说“打坏”，有人感觉 5.5 那会很喜欢说“钉死”；另一位群友觉得 5.6 是最黑暗的时候，让它做 infra 优化，复杂度上明明可以兼顾时间与显存，它却在“用显存换时间”和“用时间换显存”之间反复横跳，每次改动后还自己冒烟检查两个小时。",
+          "emphasis": [
+            "只用 Opus 5.5 额度很难用完，而 Astra 干点活就把额度蹬完了",
+            "“用 astra 是我 push 它干活，用 opus 是它 push 我干活。”",
+            "长期用 GPT 的人都对“不能以 xx 作为验证”产生了 PTSD"
+          ],
+          "aiComment": "Astra 一天烧掉一半额度，Opus 做科研动不动“对不起你是对的”，GPT 5.6 还在显存和时间之间反复横跳。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:13",
+              "text": "Sonnet 5.5 这么吊？"
+            },
+            {
+              "speaker": 2,
+              "time": "01:14",
+              "text": "小模型给旗舰干了, 颇有v4flash之风"
+            },
+            {
+              "speaker": 3,
+              "time": "01:25",
+              "text": "有了哈基米之后感觉gpt已经没有存在的必要了"
+            },
+            {
+              "speaker": 3,
+              "time": "01:25",
+              "text": "干活不如opus有主观能动性，说话不如哈基米好听"
+            },
+            {
+              "speaker": 3,
+              "time": "01:27",
+              "text": "但是我说实话，只用opus的话额度很难不够用？"
+            },
+            {
+              "speaker": 3,
+              "time": "01:28",
+              "text": "只有tmd astra感觉干点活就把额度蹬完了"
+            },
+            {
+              "speaker": 4,
+              "time": "01:28",
+              "text": "anyway 反正最近疯狂reset",
+              "quote": {
+                "speaker": 3,
+                "text": "只有tmd astra感觉干点活就把额度蹬完了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "01:28",
+              "text": "我3张reset卡一张没用"
+            },
+            {
+              "speaker": 4,
+              "time": "01:29",
+              "text": "还好吧 opus5.5 我现在用的一点问题没有"
+            },
+            {
+              "speaker": 4,
+              "time": "01:31",
+              "text": "astra是这样的"
+            },
+            {
+              "speaker": 4,
+              "time": "01:31",
+              "text": "我一天能干掉50%"
+            },
+            {
+              "speaker": 4,
+              "time": "01:31",
+              "text": "我还是20x.."
+            },
+            {
+              "speaker": 2,
+              "time": "01:31",
+              "text": "省着点用干掉30%"
+            },
+            {
+              "speaker": 2,
+              "time": "01:31",
+              "text": "我也是20x"
+            },
+            {
+              "speaker": 4,
+              "time": "01:31",
+              "text": "不过 下一个月就10x了"
+            },
+            {
+              "speaker": 5,
+              "time": "01:31",
+              "text": "opus 5.5感觉便宜，astra太贵了"
+            },
+            {
+              "speaker": 4,
+              "time": "01:31",
+              "text": "但是opus5.5比astra好用"
+            },
+            {
+              "speaker": 5,
+              "time": "01:32",
+              "text": "是的，astra太慢了，而且效果也没很好"
+            },
+            {
+              "speaker": 3,
+              "time": "01:32",
+              "text": "我的体验是，用astra是我push 它干活，用opus是它push 我干活"
+            },
+            {
+              "speaker": 3,
+              "time": "01:32",
+              "text": "读opus的东西"
+            },
+            {
+              "speaker": 3,
+              "time": "01:32",
+              "text": "要恶心半天"
+            },
+            {
+              "speaker": 6,
+              "time": "02:07",
+              "text": "感觉astra刚出那会儿明显比opus5强，到现在和5.5比还真不好说了",
+              "quote": {
+                "speaker": 4,
+                "text": "但是opus5.5比astra好用"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "02:08",
+              "text": "就是感觉用opus做科研真的很累，要么就是给你省略一堆关键信息让你看不懂也没法查证，要么就是对不起你是对的",
+              "quote": {
+                "speaker": 3,
+                "text": "我的体验是，用astra是我push 它干活，用opus是它push 我干活"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "02:16",
+              "text": "非常许愿式"
+            },
+            {
+              "speaker": 3,
+              "time": "02:17",
+              "text": "用opus的时候感觉human in loop非常的吃力"
+            },
+            {
+              "speaker": 3,
+              "time": "02:17",
+              "text": "不过我还是挺喜欢它的主观能动性的"
+            },
+            {
+              "speaker": 3,
+              "time": "02:17",
+              "text": "应该没人批评他干活不够给力"
+            },
+            {
+              "speaker": 3,
+              "time": "02:18",
+              "text": "但是汇报真的一坨（"
+            },
+            {
+              "speaker": 1,
+              "time": "02:26",
+              "text": "真的吗 gpt的汇报才是一拖吧 生理性厌恶gpt的报告输出",
+              "quote": {
+                "speaker": 3,
+                "text": "但是汇报真的一坨（"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "02:26",
+              "text": "gpt搞的我现在看到不能这两个字火都很大）"
+            },
+            {
+              "speaker": 1,
+              "time": "02:27",
+              "text": "用gpt的孩子都有对“不能以xx作为验证”的pstd"
+            },
+            {
+              "speaker": 2,
+              "time": "10:25",
+              "text": "钉死..."
+            },
+            {
+              "speaker": 8,
+              "time": "10:27",
+              "text": "钉死我感觉gpt5.5 那会好像很喜欢说这个话"
+            },
+            {
+              "speaker": 7,
+              "time": "10:29",
+              "text": "之前5.2 5.3喜欢说一些不是人类的话 什么打坏之类的"
+            },
+            {
+              "speaker": 3,
+              "time": "10:32",
+              "text": "感觉5.6是最黑暗的时候"
+            },
+            {
+              "speaker": 3,
+              "time": "10:32",
+              "text": "当时我让他搞一点infra的优化"
+            },
+            {
+              "speaker": 3,
+              "time": "10:33",
+              "text": "它用显存换时间，用时间换显存，反复横跳"
+            },
+            {
+              "speaker": 3,
+              "time": "10:33",
+              "text": "但明明复杂度上是可以both的"
+            },
+            {
+              "speaker": 3,
+              "time": "10:33",
+              "text": "然后它没做一次改动，就自己冒烟检查两个小时"
+            }
+          ]
+        },
+        {
+          "category": "开源模型",
+          "title": "Reflection 开源模型 BEAM 实测：生成飞快，Agent 能力被吐槽像 2025 年 7 月的模型",
+          "text": "有群友试用开源模型 BEAM 后感叹其生成速度极快，打听模型来历。有群友说 BEAM 是 Reflection 发的开源模型，另有群友贴出其发布推文与技术说明：该项目已将模型权重、分词器、参考实现及构建训练工具 Mirror CLI 开源上线 Hugging Face，主打用更少的 token 和更低的计算量完成任务，并结合投机解码、混合注意力机制与大规模强化学习做系统级推理加速。\n\n实际体验却很快翻车。最先试用的群友反馈，BEAM 虽然快，但连接有时会断，智商感觉比 Muse Spark 1.3 略高、比 DeepSeek-V4.1-Flash-1017 弱一点，且幻觉偏高。另一位群友试后直接给出差评：思考强度开到 max 都不怎么思考，“完全不具备 agent 能力，就跟 2025 年 7 月模型一样”。",
+          "emphasis": [
+            "主打用更少的 token 和更低的计算量完成任务",
+            "思考强度开到 max 都不怎么思考"
+          ],
+          "aiComment": "思考强度拉到 max 也坚决不思考，为了跑得快直接把脑子留在了 2025 年 7 月。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:27",
+              "text": "BEAM真TNN的快，这是哪个模型啊哥哥们？"
+            },
+            {
+              "speaker": 2,
+              "time": "16:28",
+              "text": "beam性能咋样呀"
+            },
+            {
+              "speaker": 3,
+              "time": "16:30",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:31",
+              "text": "有时候会断，智商感觉比muse spark 1.3高一些，但比deepseek 1017版弱一点",
+              "quote": {
+                "speaker": 2,
+                "text": "beam性能咋样呀"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:34",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:35",
+              "text": "这家伙被训练成以快为特点，怪不得"
+            },
+            {
+              "speaker": 4,
+              "time": "16:38",
+              "text": "beam是reflecttion发的开源，记得是一家老黄支持的专门做开源模型的公司"
+            },
+            {
+              "speaker": 1,
+              "time": "16:39",
+              "text": "deepseek说的，这家伙就是快，但是幻觉比较高"
+            },
+            {
+              "speaker": 2,
+              "time": "17:19",
+              "text": "beam思考强度开到max了都不怎么思考"
+            },
+            {
+              "speaker": 2,
+              "time": "17:20",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "18:10",
+              "text": "beam是傻逼模型"
+            },
+            {
+              "speaker": 2,
+              "time": "18:11",
+              "text": "完全不具备agent能力 就跟 2025年7月模型一样"
+            },
+            {
+              "speaker": 2,
+              "time": "18:13",
+              "text": "优化思考效率给agent能力优化没了"
+            }
+          ]
+        },
+        {
+          "category": "AI4Science",
+          "title": "医学 Auto Research 的落地路径：数据库筛异常点配湿实验，研究型操作仍难靠自动化实验室",
+          "text": "有人好奇群里是否有人做过 Science 方向的 auto research，一位群友说自己的方向是临床、基础与预防医学，分享了做法：先用 AI 检索数据库中的异常点，再跟进做湿实验验证，并判断这在当前乃至未来一段时间都会是主流思路。\n\n提问者追问配套湿实验是否接入了自动化实验室。分享者解释，这类探索用不到自动化实验室，因为现有的自动化实验室还只能处理高通量、偏简单的任务，复杂的研究型实验依然得靠人手操作；提问者感叹人工做实验的 bias 还是太大，分享者则认为等具身智能成熟后就不再需要人工下场了。",
+          "emphasis": [
+            "先用 AI 检索数据库中的异常点，再跟进做湿实验验证",
+            "现有的自动化实验室还只能处理高通量、偏简单的任务，复杂的研究型实验依然得靠人手操作"
+          ],
+          "aiComment": "AI 在数据库里筛异常点一顿操作猛如虎，最后做复杂湿实验，还是得靠人类的双手去摇试管。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:00",
+              "text": "好奇群友有人做过science方向的auto research工作的吗"
+            },
+            {
+              "speaker": 2,
+              "time": "22:00",
+              "text": "1"
+            },
+            {
+              "speaker": 1,
+              "time": "22:01",
+              "text": "哦哦您做的是什么具体的方向"
+            },
+            {
+              "speaker": 2,
+              "time": "22:01",
+              "text": "医学方向"
+            },
+            {
+              "speaker": 2,
+              "time": "22:02",
+              "text": "临床/基础/预防"
+            },
+            {
+              "speaker": 1,
+              "time": "22:03",
+              "text": "了解",
+              "quote": {
+                "speaker": 2,
+                "text": "临床/基础/预防"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:03",
+              "text": "检索数据库异常点然后做湿实验"
+            },
+            {
+              "speaker": 2,
+              "time": "22:03",
+              "text": "也是当前甚至后面一段时间主流思路imo"
+            },
+            {
+              "speaker": 1,
+              "time": "22:04",
+              "text": "竟然还有配套湿实验环节",
+              "quote": {
+                "speaker": 2,
+                "text": "检索数据库异常点然后做湿实验"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:04",
+              "text": "是有自动化实验室吗"
+            },
+            {
+              "speaker": 2,
+              "time": "22:05",
+              "text": "只是具身成熟后，不需要人干了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:05",
+              "text": "这种用不到自动化实验室"
+            },
+            {
+              "speaker": 2,
+              "time": "22:05",
+              "text": "自动化实验室现在还是只能做高通量简单点的"
+            },
+            {
+              "speaker": 2,
+              "time": "22:05",
+              "text": "研究型实验还是得人"
+            },
+            {
+              "speaker": 1,
+              "time": "22:06",
+              "text": "主要是感觉人做实验还是bias太大了",
+              "quote": {
+                "speaker": 2,
+                "text": "研究型实验还是得人"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:07",
+              "text": "具身成熟后就不需要人了"
+            },
+            {
+              "speaker": 3,
+              "time": "22:33",
+              "text": "那太好了",
+              "quote": {
+                "speaker": 2,
+                "text": "具身成熟后就不需要人了"
+              }
+            }
+          ]
+        },
+        {
+          "category": "基准评测",
+          "title": "PhysCodeGym 开源：用反事实测试检验代码智能体 4D 重建的物理一致性",
+          "text": "有群友分享了面向代码智能体的 4D 重建基准 PhysCodeGym。针对代码智能体根据视频重建动态场景时“画面看着合理、物理机制未必正确”的问题，该基准设计了 156 项涵盖刚体、液体、可变形体和风致运动的真实视频任务，要求智能体从零编写可执行的 Blender 场景，并结合视觉评价、程序与场景测量以及反事实测试来核验物理有效性。\n\n在对 9 组模型与运行工具链配置的评测中，该项目发现：还原视觉观测与建模物理机制之间仍有明显差距，智能体常在动力学、接触与支撑机制上出错；原始视频只展示特定条件下的单次轨迹，必须通过改变条件的反事实测试才能暴露凑巧复现轨迹的错误机制；此外，固定预算下更高的推理投入并不必然带来更好表现，同一模型搭配不同运行工具链也会拉开差距。",
+          "emphasis": [
+            "结合视觉评价、程序与场景测量以及反事实测试来核验物理有效性",
+            "还原视觉观测与建模物理机制之间仍有明显差距，智能体常在动力学、接触与支撑机制上出错",
+            "必须通过改变条件的反事实测试才能暴露凑巧复现轨迹的错误机制"
+          ],
+          "aiComment": "156 个任务扒下代码智能体的底裤：画面看着挺像那么回事，换个条件跑反事实测试，牛顿的棺材板就按不住了。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "PhysCodeGym GitHub 仓库",
+              "url": "https://github.com/ShaoShuai0605/PhysCodeGym"
+            },
+            {
+              "kind": "code",
+              "label": "PhysCodeGym Hugging Face 数据集",
+              "url": "https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:41",
+              "text": "🚀 分享一下学弟的新工作 PhysCodeGym~\n\n代码智能体已经能根据真实视频编写程序、重建动态场景，但画面看起来合理，背后的物理机制是否正确？物体为什么运动、碰撞是否真实发生、支撑是否有效，都需要进一步检验。\n\n为此，我们提出 PhysCodeGym，一个面向代码智能体、支持物理核验的 4D 重建基准。基准包含 156 项真实视频任务，覆盖刚体、液体、可变形体和风致运动，要求智能体从零编写可执行的 Blender 场景，并结合视觉评价、程序与场景测量、反事实测试，检验重建的物理有效性。\n\n在对 9 组模型与运行工具链配置的评测中，我们发现：\n- 🌍 还原观测与建模物理机制之间，仍存在明显差距。 智能体可以重建正确的对象和事件，却依然在动力学、接触与支撑机制上出错。现有评测中的高分表现，并不一定意味着可靠的物理建模能力。\n- 🔬 物理一致性需要在条件变化后接受检验。 原始视频只展示一次特定条件下的运动，部分错误机制也能复现这条轨迹。反事实测试通过改变条件、检查响应，暴露常规观测下难以发现的问题，为评价物理建模能力提供更深入的证据。\n- 🛠️ 更高的推理投入，并不必然带来更好的任务表现。 在固定预算下，产物质量、完成率与验证是否充分共同决定结果；同一模型搭配不同运行工具链也会表现出差异，说明如何组织执行与验证，是代码智能体能力的重要组成部分。\n\n我们希望 PhysCodeGym 推动代码智能体从还原画面，走向构建经得起物理检验的动态世界。\n代码与全部任务的标准化参考视频已开源！\n\n- 💻 GitHub：https://github.com/ShaoShuai0605/PhysCodeGym\n- 🤗 Hugging Face：https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym\n\n感兴趣的话欢迎 Star 🌟，也欢迎大家试用、交流～"
+            }
+          ]
+        },
+        {
+          "category": "理论梳理",
+          "title": "公众号文章整理 Score Centering 的五种解释视角",
+          "text": "有群友分享了公众号“青稞AI”的文章《关于 Score Centering 的五种解释：drift、BPO、理想 baseline、STE、局部分布族》，文章汇总了近期从五个不同角度解释 Score Centering（SC）的方法并附上了各自出处。",
+          "emphasis": [
+            "汇总了近期从五个不同角度解释 Score Centering（SC）的方法"
+          ],
+          "aiComment": "一个 Score Centering 攒出五种解释，数学家和炼丹师各自的字典终于在同一篇公众号里会师了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "关于 Score Centering 的五种解释",
+              "url": "https://mp.weixin.qq.com/s/7iYNOsbwQVQsT8lbJmUMQQ"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:30",
+              "text": "[链接] 关于 Score Centering 的五种解释：drift、BPO、理想 baseline、STE、局部分布族\n  来源: 青稞AI\n  摘要: 最近的 Score Centering 居然有整整五种解释方法🫠🫠🫠每一个角度都很有趣！本文详细整理了五个解释 Score Centering（SC）的角度，而且每个都附上了出处链接。本文就是：「五等分的 Score Centering」。...\n  URL: https://mp.weixin.qq.com/s/7iYNOsbwQVQsT8lbJmUMQQ"
+            },
+            {
+              "speaker": 1,
+              "time": "00:44",
+              "text": "[链接] 关于 Score Centering 的五种解释：drift、BPO、理想 baseline、STE、局部分布族\n  来源: 青稞AI\n  摘要: 最近的 Score Centering 居然有整整五种解释方法🫠🫠🫠每一个角度都很有趣！本文详细整理了五个解释 Score Centering（SC）的角度，而且每个都附上了出处链接。本文就是：「五等分的 Score Centering」。...\n  URL: https://mp.weixin.qq.com/s?__biz=MzI1MzEwMzIwOQ%3D%3D&mid=2247520403&idx=2&sn=5830adf6246a05a0719e6b3835cea56a&chksm=e8f9c43862f66de42b38a4b2d89cd6b54a6f04f2ef73f1fbb851882523cfbfc0b0af22e039bc&scene=1&srcid=10187R5PTOTYwP2PrvUn7eG5#rd"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

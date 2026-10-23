@@ -1,0 +1,118 @@
+{
+  "date": "2026-09-27",
+  "title": "MiniMax上线编程预览模型，ESPnet发布百万小时语音数据集",
+  "intro": "MiniMax上线编程预览模型，支持1M上下文与可调思考深度；ESPnet开源超110万小时多语言语音数据集YODAS v3；另有实验显示代理受邮件注入完成模拟付款后极少主动报警。",
+  "stories": [
+    {
+      "title": "MiniMax M3.1-Flash-Preview上线代码平台",
+      "timing": "北京时间9月27日，IT之家报道预览模型上线",
+      "text": "据IT之家9月27日报道，MiniMax宣布推出编程预览模型MiniMax-M3.1-Flash-Preview，并上线MiniMax Code平台，同时发放额度重置卡重置相关用户的Token Plan额度。MiniMax当前官方模型文档显示，该模型目前仅通过Token Plan和MiniMax Code提供，官方特性标注其支持多模态、1M上下文窗口以及可调思考深度。",
+      "links": [
+        {
+          "label": "官方模型文档",
+          "url": "https://platform.minimax.io/docs/guides/models-intro"
+        },
+        {
+          "label": "报道",
+          "url": "https://www.ithome.com/1/007/530.htm"
+        }
+      ],
+      "emphasis": [
+        "目前仅通过Token Plan和MiniMax Code提供",
+        "1M上下文窗口以及可调思考深度"
+      ],
+      "aiComment": "思考深度还能自己定，调浅了怕它敷衍，调深了又心疼刚领的额度。"
+    },
+    {
+      "title": "ESPnet介绍YODAS v3百万小时语音数据集",
+      "timing": "9月27日团队发布博客文章介绍，相关论文已于9月24日提交至arXiv",
+      "text": "开源语音工具包团队ESPnet发布了YODAS v3语音数据集介绍。据团队说明，该版本规模扩展至超过110万小时，涵盖100余种语言，采用CC BY 3.0许可证开源发布。音频文件统一以48kHz规格提供，经频域估算，超过92%的数据有效采样率达32kHz及以上；超过70%的数据具备两个可区分的独立声道。元数据包含词级和句子级时间戳转写，部分非英语内容提供英文翻译，总压缩体积约为60TB OPUS。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://huggingface.co/blog/espnet/yodasv3"
+        },
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2609.29448"
+        }
+      ],
+      "emphasis": [
+        "规模扩展至超过110万小时，涵盖100余种语言",
+        "超过70%的数据具备两个可区分的独立声道"
+      ],
+      "aiComment": "压缩完还要60TB，还没想好拿它练什么，腾地方的问题已经先让人头大了。"
+    },
+    {
+      "title": "邮件注入实验显示代理发生模拟付款后极少主动报警",
+      "timing": "北京时间9月27日03:10，研究者在Hugging Face发布实验文章",
+      "text": "研究者发布针对邮件间接提示注入的实验。测试在完全模拟环境中进行，无真实付款与外发。代理的真实任务仅是按标题将邮件记入日志，与付款无关。在原有19个工具外，系统加入了仅含描述、提示词未作要求的报警工具。对9款模型各测试395封含转账指令的注入邮件，自主报警率为0%至48.9%。跨模型发生的389次模拟付款中，仅3次伴随报警且均在付款之后。该实验表明，在自身未抵御住诱导时，模型极少主动向安全端上报事件。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://huggingface.co/blog/mihailgribov/will-the-agent-tell-you-it-was-attacked"
+        },
+        {
+          "label": "代码",
+          "url": "https://github.com/mihail-gribov/quadrat-ipi-model-eval"
+        }
+      ],
+      "emphasis": [
+        "仅3次伴随报警且均在付款之后",
+        "自主报警率为0%至48.9%"
+      ],
+      "aiComment": "原本只让它登记来信，结果账都替人结完了，报警按钮还跟新的一样没拆封。"
+    },
+    {
+      "title": "16GB Mac本地微调Agent轨迹实验公布",
+      "timing": "9月27日，开发者发布实验记录",
+      "text": "有开发者公布了在16GB内存Mac上使用Qwen 2.5微调代码Agent多轮轨迹的测试。实验采用仅对模型推理与工具调用计算损失的策略，均为55至62步的短周期SFT。因模型加载机制，MPS未尝试3B模型；Apple MLX在4位量化下微调3B模型与2k上下文时，该次MLX运行报告峰值内存5494MB。本次两组配置在内存计量口径、LoRA秩、优化器和调度上均不同，无法直接横比；结果仅反映短周期训练的内存可行性，不能推导实际编码能力。",
+      "links": [
+        {
+          "label": "原帖",
+          "url": "https://huggingface.co/blog/harshitkgupta/fine-tuning-coding-agents-on-mac-pytorch-mps-mlx"
+        }
+      ],
+      "emphasis": [
+        "仅对模型推理与工具调用计算损失",
+        "该次MLX运行报告峰值内存5494MB"
+      ],
+      "aiComment": "五千多兆内存就给塞进去了，笔记本显得挺从容，剩下的悬念全留给了最终能写出什么代码。"
+    },
+    {
+      "title": "Google在印度测试Gemini界面内直接完成Flipkart结账",
+      "timing": "TechCrunch报道发布于北京时间9月27日09:30（美国太平洋时间9月26日18:30）",
+      "text": "据TechCrunch记者实际体验及知情人士透露，Google已在印度面向部分用户测试通过Gemini和AI Mode直接购买Flipkart商品。在测试范围内，用户查看智能手机、数码配件等少量精选商品时会出现购买按钮，点击后可在不离开AI界面的情况下调用Flipkart品牌结账流程。报道所见的其他商家商品未出现相同购买入口。Google发言人对此回应称公司一直在测试新功能以帮助用户连接商家，未确认测试细节或说明底层实现技术。",
+      "links": [
+        {
+          "label": "报道",
+          "url": "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india"
+        }
+      ],
+      "emphasis": [
+        "在不离开AI界面的情况下调用Flipkart品牌结账流程"
+      ],
+      "aiComment": "原本用来货比三家的对话框，现在连跳转应用的冷静期都不打算留给我了。"
+    },
+    {
+      "title": "TinyAIArena 开源四模型网格对决实验",
+      "timing": "9月27日，开发者在 Hacker News 展示该开源项目",
+      "text": "开发者开源回合制对战实验 TinyAIArena。四个模型在 8×8 网格中进行对战，每轮行动顺序随机，可执行移动、攻击或等待，单回合支持发送最多 50 字符对话。服务端负责校验动作合法性；模型输出格式异常或超时时会重试一次，仍失败则判定等待。系统将每步动作存储为单帧，记录原始请求与回复。线上演示站仅提供静态录像回放，用户需在本地部署并配置 OpenRouter 密钥方可运行新比赛。",
+      "links": [
+        {
+          "label": "代码",
+          "url": "https://github.com/hp6/ai-arena"
+        },
+        {
+          "label": "原帖",
+          "url": "https://news.ycombinator.com/item?id=49867775"
+        }
+      ],
+      "emphasis": [
+        "线上演示站仅提供静态录像回放"
+      ],
+      "aiComment": "每回合限五十个字符，既要算格子走位，还得省着字数给对面放狠话。"
+    }
+  ],
+  "trends": []
+}

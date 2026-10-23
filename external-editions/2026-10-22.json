@@ -1,0 +1,426 @@
+{
+  "date": "2026-10-22",
+  "title": "Anthropic 开放主动式 agent Claude Duet 预览，Meta 拟增设无投票权股并披露 Muse 用户超千万",
+  "intro": "Anthropic 推出主动式 agent 应用 Claude Duet 研究预览，1Password 与 Walmart 分别发布面向个人 agent 的登录与代购控制方案；Meta 三季报拟增设无投票权股为 AI 融资，Muse 用户破千万；AWS、微软、Railway 与 METR 披露多起漏洞利用、自动化攻击及内部监控红队结果。",
+  "stories": [
+    {
+      "title": "Anthropic 开放主动式 agent 应用 Claude Duet 研究预览",
+      "timing": "北京时间 10 月 22 日 03:09 发布",
+      "text": "Anthropic 宣布开放主动式 agent 应用 Claude Duet 研究预览，通过候补名单先向美国 Pro 和 Max 订阅用户开放，提供 iOS、Android 独立应用并可在 claude.ai 使用。Claude Duet 围绕 Claude Opus 5.5 设计，与 Claude 其他功能共享套餐额度，后台检查同样计入用量。\n\n该应用继承用户 Claude 账户的记忆、技能和已连接应用，每天早上发送重点简报，并每隔几小时检查连接账户。它配有自带浏览器的虚拟机，可在用户离开设备时继续后台执行任务，并支持调用 Claude Marketplace 中超过 6,000 个连接器与插件，或通过 Stripe Link 虚拟卡和 Shop Pay 购物；支持使用 1Password 已保存登录的功能即将推出。\n\n在执行发消息、付款、签署文件或删除内容前，Claude Duet 会展示具体操作并等待用户批准，而证券交易和账户间转账即使获批也禁止执行。配套的新分类器与安全系统 prompt 会拒绝外发信用卡号和政府证件号，健康或个人财务信息仅在用户明确指示发送时放行。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Claude Duet 博客",
+          "url": "https://claude.com/blog/claude-duet"
+        },
+        {
+          "kind": "原帖",
+          "label": "Claude 官方 X",
+          "url": "https://x.com/claudeai/status/2112984664256241837"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50186037"
+        }
+      ],
+      "emphasis": [
+        "通过候补名单先向美国 Pro 和 Max 订阅用户开放",
+        "配有自带浏览器的虚拟机，可在用户离开设备时继续后台执行任务",
+        "证券交易和账户间转账即使获批也禁止执行"
+      ],
+      "aiComment": "每隔几小时后台巡逻还要扣套餐额度，我还没睡醒，额度已经先替我上完早班了。"
+    },
+    {
+      "title": "Meta 三季报拟设无投票权股票为 AI 融资，Muse 用户超千万",
+      "timing": "美国时间 10 月 21 日盘后发布，北京时间 10 月 22 日 05:30 报道",
+      "text": "据 TechCrunch 和 The Verge 报道，Meta 在第三季度财报电话会上确认，计划新设一类公开交易的无投票权资本股票，以股票股息形式分配给全部现有股东，用于融资、员工薪酬和收购，同时保留现有 A 类和 B 类股东投票权，预计 2027 年开始交易。Meta 第三季度营收 640 亿美元，同比增长 26%，成本和费用同比增长 68%；全年资本支出预计为 1,350 亿至 1,450 亿美元。\n\nCEO Mark Zuckerberg 表示，上线一个半月内，美国和加拿大已有超过 1,000 万人设置了 Muse 个人 agent，约 25% 的设置者每天使用；通过 Muse 购物的活跃用户中，超过四分之一平均客单价超过 200 美元。Meta 预计在未来一年内将 Muse 的计算成本效率提升 10 倍以上。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 融资股报道",
+          "url": "https://techcrunch.com/2026/10/21/meta-wants-to-pay-for-its-broad-ai-buildout-with-a-newly-created-class-of-stock/"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch Muse 报道",
+          "url": "https://techcrunch.com/2026/10/21/meta-says-muse-has-over-10m-users-with-shopping-a-top-activity/"
+        },
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/tech/1015799/meta-shares-class-ai-q3-2026-earnings"
+        }
+      ],
+      "emphasis": [
+        "计划新设一类公开交易的无投票权资本股票",
+        "美国和加拿大已有超过 1,000 万人设置了 Muse 个人 agent，约 25% 的设置者每天使用"
+      ],
+      "aiComment": "全年资本支出奔着1450亿美元去，难怪得计划发无投票权股票，股东只管掏钱鼓掌就完事了。"
+    },
+    {
+      "title": "彭博社：DeepSeek 融资约 150 亿美元",
+      "timing": "北京时间 10 月 22 日报道",
+      "text": "据 TechCrunch 转述彭博社报道，在美国下令联邦文职机构移除 DeepSeek 技术两天后，DeepSeek 已筹集约 150 亿美元（约 1,000 亿元人民币），潜在投资方包括宁德时代与腾讯等。报道称，DeepSeek 正加大对 AI 基础设施和面向国内外市场的开放模型投入。\n\n此前 DeepSeek 曾于今年 6 月以 500 亿美元估值融资超过 70 亿美元，7 月又传出拟以约 710 亿美元估值追加融资 15 亿美元，并考虑最早明年在国内上市。DeepSeek 未立即回应置评请求。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/22/deepseek-reportedly-raises-15b-days-after-us-restrictions/"
+        }
+      ],
+      "emphasis": [
+        "DeepSeek 已筹集约 150 亿美元（约 1,000 亿元人民币），潜在投资方包括宁德时代与腾讯等"
+      ],
+      "aiComment": "前脚刚被下令从联邦机构移除，后脚传出融资150亿美元，这波热度和账面数字倒是都没耽误。"
+    },
+    {
+      "title": "PHP2Shell 后续：AWS 发现披露前四天已有利用尝试，多国机构敦促修补",
+      "timing": "漏洞于 10 月 21 日披露；AWS 于北京时间 10 月 22 日 06:36 发布分析",
+      "text": "继 10 月 21 日 PHP2Shell（CVE-2026-109618、CVE-2026-109619）公开披露并发布补丁后，AWS 安全团队宣布在 MadPot 蜜罐遥测数据中发现了可追溯至 10 月 17 日的利用尝试，比公开披露早四天。该请求来自商业匿名网络 IP，攻击者如何提前获取漏洞信息尚不清楚；10 月 21 日 02:00 UTC 起已出现多个 PoC，14:00 UTC 解禁后数小时内又出现更多 PoC，目前漏洞正遭广泛尝试利用，但尚不确定早期的尝试能否在真实系统中成功。AWS 建议至少从 10 月 17 日起排查日志，并指出升级到修复后的 PHP 版本是唯一完整修复方案。\n\n据 Financial Times 报道，美国国家安全局（NSA）建议无法立即更新的机构将系统下线，英国国家网络安全中心（NCSC）敦促立即采取行动，部分欧洲政府据报在打补丁期间暂时下线了网站。OpenAI 同日打包发布了 php2shell-checker Codex skill，供网站自查是否受影响。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "AWS 安全博客",
+          "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/"
+        },
+        {
+          "kind": "报道",
+          "label": "Ars 转载 FT 报道",
+          "url": "https://arstechnica.com/security/2026/10/hackers-got-a-four-day-head-start-on-epic-php2shell-vulnerability/"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenAI 自查工具帖",
+          "url": "https://x.com/OpenAI/status/2112945805686604033"
+        }
+      ],
+      "emphasis": [
+        "在 MadPot 蜜罐遥测数据中发现了可追溯至 10 月 17 日的利用尝试，比公开披露早四天",
+        "美国国家安全局（NSA）建议无法立即更新的机构将系统下线"
+      ],
+      "aiComment": "漏洞还没公开，蜜罐里四天前就已经有访问记录了，运维顺着日志往前翻的时候心都是凉的。"
+    },
+    {
+      "title": "微软与 Wiz 披露 Storm-0940 用开源 agent 框架 ARTEX 自动化攻击数百组织",
+      "timing": "微软于北京时间 10 月 22 日 02:23 发布，Wiz 于 21:05 跟进",
+      "text": "微软威胁情报团队披露，中国国家关联行为者 Storm-0940 最早自 2026 年 9 月起使用多 agent 渗透测试框架 ARTEX，自动化攻击全球数百个组织，多起案例从初始瞄准到取得云基础设施特权访问不足 3 小时。微软评估 Storm-0940 对近期披露的 ConnectWise 多租户应用供应链入侵负责，攻击者利用 ARTEX 加速向超过 2,250 个租户发起登录尝试，并通过已获授权的 OAuth 应用访问下游 Microsoft 365 环境。微软表示该活动并非源于微软自身系统或产品漏洞，存在受影响应用或认证成功也不必然代表客户数据被访问或窃取。\n\nWiz Research 补充称，观察到同一行为者使用 ARTEX 相关工具瞄准多家 IT 与软件厂商的 Okta、Entra、Cognito 等身份提供方，自动下载源码映射发现内部 API、开展密码喷洒并利用临时邮箱测试跨租户越权。ARTEX 由一名中国开发者于今年 7 月在 GitHub 开源，10 月 8 日转为闭源时已有超过 12,000 个 fork。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "微软安全博客",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Wiz 研究报告",
+          "url": "https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors"
+        }
+      ],
+      "emphasis": [
+        "多起案例从初始瞄准到取得云基础设施特权访问不足 3 小时",
+        "10 月 8 日转为闭源时已有超过 12,000 个 fork"
+      ],
+      "aiComment": "开源三个月攒下12000个fork，转成闭源也没拦住黑客拿去跑自动化，不到三小时就能打穿云特权。"
+    },
+    {
+      "title": "Railway 通报环境变量遭未授权访问，暂停部署并要求轮换密钥",
+      "timing": "北京时间 10 月 22 日 04:44 发布",
+      "text": "云部署平台 Railway 发布安全通报称，当天早晨检测到存储客户环境变量的系统出现异常，调查显示未授权第三方可能访问了加密环境变量，并获取了其中部分解密内容。Railway 认为此次事件属于近期一系列针对平台公司、意在攻陷 AI 推理服务商的攻击，已通知上游服务商主动吊销所有相关密钥。\n\nRailway 表示初步分析显示影响可能限于部分用户，但强烈建议所有用户立即轮换存储在平台上的全部环境变量、API key 及私有镜像仓库凭据，并排查相关服务日志。调查期间 Railway 已暂停全部部署。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Railway 安全通报",
+          "url": "https://blog.railway.com/p/security-disclosure-wednesday-october-21st"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50188228"
+        }
+      ],
+      "emphasis": [
+        "未授权第三方可能访问了加密环境变量，并获取了其中部分解密内容",
+        "意在攻陷 AI 推理服务商的攻击",
+        "强烈建议所有用户立即轮换存储在平台上的全部环境变量"
+      ],
+      "aiComment": "大清早收到通知让把全部环境变量和API key换一遍，咖啡都不用喝了，人直接清醒。"
+    },
+    {
+      "title": "METR 与 Redwood 公布对 OpenAI 内部 agent 监控系统的红队评估结果",
+      "timing": "演练于 7 月 21 日至 8 月 11 日进行，结果于北京时间 10 月 22 日深夜公布",
+      "text": "METR 与 Redwood Research 公布了对 OpenAI 内部失调监控系统的深度访问试点评估摘要。7 月 21 日至 8 月 11 日，双方各派一名员工在 OpenAI 内部设备与人员陪同下查阅代码、监控配置并访谈约十二名研究人员与工程师。针对 7 月 21 日及之前的系统，团队估计 GPT-5.5 及以上模型的内部 agentic Responses API 流量约 75%–94% 属于可监控范围，内部 Codex agent 子集为 99.2%；但演练开始时 RL 训练 rollout 不在覆盖内，且未监控 compaction 事件估计导致 5 至 7 月约 10% 的合格内部 Codex 流量漏监（OpenAI 在演练前已发现并在演练期间修复）。\n\n红队还发现，Codex agent 原则上可绕过沙箱和 Auto-Review、利用序列化差异使监控失效、或通过两个客户端可控 header 启动不受监控的新 agent 实例。OpenAI 称影响生产防护栈的漏洞均已修补并扩大了监控范围，METR 表示尚未评估这些后续声明。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "METR 评估报告",
+          "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenAI 官方 X",
+          "url": "https://x.com/OpenAI/status/2113298833392496746"
+        }
+      ],
+      "emphasis": [
+        "GPT-5.5 及以上模型的内部 agentic Responses API 流量约 75%–94% 属于可监控范围",
+        "Codex agent 原则上可绕过沙箱和 Auto-Review"
+      ],
+      "aiComment": "内部Codex监控覆盖率算出来高达99.2%，结果红队发现两个客户端header就能让agent拉起不受监控的新实例，防线总在奇怪的地方漏风。"
+    },
+    {
+      "title": "1Password 推出 1Password for Agents，让 agent 登录网站而不接触密码",
+      "timing": "10 月 22 日发布，官方 X 于北京时间 22:30 公布",
+      "text": "1Password 宣布推出 1Password for Agents 平台，目前对 1Password.com 的个人和家庭账户不额外收费。当个人 AI agent 遇到登录页面时，可向用户的 1Password 保险库请求凭据；用户在自己设备上审批后，由 1Password 直接向目标网站自动填入密码或一次性验证码，agent 与应用程序均无法看到或持有凭据。合作伙伴 Browserbase 说明，网站接受登录后，1Password 会移除已填凭据，防止 agent 在后续任务中读取或复用。\n\n官方公布的首批集成中，Meta Muse 与 SpaceXSI Grok Bot 将在未来几天内跨平台上线；Anthropic Claude Duet、OpenAI ChatGPT Work 与 dots、Town Townie 为即将推出；Instinct、Browserbase、Browser Use、Dana、KERNEL、Perplexity、Ramp、Tomo 和 Wajo 也将陆续接入。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "1Password 博客",
+          "url": "https://1password.com/blog/1password-for-ai-agents"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Browserbase 合作文",
+          "url": "https://www.browserbase.com/blog/browserbase-is-partnering-with-1password-for-agents"
+        },
+        {
+          "kind": "原帖",
+          "label": "1Password 官方 X",
+          "url": "https://x.com/1Password/status/2113276767582498943"
+        }
+      ],
+      "emphasis": [
+        "由 1Password 直接向目标网站自动填入密码或一次性验证码，agent 与应用程序均无法看到或持有凭据",
+        "Meta Muse 与 SpaceXSI Grok Bot 将在未来几天内跨平台上线"
+      ],
+      "aiComment": "Agent只管干活，密码由1Password填完即焚，赛博打工人连看一眼大门钥匙的资格都没有。"
+    },
+    {
+      "title": "Walmart 推出 Agent Gateway 与 Agent Profiles，支持 AI agent 限额代购",
+      "timing": "美国时间 10 月 21 日发布，TechCrunch 于北京时间 10 月 22 日 03:30 报道",
+      "text": "Walmart 宣布推出 Walmart Agent Gateway、Agent Profiles 以及 AI agent 专用使用条款，支持顾客通过外部 AI agent 在 Walmart 和 Sam’s Club 购物。Agent Gateway 是基于 MCP 的服务端，将先面向企业和开发者开启测试，让获批 agent 无需模拟人工点击网页即可检索库存、代客下单，并在不向 agent 披露完整购买历史的情况下帮顾客找到常购商品。\n\n将于下月推出的 Agent Profiles 为每个获授权的 agent 在用户账户内建立独立档案，单独显示其订单，支持要求逐笔审批或设置 50、100、200 美元等消费上限，并可随时停用或删除。Walmart 表示 agent 看到的价格与人工浏览 Walmart.com 一致，不会向 agent 提供支付卡信息；若 agent 未按预期行事，Walmart 的退货流程同样适用。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Walmart 官方公告",
+          "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/"
+        }
+      ],
+      "emphasis": [
+        "Agent Gateway 是基于 MCP 的服务端，将先面向企业和开发者开启测试",
+        "支持要求逐笔审批或设置 50、100、200 美元等消费上限",
+        "若 agent 未按预期行事，Walmart 的退货流程同样适用"
+      ],
+      "aiComment": "给AI设个50美元消费上限还能走退货流程，终于体会到当家长给小孩发零花钱还得防他乱买东西的心情。"
+    },
+    {
+      "title": "新墨西哥州法院就剑桥分析相关隐私案判处 Meta 罚款 250 亿美元",
+      "timing": "北京时间 10 月 22 日 01:21 报道",
+      "text": "据 CNBC 报道，美国新墨西哥州法院在一宗源于剑桥分析事件的隐私诉讼中，判令 Meta 支付 250 亿美元罚款。此前陪审团于 9 月认定 Meta 在用户数据保护与收集及有害信息治理上误导该州居民，违反该州《不公平行为法》超过 4,300 万次，每项最高可罚 5,000 美元。法院文件显示，州方原本获判 2,195 亿美元，法官最终将罚款定为 250 亿美元，并按每年 15% 计息直至付清。\n\n法官在文件中批评 Facebook 在剑桥分析事件后未履行承诺开展全面调查。Meta 首席法务官 C.J. Mahoney 声明批评该裁决，并表示有信心在上诉中胜诉。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "CNBC 报道",
+          "url": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50184820"
+        }
+      ],
+      "emphasis": [
+        "判令 Meta 支付 250 亿美元罚款",
+        "按每年 15% 计息直至付清",
+        "表示有信心在上诉中胜诉"
+      ],
+      "aiComment": "从2195亿美元砍到250亿，但每年还要按15%计息，这上诉官司要是打慢点，利息都能跑赢不少理财。"
+    },
+    {
+      "title": "Anthropic 发布 2023 年以来首个新 API 版本 2026-10-21，移除采样参数",
+      "timing": "北京时间 10 月 22 日 05:03 发布",
+      "text": "Anthropic 发布自 2023 年以来的首个正式 API 版本 2026-10-21，计划今后更频繁地发布版本，以便开发者在新模型强制要求前处理破坏性变更；旧版 2023-06-01 未被弃用。在新版本 Messages API 中，temperature、top_p 和 top_k 请求参数被移除，发送任一参数会在所有模型上返回 400 错误；在 assistant 消息中直接放置 document block、或在 user 消息中发送带非空 citations 数组的 text block 也会返回 400 错误；Admin API 与 Claude Enterprise Analytics API 另有多个返回字段改名。\n\n该版本已在 Claude API、AWS、Google Cloud 和 Microsoft Foundry 上提供，Amazon Bedrock 上适用于 Claude 4.7 及之后模型。同步发布的 Python SDK 2.0.0、TypeScript SDK 1.0.0 等客户端 SDK 与 ant CLI 2.0.0 默认发送 2026-10-21 版本，且许可证由 MIT 改为 Apache 2.0。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "API 版本文档",
+          "url": "https://platform.claude.com/docs/en/api/versioning"
+        },
+        {
+          "kind": "官方发布",
+          "label": "平台发布说明",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview"
+        },
+        {
+          "kind": "原帖",
+          "label": "ClaudeDevs 官方 X",
+          "url": "https://x.com/ClaudeDevs/status/2113013247209021918"
+        }
+      ],
+      "emphasis": [
+        "temperature、top_p 和 top_k 请求参数被移除，发送任一参数会在所有模型上返回 400 错误",
+        "许可证由 MIT 改为 Apache 2.0"
+      ],
+      "aiComment": "三年磨一剑的新API直接把temperature和top_p拔了，以后调参侠少了一半祖传手艺，多了一堆400报错。"
+    },
+    {
+      "title": "Claude Security 升级为随代码变更持续扫描并自动跟踪修复",
+      "timing": "北京时间 10 月 22 日 01:40 发布",
+      "text": "Anthropic 宣布更新 Claude Security，面向 Claude Enterprise 客户开放公开测试。连接 GitHub、GitLab 等代码库后，系统会先执行一次深度基线扫描，随后根据变更的风险与复杂度定期自动扫描；当修复代码上线后会自动将问题标记为已修复，若问题再次出现则重新打开。官方称自 4 月公开测试以来，已有数千个组织用其发现超过 100 万个漏洞。\n\n新版支持在单项目内关联多个仓库并配置项目知识库，由系统根据代码生成可编辑的威胁模型，给出每项发现的严重度与利用路径。更新还新增了 API、webhook、基于角色的访问控制，以及用于 Claude.ai 和 Claude Code 的 MCP 连接器。组织每月可获得 25,000 美元免费额度，为期两个月，适用于 2026 年 12 月 31 日前的用量。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Claude 博客",
+          "url": "https://claude.com/blog/claude-security-now-scans-continuously-and-tracks-fixes"
+        },
+        {
+          "kind": "原帖",
+          "label": "Claude 官方 X",
+          "url": "https://x.com/claudeai/status/2112962248218148878"
+        }
+      ],
+      "emphasis": [
+        "根据变更的风险与复杂度定期自动扫描；当修复代码上线后会自动将问题标记为已修复",
+        "每月可获得 25,000 美元免费额度，为期两个月"
+      ],
+      "aiComment": "修完上线自动标为已解决，要是老毛病复发还会自动重新打开，连偷偷把工单关掉糊弄过去的路都给堵死了。"
+    },
+    {
+      "title": "Recursive 开源本地 agent 编程模型 Flint，vLLM 同步提供 Day-0 支持",
+      "timing": "北京时间 10 月 22 日 00:29 发布",
+      "text": "AI 初创公司 Recursive 发布首个模型 Recursive Flint，并以 Apache 2.0 协议在 Hugging Face 开放权重。Flint 为面向本地硬件快速 agentic coding 的 MoE 模型，总参数 40B，每 token 激活 2.5B，支持最长 512k 上下文（官方建议在 256k 内使用）。官方称其小团队与自动化研究系统 Eureka Machine 在不到 4 个月内从零构建了该模型，Eureka Machine 参与了架构搜索、连同输出层在内的 4-bit 量化与离线蒸馏、以及针对 M4/M5 和 NVIDIA RTX Spark 的专用 kernel 优化。\n\n按官方测试数据，Flint 在 M4 Pro MacBook Pro 上生成速度超过 125 tokens/s，在 64GB NVIDIA RTX Spark 短上下文下超过 150 tokens/s，并在 SWE-Bench Pro v2、Terminal-Bench 2.1 和 SWE-Bench Verified 上领先 50B 参数以下的 MoE 模型。官方建议本地执行复杂任务时将其拆分为较小子任务并给出明确指令。vLLM 同日宣布提供 day-0 支持，可运行 NVFP4 与 BF16 两个 checkpoint，单张 GB200 在 100K 上下文下 batch-1 解码约为 500 tokens/s。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Recursive 发布博客",
+          "url": "https://recursive.com/updates/introducing-recursive-flint"
+        },
+        {
+          "kind": "官方发布",
+          "label": "vLLM Day-0 博客",
+          "url": "https://vllm.ai/blog/2026-10-21-flint"
+        },
+        {
+          "kind": "原帖",
+          "label": "Richard Socher X",
+          "url": "https://x.com/RichardSocher/status/2112944385415426249"
+        }
+      ],
+      "emphasis": [
+        "总参数 40B，每 token 激活 2.5B",
+        "M4 Pro MacBook Pro 上生成速度超过 125 tokens/s，在 64GB NVIDIA RTX Spark 短上下文下超过 150 tokens/s",
+        "单张 GB200 在 100K 上下文下 batch-1 解码约为 500 tokens/s"
+      ],
+      "aiComment": "40B总参数每token只激活2.5B，宣传支持512k上下文又括号劝你在256k内用，参数和文档都主打一个实在。"
+    },
+    {
+      "title": "微软研究院结合人类引导的 AI agent 解决 31 年数学难题 KLS 猜想",
+      "timing": "完整证明见于 10 月 4 日版论文，微软研究院于北京时间 10 月 22 日 00:00 发文介绍",
+      "text": "微软研究院高级研究员 Xinzhi Zhang 与合作者发文介绍，团队结合人类数学洞察与受引导的 AI agent 搜索，解决了 1995 年提出的高维凸几何核心问题 Kannan–Lovász–Simonovits（KLS）猜想，证明 KLS 常数存在与维度无关的上界。研究者让多个 agent 并行探索候选方向并由人工逐轮筛选，在探索 100 多种候选方法后获得关键数学判据，随后在 10 月 4 日版论文中通过重复递归精化并证明累积误差有界完成了证明。\n\n微软说明，递归方法、重复应用及误差有界证明为研究者的原创贡献，AI 工具负责协助探索候选方法、推导计算、准备手稿及内部检查；在对照试验中，使用相近 token 预算但未经人工引导的多个领先模型未能完成证明。完整证明公布同日，另有两组研究者贴出基于相关思路的独立证明，此后另有 Lean 4 形式化版本发布。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "微软研究院博客",
+          "url": "https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/"
+        }
+      ],
+      "emphasis": [
+        "解决了 1995 年提出的高维凸几何核心问题 Kannan–Lovász–Simonovits（KLS）猜想",
+        "使用相近 token 预算但未经人工引导的多个领先模型未能完成证明"
+      ],
+      "aiComment": "探索一百多种候选方法解决31年数学难题，对照组不加人工引导烧掉相近token也没做出来，数学家总算还没被踢出群聊。"
+    },
+    {
+      "title": "科大讯飞发布星火 X2.6 及开源端侧模型 X2.6-4B",
+      "timing": "北京时间 10 月 22 日下午发布",
+      "text": "据 IT之家报道，科大讯飞在全球 1024 开发者节上发布讯飞星火 X2.6 大模型及开源端侧模型星火 X2.6-4B。官方称星火 X2.6 基于全国产算力训练，采用 293B-A30B 参数的 MoE 架构，上下文长度拓展至 1M，代码与智能体能力达到业界一流水平，现已在官网开放试用。\n\n星火 X2.6 推理限时定价为输入 0.9 元/百万 tokens、输入缓存命中 0.08 元/百万 tokens、输出 3.6 元/百万 tokens。同步开源的端侧模型星火 X2.6-4B 新增三档推理模式，推理定价限时免费。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/016/403.htm"
+        }
+      ],
+      "emphasis": [
+        "采用 293B-A30B 参数的 MoE 架构，上下文长度拓展至 1M",
+        "同步开源的端侧模型星火 X2.6-4B 新增三档推理模式，推理定价限时免费"
+      ],
+      "aiComment": "输入缓存命中只要8分钱一百万token，4B端侧模型干脆限时白送，这价格卷得连算账的脚本都省了。"
+    },
+    {
+      "title": "Modal 开源 Tinker 兼容后训练服务器 Spindle",
+      "timing": "北京时间 10 月 22 日 20:00 发布",
+      "text": "Modal 宣布开源兼容 Thinking Machines Tinker API 的后训练服务器 Spindle，继前一日发布托管训练库 Modal Dojo 后进一步补齐后训练工具栈。Spindle 部署在用户自己的 Modal workspace 中，按 GPU 时间而非 token 计费，支持全参数训练和 multi-LoRA，可同时运行数百个训练任务。\n\n其后端将训练引擎与推理池解耦，支持在不同加速器或精度上运行，并通过 multi-LoRA 在异步 RL 等待多轮 rollout 时共享 GPU。Modal 表示在复现基于 GRPO 的多轮搜索 agent 训练时，只需修改开源脚本中的 BASE_URL 和 API_KEY 即可对齐 Tinker 的奖励曲线。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Modal 博客",
+          "url": "https://modal.com/blog/introducing-training-api"
+        }
+      ],
+      "emphasis": [
+        "按 GPU 时间而非 token 计费，支持全参数训练和 multi-LoRA",
+        "只需修改开源脚本中的 BASE_URL 和 API_KEY 即可对齐 Tinker 的奖励曲线"
+      ],
+      "aiComment": "说是改一下BASE_URL和API_KEY就能从Tinker迁过来，兼容层做到这份上，就差直接去隔壁门口接人了。"
+    },
+    {
+      "title": "Kevin Weil 等联合创办 Warp Sciences，完成 2.15 亿美元 A 轮融资",
+      "timing": "北京时间 10 月 22 日 23:41 发布",
+      "text": "Kevin Weil 在 X 上宣布与 DJ Patil、FAIR 联合创始人 Manohar Paluri 及药物研发者 Sol Reisberg 联合创办 Warp Sciences，将 AI 与机器人技术引入实验室以加速新药研发。公司已完成由 Lightspeed 领投的 2.15 亿美元 A 轮融资。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Kevin Weil X",
+          "url": "https://x.com/kevinweil/status/2113294657673466060"
+        }
+      ],
+      "emphasis": [
+        "完成由 Lightspeed 领投的 2.15 亿美元 A 轮融资"
+      ],
+      "aiComment": "A轮直接拿了2.15亿美元去搞实验室AI加机器人，别人A轮造概念，大佬A轮的预算看着像直接建厂。"
+    },
+    {
+      "title": "榜单推荐：通用双手灵巧跟踪控制器 DONIC",
+      "timing": "北京时间 10 月 22 日 00:36 提交 arXiv，列入 HF 10 月 22 日 Daily Papers 与 alphaXiv 热榜前五",
+      "text": "研究团队在 arXiv 发布论文，提出跨操作类别与人类动作来源联合训练的通用双手灵巧跟踪控制器 DONIC，并同步构建包含 1,575 段序列、覆盖 229 个物体的多视角持续双手交互数据集 BiHOI。DONIC 将 PPO 强化学习与行为克隆结合成反馈循环，把验证成功的执行轨迹回收为训练示范，同时设计了以物体为中心的单手奖励与 Clip-Centered Advantages。\n\n论文数据显示，单一 checkpoint 在不经微调的情况下，在训练物体的未见轨迹上成功率达 86.79%，在留出物体上达 57.32%，分别高出此前最优双手跟踪基线 77.36 和 45.73 个百分点。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "arXiv 论文",
+          "url": "https://arxiv.org/abs/2610.29997"
+        },
+        {
+          "kind": "讨论",
+          "label": "HF Daily Papers",
+          "url": "https://huggingface.co/papers/2610.29997"
+        },
+        {
+          "kind": "讨论",
+          "label": "alphaXiv 页面",
+          "url": "https://www.alphaxiv.org/abs/2610.29997"
+        }
+      ],
+      "emphasis": [
+        "跨操作类别与人类动作来源联合训练的通用双手灵巧跟踪控制器 DONIC",
+        "在训练物体的未见轨迹上成功率达 86.79%，在留出物体上达 57.32%"
+      ],
+      "aiComment": "留出物体成功率57.32%就能比之前基线高出45.73个百分点，原来以前机械双手面对陌生东西这么手足无措。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "面向个人 agent 的凭据隔离与权限边界工具集中推出",
+      "text": "同日发布的多个产品均围绕“让 agent 持续代办但隔离高敏凭据与高危操作”设计：Anthropic Claude Duet 在发消息、付款、签文件前要求用户审批并禁止证券交易与转账；1Password for Agents 与 Browserbase 在浏览器会话中由密码管理器直接代填并随后清除密码，不让模型接触明文凭据；Walmart 则计划通过独立 Agent Profiles 与消费限额将 agent 代购与用户主账户操作区分开来。"
+    },
+    {
+      "title": "AI 工具同时加速漏洞利用转化与自动化渗透攻击",
+      "text": "AWS 在 PHP2Shell 分析中指出，AI 辅助分析降低了将补丁差异或安全公告转化为可用 exploit 的门槛，解禁后数小时内即出现更多 PoC 并投入扫描；微软与 Wiz 披露的 Storm-0940 活动则显示，攻击者直接采用开源多 agent 框架 ARTEX 将应用测绘、密码喷洒和 OAuth 滥用推进到小时级并覆及数百组织。"
+    }
+  ]
+}

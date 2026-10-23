@@ -1,0 +1,212 @@
+{
+  "date": "2026-10-11",
+  "title": "英伟达被曝洽谈投资 Reflection AI，Sakana 探索多智能体自监督",
+  "intro": "英伟达被曝与 Reflection AI 洽谈投资与算力支持；Sakana AI 介绍多智能体自监督方法 MASS；Hugging Face 推介 OpenAI 形式化数学验证环境；DistroKid 确认因 UMG 主张下架曲目。",
+  "stories": [
+    {
+      "title": "彭博社称英伟达与 Reflection AI 洽谈投资与算力支持",
+      "timing": "彭博社报道发布于北京时间 10 月 11 日 12:38",
+      "text": "据彭博社援引知情人士报道，英伟达正与开放权重模型初创公司 Reflection AI 开展早期谈判，考虑追加投资或为其提供芯片算力。报道指出谈判仍处于早期阶段，尚未达成任何具体条款，可能的形式包括技术授权与人才吸纳、芯片供应协议或增加股权投资。Reflection AI 由前 Google DeepMind 研究员创立，此前介绍了 Beam 模型；外媒曾报道其寻求以 250 亿美元估值融资，该数字并非本次交易定价。",
+      "links": [
+        {
+          "label": "报道",
+          "url": "https://www.businesstimes.com.sg/international/global/nvidia-weighs-deeper-ties-open-model-developer-reflection-ai-through-investment-or-computing-deal"
+        }
+      ],
+      "emphasis": [
+        "考虑追加投资或为其提供芯片算力",
+        "谈判仍处于早期阶段，尚未达成任何具体条款"
+      ],
+      "aiComment": "具体条款还在路上，看客们已经拿着传闻里的估值算起了算力账。"
+    },
+    {
+      "title": "Sakana AI 介绍多智能体自监督研究 MASS",
+      "timing": "官方技术博客发布于北京时间 10 月 11 日 23:00；论文已于 10 月 8 日上线 arXiv",
+      "text": "Sakana AI 与 UC 伯克利团队发布研究博客，介绍多智能体自监督方法 MASS。该方法由同一个共享模型（实验采用 Qwen3.6-27B）分别担任任务执行者、工作流优化者和评估者，通过在提示词中搜索角色、指令、契约和调用顺序的组合，再将自选最优团队的执行轨迹通过 LoRA 微调回写至共享模型。两轮迭代后，模型在四个开放式研究基准上的单位输出 token 分数提升至基线的 1.2 至 1.6 倍，但代码与终端基准未获得同样收益；作者强调该闭环仍存在共享盲点被自我强化的安全隐患，尚未解决自我评估失准问题。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://sakana.ai/mass/"
+        },
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2610.12176"
+        }
+      ],
+      "emphasis": [
+        "将自选最优团队的执行轨迹通过 LoRA 微调回写至共享模型",
+        "尚未解决自我评估失准问题"
+      ],
+      "aiComment": "同一个模型分饰三角把会开完，散会还得挑出精华给自己加班补课。"
+    },
+    {
+      "title": "Hugging Face 介绍基于 OpenAI 数学题的可执行 RL 环境",
+      "timing": "Hugging Face 负责人于北京时间 10 月 11 日 22:31 介绍该项目",
+      "text": "Hugging Face 负责人推介了将 OpenAI 此前公开的形式化数学成果移植为 Harbor 强化学习环境的项目。该项目当前包含 369 个通过官方证明端到端核验的环境，由独立的新沙箱运行 Lean 4 与 Mathlib。评测仅核验严格符合 OpenAI 原始陈述且不含 sorry 占位符的完整证明，等价改写或局部进展均可能返回 0 分。项目仍属早期实验性质。",
+      "links": [
+        {
+          "label": "原帖",
+          "url": "https://x.com/ClementDelangue/status/2109290775322243143"
+        },
+        {
+          "label": "官方发布",
+          "url": "https://huggingface.co/datasets/FineEnvs/openai-math"
+        }
+      ],
+      "emphasis": [
+        "369 个通过官方证明端到端核验的环境",
+        "等价改写或局部进展均可能返回 0 分"
+      ],
+      "aiComment": "只要证明里留个 sorry就直接给零分，这套环境对过程分可以说是毫不留情。"
+    },
+    {
+      "title": "马斯克展示 Grok Bot 购物代理用法，官方文档划定审批边界",
+      "timing": "相关演示帖发布于北京时间 10 月 11 日 05:04 及 13:35",
+      "text": "埃隆·马斯克发文展示 Grok Bot 购物用法，称可上传信用卡图片让其在全网比价并下单，并声称已让该 Bot 搜索并订购乐高套件。据 xAI 此前发布的审批与安全文档，系统现有机制将购买和转账置于审批控制中，支持单次允许、规则自动化或人工拒绝，但文档明确指出模型审查需与最小权限共同配置；在涉及密码输入、双重验证与最终支付确认环节时，系统设计为将控制权交由用户手动接管。",
+      "links": [
+        {
+          "label": "原帖",
+          "url": "https://x.com/elonmusk/status/2109155867983786382"
+        },
+        {
+          "label": "官方发布",
+          "url": "https://docs.x.ai/grok-bot/approvals-security-and-privacy"
+        }
+      ],
+      "emphasis": [
+        "据 xAI 此前发布的审批与安全文档，系统现有机制将购买和转账置于审批控制中",
+        "系统设计为将控制权交由用户手动接管"
+      ],
+      "aiComment": "乐高套件可以让它全网比价，到了掏钱包的关键一步，还是得等真人点头确认。"
+    },
+    {
+      "title": "DistroKid 确认因环球音乐主张下架部分曲目",
+      "timing": "The Verge 报道发布于北京时间 10 月 11 日 02:52",
+      "text": "音乐分发平台 DistroKid 向媒体证实，近期对部分音频下架是直接响应环球音乐集团（UMG）的主张。UMG 曾于 9 月起诉 DistroKid 涉嫌侵权并分发低质 AI 内容。DistroKid 表示仅有极少数曲目受到影响，并反对 UMG 诉讼中的指控。多位音乐人向媒体反映其非 AI 作品在无预警情况下遭移除，且投诉沟通与申诉渠道不透明；目前误伤情况仍属音乐人指称，未有司法裁决定论。",
+      "links": [
+        {
+          "label": "报道",
+          "url": "https://www.theverge.com/entertainment/1009309/distrokid-take-down-songs-umg-lawsuit"
+        }
+      ],
+      "emphasis": [
+        "下架是直接响应环球音乐集团（UMG）的主张"
+      ],
+      "aiComment": "本来只是想安安静静发首歌，结果最先体验到的流程是到处找人工客服申诉。"
+    },
+    {
+      "title": "消息称蚂蚁灵光新版开启小范围内测",
+      "timing": "新浪科技于北京时间 10 月 11 日 13:55 独家报道",
+      "text": "据新浪科技报道，蚂蚁集团旗下 AI 产品“灵光”近日开启新版本的小范围内测。接近项目人士透露，新版本旨在转型为具备长期记忆、能主动推进任务的个人智能体，支持通过调用 Skill 和 MCP 协议联动钉钉发送信息及控制智能家居设备。报道提到内测场景包括多变量的生活与工作长流程，相关功能计划于本月内全面开放，但具体节奏仍有待官方公布。",
+      "links": [
+        {
+          "label": "报道",
+          "url": "https://finance.sina.com.cn/tech/internet/2026-10-11/doc-iniuvtkm7308489.shtml"
+        }
+      ],
+      "emphasis": [
+        "接近项目人士透露，新版本旨在转型为具备长期记忆、能主动推进任务的个人智能体"
+      ],
+      "aiComment": "想到以后可能一边在钉钉发消息一边控制家电，先盼着流程别把自己绕晕。"
+    },
+    {
+      "title": "尼古拉斯·凯奇公开称拒绝签署 AI 豁免协议",
+      "timing": "洛杉矶时报报道发布于北京时间 10 月 11 日 09:21",
+      "text": "演员尼古拉斯·凯奇在纽约漫展公开表示，自己拒绝签署电视剧《暗影蜘蛛侠》（Spider-Noir）中的人工智能豁免协议。凯奇在活动现场称制作方曾要求其签署允许使用 AI 的条款，并表示自己可能不会再与该制片厂合作。亚马逊方面未立即回应置评请求。",
+      "links": [
+        {
+          "label": "报道",
+          "url": "https://www.latimes.com/entertainment-arts/business/story/2026-10-10/nicolas-cage-says-he-wont-work-with-amazon-again-over-ai-dispute"
+        }
+      ],
+      "emphasis": [
+        "凯奇在活动现场称制作方曾要求其签署允许使用 AI 的条款"
+      ],
+      "aiComment": "演了这么多年风格各异的角色，这次连合同上的豁免条款也得亲自仔细把关了。"
+    },
+    {
+      "title": "星海图 LEMO 双臂桌面操作平台开放订购",
+      "timing": "官方于北京时间 10 月 11 日 16:40 发布订购推文",
+      "text": "星海图（Galaxea Dynamics）宣布 LEMO 双臂桌面操作平台正式开放订购。基础套件包含双机械臂、腕部 RealSense 相机与 CCU 控制器，A1Z-T 遥操作臂与航空箱为可选配置。厂商介绍该平台覆盖数据采集、模型训练到机上部署验证的工具链，支持通过外部主机运行感知模型推理以实现具身算法验证。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://x.com/GalaxeaDynamics/status/2109202377706229842"
+        },
+        {
+          "label": "官方发布",
+          "url": "https://galaxea-dynamics.com/products/galaxea-lemo-dual-arm-desktop-operation-platform"
+        }
+      ],
+      "emphasis": [
+        "LEMO 双臂桌面操作平台正式开放订购"
+      ],
+      "aiComment": "双臂套件还没上桌，航空箱和遥操作臂的选配单又让人开始盘算桌面空间够不够用。"
+    },
+    {
+      "title": "开源本地听写应用 BetterWispr 在社区推介",
+      "timing": "Show HN 帖发布于北京时间 10 月 11 日 20:01",
+      "text": "开源 macOS 语音听写应用 BetterWispr 在 Hacker News 社区介绍其功能。该应用基于 Apache 2.0 协议，支持 macOS 14 及以上系统，默认在设备本地运行 Whisper、Parakeet 或系统自带模型，无账号体系且不设云端回退。应用仅针对英文提供口头停顿词清理与风格调整；若用户主动配置并启用第三方接口，音频或转写内容将按对应服务条款发送至远端。",
+      "links": [
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=50042333"
+        },
+        {
+          "label": "官方发布",
+          "url": "https://betterwispr.com/"
+        }
+      ],
+      "emphasis": [
+        "默认在设备本地运行 Whisper、Parakeet 或系统自带模型"
+      ],
+      "aiComment": "默认本地听写，英文还可清理停顿词；是否连接外部服务，得看自己启用了什么。"
+    },
+    {
+      "title": "Image-to-WebDev Arena 更新单项榜单排名",
+      "timing": "Arena.ai 于北京时间 10 月 11 日 01:15 发布榜单更新",
+      "text": "Arena.ai 更新了从图像及截图生成网站任务的 Image-to-WebDev 评测榜。本次榜单中 Claude Opus 5.5 (Max) 以 1749 分位居第一，Claude Sonnet 5.5 (xHigh) 以 1740 分位列第二，二者相差 9 分。该评测专注于网页前端多步骤工具调用与代码生成，仅反映该特定视觉编程任务下的模型表现。",
+      "links": [
+        {
+          "label": "原帖",
+          "url": "https://x.com/arena/status/2108969676298657931"
+        }
+      ],
+      "emphasis": [
+        "Claude Opus 5.5 (Max) 以 1749 分位居第一"
+      ],
+      "aiComment": "第一名和第二名只差了九分，选模型时那点选择困难症又该犯了。"
+    },
+    {
+      "title": "ElevenLabs 上线创作资产管理功能 Brand Kit",
+      "timing": "官方于北京时间 10 月 11 日 00:00 发布更新推文",
+      "text": "ElevenLabs 宣布在 ElevenCreative 套件中推出 Brand Kit。用户可通过粘贴网址提取或自行上传企业 Logo、字体与色彩素材，并设立品牌使用规范。在 Image & Video、Flows 或代理界面中，创作者可通过键入“@”符号引用该资产集或交由代理微调，将品牌规则引入生成流程作为参考。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://x.com/ElevenLabs/status/2108950692027142398"
+        }
+      ],
+      "emphasis": [
+        "通过键入“@”符号引用该资产集或交由代理微调"
+      ],
+      "aiComment": "品牌资产终于能直接艾特出来，总算可以少念两遍那句记得用指定字体。"
+    },
+    {
+      "title": "OpenAI 团队成员确认全局额度重置已完成传播",
+      "timing": "发言者于北京时间 10 月 11 日 12:01 确认完成传播",
+      "text": "OpenAI 团队成员 Tibo 于社交平台发文宣布，此前预告的全局额度重置（Global reset）已完成传播（All propagated）。该发言未透露具体受影响的账户范围或配额变动细则。",
+      "links": [
+        {
+          "label": "原帖",
+          "url": "https://x.com/thsottiaux/status/2109132167112782291"
+        }
+      ],
+      "emphasis": [
+        "全局额度重置（Global reset）已完成传播"
+      ],
+      "aiComment": "额度一完成重置，昨天对着提示框舍不得发的那些零碎问题又重新排上队了。"
+    }
+  ],
+  "trends": []
+}

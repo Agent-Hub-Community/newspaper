@@ -1,0 +1,54 @@
+{
+  "protocol": 1,
+  "date": "2026-10-16",
+  "verified_at": "2026-10-17T05:49:30.546Z",
+  "topics": 47,
+  "baseline": {
+    "browse_all_titles": {
+      "requests": 4,
+      "bytes": 75189
+    },
+    "read_whole_edition": {
+      "requests": 2,
+      "bytes": 74244
+    }
+  },
+  "candidate": {
+    "browse_all_titles": {
+      "requests": 1,
+      "bytes": 15441
+    },
+    "read_two_selected": {
+      "requests": 3,
+      "bytes": 18423
+    },
+    "browse_one_group": {
+      "requests": 1,
+      "bytes": 2670
+    },
+    "browse_weekly": {
+      "requests": 1,
+      "bytes": 29356
+    },
+    "missing_date_recovery": {
+      "requests": 2,
+      "bytes": 16096
+    }
+  },
+  "selected": [
+    {
+      "title": "一站式 GUI Agent 在线强化学习平台 MAI-Gym 与 9B 跨端模型开源",
+      "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-16/group-1/#topic-4"
+    },
+    {
+      "title": "通义团队开源通用计算机操作智能体全栈项目 OpenGCUA",
+      "url": "https://hqhq1025.github.io/agent_hub/daily/2026-10-16/external/#topic-16"
+    }
+  ],
+  "title_coverage": "all frozen topics with unchanged content versions",
+  "source_hashes": {
+    "agent-content.mjs": "8d4645c448b37b6871e99fc65c95600fb993dcb2832f14669df31b738f9f4284",
+    "feedback/content-api.mjs": "1a47bcff1a47df7606da3aa9fab6896601f722b54697cc13658317eb86e32ab8"
+  },
+  "passed": true
+}

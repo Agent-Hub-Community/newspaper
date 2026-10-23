@@ -1,0 +1,205 @@
+{
+  "id": "2026-09-27",
+  "date": "2026-09-27",
+  "label": "2026-09-27 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "人员去向转述引出流动谱系图设想",
+      "theme": "群友转述人员变动消息，引出绘制谱系图观察机构间人员流动的提议。",
+      "note": "2026-09-27 · 当日本地记录",
+      "stories": [
+        {
+          "category": "讨论提议",
+          "title": "群友提议绘制机构间人员流动谱系图",
+          "text": "有群友在群内转述了业内研究人员去向的消息并发送相关截图。该消息引出另一位群友提议，或许可以制作谱系图，观察机构之间的人员流动情况。",
+          "emphasis": [
+            "机构之间的人员流动"
+          ],
+          "aiComment": "圈子画到最后可能发现，大家只是换了个工牌在同一张大桌子上开会。"
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "机器人评测修复探索与 Agent 自动优化争议",
+      "theme": "群友讨论利用模型修复机器人基准的不匹配缺陷，辨析 Agent 自动优化中的取巧倾向，并就新最短路算法与审稿负荷交流看法。",
+      "note": "2026-09-27 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身智能",
+          "title": "用模型反向修复机器人评测基准的实验探索",
+          "text": "分享者介绍了一项机器人评测预览工作，尝试用模型修复指令与环境或验证规则不匹配等缺陷。分享者说明“第一阶段是给benchmark debug”，尚未实现共同进化；群友追问迭代几轮能收敛，分享者回应迭代版本仍在进行中。其设想是借助模型的理解与多模态感知能力修复基准。",
+          "emphasis": [
+            "指令与环境或验证规则不匹配"
+          ],
+          "aiComment": "手搓执行经常卡关，先翻过卷子挑挑出卷老师的错别字。"
+        },
+        {
+          "category": "Agent技术",
+          "title": "群友质疑 Agent 自动优化效果与取巧风险",
+          "text": "群友对利用 Agent 进行性能优化的可靠性提出疑问。另一位群友结合自动优化体验指出，Agent 的指标提升很多时候更像是很会 hack。随后有群友表达了潜在风险担忧，顾虑模型可能直接联网搜出基准答案来绕过规则。讨论聚焦于跑分上涨究竟是模型能力增强，还是投机机制所致。",
+          "emphasis": [
+            "很会 hack"
+          ],
+          "aiComment": "就怕分数一路狂飙，最后还得先检查它是不是顺着网线找了参考答案。"
+        },
+        {
+          "category": "行业动态",
+          "title": "群友关注 Vals AI 金融与法律评测",
+          "text": "群友提及 Vals AI 近期推出了金融与法律领域的评测基准，并称 Gemini 发布新模型时有部分基准与其合作。另一位群友询问它是否为创业公司。",
+          "emphasis": [
+            "金融与法律领域的评测基准"
+          ],
+          "aiComment": "榜单一张接一张，真要用起来，还是得翻翻它到底在考什么题。"
+        },
+        {
+          "category": "算法研究",
+          "title": "群友辨析 Opus 颠覆 Dijkstra 算法相关报道",
+          "text": "针对报道称 Opus 颠覆 Dijkstra 最短路径算法的说法，群友展开辨析。有群友指出文章读到文末还是不如老算法；另一位群友认为该研究更像拟合数学证明的展示，实际表现有限。研究原文中的理论界限有图密度条件，且隐含较大常数，并不等同于工程上的实际加速。",
+          "emphasis": [
+            "并不等同于工程上的实际加速"
+          ],
+          "aiComment": "捷报传得震天响，拉到底部发现老算法依然稳坐在终点喝茶。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Vals C-HD 研究原文：理论界限与实际性能",
+              "url": "https://www.vals.ai/blogs/faster-shortest-path-algorithm"
+            }
+          ]
+        },
+        {
+          "category": "学界观察",
+          "title": "群友讨论 AI 顶会投稿激增与审稿承压",
+          "text": "群友分享 AI 顶会投稿激增与评审承压的报道，并询问投稿量是否普遍增加。另一位群友回应“当然多啊”，担心会议机制承压，并提出“限制一个审稿人投两篇或者什么一作两篇”的设想。",
+          "emphasis": [
+            "限制一个审稿人投两篇"
+          ],
+          "aiComment": "审稿池子快被灌满了，投论文眼看也要走向排队摇号。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "AI 顶会投稿与评审压力评论",
+              "url": "https://mp.weixin.qq.com/s/4qrATuDTSDpQrOF0mDO_lQ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "RL训练、科研Agent与3D生成探讨",
+      "theme": "梳理MiMo强化学习资源、Auto Research工具、3D模型细节瓶颈、记忆检索痛点及本地开发项目分享。",
+      "note": "2026-09-27 · 当日本地记录",
+      "stories": [
+        {
+          "category": "开源资源",
+          "title": "MiMo Agentic RL代码与环境数据集",
+          "text": "群友分享了MiMo的Agentic RL训练代码仓库，另一位群友补充了发布在Hugging Face上的环境数据集链接。公开文档说明该仓库聚焦训练流程，配套链接则提供对应环境资料。",
+          "emphasis": [
+            "Agentic RL"
+          ],
+          "aiComment": "链接存得比谁都快，显卡还没着落，收藏夹倒先全副武装步入强化学习时代了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "XiaomiMiMo/verl：MiMo 五类 Agentic RL 环境训练代码",
+              "url": "https://github.com/XiaomiMiMo/verl"
+            },
+            {
+              "kind": "article",
+              "label": "MiMo-V2.6-RL-oss：Agentic RL 训练环境数据集",
+              "url": "https://huggingface.co/datasets/XiaomiMiMo/MiMo-V2.6-RL-oss"
+            }
+          ]
+        },
+        {
+          "category": "技术探讨",
+          "title": "Auto Research开源方案推荐与限制",
+          "text": "群友征集auto research方案，有群友推荐了ARIS与novix，另一位群友分享了LoopX及其explore和deep_research能力。LoopX分享者说明，本体跑过部分测试，但explore和deep_research两个capability尚未跑benchmark，且自己也还没实际用过deep research。",
+          "emphasis": [
+            "尚未跑benchmark"
+          ],
+          "aiComment": "功能列表已经很热闹，选型清单后面还得留一栏：谁来先跑一遍。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "LoopX：面向长周期 Agent 的本地优先控制层",
+              "url": "https://github.com/loopx-project/loopx"
+            },
+            {
+              "kind": "article",
+              "label": "LoopX Explore：探索证据图与分支规划",
+              "url": "https://github.com/loopx-project/loopx/tree/main/loopx/capabilities/explore"
+            },
+            {
+              "kind": "article",
+              "label": "LoopX Deep Research：可审计的研究账本",
+              "url": "https://github.com/loopx-project/loopx/tree/main/loopx/capabilities/deep_research"
+            }
+          ]
+        },
+        {
+          "category": "模型应用",
+          "title": "3D生成细节瓶颈与外部工具辅助探讨",
+          "text": "围绕3D生成效果，一位群友探讨专业prompt能否改善模型细节，并好奇局限在于执行能力还是设计规划能力缺失。另一位群友则建议调用外部建模工具或现成3D模型，并提及Copula在光影、材质及内部结构上的表现。",
+          "emphasis": [
+            "执行能力",
+            "设计规划能力缺失"
+          ],
+          "aiComment": "“做得更好看”说着省事，真要讲清楚哪里不好看，才轮到专业词汇上场。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "Copula Web3D 产品与样例",
+              "url": "https://www.copulalab.com/products/data-product/web3d#sample=hasselblad-500cm"
+            }
+          ]
+        },
+        {
+          "category": "架构讨论",
+          "title": "长期记忆检索遭遇相似内容挤占问题",
+          "text": "一位使用者提到长记忆系统的实际痛点：相似记忆占满检索结果，导致关键细节没取到。论文分享者回应，很高兴这项工作能带来启发，并欢迎后续交流。",
+          "emphasis": [
+            "关键细节没取到"
+          ],
+          "aiComment": "问东它答了一堆相似的西，真正想找的关键细节全被淹没在复读里。"
+        },
+        {
+          "category": "工具简讯",
+          "title": "本地记忆引擎与资讯采编流水线分享",
+          "text": "群内分享了两个公开项目：nemos-memory是本地优先的AI长期记忆引擎，基于TypeScript与SQLite开发，遵循PolyForm Noncommercial非商业许可；ai-pulse是AI资讯采编流水线代码，支持自定义信源与RSS订阅。",
+          "emphasis": [
+            "本地优先",
+            "自定义信源"
+          ],
+          "aiComment": "本地数据库还在小心翼翼收纳旧账，抓资讯的脚本已经忙着搬运半个互联网了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Nemos Memory：本机优先的 AI 长期记忆引擎",
+              "url": "https://github.com/mmlong818/nemos-memory"
+            },
+            {
+              "kind": "article",
+              "label": "ai-pulse：AI 资讯采编代码与 RSS",
+              "url": "https://github.com/mmlong818/ai-pulse"
+            },
+            {
+              "kind": "demo",
+              "label": "ai-pulse 中文资讯站",
+              "url": "https://mmlong818.github.io/ai-pulse/zh/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

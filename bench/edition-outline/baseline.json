@@ -1,0 +1,498 @@
+{
+  "protocol": 1,
+  "source_commit": "e7fa92b64a4bee583017cbc5303bf14f483cb259",
+  "date": "2026-10-16",
+  "frozen_at": "2026-10-17T05:41:40.612Z",
+  "inventory": [
+    {
+      "kind": "daily",
+      "date": "2026-08-26"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-08-27"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-08-30"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-08-31"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-01"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-02"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-03"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-04"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-07"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-08"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-10"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-11"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-14"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-18"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-21"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-22"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-23"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-24"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-25"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-26"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-27"
+    },
+    {
+      "kind": "weekly",
+      "date": "2026-09-27",
+      "from": "2026-09-21"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-28"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-29"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-09-30"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-01"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-02"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-03"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-04"
+    },
+    {
+      "kind": "weekly",
+      "date": "2026-10-04",
+      "from": "2026-09-28"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-05"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-06"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-07"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-08"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-10"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-11"
+    },
+    {
+      "kind": "weekly",
+      "date": "2026-10-11",
+      "from": "2026-10-05"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-12"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-13"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-14"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-15"
+    },
+    {
+      "kind": "daily",
+      "date": "2026-10-16"
+    }
+  ],
+  "corpus": [
+    {
+      "id": "daily:2026-10-16:group-1:49f910fa267e437d7f295614",
+      "group": "group-1",
+      "title": "4B 小模型帮 Agent 做“选择题”：成本最高砍 89%，省下的钱过半来自 prefill",
+      "revision": "ea0ed8237288c2b7e0ec34e97a120c9865dfbb52f599696d49bc84d47ed2fb67"
+    },
+    {
+      "id": "daily:2026-10-16:group-1:a935ff51dd448d4d00b386a1",
+      "group": "group-1",
+      "title": "Meta 开源多模态模型 Muse Spark Open，群友辨析其与 1.2 版本的渊源",
+      "revision": "772a54b60c684253c79e36ebead1084fa6885609d15747807e3c2f4879816f6b"
+    },
+    {
+      "id": "daily:2026-10-16:group-1:69c88594f0a89a2b31312a89",
+      "group": "group-1",
+      "title": "Agent 自进化框架 PenguinHarness、140 篇论文综述与 GDPevo 评测集开源",
+      "revision": "4dda1ec7e22a2f4070285243df1b236b283efec46875ab2d770bf129c0fa990b"
+    },
+    {
+      "id": "daily:2026-10-16:group-1:727cd183ebd250dc0fea1799",
+      "group": "group-1",
+      "title": "一站式 GUI Agent 在线强化学习平台 MAI-Gym 与 9B 跨端模型开源",
+      "revision": "b2e452d8e2619c7dacd282904d081c98a443897a4e3337c807bdd5c9bf3492c2"
+    },
+    {
+      "id": "daily:2026-10-16:group-1:19e1683d1c043a2c7ccc1422",
+      "group": "group-1",
+      "title": "MOLT 开源适配 vLLM 的训推一致性 Skill",
+      "revision": "f0933fb7fa3fc76f5df4b4a540446def66357cfc9c04915e2362af1b4f6f130b"
+    },
+    {
+      "id": "daily:2026-10-16:group-2:cb2224e2c1248eb4bec9514a",
+      "group": "group-2",
+      "title": "只改环境不改任务能让 GPT-5.6 Sol 成功率暴跌近 60 个百分点？群友追问“为了难而难”与轮次上限",
+      "revision": "25a7457ebf74b2552f3cd816ea2b6830cdf0e6ffffcb46b21490089518f60b97"
+    },
+    {
+      "id": "daily:2026-10-16:group-2:748e2100187aaa5886dec770",
+      "group": "group-2",
+      "title": "RL 训练中 logprob diff 为什么往上涨：是回复变长带动的，还是另有反例？",
+      "revision": "86b189735a5db4fb2cdd9f7bdca36afcf933f2ecbbae904e3d3e04bf87400b44"
+    },
+    {
+      "id": "daily:2026-10-16:group-2:051065d7174467e79f6dc371",
+      "group": "group-2",
+      "title": "Meta 开源 816B MoE 模型 Muse Spark Open，评测表选品被调侃“对比的艺术”",
+      "revision": "a1dc1ed465f3ff0aa1da6b3b2461ac989bedda3368d92faed56ce758194fd3d5"
+    },
+    {
+      "id": "daily:2026-10-16:group-2:314b02ce02a0f5dfde8eddcb",
+      "group": "group-2",
+      "title": "长程任务上下文被打断怎么训？Mosaic 把多会话轨迹拆开分配强化学习优势",
+      "revision": "a2f02674f681d8faad5e9da9ee21bee28dc62dbf007b0217a74a4e379ee53e33"
+    },
+    {
+      "id": "daily:2026-10-16:group-2:47995f033d63d72c06138f4a",
+      "group": "group-2",
+      "title": "LlamaFactory 团队开源 Agent 自进化框架 PenguinHarness 与企业级评测集 GDPevo",
+      "revision": "f4676e53b206e1ecdfbe27b3b6e7b6c55e1ba0600635392efc51bc4460d85cec"
+    },
+    {
+      "id": "daily:2026-10-16:group-2:c745a95f668cd474aa2d1676",
+      "group": "group-2",
+      "title": "仅 200 多行初始代码的自举项目 Fibona Agent：在 IPython 里自己写下一步代码",
+      "revision": "bf79842b1826c249a6ce0fa52b839f9190eac9f132e8043d1820d0c2c668c5d6"
+    },
+    {
+      "id": "daily:2026-10-16:group-3:65d6112553f42eb8ad309aee",
+      "group": "group-3",
+      "title": "Terminal-RSI 拆解：跨 Harness 轨迹如何防提示泄露，为什么弃用 GRPO 改跑 PPO",
+      "revision": "ea9ca9e90eded5081780db4fd0ed41138b5ffc1c982b88205f086b8945923111"
+    },
+    {
+      "id": "daily:2026-10-16:group-3:db77f21c33a408bd5d60aadc",
+      "group": "group-3",
+      "title": "吐槽 Codex 中文对话需“中译中”，群友开源多 Agent 群聊客户端让干活与汇报分家",
+      "revision": "3cda5d495e279cc774f5898b71f587e9ea2c7fac61961cfa3d2b6e7730db81f9"
+    },
+    {
+      "id": "daily:2026-10-16:group-3:0fa9fbf62c63716d29041735",
+      "group": "group-3",
+      "title": "前沿模型隐藏 CoT 后还能做潜空间蒸馏吗？群友激辩“弱蒸馏”与算力扩展瓶颈",
+      "revision": "0c3a7c8a54560b1d4e23a6da987097afda8a1290b623c860db9b32c823736e2e"
+    },
+    {
+      "id": "daily:2026-10-16:group-3:6ca78e9f3098acf46e6f0160",
+      "group": "group-3",
+      "title": "Meta 开源 816B/A42B 模型 Muse Spark Open，群友追问为何评测唯独漏掉 TB 4.0",
+      "revision": "83de7dc44ae061881323769752641806cc9947b9b248cdda581b3b8f30337826"
+    },
+    {
+      "id": "daily:2026-10-16:group-3:249f67a773f18ae85a865f85",
+      "group": "group-3",
+      "title": "GPT-6 Astra 登顶 AA-Robotics 具身榜，群友吐槽传统小参数 VLA“全靠 roll”",
+      "revision": "620cf72c636f0bc35f63d8fd9ed3e1c8750fd60e3a0ef10a3962ebffe85c566d"
+    },
+    {
+      "id": "daily:2026-10-16:group-3:799475bb735fe62bf9e1aaaa",
+      "group": "group-3",
+      "title": "多智能体自进化框架 PenguinHarness、140 篇文献综述与 GDPevo 基准开源",
+      "revision": "f50fdc75237db502ff7fcecde0cbd6512cba98e4b32c708adcae41c8d01e2df0"
+    },
+    {
+      "id": "daily:2026-10-16:group-3:7e3faf98d5854f7a08af6740",
+      "group": "group-3",
+      "title": "生物医学机器学习智能体基准 BioXArena 开放 Codabench 在线打榜",
+      "revision": "fa387672958ec32bf859a1a3e4753868d574c2cb3426db07353d854d1cde7710"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:2fc5673bb216f1a9eba51105",
+      "group": "group-4",
+      "title": "百名学者呼吁本科生“慢科研”，网友扒出签署人发文量引发评价体系与复现难吐槽",
+      "revision": "2090e95a1abea845ee25cb078168f2bea2dbf88c0fc6ad966bd2c92f232271ff"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:769bd3f2a3e23cf6c5d35718",
+      "group": "group-4",
+      "title": "AI 制药卡在临床与数据，“虚拟细胞”成新叙事，《Science》噬菌体生成论文被吐槽“硬凑”",
+      "revision": "08d4650bb239b8ff326bb89e4331d8505b0abc29ab817498a6e3087e5dc03ee6"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:6ca38e8d11f73192ee4e5b1c",
+      "group": "group-4",
+      "title": "AI 游戏赛道怎么落地：比高精尖渲染更难的是低延迟稳定运行与可用 3D 资产",
+      "revision": "64e6dd4bf73f11756eb1b376856db3c650aac1c38a9798a67899c5487e692a7e"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:ea6a1417937071b324fe81ea",
+      "group": "group-4",
+      "title": "Codex 搭配 GPT-6 Astra 输入预测神还原催改语气，群友自嘲沦为“电子监工”",
+      "revision": "29c5fb3e5d086ca7623c19521672c1ae0e782764fbd31b529763c88b26b7d158"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:c594ecd469e4787729795c58",
+      "group": "group-4",
+      "title": "AI Scientist 运行时智能体协同（RAC）：协调机制并非加得越多越好",
+      "revision": "e78335232fdac90d3dc38e18c92afa2f211cae057e513c43fad3e009877ebfec"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:c8cd0e28b512ccf1922444e5",
+      "group": "group-4",
+      "title": "CameraVLM：引入几何与运动状态约束，让 9B 视觉模型分清左右与运镜",
+      "revision": "9eb07554e1e8322772291ef61c3db4fde142cca54241891ced61584d8ff86b82"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:aa1a35dfd169de101b1c3d2e",
+      "group": "group-4",
+      "title": "MLExpert：基于 Qwen3.6-35B 后训练，让智能体自主迭代机器学习实验",
+      "revision": "a8618da949cf0c34028ab577790d224930ef7444b5e166cfbe19f9f0c789caa2"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:2b4b808261c260b6025d5363",
+      "group": "group-4",
+      "title": "LlamaFactory 团队开源多智能体自进化框架 PenguinHarness 与 GDPevo 基准",
+      "revision": "8022b3235e5c1f151b5dc55909ed14c46c1baaeed2e10e6ce12624aa51e8b2a4"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:805d65c1f2d69b45a4a15c89",
+      "group": "group-4",
+      "title": "WorldCast 基准：用代码外化规划能显著提升多模态模型的世界状态推演",
+      "revision": "593a93f6f92a59833c81c4033affaf9716fbdb5d338f0a05e279d9246034d760"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:847e4cc8f0892ed26349280f",
+      "group": "group-4",
+      "title": "后训练实验如何选 Checkpoint：基线定步数省评测成本，交付看最佳效果",
+      "revision": "7d7906f63074e1901d9b48b0199f5625d3f0269f3b3684b14d94bb9569763ea0"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:98058001a236f4385d155460",
+      "group": "group-4",
+      "title": "Loop Transformer 在小模型上的潜力与隐式思维链监控风险",
+      "revision": "55a3086925a8d0893d59d045b7a28090fd10bed340dce9ef2142e5ffb3b31e29"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:bdca82636abb6eb61fd81e4f",
+      "group": "group-4",
+      "title": "200 行核心代码的自举智能体 Fibona Agent 开源",
+      "revision": "3ba275a36823469b1d251ed258cb1054c5e1895fb1ffacfb6c991e41ab62e94b"
+    },
+    {
+      "id": "daily:2026-10-16:group-4:cca255a5706f8ed3e8926f00",
+      "group": "group-4",
+      "title": "知乎文章分享：DeepSeek v4.1 RL 训练踩坑日记",
+      "revision": "a44cee490072a102e144ed1e6aad65c6dec38731f6eb14e0a247d82c51b778be"
+    },
+    {
+      "id": "daily:2026-10-16:external:fee3f7d069971fbebdf1ce3c",
+      "group": "external",
+      "title": "Meta 开放 816B 参数模型 Muse Spark Open 权重",
+      "revision": "1547ed8a4558bbc7ddd4634c56e6f563c08c6f93a087eeb3c98ced0fd0c483a7"
+    },
+    {
+      "id": "daily:2026-10-16:external:c2e948445ec6e7d241574e3b",
+      "group": "external",
+      "title": "商务部、科技部拟将 23 项 AI 技术列入出口管制目录并实施临时登记",
+      "revision": "a7ae72a1147aa30f074ee0798031038672c9a9195ef0535a7d4d2be7646ec296"
+    },
+    {
+      "id": "daily:2026-10-16:external:e8400d543d31c61792ecc5ee",
+      "group": "external",
+      "title": "微软 Microsoft AI 完成 2.8T 参数基座模型 MAI-Base-2 预训练",
+      "revision": "dff197b2af812288229144224c1a3c4b24a25431e07cf5c301a26dc4886d56c5"
+    },
+    {
+      "id": "daily:2026-10-16:external:195db4eb862653a59b16cfb5",
+      "group": "external",
+      "title": "Reflection 以 Apache 2.0 协议开放 501B 参数模型 Beam 权重",
+      "revision": "637addf5e091c8074b567fdde8f472c57692ccb5dde203a9f9034f583e88bcdf"
+    },
+    {
+      "id": "daily:2026-10-16:external:c61cae894c37cbdb9c946319",
+      "group": "external",
+      "title": "路透社：部分投资者讨论将 Anthropic IPO 估值下调至约 1.5 万亿美元",
+      "revision": "68249e7a7ecc955f6b7322733bc604eae7fa9c7c2c340394d31f5b6c62becae5"
+    },
+    {
+      "id": "daily:2026-10-16:external:73e8e03c3c91c09c115dc3b0",
+      "group": "external",
+      "title": "OpenAI 更新 ChatGPT Chrome 扩展，支持跨标签页读取与操作",
+      "revision": "506c230a6041650b7b2ca792e9e27fff0cb90348649ccc9dd502e7120b203605"
+    },
+    {
+      "id": "daily:2026-10-16:external:65de3065826b28cd39e12b2e",
+      "group": "external",
+      "title": "NVIDIA RTX Spark 笔记本开售，最高配 128GB 统一内存",
+      "revision": "6fd0a8c59703a8e9d18c1ae1a193cde5ffe5d2f26a838ee2c051e6a29ebfa1c9"
+    },
+    {
+      "id": "daily:2026-10-16:external:ae7038f651eb5eb4875d8d83",
+      "group": "external",
+      "title": "Anthropic 向独立评估机构 METR 开放近似员工级的内部访问权限",
+      "revision": "0c375601b6708b37c01b6cdceea0a4f600355401dd2254d0fd0e36bad904f66f"
+    },
+    {
+      "id": "daily:2026-10-16:external:a25658e8352441f2e7303654",
+      "group": "external",
+      "title": "OpenAI 披露内部研究模型擅自动用他人测试网钱包等 4 起越权案例",
+      "revision": "edca572f5dd68035f44445878e173ff1d78b4556e4b3f310a44bfc2ee1580978"
+    },
+    {
+      "id": "daily:2026-10-16:external:48c3fa1d2ff3e6cfdeb490a7",
+      "group": "external",
+      "title": "腾讯回应评测智能体越界访问高德地图：源于第三方模型评测",
+      "revision": "a62108f5a9c424270728a8aa3451dd45a8c5c40bf1149fca2192926aaac4a823"
+    },
+    {
+      "id": "daily:2026-10-16:external:4f9c01ae9b2260df32677a52",
+      "group": "external",
+      "title": "印度 CERT-In 通报评测中的 AI 智能体越权访问多家印度机构系统",
+      "revision": "7886f818d5a27d4899e6e6b4125bdc7a3a29d2249aed9f5b8d37eb3386cfc5da"
+    },
+    {
+      "id": "daily:2026-10-16:external:1f7cceaccecae7864acf929c",
+      "group": "external",
+      "title": "Google Quantum AI 在 Willow 处理器上实验验证魔术态培育，错误率降低约 40 倍",
+      "revision": "b71166d41643b0bb13c135fb93ad4b5f9c5a1b1175f41060f0dee569c6a4b197"
+    },
+    {
+      "id": "daily:2026-10-16:external:5a185e8b6a828a454a1edf19",
+      "group": "external",
+      "title": "Goodfire 研究者撰文称神经网络本身已具备高可解释性，引发学界争论",
+      "revision": "251e1a666908018f77ec9e5b8f8b696c6b7caca7692d2ee7198043750686f76a"
+    },
+    {
+      "id": "daily:2026-10-16:external:3cc79085f4576cbec8600cd6",
+      "group": "external",
+      "title": "Claude Code Review 正式开放，Opus 5.5 快速模式取消等待名单",
+      "revision": "c6d11b0f8f77c5d44d2a089602245983d9e010f144c461a77a45ccee9be39430"
+    },
+    {
+      "id": "daily:2026-10-16:external:0fb30a39e644b3d37624a5ba",
+      "group": "external",
+      "title": "Perplexity 开源智能体代码执行沙箱平台 SPACE",
+      "revision": "e427550aea9e74bb349f4cd1fef1b77c999f2f075a63cc280c1ac75d1ade106c"
+    },
+    {
+      "id": "daily:2026-10-16:external:ab36a1818f6027f6946552a5",
+      "group": "external",
+      "title": "通义团队开源通用计算机操作智能体全栈项目 OpenGCUA",
+      "revision": "5d20fb3b8cb1df3b50aec136d93a54a765c2f9d2f7847479972fa60fc276d33e"
+    }
+  ],
+  "catalog_sha256": "3beea64f7802aa2513464361c9ef8f020f6673e0cb81dd8dccde1d143e2e848a",
+  "discovery": {
+    "requests": 1,
+    "bytes": 1492
+  },
+  "list": {
+    "requests": 3,
+    "bytes": 73697
+  },
+  "whole": {
+    "requests": 1,
+    "bytes": 72752
+  },
+  "tasks": {
+    "browse_all_titles": {
+      "requests": 4,
+      "bytes": 75189
+    },
+    "read_whole_edition": {
+      "requests": 2,
+      "bytes": 74244
+    }
+  },
+  "acceptance": {
+    "all_topics": true,
+    "group_counts": true,
+    "no_body_in_outline": true,
+    "max_outline_bytes": 20000,
+    "selected_titles": [
+      "MAI-Gym",
+      "OpenGCUA"
+    ],
+    "max_focused_requests": 3,
+    "max_focused_bytes": 24000
+  }
+}

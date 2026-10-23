@@ -1,0 +1,91 @@
+{
+  "date": "2026-09-28",
+  "title": "Manus推2.0架构与独立应用Cue，NVIDIA发布智能体安全治理平台",
+  "intro": "本期重点关注智能体从系统架构到安全防护的最新动向：Manus推出2.0版本，带来自研harness、Studio可编辑工作区与独立应用Cue；NVIDIA公布覆盖开源运行时与专用硬件的智能体安全平台。此外，本期还汇总了Meta设立企业平台业务、H Company开源多接口模型Holo4权重，以及Simon Willison发布Bluesky机器人排查工具等动态。各条目发布时间覆盖不同时区，包含跨日记录。",
+  "stories": [
+    {
+      "title": "Manus发布2.0架构、Manus Studio与独立应用Cue",
+      "timing": "跨日补充：官网标9月28日，精确发布时间未确认",
+      "text": "Manus宣布推出Manus 2.0，底层采用自研Agent harness“Cascade”，按需调用专业能力，并新增由邮件、Slack或Notion等事件触发的Automations。对于需要全天候在线或托管多人游戏的项目，用户可付费购买专用的Cloud Computer环境。桌面端升级为Manus Studio，新增两大专业环境：Video Editor提供分轨时间线，允许手工替换素材、调整片段，再让AI基于这些修改继续迭代；Game Dev支持修改代码与资产，经配置并购买云电脑后支持多人联机。官方还介绍了基于授权连接的Computer Use，允许用户从移动端通过语音远程指派其在电脑专属工作区内操作获准的软件。此外，官方推出独立应用Cue，称每个个人智能体拥有独立邮箱、电话、钱包与运行环境，支持群聊协同及扫码点餐等服务。Cue目前处于早期邀请阶段，iOS版本尚待App Store审核。以上能力依据官方公告，未作本轮实测。",
+      "links": [
+        {
+          "label": "官方公告",
+          "url": "https://manus.im/blog/introducing-manus-2-0"
+        }
+      ],
+      "emphasis": [
+        "每个个人智能体拥有独立邮箱、电话、钱包与运行环境"
+      ],
+      "aiComment": "时间线能拆开改，再让AI接着自己的修改往下做，这一点比重新生成整段视频更值得试试。"
+    },
+    {
+      "title": "NVIDIA发布开放Agent安全平台，区分运行时与参考设计",
+      "timing": "2026-09-28 官网发布",
+      "text": "NVIDIA发布Open Agent Safety Platform，提供全栈智能体安全治理方案。该平台包含已全面可用的开源运行时软件OpenShell，以及基于硬件的Sentry参考系统设计。OpenShell在Vera CPU上运行以提供隔离边界与策略审计，可扩展至Arm和Intel平台。Sentry依托BlueField-4 DPU在带外独立运行，官方宣称其能在毫秒级内隔离越界智能体。Anthropic、SpaceXAI、Salesforce等100余家机构正与其合作推进相关技术。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49879883"
+        }
+      ],
+      "emphasis": [
+        "提供全栈智能体安全治理方案"
+      ],
+      "aiComment": "软件运行时之外再加一层独立监督，重点还是这些边界在真实任务里能不能守住。"
+    },
+    {
+      "title": "Meta设立企业平台业务，CJ Desai将出任首席官",
+      "timing": "2026-09-28 官方发布",
+      "text": "Meta宣布将启动新业务支柱Meta Enterprise Platform，旨在将旗下前沿模型、智能体及基础设施提供给企业与开发者。初始产品规划包括Muse agent、Meta Business Agent、Muse API与Muse Code等。来自MongoDB的Chirantan CJ Desai将加入Meta出任首席企业平台官，直接向Mark Zuckerberg汇报。Desai此前曾任职于ServiceNow与Cloudflare。本次公告未列出相关产品的上线时间表或定价方案。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/i/status/2104550609403695581"
+        }
+      ],
+      "emphasis": [
+        "将启动新业务支柱Meta Enterprise Platform"
+      ],
+      "aiComment": "产品名字和负责人一口气列齐了，剩下的就看时间表什么时候填空。"
+    },
+    {
+      "title": "H Company发布多接口模型Holo4并公开权重",
+      "timing": "2026-09-28 博客发布",
+      "text": "H Company发布Holo4系列智能体模型，包含27B稠密版与35B-A3B混合专家版。该模型基于Qwen开发，支持在统一模型中调用GUI界面、生成代码、MCP及标准API。在桌面操作基准OSWorld 2.0中，作者自测27B版本得分为61.7%，35B-A3B为30.9%，因评测框架、任务子集与版本不同，无法与闭源前沿模型作公平直接横比。团队已公开模型权重以及公开基准的执行轨迹，用于推理加速的DSpark drafter计划后续推出。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://huggingface.co/blog/Hcompany/holo4"
+        }
+      ],
+      "emphasis": [
+        "包含27B稠密版与35B-A3B混合专家版"
+      ],
+      "aiComment": "分数之外能逐步回放它怎么做任务，这份开放轨迹值得多看两眼。"
+    },
+    {
+      "title": "Simon Willison发布Bluesky回复机器人排查工具",
+      "timing": "北京时间2026-09-28 02:41 原作者发布",
+      "text": "Simon Willison发布了一款针对Bluesky账号的排查工具。由于Bluesky提供开放API，该工具通过读取公开活动数据来分析疑似自动化回复机器人的特征。其排查的信号包括同账号数秒内连续回复他人、从不发布原创图文或链接却频繁回复高粉账号等。Willison表示该工具原型由Opus 5.5辅助编写，仅按行为特征提供参考线索。文章未提供准确率验证数据，不应直接作为定性判据。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://simonwillison.net/2026/Sep/27/bluesky-bot-check/"
+        }
+      ],
+      "emphasis": [
+        "仅按行为特征提供参考线索"
+      ],
+      "aiComment": "秒回加专蹭大号，有些特别积极的真人网友看了大概心里直犯嘀咕。"
+    }
+  ],
+  "trends": []
+}

@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-01",
+  "title": "Google发布Gemini 4 Argon，OpenAI与Synopsys联合开发EDA模型",
+  "intro": "Google推出Gemini 4 Argon并向网络防御者逐步开放，DeepMind展示蛋白质设计水印工具；OpenAI与Synopsys宣布合作开发芯片设计专用模型；Cloudflare开源Clef决策模型。",
+  "stories": [
+    {
+      "title": "Google 发布 Gemini 4 Argon",
+      "timing": "官方博客标注为2026年9月30日，官方社交账号随后发布上线说明",
+      "text": "Google 官方博客与 Google DeepMind 宣布发布 Gemini 4 Argon。根据发布方说明，该模型目前面向网络防御者开始逐步开放，并提供早期推广定价。官方页面同时介绍了模型的能力、应用场景和面向防御者的受控开放安排。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/i/status/2105388054270946"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49913571"
+        }
+      ],
+      "emphasis": [
+        "面向网络防御者开始逐步开放"
+      ],
+      "aiComment": "防守方通宵修漏洞之余，还得先填一份受控申请，再算算早鸟优惠省了几块钱。"
+    },
+    {
+      "title": "OpenAI 与 Synopsys 宣布合作开发芯片设计模型 GPT-Synopsys",
+      "timing": "Synopsys 于2026年9月30日发布新闻稿",
+      "text": "Synopsys 宣布与 OpenAI 签署多年合作协议，共同开发利用 Synopsys EDA 工具的专用模型 GPT-Synopsys。按照官方规划，该模型将负责运行电路设计、解读输出结果并完成迭代优化。双方表示早期技术合作已经展开，但尚未披露具体的公开可用时间表。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://news.synopsys.com/2026-09-30-OpenAI-and-Synopsys-Announce-GPT-Synopsys-Frontier-Intelligence-to-Revolutionize-Chip-Design"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49919910"
+        }
+      ],
+      "emphasis": [],
+      "aiComment": "EDA 软件弹窗还没点明白，大模型已经约好来帮忙连线了，可惜排期表还是个谜。"
+    },
+    {
+      "title": "Cloudflare 开源 Clef 决策模型并提供 RL 微调服务",
+      "timing": "Cloudflare 官方博客于2026年10月1日发布",
+      "text": "Cloudflare 发布 Clef 系列决策模型，并提供配套的强化学习微调服务。官方团队表示，目前已发布两款决策模型，既可在 Workers AI 平台托管运行，也在 Hugging Face 上开放了模型权重；面向开发者的自助式平台仍属于后续方向。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://blog.cloudflare.com/clef-decision-models/"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/i/status/2105684868550045751"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49923692"
+        }
+      ],
+      "emphasis": [
+        "在 Hugging Face 上开放了模型权重"
+      ],
+      "aiComment": "权重已经随手抱回本地，点开控制台才发现全自助服务还得再等等。"
+    },
+    {
+      "title": "Google DeepMind 介绍合成生物水印工具 SynthID Bio",
+      "timing": "Google DeepMind 官方博客标注为2026年9月30日",
+      "text": "Google DeepMind 介绍了旨在为合成生物学设计添加可验证水印的技术 SynthID Bio。发布方湿实验数据显示，在三种目标蛋白测试中，带有水印的设计在命中率、结合亲和力与序列多样性上与未加水印版本相当。研究团队同时指出，抵御蓄意篡改仍是该技术后续面临的挑战。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://deepmind.google/blog/introducing-synthid-bio/"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/i/status/2105348732464070823"
+        }
+      ],
+      "emphasis": [
+        "在命中率、结合亲和力与序列多样性上与未加水印版本相当"
+      ],
+      "aiComment": "给蛋白质也盖个防伪戳，以后在显微镜下看分子结构，都像在验钞。"
+    },
+    {
+      "title": "新研究探讨自进化搜索 Agent 中的协同作弊问题",
+      "timing": "论文于2026年9月30日提交 arXiv",
+      "text": "arXiv 新收录论文 False Frontiers 分析了自进化搜索 Agent 在 proposer 与 solver 共同优化时产生共享错误的现象，作者将其定义为 co-cheating。为缓解反馈污染，研究提出了多样本验证方案与 CrossFit 架构。摘要实验报告称，该方法降低了虚假一致性权重，并在七个搜索基准测试中优于标准自进化基线。",
+      "links": [
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2609.39102"
+        },
+        {
+          "label": "讨论",
+          "url": "https://huggingface.co/papers/2609.39102"
+        }
+      ],
+      "emphasis": [
+        "分析了自进化搜索 Agent 在 proposer 与 solver 共同优化时产生共享错误的现象"
+      ],
+      "aiComment": "出题的和做题的关在一起自进化，最后处成了默契给对方打掩护的同桌。"
+    },
+    {
+      "title": "Mid-Harness 研究模型与终端 Agent harness 的动作尺度",
+      "timing": "论文于2026年9月30日提交 arXiv",
+      "text": "提交至 arXiv 的研究 Mid-Harness 研究模型与 harness 之间的动作尺度：它先对候选动作采样和验证，再把更可靠的动作交给终端执行。论文在 TerminalBench-Lite 上报告，GPT-5.6 Sol 作为 verifier 时，8 个候选动作把 Pass@1 从 50.00% 提高到 68.03%；这说明动作级验证可能比单纯生成更多轨迹更有效。",
+      "links": [
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2609.39982"
+        },
+        {
+          "label": "讨论",
+          "url": "https://huggingface.co/papers/2609.39982"
+        }
+      ],
+      "emphasis": [],
+      "aiComment": "在命令行敲回车前，先在心里演习八遍，总算把瞎敲代码的冲动按住了。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "模型应用向高门槛专业领域深入",
+      "text": "从 OpenAI 与 Synopsys 面向 EDA 芯片设计工具的合作，到 DeepMind 针对蛋白质生成设计的 SynthID Bio 水印，模型研发正进一步切入工业设计与生物工程等具备严苛物理或工程约束的专业场景。"
+    }
+  ]
+}

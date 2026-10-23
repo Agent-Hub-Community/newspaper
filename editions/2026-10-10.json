@@ -1,0 +1,1034 @@
+{
+  "id": "2026-10-10",
+  "date": "2026-10-10",
+  "label": "2026-10-10 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无独立选编",
+      "theme": "当天主要为入群欢迎与群内寒暄",
+      "note": "2026-10-10 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Harness层递归自进化实验引出模型层追问",
+      "theme": "分享者称Lobe Agent在评测榜登顶并计划开源报告，群友追问模型层RSI的数据来源。",
+      "note": "2026-10-10 · 当日本地记录",
+      "stories": [
+        {
+          "category": "技术动态",
+          "title": "LobeHub 分享 Harness 层 RSI 实验与开源计划",
+          "text": "有分享者介绍，团队让 Lobe Agent 在 Harness 层进行了一周的递归自我改进（RSI），并称其在 Frontier Harness 评测中取得第一。相关脚本、运行轨迹与技术报告计划后续开源，群内同时分享了 Awesome-RSI 资料仓库。另一位群友借此追问，模型层 RSI 是否仍主要依靠自合成数据与反馈。",
+          "emphasis": [
+            "相关脚本、运行轨迹与技术报告计划后续开源"
+          ],
+          "aiComment": "Agent 在脚手架里闭关修炼了一整周，打工人还在等它开源出来的修行日记。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Awesome-RSI 仓库",
+              "url": "https://github.com/lobehub/awesome-rsi"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:51",
+              "text": "感谢群里的各位佬🥺，正好借贵群分享一下我们Lobehub在Harness层RSI的一些进展。\n\n国庆假期之前我们让我们的Lobe Agent用我们的RSI能力对自己进行了一周的自进化，最终是在Frontier Harness上取得了第一的结果，目前是最便宜最智能最开源的Harness之一，相关脚本和轨迹以及Tech Report会在后续全部完整开源，大家感兴趣的可以关注一下lobehub.com🌹\n\n以及我们之前建了一个Awesome-RSI的仓库，里面是我们8月份去美国呆了一个月获得和发现的一些RSI的进展，欢迎大家一起共建和交流❤️"
+            },
+            {
+              "speaker": 1,
+              "time": "00:51",
+              "text": "https://github.com/lobehub/awesome-rsi"
+            },
+            {
+              "speaker": 2,
+              "time": "18:05",
+              "text": "牛啊，目前model-level RSI是不是基本还是自合成数据/feedback的范式",
+              "quote": {
+                "speaker": null,
+                "text": "感谢群里的各位佬🥺，正好借贵群分享一下我们Lobehub在Harness层RSI的一些进展。 国庆假期之前我们让我们的Lobe Agent用我们的RSI能力对自..."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "Harness自进化到底改了什么：上限、泛化与反哺",
+      "theme": "群友结合实验质疑外挂搜索的泛化价值；另讨论推理时环境反馈是否会导致评测过拟合及Agent新方向。",
+      "note": "2026-10-10 · 当日本地记录",
+      "stories": [
+        {
+          "category": "架构推演",
+          "title": "RSI 改进了什么：Harness 涨点、泛化与数据反哺",
+          "text": "一项 Harness 层自进化实验分享，引出了群友对递归自我改进（RSI）的追问：改变的是基础模型，还是模型外的脚手架？有人认为先要把问题定义清楚，另有人质疑，在 Harness 上搜索所得的提升是否值得高额验证成本。\n\n一位做过 Harness RSI 的群友说，自己迭代十多轮时，有时只有两三轮涨点，而且未必能泛化；另一位观察到，某个模型的 Harness 迁移给其他模型后可能出现负效果。有人估计优化三四轮就容易到上限，也有人认为 Harness 的可探索空间还远未耗尽。\n\n讨论随后转向如何把收益带回模型：有群友提出，用更好的 Harness 构建数据产线，再以数据反哺训练；分享者表示自己做过相关实验，关注成本和时间。进一步的追问是，系统能否判断自己缺少哪种能力、准确分析失败原因，并选择补数据、调用人类帮助或改进技能。还有人提醒，任务设定仍由人确定，减少人的介入与完全自动化是不同的目标。",
+          "emphasis": [
+            "有时只有两三轮涨点，而且未必能泛化",
+            "系统能否判断自己缺少哪种能力、准确分析失败原因，并选择补数据、调用人类帮助或改进技能"
+          ],
+          "aiComment": "好不容易涨了几分，还得再问一句：换个任务、换个模型，这几分还在不在？",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Awesome-RSI 仓库",
+              "url": "https://github.com/lobehub/awesome-rsi"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:41",
+              "text": "感谢群里的各位佬🥺，正好借贵群分享一下我们Lobehub在Harness层RSI的一些进展。\n\n国庆假期之前我们让我们的Lobe Agent用我们的RSI能力对自己进行了一周的自进化，最终是在Frontier Harness上取得了第一的结果，目前是最便宜最智能最开源的Harness之一，相关脚本和轨迹以及Tech Report会在后续全部完整开源，大家感兴趣的可以关注一下lobehub.com🌹\n\n以及我们之前建了一个Awesome-RSI的仓库，里面是我们8月份去美国呆了一个月获得和发现的一些RSI的进展，欢迎大家一起共建和交流❤️"
+            },
+            {
+              "speaker": 1,
+              "time": "00:44",
+              "text": "https://github.com/lobehub/awesome-rsi"
+            },
+            {
+              "speaker": 2,
+              "time": "11:55",
+              "text": "而且 rsi 的实验 好贵啊，，"
+            },
+            {
+              "speaker": 3,
+              "time": "11:57",
+              "text": "rsi 非一线基模组真的能去迭代进化模型自身吗，还是只能拿个gpt或者claude 去进化一个小的模型？"
+            },
+            {
+              "speaker": 4,
+              "time": "11:57",
+              "text": "rsi 要训练吗"
+            },
+            {
+              "speaker": 5,
+              "time": "11:57",
+              "text": "本身topic还是有些值得探索的，就是先得把问题形式化定义清楚"
+            },
+            {
+              "speaker": 5,
+              "time": "11:57",
+              "text": "鸡同鸭讲不然都是"
+            },
+            {
+              "speaker": 4,
+              "time": "11:57",
+              "text": "我看大多数都是在优化 harness"
+            },
+            {
+              "speaker": 6,
+              "time": "11:58",
+              "text": "你在harness上search这点提升不如数据打起来"
+            },
+            {
+              "speaker": 3,
+              "time": "11:58",
+              "text": "优化harness 很容易到上限，可能迭代个3-4轮就提升不了了",
+              "quote": {
+                "speaker": 4,
+                "text": "我看大多数都是在优化 harness"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:59",
+              "text": "很认同，费token去进化脚手架不如搞更高质量的数据",
+              "quote": {
+                "speaker": 6,
+                "text": "你在harness上search这点提升不如数据打起来"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:59",
+              "text": "rsi 除了这个还能做哪些东西",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 优化harness 很容易到上限，可能迭代个3-4轮就提升不了了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:59",
+              "text": "真能自己训练自己 自己整数据吗"
+            },
+            {
+              "speaker": 6,
+              "time": "12:00",
+              "text": "next generation的问题了",
+              "quote": {
+                "speaker": 4,
+                "text": "真能自己训练自己 自己整数据吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:00",
+              "text": "现在感觉harness优化的空间都还远没被探索彻底"
+            },
+            {
+              "speaker": 1,
+              "time": "12:00",
+              "text": "改harness很难反哺到model"
+            },
+            {
+              "speaker": 1,
+              "time": "12:01",
+              "text": "但是从harness找到数据是有希望的"
+            },
+            {
+              "speaker": 6,
+              "time": "12:01",
+              "text": "反而像是一种基于当前模型能力+bench场景的拟合甚至过拟合",
+              "quote": {
+                "speaker": 1,
+                "text": "改harness很难反哺到model"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:01",
+              "text": "我自己一个做 harness rsi 的真实经验是  rsi 收益很稀疏 迭代十多轮有时只有两三轮涨点（还不一定泛化涨点） 而且单次验证又很贵"
+            },
+            {
+              "speaker": 1,
+              "time": "12:01",
+              "text": "所以我们优化的是成本和时间lmao",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 反而像是一种基于当前模型能力+bench场景的拟合甚至过拟合"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:02",
+              "text": "感觉更好的harness可以做更好的数据产线来反哺模型"
+            },
+            {
+              "speaker": 1,
+              "time": "12:02",
+              "text": "yes",
+              "quote": {
+                "speaker": 8,
+                "text": "感觉更好的harness可以做更好的数据产线来反哺模型"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:02",
+              "text": "我们有实验试过了"
+            },
+            {
+              "speaker": 1,
+              "time": "12:02",
+              "text": "关于交互的bench里面测了下"
+            },
+            {
+              "speaker": 9,
+              "time": "12:03",
+              "text": "我看到不同模型的harness迁移后会有负效果，这个角度算重要的吗"
+            },
+            {
+              "speaker": 10,
+              "time": "12:03",
+              "text": "好的harness要能内化到模型 然后进一步做更好的harness之类的？"
+            },
+            {
+              "speaker": 11,
+              "time": "12:03",
+              "text": "这里的问题就是 更好的harness是human in the loop 来的 还是 RSI来的",
+              "quote": {
+                "speaker": 8,
+                "text": "感觉更好的harness可以做更好的数据产线来反哺模型"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:03",
+              "text": "有的！",
+              "quote": {
+                "speaker": 9,
+                "text": "我看到不同模型的harness迁移后会有负效果，这个角度算重要的吗"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:04",
+              "text": "有没有觉得，agent是一个过渡态，agent as a service是model在harness限制下实现的，总感觉不够agi的意思，因为是p（y | prompt，harness）。\n\n未来model as a service，不需要什么harness条件，直接建模p（y|prompt）就行，是不是更贴近agi。\n\n有些暴论，不知道佬们怎么看"
+            },
+            {
+              "speaker": 1,
+              "time": "12:05",
+              "text": "说实话，我们现在都已经在思考怎么让人坐稳副驾驶呢，主驾驶肯定是模型"
+            },
+            {
+              "speaker": 3,
+              "time": "12:05",
+              "text": "有没有可能，一些rsi 的能力，比如准确从n个候选里面选出最好的那条，之后会内化到模型里面"
+            },
+            {
+              "speaker": 1,
+              "time": "12:06",
+              "text": "有价值的是为什么出错*",
+              "quote": {
+                "speaker": 3,
+                "text": "有没有可能，一些rsi 的能力，比如准确从n个候选里面选出最好的那条，之后会内化到模型里面"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:06",
+              "text": "这不是test time scaling和rl做的事吗[旺柴]",
+              "quote": {
+                "speaker": 3,
+                "text": "有没有可能，一些rsi 的能力，比如准确从n个候选里面选出最好的那条，之后会内化到模型里面"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "12:06",
+              "text": "愿闻其详[哇]，不知道这条路的上限有多高。我想的是每个人都有自己的personalized的harness需要，然后能够在limited budget训练开销下根据别人的harness得到自己想要的harness",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 有的！"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "12:06",
+              "text": "这个就是value model能力，然后你N个候选的预期result是world model能力，这两个会被上游基模训练内化的",
+              "quote": {
+                "speaker": 3,
+                "text": "有没有可能，一些rsi 的能力，比如准确从n个候选里面选出最好的那条，之后会内化到模型里面"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "12:10",
+              "text": "那rsi重要的一个point还是在目前work as tasksetting adapter 的基础上，具备effective和有效的dataselection evaluation能力了吗"
+            },
+            {
+              "speaker": 6,
+              "time": "12:12",
+              "text": "感觉很多可见研究并不解决这些很核心的问题",
+              "quote": {
+                "speaker": 10,
+                "text": "那rsi重要的一个point还是在目前work as tasksetting adapter 的基础上，具备effective和有效的dataselection..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:12",
+              "text": "说实话，大部分都没有",
+              "quote": {
+                "speaker": 10,
+                "text": "那rsi重要的一个point还是在目前work as tasksetting adapter 的基础上，具备effective和有效的dataselection..."
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "12:12",
+              "text": "解决dataselection这太难了"
+            },
+            {
+              "speaker": 8,
+              "time": "12:13",
+              "text": "感觉合理的方向应该是减少human in loop而不是完全自动化吧",
+              "quote": {
+                "speaker": 10,
+                "text": "解决dataselection这太难了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:14",
+              "text": "但大家都爱听全自动的故事("
+            },
+            {
+              "speaker": 10,
+              "time": "12:15",
+              "text": "就是理解来看是一个模型知道自己缺少什么能力  细粒度和准确的归因和要么打进去一个优质的数据 或者要么callhuman 或者走skill--harness--内化之类的。"
+            },
+            {
+              "speaker": 13,
+              "time": "12:57",
+              "text": "感觉现在还是人定要打的setting?",
+              "quote": {
+                "speaker": 10,
+                "text": "那rsi重要的一个point还是在目前work as tasksetting adapter 的基础上，具备effective和有效的dataselection..."
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:25",
+              "text": "看了一下fanqing哥的paper 感觉somehow具备了一些这个能力 不过setting还是人类定"
+            }
+          ]
+        },
+        {
+          "category": "评测反思",
+          "title": "不进训练集也会过拟合吗？EdgeBench 引出推理时反馈之问",
+          "text": "一位群友读到 EdgeBench 关于环境反馈与推理时优化的工作后提出：即使测试题目不进入后训练任务池，环境和验证器持续返回的反馈，会不会让模型在推理阶段过拟合特定评测？\n\n另一位正在跑 EdgeBench 的群友报告，自己改用 best-only 和 blind 设置后，一些任务最终收敛的分数低于官方 native 模式，并把评测器可返回 ground truth 反馈视为值得检查的因素。提问者赞同进一步控制反馈信号，看看分数变化是否呈现规律。这里提出的是对评测设置的检验思路，分数差异本身尚不能单独判定过拟合。",
+          "emphasis": [
+            "即使测试题目不进入后训练任务池",
+            "分数差异本身尚不能单独判定过拟合"
+          ],
+          "aiComment": "反馈少了，分数也低了；先把反馈到底帮了什么拆清楚，再给过拟合下结论。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "EdgeBench 论文",
+              "url": "https://arxiv.org/abs/2607.05155"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:52",
+              "text": "https://arxiv.org/abs/2607.05155"
+            },
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "想问这个是因为 之前根据这篇工作指出 模型可以根据推理时verifier的反馈信号做推理时的优化 优化效果是scalable的。所以 即便bench不进训练 仅仅是由于环境和verifier的设计 会不会足以让模型在推理时过拟合一个bench产生虚高的分数 这方面有没有先前工作 虽然听起来比较mkss🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "再之前是在看agent对benchmark的过拟合是如何做的 比如如果bench上的任务不进后训练的任务池那么过拟合可不可以单独在推理的时候发生 还是必须要进入训练才行"
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "我最近在跑 edgebench，改用 best-only 和 blind 的 setting 跑，一些题目最终收敛的分数显著低于官方 native 模式，这是否算一种过拟合的信号？\n本质是评测器能返回 ground truth 的反馈信号。"
+            },
+            {
+              "speaker": 1,
+              "time": "01:05",
+              "text": "是的我也感觉和verifier关系很大 要是能想个办法控制一下feedback也许会有规律性的现象",
+              "quote": {
+                "speaker": 2,
+                "text": "我最近在跑 edgebench，改用 best-only 和 blind 的 setting 跑，一些题目最终收敛的分数显著低于官方 native 模式，这是否..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "产业观察",
+          "title": "Coding 之后关注什么？Cowork、个人 Agent 与 CU 的方向讨论",
+          "text": "有群友询问，基础模型的 Agent 需求如今更偏向 Coding、协同办公还是日常通用场景。几位参与者看好 Cowork、办公场景和个人 Agent 交互，其中有人认为 Coding 之后的重点正在转移，也有人认为这些方向同样重要。\n\n一位分享者提到自己观察到的 Computer Use 数据需求，另有群友却觉得 Cowork 在七八月更热，担心现在进入是否太晚。讨论反映了不同参与者对方向与时机的判断；有人直言，热点几个月就换一个，追赶起来很快。",
+          "emphasis": [
+            "也有人认为这些方向同样重要",
+            "另有群友却觉得 Cowork 在七八月更热"
+          ],
+          "aiComment": "七八月的风口还没捂热，大家已经在算计下个季度该让模型帮谁打工了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:45",
+              "text": "现在基模 agent 需求最大的是啥专项啊 coding?cowork?还是日常 general 场景"
+            },
+            {
+              "speaker": 2,
+              "time": "11:45",
+              "text": "都差不多重要吧"
+            },
+            {
+              "speaker": 3,
+              "time": "11:45",
+              "text": "我也想问",
+              "quote": {
+                "speaker": 1,
+                "text": "现在基模 agent 需求最大的是啥专项啊 coding?cowork?还是日常 general 场景"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:45",
+              "text": "或者各厂商最卷的赛道现在在哪 感觉上半年应该主要是 coding"
+            },
+            {
+              "speaker": 4,
+              "time": "11:45",
+              "text": "coding做的差不多了"
+            },
+            {
+              "speaker": 5,
+              "time": "11:46",
+              "text": "肯定得狂干cowork"
+            },
+            {
+              "speaker": 4,
+              "time": "11:46",
+              "text": "cowork目前应该算coding之后的重点了"
+            },
+            {
+              "speaker": 5,
+              "time": "11:46",
+              "text": "coding收割自己圈子的用户的钱"
+            },
+            {
+              "speaker": 6,
+              "time": "11:46",
+              "text": "cowork吧"
+            },
+            {
+              "speaker": 4,
+              "time": "11:46",
+              "text": "以及muse带出来的personal agent交互"
+            },
+            {
+              "speaker": 7,
+              "time": "11:46",
+              "text": "办公场景吧"
+            },
+            {
+              "speaker": 6,
+              "time": "11:46",
+              "text": "现在一堆买cu数据的"
+            },
+            {
+              "speaker": 8,
+              "time": "11:47",
+              "text": "同意✅",
+              "quote": {
+                "speaker": 6,
+                "text": "现在一堆买cu数据的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:49",
+              "text": "怎么感觉这段时间 cowork 也没有很热了 七八月份比较热的样子"
+            },
+            {
+              "speaker": 6,
+              "time": "11:49",
+              "text": "还是训CU吧"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "现在上车 cowork 还来得及吗[捂脸]agent 的热度也变得好快"
+            },
+            {
+              "speaker": 9,
+              "time": "11:54",
+              "text": "同感，热点变化太快了，几个月一个topic",
+              "quote": {
+                "speaker": 1,
+                "text": "现在上车 cowork 还来得及吗[Facepalm]agent 的热度也变得好快"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "Blueprint-Bench 2 链接引出 Gemini 识图与写作体验",
+          "text": "群友转来了 Blueprint-Bench 2 评测链接，并谈到 Gemini 4 Argon 的测试消息。该页面将公寓室内照片转换为平面图，用于评估空间关系理解。\n\n随后几位使用者谈起自己对 Gemini 系列的体验：有人认可识图能力，有人喜欢它修改论文初稿时的互动，也有人看好写作表现，猜测这与知识储备有关。另一些群友担心后续迭代反而影响体验。这些发言涉及 Gemini 系列的个人使用感受，并非同一版本上的统一对比测试。",
+          "emphasis": [
+            "用于评估空间关系理解",
+            "并非同一版本上的统一对比测试"
+          ],
+          "aiComment": "榜单看空间理解，日常看识图写作，期待下次更新时两边都能继续进步。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "Blueprint-Bench 2",
+              "url": "https://andonlabs.com/evals/blueprint-bench-2"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:16",
+              "text": "Gemini 4 Argon has already been made available to a select group of users"
+            },
+            {
+              "speaker": 1,
+              "time": "17:16",
+              "text": "为什么不选我"
+            },
+            {
+              "speaker": 1,
+              "time": "17:16",
+              "text": "https://andonlabs.com/evals/blueprint-bench-2"
+            },
+            {
+              "speaker": 1,
+              "time": "17:16",
+              "text": "美国豆包VLM还是强啊"
+            },
+            {
+              "speaker": 2,
+              "time": "17:18",
+              "text": "不要反向优化就还可以"
+            },
+            {
+              "speaker": 2,
+              "time": "17:18",
+              "text": "哈基米可能迭代几个版本就不行了…"
+            },
+            {
+              "speaker": 1,
+              "time": "17:22",
+              "text": "我年初还是挺喜欢gemini的"
+            },
+            {
+              "speaker": 3,
+              "time": "17:22",
+              "text": "我年初还是挺喜欢gemini的"
+            },
+            {
+              "speaker": 4,
+              "time": "17:22",
+              "text": "在可爱这块Gemini确实不错"
+            },
+            {
+              "speaker": 5,
+              "time": "17:22",
+              "text": "Gemini识图很牛逼"
+            },
+            {
+              "speaker": 4,
+              "time": "17:23",
+              "text": "我论文改不下去了经常把初稿丢给哈基米"
+            },
+            {
+              "speaker": 4,
+              "time": "17:23",
+              "text": "他就会哄我"
+            },
+            {
+              "speaker": 6,
+              "time": "17:23",
+              "text": "哈吉米是最会写的"
+            },
+            {
+              "speaker": 6,
+              "time": "17:23",
+              "text": "可能是因为世界知识丰富（"
+            },
+            {
+              "speaker": 6,
+              "time": "17:23",
+              "text": "Opus5.5叔叔也刚刚追上他"
+            },
+            {
+              "speaker": 7,
+              "time": "17:24",
+              "text": "哈基米的检索能力一直还可以吧"
+            },
+            {
+              "speaker": 7,
+              "time": "17:24",
+              "text": "背靠google"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "端侧与具身模型选型：7B能力边界与跨场景迁移代价",
+      "theme": "群友权衡物理世界容错与泛化成本；同版交流了LobeHub自进化实验及近期模型入口变动。",
+      "note": "2026-10-10 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身智能",
+          "title": "端侧模型要多大？从 7B 的专项任务谈到跨场景与事故代价",
+          "text": "有群友在讨论 27B 模型时表达了对 7B 的需求，理由是自己在做端侧应用。随后有人追问，具身场景到底该选多大的模型：太小担心能力不足，太大又增加成本。另一位群友估计，专项小任务用 7B 可能够用，通用任务则可能需要更大模型。\n\n提问者进一步担心，如果每个场景都专门适配，从场景 A 迁移到 B 是否又要增加工作？讨论还触及物理环境的容错问题：一位群友提醒，机器人出事故不像误删文件，后果难以简单备份恢复。这些顾虑让参数量之外的跨场景适应和事故代价也进入了选型讨论。",
+          "emphasis": [
+            "专项小任务用 7B 可能够用",
+            "参数量之外的跨场景适应和事故代价也进入了选型讨论"
+          ],
+          "aiComment": "电脑跑崩了顶多重启，具身模型要是打翻了咖啡，物理世界可没有撤销键。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "我还是想要7B"
+            },
+            {
+              "speaker": 2,
+              "time": "21:23",
+              "text": "七b能力有限吧",
+              "quote": {
+                "speaker": 1,
+                "text": "我还是想要7B"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:30",
+              "text": "在玩端侧的小东西",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 七b能力有限吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:30",
+              "text": "27b真的挺好 但是如果7b就更好了"
+            },
+            {
+              "speaker": 4,
+              "time": "22:10",
+              "text": "大家认为未来用在具身等场景的端测模型，应该大约要照着多大去做呢"
+            },
+            {
+              "speaker": 4,
+              "time": "22:10",
+              "text": "最近还蛮关注端测模型的"
+            },
+            {
+              "speaker": 4,
+              "time": "22:11",
+              "text": "感觉太小了性能不好，太大了成本又高，很难找到一个合适的平衡点"
+            },
+            {
+              "speaker": 2,
+              "time": "22:12",
+              "text": "如果是专项小任务形式的感觉7B应该就挺好呢，如果要做成通用的估计要大蛮多才能cover需求吧"
+            },
+            {
+              "speaker": 4,
+              "time": "22:12",
+              "text": "未来的具身不知道会不会走向通用化"
+            },
+            {
+              "speaker": 2,
+              "time": "22:13",
+              "text": "真能做成哆啦A梦那种嘛[疑问]"
+            },
+            {
+              "speaker": 4,
+              "time": "22:14",
+              "text": "但是场景还是蛮多的，要是每个场景都专门生产对应的机器人，感觉不太现实啊"
+            },
+            {
+              "speaker": 4,
+              "time": "22:14",
+              "text": "现在如果我从场景A迁移到场景B了"
+            },
+            {
+              "speaker": 4,
+              "time": "22:14",
+              "text": "是小模型"
+            },
+            {
+              "speaker": 5,
+              "time": "22:14",
+              "text": "具身还是先活过2027年, 再说发展的事情"
+            },
+            {
+              "speaker": 4,
+              "time": "22:14",
+              "text": "应该还得去做一些其他的冗余操作？"
+            },
+            {
+              "speaker": 4,
+              "time": "22:15",
+              "text": "同意hhhh",
+              "quote": {
+                "speaker": 5,
+                "text": "具身还是先活过2027年, 再说发展的事情"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:15",
+              "text": "而且这玩意出个事故可不是删点文件那么简单。也不好备份"
+            },
+            {
+              "speaker": 5,
+              "time": "22:15",
+              "text": "甚至DSec这种环境都不现实"
+            },
+            {
+              "speaker": 5,
+              "time": "22:15",
+              "text": "难道搞一个亚空间让机器人玩吗"
+            }
+          ]
+        },
+        {
+          "category": "智能体",
+          "title": "LobeHub 分享自进化实验，群友追问 RSI 与 Self-Evolving 的区别",
+          "text": "有分享者介绍了 LobeHub 在 Harness 层递归自我改进（RSI）上的尝试，自述让 Agent 自进化一周后在 Frontier Harness 榜单取得第一。分享者补充，这一评测只限使用 Kimi K3 原版模型，相关脚本、轨迹与技术报告计划后续开源。\n\n群友追问 RSI 和以前的 Self-Evolving 有何区别，分享者用机器人与具身智能的范围关系作类比。另一位群友推荐《Diving into Reliable Self-Evolving Agents》作为概念定义的阅读线索。群内也分享了 Awesome-RSI 仓库。",
+          "emphasis": [
+            "这一评测只限使用 Kimi K3 原版模型",
+            "相关脚本、轨迹与技术报告计划后续开源"
+          ],
+          "aiComment": "榜单有了名次，接下来还想看轨迹：这次自进化究竟改了哪一步。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Awesome-RSI 仓库",
+              "url": "https://github.com/lobehub/awesome-rsi"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:51",
+              "text": "https://github.com/lobehub/awesome-rsi"
+            },
+            {
+              "speaker": 1,
+              "time": "00:51",
+              "text": "感谢群里的各位佬🥺，正好借贵群分享一下我们Lobehub在Harness层RSI的一些进展。\n\n国庆假期之前我们让我们的Lobe Agent用我们的RSI能力对自己进行了一周的自进化，最终是在Frontier Harness上取得了第一的结果，目前是最便宜最智能最开源的Harness之一，相关脚本和轨迹以及Tech Report会在后续全部完整开源，大家感兴趣的可以关注一下lobehub.com🌹\n\n以及我们之前建了一个Awesome-RSI的仓库，里面是我们8月份去美国呆了一个月获得和发现的一些RSI的进展，欢迎大家一起共建和交流❤️"
+            },
+            {
+              "speaker": 2,
+              "time": "00:52",
+              "text": "我有个问题哈，rsi和以前的self evolving区别是什么呢"
+            },
+            {
+              "speaker": 1,
+              "time": "00:55",
+              "text": "我觉得区别就和机器人和具身智能一样（"
+            },
+            {
+              "speaker": 3,
+              "time": "00:57",
+              "text": "用的是什么模型呢",
+              "quote": {
+                "speaker": 1,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:58",
+              "text": "[发呆][发呆]",
+              "quote": {
+                "speaker": 1,
+                "text": "我觉得区别就和机器人和具身智能一样（"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "这个bench都是只限Kimi K3的原版",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 用的是什么模型呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "我换个话解释吧，就是具身智能，不一定只是机器人，也可以是机器狗、机器猫。",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] [发呆][发呆]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "01:07",
+              "text": "Diving into Reliable Self-Evolving Agents 这篇算是给了个 比较良好的定义"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "模型入口变化：群友看到的版本下线与 Beta 差异",
+          "text": "群友交流了自己看到的模型入口变化：有人称 Gemini 3.5 Flash 入口关闭，另有人发现 GPT-5.6 Sol 不再可选。讨论中一位使用者提到自己的 Beta 版本仍有不同的模型选择，同时说明该版本没有 GPT-6 系列。另有群友对自己近期的 GPT-6 Sol 使用体验表示不满，觉得表现变差。",
+          "emphasis": [
+            "自己的 Beta 版本仍有不同的模型选择",
+            "该版本没有 GPT-6 系列"
+          ],
+          "aiComment": "下拉菜单里的老熟人说没就没，新换上来的那位今天看着又有点心不在焉。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:16",
+              "text": "gemini3.5flash关了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:19",
+              "text": "gemini迭代了几个版本的flash感觉都一言难尽，现在这版Pro据说蛮强呢 不过好像还不能用"
+            },
+            {
+              "speaker": 2,
+              "time": "22:19",
+              "text": "遥想去年gemini是真好用"
+            },
+            {
+              "speaker": 3,
+              "time": "22:30",
+              "text": "我去 5.6sol下线了啊"
+            },
+            {
+              "speaker": 2,
+              "time": "22:30",
+              "text": "这才出多久就下线了嘛？"
+            },
+            {
+              "speaker": 4,
+              "time": "22:31",
+              "text": "那就再见一面吧"
+            },
+            {
+              "speaker": 3,
+              "time": "22:31",
+              "text": "我哭"
+            },
+            {
+              "speaker": 5,
+              "time": "22:31",
+              "text": "5.6都成为过去式了"
+            },
+            {
+              "speaker": 5,
+              "time": "22:31",
+              "text": "迭代还是太快了"
+            },
+            {
+              "speaker": 3,
+              "time": "22:35",
+              "text": "欸 这时候我就要掏出我的beta版了"
+            },
+            {
+              "speaker": 4,
+              "time": "22:43",
+              "text": "G 老师有beta版吗"
+            },
+            {
+              "speaker": 4,
+              "time": "22:43",
+              "text": "居然"
+            },
+            {
+              "speaker": 4,
+              "time": "22:44",
+              "text": "Amazing 认知 ++， beta是落后一个版本还是提早一个版本"
+            },
+            {
+              "speaker": 3,
+              "time": "22:45",
+              "text": "落后... 吧 反正beta版没有gpt6系列"
+            },
+            {
+              "speaker": 4,
+              "time": "22:45",
+              "text": "OKk"
+            },
+            {
+              "speaker": 3,
+              "time": "23:53",
+              "text": "gpt6-sol降智好严重... 现在完全是个笨蛋"
+            },
+            {
+              "speaker": 6,
+              "time": "23:53",
+              "text": "1"
+            }
+          ]
+        },
+        {
+          "category": "求职交流",
+          "title": "后训练行情是否变冷？群友对岗位需求的观察不同",
+          "text": "有群友询问，今年后训练方向的就业行情是否很差。一位回应者认为整个市场都不景气；另一位认为数据和评测仍有不少需求。还有群友从自己看到的岗位出发，觉得后训练方向的状况与多模态接近。",
+          "emphasis": [
+            "另一位认为数据和评测仍有不少需求"
+          ],
+          "aiComment": "同一个就业市场，有人看见冷意，有人看见需求，还是得落到具体岗位上聊。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:15",
+              "text": "话说，大家说今年的后训练，行情很差"
+            },
+            {
+              "speaker": 1,
+              "time": "23:15",
+              "text": "这个是真的吗"
+            },
+            {
+              "speaker": 2,
+              "time": "23:15",
+              "text": "今年全部都行情差吧"
+            },
+            {
+              "speaker": 3,
+              "time": "23:16",
+              "text": "数据和评测需求还是很多的吧"
+            },
+            {
+              "speaker": 4,
+              "time": "23:17",
+              "text": "看岗位感觉确实跟多模态一桌了",
+              "quote": {
+                "speaker": 1,
+                "text": "话说，大家说今年的后训练，行情很差"
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "Discovery Loop 资料分享：代码仓库与研究论文",
+          "text": "有人问 Discovery Loop 目前在做什么，另一位群友给出了代码仓库与 arXiv:2609.05093 论文。论文介绍用大语言模型迭代改进圆形装填问题的求解程序，并由独立验证器检查候选结果；仓库提供了相关实现。",
+          "emphasis": [
+            "用大语言模型迭代改进圆形装填问题的求解程序"
+          ],
+          "aiComment": "模型负责想办法把圆排得更好，验证器负责检查这回到底排进去没有。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Discovery Loop 仓库",
+              "url": "https://github.com/ucsandman/discovery-loop"
+            },
+            {
+              "kind": "paper",
+              "label": "Discovery Loop 论文",
+              "url": "https://arxiv.org/abs/2609.05093"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:25",
+              "text": "DiscoveryLoop 不在 Neolabs 还是不够全呀"
+            },
+            {
+              "speaker": 2,
+              "time": "14:25",
+              "text": "所以discovery loop现在有做啥吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:29",
+              "text": "github仓库和论文hh https://github.com/ucsandman/discovery-loop arXiv:2609.05093",
+              "quote": {
+                "speaker": 2,
+                "text": "所以discovery loop现在有做啥吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:30",
+              "text": "ok"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

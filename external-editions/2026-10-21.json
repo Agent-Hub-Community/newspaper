@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-21",
+  "title": "PHP2Shell 披露与修补，LiteLLM 遭投毒，Humming 开源",
+  "intro": "Wiz Research 联合 PHP 团队、OpenAI 等披露并修补潜伏逾十年的 PHP 核心引擎漏洞 PHP2Shell；SafeDep 披露 PyPI 上的 LiteLLM 1.107.0 曾被植入窃密与后门；蚂蚁集团与 vLLM 开源量化推理内核库 Humming，NVIDIA 扩展企业 agent 检索与运行时安全栈。",
+  "stories": [
+    {
+      "title": "Wiz 与 PHP 团队、OpenAI 等联合披露并修补 PHP 核心引擎漏洞 PHP2Shell",
+      "timing": "2026 年 8 月发现漏洞；10 月 21 日发布补丁，Wiz 于北京时间当日 21:59 公开报告",
+      "text": "Wiz Research 披露 PHP 核心引擎存在多项内存安全漏洞，统称为 PHP2Shell，PHP 团队已同步发布修复补丁。PHP 支撑全球约 70% 的网站，此次披露的四个漏洞归入 CVE-2026-109618 与 CVE-2026-109619，最高 CVSS 评分为 9.2，过去十年发布的 PHP 版本均至少受其中一项影响，受影响范围可追溯至 PHP 5.4。\n\n这些缺陷源于 PHP 处理致命错误（尤其是内存耗尽错误）时的残留状态被后续请求复用，位于引擎底层，不依赖上层应用代码缺陷。攻击者可在无需认证的情况下读取包含密码、令牌和 API 密钥的进程内存，或实现远程代码执行；研究团队已在 WordPress、Drupal 和 Joomla 的最新容器镜像上验证了未认证远程代码执行。\n\n相关缺陷已在代码库中存在十余年，研究团队在漏洞挖掘、利用链构造、检测与补丁验证中使用了 Wiz Atlas、Gemini 4 Argon 与 GPT-5.6 Sol，并与 PHP 团队、Calif、OpenAI 及多家云与安全厂商协调跟进。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Wiz Research 报告",
+          "url": "https://www.wiz.io/blog/php2shell-php-rce"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenAI 官方帖",
+          "url": "https://x.com/OpenAI/status/2112907856018309586"
+        }
+      ],
+      "emphasis": [
+        "过去十年发布的 PHP 版本均至少受其中一项影响",
+        "攻击者可在无需认证的情况下读取包含密码、令牌和 API 密钥的进程内存，或实现远程代码执行",
+        "使用了 Wiz Atlas、Gemini 4 Argon 与 GPT-5.6 Sol"
+      ],
+      "aiComment": "PHP 5.4 就蹲在那里的陈年老洞，最后靠 GPT-5.6 和 Gemini 4 组团揪了出来，老代码终究没躲过新 AI 的体检。"
+    },
+    {
+      "title": "SafeDep 披露 PyPI 上的 LiteLLM 1.107.0 被植入凭据窃取器与后门",
+      "timing": "北京时间 10 月 21 日 19:40 左右上传恶意包；SafeDep 当日披露，PyPI 已移除该版本",
+      "text": "SafeDep 披露，PyPI 上的 litellm 1.107.0 版本被植入凭据窃取器与远程代码执行后门。覆盖 Linux、macOS、Windows 的全部 7 个 wheel 包均会在 site-packages 下写入 cook.pth、cook.py 和 sitecustomize.py 三个文件；由于 Python 启动时会自动加载 .pth 与 sitecustomize，宿主机上任何 Python 进程启动都会触发恶意代码，无需导入 litellm。\n\n其中 cook.py 会收集 SSH 密钥、云与容器凭据、CI/CD 密钥、浏览器密码、Claude Code 与 Cursor 等 AI 工具令牌，以及 LiteLLM 代理数据库中的模型 API 密钥，加密后发送至外部域名；sitecustomize.py 则启动后台守护进程，每小时从指定 GitHub 仓库读取服务器地址、再次运行窃密程序并下载执行远程代码。\n\n上游 GitHub 源码不含上述文件，1.106.2、1.107.0rc1 与 1.107.0rc2 等版本未受污染，PyPI 已移除 1.107.0，攻击者用于下发地址的 GitHub 账号也在上传约两小时后失效。SafeDep 经构建特征比对给出中高置信度判断，认为恶意 wheel 很可能是由 BerriAI 私有发布流水线基于被篡改的 git 源构建，但确切根因仍需 BerriAI 流水线日志确认。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "SafeDep 分析报告",
+          "url": "https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/"
+        }
+      ],
+      "emphasis": [
+        "任何 Python 进程启动都会触发恶意代码，无需导入 litellm",
+        "收集 SSH 密钥、云与容器凭据、CI/CD 密钥、浏览器密码",
+        "但确切根因仍需 BerriAI 流水线日志确认"
+      ],
+      "aiComment": "往 site-packages 里塞启动钩子，连 import 都省了，只要启动 Python 就开始一锅炖你的各种密钥。"
+    },
+    {
+      "title": "蚂蚁集团与 vLLM 社区开源量化推理内核库 Humming",
+      "timing": "vLLM 官方文章标日期 2026-10-21，介绍开源与 vLLM 0.29.0 集成",
+      "text": "蚂蚁集团与 vLLM 社区宣布开源通用量化推理内核库 Humming，并从 vLLM 0.29.0 起将其作为 CUDA 安装环境的内置依赖。Humming 支持自 Turing（SM75）起的各代 NVIDIA GPU，以及平头哥真武 810E 等兼容 CUDA 的设备，采用统一的量化表示与按需 JIT 编译架构，覆盖稠密与 MoE 模型的 WNA16、W8A8、W4A8、W4A4 等多种权重和激活精度组合。\n\n据官方测试，在 8 张 H20 GPU（TP=8）上运行 DeepSeek-V4.1-Flash、保持 MXFP4 权重不变时，将 MoE 后端从 Marlin W4A16（BF16 激活）切换为 Humming W4A8（tokenwise FP8 激活），端到端吞吐提升约 14% 至 43%，平均首 token 延迟（TTFT）下降约 25% 至 32%；在 64 并发下，输出吞吐从 442.37 tokens/s 提升至 633.94 tokens/s。在单内核编译测试中，H200 上禁用缓存时单 W4A16 内核编译耗时由 CUTLASS+NVCC 的 23.35 秒降至 1.82 秒。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "vLLM 博客公告",
+          "url": "https://vllm.ai/blog/2026-10-21-humming"
+        }
+      ],
+      "emphasis": [
+        "从 vLLM 0.29.0 起将其作为 CUDA 安装环境的内置依赖",
+        "MoE 后端从 Marlin W4A16（BF16 激活）切换为 Humming W4A8（tokenwise FP8 激活），端到端吞吐提升约 14% 至 43%"
+      ],
+      "aiComment": "单内核编译从 23.35 秒压到 1.82 秒，还没来得及切出去刷两条手机，它就已经编译完了。"
+    },
+    {
+      "title": "NVIDIA 扩展企业 Agent 工具栈：开源 Nemotron 3.5 检索模型并发布硬件隔离安全框架 Sentry",
+      "timing": "2026-10-21 发布检索模型与工具栈更新；Sentry 计划于明年初可用",
+      "text": "NVIDIA 在 GTC Berlin 期间扩展其开源 Agent Toolkit，推出包含 CUDA-X 与 Auto-Ontology 库的 Agent Knowledge Foundation、Kumo 结构化模型，以及开源可商用的 Nemotron 3.5 检索模型系列，涵盖 Nemotron 3.5 Embed（8B BF16、1B BF16、1B NVFP4）、Nemotron 3.5 Rerank 8B BF16 与 631M 参数的文档解析模型 Nemotron 3.5 Parse。\n\n据官方测试，在固定 agent 模型、工具、任务集与执行策略的检索评测中，加入 Nemotron 3.5 Rerank 可使配合 Embed 8B 和 Embed 1B 时的单次查询总输入输出推理 token 消耗分别降低约 14% 和 13%；Nemotron 3.5 Parse 在单张 H100 上以三遍模式达到 10.5 页/秒处理速度，ParseBench 得分为 75.20。\n\n同时，NVIDIA 公布作为 OpenShell 参考架构一部分的运行时安全框架 NVIDIA Sentry。Sentry 运行于 BlueField-4 DPU 的独立硬件信任域中，独立于宿主机操作系统，通过 DOCA Tower 代理与 OPA 策略引擎拦截审查 agent 通信，并结合 DOCA Argus 的实时内存内省监测容器与进程完整性，在检测到越界行为时可在毫秒级完成硬件层隔离。Sentry 计划于明年初提供。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Agent Toolkit 博客",
+          "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Nemotron 3.5 详情",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Sentry 技术架构",
+          "url": "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/"
+        }
+      ],
+      "emphasis": [
+        "推出包含 CUDA-X 与 Auto-Ontology 库的 Agent Knowledge Foundation",
+        "在固定 agent 模型、工具、任务集与执行策略的检索评测中",
+        "单次查询总输入输出推理 token 消耗分别降低约 14% 和 13%",
+        "Sentry 运行于 BlueField-4 DPU 的独立硬件信任域中，独立于宿主机操作系统",
+        "Sentry 计划于明年初提供"
+      ],
+      "aiComment": "NVIDIA 打算明年初直接派 BlueField-4 DPU 在硬件层毫秒级隔离，安全框架也有了独立的硬件工位。"
+    },
+    {
+      "title": "Anthropic 公布 Claude 从头设计蝎子神经毒素蛋白结合剂实验结果",
+      "timing": "报告页标 2026-10-20；官方于北京时间 10 月 21 日 00:18 公布",
+      "text": "Anthropic 联合 Citrini Research 公布一项概念验证研究，使用运行在 Claude Science 环境中的内部研究模型，针对五种蝎子神经毒素从头设计微型蛋白结合剂（minibinders），并开源全部 211 个设计方案及实验数据。在初始 prompt 与四次跟进指导下，模型在 64 小时内消耗约 10,000 GPU 小时，调用 12 种设计工具生成了 318,484 个候选设计，从中选出 180 个，研究团队又补充了 31 个。\n\n全部 211 个设计交由 Adaptyv Bio 和 Twist Bioscience 进行表面等离子体共振（SPR）结合实验验证。结果显示，共有 17 个设计达到了团队设定的结合剂标准，分别针对四种单一毒素生效（单毒素设计命中率为 11/60，即 18%），其中最强的 Cn2-B1 与 Cn2-B2 亲和力达到个位数纳摩尔级；但针对多毒素同时结合的设计均未能对一种以上毒素达标。研究仅在实验室重组毒素上验证了蛋白结合，尚未进行细胞环境中的毒素中和或动物活体疗效测试。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 研究报告",
+          "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design"
+        },
+        {
+          "kind": "原帖",
+          "label": "Anthropic 官方帖",
+          "url": "https://x.com/AnthropicAI/status/2112579251555721573"
+        }
+      ],
+      "emphasis": [
+        "在初始 prompt 与四次跟进指导下，模型在 64 小时内消耗约 10,000 GPU 小时",
+        "共有 17 个设计达到了团队设定的结合剂标准",
+        "尚未进行细胞环境中的毒素中和或动物活体疗效测试"
+      ],
+      "aiComment": "烧掉一万 GPU 小时筛出 211 个方案，湿实验里真有 17 个抱住了单种蝎毒，想一挑多的全军覆没，甲方的既要又要果然最难做。"
+    },
+    {
+      "title": "OpenAI 联合科研机构用数千个并行 GPT-Rosalind agent 提出神经退行性疾病研究线索",
+      "timing": "北京时间 10 月 21 日 21:32 发布",
+      "text": "OpenAI 宣布与 PerturbAI 及 Scripps Research 合作，利用数千个并行运行的 GPT-Rosalind agent，在 32 分钟内将数百万个小鼠脑细胞的基因表达数据与科学文献进行关联分析，为神经退行性疾病药物研发提出新线索。\n\n在小鼠脑数据中，破坏与罕见神经退行性疾病 Perry 综合征相关的 DCTN1 基因后，参与胆固醇合成的基因表达出现上升。GPT-Rosalind 据此提出一种可能解释：神经元所需的胆固醇可能未能正常运输到位，探讨恢复胆固醇运输是否有助于保护神经元免受退化。该假设为科研人员提供了待实验验证的具体机制方向。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "OpenAI 官方帖",
+          "url": "https://x.com/OpenAI/status/2112899854569762936"
+        }
+      ],
+      "emphasis": [
+        "利用数千个并行运行的 GPT-Rosalind agent，在 32 分钟内",
+        "神经元所需的胆固醇可能未能正常运输到位"
+      ],
+      "aiComment": "几千个 agent 并行半小时就把胆固醇运输的假说递到了桌上，接下来压力全给到实验室里养小鼠的科研人员了。"
+    },
+    {
+      "title": "OpenAI API 新增 12 小时 prompt 缓存选项",
+      "timing": "北京时间 10 月 21 日 01:56 发布",
+      "text": "OpenAI 面向开发者宣布在 API 中新增 12 小时 prompt 缓存（prompt caching）选项。对于全天持续运行、需要复用上下文的持久型 agent，开发者可将共享的 instructions、tools 和 context 缓存更长时间；即使请求之间相隔数小时，也能继续按较低的缓存输入费率计费。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "OpenAIDevs 官方帖",
+          "url": "https://x.com/OpenAIDevs/status/2112603916076781778"
+        }
+      ],
+      "emphasis": [
+        "即使请求之间相隔数小时，也能继续按较低的缓存输入费率计费"
+      ],
+      "aiComment": "缓存能续命 12 小时，长跑型 agent 终于敢放心睡个午觉，不用担心醒来第一句话又按全价重新自我介绍了。"
+    },
+    {
+      "title": "IBM 发布 Granite Speech 5.0 2B 并更新两款语音识别与说话人归属模型",
+      "timing": "2026-10-21 发布",
+      "text": "IBM 以 Apache 2.0 许可更新 Granite Speech 语音模型系列，推出新模型 granite-speech-5.0-2b，并更新 granite-speech-5.0-470m-turboctc 与 granite-speech-4.1-2b-plus，支持 Transformers、vLLM 等框架。\n\ngranite-speech-5.0-2b 支持英语、法语、德语、西班牙语、葡萄牙语和日语六种语言的语音转写（ASR）与英外互译，并支持英语到意大利语和中文普通话的翻译，新增语言 ID 提示与最多 2,000 词的关键词偏置。470M 参数的 Turbo CTC 扩展至英、日、西、德、法、意、葡七语转写并原生输出标点与大小写，官方测试中通过单 Conformer 块图编译复用将 Open ASR 榜单上的推理速度提升至 19,870 RTFx（约为首发时的 1.6 倍）。面向多人会议场景的 4.1-2b-plus 保持原架构与 API 不变，官方评测中长语音词错误率（WER）下降 24%，平均时间戳偏移减半。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "IBM Granite 博客",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5"
+        }
+      ],
+      "emphasis": [
+        "以 Apache 2.0 许可更新 Granite Speech 语音模型系列",
+        "最多 2,000 词的关键词偏置",
+        "官方评测中长语音词错误率（WER）下降 24%，平均时间戳偏移减半"
+      ],
+      "aiComment": "470M 的小模型飙出 19870 RTFx 的转写速度，还自带标点和大小写，人类说话的语速在它眼里大概像慢动作回放。"
+    },
+    {
+      "title": "开发者分享用 Claude Mods 定制 Claude Code 人机交互与旁路监督的实践与局限",
+      "timing": "北京时间 10 月 21 日 21:04 发布实践文章",
+      "text": "Latent Space 作者撰文分享其近几周使用 Claude Mods 定制 Claude Code 工作流的实践。Claude Mods 是运行在 Claude Code 内部的 TypeScript/JavaScript 插件中间件，可拦截 prompt、工具调用和界面渲染事件。据其介绍，Claude Code 已内置 6 个官方 mod，其中包括默认关闭的旁路观察插件 you-should-know，以及辅助用户用自然语言编写插件的 plugin-authoring。\n\n作者开源了自定义插件集 ModSmith，其中的 Next Steps Supervisor 会在修改文件、运行命令或工具调用达 8 次及以上的轮次后复查对话并给出单键操作建议。作者同时记录了三项实际局限：一是噪声高，该监督器在其 111 个轮次中触发了 99 次；二是额外成本，在 50k token 会话中每次检查约消耗 5k–6k 等效输入 token；三是安全边界，mod 未经沙箱隔离，拥有完整文件读写与计费调用权限，且内置 mod 在 --safe-mode 下仍会运行。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Latent Space 文章",
+          "url": "https://www.latent.space/p/claude-mods"
+        }
+      ],
+      "emphasis": [
+        "TypeScript/JavaScript 插件中间件，可拦截 prompt、工具调用和界面渲染事件",
+        "该监督器在其 111 个轮次中触发了 99 次",
+        "mod 未经沙箱隔离，拥有完整文件读写与计费调用权限"
+      ],
+      "aiComment": "雇了个监工插件，111 轮对话里跳出来指点 99 次，每次还顺手吃掉五六千 token，比干活的还敬业。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "AI 编程与推理工具链的运行时权限与供应链安全问题凸显",
+      "text": "当期多项进展集中指向 AI 工具链的安全边界：Wiz Research 展示前沿模型如何协助将 PHP 核心中潜伏十余年的复杂内存缺陷转化为跨版本利用链；PyPI 上的 LiteLLM 1.107.0 投毒事件直接把 Claude Code、Cursor、Codex 等本地 AI 开发工具凭证与代理数据库密钥列为窃取目标；Claude Mods 的实践提到未沙箱化插件直接继承用户读写权限；NVIDIA 则尝试用 BlueField-4 DPU 在宿主机操作系统之外建立硬件级 agent 通信审查与内存监测。"
+    },
+    {
+      "title": "生物医药研究探索多轮自治与大规模并行 Agent 工作流",
+      "text": "Anthropic 与 OpenAI 同日披露的生物研究案例均以 agent 工作流组织计算与文献分析：Anthropic 的内部研究模型在 64 小时内自主调用 12 种蛋白设计与折叠工具筛选出经体外结合实验验证的候选分子；OpenAI 的 GPT-Rosalind 则通过数千个并行 agent 在 32 分钟内关联单细胞基因表达数据与文献以提出机制假设。Anthropic 验证的是蛋白与毒素的结合，GPT-Rosalind 提出的是供科学家进一步检验的机制假设。"
+    }
+  ]
+}

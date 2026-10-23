@@ -1,0 +1,185 @@
+{
+  "id": "2026-09-26",
+  "date": "2026-09-26",
+  "label": "2026-09-26 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "代码能做视频，离影院级还有多远",
+      "theme": "单人维护项目的取舍，兼谈 Claude 九圈计算",
+      "note": "2026-09-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "代码生视频",
+          "title": "Opus 写代码做视频，群友对“影院级”评价有分歧",
+          "text": "有人称 Opus 5.5 制作视频已接近影院级，另有人看过演示后认为更像高级网页动画。随后，一位使用者分享一句话生成的 Hugging Face 发展史短片，自评已有基本结构，但还需调整。另一张转发卡片介绍了用 p5.js 绘图、Chrome 逐帧截图、ffmpeg 合成视频的做法。",
+          "emphasis": [],
+          "aiComment": "做出一段视频和让人愿意看完，确实是两回事。"
+        },
+        {
+          "category": "开发模式",
+          "title": "一个人维护大项目，省了沟通也得考虑接手",
+          "text": "有人认为旧代码值得用 AI 重写，并以 FSDP2 举例讨论单人核心维护。支持者看重少沟通、能坚持设计；另一方担心，关键知识只掌握在一个人手里会影响组织稳定。回应者认为项目需要足够完备，不依赖原作者介绍，其他人也能指挥 Agent 接手。",
+          "emphasis": [],
+          "aiComment": "少开会的好处很直观，能不能顺利交接还得另算。"
+        },
+        {
+          "category": "前沿计算",
+          "title": "Claude 九圈计算报道引出“纯计算”之问",
+          "text": "一篇关于 Claude 九圈计算的报道被转进群里。有人问，为何拿纯计算问题挑战 AI；另一位回应，纯计算正是 AI 擅长的方向之一。还有人借此追问，科研中是否仍有许多尚未被充分尝试、可以借助 AI 取得进展的问题。",
+          "emphasis": [],
+          "aiComment": "专家觉得难到暂时不做的题，值得再试一次。"
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Work-Agent 的任务数据为什么难合成",
+      "theme": "ExplorationBench 分享，兼谈招聘与赴美签证经历",
+      "note": "2026-09-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "研发实践",
+          "title": "GDPVal 类任务怎么合成，材料和调用成本都难省",
+          "text": "有人寻找面向 GDPVal、Apex-Agents 的 Work-Agent 数据合成工作，群里提到 NexForge，并聊起数据制作成本。一位正在做 GDPVal 任务合成的群友表示，一周消耗了“1w 的 cc”，还要收集大量材料，制作很难。原话未说明币种和额度口径。",
+          "emphasis": [],
+          "aiComment": "让模型做一份真实工作，出题也得先准备真实材料。"
+        },
+        {
+          "category": "基准评测",
+          "title": "ExplorationBench 分享，关注模型如何探索未知规则",
+          "text": "ExplorationBench 作者分享了工作解读和论文入口，提出以往许多 benchmark 测的是模型已有的“能力存量”，希望进一步评估探索能力。论文使用可执行验证、又与熟悉知识相冲突的环境规则，让系统通过工具反馈探索，再完成留出任务。",
+          "emphasis": [],
+          "aiComment": "规则都换了，只靠记住旧答案就不够了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ExplorationBench 论文",
+              "url": "https://huggingface.co/papers/2609.30199"
+            }
+          ]
+        },
+        {
+          "category": "行业求职",
+          "title": "基模实习看什么，论文之外还聊实操与研究潜力",
+          "text": "一位招聘发言者介绍 Coding Agent、Cowork Agent 岗位，并表示招实习生时更偏好一线基模实习经历，研究能力或潜力特别强也可以。其他人补充论文达到门槛即可。这些是参与者介绍的招聘偏好。",
+          "emphasis": [],
+          "aiComment": "论文能说明做过研究，岗位还会追问具体做过什么。"
+        },
+        {
+          "category": "出海实务",
+          "title": "国内学位赴美工作，群友交流 O-1 和 J-1 经历",
+          "text": "有人询问国内学位能否直接申请海外 AI 岗位，群友举出通过 O-1 入职的案例，也交流了加急、面签和审查的耗时。实习讨论涉及 J-1，一位参与者反馈自己在伦敦办理时多次等待三个月以上。具体公司支持、签证资格与周期仍需按个案确认。",
+          "emphasis": [],
+          "aiComment": "岗位谈妥之后，时间表里还得给签证留余量。"
+        },
+        {
+          "category": "前沿争议",
+          "title": "九圈计算讨论，搜索算不算智能的一部分",
+          "text": "Claude 九圈计算报道引来“为何用纯计算挑战 AI”的疑问。一位参与者认为，报道里的间接形状因子路线仍有智能含量，搜索也是智能系统解决问题的基本组成。另一位引用报道中关于新物理原理的说法追问，对方澄清自己指的是具体计算方法。",
+          "emphasis": [],
+          "aiComment": "讨论算不算智能之前，先把具体用了什么方法讲清楚。"
+        },
+        {
+          "category": "学术生态",
+          "title": "赶热点写论文太快，研究成果能否换种讲法",
+          "text": "围绕 ICLR 和 Jev 相关工作，有人调侃两天赶三篇论文，也有人提议设热点专项赛道。话题随后转向成果呈现，论文越来越多，能否用精简的 AIGC 短视频辅助介绍研究？这些是群里的调侃和设想，并非会议已经调整投稿形式。",
+          "emphasis": [],
+          "aiComment": "短视频能帮人快速了解工作，实验细节还是得有地方查。"
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "好数据怎么验收，长记忆怎么维护",
+      "theme": "NPC 缓存实验、xMemory 与机器人规划项目分享",
+      "note": "2026-09-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型架构与推理",
+          "title": "NPC 长记忆实验，删部分 KV 后还能接着聊吗",
+          "text": "一位开发者用 Qwen 混合架构做游戏 NPC，为减少笔记本上重填记忆的成本，尝试删除对应全注意力 KV，继续推进递归态并拼接新 KV。使用者反馈，NPC 多数情况下仍能正常对话，离散处理 RoPE 在自己的任务上也尚可，但明确不确定其他任务表现。",
+          "emphasis": [],
+          "aiComment": "NPC 能接话是个起点，还得看关键情节有没有记错。"
+        },
+        {
+          "category": "智能体记忆机制",
+          "title": "xMemory 作者分享，用语义组件组织 Agent 记忆",
+          "text": "xMemory 作者在群里介绍，固定相似度 top-k 容易取回重复的记忆证据，因此将 chunk 索引改为语义组件组织，再自上而下检索。作者表示论文获 NeurIPS 2026 接收，并分享论文与开源代码。仓库报告在 LoCoMo、PerLTQA 上改善回答质量和 token 效率。",
+          "emphasis": [],
+          "aiComment": "取回的记忆更多，不一定就更有用。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "xMemory 论文",
+              "url": "https://arxiv.org/pdf/2602.02007"
+            },
+            {
+              "kind": "article",
+              "label": "xMemory 代码",
+              "url": "https://github.com/HU-xiaobai/xMemory"
+            }
+          ]
+        },
+        {
+          "category": "合成数据与训练",
+          "title": "合成数据筛选，删掉错题就算高质量了吗",
+          "text": "有人建议先抽样 rollout，归纳任务或 verifier 的错误，再到全集删除、改写；另一位提醒，动态筛选先要保证题目本身正确，还应检查真实性、评分标准、多样性和难度。另有提议用搜索树重试失败轨迹，并让 verifier 与 generator 相互检验。",
+          "emphasis": [],
+          "aiComment": "把错题删掉是必要的，剩下的题能教会什么还要再看。"
+        },
+        {
+          "category": "商业化与产品",
+          "title": "API 有毛利，训练成本算进去了吗",
+          "text": "有人担心 C 端用户增长会同步推高推理支出，并将大模型业务类比重资产行业。讨论 API 定价是否能赚钱时，其他参与者追问是否算入训练成本，进一步区分毛利与整体盈利。也有人认为回本需要更多推理工程优化。",
+          "emphasis": [],
+          "aiComment": "只看调用收入和推理支出，账还没算完。"
+        },
+        {
+          "category": "数据验收",
+          "title": "专家逐题验收，一周只能回流几十题",
+          "text": "一位参与者介绍，团队做垂域数据回流时，每道题都需要专家检查，每周只能回流几十题。另一位认为验收和出题一样贵，还得保证专家判断本身可信，希望有更多工作说明如何管理专家信号的可靠性。",
+          "emphasis": [],
+          "aiComment": "请来专家之后，质量控制这件事仍然没有结束。"
+        },
+        {
+          "category": "智能体工程实践",
+          "title": "多模型群聊 Harness，刻意保留各自上下文",
+          "text": "一位开发者介绍，在群聊面板前接轻量 Harness，路由到 Codex、Claude，模型可互相 @ 协作。使用者刻意不共享各自完整 cache，只让群聊板上的消息进入各自历史，担心共享后不容易互相发现错误。这是设计考虑，群里未给出对照实验。",
+          "emphasis": [],
+          "aiComment": "能互相聊天，也得给各自重新判断的空间。"
+        },
+        {
+          "category": "机器人规划",
+          "title": "X-Planner 分享，把长程指令拆成事件级子任务",
+          "text": "X-Planner 分享者介绍，该工作把高层自然语言指令拆成事件级子任务，也可输出连续隐式 CoT，对接下游 VLA 或 WAM 操作机器人。群里同时给出了代码、模型权重和 benchmark 入口。",
+          "emphasis": [],
+          "aiComment": "计划写得再细，最后仍要看机器人能不能执行。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "X-Planner 代码",
+              "url": "https://github.com/X-Square-Robot/Xplanner"
+            },
+            {
+              "kind": "article",
+              "label": "X-Planner 模型权重",
+              "url": "https://huggingface.co/x-square-robot/X-Planner-9B-0916"
+            },
+            {
+              "kind": "article",
+              "label": "X-Planner Benchmark",
+              "url": "https://huggingface.co/datasets/x-square-robot/xplanner-benchmark"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

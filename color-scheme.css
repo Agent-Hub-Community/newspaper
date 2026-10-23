@@ -1,0 +1,50 @@
+/* Load after daily.css and before masthead skins. Light mode stays unchanged. */
+:root[data-color-scheme="dark"] {
+  /* Views set their own tokens on body, so changing :root alone is insufficient. */
+  &, body, body[data-view] {
+    color-scheme: dark;
+    --paper: #1c1d1c;
+    --ink: #e4e5e0;
+    --muted: #afb3ab;
+    --rule: #484c46;
+    --accent: #a4c2ab;
+    --scheme-hover: #30332f;
+    --scheme-green: #a4c2ab;
+    --scheme-red: #e1a19a;
+    --scheme-green-surface: #28372e;
+    --scheme-red-surface: #402c2b;
+  }
+
+  body[data-view="digest"], body[data-view="rank"] { --accent: var(--scheme-red); }
+
+  .brief p, .paper-list p { color: var(--ink); }
+  .archive-content .minor, .archive-content .takeaway { color: var(--muted); }
+  .archive-content a { text-decoration-color: var(--accent); }
+  .avatar-missing { background: var(--scheme-hover); color: var(--muted); }
+
+  button:disabled { color: var(--muted); }
+  @media (hover: hover) {
+    .icon-button:hover:not(:disabled),
+    .feedback-actions button:hover:not(:disabled) {
+      background: var(--scheme-hover);
+      color: var(--ink);
+    }
+  }
+  .feedback-actions button[aria-pressed="true"] {
+    color: var(--scheme-red);
+    background: var(--scheme-red-surface);
+  }
+  .feedback-actions button[data-vote="up"][aria-pressed="true"] {
+    color: var(--scheme-green);
+    background: var(--scheme-green-surface);
+  }
+  .feedback-actions button[data-vote="down"][aria-pressed="true"] {
+    color: var(--scheme-red);
+    background: var(--scheme-red-surface);
+  }
+
+  dialog::backdrop { background: rgb(10 11 10 / 72%); }
+  .share-preview { background: var(--paper); }
+}
+.appearance-toggle { flex: 0 0 44px; width: 44px; height: 44px; }
+.capture-stage .appearance-toggle { display: none; }

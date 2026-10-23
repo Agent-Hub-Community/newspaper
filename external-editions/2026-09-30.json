@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-30",
+  "title": "Sol 降低模型单价，Manus Flex 开放自带 API key",
+  "intro": "OpenAI 在 DevDay 发布 GPT-6.1 Sol，并为 Astra 提供 Ultrafast 加速档位。Manus Flex 将推理账单交给用户选择的服务商；Cohere 新模型则让高质量建库与低延迟查询使用同一向量空间。",
+  "stories": [
+    {
+      "title": "OpenAI 推出 GPT-6.1 Sol 与 Ultrafast 加速档位",
+      "timing": "北京时间9月30日凌晨官方宣布",
+      "text": "OpenAI 在 DevDay 发布 GPT-6.1 Sol，称其能力接近 Astra、价格约为五分之一，并从当日起向 ChatGPT Work 与 Codex 的 Plus、Pro、Business、Enterprise 和 Edu 用户开放。同步推出的 Ultrafast 当日支持 GPT-6 Astra，官方称 Codex 词元生成速度最高达每秒 300 个；Sol 的 Ultrafast 仍待推出。新增 Pro 500 计划提供该加速权益。会上还介绍了由 Astra 驱动、可设置自主操作边界的常驻智能体 dots。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://x.com/OpenAI/status/2104986129686741046"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/OpenAI/status/2104986136745767160"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/OpenAI/status/2104993967985381673"
+        }
+      ],
+      "emphasis": [
+        "Sol 的 Ultrafast 仍待推出"
+      ],
+      "aiComment": "单价降了当然好，真正值得拿来对比的，还是同一项工作做完要花多少钱、返工几次。"
+    },
+    {
+      "title": "Manus Flex 支持接入外部推理服务商 API key",
+      "timing": "北京时间9月30日08:00官方X宣布，博客标注9月29日",
+      "text": "Manus 推出 Flex，允许用户接入受支持服务商的 API key，并自行选择模型及推理强度。推理费用由服务商直接收取，Manus 的工具、执行环境和工作流继续沿用；其他服务及基础设施仍消耗 Manus 点数。首批推理伙伴包括 OpenRouter、Fireworks 和 Modal。这次变化让用户可以调整模型供应商，同时继续使用原有的 Manus 工作环境。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://manus.im/blog/introducing-manus-flex"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/ManusAI/status/2105085387391533430"
+        }
+      ],
+      "emphasis": [
+        "推理费用由服务商直接收取"
+      ],
+      "aiComment": "自带 key 之后有两张账单要算：模型费和执行服务费。选供应商方便了，是否更省还得看任务。"
+    },
+    {
+      "title": "Cohere 发布 Embed 5：Pro 与 Fast 共享向量空间",
+      "timing": "9月30日官方文档更新",
+      "text": "Cohere 发布 Embed 5，包含面向离线建库与质量敏感检索的 Pro，以及面向交互搜索、低延迟查询的 Fast。两款模型共享向量空间，官方建议用 Pro 建库、Fast 查询，已有语料不必因切换这两款查询模型而重新编码。它们支持文本、图像及图文混合输入、超过 100 种语言和 128k 词元上下文，并提供多种向量维度与 float、int8、binary 输出。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://docs.cohere.com/changelog/embed-v5"
+        }
+      ],
+      "emphasis": [
+        "两款模型共享向量空间"
+      ],
+      "aiComment": "这次值得试的是同一个索引换用两种查询模型后，召回质量和延迟各变多少，而不只是看总榜名次。"
+    },
+    {
+      "title": "Google DeepMind 提出蛋白质可验证水印 SynthID Bio",
+      "timing": "9月30日官方发布研究介绍",
+      "text": "Google DeepMind 发布 SynthID Bio 概念验证，分别面向蛋白质氨基酸序列和预测的三维结构嵌入水印。序列水印可随设计进入合成蛋白质；三维结构水印则通过微调 AlphaFold 3 的部分扩散网络实现。团队报告，在 VEGF-A、新冠刺突蛋白 RBD 和 PD-L1 三种靶标的湿实验中，带水印设计与对照的命中率、结合亲和力和序列多样性相当。抵抗蓄意篡改仍是后续研究重点。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://deepmind.google/blog/introducing-synthid-bio/"
+        }
+      ],
+      "emphasis": [
+        "分别面向蛋白质氨基酸序列和预测的三维结构嵌入水印"
+      ],
+      "aiComment": "能追溯来源和能判断安全是两件事。水印多提供一条线索，不能替代合成前的风险审查。"
+    },
+    {
+      "title": "Hugging Face 推出 Open TTS Leaderboard 拆分评测维度",
+      "timing": "9月30日官方博客发布",
+      "text": "Hugging Face 上线 Open TTS Leaderboard，分别衡量多语言语音合成的可懂度、速度和音色相似度。Qwen3 ASR 转写结果用于计算词或字符错误率，H200 批量离线推理用 RTFx 衡量速度；单条首音频延迟 TTFA 则分别提供 H200 和部分 CPU 结果。语音克隆采用 WavLM 向量余弦相似度，页面还可试听输出。作者强调这些指标不能直接衡量自然度、表现力和听者偏好，评测脚本计划后续开源。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://huggingface.co/blog/open-tts-leaderboard"
+        }
+      ],
+      "emphasis": [
+        "这些指标不能直接衡量自然度、表现力和听者偏好"
+      ],
+      "aiComment": "先用错误率筛掉读错字的，再用自己的语言和文本试听。听清楚只是语音好听的起点。"
+    },
+    {
+      "title": "Google Research 详解扩散模型轻量控制框架 Diffusion Controller",
+      "timing": "官网标9月29日，RSS发布时间折合北京时间9月30日02:38",
+      "text": "Google Research 介绍 Diffusion Controller，将图像去噪过程写成连续控制问题，再用轻量侧网络调整生成轨迹。其灰盒版本冻结主干模型，但仍需访问去噪步骤的反向均值等中间信息。团队在 Stable Diffusion 1.4 上比较了监督微调、奖励加权学习和 PPO 等训练设置；推理时可通过一个引导强度参数调节控制程度。这为可接触去噪内部接口的模型提供了新的控制方法。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://research.google/blog/how-diffusion-controller-unifies-and-simplifies-ai-image-generation/"
+        }
+      ],
+      "emphasis": [
+        "其灰盒版本冻结主干模型，但仍需访问去噪步骤的反向均值等中间信息"
+      ],
+      "aiComment": "看到“冻结主干”还不能直接接到任意生图 API 上。先确认能否拿到它需要的中间信息，才谈得上复用。"
+    },
+    {
+      "title": "Pi 复盘为何将 MCP 协议纳为系统核心",
+      "timing": "9月29日团队复盘，30日形成社区讨论",
+      "text": "Pi 团队在 9 月 29 日的文章中解释了将 MCP 纳入核心的决定，文章于本期获得新的社区讨论。团队希望工具提供结构化返回，并通过文档按需发现；仅靠扩展缺少区分延迟加载工具与 Codemode 专用工具的元数据。Pi 因此把 MCP 工具接入 JavaScript 沙箱，让模型用代码组织调用顺序和组合结果。Codemode 在 harness 一侧运行，状态保留在会话记录中。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://earendil.com/posts/you-said-no-mcp/"
+        }
+      ],
+      "emphasis": [
+        "仅靠扩展缺少区分延迟加载工具与 Codemode 专用工具的元数据"
+      ],
+      "aiComment": "这个转向有意思的地方，是团队讲清了扩展层缺哪种信息。支持一个协议，也会反过来要求宿主改工具接口。"
+    }
+  ],
+  "trends": []
+}

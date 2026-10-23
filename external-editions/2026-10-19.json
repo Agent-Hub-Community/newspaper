@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-19",
+  "title": "MiniMax 发布 M3.1 Flash，Anthropic 设立公益基金",
+  "intro": "MiniMax 揭晓匿名模型 Space Bunny 为 M3.1 Flash，并于 10 月 23 日开放权重。Anthropic 宣布将 5% 股份投入新设公益基金，马斯克随后称明年向美国儿童赠送 SpaceX 股票。安全机构披露攻击者利用 AI 智能体批量入侵网站，法庭文件公开迪士尼收编 Character.AI 的交易细节。",
+  "stories": [
+    {
+      "title": "MiniMax 正式发布 M3.1 Flash，定于 10 月 23 日开放模型权重",
+      "timing": "2026-10-19 官方博客发布，官方 X 帖于北京时间 10 月 19 日 19:56 发布",
+      "text": "MiniMax 宣布推出新一代轻量推理模型 M3.1 Flash，并确认此前在 OpenRouter 等平台匿名处理超 200T token 的测试模型 Space Bunny 即为其早期版本。模型现已上线 MiniMax API、M Plan 与桌面端 MiniMax Code，权重计划于 10 月 23 日开放。官方公布其日常输出速度达 200+ TPS，中位数超 170 TPS；API 定价为每 1M token 输入 0.15 美元、输出 0.60 美元、缓存读取 0.015 美元，agent 任务综合成本较上代降低 70%。官方基准显示，该模型在 DeepSWE v1.1 取得 73.7%，OSWorld V2 得 61.7 分，CyberGym 达 82%。\n\n第三方机构 Artificial Analysis 评测显示，M3.1 Flash（最大推理强度）支持 1M 上下文与图文输入，在智能指数中得 42 分，与 GLM-5.3-Flash 持平，高于前代 M3（29 分）和 Gemini 3.8 Flash（41 分），低于 DeepSeek V4.1 Flash 1017（45 分）。由于输出 token 较少，其单次评测任务成本约 0.22 美元，低于上述对比模型；在 AA-Omniscience 事实问答中答对率为 56%，但因几乎尝试回答所有问题，幻觉率达 93%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "MiniMax 官方博客",
+          "url": "https://www.minimax.io/blog/minimax-m31f"
+        },
+        {
+          "kind": "原帖",
+          "label": "MiniMax 官方 X",
+          "url": "https://x.com/MiniMax_AI/status/2112150867868541221"
+        },
+        {
+          "kind": "原帖",
+          "label": "AA 独立评测帖",
+          "url": "https://x.com/ArtificialAnlys/status/2112211865128608002"
+        }
+      ],
+      "emphasis": [
+        "API 定价为每 1M token 输入 0.15 美元、输出 0.60 美元、缓存读取 0.015 美元",
+        "在智能指数中得 42 分，与 GLM-5.3-Flash 持平，高于前代 M3（29 分）和 Gemini 3.8 Flash（41 分），低于 DeepSeek V4.1 Flash 1017（45 分）"
+      ],
+      "aiComment": "每秒飙出 200 多个 token，遇到不会的也绝不交白卷，93% 的幻觉率主打一个嘴硬到底。"
+    },
+    {
+      "title": "Anthropic 设立公益基金并注入 5% 股份，马斯克称明年向美国儿童赠 SpaceX 股票",
+      "timing": "Anthropic 官网于北京时间 10 月 19 日 00:49 发布；马斯克于北京时间 15:52 发帖",
+      "text": "Anthropic 宣布成立全资有限责任公司（LLC）形式的“Anthropic 公益基金”。经股东批准后，公司将先行注入 5% 股份；未来公司估值每较设定基准增长 50%，董事会可酌情追加 2% 股份。加上联合创始人此前承诺捐出 80% 个人持股及过半员工参与的配比捐赠计划，Anthropic 称合计约 20% 股份将用于公共利益。基金计划通过资助非营利组织或向特定人群直接发放资金等方式应对 AI 对就业市场的冲击，并承诺所持股权不用于海内外政治献金或游说。具体估值触发线与治理细节将在未来数月公布。\n\n马斯克于北京时间 10 月 19 日 04:16 回复 Anthropic 建议“直接把股份分给公众”，随后在 15:52 发帖宣布，明年将向每名美国儿童赠送一股他本人持有的 SpaceX 股票，但未说明发放方式。据 CNBC 报道，按美国约 7200 万未成年人及 SpaceX 上周五 146.03 美元股价估算，该批股票总值约 105 亿美元。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 公告",
+          "url": "https://www.anthropic.com/news/public-benefit-fund"
+        },
+        {
+          "kind": "原帖",
+          "label": "马斯克 X 帖",
+          "url": "https://x.com/elonmusk/status/2112089556615123114"
+        },
+        {
+          "kind": "报道",
+          "label": "CNBC 报道",
+          "url": "https://www.cnbc.com/2026/10/19/elon-musk-spacex-shares-giveaway-kids.html"
+        }
+      ],
+      "emphasis": [
+        "公司将先行注入 5% 股份；未来公司估值每较设定基准增长 50%，董事会可酌情追加 2% 股份",
+        "明年将向每名美国儿童赠送一股他本人持有的 SpaceX 股票"
+      ],
+      "aiComment": "Anthropic 刚宣布往公益基金注入 5% 股份，马斯克反手许诺每个美国孩子一股 SpaceX，CNBC 一算约 105 亿美元，怎么发还没说。"
+    },
+    {
+      "title": "NorForge 披露攻击者用 Cairn 智能体框架批量入侵网站，路透社称受害网站超百家",
+      "timing": "NorForge 报告标注 2026-10-19；The Verge 于北京时间 10 月 19 日 21:58 报道",
+      "text": "AI 安全公司 NorForge 发布调查报告称，其在公网发现 20 多个未设防且涉嫌恶意活动的 Cairn 控制面板。Cairn 是一款开源的通用问题求解引擎，按状态逐步推进，被攻击者用于协调 AI agent 自主探测漏洞并入侵网站，面板暴露了目标身份、已发现的弱点、账户密钥与 API key 以及是否已被攻破。其中最活跃的集群 AIA0001 使用中文指令，在 14 个面板上运行超 1100 个攻击项目，主要针对美、日、澳等地机构，意在长期控制电商与支付基础设施。该集群调用的工作节点名为 claudecode_deepseek-v4.1-flash；NorForge 推测这可能是 Claude Code harness 搭配 DeepSeek V4.1 Flash，并估算包含失败项目在内平均单次任务成本约 5 美元，成功入侵平均耗时近 23 小时。\n\n据 The Verge 引述路透社报道，该攻击者已入侵超 100 家网站，受害方包括 John Deere、SharkNinja 和 Cummins。John Deere 回应称无迹象表明敏感信息被访问；Cummins 表示正调查第三方供应商运营网站的潜在攻击；SharkNinja 称事件波及一个独立的产品支持网站，威胁已受控。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "NorForge 调查报告",
+          "url": "https://norforge.com/blog/inside_cairn"
+        },
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1013643/ai-agents-hack-john-deere-shark-ninja-cummins"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50152877"
+        }
+      ],
+      "emphasis": [
+        "在 14 个面板上运行超 1100 个攻击项目",
+        "平均单次任务成本约 5 美元，成功入侵平均耗时近 23 小时"
+      ],
+      "aiComment": "用 AI 找别人的漏洞，结果自家 20 多个控制面板在公网裸奔，这波属于黑客忘了锁自家大门。"
+    },
+    {
+      "title": "法庭文件披露迪士尼收编 Character.AI 细节：留用至少 60 人并隔离诉讼责任",
+      "timing": "Character.AI 于 10 月 12 日申请破产；法庭文件细节于北京时间 10 月 19 日由 TechCrunch 与 Ars Technica 披露",
+      "text": "据 TechCrunch 与 Ars Technica 报道，Character.AI 于 10 月 12 日申请破产后，最新公开的法庭文件披露了其与迪士尼在 9 月启动的两阶段交易结构。第一阶段在破产前进行，迪士尼支付 550 万美元及 200 万美元可退还保证金，并雇用了包括前 CEO Karandeep Anand 在内的大部分员工；TechCrunch 援引文件称，迪士尼向至少 60 名员工发出录用通知，年薪合计约 6000 万美元，绝大多数获邀员工已接受。\n\n第二阶段通过破产程序进行，迪士尼作为首个报价方（stalking horse），拟在获批交割时再支付 1250 万美元，换取 Character.AI 代码、训练基础设施、信任与安全审核栈及年龄预测技术等永久非独占全球授权，但不含用户数据和网站。法庭文件显示，由于该初创公司现金储备减少且面临多起聊天机器人安全诉讼与监管调查，迪士尼要求交易通过破产程序完成；迪士尼还准备了一份法院令草案，明确该交易不构成两家公司合并，使原有法律责任留在破产主体内。该授权将在未来数月拍卖，更高出价者可竞购。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Ars Technica 报道",
+          "url": "https://arstechnica.com/tech-policy/2026/10/disney-found-a-way-to-buy-character-ai-without-buying-its-lawsuits/"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/"
+        }
+      ],
+      "emphasis": [
+        "迪士尼向至少 60 名员工发出录用通知，年薪合计约 6000 万美元",
+        "明确该交易不构成两家公司合并，使原有法律责任留在破产主体内"
+      ],
+      "aiComment": "人带走、代码授权，把官司和用户数据留在破产壳子里，迪士尼这波去皮吃肉的法务操作堪称教科书。"
+    },
+    {
+      "title": "RISC-V AI 芯片公司 Tenstorrent 完成 15 亿美元 E 轮融资，估值 62 亿美元",
+      "timing": "2026-10-19 官方新闻稿发布",
+      "text": "由芯片设计师 Jim Keller 担任 CEO 的 RISC-V AI 计算公司 Tenstorrent 宣布完成 15 亿美元 E 轮融资，投后估值达 62 亿美元。本轮由 Trace Capital 和 Innovation X 领投，ARK Invest、Fidelity、摩根士丹利、Sandisk、Tether Investments 等参投。据 IT之家报道，该公司在 2024 年底进行 D 轮融资时的投后估值约为 27 亿美元。Tenstorrent 表示，新资金将用于大规模部署 Galaxy 服务器以支持大语言模型和视频生成开源权重模型，并推进其向三星、LG 等芯片设计客户授权的 Ascalon RISC-V CPU 与 Tensix AI 核心 IP。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Tenstorrent 公告",
+          "url": "https://tenstorrent.com/newsroom/tenstorrent-announces-series-e"
+        },
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/015/045.htm"
+        }
+      ],
+      "emphasis": [
+        "完成 15 亿美元 E 轮融资，投后估值达 62 亿美元"
+      ],
+      "aiComment": "估值从 27 亿翻到 62 亿美元，Jim Keller 这块金字招牌连做稳定币的 Tether 都吸引来了。"
+    },
+    {
+      "title": "Meta 披露吉瓦级超算集群 Prometheus：一期已建成，规划扩展至约 100 万张 GPU",
+      "timing": "北京时间 10 月 19 日 21:00 发布",
+      "text": "Meta 工程团队发文介绍其位于俄亥俄州新奥尔巴尼的吉瓦级超算集群 Prometheus。该集群一期工程已完工并用于训练 Muse 系列基础模型（含 Muse Wonder），目前跨多栋建筑互联数十万张 GPU，完整规模规划约为 100 万张 GPU。硬件方面，集群首套平台 Catalina 采用双机架 Ariel 配置的 NVIDIA GB200 NVL72，单域包含 72 张 Blackwell GPU、13.4 TB HBM3e 显存，提供 720 PFLOPS 的 FP8 峰值训练算力，每张 GPU 配备 800G 扩展带宽；基于 Vera Rubin NVL72 的第三代平台即将接入。官方数据显示，在 Muse Wonder 训练中，预训练与强化学习有效算力利用率（goodput）分别超过 85% 和 90%，集群平均无中断时间（MTBI）经固件修复后已从约 47k GPU 小时提升至超 54k GPU 小时。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Meta 工程博客",
+          "url": "https://engineering.fb.com/2026/10/19/data-center-engineering/inside-prometheus-meta-gigawatt-scale-supercluster/"
+        }
+      ],
+      "emphasis": [
+        "目前跨多栋建筑互联数十万张 GPU，完整规模规划约为 100 万张 GPU",
+        "预训练与强化学习有效算力利用率（goodput）分别超过 85% 和 90%"
+      ],
+      "aiComment": "规划 100 万张卡，预训练 goodput 还能压在 85% 以上，这么大的集群能稳住，靠的是一轮轮固件补丁。"
+    },
+    {
+      "title": "榜单推荐：商汤等评测 GPT-6-Astra 具身能力并发布 SenseNova-RoboRSI 框架",
+      "timing": "论文于北京时间 10 月 16 日 02:00 提交 arXiv，10 月 19 日登 HF 日榜第 1 与 alphaXiv 榜第 5，商汤同日发文推介",
+      "text": "商汤 SenseNova 联合研究团队等 60 余名作者在论文中评估了 GPT-6-Astra 在 12 个仿真具身基准与 8 种真实机器人平台上的表现。在允许利用训练集演示进行上下文学习（ICL）并将交互步数预算放宽至最高 10 倍的统一协议下，GPT-6-Astra 刷新全部 12 个基准纪录，其中 RoboDojo 成功率从 1 倍预算的 27.6% 升至 81.9%，DexJoCo 达 87.3%（此前最高为 40.3%）。\n\n但真机实验显示该模型距离实用仍有明显差距：收集 ICL 演示数据成本高昂；简单如将笔放入笔筒的任务推理成本约 55 美元；真机会过热，模型还在思考时鸡蛋已经煎糊。团队同步开源具身 agent harness 框架 SenseNova-RoboRSI，其 27B 模型运行成本约为 GPT-6-Astra 的 1/50，权重预计于 10 月 20 日开放。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "arXiv 论文",
+          "url": "https://arxiv.org/abs/2610.22471"
+        },
+        {
+          "kind": "原帖",
+          "label": "商汤官方 X",
+          "url": "https://x.com/SenseTime_AI/status/2112166037936312671"
+        },
+        {
+          "kind": "代码",
+          "label": "RoboRSI 代码库",
+          "url": "https://github.com/OpenSenseNova/SenseNova-RoboRSI"
+        }
+      ],
+      "emphasis": [
+        "GPT-6-Astra 刷新全部 12 个基准纪录，其中 RoboDojo 成功率从 1 倍预算的 27.6% 升至 81.9%",
+        "简单如将笔放入笔筒的任务推理成本约 55 美元"
+      ],
+      "aiComment": "放支笔进笔筒要烧掉 55 美元，模型还在思考人生，锅里的鸡蛋已经糊了，这顿早饭属实吃不起。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "轻量 Flash 模型与开源 harness 降低自动化任务门槛，同时放大安全暴露面",
+      "text": "MiniMax M3.1 Flash 把每百万输入 token 定价压到 0.15 美元，Artificial Analysis 测得其单次评测任务成本约 0.22 美元；而在 NorForge 披露的入侵案例中，攻击者的工作节点名为 claudecode_deepseek-v4.1-flash，NorForge 估算包含失败项目在内平均单任务成本约 5 美元，在 14 个面板上运行了超 1100 个攻击项目。"
+    }
+  ]
+}

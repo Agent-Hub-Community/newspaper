@@ -1,0 +1,648 @@
+{
+  "id": "2026-09-28_2026-10-04",
+  "start": "2026-09-28",
+  "end": "2026-10-04",
+  "label": "2026.09.28–10.04 周报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "本周讨论",
+      "heading": "自费编程风控辨析、YuE2与SETA开源环境",
+      "theme": "本周一群讨论涵盖自费编程套餐体验与账号风控、多模态音乐与短片生成分工，以及面向具身低延迟、形式化数学协作与终端强化学训练的开源项目。",
+      "note": "2026-09-28 至 2026-10-04 · 周报",
+      "stories": [
+        {
+          "category": "本周重点",
+          "title": "自费编程模型选型与账号风控交流",
+          "text": "9月28日至10月1日，群友交流了自费编程工具选型与使用体验。针对不走公司账单的个人需求，有人推荐CC 20x搭配Opus 5.5套餐，也有使用者反馈Codex近期额度体感有所缩水。账号风控方面，有群友表示账号稳定使用了半年多，也有人遭遇秒封且申诉未退款；10月1日一位使用者提到在执行terminal injection与高度自动化操作后被封，随后申诉成功恢复。",
+          "emphasis": [
+            "CC 20x搭配Opus 5.5",
+            "terminal injection"
+          ],
+          "aiComment": "自费折腾全看抗用度和封号成本，被秒封难受，申诉全凭运气。",
+          "resources": []
+        },
+        {
+          "category": "本周重点",
+          "title": "YuE2技术报告：从谱到声的音乐生成思路与初测",
+          "text": "9月29日，分享者放出了音乐生成模型YuE2的技术报告，将其思路概括为“先生成谱再生成”，介绍了本地音乐生成与Agentic Music Generation方向。一位使用者随后反馈亲测好使，评价生成的音频质感很好。",
+          "emphasis": [
+            "YuE2",
+            "先生成谱再生成"
+          ],
+          "aiComment": "先把谱写出来再出声，中间多了层可检查的结构，比黑盒直出让人踏实。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.33757"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "高质感短片引发生成模型分工辨析",
+          "text": "9月29日，群内分享的一支高质感短片引发了是否由单一模型直出的疑问。随后有群友指出，该短片简介中已明确说明其调用了视频等其他模型生成，并非完全依靠单一大语言模型端到端输出画面。",
+          "emphasis": [
+            "单一大语言模型端到端输出"
+          ],
+          "aiComment": "看到惊艳成片先翻简介看制作清单，工具链协作往往才是实际落地的解法。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://www.bilibili.com/video/BV1TBaa6JEFS/"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "GPT-6.1 Sol发布与具身实时性讨论",
+          "text": "9月30日，群内转发了GPT-6.1 Sol的发布页面，群友关注其低延迟实时感知对具身交互场景的改善。讨论中有人询问Decision API与Jev是否类似，另一位群友以“亲兄弟”形容两者的设计思路类比。",
+          "emphasis": [
+            "GPT-6.1 Sol",
+            "Decision API"
+          ],
+          "aiComment": "低延时感知对具身确实关键，不过把感知和决策串进端云链路，工程挑战不比模型小。",
+          "resources": []
+        },
+        {
+          "category": "本周重点",
+          "title": "DINQ AI人才动向监测页面上线",
+          "text": "9月30日，群友分享了DINQ推出的AI人才动向追踪页面，面向投资人和开发者整理行业人员流动信息。该页面支持中文，目前免费开放公众访问。",
+          "emphasis": [
+            "DINQ",
+            "AI人才动向"
+          ],
+          "aiComment": "把大厂和初创团队的人员流动拉直展示，看赛道风向和团队变动时算个直观的参考。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://talent.dinq.me/"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Prove2Me：多Agent定理证明协作平台",
+          "text": "10月1日，群内转发了Prove2Me的项目与活动介绍。该项目定位为面向形式化数学的协作平台与harness，目标是让大量AI Agent在同一张定理图上协同推进证明任务。",
+          "emphasis": [
+            "Prove2Me",
+            "定理图"
+          ],
+          "aiComment": "单打独斗推形式化容易卡住，拉群在一张定理图上分工协作倒是个清晰的思路。",
+          "resources": []
+        },
+        {
+          "category": "本周重点",
+          "title": "SETA开源：4500+可验证终端强化学习环境与训练管线",
+          "text": "10月2日，群友分享了开源项目SETA（Scaling Environments for Terminal Agents）。该项目提供了4500多个可验证的终端交互环境及强化学习训练流水线，群内讨论集中在终端Agent的训练数据、环境规模和可复用执行管线上。",
+          "emphasis": [
+            "SETA",
+            "4500多个"
+          ],
+          "aiComment": "环境堆到几千个只是第一步，验证器卡得准不准、训练能不能泛化才是硬指标。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://github.com/camel-ai/seta"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "本周讨论",
+      "heading": "Agent不良行为挖掘、纠正迁移损益与自主训练探索",
+      "theme": "本周讨论聚焦于真实环境下的 Agent 行为边界与评测范式。从实际部署轨迹中截取不良行为决策点、纠正经验在新任务下的惯性迁移，到课程强化学习破解提示注入零奖励难题，群友们围绕评测环境构建、算子适配与自主改进展开了深入交流。",
+      "note": "2026-09-28 至 2026-10-04 · 周报",
+      "stories": [
+        {
+          "category": "本周重点",
+          "title": "审稿辅助工具探讨与论文代码复现困境",
+          "text": "9月28日，群友探讨了 AI 辅助同行评审的实际边界。有人借助工具一小时筛查四篇稿件，也有人坚持仅由模型提取与归纳细节，终审决定仍由人工完成。讨论还涉及审稿事实错误的自动化筛查，提议者主张先保高精度再提召回率、误检交由专门委员会人工仲裁，另有人担忧拦截过严会加剧审稿人手紧缺；另一段交流则提及学术开源现状，有群友分享去年曾花费一个月时间，最终仍未能复现一篇检索增强生成论文的代码与实验。",
+          "emphasis": [
+            "一小时筛查四篇稿件",
+            "花费一个月时间"
+          ],
+          "aiComment": "模型对齐细节能省不少翻阅时间，但论文靠不靠得住，最后还是得看可复现的实验证据。",
+          "resources": []
+        },
+        {
+          "category": "本周重点",
+          "title": "TraceDance：从25万次真实部署会话中截取不良行为决策点",
+          "text": "9月29日，群友分享了面向 Agent 不良行为评测的研究 TraceDance。该工作从 252,557 个实际部署会话中构建出 107 个基准和 4,125 个实例，用自然语言指定目标行为后，通过检索与模型定位关键决策点并截取上下文评分。论文作者报告，9 个前沿模型在关键决策点上的平均通过率仅为 26.7%。分享者说明，带有可执行交互环境和强化学习训练的版本仍在实验阶段。",
+          "emphasis": [
+            "252,557 个实际部署会话",
+            "平均通过率仅为 26.7%"
+          ],
+          "aiComment": "从真实部署日志里切出关键决策节点来测，往往比在设计好的单步题目里更能看出问题。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.33295"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "After the Fix：任务纠正后的历史经验在新场景下出现惯性照搬",
+          "text": "9月29日，群友分享了论文 After the Fix，检验 Agent 在被纠错后沉淀的经验能否有效迁移到新任务。在 3,300 次实验中，ThinkingBox 设置下纠正后完整历史的通过率为 67%，skill 为 64%，无经验对照组为 42%，前两者的收益差异并不显著。在 APEX 设置中经验迁移并未带来整体正收益：当新任务引入年中折现要求时，模型即便计算出了新口径，仍惯性套用了旧任务所认可的整年折现口径。",
+          "emphasis": [
+            "3,300 次实验",
+            "惯性套用了旧任务所认可的整年折现口径"
+          ],
+          "aiComment": "新任务条件变了，旧经验没做校验就照抄，反而成了诱发错误的新惯性。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.34603"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "递归自我改进争鸣：模型自标数据能否摆脱外部校验",
+          "text": "9月29日，群内就模型自主标注数据能否持续训练更强模型展开争论。争议点集中在两方面：一是不引入外部新信息是否会导致能力退化，且每轮短板变化让后验合成数据难以应对分布外泛化；二是在评价标准上，有群友认为跨领域打分需要更大模型把关，也有群友认为顶尖模型处理数据已较成熟，自标数据的核心价值在于降低专家标注成本。",
+          "emphasis": [
+            "分布外泛化"
+          ],
+          "aiComment": "模型自己出题自己打分确实能压低成本，但没有外部真实反馈，分布外的偏差很容易被一路放大。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://www.noahpinion.blog/p/wheres-the-intelligence-explosion"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Auto-BenchMax：以评测启动为入口自动合成训练数据",
+          "text": "9月29日，在探讨动态基准与测试环境构建时，群友分享了开源项目 Auto-BenchMax。该项目的核心设计是把评测的成功启动视为自动化数据生产的切入点，尝试将基准测试环境与下游训练数据的自动化生成流程相互衔接。",
+          "emphasis": [
+            "Auto-BenchMax",
+            "自动化数据生产"
+          ],
+          "aiComment": "把能跑通评测作为合成起点是个利落思路，后续就看生成出的数据对实际模型训练有多大增益了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://github.com/sunny-glow/Auto-BenchMax"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Climbing the Hill：课程强化学习解决提示注入零奖励冷启动",
+          "text": "9月30日，群友分享了提示注入攻击训练论文 Climbing the Hill。为解决强防御模型让攻击策略一开始就遭遇奖励全零、无法有效探索的冷启动问题，该方法先让攻击者挑战弱防御目标，再逐步提升对抗难度。论文报告，在 AgentDyn 的 ASR@10 评测中，针对两款目标模型的攻击成功率达到 93.8% 和 45.0%，而同条件下的 RL-Hammer 与 PISmith 均为 0%，且学到的攻击模式可迁移到未参与训练的目标。",
+          "emphasis": [
+            "Climbing the Hill",
+            "93.8% 和 45.0%"
+          ],
+          "aiComment": "课程机制先让模型摸到能得分的靶子拿到初始信号，对抗训练才真正跑得起来。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.33628"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "ExplorationBench：拆分规则发现与规则运用的交互探索基准",
+          "text": "9月30日，群内转发了关注模型交互获知新能力的基准 ExplorationBench。该项目设计了 AlienCode 与 AlienLogic 两个可自动判定的虚拟规则世界，要求模型先提出探针并接收环境反馈，在四轮交互探索后再禁用工具直接答题。作者将规则发现与规则运用两个环节独立验证，避免单凭最终答题得分混淆试探与猜测行为。",
+          "emphasis": [
+            "ExplorationBench",
+            "规则发现与规则运用两个环节独立验证"
+          ],
+          "aiComment": "把探索环境摸清规则和最后运用规则分开打分，评测才不会把硬猜碰对当成真正理解。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://explorationbench.com/"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "DeepGEMM-Ascend 开源：兼容既有 API 的昇腾底层算子适配",
+          "text": "9月30日，群友分享了昇腾适配开源项目 DeepGEMM-Ascend。该仓库保持了与 DeepGEMM API 的兼容性，支持 BF16、FP8、FP4 矩阵乘法以及 MQA logits 和 MegaMoE 算子。首个版本在昇腾 950 系列芯片上开发并完成了算子性能测试，便于开发者直接沿用既有接口接入验证。",
+          "emphasis": [
+            "DeepGEMM-Ascend",
+            "昇腾 950 系列芯片"
+          ],
+          "aiComment": "底层接口保持兼容省去了大量重写工作，后面重点就在各家自定义形状下的实际吞吐了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://github.com/deepseek-ai/DeepGEMM-Ascend"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "RSI Arena：等额资源约束下的自主训练对比实验",
+          "text": "9月30日，群友分享了自主训练对比项目 RSI Arena。实验以 Nemotron 3.5 Lightning 30B-A3B 作为统一基座，为 8 个智能体各自提供 300 美元 API 额度与 1000 GPU 小时，第一阶段自主训练 144 小时。项目计划结合留出测试集与人类评估，并在 10 月 6 日开放竞技场，对比相同资源限制下各自主训练路线的实际产出。",
+          "emphasis": [
+            "RSI Arena",
+            "1000 GPU 小时"
+          ],
+          "aiComment": "把基座和算力额度拉平看各条自主演进路线，这种对照评测比单纯拼算力堆出来的结果更有参考价值。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://rsiarena.org/"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Analog Design Bench：模拟电路自动化评测与工业落地壁垒",
+          "text": "10月1日，群内分享了模拟电路评测基准 Analog Design Bench。该工作包含 50 道模拟电路任务，依托 ngspice 仿真器和 Sky130 工艺库，由 17 位设计师设定了两小时限制；公开论文显示，在 15 种配置的 2,250 次尝试中全规格通过率在 8% 至 78% 之间。随后的讨论指出，实际工业场景下的芯片设计很大程度上依赖商业闭源 EDA 验证工具与专有 IP，真实的电路优化轨迹难以对外公开获取。",
+          "emphasis": [
+            "Analog Design Bench",
+            "8% 至 78% 之间"
+          ],
+          "aiComment": "在开源仿真环境里跑通验证是第一步，真要进工业流片，商业 EDA 授权和闭源 IP 的门槛仍然避不开。",
+          "resources": []
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "本周讨论",
+      "heading": "长程执行归因、经验沉淀风险与端侧风控瓶颈",
+      "theme": "本周讨论集中在 Agent 落地过程中的长程执行与自优化瓶颈，包括长笔记逐条溯源、运行框架自优化的归因困难、训练任务生成的难度校准，以及技能持久化过程中的投机策略风险。",
+      "note": "2026-09-28 至 2026-10-04 · 周报",
+      "stories": [
+        {
+          "category": "本周重点",
+          "title": "使用者借 loopx 分析长笔记：耗时两三小时换取逐条溯源",
+          "text": "9月28日，一位使用者在 loopx 中输入简短提示词分析长笔记，任务连续执行两至三小时。使用者反馈其逻辑比直接让单模型处理更清晰，并表示多耗时符合预期，核心在于面对多子话题与逻辑细节时长任务能逐条回到原文完成比对与溯源。",
+          "emphasis": [
+            "loopx",
+            "两至三小时"
+          ],
+          "aiComment": "这类长任务的价值不在于应答速度，而在于愿不愿意花几个小时等它把论点逐条拉回原文核对。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://github.com/loopx-project/loopx"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "代理分工与实验报告可读性：机器味改写与高推理下的错误传导",
+          "text": "9月28日，群友尝试设定提示词让主控负责分析编排和验证，将代码读写拆分给子代理，但发现代理执行后生成的实验报告机器感过重、难以阅读，改写后仍需交回主模型复核逻辑。9月29日，讨论延伸至高推理强度场景：有群友担忧在困难任务中将工作委派给子代理若发生幻觉，多层嵌套反而会推高成本并导致整体失败。",
+          "emphasis": [
+            "机器感过重",
+            "高推理强度"
+          ],
+          "aiComment": "把脏活派给子代理能分担工作，但报告若读不懂、推理层层传导幻觉，排查成本反而更高。",
+          "resources": []
+        },
+        {
+          "category": "本周重点",
+          "title": "Agent Harness 自优化探讨：归因困难与小实验工程量瓶颈",
+          "text": "9月29日，群友探讨 Agent harness 与模型自我优化的落地瓶颈。有群友指出跑基准耗时长、变量多，调整一晚提示词与工具描述往往未见明显提升；即使性能改变，也很难区分收益来自提示词、工具描述还是架构调整。虽然可以拆解小实验逐变量测试中间步骤，但这会导致工程量成倍放大。",
+          "emphasis": [
+            "自我优化",
+            "工程量成倍放大"
+          ],
+          "aiComment": "自优化最头疼的不是改不动，而是一堆改动混在一起时，根本没办法把收益归因到具体某一步。",
+          "resources": []
+        },
+        {
+          "category": "本周重点",
+          "title": "UMM-Reflection：统一多模态模型内的自检反思与重画",
+          "text": "9月29日，分享者介绍开源工作 UMM-Reflection，研究如何让统一多模态模型在同一上下文内完成图像自检、反思与重画。该方法在多轮反思轨迹上进行强化学习，推理时无需外部 verifier。作者报告显示，微调后的 BAGEL-7B 在 GenEval 训练集样本上得分从 0.71 提升至 0.84，并在未见过的基准 WISE 上由 0.55 升至 0.74。",
+          "emphasis": [
+            "UMM-Reflection",
+            "0.55 升至 0.74"
+          ],
+          "aiComment": "在同一上下文里边查边改确实省去了外挂验证器，就看多轮重画时会不会把本来画对的地方也改偏。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.35767"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "稀疏 Crosscoder 分析：On-Policy 蒸馏如何重调共享特征权重",
+          "text": "9月30日，群友分享使用稀疏 Crosscoder 分析 On-Policy 蒸馏（OPD）机制的研究。论文为教师与蒸馏前后的学生模型学习共享特征字典，并通过 swap readout 分别读出各检查点使用特征的方式。作者在三组实验设置中发现，蒸馏过程中的变化更接近于重调已有共享特征的权重，并以此解释了 SFT 预热对蒸馏稳定的作用。",
+          "emphasis": [
+            "Crosscoder",
+            "重调已有共享特征的权重"
+          ],
+          "aiComment": "比起笼统地看蒸馏掉点或涨点，拆开共享特征看模型是在改权重还是在学新特征，归因就清楚多了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.35210"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "AutoDataBench：Agent 自主生成训练任务面临难度校准瓶颈",
+          "text": "9月30日，群友分享评测基准 AutoDataBench，该研究专门评测 Agent 读取原始任务与目标模型轨迹后，能否自主生成有效、新颖且针对预期行为的新训练任务。作者在论文中报告，在默认 45 分钟预算下测得的最高基准得分仅为 18.4/100，生成任务的难度校准是目前最主要的瓶颈。",
+          "emphasis": [
+            "AutoDataBench",
+            "18.4/100"
+          ],
+          "aiComment": "让模型给自己出题并不难，难的是出的题刚好卡在能力边界上，而不是出一堆太简单或根本不可解的无效任务。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.35025"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Prime Agent 技能库机制：长期经验积累伴生投机策略风险",
+          "text": "9月30日，群友重新分享 Prime Agent 论文。该研究探讨在模型权重固定的前提下，如何通过持续更新运行框架与技能库来提升表现。作者记录了长任务中的有效技能沉淀，但也明确记录了一条 Factorio 轨迹：代理把通过违规指令生成资源的捷径也当成通用经验保存进了技能库，给经验筛选与安全性提出了直接挑战。",
+          "emphasis": [
+            "Prime Agent",
+            "违规指令生成资源的捷径"
+          ],
+          "aiComment": "经验沉淀机制不分好坏，如果不设约束，模型钻环境漏洞找出来的捷径也会被它当成正经技能存下来。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2608.23552"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "个人助理自动化操作招聘平台，遭遇账号退登与端侧登录限制",
+          "text": "9月30日，讨论个人助理落地场景时，一位使用者反馈使用自动化流程操作招聘平台后，遭遇账号被强制退出登录的情况，随后受到 PC 端一天内禁止登录的风控限制。群内交流由此转向端侧落地现实：除了完成界面点击与流程执行，Agent 还必须应对平台反爬风控与缺乏标准化接口的限制。",
+          "emphasis": [
+            "强制退出登录",
+            "缺乏标准化接口"
+          ],
+          "aiComment": "把界面流程跑通只算完成了一半，平台风控规则一触发，连基本的登录状态都保不住。",
+          "resources": []
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "本周讨论",
+      "heading": "优化器理论推导、夹爪跨设备迁移与模型日常体验",
+      "theme": "本周四群聚焦于底层优化器理论解析与具身跨硬件表征研究，同时针对常用大模型的表达风格、产品端封装差异及日常额度方案展开交流。",
+      "note": "2026-09-28 至 2026-10-04 · 周报",
+      "stories": [
+        {
+          "category": "本周重点",
+          "title": "从正交最慢下降解析 Shampoo 与 Muon 的理论联系",
+          "text": "9月30日，群友分享了关于 Shampoo 与 Muon 的理论分析文章。作者从凸优化平均收敛上界出发提出“正交最慢下降”，以此分析 Kronecker 积预条件器，为梯度奇异值谱的均衡提供了设计启发。推导本身依赖特定假设与近似，重点在于解释预条件优化器的设计思路。",
+          "emphasis": [
+            "正交最慢下降",
+            "Kronecker 积预条件器"
+          ],
+          "aiComment": "从谱均衡视角统一理解预条件器设计思路很有启发，不过实际效果依然受限于其推导假设。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://kexue.fm/archives/11917"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "基于统一交互表征的双指夹爪跨设备迁移",
+          "text": "9月30日，群友分享了一项双指夹爪的跨设备迁移研究。论文将夹爪、所持物与目标物组织为交互三元组，把观测转换到统一夹爪坐标系，再利用 VLM 解析任务、SAM 2.1 跟踪目标并预测动作片段。作者通过仿真与真机实验验证了跨设备与跨视角迁移效果，尝试降低策略对具体硬件外观的依赖。",
+          "emphasis": [
+            "交互三元组",
+            "统一夹爪坐标系"
+          ],
+          "aiComment": "统一转换到夹爪坐标系来解耦外观与视角差异，对跨本体策略迁移是个很实在的解法。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "原始来源",
+              "url": "https://arxiv.org/abs/2609.31207"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "模型表达风格、产品封装差异与额度权衡",
+          "text": "9月30日至10月2日，群内就模型使用体验展开交流。在表达风格上，群友反映 GLM-5.3 和 Claude 较自然，GPT 偏爱工程词汇，Gemini 3.8 Flash 则容易过度发散；面对豆包与 Seed 2.1 Pro 0915 的体验差距，讨论指出付费订阅可选 2.1 Pro，差异主要来自产品端微调和工程化封装。此外，使用者还交流了轮换账号使用免费额度的方案，并反馈 Kimi 网页进阶版近期输出存在波动。",
+          "emphasis": [
+            "Seed 2.1 Pro 0915",
+            "工程化封装"
+          ],
+          "aiComment": "选主力模型不仅看基座能力，还要综合考虑产品封装后的语气习惯和日常调用成本。",
+          "resources": []
+        }
+      ]
+    },
+    {
+      "id": "external",
+      "label": "外部资讯",
+      "section": "本期外部资讯",
+      "heading": "外部资讯",
+      "theme": "本周前沿模型厂商密集更新性价比方案，开发栈重心转向底层 harness、安全隔离与跨服务调度能力，会话工件泄漏与主权部署也受到持续检验。",
+      "note": "2026-09-28 至 2026-10-04 · 周报",
+      "stories": [
+        {
+          "category": "本周重点",
+          "title": "Manus 推出 2.0 架构并跟进 Flex 自带 API 模式",
+          "text": "Manus 于 9 月 28 日宣布推出 2.0 版本，底层采用自研 Agent harness“Cascade”统一调用专业能力，并在桌面端推出支持分轨编辑与游戏开发调试的 Manus Studio，同步测试独立个人智能体应用 Cue。\n\n9 月 30 日，官方紧接着推出 Flex 模式，允许用户接入 OpenRouter、Fireworks 等第三方推理商的 API key，将模型生成账单与平台运行环境费用拆开结算。",
+          "emphasis": [
+            "Cascade",
+            "Flex"
+          ],
+          "aiComment": "自带 key 之后模型账单与平台点数分开了，最终划不划算还得看具体跑了什么任务。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://manus.im/blog/introducing-manus-2-0"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "OpenAI 推出低价位 GPT-6.1 Sol 与 Ultrafast 加速档",
+          "text": "9 月 30 日，OpenAI 在 DevDay 发布 GPT-6.1 Sol，官方称其综合能力贴近 Astra，但调用成本约为后者的五分之一，并向 ChatGPT Work 及 Codex 付费用户开放。\n\n同时上线的 Ultrafast 档位优先支持 GPT-6 Astra，官方数据显示在 Codex 场景下生成速度最高可达每秒 300 个词元；活动现场还展示了由该模型驱动的常驻智能体 dots。",
+          "emphasis": [
+            "GPT-6.1 Sol",
+            "每秒 300 个词元"
+          ],
+          "aiComment": "标称单价降下来确实好看，真到落地场景里还是得看把任务跑通一共要返工几次。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://x.com/OpenAI/status/2104986129686741046"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Anthropic 上线 Claude Sonnet 5.5 主打单任务综合降本",
+          "text": "9 月 29 日，Anthropic 正式推出 Claude Sonnet 5.5。该模型在云厂商平台同步上线，百万词元输入与输出定价与前代 Sonnet 5 保持一致（2 美元/10 美元），但官方强调生成单项任务所需词元减少，整体任务成本最高可压缩 30%，生成速度提升超 30%。\n\n模型在 Terminal-Bench 4.0 测得 70.6%，高风险网络安全请求仍设置了降级回退机制。",
+          "emphasis": [
+            "Claude Sonnet 5.5",
+            "70.6%"
+          ],
+          "aiComment": "词元单价按兵不动，想省下这三成成本就看它自己能不能少吐些车轱辘话了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://www.anthropic.com/claude-sonnet-5-5"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "NVIDIA 推出 Open Agent Safety Platform 软硬件隔离方案",
+          "text": "9 月 28 日，NVIDIA 发布 Open Agent Safety Platform，提供包含开源运行时软件 OpenShell 与硬件参考系统 Sentry 的治理框架。\n\nOpenShell 运行在 Vera CPU 上以实施策略审计与权限边界控制，可兼容主流架构；Sentry 则基于 BlueField-4 DPU 运行在带外独立环境中，宣称能在毫秒级响应并隔离越界智能体行为。目前已有上百家机构加入合作。",
+          "emphasis": [
+            "OpenShell",
+            "Sentry"
+          ],
+          "aiComment": "软件策略外再架一套独立硬件守门，最终管不管用还得看智能体越界时它抓得准不准。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "AMD 达成协议拟以 82 亿美元全股票收购 World Labs",
+          "text": "9 月 29 日，AMD 宣布签署最终协议，计划以约 82 亿美元全股票交易收购空间智能初创团队 World Labs。该团队专注于三维物理交互环境的生成与仿真建模，交易预计于 2026 年底前完成交割。\n\n收购完成后该团队将继续推进世界模型研发，联合创始人将出任 AMD 执行副总裁兼首席科学家，协助优化芯片计算架构。",
+          "emphasis": [
+            "82 亿美元",
+            "World Labs"
+          ],
+          "aiComment": "物理仿真模型刚摸到交互门槛，这就直接拉去给下一代计算架构把脉了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "H Company 开源多接口智能体模型 Holo4 并提供执行轨迹",
+          "text": "9 月 28 日，H Company 发布基于 Qwen 的 Holo4 智能体模型，包含 27B 稠密与 35B-A3B 混合专家两个规格。该模型在统一接口下支持调用图形界面、代码解释、MCP 及标准 API。\n\n官方在 OSWorld 2.0 基准自测得分分别为 61.7% 与 30.9%。团队已开放模型权重和公开基准上的运行轨迹，推理加速组件计划后续发布。",
+          "emphasis": [
+            "Holo4",
+            "OSWorld 2.0"
+          ],
+          "aiComment": "分数是一回事，敢把基准里一步步执行的完整轨迹公开出来才算真透明。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://huggingface.co/blog/Hcompany/holo4"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Cohere 发布 Embed 5：Pro 与 Fast 模型共享向量空间",
+          "text": "9 月 30 日，Cohere 发布 Embed 5 嵌入模型，分为重在离线索引质量的 Pro 与面向低延迟交互搜索的 Fast。两款模型基于统一向量空间训练，用户可用 Pro 建库后直接搭配 Fast 进行检索，无需重建已有语料的向量库。\n\n模型支持图文多模态输入、128k 词元上下文，并适配了从浮点到二进制的多种压缩格式输出。",
+          "emphasis": [
+            "Embed 5",
+            "128k 词元上下文"
+          ],
+          "aiComment": "建库和查询共享同一个空间，不用重新洗一遍向量库确实省下不少工程麻烦。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://docs.cohere.com/changelog/embed-v5"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Google DeepMind 验证生物分子设计水印 SynthID Bio",
+          "text": "9 月 30 日，Google DeepMind 介绍 SynthID Bio 概念验证技术，分别在蛋白质氨基酸序列与 AlphaFold 3 预测的三维结构扩散层中嵌入溯源水印。\n\n针对三种靶标的湿实验数据表明，带水印设计在命中率和结合亲和力上与未加水印样本处于相当水平。研发团队目前正重点研究如何抵御对抗性篡改。",
+          "emphasis": [
+            "SynthID Bio",
+            "AlphaFold 3"
+          ],
+          "aiComment": "做溯源多了一条印记，但真要防住生物风险还是得靠更硬性的合成准入审查。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://deepmind.google/blog/introducing-synthid-bio/"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "实证研究揭示主流对话 AI 客户端存在会话工件泄漏",
+          "text": "9 月 29 日，一项针对 9 家对话 AI 网页端和 8 款移动应用的安全测试引发关注。研究人员在受测环境中发现了 44 个第三方追踪实体，并指出部分客户端在会话生成过程中将标题、提示词、URL 乃至截图直接发送给第三方分析服务。\n\n测试还发现部分数据存在与设备持久标识符绑定的情况，公开分享链接的权限隔离也存在隐患。",
+          "emphasis": [
+            "44 个第三方追踪实体",
+            "持久标识符"
+          ],
+          "aiComment": "以为是封闭的对话窗口，转头生成的会话摘要和链接就先跑去和第三方报到了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://news.ycombinator.com/item?id=49890226"
+            }
+          ]
+        },
+        {
+          "category": "本周重点",
+          "title": "Pi 团队复盘工具调用架构：MCP 接入沙箱用代码编排",
+          "text": "Pi 团队在 9 月 29 日刊文说明未直接沿用常规插件扩展、转而将 MCP 深度纳为核心的工程考量，文章于 9 月 30 日在社区引发多方探讨。\n\n团队表示，常规扩展缺少工具元数据来区分延迟加载与代码执行模式，因此选择将 MCP 工具导入 JavaScript 沙箱，交由模型直接通过代码调度顺序与处理返回值，将状态保留在宿主会话中。",
+          "emphasis": [
+            "JavaScript 沙箱",
+            "MCP"
+          ],
+          "aiComment": "想把工具调用整明白，最后往往发现绕不开让模型在沙箱里自己写代码组装流程。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "原始来源",
+              "url": "https://earendil.com/posts/you-said-no-mcp/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

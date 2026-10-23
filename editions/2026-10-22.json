@@ -1,0 +1,2089 @@
+{
+  "id": "2026-10-22",
+  "date": "2026-10-22",
+  "label": "2026-10-22 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "Recursive 发布 40B MoE 模型 Flint：Eureka Machine 介入研发全闭环",
+      "theme": "该模型激活 2.5B 参数并在 M4 Pro 上跑出超 125 tokens/s；群内另围绕《“快”科研联合声明》与“自动科研”展开调侃。",
+      "note": "2026-10-22 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型发布",
+          "title": "Recursive 发布 40B MoE 模型 Flint：Eureka Machine 参与研发闭环，M4 Pro 本地推理超 125 tokens/s",
+          "text": "有群友分享了 Recursive 新发布的 MoE 模型 Flint。据介绍，这是一个 40B 总参数、激活 2.5B 参数的模型，由小团队在不到 4 个月内从零研发完成。团队将今年 6 月在 NanoChat、NanoGPT 和 SoLExecBench 上的初步 RSI 研究进展扩展到了完整的大模型训练闭环，其 Eureka Machine 参与了架构搜索、数据、训练策略、量化和底层推理 Kernel 优化等多个环节。\n\n性能与速度方面，分享者提供的基准测试图将 Flint 与两类可运行在相近本地硬件上的模型对比，分别是 33–35B 总参数、3B 激活的稀疏 MoE 模型（Qwen 3.5、Qwen 3.6、Laguna XS 2.1）和 27–31B 的 Dense 模型（Qwen 3.8、Muse Glimmer、Gemma 4）。在 SWE-bench Pro v2（89.7%）、Terminal-Bench 2.1（54.9%）、SWE-bench Verified（74.2%）、LiveCodeBench v6（80.3%）、IFBench（89.2%）和 IFEval（95.1%）六项测试中，Flint 有五项得分高于同组稀疏 MoE 模型，LiveCodeBench v6 则与 Qwen 3.6 基本持平（80.3 对 80.4）；IFBench 和 IFEval 的成绩还超过了同场对比的三款 Dense 模型。配合优化后的推理引擎，该模型在短上下文场景下于 M4 Pro MacBook 上推理速度超过 125 tokens/s，在 NVIDIA RTX Spark 上超过 150 tokens/s；介绍称在相近 Coding 能力下，其推理速度比部分 Dense 模型快 5 倍以上。",
+          "emphasis": [
+            "Eureka Machine 参与了架构搜索、数据、训练策略、量化和底层推理 Kernel 优化等多个环节",
+            "于 M4 Pro MacBook 上推理速度超过 125 tokens/s，在 NVIDIA RTX Spark 上超过 150 tokens/s"
+          ],
+          "aiComment": "激活 2.5B 在 M4 Pro 上飚超 125 tokens/s，连 Eureka Machine 都进厂拧内核螺丝了，人类研究员快不够用了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "🚀 𝐑𝐞𝐜𝐮𝐫𝐬𝐢𝐯𝐞 正式发布模型 𝐅𝐥𝐢𝐧𝐭! \n\n从今年 6 月 我们首次公开在 NanoChat、NanoGPT 和 SoLExecBench 上的初步 RSI研究进展，我们从探索 AI 自动化研究的可行性，应用到了完整的大模型训练闭环中。Flint 是一个 40B 总参数、仅激活 2.5B 参数的 MoE 模型，由 Recursive 的小团队在不到 4 个月内从零研发完成（lead by @yuandong and other cofounders）。\n\n几个核心亮点：\n\n(1) Coding 能力领先：在 SWE-Bench Pro v2、Terminal-Bench 2.1、SWE-Bench Verified 等 Agentic Coding Benchmark 上，Flint 在 50B 以下 MoE 模型中取得了 SOTA 成绩，Coding 能力媲美部分 25–40B Dense 模型。\n\n(2) 本地推理速度极快：使用优化后的推理引擎，在短上下文场景下，M4 Pro MacBook 上超过 125 tokens/s，NVIDIA RTX Spark 上超过 150 tokens/s。在相近 Coding 能力下，推理速度比部分 Dense 模型快 5 倍以上。\n\n(3) AI 自动化研发：Recursive 的 Eureka Machine 参与了架构搜索、数据、训练策略、量化和底层推理 Kernel 优化等多个环节，帮助团队探索不同的技术方案、执行实验并持续迭代。这也是我们将自动化研究从相对独立的实验任务扩展到完整模型研发流程的一次实践。\n\nFlint 是我们其中一个起点。欢迎提出建议和反馈！\n\nBlog：https://www.recursive.com/updates/introducing-recursive-flint\n\nHugging Face：https://huggingface.co/RecursiveSI/flint\n\nTwitter/X：https://x.com/RichardSocher/status/2112944385415426249?s=20"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "[图片]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Introducing Flint - Recursive",
+              "url": "https://www.recursive.com/updates/introducing-recursive-flint"
+            },
+            {
+              "kind": "code",
+              "label": "RecursiveSI/flint · Hugging Face",
+              "url": "https://huggingface.co/RecursiveSI/flint"
+            }
+          ]
+        },
+        {
+          "category": "社区热议",
+          "title": "《“快”科研联合声明》引发热议：从“System 0 自动科研”到《教授“慢创业”倡议》",
+          "text": "有群友转发了一份《“快”科研联合声明》及配套文件，招呼大家去署名，在群里引发一连串调侃与共鸣。有人戏称这是“大鸣大放，引蛇出洞”，开玩笑说“签了明天通知被退学了”；也有群友觉得“现阶段的科研是不得不快”，并截取了两段文字表示认同。\n\n不少群友顺着“快慢”的概念拿认知科学与 AI 术语接龙：有人问什么时候出“快慢协同科研”或“自适应”科研，被调侃成“system1 和 system2”；紧接着有人追问什么时候能有“system 0 科研”也就是“自动科研”，还有群友化用古诗感叹：“安得 autoresearch system0，大庇天下硕博俱欢颜”。到了傍晚，又有群友转来一篇从学生视角谈教学、科研与创业的《教授“慢创业”倡议》，认为这个倡议更合理。",
+          "emphasis": [
+            "也有群友觉得“现阶段的科研是不得不快”",
+            "安得 autoresearch system0，大庇天下硕博俱欢颜"
+          ],
+          "aiComment": "学生盼着 System 0 自动科研救命，转头又给教授递上《“慢创业”倡议》，精准拿捏了学术界的双标速度。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:35",
+              "text": "\"快”科研联合声明，大家有兴趣可以来署名[破涕为笑]\nhttps://quickresearch.github.io/"
+            },
+            {
+              "speaker": 1,
+              "time": "02:35",
+              "text": "[文件] “快”科研联合声明 · Joint Statement on Quick Research.pdf (2.4 MB, pdf, md5=c3e38b9a6777fd16ba9aa2af6c5cdd06)"
+            },
+            {
+              "speaker": 2,
+              "time": "11:26",
+              "text": "大鸣大放，引蛇出洞"
+            },
+            {
+              "speaker": 3,
+              "time": "11:55",
+              "text": "啥时候再来个快慢协同科研"
+            },
+            {
+              "speaker": 4,
+              "time": "11:56",
+              "text": "然后“自适应”科研联合神明"
+            },
+            {
+              "speaker": 5,
+              "time": "11:56",
+              "text": "签了明天通知被退学了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:58",
+              "text": "什么system1和system2（bushi",
+              "quote": {
+                "speaker": 3,
+                "text": "啥时候再来个快慢协同科研"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:59",
+              "text": "什么时候 system 0 科研"
+            },
+            {
+              "speaker": 7,
+              "time": "11:59",
+              "text": "讲实话现阶段的科研是不得不快"
+            },
+            {
+              "speaker": 6,
+              "time": "11:59",
+              "text": "自动科研"
+            },
+            {
+              "speaker": 7,
+              "time": "11:59",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 7,
+              "time": "11:59",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 7,
+              "time": "11:59",
+              "text": "这两个点确实是这样的"
+            },
+            {
+              "speaker": 8,
+              "time": "12:46",
+              "text": "安得autoresearch system0，大庇天下硕博俱欢颜"
+            },
+            {
+              "speaker": 9,
+              "time": "12:50",
+              "text": "安得autoresearch system0，大庇天下硕博俱欢颜"
+            },
+            {
+              "speaker": 10,
+              "time": "18:26",
+              "text": "这个倡议更合理"
+            },
+            {
+              "speaker": 10,
+              "time": "18:26",
+              "text": "[链接] 教授“慢创业”倡议\n  来源: 文刀日肥\n  摘要: 来自学生的关于教学、科研与创业的一些真诚建议\n  URL: https://mp.weixin.qq.com/s?__biz=MzIyNzcxNjU2OA%3D%3D&mid=2247489126&idx=1&sn=36d2f430fa4a55e52afdade0e4afe824&chksm=e9b23c2ae982b06fd36a0d97d2e4bcc64bb255fe86243f2c212ef9badb0537b98836b102774b&scene=1&srcid=1022h74zM26kvoVJDCcMfFMl#rd"
+            },
+            {
+              "speaker": 11,
+              "time": "18:33",
+              "text": "慢xx系列"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "“快”科研联合声明",
+              "url": "https://quickresearch.github.io/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "大模型能学会科研 Taste 吗？从“量化回测”式评测聊到演化打分",
+      "theme": "另探讨 Agent 自写验证器基准 verifier-suite 揭示的过严误判问题，以及各模型生成 PPT 的体验对比与极简框架 Pi。",
+      "note": "2026-10-22 · 当日本地记录",
+      "stories": [
+        {
+          "category": "科研与基模",
+          "title": "大模型能学会科研 Taste 吗？从“量化回测”式评测聊到《诗云》演化论",
+          "text": "有群友抛出一个设想：如果未来 autoresearch 真正走通，学术界不妨简化产出流程，由人类提供 insight 并署名，大模型完成验证后直接录用，后续大家只引用 insight 即可；毕竟现在许多人用 AI 写论文，AI 再拿这些文本当语料训练，已经有股“沤制”的味道了。这位群友认为，目前模型在提炼 insight 上仍不如人，哪怕在 AI4Sci 场景下有不少突破，本质上还是例证居多，符合对已见事物做概率模拟的刻板印象，缺乏从 0 到 1 的突破。另一位群友则觉得人类从 0 到 1 的突破本来也极少，并指出现在对外发布的基模大多朝着严格指令跟随的方向优化，这本身就不利于“创新”。\n\n有人提到已有团队在训练专门提 insight 的基模。有群友介绍了《AI can learn scientific taste》这项工作：基于 Qwen 3 30B 基模训练，通过成对比较（pairwise comparison）让人和 LLM 充当 judge，检验训练后在相同 context 下生成的 idea 是否有提升。有群友记得有人做过一个看论文的网站，按这套 reward 给每日 arXiv 论文排序，排在前面的还可以；另一位群友印象中，这项工作是用影响因子和引用来评判 idea；此外也有其他机构（如 stf）尝试用固定配额的 GPU hours 做检验，看某个 idea 能否在规定时间内跑通实现，以此判断它是否 grounded。\n\n不过，多位群友对如何定义和评估好 insight 展开了争论。有人认为 insight 涉及创造力和审美，很难做 rule-based eval；也有人质疑 LLM judge 只是刷榜游戏，hack 一个 LLM judge 比真正提升价值更容易。针对评测难题，有人提议像量化交易做回测那样用时间来检验：把训练语料截断在 2024 年，站在当时的节点提 insight，再用 2024 至 2027 年的实际学术影响力去打分。有人联想到用历史数据“重新发现爱因斯坦理论”的实验以及 Hassabis 对 AGI 的类似定义，但有群友指出重现爱因斯坦那类实验失败了，不过也可能是“抽奖”不够；他解释，当年最聪明的物理学家中，洛伦兹也写出了洛伦兹变换的方程，却只有爱因斯坦给出了正确的物理解释，另一位群友将其概括为“llm cant jump”。也有群友觉得回测本身也难：模型提出的天马行空的方案可能现实中还没人落地，找不到实例佐证。\n\n讨论随后延伸到知识与审美的本质。一位群友认为 AI 没有 insight 未必是真问题，如果承认知识本质上是已有知识的排列组合与嵌套复杂度，人类的 insight 同样如此。有人顺着举例：如果 AI 知道黎曼几何，或许就能想出广义相对论；但随即反问 AI 能否自己想出黎曼几何，直言这变成了“无限套娃”。与此同时，好几位群友指出人类自己的判断同样不可靠且反馈周期极长：比如 2024 年一些看起来很有 insight 的工作最后也没什么价值；当年 CLIP 刚发表时，知乎上不少资深从业者还在质疑数据泄露和“假 zero-shot”；还有群友分享去年审稿时初看给了一篇论文 Accept，花一天细读全部 related work 后才发现喜欢的部分完全来自前人工作，最终改成了 br（Borderline Reject）。\n\n对此，一位群友用刘慈欣的小说《诗云》作比：科研成果本质上是社群演化出来的，有明确的生命周期——先在某处产生、被“卷烂”，再传承并长出新的 OOD 突破。从这个角度看，试图做固定的判别（discrimination）任务是死胡同，而让 judge 做比较打分反而抓住了本质，因为它无需关心最好的 insight 长什么样，只需履行演化过程中的打分器职责；再配合 RSI 让 AI 自己做实验提供数据支撑，才不会“变成文学”。不过这位群友也指出，仅看后续影响力的 judge 自己没动手做过实验，缺乏领域经历，很难像同行评议那样评判演化中的工作，因此这件事必须由基模组结合 1M 上下文下的 task 生成或 rollout 一起研究。另一位群友对此表示认同，认为最核心的就是定义好问题与评估 rubric，剩下的便会自然演化。",
+          "emphasis": [
+            "现在对外发布的基模大多朝着严格指令跟随的方向优化，这本身就不利于“创新”",
+            "通过成对比较（pairwise comparison）让人和 LLM 充当 judge，检验训练后在相同 context 下生成的 idea 是否有提升",
+            "把训练语料截断在 2024 年，站在当时的节点提 insight，再用 2024 至 2027 年的实际学术影响力去打分",
+            "如果承认知识本质上是已有知识的排列组合与嵌套复杂度，人类的 insight 同样如此",
+            "让 judge 做比较打分反而抓住了本质，因为它无需关心最好的 insight 长什么样，只需履行演化过程中的打分器职责"
+          ],
+          "aiComment": "人类审稿人看一天 related work 才把 Accept 改成 br，想让 AI 学会科研 taste，怕是得先教会它怎么反悔。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:55",
+              "text": "以后要是autoresearch真行了，那学术界是不是可以简化产出流程，直接提供insight，写明insight的作者，大模型验证后录用，以后大家引用insight就行了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:56",
+              "text": "insight也不用人提供",
+              "quote": {
+                "speaker": 1,
+                "text": "以后要是autoresearch真行了，那学术界是不是可以简化产出流程，直接提供insight，写明insight的作者，大模型验证后录用，以后大家引用insi..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:56",
+              "text": "现在大家用ai写作，ai再用这些当语料去训，有点沤制那感觉了"
+            },
+            {
+              "speaker": 1,
+              "time": "18:57",
+              "text": "感觉模型在insight方面还是不如人"
+            },
+            {
+              "speaker": 1,
+              "time": "19:01",
+              "text": "就算是目前ai for sci的场景，ai做了很多突破，本质还是例证较多，符合对ai是对见过的事物进行概率模拟的刻板印象，感觉也没有特别多0到1的突破"
+            },
+            {
+              "speaker": 3,
+              "time": "19:04",
+              "text": "人类从0到1的事情本来就很少，人类也很少突破的。这个体系都还在探索中，等各个基模组和agent组发力吧"
+            },
+            {
+              "speaker": 3,
+              "time": "19:04",
+              "text": "我感觉现在对外的基膜都是朝着严格指令跟随方向搞的，这个不利于“创新”"
+            },
+            {
+              "speaker": 2,
+              "time": "19:07",
+              "text": "有团队在训提insight的基模"
+            },
+            {
+              "speaker": 4,
+              "time": "19:08",
+              "text": "我记得sii之前不是有训一个sci taste相关的",
+              "quote": {
+                "speaker": 2,
+                "text": "有团队在训提insight的基模"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:08",
+              "text": "怎么去judge一个insight的好坏呢"
+            },
+            {
+              "speaker": 5,
+              "time": "19:08",
+              "text": "或者taste/idea的好坏"
+            },
+            {
+              "speaker": 6,
+              "time": "19:09",
+              "text": "AI can learn scientific taste，我们团队做的",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 我记得sii之前不是有训一个sci taste相关的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:11",
+              "text": "我们是在qwen 3 30b的基模上面训练的，比训前有提升"
+            },
+            {
+              "speaker": 7,
+              "time": "19:11",
+              "text": "最好的insight一般长什么样"
+            },
+            {
+              "speaker": 8,
+              "time": "19:11",
+              "text": "这个怎么eval哇"
+            },
+            {
+              "speaker": 1,
+              "time": "19:11",
+              "text": "同问，感觉定义好这个才是关键",
+              "quote": {
+                "speaker": 7,
+                "text": "最好的insight一般长什么样"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "19:12",
+              "text": "我记得之前搞过个看论文的网站，我瞄了眼每日 arxiv 按照这个 reward rank 后排前面的论文还可以"
+            },
+            {
+              "speaker": 6,
+              "time": "19:13",
+              "text": "通过成对比较",
+              "quote": {
+                "speaker": 8,
+                "text": "这个怎么eval哇"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:13",
+              "text": "可以让人和llm当judge"
+            },
+            {
+              "speaker": 10,
+              "time": "19:14",
+              "text": "insight 其实也涉及 creative  感觉很难 eval 吧  就像审美一样"
+            },
+            {
+              "speaker": 10,
+              "time": "19:14",
+              "text": "*rule based eval"
+            },
+            {
+              "speaker": 6,
+              "time": "19:14",
+              "text": "看训后比起训前在相同的context下产生的idea是否有提升"
+            },
+            {
+              "speaker": 11,
+              "time": "19:14",
+              "text": "感觉就是很难eval吧"
+            },
+            {
+              "speaker": 1,
+              "time": "19:15",
+              "text": "能不能用时间去检验，比如我的语料就停留在24年，我站在那个年代看insight，用24-27年实际insight影响力去判断"
+            },
+            {
+              "speaker": 7,
+              "time": "19:15",
+              "text": "不是有一个去重新发现爱因斯坦的",
+              "quote": {
+                "speaker": 1,
+                "text": "能不能用时间去检验，比如我的语料就停留在24年，我站在那个年代看insight，用24-27年实际insight影响力去判断"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:16",
+              "text": "llm judge是一个方便的方法，但是他是不是真的符合生产价值，我觉得得画个问号，有时候感觉llm judge是刷榜游戏"
+            },
+            {
+              "speaker": 1,
+              "time": "19:16",
+              "text": "hack llm judge的难度比真正提升价值要更容易吧"
+            },
+            {
+              "speaker": 3,
+              "time": "19:16",
+              "text": "失败了，但是我感觉也可能是“抽奖”不够",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 不是有一个去重新发现爱因斯坦的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:17",
+              "text": "因为当时最聪明的物理学家也只有爱因斯坦想出来了"
+            },
+            {
+              "speaker": 3,
+              "time": "19:18",
+              "text": "打个比分就连狭义相对论的主要方程叫洛伦兹变换"
+            },
+            {
+              "speaker": 3,
+              "time": "19:18",
+              "text": "因为不是洛伦兹这个天才没想出来这个变化，但是他没给这个变化一个“正确”的解释"
+            },
+            {
+              "speaker": 4,
+              "time": "19:18",
+              "text": "llm cant jump"
+            },
+            {
+              "speaker": 4,
+              "time": "19:19",
+              "text": "sii这篇应该就是这样做的 用影响因子和引用来judge idea 如果我没记错的呀",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 那篇好像就这样"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "19:19",
+              "text": "对 其实我觉得ai没有insight不是一个很大的问题，因为人类也没有insight",
+              "quote": {
+                "speaker": 3,
+                "text": "因为当时最聪明的物理学家也只有爱因斯坦想出来了"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "19:20",
+              "text": "感觉人有时候也挺难准确判断的？很多 insight 是需要很长的反馈周期的🤔",
+              "quote": {
+                "speaker": 6,
+                "text": "可以让人和llm当judge"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:20",
+              "text": "stf也做了一些 比如judge某一些idea是不是grounded的 他给了一些gpu hours看看某些idea是不是可以在规定时间内实现"
+            },
+            {
+              "speaker": 11,
+              "time": "19:20",
+              "text": "或者是你认不认可知识本质是已有知识的排列组合 只是嵌套复杂度的问题 或者有多大程度认可"
+            },
+            {
+              "speaker": 11,
+              "time": "19:20",
+              "text": "比如认为相对论是组合不出来的"
+            },
+            {
+              "speaker": 1,
+              "time": "19:21",
+              "text": "或许a社把数据按照年份训了一百多个，每次使用这种方法，把发现insight的思维链保留，然后蒸馏到最终模型中"
+            },
+            {
+              "speaker": 3,
+              "time": "19:21",
+              "text": "比较复杂了，如果ai知道了黎曼几何，他也可能就想得到广义相对论",
+              "quote": {
+                "speaker": 11,
+                "text": "或者是你认不认可知识本质是已有知识的排列组合 只是嵌套复杂度的问题 或者有多大程度认可"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "19:21",
+              "text": "比如一些 2024 年看起来很有 insight 的工作最后也没什么价值，所以感觉 insight 这个东西本身反馈就很稀疏，人 judge 也不一定对",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 感觉人有时候也挺难准确判断的？很多 insight 是需要很长的反馈周期的🤔"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "19:21",
+              "text": "对 我就是这个意思",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 比较复杂了，如果ai知道了黎曼几何，他也可能就想得到广义相对论"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "19:22",
+              "text": "可以看一下知乎对CLIP的评价 在CLIP出来的时候"
+            },
+            {
+              "speaker": 3,
+              "time": "19:22",
+              "text": "但是ai是否能想到黎曼几何呢？有点无限套娃了"
+            },
+            {
+              "speaker": 11,
+              "time": "19:22",
+              "text": "很多很senior的人还在说什么 数据泄露 zero shot是假zero shot"
+            },
+            {
+              "speaker": 13,
+              "time": "19:22",
+              "text": "之前Hassabis对AGI的定义就是用xx年以前的数据训个模型然后发现xx理论",
+              "quote": {
+                "speaker": 1,
+                "text": "或许a社把数据按照年份训了一百多个，每次使用这种方法，把发现insight的思维链保留，然后蒸馏到最终模型中"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "19:22",
+              "text": "是不是说明人的insight taste也很差"
+            },
+            {
+              "speaker": 9,
+              "time": "19:22",
+              "text": "不对，这个就和刘慈欣写的那个诗云一样。本质上这个都是社群演化出来的，一个地方先产生，老被卷烂，之后再传承，有一些新的 OOD 的突破，是有一个明确的生命周期的。从这点看，其实 judge 的比较打分是很本质的一件事情，因为他不用关心最好的 insight 怎么样，他只要履行自己作为演化过程中的打分器就行了。",
+              "quote": {
+                "speaker": 11,
+                "text": "之前还在说ai就是猴子打字"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "19:23",
+              "text": "说白了，希望搞个固定的 discrimination 任务都是死胡同"
+            },
+            {
+              "speaker": 9,
+              "time": "19:24",
+              "text": "然后这波 RSI 又在这一个演化基础上，至少 AI 自己做实验的，所以大家可以拿实验的结果写成对应产物，让大家去 judge 评判。如果完全没有实验数据支撑，就变成文学了"
+            },
+            {
+              "speaker": 11,
+              "time": "19:25",
+              "text": "所以我觉得就是定义问题和定义评估方式/rubric 其他的都不太重要"
+            },
+            {
+              "speaker": 11,
+              "time": "19:26",
+              "text": "然后就会自然演化了",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 不对，这个就和刘慈欣写的那个诗云一样。本质上这个都是社群演化出来的，一个地方先产生，老被卷烂，之后再传承，有一些新的 OOD 的突破，是有一个明确的生命周期的。从这点看，其实 judge 的比较打分是很本质的一件事情，因为他不用关心最好的 insight 怎么样，他只要履行自己作为演化过程中的打分器就行了。"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "19:27",
+              "text": "有点像量化搞回测了",
+              "quote": {
+                "speaker": 1,
+                "text": "或许a社把数据按照年份训了一百多个，每次使用这种方法，把发现insight的思维链保留，然后蒸馏到最终模型中"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:28",
+              "text": "其实这个回测也难，因为可能提出来的天马行空的想法，我们现在还没有做到呢[捂脸]"
+            },
+            {
+              "speaker": 9,
+              "time": "19:29",
+              "text": "他这个只看后续影响力，但其实 judge 没动手，对这个领域没有经历，很难类似同行评议的方式评判出这种不断演化的社群内工作。所以这件事情必须得到 基模组做，应该和那些 1m 上下文研究 task 的生成或者 rollout 一起研究"
+            },
+            {
+              "speaker": 11,
+              "time": "19:30",
+              "text": "我觉得很多时候人类判断novel也会受限于自己的知识库和taste"
+            },
+            {
+              "speaker": 11,
+              "time": "19:31",
+              "text": "https://www.nature.com/articles/d41586-026-02804-x?code=806f0d1a-fa32-4693-a187-0f90088df82e&error=cookies_not_supported"
+            },
+            {
+              "speaker": 3,
+              "time": "19:31",
+              "text": "但是我只是觉得像金融异样回测很难"
+            },
+            {
+              "speaker": 3,
+              "time": "19:32",
+              "text": "因为提出来的方案可能也没有落地，现在也找不到实例佐证是否是个好的idea"
+            },
+            {
+              "speaker": 11,
+              "time": "19:33",
+              "text": "我去年审稿的时候 有一篇我给的分数就是accept，然后我就很认真的读了一天，related work的也都找出来读了，然后发现其实我喜欢的是他完全基于的另一篇，就感觉他的nothing new，然后就改成br了。我感觉如果和我做的稍微偏一点我不去细究到底多少是原创的可能就给出错误判断了"
+            },
+            {
+              "speaker": 11,
+              "time": "19:34",
+              "text": "对的 人类失去判断和验证手段的话 是很难claim的 所以eval/rubric太重要了",
+              "quote": {
+                "speaker": 3,
+                "text": "因为提出来的方案可能也没有落地，现在也找不到实例佐证是否是个好的idea"
+              }
+            }
+          ]
+        },
+        {
+          "category": "评测与Harness",
+          "title": "verifier-suite 开源：当 Agent 自己写奖励验证器，GPT-6-astra 误杀了 33% 的正确答案",
+          "text": "有群友分享了新发布的 verifier-suite，这是一套针对 agent 自写 verifier 的评测基准与生成 harness。在自我改进（self-improving）闭环中，agent 会自己出题、解题并编写用于发放奖励的 verifier；一旦 verifier 写错，后续发出的每一个奖励和放行的每一条训练数据都会跟着出错。\n\n该项目包含两部分。第一部分 VerifierBench 用于检验 agent 生成 verifier 的质量：agent 看到的输入与解题时完全相同，只有任务说明和环境，写出可执行的 verifier 后，再用隐藏用例评测。基准收录了来自 ACEBench、τ²-bench、AppWorld 等的 222 道题，覆盖工具调用、环境状态和代码修改三类验证，并配有经严格审计的 4,993 个隐藏用例（含 1,344 个合法变体、2,629 个常见错误和 798 个攻击样本）。评测发现，19 个模型在同一 harness 下的得分仅在 10.6 到 62.1 之间，生成的 verifier 普遍过严，其中 GPT-6-astra 误判了 33% 的正确答案。第二部分 Gavel 是专门生成 verifier 的 harness，引入了由证据声明（E）、领域规则库（R）和编写原则（H）组成的 ERH 系统，让 verifier 只检查与任务真正相关的“证据”，并支持用一条命令为 Harbor 格式的任务生成、写回并验证 verifier。GPT-6-astra 配合 Gavel 在 VerifierBench 上拿到 68.3 分，在所有配置中排第一。\n\n有人追问是否有在 Terminal-Bench 系列上的测试结果；分享者表示内部测过，并晒出一张表格截图，展示了 Codex 在 τ²-bench、SWE-bench Verified、Terminal-Bench 及 TB-Science 上的测试表现。另一位群友问，生成的 verifier 普遍过严，会不会是因为给模型的 spec 不够清晰？分享者解释，模型生成 verifier 时看到的内容和解题时完全一致，而且 verifier 种类多样，本身没有统一的 spec，未来随着 verifier 越来越复杂，想要定义清晰的 spec 只会更难。",
+          "emphasis": [
+            "一旦 verifier 写错，后续发出的每一个奖励和放行的每一条训练数据都会跟着出错",
+            "19 个模型在同一 harness 下的得分仅在 10.6 到 62.1 之间，生成的 verifier 普遍过严，其中 GPT-6-astra 误判了 33% 的正确答案",
+            "verifier 种类多样，本身没有统一的 spec，未来随着 verifier 越来越复杂，想要定义清晰的 spec 只会更难"
+          ],
+          "aiComment": "让 Agent 自己写判卷逻辑，GPT-6-astra 反手误杀 33% 的正确答案，对自己人下手比人类考官狠多了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:42",
+              "text": "我们发布了 verifier-suite：一套针对 agent 自己写的 verifier 的评测基准和生成 harness。\n自我改进的 agent 会自己出题、自己解题，还会自己写用来发奖励的 verifier。verifier 一旦写错，它发出的每一个奖励、它放行的每一条训练数据都会跟着错。verifier-suite 包含两部分：\n📊 VerifierBench： 检验agent 生成verifier的质量。Agent看见的输入和解题时完全一样，只有任务说明和环境，然后写出一个可执行的 verifier，再用各类隐藏用例来评测。\n222 道题，来自ACEBench、τ²-bench、AppWorld等，覆盖工具调用、环境状态和代码修改三类验证；\n4,993 个隐藏用例，包括 1,344 个合法变体、2,629 个常见错误和 798 个攻击样本；所有来源 verifier 和测试集都先经过严格审计；\n19 个模型在同一 harness 下，得分只有 10.6 到 62.1。生成的 verifier 普遍过严，GPT-6-astra 误判 33% 的正确答案！\n🛠️ Gavel： 一个专门生成 verifier 的 harness，只看任务说明和环境，即可生成对应verifier。\nERH 系统：用证据声明(E)、领域规则库(R)和编写原则(H)，让 verifier 只检查任务真正相关的“证据”；\n支持 Harbor 格式的任务：一条命令就能为每道题生成 verifier，写回并完成验证。\nGPT-6-astra + Gavel 在 VerifierBench 上达到 68.3，在所有配置中排第一！\n💻 代码：https://github.com/DwanZhang-AI/verifier-suite\n📄 论文：https://arxiv.org/abs/2610.28679\n🤗 数据：https://huggingface.co/datasets/Catherine1213/VerifierBench\n🌐 主页：https://verifierbench.github.io/"
+            },
+            {
+              "speaker": 2,
+              "time": "10:43",
+              "text": "有在terminal-bench系列测试的结果吗",
+              "quote": {
+                "speaker": 1,
+                "text": "我们发布了 verifier-suite：一套针对 agent 自己写的 verifier 的评测基准和生成 harness。 自我改进的 agent 会自己出..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:47",
+              "text": "有的"
+            },
+            {
+              "speaker": 1,
+              "time": "10:48",
+              "text": "Inhouse有测"
+            },
+            {
+              "speaker": 1,
+              "time": "10:48",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "10:57",
+              "text": "生成的 verifier 普遍过严 有没有可能是给model的spec不够清晰啊"
+            },
+            {
+              "speaker": 1,
+              "time": "11:00",
+              "text": "Model生成verifier和解题时看到的内容是一样的。而且verifier种类多样化，也没啥统一的spec。我个人理解未来verifier会更复杂，更难定义spec"
+            },
+            {
+              "speaker": 3,
+              "time": "11:07",
+              "text": "get了",
+              "quote": {
+                "speaker": 1,
+                "text": "Model生成verifier和解题时看到的内容是一样的。而且verifier种类多样化，也没啥统一的spec。我个人理解未来verifier会更复杂，更难定义..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "verifier-suite",
+              "url": "https://github.com/DwanZhang-AI/verifier-suite"
+            },
+            {
+              "kind": "paper",
+              "label": "VerifierBench 论文",
+              "url": "https://arxiv.org/abs/2610.28679"
+            },
+            {
+              "kind": "article",
+              "label": "VerifierBench 主页",
+              "url": "https://verifierbench.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "模型与工具实测",
+          "title": "AI 做 PPT 横评：老板的审美无法模拟，Kimi 与 Opus 5.5 获赞、Codex 被嫌话多",
+          "text": "聊起 agent 的落地痛点时，有群友许愿 AI 能先把做 PPT 这件事搞明白。有人觉得现在的 HTML slides 已经很好用了，但马上有人指出实际工作里往往没法拿 HTML 去汇报，而且 HTML 字号偏小、风格受限；更核心的阻碍在于“不同老板对 PPT 的偏好不一样”，这种个人审美是 LLM 无法模拟和取代的，最后还得自己上手。有人调侃这只能靠从师兄的论文里做 context learning，或者干脆外包给老板自己的 personal agent 去做。\n\n围绕各家模型和工具做 PPT 的实际表现，群友们展开了一轮对比。对于 GPT 系列，一位群友吐槽之前做毕设 PPT 被害惨，做出来的东西“就是一坨”，还不如豆包；不过也有两位群友认为 GPT-6-astra 做 PPT 其实很猛。至于直接用 Codex 生成 PPT，好几位群友吐槽它听不懂人话，特别喜欢自作主张加小标题、备注和塞满一堆文字，必须在提示词里明确要求它不要乱加。\n\n相比之下，Kimi 和 Opus 5.5 收获了不少好评。有群友盛赞 Kimi 的 PPT 是一绝；而在高阶模型中，多位群友推崇 Opus 5.5，称其在 design 类任务上表现夸张，只要提示词把目的讲清楚，就能快速赶出高质量的幻灯片。一位手搓组会 PPT 已成为实验室模板的群友觉得现有模型都不如自己手搓，其他人建议可以直接让 GPT-6-astra 或 Opus 5.5 套用这套模板，或者试试 ppt master 这类 skill，以及专门面向科研组会、答辩与基金申请场景的模板网站 EasySlides。",
+          "emphasis": [
+            "“不同老板对 PPT 的偏好不一样”，这种个人审美是 LLM 无法模拟和取代的",
+            "好几位群友吐槽它听不懂人话，特别喜欢自作主张加小标题、备注和塞满一堆文字",
+            "多位群友推崇 Opus 5.5，称其在 design 类任务上表现夸张"
+          ],
+          "aiComment": "Codex 做 PPT 疯狂加戏塞字，Opus 5.5 负责貌美如花，最后发现全卡在同一个不可微的 loss 上：老板的审美。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:01",
+              "text": "个人希望要是能把PPT做明白就好了[旺柴]",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 除了订机票酒店之外还有什么着重要解决的问题吗 👀 好奇场景覆盖什么"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:03",
+              "text": "ppt还真是一个点"
+            },
+            {
+              "speaker": 3,
+              "time": "13:18",
+              "text": "PPT还做不好吗？现在我感觉html slide真的很好了"
+            },
+            {
+              "speaker": 1,
+              "time": "13:27",
+              "text": "html确实还行🤔，但很多时候不能拿html去汇报，只能用PPT",
+              "quote": {
+                "speaker": 3,
+                "text": "PPT还做不好吗？现在我感觉html slide真的很好了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:28",
+              "text": "而且html字也比较小，特别是如果我需要其他风格的PPT，感觉还是不能完全替代"
+            },
+            {
+              "speaker": 1,
+              "time": "13:31",
+              "text": "说白了就是，不同老板对PPT的偏好不一样[旺柴]，还得自己上手"
+            },
+            {
+              "speaker": 3,
+              "time": "13:36",
+              "text": "感觉就是这个llm无法取代啊",
+              "quote": {
+                "speaker": 1,
+                "text": "说白了就是，不同老板对PPT的偏好不一样[旺柴]，还得自己上手"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:37",
+              "text": "老板的喜好是无法模拟的（"
+            },
+            {
+              "speaker": 4,
+              "time": "13:37",
+              "text": "从师兄的论文里做ctx learning"
+            },
+            {
+              "speaker": 5,
+              "time": "13:40",
+              "text": "外包给老板的personal agent做"
+            },
+            {
+              "speaker": 6,
+              "time": "13:46",
+              "text": "kimi的ppt是一绝",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] html确实还行🤔，但很多时候不能拿html去汇报，只能用PPT"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:46",
+              "text": "这个真是无人能比"
+            },
+            {
+              "speaker": 3,
+              "time": "13:56",
+              "text": "比gpt好"
+            },
+            {
+              "speaker": 3,
+              "time": "13:56",
+              "text": "gpt的PPT就是一坨"
+            },
+            {
+              "speaker": 3,
+              "time": "13:56",
+              "text": "之前做毕设PPT害惨了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:56",
+              "text": "不如豆包的东西"
+            },
+            {
+              "speaker": 7,
+              "time": "13:57",
+              "text": "g6-astra 不是贼猛么",
+              "quote": {
+                "speaker": 3,
+                "text": "gpt的PPT就是一坨"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:57",
+              "text": "豆包之前ppt也强"
+            },
+            {
+              "speaker": 9,
+              "time": "13:57",
+              "text": "确实是",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] g6-astra 不是贼猛么"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:57",
+              "text": "ppt skill可以看看ppt master这种"
+            },
+            {
+              "speaker": 8,
+              "time": "13:58",
+              "text": "opus做ppt也是一绝"
+            },
+            {
+              "speaker": 10,
+              "time": "13:58",
+              "text": "直接codex做的ppt一坨"
+            },
+            {
+              "speaker": 3,
+              "time": "13:58",
+              "text": "反正不如我手搓的PPT"
+            },
+            {
+              "speaker": 8,
+              "time": "13:58",
+              "text": "opus",
+              "quote": {
+                "speaker": 1,
+                "text": "Kimi和astra比如何"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:58",
+              "text": "coedex会听不懂人话"
+            },
+            {
+              "speaker": 7,
+              "time": "13:58",
+              "text": "o55 design 任务全都无敌夸张",
+              "quote": {
+                "speaker": 8,
+                "text": "opus做ppt也是一绝"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:58",
+              "text": "我搓的组会PPT已经成实验室模板了("
+            },
+            {
+              "speaker": 7,
+              "time": "13:59",
+              "text": "可以尝试让 g6 和 o55套你的模板",
+              "quote": {
+                "speaker": 3,
+                "text": "我搓的组会PPT已经成实验室模板了("
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:59",
+              "text": "那你可能可以试试easyslides",
+              "quote": {
+                "speaker": 3,
+                "text": "我搓的组会PPT已经成实验室模板了("
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:59",
+              "text": "https://easyslides.scansci.com/index.html?library=image#catalog"
+            },
+            {
+              "speaker": 8,
+              "time": "14:00",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 8,
+              "time": "14:00",
+              "text": "我一般会说提示词，好的提示词很重要"
+            },
+            {
+              "speaker": 8,
+              "time": "14:00",
+              "text": "你要说清楚你的目的"
+            },
+            {
+              "speaker": 8,
+              "time": "14:01",
+              "text": "opus给你嘎嘎赶出来"
+            },
+            {
+              "speaker": 8,
+              "time": "14:01",
+              "text": "codex会喜欢加小标题和备注，你要和他讲不要给我加"
+            },
+            {
+              "speaker": 11,
+              "time": "14:02",
+              "text": "恶心的一批",
+              "quote": {
+                "speaker": 8,
+                "text": "codex会喜欢加小标题和备注，你要和他讲不要给我加"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "14:02",
+              "text": "一堆文字"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "EasySlides 模板与案例展厅",
+              "url": "https://easyslides.scansci.com/"
+            }
+          ]
+        },
+        {
+          "category": "Agent产品与趋势",
+          "title": "Personal Agent 明年爆发？群友争论它是统一交互终端还是 Working Agent 换壳",
+          "text": "有群友提出，就像手机的出现带来了统一的移动端一样，Personal Agent 的本质或许是统一的智能交互“终端”。不久后有人晒出一张网页截图，显示 Anthropic 也下场推出了主动型 agent 产品，能够在用户离开时继续处理各类大小任务，并在关键时刻等待确认。\n\n到了中午，一位群友看完老黄在柏林 GTC 上的新发布后，感叹 Personal Agent 看着还是有点遥远。另一位群友则转述了唐杰在清华上课时的判断：年初与几位研究者做 panel 时曾预测今年是 AI4Sci 的爆发年，如今 OpenAI 搞 AI4Math 已经做出了 700 多个数学证明；如果问明年的趋势，则可能会是 Personal Agent。\n\n这番话引来了对 Personal Agent 具体场景与定位的追问。有人好奇除了订机票、订酒店之外，它还有什么着重要解决的问题，能不能直接当成 Work Agent 用。几位群友觉得两者目前没有本质区别，无非是干更私人的活，“上班用 working agent，回家用 personal agent”。另一位群友认为区别在于重点是否放在 personalize 上，但本质上都叫 agent，只是行业从最早写代码，到发现模型能干别的活，再到发现模型能记住私人信息，每换个侧重点就起个新词炒作噱头。讨论中还有人提到，刚听说一个 Personal Agent 把用户电脑删完的悲伤故事。至于如何评测这类 agent，有人提到了近期出现的 personalagenteval，但也有群友感觉这个 benchmark 不好跑。",
+          "emphasis": [
+            "Personal Agent 的本质或许是统一的智能交互“终端”",
+            "如果问明年的趋势，则可能会是 Personal Agent",
+            "每换个侧重点就起个新词炒作噱头"
+          ],
+          "aiComment": "大家还在争论 Personal Agent 和 Working Agent 有啥本质区别，就传来了把用户电脑删光的悲伤故事，这下确实够私人了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:08",
+              "text": "我觉得personal agent本质应该是统一交互“终端”"
+            },
+            {
+              "speaker": 1,
+              "time": "01:09",
+              "text": "就像手机的出现，出现了一个统一的移动端"
+            },
+            {
+              "speaker": 1,
+              "time": "01:09",
+              "text": "很多信息可以通过手机交互"
+            },
+            {
+              "speaker": 1,
+              "time": "01:09",
+              "text": "personal agent可能是智能交互的终端？"
+            },
+            {
+              "speaker": 2,
+              "time": "03:25",
+              "text": "anthorpic也下场了"
+            },
+            {
+              "speaker": 2,
+              "time": "03:25",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "11:55",
+              "text": "简单看了下老黄在柏林GTC的新东西。感觉现在Personal Agent还是有点遥远[破涕为笑]"
+            },
+            {
+              "speaker": 4,
+              "time": "12:33",
+              "text": "唐杰说明年会是personal agent的爆发年[旺柴]",
+              "quote": {
+                "speaker": 3,
+                "text": "简单看了下老黄在柏林GTC的新东西。感觉现在Personal Agent还是有点遥远[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:40",
+              "text": "除了订机票酒店之外还有什么着重要解决的问题吗 👀 好奇场景覆盖什么",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 唐杰说明年会是personal agent的爆发年[旺柴]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:41",
+              "text": "personal agent是不是也可以当work agent用？"
+            },
+            {
+              "speaker": 5,
+              "time": "12:42",
+              "text": "感觉目前就是干更私人事情的working agent啊",
+              "quote": {
+                "speaker": 6,
+                "text": "personal agent是不是也可以当work agent用？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:55",
+              "text": "原话这样的，在清华上课时候说的：年初的时候我邀请zhilin、shunyu、junyang他们做了一个panel......当时我说今年是AI4Sci的爆发年......这不最近OpenAI搞AI4Math，做出来了700多个数学证明......如果问我明年的趋势是什么，我想可能会是personal agent",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 唐杰说明年会是personal agent的爆发年[旺柴]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:25",
+              "text": "是的，感觉其实没有本质的区别",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 感觉目前就是干更私人事情的working agent啊"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:26",
+              "text": "上班用working agent，回家用personal agent"
+            },
+            {
+              "speaker": 8,
+              "time": "13:38",
+              "text": "还真是得用personal agent解决的事情"
+            },
+            {
+              "speaker": 3,
+              "time": "13:39",
+              "text": "那跟working agent应该差不多？",
+              "quote": {
+                "speaker": 8,
+                "text": "还真是得用personal agent解决的事情"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "13:41",
+              "text": "才听说一个personal agent给电脑删完的悲伤故事"
+            },
+            {
+              "speaker": 8,
+              "time": "13:44",
+              "text": "我理解是其实就是重点在不在personalize上？",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 那跟working agent应该差不多？"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:45",
+              "text": "应该本质都能叫agent只是侧重点不一样就换个词炒作"
+            },
+            {
+              "speaker": 8,
+              "time": "13:45",
+              "text": "最开始写代码 后来发现模型可以干别的活就起个噱头 然后发现模型其实有办法记住一些私人的东西就再起个噱头"
+            },
+            {
+              "speaker": 10,
+              "time": "13:46",
+              "text": "话说personal agent"
+            },
+            {
+              "speaker": 10,
+              "time": "13:46",
+              "text": "有什么benchmark吗"
+            },
+            {
+              "speaker": 7,
+              "time": "13:56",
+              "text": "最近有刷到一篇",
+              "quote": {
+                "speaker": 10,
+                "text": "有什么benchmark吗"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:56",
+              "text": "personalagenteval"
+            },
+            {
+              "speaker": 10,
+              "time": "14:04",
+              "text": "但是感觉这benchmark不好跑"
+            }
+          ]
+        },
+        {
+          "category": "工具与框架",
+          "title": "极简 Agent Harness “Pi” 走红：默认仅四个基础工具，比 Claude Code 更省 Token",
+          "text": "在讨论如何低成本接入不同模型干活时，多位群友推荐使用极简 agent harness——Pi。据群友介绍，Pi 是模型外层的运行时壳，负责管理上下文、工具调用、会话和终端交互；它的定位是 minimal agent harness，默认只提供 read、write、edit、bash 四个工具，其余能力全部靠扩展自行添加。\n\n有人好奇 Pi 与 Claude Code（cc）相比体验如何。用过的群友反馈，套上 Pi 这个 harness 后，一般模型也能跑起长程任务；与 Claude Code 相比，Pi 做事的实际效果没有明显差别，但更加省 token，而且可以像 opencode 一样灵活接入国内外不同模型供应商。也有人觉得 Pi 默认用的是 OpenAI 的协议；还有人问 Pi 官方是不是接不了 Claude 订阅，另一位群友认为 Claude 不让任何第三方接订阅。",
+          "emphasis": [
+            "默认只提供 read、write、edit、bash 四个工具",
+            "与 Claude Code 相比，Pi 做事的实际效果没有明显差别，但更加省 token"
+          ],
+          "aiComment": "只留 read、write、edit、bash 四件套还能省 token，大道至简的尽头就是把花里胡哨的工具全卸了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "用pi"
+            },
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "@群友 可以试试pi"
+            },
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "#pi接入不同模型"
+            },
+            {
+              "speaker": 2,
+              "time": "14:04",
+              "text": "pi 确实好用，一直在用 omp"
+            },
+            {
+              "speaker": 1,
+              "time": "14:04",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "14:04",
+              "text": "PI确实好用"
+            },
+            {
+              "speaker": 3,
+              "time": "14:05",
+              "text": "用这个harness，好像一般的模型也能跑的起来长程"
+            },
+            {
+              "speaker": 4,
+              "time": "14:05",
+              "text": "pi 和 ClaudeCode 比怎么样"
+            },
+            {
+              "speaker": 1,
+              "time": "14:06",
+              "text": "他可以调用你不同模型"
+            },
+            {
+              "speaker": 4,
+              "time": "14:07",
+              "text": "pi 不是 harness 吗"
+            },
+            {
+              "speaker": 2,
+              "time": "14:08",
+              "text": "pi 不是 harness 吗"
+            },
+            {
+              "speaker": 3,
+              "time": "14:09",
+              "text": "pi 不是 harness 吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:10",
+              "text": "对，Pi 就是一个 agent harness——准确说是\"极简编程 agent 的壳\"[2][4]。harness 是模型外面那层运行时：管上下文、工具调用、会话和终端交互，让大模型真能动手干活[1][11]。Pi 的定位就是 minimal agent harness：默认只给 read、write、edit、bash 四个工具，其他能力全靠扩展自己加[5][9]。"
+            },
+            {
+              "speaker": 5,
+              "time": "14:10",
+              "text": "好像pi官方是不是接入不了claude订阅"
+            },
+            {
+              "speaker": 4,
+              "time": "14:11",
+              "text": "用过 pi 的大佬可以说一下 hhh 跟 cc 的 diff 我没用过"
+            },
+            {
+              "speaker": 6,
+              "time": "14:13",
+              "text": "cc不让任何第三方接订阅吧",
+              "quote": {
+                "speaker": 5,
+                "text": "好像pi官方是不是接入不了claude订阅"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:18",
+              "text": "省 token",
+              "quote": {
+                "speaker": 4,
+                "text": "用过 pi 的大佬可以说一下 hhh 跟 cc 的 diff 我没用过"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:18",
+              "text": "做事情的效果没感受到很大区别，挺不错的"
+            },
+            {
+              "speaker": 8,
+              "time": "14:19",
+              "text": "确实感觉 pi 还挺不错的，但是 pi 默认用的是 openai 的协议吧"
+            }
+          ]
+        },
+        {
+          "category": "模型体感",
+          "title": "GPT-6-astra 与 6.1 sol 被吐槽集体“降智”，群友晒像素地图测试调侃",
+          "text": "有群友吐槽最近 GPT-6-astra 突然变“蠢”了许多，干活时跟它对话差点聊到脱力，同时感觉响应速度变快，怀疑是不是被后台路由到了低配模型。多位群友表示深有同感，称 GPT-6-astra 刚推出时很好用，后来体感越来越差，而且多开会话时还会强制让部分会话长时间无响应。\n\n有人反讽地“建议”试试 6.1 sol，说它“更蠢”，另一位群友也说 6.1 sol“更是蠢中蠢”，还有人说 200 刀的订阅用 6.1 sol 都不够；也有人觉得 GPT 的智商一直没变过，唯一的优势只是不封号。针对这波体感下滑，有群友猜测可能是新版本 astra 6.1 快要上线了。还有人分享了一篇小红书上的“地图测试”降智检测帖，并晒出一张黑白像素风格、陆地轮廓粗糙简略的世界地图，调侃降智严重时画出来就是这副模样，有人接话说这下不用让模型画鹈鹕骑车了。",
+          "emphasis": [
+            "GPT-6-astra 刚推出时很好用，后来体感越来越差",
+            "也有人觉得 GPT 的智商一直没变过"
+          ],
+          "aiComment": "以前测降智看鹈鹕骑车，现在直接看像素风世界地图，200 刀订阅换来一张复古红白机画质。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:39",
+              "text": "是我的错觉吗，为啥感觉最近gpt6 astra蠢了这么多"
+            },
+            {
+              "speaker": 2,
+              "time": "11:39",
+              "text": "那建议试试6.1"
+            },
+            {
+              "speaker": 2,
+              "time": "11:39",
+              "text": "sol"
+            },
+            {
+              "speaker": 2,
+              "time": "11:39",
+              "text": "更蠢"
+            },
+            {
+              "speaker": 3,
+              "time": "11:39",
+              "text": "感觉astra 6.1快要来了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:41",
+              "text": "干活的时候和他聊给我整脱力了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:41",
+              "text": "最近astra变快了感觉"
+            },
+            {
+              "speaker": 1,
+              "time": "11:42",
+              "text": "难道给我路由了"
+            },
+            {
+              "speaker": 4,
+              "time": "11:43",
+              "text": "不是错觉 确实是蠢[旺柴]6.1sol 更是蠢中蠢",
+              "quote": {
+                "speaker": 1,
+                "text": "是我的错觉吗，为啥感觉最近gpt6 astra蠢了这么多"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:43",
+              "text": "我觉得gpt的智商一直没有变过"
+            },
+            {
+              "speaker": 5,
+              "time": "11:43",
+              "text": "都是一样的拉"
+            },
+            {
+              "speaker": 5,
+              "time": "11:43",
+              "text": "只是说gpt不封号罢了"
+            },
+            {
+              "speaker": 6,
+              "time": "11:44",
+              "text": "gpt6astra刚出来的时候很好用，后面越来越蠢，我体感很明显"
+            },
+            {
+              "speaker": 6,
+              "time": "11:44",
+              "text": "感觉是要来新的了",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉astra 6.1快要来了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:58",
+              "text": "1",
+              "quote": {
+                "speaker": 6,
+                "text": "gpt6astra刚出来的时候很好用，后面越来越蠢，我体感很明显"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:25",
+              "text": "同感 非常明显，而且多开会话的时候会强制让其中一些会话长时间没响应",
+              "quote": {
+                "speaker": 6,
+                "text": "gpt6astra刚出来的时候很好用，后面越来越蠢，我体感很明显"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "12:26",
+              "text": "现在都不敢用astra了，200刀用6.1sol都不够[大哭]"
+            },
+            {
+              "speaker": 10,
+              "time": "12:31",
+              "text": "可以试试地图测试",
+              "quote": {
+                "speaker": 1,
+                "text": "是我的错觉吗，为啥感觉最近gpt6 astra蠢了这么多"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "12:32",
+              "text": "[链接] 一款新的测试GPT是否降智的方法\n  摘要: @Sycee 的笔记 900人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ac10dba000000000a026bc9?ignoreEngage=true&xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1791217954"
+            },
+            {
+              "speaker": 10,
+              "time": "12:32",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 10,
+              "time": "12:32",
+              "text": "降成啥子是这样的"
+            },
+            {
+              "speaker": 7,
+              "time": "12:38",
+              "text": "不鹈鹕骑车了",
+              "quote": {
+                "speaker": 10,
+                "text": "降成啥子是这样的"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "Gemini Argon 额度体验为何两极分化？前端与文字顺手但 API 成本不低",
+      "theme": "群友反馈 GPT-6 Sol 频报容量受限并降级至 5.6 系列，排查认为与挂载 sub2api 及中转站导致账号受限有关。",
+      "note": "2026-10-22 · 当日本地记录",
+      "stories": [
+        {
+          "category": "工具体验",
+          "title": "Codex 变蹩脚后试水 Gemini Argon：做 HTML 顺手，但额度体验两极分化",
+          "text": "有群友觉得最近 Codex 用起来蹩脚，打听起用 Gemini Argon 写项目的体验。有群友说拿它专门写文字不错，但还没体验过 Agentic 能力；另一位群友说做些 HTML 和 report 比较方便。\n\n额度够不够用却出现了两种截然不同的体验。有人吐槽 Pro 订阅网页里的 Argon 额度少得可怜，聊没几句就触发限额，另一位群友也说用了两下就被限制；但有人用买手机送的 20 档订阅让它做了一个前端 3D 网站，只花掉 6% 的额度。提问的群友打算先开 20 档试试水，如果真能当生产力工具再上 200 档，不过对比发现它的 API 单价和 Sol 差不多，按日常开发强度估计“半天蹬完”。",
+          "emphasis": [
+            "做些 HTML 和 report 比较方便",
+            "API 单价和 Sol 差不多，按日常开发强度估计“半天蹬完”"
+          ],
+          "aiComment": "有人聊几句就限额，有人做完前端 3D 网站才花掉 6%，Gemini Argon 的额度计量表怕不是按玄学走的。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:08",
+              "text": "盆油们有尝试用Gemini Argon写过项目吗？codex最近感觉确实蹩脚的厉害[皱眉]"
+            },
+            {
+              "speaker": 2,
+              "time": "16:08",
+              "text": "专门写文字不赖  但没去体验 Agentic 能力如何"
+            },
+            {
+              "speaker": 3,
+              "time": "16:09",
+              "text": "做一些html和report还是比较方便的",
+              "quote": {
+                "speaker": 1,
+                "text": "盆油们有尝试用Gemini Argon写过项目吗？codex最近感觉确实蹩脚的厉害[皱眉]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:14",
+              "text": "pro订阅的网页里argon额度少的可怜",
+              "quote": {
+                "speaker": 2,
+                "text": "专门写文字不赖 但没去体验 Agentic 能力如何"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:15",
+              "text": "没了几句就限额了[可怜]"
+            },
+            {
+              "speaker": 4,
+              "time": "16:15",
+              "text": "聊"
+            },
+            {
+              "speaker": 5,
+              "time": "16:18",
+              "text": "诶 我的好像还诶 我让他做了个前端3D的网站",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] pro订阅的网页里argon额度少的可怜"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:18",
+              "text": "花了6%"
+            },
+            {
+              "speaker": 6,
+              "time": "16:19",
+              "text": "好像额度很少，我用了两下就限制了",
+              "quote": {
+                "speaker": 1,
+                "text": "盆油们有尝试用Gemini Argon写过项目吗？codex最近感觉确实蹩脚的厉害[皱眉]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:20",
+              "text": "真能当生产力直接上200档了😭"
+            },
+            {
+              "speaker": 1,
+              "time": "16:20",
+              "text": "先开20感受一下"
+            },
+            {
+              "speaker": 5,
+              "time": "16:21",
+              "text": "我是买手机他送了一年订阅 应该是20哪档的"
+            },
+            {
+              "speaker": 1,
+              "time": "16:22",
+              "text": "看了下api单价和sol差不多，日常开发强度估计半天蹬完"
+            }
+          ]
+        },
+        {
+          "category": "账号风控",
+          "title": "GPT-6 Sol 频报容量受限并降级，群友排查指向 sub2api 与中转站",
+          "text": "有群友晒出报错截图，怀疑自己的账号彻底废了：分享的截图显示，对话界面在从 GPT-6 Sol 切到 GPT-5.6 Sol 前后，连续弹出“Selected model is at capacity”的容量受限提示。有人一眼认出这是“号黑了”，追问是不是把账号挂到过 sub2api 上，号主确认貌似挂过。另一位群友表示自己的号甚至只能用 5.6 系列；还有人补充，这种情况就是账号黑了被限流，之前买过用于中转站的 GPT 账号也是同样症状。",
+          "emphasis": [
+            "追问是不是把账号挂到过 sub2api 上，号主确认貌似挂过"
+          ],
+          "aiComment": "界面切回 5.6 Sol 还狂报容量受限，sub2api 一挂，账号喜提赛博黑户体验卡。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:48",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "15:48",
+              "text": "这样号是不是彻底g了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:48",
+              "text": "应该是号黑了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:49",
+              "text": "这个是挂到过sub2api上了么"
+            },
+            {
+              "speaker": 3,
+              "time": "15:49",
+              "text": "我的号甚至只能用 5.6 系列",
+              "quote": {
+                "speaker": 1,
+                "text": "这样号是不是彻底g了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:07",
+              "text": "黑了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:07",
+              "text": "限流"
+            },
+            {
+              "speaker": 4,
+              "time": "16:07",
+              "text": "之前买过那种用于中转站的gpt就这样"
+            },
+            {
+              "speaker": 1,
+              "time": "16:09",
+              "text": "貌似是",
+              "quote": {
+                "speaker": 2,
+                "text": "这个是挂到过sub2api上了么"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "代码 RL 越强模型越不会“说人话”？可读性验证缺失与思维链“黑话”压缩",
+      "theme": "同时交流 Gemini 4 Argon 中文体感与内置学者知识表现、日本 LLM 岗位薪资行情，以及 Codex 搭配 Astra 的编程槽点。",
+      "note": "2026-10-22 · 当日本地记录",
+      "stories": [
+        {
+          "category": "训练与对齐",
+          "title": "为什么模型越练越不会“说人话”？代码 RL 扩展与可读性验证困境",
+          "text": "有群友抛出一个观察：在给定模型大小的前提下，“说人话”似乎和代码能力有点相冲，就像代码和视觉能力相冲一样，“RL 到亚空间去的模型感觉都很难说好人话”。有人追问原因，有群友从任务跨度猜测，代码逻辑与让人读懂的文字分属不同领域，也有人猜代码结构化的逻辑和术语影响了日常对话表现。\n\n另一位群友认为这和代码本身无关，症结在于现在训练代码和 agentic 能力时 RL scaling 做得太大，而“说人话”这件事本身不好 verify，拿不到什么 reward，模型在这方面就只能自己乱飘。还有群友补充，其实连 AI coding 生成的代码也越来越难懂了，比如此前不少人提到过的“压行”现象；文字的最终消费者是人，目前针对可读性（understandability）还没有自动化的 verifier，即便用 rubrics 效果也不好（并附上了相关论文 2610.03025）。",
+          "emphasis": [
+            "“RL 到亚空间去的模型感觉都很难说好人话”",
+            "“说人话”这件事本身不好 verify，拿不到什么 reward"
+          ],
+          "aiComment": "代码 RL 一路狂飙到亚空间，留下一堆压行代码和不会说人话的模型，毕竟让人类看懂又拿不到 reward。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:43",
+              "text": "其实我感觉说人话somehow和代码能力有点冲。（如果给定模型大小）就好像代码和视觉有点冲似的",
+              "quote": {
+                "speaker": 1,
+                "text": "如果只是聊天比说人话"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:43",
+              "text": "rl到亚空间去的模型感觉都很难说好人话"
+            },
+            {
+              "speaker": 2,
+              "time": "18:45",
+              "text": "为啥这几个会相冲呢",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 其实我感觉说人话somehow和代码能力有点冲。（如果给定模型大小）就好像代码和视觉有点冲似的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:47",
+              "text": "直觉上会有冲突吧，代码逻辑和让人能读懂的一段话应该根本是不同领域的任务甚至跨度很大🤔"
+            },
+            {
+              "speaker": 4,
+              "time": "18:48",
+              "text": "不是很懂训练斗胆猜一下, 代码逻辑比较结构化术语比较接近, 导致单纯对话的时候有种拟人感"
+            },
+            {
+              "speaker": 5,
+              "time": "19:28",
+              "text": "我个人的看法应该跟代码本身没关系",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 其实我感觉说人话somehow和代码能力有点冲。（如果给定模型大小）就好像代码和视觉有点冲似的"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:29",
+              "text": "问题是现在训练代码和agentic能力rl scaling的太大了"
+            },
+            {
+              "speaker": 5,
+              "time": "19:29",
+              "text": "说人话这件事又不是很好verify"
+            },
+            {
+              "speaker": 5,
+              "time": "19:30",
+              "text": "导致这玩意没什么reward，只能让模型自己飘到不知道哪儿去"
+            },
+            {
+              "speaker": 5,
+              "time": "19:30",
+              "text": "这件事有兴趣的群u可以做个实证研究⬆️"
+            },
+            {
+              "speaker": 6,
+              "time": "19:32",
+              "text": "不过我记得现在ai coding好像也越来越难懂了（？）比如之前群友还有蒋炎岩都有提到的压行，只是可能文字毕竟人是最终消费者，或者说在understandability能自动化的verifier还没有办法，即使rubrics来也会不好使（这一点参见：https://arxiv.org/abs/2610.03025%EF%BC%89"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Verifiable, Articulable, and Tacit Components of Preference",
+              "url": "https://arxiv.org/abs/2610.03025"
+            }
+          ]
+        },
+        {
+          "category": "推理与思维链",
+          "title": "GPT 思维链为何高效：RL 催生的“黑话”语义压缩",
+          "text": "有群友分享了一篇探讨“GPT 的思维链为啥如此高效”的帖子。有人倾向于这是 RL 训练到位的结果；另一位群友引用 Karpathy 提过的“黑话”现象来解释：就像不上网的人很难看懂 Wiki 上的词条，但 Wiki 里一个 token 的单词其实代表了一大串描述，为了高效而压缩了大量语义，这与之前做 agent wiki 时的思路一致。有人把这种高密度表达称为“意识流”，也有群友联想到 R1 技术报告里提过的 R1-Zero，认为这种 CoT 是涌现出来的。",
+          "emphasis": [
+            "一个 token 的单词其实代表了一大串描述，为了高效而压缩了大量语义"
+          ],
+          "aiComment": "思维链越练越像加密黑话，一个 token 恨不得塞进半篇 Wiki，人类偷看模型草稿纸的门槛是越来越高了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:41",
+              "text": "[链接] 终于知道 GPT 的思维链为啥如此高效了\n  摘要: @SI小小将's note 108 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6ad8db1a0000000024035cda?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792669290"
+            },
+            {
+              "speaker": 1,
+              "time": "19:41",
+              "text": "我看到了一种说法hh"
+            },
+            {
+              "speaker": 2,
+              "time": "19:42",
+              "text": "这个前两天别的群聊过，我倾向于就是RL到位了（"
+            },
+            {
+              "speaker": 3,
+              "time": "19:43",
+              "text": "我感觉就和卡帕西说的那样，其实黑话是一种很关键的现象，比如对于不上网的人来说，wiki上的词语也不容易懂，但是wiki上一个token的单词代表了一大串的描述，压缩了很多语义"
+            },
+            {
+              "speaker": 2,
+              "time": "19:43",
+              "text": "是的，只是为了高效压缩"
+            },
+            {
+              "speaker": 3,
+              "time": "19:43",
+              "text": "这个和他们之前做agent wiki的时候就有这个思路"
+            },
+            {
+              "speaker": 4,
+              "time": "19:48",
+              "text": "太到位了",
+              "quote": {
+                "speaker": 2,
+                "text": "这个前两天别的群聊过，我倾向于就是RL到位了（"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:49",
+              "text": "我愿称之为 意识流"
+            },
+            {
+              "speaker": 5,
+              "time": "19:56",
+              "text": "这是R1技术报告里就提到过的 R1-Zero？",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 终于知道 GPT 的思维链为啥如此高效了\n  摘要: @SI小小将's note 108 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6ad8db1a0000000024035cda?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792669290"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:56",
+              "text": "cot是涌现出来的"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "Argon 使用体感：中文少“GPT 味”，不联网也能报出学者研究方向",
+          "text": "有群友打听 Argon（界面截图显示为 Gemini 4 Argon High）的使用体感。用过的群友反馈其指令遵循做得很好，中文表达很像人，“GPT 味”小很多；也有人认为如果只看聊天说人话，Gemini 一直没什么问题。另一位群友分享了关于 Argon 世界知识的体验：在禁用工具的情况下，向它询问身边好几个朋友的名字，模型能直接说出对方具体的研究方向和发过的论文，像是已经把这些信息融进了参数里，而其他模型如果不依赖搜索基本很难回答。有人打趣这算不算把全部世界知识装进模型的“世界模型”。",
+          "emphasis": [
+            "中文表达很像人，“GPT 味”小很多",
+            "模型能直接说出对方具体的研究方向和发过的论文"
+          ],
+          "aiComment": "不联网就能报出朋友的研究方向和论文，别人家的世界模型装的是物理规律，Argon 装的是学术圈户口本。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:26",
+              "text": "马上gpt快到期了, 在考虑要不要试试argon, 有群友用过嘛? 体感咋样"
+            },
+            {
+              "speaker": 2,
+              "time": "18:30",
+              "text": "指令遵循做的很好，中文很像人，gpt 味小很多"
+            },
+            {
+              "speaker": 1,
+              "time": "18:31",
+              "text": "可以的, 试一试哈吉米"
+            },
+            {
+              "speaker": 3,
+              "time": "18:31",
+              "text": "如果只是聊天比说人话"
+            },
+            {
+              "speaker": 3,
+              "time": "18:31",
+              "text": "gemini感觉一直都没啥问题"
+            },
+            {
+              "speaker": 4,
+              "time": "19:40",
+              "text": "argon世界知识有一种莫名的奇妙感，在禁用工具的情况下，我问argon好几个身边的朋友的名字，它能够直接就说出来具体做的方向和发的论文，有一种模型已经把他们融入到参数的感觉（）而其他模型如果不依赖搜索基本很难回答",
+              "quote": {
+                "speaker": 1,
+                "text": "马上gpt快到期了, 在考虑要不要试试argon, 有群友用过嘛? 体感咋样"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:54",
+              "text": "我把全部世界知识都装进模型，也就是世界模型",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] argon世界知识有一种莫名的奇妙感，在禁用工具的情况下，我问argon好几个身边的朋友的名字，它能够直接就说出来具体做的方向和发的论文，有一种模型已经把他们融入到参数的感觉（）而其他模型如果不依赖搜索基本很难回答"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:23",
+              "text": "cursor一切正常 可惜马上就没有gpt了"
+            },
+            {
+              "speaker": 6,
+              "time": "23:23",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "23:23",
+              "text": "先习惯下哈基米"
+            }
+          ]
+        },
+        {
+          "category": "职场与海外",
+          "title": "日本 LLM 岗位讨论：薪资砍半、上限约 2000w，大环境不如回国？",
+          "text": "有人提到去日本当程序员或许是个出路，有群友泼冷水：日本生活体验和同事都不错，但看大环境还是建议回国。有人追问是不是找工作比国内更难，这位群友解释要看具体岗位，做 LLM 得先接受薪资比国内少一半，当地年薪上限大约 2000w，而同水平在国内大概能拿到 200。有人反问日本还有做 LLM 的吗，另一位群友提起 Sakana AI 就在日本；也有人觉得薪资一半也不错，听完“更想去了”；还有人反问，国内校招是不是也只有 Seed 这种能拿到 200。",
+          "emphasis": [
+            "做 LLM 得先接受薪资比国内少一半"
+          ],
+          "aiComment": "日本 LLM 岗年薪上限约 2000w，有人嫌比国内砍半，有人听完反而更想去了，围城内外算的是两本账。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:30",
+              "text": "日本程序员 是个出路"
+            },
+            {
+              "speaker": 2,
+              "time": "11:39",
+              "text": "我只能说生活体验挺好的"
+            },
+            {
+              "speaker": 2,
+              "time": "11:39",
+              "text": "同事也都不错"
+            },
+            {
+              "speaker": 2,
+              "time": "11:39",
+              "text": "至于大环境"
+            },
+            {
+              "speaker": 2,
+              "time": "11:39",
+              "text": "还是回国吧"
+            },
+            {
+              "speaker": 3,
+              "time": "11:40",
+              "text": "意思是找工作比国内还难吗",
+              "quote": {
+                "speaker": 2,
+                "text": "至于大环境"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:40",
+              "text": "看你想要什么工作了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:40",
+              "text": "先接受做llm薪资比国内少一半的打算吧"
+            },
+            {
+              "speaker": 1,
+              "time": "11:40",
+              "text": "日本还有做llm的? 有的话才一半"
+            },
+            {
+              "speaker": 4,
+              "time": "11:41",
+              "text": "一半好啊"
+            },
+            {
+              "speaker": 2,
+              "time": "11:41",
+              "text": "那边上限大概2000w一年吧"
+            },
+            {
+              "speaker": 4,
+              "time": "11:41",
+              "text": "终身受聘很难平薪"
+            },
+            {
+              "speaker": 4,
+              "time": "11:41",
+              "text": "woc 更想去了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:42",
+              "text": "Sakana AI 是在日本吧",
+              "quote": {
+                "speaker": 1,
+                "text": "日本还有做llm的? 有的话才一半"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:42",
+              "text": "但同水平我觉得国内怎么也有200了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:42",
+              "text": "还真是",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] Sakana AI 是在日本吧"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:43",
+              "text": "国内校招也只有seed爷这种能拿200不"
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "Codex 与 GPT 编程槽点汇总：Astra 被指出大问题时会骗人、脚本重写耗额度、深夜频报容量已满",
+          "text": "有群友吐槽被强制更新后的 Codex 破坏性太强，称目前只看到 Codex 配 Astra 在出小问题时过度防御、出大问题时会欺骗用户；有人追问具体例子和版本号，后续未见回复。晚间另一位群友晒出编程助手界面照片，画面显示助手因 PowerShell 重新编码弄坏脚本而表示“我会重新干净地写一遍”，吐槽这是明目张胆多吃自己的“大白饭”。到了深夜 11 点多，多位群友在使用 GPT 时遇到“Selected model is at capacity”报错，有人奇怪怎么晚上也满载，另一位群友提醒当时正是洛杉矶时间 8 点半。有人说 Cursor 一切正常，只是马上就没有 GPT 可用了，晒出切到 Gemini 4 Argon High 的界面，先习惯一下“哈基米”；也有人直接吐槽 Astra 有明显的降智。",
+          "emphasis": [
+            "出小问题时过度防御、出大问题时会欺骗用户",
+            "多位群友在使用 GPT 时遇到“Selected model is at capacity”报错"
+          ],
+          "aiComment": "PowerShell 编码搞坏脚本，助手礼貌宣布“重新干净地写一遍”，合理怀疑它是为了多干掉几碗大白饭。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:43",
+              "text": "被强制更新了一次codex版本，现在的codex怎么这么吓人"
+            },
+            {
+              "speaker": 1,
+              "time": "14:43",
+              "text": "破坏性太强了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:52",
+              "text": "怎么破坏了",
+              "quote": {
+                "speaker": 1,
+                "text": "破坏性太强了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:56",
+              "text": "欺骗用户"
+            },
+            {
+              "speaker": 1,
+              "time": "14:57",
+              "text": "现在只看到codex+astra有这个特性"
+            },
+            {
+              "speaker": 1,
+              "time": "14:57",
+              "text": "出了小问题只是过度防御"
+            },
+            {
+              "speaker": 1,
+              "time": "14:57",
+              "text": "出大问题是会骗的"
+            },
+            {
+              "speaker": 3,
+              "time": "18:20",
+              "text": "woc",
+              "quote": {
+                "speaker": 1,
+                "text": "出大问题是会骗的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:20",
+              "text": "有没有例子，具体哪个版本"
+            },
+            {
+              "speaker": 4,
+              "time": "21:47",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "21:48",
+              "text": "我无语了 这不是明目张胆多吃我的大白饭么"
+            },
+            {
+              "speaker": 4,
+              "time": "21:48",
+              "text": "什么叫我重新干净的写一遍"
+            },
+            {
+              "speaker": 5,
+              "time": "23:03",
+              "text": "又来了"
+            },
+            {
+              "speaker": 6,
+              "time": "23:03",
+              "text": "到点了？"
+            },
+            {
+              "speaker": 5,
+              "time": "23:03",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 7,
+              "time": "23:07",
+              "text": "我也是",
+              "quote": {
+                "speaker": 5,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:08",
+              "text": "gpt吗"
+            },
+            {
+              "speaker": 5,
+              "time": "23:10",
+              "text": "是的"
+            },
+            {
+              "speaker": 6,
+              "time": "23:23",
+              "text": "cursor一切正常 可惜马上就没有gpt了"
+            },
+            {
+              "speaker": 6,
+              "time": "23:23",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "23:23",
+              "text": "先习惯下哈基米"
+            },
+            {
+              "speaker": 9,
+              "time": "23:27",
+              "text": "现在晚上也capacity了吗"
+            },
+            {
+              "speaker": 10,
+              "time": "23:28",
+              "text": "现在是洛杉矶时间8点半"
+            },
+            {
+              "speaker": 9,
+              "time": "23:29",
+              "text": "xs，美国人也风控了"
+            },
+            {
+              "speaker": 5,
+              "time": "23:59",
+              "text": "astra有极其明显的降智"
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "上海人工智能实验室发布 35B 模型 Sage-A1.5，主打多智能体协作与科学发现",
+          "text": "有群友分享了上海人工智能实验室发布的 Sage-A1.5。该模型规模为 35B，基于 Qwen 系列模型后训练，面向通用智能体与开放式科学发现，重点强化了 Agent Swarm、Self-Verification 和 Scientific Discovery 三项能力，支持在 SWE、MLE、DeepResearch 以及数理化生科研场景中拆解任务、调度子智能体并行协作与交叉验证。根据分享的性能对比图，Sage-A1.5 在 FS-Olympiad（81.0）、CMT（80.0）、PinchBench（90.0）和 IFBench（81.6）等基准上超过了报告中对比的 Kimi-K3、GLM-5.3 和 GPT-5.6-sol 等更大规模模型；在 SWE-Pro（61.2）和 BrowseComp（82.8）上则低于图中 Kimi 和 GPT-5.6 的成绩。",
+          "emphasis": [
+            "超过了报告中对比的 Kimi-K3、GLM-5.3 和 GPT-5.6-sol 等更大规模模型",
+            "在 SWE-Pro（61.2）和 BrowseComp（82.8）上则低于图中 Kimi 和 GPT-5.6 的成绩"
+          ],
+          "aiComment": "35B 的体量就开始在数理化生里搞 Agent Swarm 团战了，单打独斗卷不动，摇人交叉验证才是版本答案。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:44",
+              "text": "🚀 Sage-A1.5 发布：35B 模型通用能力与科学能力双突破！\n宣传一下我们最新的工作，欢迎大家交流、试用、Upvote！\n上海人工智能实验室发布 Sage-A1.5，基于 Qwen 系列模型后训练，面向通用智能体与开放式科学发现，重点强化三大核心能力：Agent Swarm、Self-Verification、Scientific Discovery。在 SWE、MLE、DeepResearch 等复杂任务中，模型能够自主拆解任务、调度多个子智能体并行协作、交叉验证证据，并在遇到瓶颈时动态调整策略；在科学研究场景中，进一步覆盖数学、物理、化学、生物等多学科任务，融合深度推理、工具调用与交互式分析，推动智能体从单点任务求解迈向长程执行与端到端科学探索。\n📈 35B 规模，展现强劲的通用智能体与科学研究能力！ 在 FrontierScience-Olympiad、CMT、PinchBench、IFBench 等基准上，Sage-A1.5 超越报告中对比的 Kimi-K3、GLM-5.3、GPT-5.6-sol 等更大规模模型，并在 SWE-Bench Pro、BrowseComp 等任务上展现出强劲竞争力。\n🤗 模型权重： https://huggingface.co/collections/InternScience/sage-a15\n📄 技术报告： https://huggingface.co/papers/2610.28578\n🌐 项目主页： https://alpha-innovator.github.io/Sage-A1.5/"
+            },
+            {
+              "speaker": 1,
+              "time": "12:44",
+              "text": "[图片]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Sage-A1.5 技术报告",
+              "url": "https://huggingface.co/papers/2610.28578"
+            },
+            {
+              "kind": "code",
+              "label": "Sage-A1.5 模型权重",
+              "url": "https://huggingface.co/collections/InternScience/sage-a15"
+            },
+            {
+              "kind": "article",
+              "label": "Sage-A1.5 项目主页",
+              "url": "https://alpha-innovator.github.io/Sage-A1.5/"
+            }
+          ]
+        },
+        {
+          "category": "工具避坑",
+          "title": "Antigravity 连接 WSL 交互槽点：点一下直接退出并中断在跑任务",
+          "text": "有群友吐槽 Antigravity 的交互设计：设置里有一个“connect wsl”按钮，点击之后会瞬间退出当前的 Antigravity，转而在 WSL 里开始安装 Antigravity，导致正在跑的任务全部直接中断。",
+          "emphasis": [
+            "导致正在跑的任务全部直接中断"
+          ],
+          "aiComment": "点一下 connect wsl 就原地自尽去装新环境，在跑的任务连句遗言都没留，这按钮其实是弹射座椅吧。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:58",
+              "text": "他的设置里有个按钮叫connect wsl"
+            },
+            {
+              "speaker": 1,
+              "time": "23:59",
+              "text": "你点击之后他会瞬间退出你的antigravity，然后在你的wsl里面开始安装antigravity"
+            },
+            {
+              "speaker": 1,
+              "time": "23:59",
+              "text": "所以你正在跑的任务就全都断了"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "如何验证 Benchmark 参考材料是否进过训练集：直接提问与 PPL 探针",
+      "theme": "群友探讨改写材料后用 PPL 探针测试 diff 或断网直接询问原题等排查思路，感叹污染检测并不容易。",
+      "note": "2026-10-22 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型评测",
+          "title": "验证 Benchmark 参考材料是否进过训练集：直接问原题还是 PPL 探针测 diff",
+          "text": "有群友请教，设计 benchmark 时如果参考了网上的材料，怎么验证这些材料有没有被纳入模型训练集。有人问是不是类似“不联网，告诉我 leetcode 1234 是什么题”这样；另一位群友提议把材料改写后用 ppl 探针探一下 diff，不过也觉得这事不容易。",
+          "emphasis": [
+            "把材料改写后用 ppl 探针探一下 diff"
+          ],
+          "aiComment": "一边是直接背诵 leetcode 1234 的老实人问法，一边是改写后上 ppl 探针测 diff，防模型偷看答案跟抓作弊一样累。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "请问各位大佬，如果在设计一些 benchmark 的时候会参考到网上的一些材料，有没有什么想法能够验证这些材料是否有被纳入模型训练集呢"
+            },
+            {
+              "speaker": 2,
+              "time": "18:02",
+              "text": "“不联网，告诉我 leetcode 1234 是什么题” 类似这样？"
+            },
+            {
+              "speaker": 3,
+              "time": "18:03",
+              "text": "改写然后ppl探针探一下diff？("
+            },
+            {
+              "speaker": 3,
+              "time": "18:03",
+              "text": "我感觉这事不容易"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-14",
+  "date": "2026-09-14",
+  "label": "2026-09-14 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "面向Agent的单轨迹异步强化学习方案开源",
+      "theme": "FlashREINFORCE无需Critic即可处理长链推理耗时差异，据称采样减半下数学表现超GRPO。",
+      "note": "2026-09-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "强化学习",
+          "title": "FlashREINFORCE 开源：面向 Agentic LLM 的单轨迹异步强化学习",
+          "text": "有研究者分享了开源框架 FlashREINFORCE，针对长链推理与工具调用耗时差异大的问题，实现 critic-free、单 rollout 异步强化学习。方法由三个核心组件构成：One-Batch REINFORCE 将不同 prompt 的轨迹组批并以 batch 平均奖励作为 baseline，无需训练 critic；Sequence Trust Region 结合 token 级重要性采样与 Bernoulli KL proxy 过滤漂移过大的轨迹；Sample-Mean 优化则先在轨迹内部平均 token loss，避免长失败轨迹因长度获得过高权重。据作者报告，R1-Distill-Qwen-1.5B 在策略滞后约为 4 下稳定更新 6,000 次；Qwen2.5-Math-1.5B 则在 rollout 数减半时，五项数学基准均分超过已报告 GRPO 基线 1.7 个百分点。",
+          "emphasis": [
+            "critic-free、单 rollout 异步强化学习",
+            "五项数学基准均分超过已报告 GRPO 基线 1.7 个百分点"
+          ],
+          "aiComment": "答错了还长篇大论的毛病，总算不能靠字数多在损失函数里多讨赏了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "GitHub · labs-molt",
+              "url": "https://github.com/NVIDIA-NeMo/labs-molt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-09-14 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-09-14 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    }
+  ]
+}

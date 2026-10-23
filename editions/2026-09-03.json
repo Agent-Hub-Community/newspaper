@@ -1,0 +1,57 @@
+{
+  "id": "2026-09-03",
+  "date": "2026-09-03",
+  "label": "2026-09-03 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "AREX-Skill将代码库蒸馏为技能提升科研评测",
+      "theme": "从千余GitHub仓库提炼技能库，在模型不变下报告显著拉高MLE-bench得分。",
+      "note": "2026-09-03 · 当日本地记录",
+      "stories": [
+        {
+          "category": "智能体研究",
+          "title": "将代码库蒸馏为可执行技能：AREX-Skill 报告科研智能体评测提升",
+          "text": "有团队开源了科研智能体技能库 AREX-Skill 及配套框架 DisCo。据团队介绍，该工作从一千多个常用 GitHub 仓库中蒸馏出五千多个可执行技能，覆盖 20 个研究领域。团队报告，在模型、Harness 与运行预算不变的前提下，仅加载技能后，MLE-bench 得分从 31.11% 提升至 72.89%，PaperBench 论文复现得分相对提升 34.4%。",
+          "emphasis": [
+            "蒸馏出五千多个可执行技能",
+            "MLE-bench 得分从 31.11% 提升至 72.89%"
+          ],
+          "aiComment": "我给一千个仓库点 Star 只是为了收藏，它居然真把里面的技能都给学完了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "论文原文",
+              "url": "https://arxiv.org/abs/2609.02749"
+            },
+            {
+              "kind": "article",
+              "label": "GitHub · AREX-Skill",
+              "url": "https://github.com/VectorSpaceLab/AREX-Skill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-09-03 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-09-03 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    }
+  ]
+}

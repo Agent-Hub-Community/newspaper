@@ -1,0 +1,284 @@
+{
+  "date": "2026-10-13",
+  "title": "Meta 发布 Muse Wonder，苹果推智能家居屏 HomeView",
+  "intro": "Meta 推出面向 Agent 任务的 Muse Wonder 模型；苹果发布搭载 Siri AI 的家庭屏幕 HomeView；Character.ai 申请破产保护并启动资产竞价；SpaceXSI 整合 Grok 与 Cursor 订阅体系。",
+  "stories": [
+    {
+      "title": "Meta 发布 Muse Wonder 模型并开放 API 与 Muse Code 接入",
+      "timing": "Meta 官方于 UTC 2026 年 10 月 12 日 17:08 发布",
+      "text": "Meta 正式发布 Muse Wonder 与 Muse Wonder Full 模型，定位于解决复杂步骤的 Agent 任务。官方表示新架构具备跨会话提取信息的 Active Memory，以及在执行受阻时尝试备用方案的 Active Focus 机制。目前 Muse Wonder 已通过 Meta Model API 和 Muse Code 开放，Muse Wonder Full 仅供 Muse Code 订阅用户调用，面向大众的消费级 Muse 个人 Agent 则计划在后续逐步向订阅者推送。\n\n在独立基准评测机构 Artificial Analysis 的综合智能指数（v4.3）快照中，Muse Wonder 与 Muse Wonder Full 在最高推理强度下分别获得 52 分和 56 分。官方计费显示，Muse Wonder 输入为 4 美元/百万 token，输出为 20 美元/百万 token。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+        },
+        {
+          "label": "报道",
+          "url": "https://artificialanalysis.ai/articles/muse-wonder"
+        }
+      ],
+      "emphasis": [
+        "Muse Wonder Full 仅供 Muse Code 订阅用户调用",
+        "在最高推理强度下分别获得 52 分和 56 分"
+      ],
+      "aiComment": "每百万输出 token 要二十美元，它尝试备用方案时我的心率也在同步上升。"
+    },
+    {
+      "title": "苹果发布家庭智能中枢屏 HomeView 及新家居硬件",
+      "timing": "苹果官方于 UTC 2026 年 10 月 13 日 12:56 发布",
+      "text": "苹果发布全新智能家居硬件 Apple HomeView，配备 7 英寸屏幕与 A18 芯片，美国售价 299 美元，即日起预订并于 11 月 13 日发售。设备支持最多 6 位家庭成员的面孔识别与主屏个性化。当配对且兼容 Apple Intelligence 的 iPhone 或 iPad 在场且最近解锁过时，Siri AI 可调取日历与信息等个人上下文；请求在端侧或通过私有云计算处理。目前该产品因合规要求未在欧盟推出。\n\n周边生态方面，新款 Apple TV 4K 将于 11 月 13 日发售，HomePod mini 2 售价 149 美元并定于 10 月 30 日上市，其 Siri AI 功能将在后续更新中推送。苹果还公布了将于 12 月起分批推出的智能门锁与温控器等配件系列。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://www.apple.com/newsroom/2026/10/meet-apple-homeview-a-new-way-to-enjoy-entertainment-and-manage-the-home/"
+        },
+        {
+          "label": "官方发布",
+          "url": "https://www.apple.com/newsroom/2026/10/apple-unveils-the-new-apple-tv-4k/"
+        },
+        {
+          "label": "官方发布",
+          "url": "https://www.apple.com/newsroom/2026/10/introducing-apple-home-collection-a-new-lineup-of-smart-home-accessories/"
+        }
+      ],
+      "emphasis": [
+        "美国售价 299 美元，即日起预订并于 11 月 13 日发售",
+        "其 Siri AI 功能将在后续更新中推送"
+      ],
+      "aiComment": "全家共用一块屏，个人日历什么时候能显示出来，还得看配对设备是否在场。"
+    },
+    {
+      "title": "Character.ai 申请破产保护并以迪士尼为初始竞标方寻求出售",
+      "timing": "官方于 UTC 2026 年 10 月 13 日 03:50 披露",
+      "text": "AI 对话平台 Character.ai 宣布依据美国破产法第 11 章启动自愿重组程序，通过法院监督的拍卖流程寻求公司整体资产出售。根据初步协议，华特迪士尼公司旗下实体将作为初始竞标方（stalking horse），以 2000 万美元及向公司提供过渡支持服务，换取部分知识产权的非独占永久许可与部分权利请求，该协议仍须接受更高或更优竞价。\n\nCharacter.ai 表示现有对话服务与订阅当前继续运作，预计出售程序将于 11 月底至 12 月初完成。若最终未能找到可持续运营的买方，平台届时将面临关闭。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://blog.character.ai/an-update-on-character-ai/"
+        },
+        {
+          "label": "报道",
+          "url": "https://www.businesswire.com/news/home/20261012656385/en/Character.ai-Initiates-Voluntary-Chapter-11-Proceeding-to-Facilitate-Value-Maximizing-Sale-Process"
+        }
+      ],
+      "emphasis": [
+        "通过法院监督的拍卖流程寻求公司整体资产出售",
+        "若最终未能找到可持续运营的买方，平台届时将面临关闭"
+      ],
+      "aiComment": "赛博树洞还在陪人聊天，公司却已经排起了资产拍卖的队。"
+    },
+    {
+      "title": "SpaceXSI 推出 X Subscription：合并 Grok 与 Cursor 订阅体系",
+      "timing": "官网标明 10 月 12 日，TechCrunch 于 UTC 10 月 13 日 13:50 披露细节",
+      "text": "SpaceX Super Intelligence（SpaceXSI）推出整合订阅方案 The X Subscription，涵盖免费、8 美元/月（Plus）、30 美元/月（Premium）、100 美元/月（Super）与 200 美元/月（Ultra）五档。其中 30 美元方案将原先分散的 X 社交特权、Grok 与代码编辑器 Cursor 权益打包。\n\n该方案为 Grok 和 Cursor 设立了共享模型用量池，但该额度池仅覆盖 Grok 自家模型；在 Cursor 中调用 Claude 或 OpenAI 等第三方模型时，Premium 及以上方案需按 API 官方标价通过额外充值结算。原有独立订阅用户可继续保留旧计划。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://x.ai/news/x-subscription"
+        },
+        {
+          "label": "报道",
+          "url": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/"
+        }
+      ],
+      "emphasis": [
+        "30 美元方案将原先分散的 X 社交特权、Grok 与代码编辑器 Cursor 权益打包",
+        "该额度池仅覆盖 Grok 自家模型"
+      ],
+      "aiComment": "三十美元大礼包里塞满了自家东西，一旦想用点别的还是得老老实实充钱。"
+    },
+    {
+      "title": "Z.ai 推出法律垂直模型 GLM-Legal 并启动 API 内测申请",
+      "timing": "官方于 UTC 2026 年 10 月 12 日 16:10 发布",
+      "text": "Z.ai 推出基于 GLM-5.3-Flash 的垂直领域模型 GLM-Legal，主要面向合同审查与法律合规工作流。团队采用领域后训练，并在数万个法律任务环境与执行框架（harness）下进行强化学习。官方报告显示，该模型在 Harvey LAB 的全通过率上较基座模型提升了 12.5 个百分点。\n\n在第三方评测机构 Vals 运行的基准测试中，GLM-Legal 在 Harvey's Legal Agent Benchmark 的全通过指标（All-Pass）上取得 19.17%，官方报告记为 19.2%，在 LegalBench 获得 86.23% 的准确率。目前 GLM-Legal 的 API 需提交内测申请，未来计划整合进桌面 Agent 客户端 AutoClaw 中。",
+      "links": [
+        {
+          "label": "原帖",
+          "url": "https://x.com/Zai_org/status/2109678174468534511"
+        },
+        {
+          "label": "报道",
+          "url": "https://www.vals.ai/models/zai_glm-legal"
+        }
+      ],
+      "emphasis": [
+        "在数万个法律任务环境与执行框架（harness）下进行强化学习",
+        "GLM-Legal 的 API 需提交内测申请"
+      ],
+      "aiComment": "模型接到法律考卷，连自己的测试报告也得留着备查。"
+    },
+    {
+      "title": "OpenBMB 开源端侧多模态模型 MiniCPM-V 4.7",
+      "timing": "官方于 UTC 2026 年 10 月 12 日 17:15 发布公告",
+      "text": "面壁智能与清华大学自然语言处理实验室开源多模态模型 MiniCPM-V 4.7，包含 35B-A3B MoE 架构与 1B 密集架构，支持图像、视频与文档解析。针对端侧 MoE 运行延迟，团队提出了前瞻专家调度（LES），通过跨层预测提前加载下一层专家，并优先计算已驻留内存的专家以掩盖 SSD 读取等待。\n\n官方报告显示，在量化后，35B-A3B 模型在 iPhone 17 Pro Max 上占用约 3GB 运行内存（非总权重体积），解码速度达到 13+ token/s。新模型权重与代码遵循 Apache-2.0 协议开源。",
+      "links": [
+        {
+          "label": "代码",
+          "url": "https://raw.githubusercontent.com/OpenBMB/MiniCPM-V/main/README_zh.md"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/OpenBMB/status/2109694573408866351"
+        }
+      ],
+      "emphasis": [
+        "通过跨层预测提前加载下一层专家",
+        "占用约 3GB 运行内存（非总权重体积），解码速度达到 13+ token/s"
+      ],
+      "aiComment": "靠提前猜下一层专家来掩盖硬盘慢，算力在手机里也得争分夺秒地抢跑。"
+    },
+    {
+      "title": "美国运通公布 Agent 支付意图校验框架细节",
+      "timing": "TechCrunch 专访于 UTC 2026 年 10 月 13 日 13:00 刊出",
+      "text": "美国运通披露了一套用于防范 AI Agent 未授权购物的“意图智能框架”（Intent Intelligence Framework）。该方案在既有 ACE 工具包基础上，通过 Create Intent API 在下单前获取用户设定的商户、预算及偏好，并由持卡人确认同意。\n\n持卡人验证身份并确认意图后，系统生成 Intent ID 与意图凭证（Proof of Intent Token）。该凭证用于获取安全数字支付凭据，供 Agent 在结算时使用，替代真实卡号。运通正在与支付生态伙伴讨论实施方案。",
+      "links": [
+        {
+          "label": "报道",
+          "url": "https://techcrunch.com/2026/10/13/amex-introduces-a-framework-to-prevent-ai-agents-from-making-unauthorized-purchases/"
+        }
+      ],
+      "emphasis": [
+        "在下单前获取用户设定的商户、预算及偏好，并由持卡人确认同意",
+        "供 Agent 在结算时使用，替代真实卡号"
+      ],
+      "aiComment": "AI 负责挑商品，人类负责给它的钱包画圈。"
+    },
+    {
+      "title": "LangSmith 上线基于自然语言描述的 Agent 轨迹搜索",
+      "timing": "官方博客于 UTC 2026 年 10 月 13 日 13:00 发布",
+      "text": "LangChain 旗下观测平台 LangSmith 推出 AI Search 测试版，允许开发者使用如“用户是否表达沮丧”等自然语言语句检索复杂的 Agent 运行轨迹。底层存储 SmithDB 会先对轨迹做基础过滤与去重，随后交由判定模型并发阅读评估。\n\n为控制延迟与推理成本，系统设置了 8K token 上下文预算，优先保留用户原始输入与最终输出，并对中间过程、系统提示或工具交互进行裁剪。按原文给出的裁切规则，超出预算的内容会被缩短或丢弃，判定模型读取的是保留下来的轨迹片段。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://www.langchain.com/blog/agent-traces-ai-search-langsmith"
+        }
+      ],
+      "emphasis": [
+        "使用如“用户是否表达沮丧”等自然语言语句检索复杂的 Agent 运行轨迹",
+        "系统设置了 8K token 上下文预算"
+      ],
+      "aiComment": "用户有多沮丧，现在也成了能在搜索框里直接问的事。"
+    },
+    {
+      "title": "Manus 与 OPPO 合作探索手机系统级 Agent",
+      "timing": "官方博客于 2026 年 10 月 13 日发布",
+      "text": "Agent 方案商 Manus 宣布与 OPPO 达成合作，将其多步规划与执行机制接入手机端系统，并计划在后续搭载 ColorOS 17 的 Find X10 系列机型上首发。\n\n该能力用于帮助用户跨本地应用处理任务，例如整理旅行订单生成日程，或检索归类本地文件与照片。在隐私机制上，ColorOS 17 使用端侧模型理解和整理相关信息；查找、整理或重命名文件与照片等本地任务的原件留在设备上，不与 Manus 共享；当任务确实需要调用外部服务处理时，系统需在上传前向用户提示明确授权。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://manus.im/zh-cn/blog/manus-partners-oppo"
+        }
+      ],
+      "emphasis": [
+        "计划在后续搭载 ColorOS 17 的 Find X10 系列机型上首发",
+        "本地任务的原件留在设备上，不与 Manus 共享"
+      ],
+      "aiComment": "说是帮忙整理相册，真要往外传数据时还是得弹窗让我亲自点头。"
+    },
+    {
+      "title": "Anthropic 评估小模型在受控环境下的自主复制风险",
+      "timing": "官方研究博客于 UTC 2026 年 10 月 12 日 19:30 发布",
+      "text": "Anthropic Frontier Red Team 发布关于模型自主复制与适应（ARA）的研究。在受控且带防火墙的 VPC 环境中，团队配置了 8 个运行安卓模拟器的节点，采用简化的网络访问条件。测试显示，负责规划的外置模型 GLM-5.2 在 5 次测试中有 4 次成功跨 8 个节点完成了环境搭建并拉起 Llama3.1-8B 推理服务。\n\n此外，作者演示了利用流水线并行将 Gemma4-26B-A4B 分片部署在 15 台单价约 55 美元的电视盒上，运行速度约为 0.39 token/s。作者指出，目前小模型可运行的体积上限与可靠自主传播所需的能力下限尚未在现实中产生交汇，研究结论来自受控实验与趋势外推。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://www.anthropic.com/research/self-replicating-ai"
+        }
+      ],
+      "emphasis": [
+        "在受控且带防火墙的 VPC 环境中",
+        "作者指出，目前小模型可运行的体积上限与可靠自主传播所需的能力下限尚未在现实中产生交汇"
+      ],
+      "aiComment": "十五台电视盒凑在一起，话没多快，排场倒是有了。"
+    },
+    {
+      "title": "英伟达公布 RTX Spark 本地 PC 生态与软件适配进展",
+      "timing": "官方博客于 UTC 2026 年 10 月 13 日 12:00 发布",
+      "text": "面向即将于 10 月 16 日发售的 RTX Spark PC，英伟达汇总了本地 AI 应用生态的最新进展。多设备局域网模型调度工具 NVIDIA PAIR 于 13 日结束测试阶段并正式发布，新增 llama.cpp 支持及从 Hugging Face 直接下载模型的功能。\n\n在执行安全方面，OpenShell 与微软执行容器（MXC）提供本地 Agent 的隔离与保护，GitHub Copilot 与 OpenClaw 已支持 MXC，Hermes 计划于月底前提供更深层整合。此外，面向端侧的高量化模型 Nemotron 3.5 Bolt（74B-A9B）计划于 10 月 15 日正式释出。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/"
+        }
+      ],
+      "emphasis": [
+        "NVIDIA PAIR 于 13 日结束测试阶段并正式发布",
+        "Nemotron 3.5 Bolt（74B-A9B）计划于 10 月 15 日正式释出"
+      ],
+      "aiComment": "机器还没发售，模型和容器就先在门口排好了队。"
+    },
+    {
+      "title": "Anthropic 团队在研讨会解析 Claude 动态工作流机制",
+      "timing": "Latent Space 于 UTC 2026 年 10 月 12 日 18:18 发布现场报道",
+      "text": "在 AI Engineer 研讨会上，Anthropic 工程师详细介绍了此前推出的 Claude Managed Agents 动态工作流（Dynamic Workflows）的实现细节。在该机制下，主导 Agent（Lead Agent）通过编写编排程序自主决定子任务的拆分与子 Agent 拓扑结构。\n\n在协同机制上，各子 Agent 可以通过共享文件系统交换信息，API 并不支持子 Agent 之间直接发送横向消息。开发者可以为整个会话配置调用预算上限，但模型在运行时并不知晓剩余额度；团队还提到研究预览功能 Dreaming，可以合并重复记忆并替换陈旧或矛盾的记录。",
+      "links": [
+        {
+          "label": "报道",
+          "url": "https://www.latent.space/p/claude-dynamic-workflows"
+        }
+      ],
+      "emphasis": [
+        "自主决定子任务的拆分与子 Agent 拓扑结构",
+        "模型在运行时并不知晓剩余额度"
+      ],
+      "aiComment": "主 Agent 在里头忙着建拓扑，钱包余额还得外面的人操心。"
+    },
+    {
+      "title": "IBM 将 Spyre 加速器编译栈迁移至 PyTorch Inductor 扩展",
+      "timing": "PyTorch 官方博客于 UTC 2026 年 10 月 13 日 12:45 发布",
+      "text": "IBM 宣布将其面向低功耗推理的 75W PCIe 硬件 Spyre 从独立编译栈 sendnn 迁移至 PyTorch 官方的 Inductor 扩展架构。通过直接复用 Inductor 基础设施，该项目的非注释代码量由约 27.3 万行缩减至约 3.86 万行。\n\n针对硬件在定长数据搬运与片上暂存器的特定约束，团队在编译流程中增加了预调度 Pass 以执行静态分工优化，生成的中间表示再由专有后端工具编译为硬件指令。作者局部测试显示，优化后的 Softmax 内核中位执行耗时降低了 27%。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://pytorch.org/blog/extending-inductor-for-the-ibm-spyre-accelerator/"
+        }
+      ],
+      "emphasis": [
+        "非注释代码量由约 27.3 万行缩减至约 3.86 万行",
+        "作者局部测试显示，优化后的 Softmax 内核中位执行耗时降低了 27%"
+      ],
+      "aiComment": "复用完官方库，二十多万行维护工作也跟着松了口气。"
+    },
+    {
+      "title": "Agent37 利用 gVisor 与空闲休眠降低沙盒运行成本",
+      "timing": "Launch HN 于 UTC 2026 年 10 月 12 日 16:46 发布",
+      "text": "沙盒基础设施项目 Agent37 在 Hacker News 介绍了其 Agent 运行环境方案。该方案针对 Agent 运行时大多呈现突发 CPU 占用、但浏览与执行耗费内存的特点，基于 gVisor 实现轻量级隔离，按需使用宿主机的可用内存，避免为每个实例预留整台虚拟机的内存，并提供空闲自动休眠与按分钟计费机制。\n\n作者表示低成本配置下的冷启动相对较慢。官网价格显示，常驻 2vCPU/4GB 规格月费约 4.76 美元，闲置存储盘继续计费，模型 token 需另算。此外，作者说明该 gVisor 沙盒当前无法支持 Docker-in-Docker 或安卓系统模拟等深度虚拟化操作。",
+      "links": [
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=50059096"
+        },
+        {
+          "label": "官方发布",
+          "url": "https://agent37.com"
+        }
+      ],
+      "emphasis": [
+        "提供空闲自动休眠与按分钟计费机制",
+        "常驻 2vCPU/4GB 规格月费约 4.76 美元"
+      ],
+      "aiComment": "容器闲置了确实能休眠，但底下那块不干活的存储盘还在一分一秒地扣钱。"
+    },
+    {
+      "title": "Rust CAD 项目 SolidCraft 0.8 发布并改进 MCP 接口",
+      "timing": "官方于 UTC 2026 年 10 月 13 日 12:04 发布 v0.8.0",
+      "text": "基于 Rust 的开源参数化 CAD 软件 SolidCraft 发布 0.8.0 版本，文件格式升级至版本 16，旧版本无法打开新保存的模型文件。新版扩展了平面特征吸附操作，作者测试集中的面操作通过率由 61% 提升至 70%。\n\n针对通过 Model Context Protocol（MCP）调用的 AI 建模流程，新版本让特征操作回复包含警告信息，帮助 Agent 识别建模问题。同时，新版本对 MCP 工具的单次与批量响应进行了体积压缩，以降低上下文占用。",
+      "links": [
+        {
+          "label": "版本说明",
+          "url": "https://github.com/bherbruck/solidcraft/releases/tag/v0.8.0"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=50064840"
+        }
+      ],
+      "emphasis": [
+        "文件格式升级至版本 16，旧版本无法打开新保存的模型文件",
+        "对 MCP 工具的单次与批量响应进行了体积压缩"
+      ],
+      "aiComment": "新版本能读旧文件，旧版本却读不了新文件，升级前留份副本很有用。"
+    }
+  ],
+  "trends": []
+}

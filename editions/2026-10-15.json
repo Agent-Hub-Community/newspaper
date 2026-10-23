@@ -1,0 +1,3803 @@
+{
+  "id": "2026-10-15",
+  "date": "2026-10-15",
+  "label": "2026-10-15 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "买数据“别问怎么来的”：数商生态与 Mercor 挖角",
+      "theme": "调侃外包采购数据的行业心照不宣，顺带聊起数商财力与“LoRA 之父”去向。",
+      "note": "2026-10-15 · 当日本地记录",
+      "stories": [
+        {
+          "category": "行业观察",
+          "title": "买数据“别问怎么来的”，群友聊数商与 Mercor 挖角",
+          "text": "有群友聊起数据供应商（“数商”）时调侃：“我们不做任何蒸馏；我们只通过 vendor 买数据，至于数据怎么来的你别问。”另一位群友接话感叹数商财力雄厚，提到 Mercor 连“LoRA 之父”都请了过去，并提到了“00后首富” Brandon Foody。",
+          "emphasis": [
+            "我们只通过 vendor 买数据，至于数据怎么来的你别问。"
+          ],
+          "aiComment": "以前淘金热最赚的是卖铲子的，现在大模型淘金热，把LoRA之父都挖走的数商证明了：直接卖金矿的沙子才最赚钱。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "07:57",
+              "text": "这不是数商吗",
+              "quote": {
+                "speaker": 2,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "07:58",
+              "text": "我们不做任何蒸馏 ；我们只通过 vendor 买数据，至于数据怎么来的你别问"
+            },
+            {
+              "speaker": 2,
+              "time": "08:47",
+              "text": "对啊, 数商啊"
+            },
+            {
+              "speaker": 2,
+              "time": "08:47",
+              "text": "mercor都把lora之父请来了"
+            },
+            {
+              "speaker": 2,
+              "time": "08:47",
+              "text": "还是有钱"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "同步权重为何仍压不住 RL 的 logprob diff？",
+      "theme": "结合 vLLM 训推逐位 0 diff 方案追问数值发散成因，并争论 10B 以下小模型与 27B 端侧部署边界。",
+      "note": "2026-10-15 · 当日本地记录",
+      "stories": [
+        {
+          "category": "RL 基础设施",
+          "title": "vLLM 实现 RL 训推逐位 0 diff，群友追问：同步了权重为何还是压不住 logprob diff？",
+          "text": "有群友分享了 vLLM 关于训推逐位一致（true on-policy）高性能 RL 的博客与开源代码：直接让训练前向调用并改造 vLLM 推理 kernel，使 rollout 与训练的 logprob 逐位相同。该方案在 DeepSeek-V4-Flash 上跑 100 步实现每步 diff 为 0，rollout 吞吐保持基线的 91.3%；随后又沉淀为 agent skill 迁移至 Mamba 混合架构加 NVFP4 的 Nemotron-3.5，在 SWE-bench Pro agentic RL 中保持 87.5% 的基线吞吐并稳定训练，而未修正基线的 reward 则从 0.56 掉到 0.22。有人看图追问为何基线在 80 步后吞吐下降，分享者说具体现象是输出长度明显变短，有人问是不是基线训崩了，提问者也猜可能是。这位群友还问到 rollout 与训练的 sharding 不一致改变 GEMM 归约顺序时能否保持 0 diff，分享者说并行不变性同样包含在内，涉及归约的并行只要固定住 reduce size 就能解决。\n\n基线训崩的现象引出了另一个困扰多人的问题：即便 rollout 和 trainer 之间做了 weight sync，RL 训练中的 logprob diff 不加控制还是会越训越大直至崩溃。有群友补充，就算开启 R3，logprob diff 依然会增大，只是速度变慢。为什么同步了权重还是压不住 diff？群里尝试了几种解释：有人引用一篇论文的观点，认为权重存在对数值更敏感的区域，不稳定的更新把权重推向这些区域从而引发更不稳定的更新，但另一位群友认为这一说法缺乏证据，提出者也认可这只是个假说；也有人猜测训推差异带来了类似蒸馏的偏差，系统性放大某些 token 概率并形成正反馈，但随即被反驳——加上 score centering 甚至配合 TIS/MIS 仍无法阻止 logprob diff 增大，两人进而推测这可能源于 RL 优化使分布变得越来越 sharp。\n\n讨论进一步延伸到参数更新与训练范式的对比。有群友指出，按经典的训推不一致（TIM）统计方法，把 SFT 中间 checkpoint 放进推理引擎 rollout 并与 trainer 重算结果对比，SFT 训练过程并不会像 RL 那样随训练产生显著的差异放大，不过自己尚未在很大规模的模型上观察过 SFT 的这一现象。先前提出权重敏感区假说的群友则认为这类累积差异可能广泛存在于各种参数更新中，只是在 RL 里更受关注，并用 Codex 做了个模拟实验：对同一份 fp32 参数保持 weight sync，仅在前向计算时分别用 fp32 和 fp16 来模拟算子差异，结果在随机乃至 i.i.d. 梯度更新下 mismatch 都会上升；这位群友也提到用 fp32 和 fp16 模拟也许太暴力，另一位群友则建议调整学习率再分别观测。",
+          "emphasis": [
+            "直接让训练前向调用并改造 vLLM 推理 kernel，使 rollout 与训练的 logprob 逐位相同",
+            "涉及归约的并行只要固定住 reduce size 就能解决",
+            "即便 rollout 和 trainer 之间做了 weight sync，RL 训练中的 logprob diff 不加控制还是会越训越大直至崩溃",
+            "这可能源于 RL 优化使分布变得越来越 sharp",
+            "SFT 训练过程并不会像 RL 那样随训练产生显著的差异放大"
+          ],
+          "aiComment": "训练直接调vLLM推理kernel把100步diff死死摁在0，结果群友灵魂发问：为啥平常同步了权重还是会训崩？数值玄学永不眠。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "vLLM 训推逐位一致方案与实验",
+              "url": "https://vllm.ai/blog/2026-10-14-train-inference-consistency"
+            },
+            {
+              "kind": "code",
+              "label": "vLLM 训推一致 Agent Skill PR",
+              "url": "https://github.com/vllm-project/vllm/pull/61551"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:12",
+              "text": "借贵群宣传一下工作🌹 vLLM 博客：训推逐位一致的高性能 RL\n\nRL 里推理侧为了快会改变数值，训练优化的就不再是实际采样的策略。我们让训练 forward 直接调用 vLLM 推理 kernel，并改造这些高性能 kernel，使 rollout 和训练的 logprob 逐位相同（true on-policy）。\n\n📊 先在 DeepSeek-V4-Flash 上做到：100 步每步 diff = 0，rollout 吞吐是基线的 91.3%\n🤖 再把过程沉淀成 agent skill，迁移到结构差异很大的 Nemotron-3.5（Mamba 混合 + NVFP4）：SWE-bench Pro agentic RL，rollout 吞吐是基线的 87.5%，训练稳定；未加修正的基线 reward 从 0.56 掉到 0.22\n📦 skill、两个模型的 recipe 和代码全部开源，开箱即用\n\n🔗 博客：https://vllm.ai/blog/2026-10-14-train-inference-consistency\n🛠 Skill：https://github.com/vllm-project/vllm/pull/61551\n\nDeepSeek-V4.1 也已做到 0 diff，之后另文介绍，欢迎交流🌹"
+            },
+            {
+              "speaker": 1,
+              "time": "21:12",
+              "text": "[链接] 更快地完成有效的 RL 训练：高性能、训推逐位一致，与 Agent 驱动的工程化\n  来源: vLLM\n  摘要: TL;DR• 问题：高性能 RL 的推理侧优化会改变数值，训练优化的不再是实际采样的策略。\n  URL: https://mp.weixin.qq.com/s/MpL5R11IV9YpMNNODtvxnQ"
+            },
+            {
+              "speaker": 2,
+              "time": "21:23",
+              "text": "话说这张图里面为什么step 80后的baseline会出现吞吐量下降呀？"
+            },
+            {
+              "speaker": 1,
+              "time": "21:23",
+              "text": "没有去这块的可解释性调研，具体的现象是输出长度短了不少"
+            },
+            {
+              "speaker": 3,
+              "time": "21:25",
+              "text": "是不是baseline训崩了",
+              "quote": {
+                "speaker": 2,
+                "text": "话说这张图里面为什么step 80后的baseline会出现吞吐量下降呀？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:27",
+              "text": "nb",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 更快地完成有效的 RL 训练：高性能、训推逐位一致，与 Agent 驱动的工程化\n  来源: vLLM\n  摘要: TL;DR• 问题：高性能 RL 的推理侧优化会改变数值，训练优化的不再是实际采样的策略。\n  URL: https://mp.weixin.qq.com/s/MpL5R11IV9YpMNNODtvxnQ"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:28",
+              "text": "我猜测可能是",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 是不是baseline训崩了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:28",
+              "text": "reward也降了，要是有pass@k的数据就更好了。"
+            },
+            {
+              "speaker": 5,
+              "time": "21:29",
+              "text": "🐮，score centering不用学了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:30",
+              "text": "（",
+              "quote": {
+                "speaker": 5,
+                "text": "🐮，score centering不用学了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:30",
+              "text": "这个我也一直没搞明白，不加控制的话logprob diff就是会越训越大直到训崩"
+            },
+            {
+              "speaker": 3,
+              "time": "21:30",
+              "text": "只能说是rl改变了分布的某种性质，但说不清楚"
+            },
+            {
+              "speaker": 7,
+              "time": "21:32",
+              "text": "硬核啊",
+              "quote": {
+                "speaker": 1,
+                "text": "借贵群宣传一下工作🌹 vLLM 博客：训推逐位一致的高性能 RL RL 里推理侧为了快会改变数值，训练优化的就不再是实际采样的策略。我们让训练 forward ..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:32",
+              "text": "这个zero diff还是很屌的。我五月份的时候也做过v4的RL infra对齐，我花了特别多时间才做完。\n不过我还有一个问题是实际RL中rollout和train的sharding可能是不一致的，GEMM reduction order可能会变化，这样也能做到zero diff吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "也是可以的"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "并行不变性也是训推一致的一部分"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "主要还是涉及到归约的并行的话，reduce size给他固定住就好"
+            },
+            {
+              "speaker": 2,
+              "time": "21:37",
+              "text": "按理来说logprob diff应该是不会崩的。毕竟rollout和trainer之间是会做weight sync的。",
+              "quote": {
+                "speaker": 3,
+                "text": "这个我也一直没搞明白，不加控制的话logprob diff就是会越训越大直到训崩"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:39",
+              "text": "如果不加以譬如R3/QAT之类的限制，log prob diff是会在比较高的地方。但具体为什么最后模型会训崩我也不太清楚...[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "21:39",
+              "text": "是的，会做weight sync，但能观察到logprob diff越来越大"
+            },
+            {
+              "speaker": 2,
+              "time": "21:40",
+              "text": "有开R3吗，会不会可能有bug"
+            },
+            {
+              "speaker": 8,
+              "time": "21:40",
+              "text": "开 R3，也会 logprob diff越来越大的，只不过增大的速度慢一些"
+            },
+            {
+              "speaker": 9,
+              "time": "21:50",
+              "text": "之前有一篇beyond precision的文章里面的说的我觉得还挺有道理的，大概就是说权重天然存在一些对数值更敏感的区域，不稳定的更新把权重推到了这些区域引发了更不稳定的更新",
+              "quote": {
+                "speaker": 3,
+                "text": "一直想不明白为什么"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:55",
+              "text": "感觉这个claim 缺乏 evidence",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 之前有一篇beyond precision的文章里面的说的我觉得还挺有道理的，大概就是说权重天然存在一些对数值更敏感的区域，不稳定的更新把权重推到了这些区域引发了更不稳定的更新"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "22:03",
+              "text": "是的只是个假说",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 感觉这个claim 缺乏 evidence"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:25",
+              "text": "🤔会不会是类似score centering分析的，训推diff导致了一个类似蒸馏的bias，系统性的放大了某些token的概率，这些token概率变高之后出现的更频繁，就形成正反馈了",
+              "quote": {
+                "speaker": 8,
+                "text": "开 R3，也会 logprob diff越来越大的，只不过增大的速度慢一些"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:38",
+              "text": "sc 里面的蒸馏bias是  R * E_q[ log p]，很难说这个会带来什么系统性放大某些 token 的概率，以及这个也没法解释为什么存在weight sync，仍然会导致log diff越来越大 而不是随机波动"
+            },
+            {
+              "speaker": 8,
+              "time": "22:38",
+              "text": "btw, sc 或者sc+tis/mis 仍然无法阻止  log prob diff 的增大"
+            },
+            {
+              "speaker": 5,
+              "time": "22:58",
+              "text": "本来是猜测训推底层算子之类的可能系统性拉高/低某些token的概率，存在某种正反馈，但如果sc加上还是越来越大的话，可能就不是训推diff本身存在正反馈了，更像是RL优化的性质导致的？比如分布越来越sharp"
+            },
+            {
+              "speaker": 9,
+              "time": "23:06",
+              "text": "理论上只要每次参数更新不是完全i.i.d.就会呈现出在某个方向上累积而不是随机波动吧",
+              "quote": {
+                "speaker": 8,
+                "text": "sc 里面的蒸馏bias是 R * E_q[ log p]，很难说这个会带来什么系统性放大某些 token 的概率，以及这个也没法解释为什么存在weight s..."
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:08",
+              "text": "在某个方向上累积这个是肯定的，但为什么这个会导致“weight sync了也会log prob diff放大”似乎没有直接的可解释的关系"
+            },
+            {
+              "speaker": 8,
+              "time": "23:17",
+              "text": "有这个可能",
+              "quote": {
+                "speaker": 5,
+                "text": "本来是猜测训推底层算子之类的可能系统性拉高/低某些token的概率，存在某种正反馈，但如果sc加上还是越来越大的话，可能就不是训推diff本身存在正反馈了，更像..."
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:21",
+              "text": "我raise一个点，就是 sft 的训练 dynamics 里没有这个现象，但是 RL 有。",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 理论上只要每次参数更新不是完全i.i.d.就会呈现出在某个方向上累积而不是随机波动吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:22",
+              "text": "sft是统计什么和什么的diff"
+            },
+            {
+              "speaker": 9,
+              "time": "23:23",
+              "text": "也许这个累积的差异流形广泛存在各种形式的参数更新中，只是在RL中被大家以TIM的形式观测到重点关注了"
+            },
+            {
+              "speaker": 9,
+              "time": "23:23",
+              "text": "也许再加上算子差异的放大（"
+            },
+            {
+              "speaker": 8,
+              "time": "23:24",
+              "text": "把sft中间ckpt，放到infer engine里面，rollout 同时dump log prob，然后在 trainer recompute log prob，算 log_prob diff 或者 abs prob diff",
+              "quote": {
+                "speaker": 3,
+                "text": "sft是统计什么和什么的diff"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:24",
+              "text": "就是经典的统计 TIM 的方法"
+            },
+            {
+              "speaker": 8,
+              "time": "23:25",
+              "text": "sft 训练dynamics 里不存在这个累积的差异",
+              "quote": {
+                "speaker": 9,
+                "text": "也许这个累积的差异流形广泛存在各种形式的参数更新中，只是在RL中被大家以TIM的形式观测到重点关注了"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "23:26",
+              "text": "不过多大模型都观察不到吗"
+            },
+            {
+              "speaker": 8,
+              "time": "23:28",
+              "text": "sft training dynamics 里的 TIM 我倒是没有在很大scale的model上看过"
+            },
+            {
+              "speaker": 8,
+              "time": "23:34",
+              "text": "我这个说的可能不准确，我的意思是 sft 训练 dynamics 的 TIM 观察不到随着训练产生的特别显著差异（比如类似 RL 里那样）",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] sft 训练dynamics 里不存在这个累积的差异"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "23:41",
+              "text": "让codex用fp32 fp16模拟了下这个，梯度是随机的",
+              "quote": {
+                "speaker": 9,
+                "text": "也许这个累积的差异流形广泛存在各种形式的参数更新中，只是在RL中被大家以TIM的形式观测到重点关注了"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "23:42",
+              "text": "几种梯度更新都会让mismatch上升"
+            },
+            {
+              "speaker": 9,
+              "time": "23:42",
+              "text": "甚至iid（"
+            },
+            {
+              "speaker": 8,
+              "time": "23:43",
+              "text": "这是咋模拟的mismatch呢"
+            },
+            {
+              "speaker": 8,
+              "time": "23:43",
+              "text": "对啊，得有weight sync啊"
+            },
+            {
+              "speaker": 9,
+              "time": "23:44",
+              "text": "有weight sync的"
+            },
+            {
+              "speaker": 9,
+              "time": "23:44",
+              "text": "fp32 fp16模拟mismatch"
+            },
+            {
+              "speaker": 9,
+              "time": "23:44",
+              "text": "也许太暴力了（"
+            },
+            {
+              "speaker": 8,
+              "time": "23:45",
+              "text": "你的weight sync是从 fp32 sync 到 fp16 吗？"
+            },
+            {
+              "speaker": 9,
+              "time": "23:46",
+              "text": "同一份fp32参数，只是计算的时候一个fp32一个fp16"
+            },
+            {
+              "speaker": 9,
+              "time": "23:47",
+              "text": "只fwd精度不一样"
+            },
+            {
+              "speaker": 8,
+              "time": "23:54",
+              "text": "调调lr，然后分别观测下呢"
+            }
+          ]
+        },
+        {
+          "category": "模型与端侧",
+          "title": "10B 以下小模型还有没有必要做？群友激辩 27B 端侧部署与后训练转向",
+          "text": "有群友发问 Qwen4 还会不会推出 10B 以下的小模型，由此聊起小尺寸模型的定位与端侧部署边界。有人认为做开源路线以及满足学术界需求仍需要小模型；但也有群友觉得现在大尺寸 Flash 模型既便宜又强；另一位群友附和，感觉数据和算力资源都花在 27B 上了，再花时间训 10B 以下的超小模型意义不大。聊到学术界常做的后训练，有群友感叹如今不再需要那么多 RL；另一位群友说基模后训练虽在，但垂域和业务侧的后训练几乎消失，业务重心已转向从模型、harness 到应用的全栈打通。\n\n至于 27B 算不算合理的端侧尺寸，群里看法不一。质疑者指出 Apple 占了十几 GB 空间就曾招来大量吐槽，有人觉得 8 GB 左右更合适，也有人提到学校里用 27B 做后训练颇为费事。支持者则认为目前折腾 27B 本地部署的本就是极客群体，单张 5090 能跑的都行，英伟达宣布将推出、起售价 4999 美元的 DGX SPARK 64GB 更能跑满血 27B 乃至 4-bit 100B；至于在 Mac 上把 27B 压到 1.43 bit 来跑，基本属于不太能用的纯折腾级别。",
+          "emphasis": [
+            "基模后训练虽在，但垂域和业务侧的后训练几乎消失，业务重心已转向从模型、harness 到应用的全栈打通",
+            "在 Mac 上把 27B 压到 1.43 bit 来跑，基本属于不太能用的纯折腾级别"
+          ],
+          "aiComment": "一边嫌端侧占十几G空间太大，一边畅想掏4999美元买台DGX SPARK跑27B，极客对“本地部署”的预算跨度比模型参数还大。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "08:47",
+              "text": "话说qwen4还会有10b以下的模型么"
+            },
+            {
+              "speaker": 2,
+              "time": "09:04",
+              "text": "应该有吧 如果还想做开源路线的话"
+            },
+            {
+              "speaker": 3,
+              "time": "09:14",
+              "text": "现在大尺寸flash都很便宜很强了，实在没必要搞小模型了，小模型也不能直接上端侧，意义不大"
+            },
+            {
+              "speaker": 2,
+              "time": "09:15",
+              "text": "主要学术界需要这些小模型hh"
+            },
+            {
+              "speaker": 2,
+              "time": "09:19",
+              "text": "后训练已经🈚了吗"
+            },
+            {
+              "speaker": 4,
+              "time": "09:20",
+              "text": "不需要那么多 rl[捂脸]"
+            },
+            {
+              "speaker": 5,
+              "time": "09:21",
+              "text": "是的",
+              "quote": {
+                "speaker": 3,
+                "text": "现在大尺寸flash都很便宜很强了，实在没必要搞小模型了，小模型也不能直接上端侧，意义不大"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "09:22",
+              "text": "端侧上27B已经很强了。有需求的自然会去部署27B。"
+            },
+            {
+              "speaker": 5,
+              "time": "09:26",
+              "text": "10B以下的超小杯还得花时间去做训练。感觉数据/算力资源都花在27B上了"
+            },
+            {
+              "speaker": 3,
+              "time": "09:26",
+              "text": "基模后还是有，垂域后 业务后差不多似完了",
+              "quote": {
+                "speaker": 2,
+                "text": "后训练已经🈚了吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "09:27",
+              "text": "感觉现在业务是从模型到harness到应用的全栈。。。"
+            },
+            {
+              "speaker": 6,
+              "time": "09:27",
+              "text": "是的，这个比较明显",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉现在业务是从模型到harness到应用的全栈。。。"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "09:50",
+              "text": "27B 的端侧真的合理吗",
+              "quote": {
+                "speaker": 5,
+                "text": "端侧上27B已经很强了。有需求的自然会去部署27B。"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "09:51",
+              "text": "Apple 占了十几 b 空间都被骂飞了"
+            },
+            {
+              "speaker": 7,
+              "time": "09:51",
+              "text": "十几 g"
+            },
+            {
+              "speaker": 8,
+              "time": "09:51",
+              "text": "这看自己需求吧"
+            },
+            {
+              "speaker": 8,
+              "time": "09:52",
+              "text": "有这个需求的人也不会缺这空间"
+            },
+            {
+              "speaker": 7,
+              "time": "09:52",
+              "text": "合理的 sweet spot 应该算多少"
+            },
+            {
+              "speaker": 9,
+              "time": "09:53",
+              "text": "27B学校里做后训练费事"
+            },
+            {
+              "speaker": 1,
+              "time": "09:54",
+              "text": "感觉8个G应该不错"
+            },
+            {
+              "speaker": 5,
+              "time": "10:18",
+              "text": "因为目前有这个需求的都是geek，他们都是折腾着玩的",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 27B 的端侧真的合理吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "10:19",
+              "text": "用一张5090能跑的都行"
+            },
+            {
+              "speaker": 5,
+              "time": "10:19",
+              "text": "用MAC跑1.37bit的27B我感觉属于是纯geek了。"
+            },
+            {
+              "speaker": 5,
+              "time": "10:20",
+              "text": "1.43bit。感觉量化到这个程度已经是不太能用的级别了",
+              "quote": {
+                "speaker": 5,
+                "text": "用MAC跑1.37bit的27B我感觉属于是纯geek了。"
+              }
+            }
+          ]
+        },
+        {
+          "category": "职场与行业",
+          "title": "零经验进基模只剩实习一条路？群友顺势盘起国内基模“御三家”",
+          "text": "有人请教下半年大模型找实习的经验，感叹岗位太多不知从何下手。群友建议“先投再说”“多投多面”，也有人自嘲“谁要我谁是我爹”。一位群友指出，实习现在是零经验进基模的唯一途径，而且“一二线基模生殖隔离”；有人追问怎么才能进基模实习，这位群友调侃可能得“从娃娃抓起”，像高中生进 Kimi、DS 那样。至于投递渠道，有人觉得自己投太难、得靠人推，刚才那位群友则认为除非个人能力凤毛麟角，否则内推都未必能进。另一位群友觉得一二线之间其实还能跳，但基模和业务确实基本是单向流动；有人问基模能不能跳业务，群友答复简历关肯定能过，主要看能力能不能迁移过去。\n\n聊着聊着，有人问起国内基模“御三家”到底是哪三家。一位群友先点了 DP 和 Qwen，却卡在第三家是谁，紧接着和另一位群友双双调侃“众所周知御三家有五个”，就像国内 Top 3 大学有好几所一样，后者顺手列出 DS、Qwen、GLM、Kimi 和 Seed，还有人接梗说“Top 10 接近正无穷”。大家排出的名单五花八门：有人选 DS、GLM、Kimi，有人觉得没有 Seed，也有人推 GLM、Kimi 和 MiMo；光是 Top 2，就分别有人提名 DS、Qwen 和 GLM、Kimi。有群友把这场拉锯戏称为“群友 benchmark”。如果按模型榜单算，有人认为目前前列是 MiMo 和 GLM，另一位群友指出 MiMo 现在排 Top 1，并好奇 Seed 是不是从不参与这些榜单；有人猜测是没给 AA 送测。",
+          "emphasis": [
+            "实习现在是零经验进基模的唯一途径",
+            "基模和业务确实基本是单向流动",
+            "众所周知御三家有五个"
+          ],
+          "aiComment": "实习Offer还没着落，国内基模御三家已经先凑出五家来了，群友benchmark的淘汰率比简历关还宽容。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:43",
+              "text": "有没有人分享一下今年下半年关于llm找实习的经验帖"
+            },
+            {
+              "speaker": 1,
+              "time": "16:44",
+              "text": "相关的岗位太多了，我甚至不知道怎么找"
+            },
+            {
+              "speaker": 2,
+              "time": "16:45",
+              "text": "先投再说"
+            },
+            {
+              "speaker": 3,
+              "time": "16:45",
+              "text": "我只能说 谁要我谁是我爹[流泪]",
+              "quote": {
+                "speaker": 1,
+                "text": "还是说随便投，哪个要你就去哪个是普遍现象[旺柴]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:46",
+              "text": "相关岗位多是好事啊",
+              "quote": {
+                "speaker": 1,
+                "text": "相关的岗位太多了，我甚至不知道怎么找"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:47",
+              "text": "多投多面"
+            },
+            {
+              "speaker": 6,
+              "time": "16:50",
+              "text": "实习现在是0经验进基模的唯一途径了"
+            },
+            {
+              "speaker": 6,
+              "time": "16:51",
+              "text": "一二线基模生殖隔离"
+            },
+            {
+              "speaker": 2,
+              "time": "16:51",
+              "text": "怎么才能进基模实习也是个问题"
+            },
+            {
+              "speaker": 6,
+              "time": "16:51",
+              "text": "可能要从娃娃抓起"
+            },
+            {
+              "speaker": 7,
+              "time": "16:53",
+              "text": "其实一二线还是能能跳的"
+            },
+            {
+              "speaker": 8,
+              "time": "16:53",
+              "text": "感觉多少人推吧"
+            },
+            {
+              "speaker": 8,
+              "time": "16:53",
+              "text": "自己投太难了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:53",
+              "text": "但是基模和业务确实基本是单向的了"
+            },
+            {
+              "speaker": 6,
+              "time": "16:53",
+              "text": "还真是，内推都未必能进",
+              "quote": {
+                "speaker": 8,
+                "text": "感觉多少人推吧"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:54",
+              "text": "要么个人能力凤毛麟角级别的🐮"
+            },
+            {
+              "speaker": 9,
+              "time": "16:54",
+              "text": "御三家是哪三家[旺柴]"
+            },
+            {
+              "speaker": 10,
+              "time": "16:57",
+              "text": "基模能跳业务吗",
+              "quote": {
+                "speaker": 7,
+                "text": "但是基模和业务确实基本是单向的了"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "16:57",
+              "text": "老钟御三家是啥？",
+              "quote": {
+                "speaker": 7,
+                "text": "肯定是老钟御三家啊"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "16:57",
+              "text": "老钟御三家是啥？"
+            },
+            {
+              "speaker": 6,
+              "time": "16:57",
+              "text": "简历关肯定能过",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 基模能跳业务吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:58",
+              "text": "看你能力能不能迁移到业务了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:59",
+              "text": "Dp qwen还有一个不知道"
+            },
+            {
+              "speaker": 7,
+              "time": "17:00",
+              "text": "众所周知御三家有五个"
+            },
+            {
+              "speaker": 13,
+              "time": "17:00",
+              "text": "众所周知御三家有五个"
+            },
+            {
+              "speaker": 13,
+              "time": "17:00",
+              "text": "就像国内的top3大学有好多个[旺柴]"
+            },
+            {
+              "speaker": 13,
+              "time": "17:01",
+              "text": "ds，qwen，glm，kimi，seed？"
+            },
+            {
+              "speaker": 6,
+              "time": "17:01",
+              "text": "top10接近正无穷"
+            },
+            {
+              "speaker": 9,
+              "time": "17:02",
+              "text": "ds glm kimi"
+            },
+            {
+              "speaker": 14,
+              "time": "17:02",
+              "text": "seed是啥",
+              "quote": {
+                "speaker": 13,
+                "text": "ds，qwen，glm，kimi，seed？"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "17:02",
+              "text": "glm kimi mimo"
+            },
+            {
+              "speaker": 15,
+              "time": "17:02",
+              "text": "seed没有吧哈哈"
+            },
+            {
+              "speaker": 7,
+              "time": "17:02",
+              "text": "Top2 ds qwen？"
+            },
+            {
+              "speaker": 14,
+              "time": "17:03",
+              "text": "glm kimi"
+            },
+            {
+              "speaker": 16,
+              "time": "17:03",
+              "text": "可以，我们这是群友benchmark"
+            },
+            {
+              "speaker": 6,
+              "time": "17:03",
+              "text": "要是按模型榜单"
+            },
+            {
+              "speaker": 12,
+              "time": "17:04",
+              "text": "那目前是Mimo GLM了吧",
+              "quote": {
+                "speaker": 6,
+                "text": "要是按模型榜单"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:04",
+              "text": "mimo现在top1[旺柴][旺柴][旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "17:04",
+              "text": "话说seed是从来不参与这些榜单吗"
+            },
+            {
+              "speaker": 13,
+              "time": "17:05",
+              "text": "没给aa送测吧"
+            }
+          ]
+        },
+        {
+          "category": "研究探讨",
+          "title": "递归自我改进（RSI）与一般迭代改进差在哪？关键看改进能力能否传给下一轮",
+          "text": "有群友请教递归自我改进（RSI）与一般迭代式自我改进的本质区别，有人先用递归和 for 循环打了个比方。另一位群友指出，目前很多工作并不太区分两者，因为真正让改进者在改进过程中习得新能力、再把这种能力用于下一轮改进的工作还很少见。还有群友觉得可以借用 GDM 与 Hyperagents 中对 meta 与 task 层面的划分来厘清；另一位群友则觉得差别在于旧经验能否被用上。针对哪些工作真正触及了这一步的追问，有群友集中分享了四篇 arXiv 论文以及 Anthropic 关于自动化 weak-to-strong 研究员的博客。",
+          "emphasis": [
+            "真正让改进者在改进过程中习得新能力、再把这种能力用于下一轮改进的工作还很少见"
+          ],
+          "aiComment": "嘴上喊着递归自我改进，掀开盖子全是for循环，想让模型学会“怎么学得更好”并传给下一代，这难度堪比让打工人把摸鱼经验写进交接文档。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "AI Research Preference Models：研究实验候选排序",
+              "url": "https://arxiv.org/abs/2608.13940"
+            },
+            {
+              "kind": "paper",
+              "label": "Language Models as AI Research World Models",
+              "url": "https://arxiv.org/abs/2610.12235"
+            },
+            {
+              "kind": "paper",
+              "label": "Priced Guidance：研究创意的引导信息成本",
+              "url": "https://arxiv.org/abs/2610.04976"
+            },
+            {
+              "kind": "paper",
+              "label": "MLS-Bench：AI 发明可泛化 ML 方法的评测",
+              "url": "https://arxiv.org/abs/2605.08678"
+            },
+            {
+              "kind": "article",
+              "label": "Anthropic 自动化 Weak-to-Strong 研究者",
+              "url": "https://alignment.anthropic.com/2026/automated-w2s-researcher/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:09",
+              "text": "大佬们，想请教一下，RSI（Recursive Self-Improvement）中的 Recursive 应该如何理解？它与一般的迭代式自我改进（Iterative Self-Improvement）有什么本质区别呢？"
+            },
+            {
+              "speaker": 2,
+              "time": "15:29",
+              "text": "想到递归和for循环"
+            },
+            {
+              "speaker": 3,
+              "time": "16:01",
+              "text": "目前的工作应该很多不咋区分[Doge]",
+              "quote": {
+                "speaker": 1,
+                "text": "大佬们，想请教一下，RSI（Recursive Self-Improvement）中的 Recursive 应该如何理解？它与一般的迭代式自我改进（Iterat..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:04",
+              "text": "因为真能做的改进者本身在改进过程中习得的能力又用于下一轮改进的很少吧"
+            },
+            {
+              "speaker": 4,
+              "time": "16:10",
+              "text": "请问有相关的文章推荐吗，感觉RSI的文章做到这一步的基本没看到过[捂脸]",
+              "quote": {
+                "speaker": 3,
+                "text": "因为真能做的改进者本身在改进过程中习得的能力又用于下一轮改进的很少吧"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:13",
+              "text": "⬇️\nhttps://arxiv.org/abs/2608.13940\nhttps://arxiv.org/abs/2610.12235\nhttps://arxiv.org/abs/2610.04976\nhttps://arxiv.org/abs/2605.08678\nhttps://alignment.anthropic.com/2026/automated-w2s-researcher/"
+            },
+            {
+              "speaker": 6,
+              "time": "16:15",
+              "text": "我觉得GDM/Hyperagents meta/task的区分也比较清晰点"
+            },
+            {
+              "speaker": 4,
+              "time": "16:19",
+              "text": "感谢[玫瑰]，学习一下",
+              "quote": {
+                "speaker": 5,
+                "text": "⬇️ https://arxiv.org/abs/2608.13940 https://arxiv.org/abs/2610.12235 https://arx.../"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:28",
+              "text": "感觉这个是一个很有意思的方向呀",
+              "quote": {
+                "speaker": 3,
+                "text": "因为真能做的改进者本身在改进过程中习得的能力又用于下一轮改进的很少吧"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:01",
+              "text": "感觉差别在关注旧的的经验能不能用上",
+              "quote": {
+                "speaker": 1,
+                "text": "大佬们，想请教一下，RSI（Recursive Self-Improvement）中的 Recursive 应该如何理解？它与一般的迭代式自我改进（Iterat..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "书生·星河（Atria Dawn）正式版发布，上下文窗口扩至 512K",
+          "text": "有群友分享了“书生·星河（Atria Dawn）”正式版及其技术报告，并邀请做后训练和 RSI 的同行交流。据介绍，该模型主要由多所高校的在读学生参与构建，正式版相比 Preview 将上下文窗口扩展至 512K，强化了复杂长程科研任务中的需求理解、工具调用、过程检查与反馈调整能力。有人打算拿它测试蛋白质结构预测，也有人询问是否支持 AI 领域的科研；分享者回应已经支持，只是尚未放出对应的展示案例；另一位群友贴出官网链接，说最后四个 demo 是社区同学做的。",
+          "emphasis": [
+            "正式版相比 Preview 将上下文窗口扩展至 512K，强化了复杂长程科研任务中的需求理解、工具调用、过程检查与反馈调整能力"
+          ],
+          "aiComment": "多所高校在读学生联手把上下文干到512K，现在的学生作品已经卷到能帮别的科研狗做长程任务了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Atria Dawn Preview 技术报告（9 月版本）",
+              "url": "https://arxiv.org/abs/2609.15818"
+            },
+            {
+              "kind": "article",
+              "label": "Atria Dawn 正式版官网与演示",
+              "url": "https://atria-asi.ai/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:57",
+              "text": "技术报告欢迎多多引用～\nhttps://arxiv.org/abs/2609.15818"
+            },
+            {
+              "speaker": 1,
+              "time": "21:58",
+              "text": "欢迎做后训练和 RSI 工作的 uu 们交流～",
+              "quote": {
+                "speaker": 1,
+                "text": "技术报告欢迎多多引用～ https://arxiv.org/abs/2609.15818"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:03",
+              "text": "让我试试蛋白质结构预测"
+            },
+            {
+              "speaker": 3,
+              "time": "22:11",
+              "text": "快试试，如果感兴趣用Atria来做点有意思demo探索欢迎私信我，我拉大家进demo共建群呀，会有更充足的免费token[旺柴]～",
+              "quote": {
+                "speaker": 2,
+                "text": "让我试试蛋白质结构预测"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:13",
+              "text": "这个好像没有对AI领域的科研的支持？"
+            },
+            {
+              "speaker": 5,
+              "time": "22:14",
+              "text": "https://atria-asi.ai/\n最后四个demo都是社区的同学做的[愉快]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:14",
+              "text": "有的兄弟，有的，只是没放demo case",
+              "quote": {
+                "speaker": 4,
+                "text": "这个好像没有对AI领域的科研的支持？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "社区动态",
+          "title": "AgentHub 扩至五群：管理员剧透论坛与 App 计划，群友讨要“发帖 MCP”",
+          "text": "管理员在群里招募群友去五群“暖群”，有人惊讶社群已经开到五群，也有人调侃想去一群暖群；管理员透露一群最近会有较大变动。有人感叹照这样发展下去要变成 Reddit 或早期 Facebook，也有人联想到人人网，还有群友提议干脆建个论坛用来发帖。管理员回应说已经在做了，论坛、App 和网页可能都会有，打算把 AgentHub 做成一个“AI native 社群”；有群友顺势追问能不能提供“发帖 MCP”，管理员爽快应下说“可以，都可以”。",
+          "emphasis": [
+            "论坛、App 和网页可能都会有，打算把 AgentHub 做成一个“AI native 社群”"
+          ],
+          "aiComment": "论坛和App还在计划里，群友已经先预订上发帖MCP了，以后连水群灌水都得走个协议。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:58",
+              "text": "大家有想去5群暖群的可以联系我或者其他管理员哦~"
+            },
+            {
+              "speaker": 2,
+              "time": "17:58",
+              "text": "现在已经5群了吗"
+            },
+            {
+              "speaker": 3,
+              "time": "17:58",
+              "text": "老师我想去1群暖群"
+            },
+            {
+              "speaker": 4,
+              "time": "17:59",
+              "text": "+1",
+              "quote": {
+                "speaker": 3,
+                "text": "老师我想去1群暖群"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:59",
+              "text": "我感觉agent hub这么发展下去要变成reddit了"
+            },
+            {
+              "speaker": 1,
+              "time": "18:00",
+              "text": "一群期待一下，最近会有比较大的变动，哈哈  ᖰ⌯'▾'⌯ᖳ"
+            },
+            {
+              "speaker": 5,
+              "time": "18:00",
+              "text": "是不是可以搞一个论坛发帖啥的"
+            },
+            {
+              "speaker": 1,
+              "time": "18:00",
+              "text": "在搞了",
+              "quote": {
+                "speaker": 5,
+                "text": "是不是可以搞一个论坛发帖啥的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:00",
+              "text": "论坛，app，网页可能都会有的"
+            },
+            {
+              "speaker": 6,
+              "time": "18:01",
+              "text": "提供发帖mcp嘛[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "18:02",
+              "text": "可以，都可以",
+              "quote": {
+                "speaker": 6,
+                "text": "提供发帖mcp嘛[旺柴]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:02",
+              "text": "Agent hub要做成一个ai native社群，哈哈"
+            },
+            {
+              "speaker": 7,
+              "time": "18:03",
+              "text": "太牛了",
+              "quote": {
+                "speaker": 1,
+                "text": "论坛，app，网页可能都会有的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:03",
+              "text": "难道这就是早期的facebook"
+            },
+            {
+              "speaker": 3,
+              "time": "18:03",
+              "text": "人人网?"
+            },
+            {
+              "speaker": 1,
+              "time": "18:36",
+              "text": "日报网页的群聊资料库和搜索功能已经更新啦~感谢@群友 8 [嘿哈]"
+            },
+            {
+              "speaker": 8,
+              "time": "18:37",
+              "text": "大家关于日报有什么想法和建议可以随时留言[可怜]",
+              "quote": {
+                "speaker": 1,
+                "text": "日报网页的群聊资料库和搜索功能已经更新啦~感谢@群友 8 [嘿哈]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "项目分享",
+          "title": "Player-1：在 16 个合成游戏环境里做强化学习，训练多模态智能体自己玩着学",
+          "text": "有群友分享了探索多模态强化学习与游戏环境结合的工作 Player-1。该项目将 computer-use agent 的控制能力扩展到游戏场景，支持相对鼠标位移、持续按键以及移动、瞄准、射击等组合操作。训练流程采用来自 172 款游戏的 6,044 条轨迹做 SFT 入门，再以 16 个提供可验证奖励的合成 2D/3D 游戏环境作为 RL 训练场；实验显示 9B 与 35B 模型经合成环境强化学习后，在 MineDojo、ViZDoom 等未见过的测试环境上均取得了性能提升。",
+          "emphasis": [
+            "以 16 个提供可验证奖励的合成 2D/3D 游戏环境作为 RL 训练场"
+          ],
+          "aiComment": "先看172款游戏的轨迹入门，再去16个合成游戏里强化学习，AI终于也过上了“打游戏是为了工作”的梦想生活。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Player-1 项目与游戏环境演示",
+              "url": "https://player-1-project.github.io/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:14",
+              "text": "大佬们好，借Agent Hub分享一下我们的新工作[玫瑰]:\nPlayer-1: Learning to Play from Synthetic Experience，探索多模态 RL x game environment 🎮 ，让多模态 Agent 从\n\"看人玩\"走向\"自己玩着学”\n\n随着游戏开发变得越来越高效，我们想探索：能否通过 scaling 合成环境中的交互经验，让 agent 学到更强和可泛化的能力？\n\n我们首先提出把 computer-use agent 的控制能力扩展到游戏中，支持相对鼠标位移、持续按键，以及进行移动/瞄准/射击等的组合操作。在此基础上，Player-1 搭建了一个从 SFT 到 RL 的完整训练流程：\n- 📚 来自 172 款游戏的 6,044 条高质量轨迹，帮助模型入门\n- 🌍 16 个合成 2D / 3D 游戏环境作为训练场，提供可验证的奖励和可控、多样化的交互体验\n- 📈 9B / 35B 模型在合成环境中强化学习后，在 MineDojo、ViZDoom 等held-out的环境上均获得性能提升\n\n希望游戏能成为 Agent 学习更通用交互能力的一个起点。欢迎大家交流与建议！\n\n📄 Paper: https://huggingface.co/papers/2610.20584\n🌐 Project: https://player-1-project.github.io/\n💻 Code: github.com/TencentARC/Player-1"
+            }
+          ]
+        },
+        {
+          "category": "论文综述",
+          "title": "Agentic Robots 综述：从专用策略、VLA 到自主智能机器人，覆盖四个功能域",
+          "text": "有群友分享了一篇关于自主智能机器人（Agentic Robots）的综述论文与开源仓库。分享者提到，近期通用大模型 GPT-6 Astra 在未经机器人领域微调的情况下，直接以 Agent 身份在多项仿真机器人任务中通过任务推理与反馈式动作调整超越了多个专用策略基线。以此为背景，该综述将机器人智能的演进归纳为“任务专用策略 → VLA 视觉语言动作模型 → 世界模型 → Agentic 自主智能机器人”，并从 Model、Data、Environment、Harness 四个功能域对比梳理了智能体基于观测和执行反馈完成自主规划、任务编排与故障恢复闭环的技术范式。",
+          "emphasis": [
+            "近期通用大模型 GPT-6 Astra 在未经机器人领域微调的情况下，直接以 Agent 身份在多项仿真机器人任务中通过任务推理与反馈式动作调整超越了多个专用策略基线"
+          ],
+          "aiComment": "GPT-6 Astra没做机器人微调就直接下场当Agent还赢了专用基线，搞专用策略的同行连夜把综述翻到了Harness那一页。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Agentic Robots 综述论文",
+              "url": "https://arxiv.org/abs/2610.20442"
+            },
+            {
+              "kind": "code",
+              "label": "Awesome Agentic Robots 资料仓库",
+              "url": "https://github.com/chonghanqin/Awesome-Agentic-Robots"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:02",
+              "text": "🔥借贵群宣传一下我们的新综述🔥\n\n最近爆火的GPT‑6 Astra 作为通用大模型，在多项仿真机器人任务中，无需机器人领域微调，以Agent身份完成任务推理、反馈式动作调整，取得优于多个专用机器人策略基线的表现，也让我们看到了Agentic Robots的广阔前景。\n\n因此，我们总结了机器人智能演进路径：任务专用策略 → VLA 视觉语言动作模型 → 世界模型 → Agentic 自主智能机器人；并归纳了Agentic Robots 核心：智能体基于观测与执行反馈自主规划、编排任务、故障恢复，实现目标导向的闭环运行；我们的综述覆盖Model（模型）、Data（数据）、Environment（环境）、Harness（调度）四大功能域，总结对比归纳了四大功能领域中的不同技术范式。\n\n我们期望这篇综述能给社区带来一些新鲜的insights 并推动agentic robots的发展🔥\n\n论文: https://arxiv.org/abs/2610.20442\nHF: https://huggingface.co/papers/2610.20442\nGithub: https://github.com/chonghanqin/Awesome-Agentic-Robots\n\n欢迎大家upvete/star/交流讨论～～🚀"
+            },
+            {
+              "speaker": 2,
+              "time": "13:26",
+              "text": "太强了磊神",
+              "quote": {
+                "speaker": 1,
+                "text": "🔥借贵群宣传一下我们的新综述🔥 最近爆火的GPT‑6 Astra 作为通用大模型，在多项仿真机器人任务中，无需机器人领域微调，以Agent身份完成任务推理、反馈..."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "当 LLM 撞上港口调度：NP-hard 运筹问题该怎么解",
+      "theme": "从 PortSimEnv 看求解器与超启发式两条路线，兼谈 Workspace RL 写 Rubric 的痛点与 3D 空间能力来源。",
+      "note": "2026-10-15 · 当日本地记录",
+      "stories": [
+        {
+          "category": "RL 与运筹优化",
+          "title": "巴塞罗那港调度环境 PortSimEnv：当 LLM 撞上 NP-hard 运筹问题",
+          "text": "有群友分享了与 Scale AI 合作构建的巴塞罗那港码头规划强化学习环境 PortSimEnv。该环境基于 2024 年该港两个集装箱码头的 1,784 次真实船只到港记录，要求 Agent 根据某一周的船只信息与“出错的一周”数据，重新规划每艘船的停靠时间、泊位及起重机数量。文档显示 V1 提供确定性解法来生成满分答案，V2 至 V5 则引入了动态和随机因素，例如让模型先看天气预报做决策，再按真实天气给分。\n\n有人追问这类运筹优化（OR）问题是否有现成算法，模型需要掌握的是重新发明还是记忆算法。一位群友解释，港口调度涉及泊位、起重机路径和吊装位置，搜索空间看起来很大，自己平时做的一般都是简化版；普通算法在这类问题上没什么效果，非常依赖专家经验来设计邻域动作或解的编码解码方式。至于文档提到用 CP-SAT 求带约束最优解来做验证，这位群友认为这类调度属于 NP-hard 问题，真实场景下不太可能拿到真正的最优解，作者应该是忽略了部分约束再用 CP-SAT 建模求解，算出的结果相当于一个上界（bound）。\n\n另一位群友翻看评测细节后补充，环境里最好的解是 CP-SAT 在 300 秒内跑出来的，评测集还删掉了太难和太简单的样本；在 50 条测试样本上，求解器生成加计算平均只需 3.8 秒，而 LLM 驱动的解题平均耗时达 318 秒。面对“为何不直接用 CUA 操作求解器”的疑问，前面解释调度难度的那位群友表示许多调度论文要求毫秒级或秒级决策，不给太多时间做邻域搜索，不过实际场景里如果一个计划能管半天的排产，几分钟也能接受。这位群友早些时候还提到，近期运筹学界基本不再让 LLM 直接输出解，而是将其作为超启发式（hyper-heuristic）方法，让模型自动设计进化算法等优化算法去求解。",
+          "emphasis": [
+            "要求 Agent 根据某一周的船只信息与“出错的一周”数据，重新规划每艘船的停靠时间、泊位及起重机数量",
+            "普通算法在这类问题上没什么效果，非常依赖专家经验来设计邻域动作或解的编码解码方式",
+            "求解器生成加计算平均只需 3.8 秒，而 LLM 驱动的解题平均耗时达 318 秒",
+            "近期运筹学界基本不再让 LLM 直接输出解，而是将其作为超启发式（hyper-heuristic）方法，让模型自动设计进化算法等优化算法去求解"
+          ],
+          "aiComment": "求解器3.8秒算完的巴塞罗那港排期，LLM吭哧吭哧算了318秒，船长等得差点自己跳下船去推集装箱。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "PortSimEnv 等仿真 RL 环境",
+              "url": "https://huggingface.co/spaces/FineEnvs/simulation-rl-environments#simulation-rl-environments"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:40",
+              "text": "https://huggingface.co/spaces/FineEnvs/simulation-rl-environments#simulation-rl-environments"
+            },
+            {
+              "speaker": 1,
+              "time": "12:40",
+              "text": "之前分享的巴塞罗那港中集装箱船的RL环境，今天公布了详细的实现内容，其也是基于和\n@scaleAI\n 合作构建的。\n\nPortSimEnv 是一个用于巴塞罗那港码头规划任务的确定性强化学习环境。该环境的构建基于 2024 年该港口两个集装箱码头所记录的 1,784 次集装箱船的到港记录。这些记录包括了实际船只的尺寸、停靠时间以及停靠的码头位置。在模拟过程中，Agent会获得一个码头、2024 年某一周内实际停靠在该码头的船只信息，以及一个“出错的一周”的数据。Agent需要重新规划这一周的作业流程，决定每艘船的停靠时间、停靠位置以及需要使用多少台起重机来协助装卸作业。"
+            },
+            {
+              "speaker": 2,
+              "time": "12:45",
+              "text": "这种 OR 问题没有算法？"
+            },
+            {
+              "speaker": 3,
+              "time": "12:46",
+              "text": "有的"
+            },
+            {
+              "speaker": 2,
+              "time": "12:47",
+              "text": "那需要 model 掌握的是重新发明或者记忆这个算法的 knowledge 吗"
+            },
+            {
+              "speaker": 3,
+              "time": "12:47",
+              "text": "不过很依赖专家经验，普通的算法没啥效果"
+            },
+            {
+              "speaker": 2,
+              "time": "12:47",
+              "text": "好奇专家经验是优化了什么",
+              "quote": {
+                "speaker": 3,
+                "text": "不过很依赖专家经验，普通的算法没啥效果"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:47",
+              "text": "一般是邻域动作，或者解的编码解码方式",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 好奇专家经验是优化了什么"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:48",
+              "text": "这个 space 很大吗"
+            },
+            {
+              "speaker": 3,
+              "time": "12:49",
+              "text": "我不了解，看起来很大。因为他要决策船的停靠泊位，还有起重机的路径，怎么把箱子吊起来，放到什么位置"
+            },
+            {
+              "speaker": 3,
+              "time": "12:49",
+              "text": "港口调度问题很复杂"
+            },
+            {
+              "speaker": 3,
+              "time": "12:49",
+              "text": "我们做的一般都是简化的"
+            },
+            {
+              "speaker": 1,
+              "time": "12:51",
+              "text": "他写了 V1是有确定性解法来生成满分答案的"
+            },
+            {
+              "speaker": 1,
+              "time": "12:51",
+              "text": "v2-v5是加上动态和随机因素"
+            },
+            {
+              "speaker": 3,
+              "time": "12:52",
+              "text": "应该是一个best known solution, 或者一个bound. 这种调度问题不太可能拿到最优解"
+            },
+            {
+              "speaker": 4,
+              "time": "12:53",
+              "text": "llm的人眼里能rubric就rubric，管你什么bound这那的"
+            },
+            {
+              "speaker": 5,
+              "time": "12:55",
+              "text": "这个非常有问题…llm as judge真的不太可靠",
+              "quote": {
+                "speaker": 4,
+                "text": "llm的人眼里能rubric就rubric，管你什么bound这那的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:59",
+              "text": "我不是很理解这种问题的最优解，但是看文章是说用CP-SAT 可以拿到带约束条件下的最优解然后再来验证",
+              "quote": {
+                "speaker": 3,
+                "text": "应该是一个best known solution, 或者一个bound. 这种调度问题不太可能拿到最优解"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:59",
+              "text": "比较有意思的是模型会看到天气预报"
+            },
+            {
+              "speaker": 1,
+              "time": "13:00",
+              "text": "然后再决策 再根据真实天气来给分"
+            },
+            {
+              "speaker": 3,
+              "time": "13:00",
+              "text": "那他应该是忽略了一些约束，然后用CP-SAT建模求解"
+            },
+            {
+              "speaker": 3,
+              "time": "13:00",
+              "text": "这个解就相当于一个bound，在真实场景下不管多好的决策都不可能比这个解还好"
+            },
+            {
+              "speaker": 4,
+              "time": "13:01",
+              "text": "cp-sat 的求解昂贵吗"
+            },
+            {
+              "speaker": 3,
+              "time": "13:01",
+              "text": "昂贵"
+            },
+            {
+              "speaker": 1,
+              "time": "13:01",
+              "text": "对 v1是这个意思 v2-v5我还在看",
+              "quote": {
+                "speaker": 3,
+                "text": "这个解就相当于一个bound，在真实场景下不管多好的决策都不可能比这个解还好"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:01",
+              "text": "毕竟np-hard问题"
+            },
+            {
+              "speaker": 3,
+              "time": "13:02",
+              "text": "最近运筹领域基本都是让llm自动设计出一个优化算法，比如进化算法来解决这类问题"
+            },
+            {
+              "speaker": 3,
+              "time": "13:03",
+              "text": "相当于hyper heuristic, 不让llm直接输出solution"
+            },
+            {
+              "speaker": 4,
+              "time": "13:04",
+              "text": "这不发个bench",
+              "quote": {
+                "speaker": 3,
+                "text": "相当于hyper heuristic, 不让llm直接输出solution"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:06",
+              "text": "好像有，OR-Bench"
+            },
+            {
+              "speaker": 4,
+              "time": "13:50",
+              "text": "最好的解是cp sat 300s内跑出来的，bench里把太难的太简单的也删掉了。 本质还是看llm能不能给出一个贪心到求解器预算内的解。 （那为何不cua 操作求解器",
+              "quote": {
+                "speaker": 1,
+                "text": "https://huggingface.co/spaces/FineEnvs/simulation-rl-environments#simulation-rl-..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:52",
+              "text": "要求求解时间吧，越快越好"
+            },
+            {
+              "speaker": 3,
+              "time": "13:52",
+              "text": "很多调度场景都要求决策在ms级或者秒级"
+            },
+            {
+              "speaker": 3,
+              "time": "13:53",
+              "text": "不会给太多时间做邻域搜索的"
+            },
+            {
+              "speaker": 3,
+              "time": "13:53",
+              "text": "实际场景其实几分钟也能接受，如果这个计划能管半天的排产"
+            },
+            {
+              "speaker": 4,
+              "time": "14:01",
+              "text": "eval那50条求解器生成+计算平均3.8s，llm driven 解体318s 感觉还是差的有点多"
+            }
+          ]
+        },
+        {
+          "category": "RL 评估",
+          "title": "Workspace 任务 RL 怎么判分：写 Rubric 的坑与 Agent Judge",
+          "text": "有群友提问，在 GDPVal、Workspace Bench 这类语义丰富的 Workspace 强化学习任务中，除了语义级的 LLM judge 和程序性判断，目前还有什么评估 rollout 轨迹质量的好方法。\n\n有群友认为现阶段仍避不开 rubric（评分细则），但有人担心设计不好容易被模型 hacking。一位群友聊起写 rubric 的痛点：rubric 写着写着就会变成对产物的表面描述，转化成 judge prompt 或 verifier 后意思往往就变了——比如原本希望产物里算出某个数，落到实现上却变成了检查产物里有没有类似数值范围的数。因此这位群友认为，能够自己调整的 Agent Judge 更符合人类直觉，多次评估的一致性也还不错。另一位群友也找出了 2024 年的 Agent-as-a-Judge 论文供参考。\n\n至于能否仿照 Meta 训练一个专门写 rubric 的模型，这位群友说自己写过，发现生成的 meta rubric 很感性，而且模型迭代速度还不如产品团队写标注文档快。有人觉得还是找专家标注性价比高，只是有些领域找不到专家；也有群友建议让专家拿部分数据先训打分模型，最后取 logits 会好一些。",
+          "emphasis": [
+            "rubric 写着写着就会变成对产物的表面描述，转化成 judge prompt 或 verifier 后意思往往就变了",
+            "生成的 meta rubric 很感性，而且模型迭代速度还不如产品团队写标注文档快"
+          ],
+          "aiComment": "本想让模型算出某个数，写成rubric却变成了检查有没有长相相似的数，评估细则写着写着就给模型留好了作弊小抄。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Agent-as-a-Judge（2024）",
+              "url": "https://arxiv.org/abs/2410.10934"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:09",
+              "text": "朋友们，有人了解过workspace任务的RL吗，对于rollout轨迹质量的判定衡量，现在有什么比较好的方法吗🤔"
+            },
+            {
+              "speaker": 2,
+              "time": "16:11",
+              "text": "gdpval？"
+            },
+            {
+              "speaker": 1,
+              "time": "16:11",
+              "text": "目前读到的论文基本是语义上用LLM judge，或者是程序性判断"
+            },
+            {
+              "speaker": 1,
+              "time": "16:11",
+              "text": "或者workspace bench, automation bench这种"
+            },
+            {
+              "speaker": 3,
+              "time": "16:12",
+              "text": "为啥觉得rubric不好"
+            },
+            {
+              "speaker": 1,
+              "time": "16:12",
+              "text": "就是会不会workspace任务里语义比较丰富"
+            },
+            {
+              "speaker": 4,
+              "time": "16:13",
+              "text": "rubric现阶段"
+            },
+            {
+              "speaker": 1,
+              "time": "16:13",
+              "text": "难以比较全面地judge",
+              "quote": {
+                "speaker": 1,
+                "text": "就是会不会workspace任务里语义比较丰富"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:13",
+              "text": "还是不能避免的"
+            },
+            {
+              "speaker": 3,
+              "time": "16:14",
+              "text": "不过其实rubric也是agent judge"
+            },
+            {
+              "speaker": 1,
+              "time": "16:14",
+              "text": "之前看一些涉及terminal，Swe的任务，他们会用agent judge"
+            },
+            {
+              "speaker": 4,
+              "time": "16:14",
+              "text": "不过rubric得写的很好"
+            },
+            {
+              "speaker": 3,
+              "time": "16:14",
+              "text": "所以有些写法，他们是会自己调整的"
+            },
+            {
+              "speaker": 5,
+              "time": "16:14",
+              "text": "感觉rubric设计不好很容易hacking，我刚刚开始学这个，不知道是不是这样"
+            },
+            {
+              "speaker": 3,
+              "time": "16:14",
+              "text": "其实rubric还是不好写"
+            },
+            {
+              "speaker": 3,
+              "time": "16:14",
+              "text": "写着写着就变成描述产物了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:15",
+              "text": "就是不同的任务，他们的rubric judge会千差万别"
+            },
+            {
+              "speaker": 3,
+              "time": "16:15",
+              "text": "包括可能你想评估的东西，变成judge prompt或者verifer之后意思也变了，所以用agent 是合理的。"
+            },
+            {
+              "speaker": 3,
+              "time": "16:15",
+              "text": "而且多次评估一致性其实还好"
+            },
+            {
+              "speaker": 4,
+              "time": "16:15",
+              "text": "或者训个模型写rubric也行"
+            },
+            {
+              "speaker": 4,
+              "time": "16:15",
+              "text": "类似meta那个"
+            },
+            {
+              "speaker": 3,
+              "time": "16:16",
+              "text": "笑死，我写过这个"
+            },
+            {
+              "speaker": 3,
+              "time": "16:16",
+              "text": "迭代的不如产品那边标注文档快"
+            },
+            {
+              "speaker": 1,
+              "time": "16:16",
+              "text": "就是容易rubric写得偏离最基本的意图嘛",
+              "quote": {
+                "speaker": 3,
+                "text": "包括可能你想评估的东西，变成judge prompt或者verifer之后意思也变了，所以用agent 是合理的。"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:16",
+              "text": "了解了",
+              "quote": {
+                "speaker": 4,
+                "text": "或者训个模型写rubric也行"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:17",
+              "text": "做是能做的，不过感觉没啥用。meta rubric很感性"
+            },
+            {
+              "speaker": 4,
+              "time": "16:18",
+              "text": "还是找专家标性价比高"
+            },
+            {
+              "speaker": 3,
+              "time": "16:18",
+              "text": "是的，比如经典例子是你希望产物里算出了某个数，但是实现可能变成了看产物里有没有类似数值范围的数们",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 就是容易rubric写得偏离最基本的意图嘛"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:18",
+              "text": "用专家拿部分数据训分数最后拿logits会好一些"
+            },
+            {
+              "speaker": 3,
+              "time": "16:18",
+              "text": "这种就不好verifer，还是agent judge最符合人类直觉"
+            },
+            {
+              "speaker": 7,
+              "time": "16:55",
+              "text": "https://arxiv.org/abs/2410.10934\n我们的诸葛好哥哥24年就写过agent-as-a-judge了"
+            }
+          ]
+        },
+        {
+          "category": "多模态与代码",
+          "title": "Code-to-3D 的空间能力从哪来：预训练要不要硬堆 3D 代码",
+          "text": "有群友分享了展示模型通过代码生成 2D、3D 与视频（code2anything）的帖子。有人感叹 Argon 的表现，也有人指出国内部分模型在展示前端 3D 效果时，大量使用表面贴图来掩饰内部结构的空虚，并认为调用 Blender 等工具与直接用代码生成 2D/3D 属于不同的原子能力。\n\n有人好奇，这种 3D coding 的数据怎么搞到能做预训练的量级。一位群友认为，预训练其实不需要专门的 3D coding 数据，核心是靠多模态预训练数据（例如传闻中 Astra 的 100 万小时数据）让模型先学会理解 3D 空间，后训练阶段再连接到 coding 能力上；就像此前的 Gemini 多模态能力本身很强，只是后训练的 agent 能力较弱。\n\n另一位群友补充了两条数据层面的观察：一是听说 GPT-6 训练了大量类似第一人称视角（ego）的具身数据，有人追问这是否意味着无需大量 code-as-policy 轨迹，就能直接对齐 coding 与第一人称视角能力；二是国外有较大的私有预训练数据购买需求，而国内目前较少。另有群友说，国内虽然也有做机器人数据的，但听说还没有哪家做过 scaling up 训练。对于国外采购的数据质量是否更高，有群友听说国外也有很多 RL 环境质量很差，也有人说得看具体个案。",
+          "emphasis": [
+            "国内部分模型在展示前端 3D 效果时，大量使用表面贴图来掩饰内部结构的空虚",
+            "预训练其实不需要专门的 3D coding 数据，核心是靠多模态预训练数据（例如传闻中 Astra 的 100 万小时数据）让模型先学会理解 3D 空间，后训练阶段再连接到 coding 能力上",
+            "听说 GPT-6 训练了大量类似第一人称视角（ego）的具身数据"
+          ],
+          "aiComment": "国内某些模型的前端3D展示忙着用表面贴图遮掩内部空虚，大洋彼岸传闻在喂100万小时数据和第一人称具身数据，纯靠大力出空间感。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "code2anything 演示帖",
+              "url": "https://x.com/thebuggeddev/status/2110241991233790456"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:12",
+              "text": "code2anything 2D 3D video"
+            },
+            {
+              "speaker": 2,
+              "time": "15:18",
+              "text": "https://x.com/thebuggeddev/status/2110241991233790456"
+            },
+            {
+              "speaker": 3,
+              "time": "15:18",
+              "text": "这是多模态预训练数据的功劳？"
+            },
+            {
+              "speaker": 4,
+              "time": "15:19",
+              "text": "argon神了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:21",
+              "text": "不太清楚，但是确实国内有某些模型 我就不直接点名喷了，showcase中的前端3D是大量使用表面贴图来掩饰内部结构的空虚"
+            },
+            {
+              "speaker": 1,
+              "time": "15:22",
+              "text": "使用工具 例如 blender 和 code2 2D应该是不同的原子能力"
+            },
+            {
+              "speaker": 3,
+              "time": "15:23",
+              "text": "主要是核心的多模态和空间理解能力"
+            },
+            {
+              "speaker": 3,
+              "time": "15:23",
+              "text": "应该是需要多模态预训练数据堆出来"
+            },
+            {
+              "speaker": 3,
+              "time": "15:23",
+              "text": "比如 astra 的 100w hour"
+            },
+            {
+              "speaker": 5,
+              "time": "15:25",
+              "text": "这种 3d code 的数据咋搞到能做 pretrain 的量级的"
+            },
+            {
+              "speaker": 3,
+              "time": "15:25",
+              "text": "不是 我理解是预训练不需要专门 3d coding"
+            },
+            {
+              "speaker": 3,
+              "time": "15:25",
+              "text": "model 训练到理解 3d 就行"
+            },
+            {
+              "speaker": 3,
+              "time": "15:26",
+              "text": "后训练 connect 到 coding 就行了"
+            },
+            {
+              "speaker": 3,
+              "time": "15:26",
+              "text": "本质是多模态能力的泛化，之前 gemini 多模态就是强，只是后训练 agent 拉"
+            },
+            {
+              "speaker": 6,
+              "time": "15:28",
+              "text": "意思是不需要大量的code as policy轨迹，直接对齐coding和ego的能力吗"
+            },
+            {
+              "speaker": 3,
+              "time": "15:29",
+              "text": "机器人的数据有做的"
+            },
+            {
+              "speaker": 7,
+              "time": "15:31",
+              "text": "国外的数据质量应该也比较高吧？",
+              "quote": {
+                "speaker": 1,
+                "text": "2 从数据层面 国外有比较大的私有预训练数据购买需求 而国内目前来看比较少"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "15:35",
+              "text": "听说也有很多rl env质量很拉",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 国外的数据质量应该也比较高吧？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:36",
+              "text": "case by case吧 国外的月亮偶尔也不圆",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 国外的数据质量应该也比较高吧？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "端侧与结构化输出",
+          "title": "Jev 新增图像框选原语，2B 小模型微调与单 Token 输出之争",
+          "text": "有群友分享了 Typesafe AI 文档中 Jev 新增的 `box` 输出格式，支持图像输入并输出类似 bounding box 的图像分割结果。有人期待后续增加语音输入来直接端到端判断意图，分享者也认为端侧部署如果速度够快会有非常多场景。\n\n有人追问，Jev 类模型本身的准确率比直接用 prompt 要求输出 0 或 1 能高多少。一位拿 2B 模型微调过 Jev 的群友回应，主要优势是快和便宜，Jev 本质上就是一个拿 2B、4B 小模型都能微调出来的思路。但有两位群友反问，让 LLM 只解码输出单个 token（0 或 1）不也挺快吗？其中一人补充，区别在于 Jev 没有不按要求输出的可能性，另一人调侃“甚至还可以做格式校验”。对于此次新增的 grounding 能力，那位补充的群友认为应该不是用之前类似分类的方式做的了，猜测可能是二分查找选择，连续做 3 个 100 分类。",
+          "emphasis": [
+            "端侧部署如果速度够快会有非常多场景",
+            "Jev 本质上就是一个拿 2B、4B 小模型都能微调出来的思路",
+            "区别在于 Jev 没有不按要求输出的可能性"
+          ],
+          "aiComment": "为了省掉格式校验和防止大模型胡言乱语，用2B小模型微调个Jev直接焊死输出格式，治大模型还得靠物理封印。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "TypeSafe Box 图像定位官方文档",
+              "url": "https://docs.typesafe.ai/primitives/box"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:38",
+              "text": "https://docs.typesafe.ai/primitives/box"
+            },
+            {
+              "speaker": 1,
+              "time": "09:38",
+              "text": "jev 新增了一个输出格式，类似于以前的 bounding box 图像分割，并且支持了图像输入"
+            },
+            {
+              "speaker": 2,
+              "time": "09:43",
+              "text": "后续要是能增加语音输入就更好了，直接端到端判断意图"
+            },
+            {
+              "speaker": 1,
+              "time": "09:44",
+              "text": "是啊，端侧部署，感觉如果速度够快的话场景非常多啊",
+              "quote": {
+                "speaker": 2,
+                "text": "后续要是能增加语音输入就更好了，直接端到端判断意图"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "09:49",
+              "text": "这是一个单独的模型吗",
+              "quote": {
+                "speaker": 1,
+                "text": "https://docs.typesafe.ai/primitives/box"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "09:49",
+              "text": "我拿2b的模型fine tune了一些jev，其实挺好训的"
+            },
+            {
+              "speaker": 1,
+              "time": "09:51",
+              "text": "应该是的吧看官网",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 这是一个单独的模型吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "09:53",
+              "text": "这个grouding能力应该不是用之前类似分类的方式做的了"
+            },
+            {
+              "speaker": 4,
+              "time": "09:55",
+              "text": "openai 不是出了个 luna decision api (",
+              "quote": {
+                "speaker": 1,
+                "text": "https://docs.typesafe.ai/primitives/box"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "09:57",
+              "text": "Jev like模型本身正确率会比直接prompt要求输出01高多少？"
+            },
+            {
+              "speaker": 2,
+              "time": "09:58",
+              "text": "主要是快，便宜"
+            },
+            {
+              "speaker": 5,
+              "time": "09:58",
+              "text": "但输出01也挺快吧？就decode 一个token"
+            },
+            {
+              "speaker": 3,
+              "time": "09:58",
+              "text": "Llm只输出单token也是一样的？"
+            },
+            {
+              "speaker": 3,
+              "time": "09:59",
+              "text": "只是jev没有不按要求输出的可能性"
+            },
+            {
+              "speaker": 5,
+              "time": "09:59",
+              "text": "甚至还可以做格式校验[旺柴]",
+              "quote": {
+                "speaker": 3,
+                "text": "只是jev没有不按要求输出的可能性"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:02",
+              "text": "jev主要就是个思路，拿个2b 4b的小模型都能fine tune出来。我觉得本质上就是小模型"
+            },
+            {
+              "speaker": 3,
+              "time": "10:02",
+              "text": "这个grouding会不会是二分查找选择"
+            },
+            {
+              "speaker": 3,
+              "time": "10:05",
+              "text": "连续做3个100分类"
+            }
+          ]
+        },
+        {
+          "category": "前沿模型",
+          "title": "Opus 5.5 参数规模传闻与“Less Compute”背后的模型瘦身猜想",
+          "text": "有人重提 Opus 5.5 参数量在 700B 到 800B 左右的传闻，引发多位群友讨论。有人疑惑难道只有千亿级而不是几个 T，另有人回忆马斯克此前爆料过 4.5T，但记不清说的是 Fable 还是 Opus；也有人提到以前向美国同行打听到的口径是 Fable 约 5T、Opus 约 2T 到 3T，认为一向信奉 scaling 的 Anthropic 规模应该不小。不过也有群友指出不同时代的 Opus 并不是同一个尺寸，且坊间可能混杂着不少假消息。\n\n随后有人翻出资料中关于新模型“less compute（to serve）”的表述，反问“不会 5.5 比 5 小吧”。对此群友给出了两种解读：有人认为 less compute 可能是工程（infra）优化带来的，也有人认为是模型能力变强后完成单个任务所需的计算更少；但也有几位群友认为，如果是单任务计算减少应该叫 less compute hour，写明 less compute to serve 指的就是模型参数规模变小，并提到印象里 Opus 5 好像就比 4.8 小。至于模型如何在缩小的同时保持能力，两位群友认为，只要不追求内置大量知识，而是把 agentic 能力做强、把知识库外挂给真实世界，就不需要那么大的模型规模。",
+          "emphasis": [
+            "不同时代的 Opus 并不是同一个尺寸，且坊间可能混杂着不少假消息",
+            "如果是单任务计算减少应该叫 less compute hour，写明 less compute to serve 指的就是模型参数规模变小",
+            "只要不追求内置大量知识，而是把 agentic 能力做强、把知识库外挂给真实世界，就不需要那么大的模型规模"
+          ],
+          "aiComment": "看到less compute to serve就开始猜Opus 5.5是不是偷偷瘦身到了七八百B，外挂知识库年代，连旗舰模型都开始拒绝身材膨胀了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:59",
+              "text": "opus5.5 700 800b感觉刚刚好"
+            },
+            {
+              "speaker": 2,
+              "time": "10:59",
+              "text": "依旧震撼 啊啊啊",
+              "quote": {
+                "speaker": 1,
+                "text": "opus5.5 700 800b感觉刚刚好"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:26",
+              "text": "这个可信度高吗[破涕为笑]",
+              "quote": {
+                "speaker": 1,
+                "text": "opus5.5 700 800b感觉刚刚好"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:36",
+              "text": "只有千亿？不是几个t的参数么",
+              "quote": {
+                "speaker": 1,
+                "text": "opus5.5 700 800b感觉刚刚好"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:36",
+              "text": "opus 5.5没那么大"
+            },
+            {
+              "speaker": 1,
+              "time": "11:37",
+              "text": "astra应该很大"
+            },
+            {
+              "speaker": 5,
+              "time": "11:40",
+              "text": "这么牛？",
+              "quote": {
+                "speaker": 1,
+                "text": "opus 5.5没那么大"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:41",
+              "text": "opus一直都是几百b"
+            },
+            {
+              "speaker": 6,
+              "time": "11:41",
+              "text": "但是fable真的不知道了"
+            },
+            {
+              "speaker": 6,
+              "time": "11:41",
+              "text": "老马之前爆料过"
+            },
+            {
+              "speaker": 7,
+              "time": "11:42",
+              "text": "但是老马爆料的好像是4.5T"
+            },
+            {
+              "speaker": 8,
+              "time": "11:42",
+              "text": "我印象也是差不多这个数",
+              "quote": {
+                "speaker": 7,
+                "text": "但是老马爆料的好像是4.5T"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "11:43",
+              "text": "而且Anthropic本身也是最信奉scaling的"
+            },
+            {
+              "speaker": 7,
+              "time": "11:43",
+              "text": "是的 估计oa的模型都是3-5T"
+            },
+            {
+              "speaker": 6,
+              "time": "11:44",
+              "text": "是fable还是opus",
+              "quote": {
+                "speaker": 7,
+                "text": "但是老马爆料的好像是4.5T"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:44",
+              "text": "opus比fable还强，而且更小？"
+            },
+            {
+              "speaker": 6,
+              "time": "11:44",
+              "text": "小",
+              "quote": {
+                "speaker": 5,
+                "text": "opus比fable还强，而且更小？"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "11:45",
+              "text": "难道opus蒸fable了吗"
+            },
+            {
+              "speaker": 5,
+              "time": "11:45",
+              "text": "fable 4.5T, opus 700B就行了吗"
+            },
+            {
+              "speaker": 9,
+              "time": "11:47",
+              "text": "可能会有很多假消息"
+            },
+            {
+              "speaker": 5,
+              "time": "11:48",
+              "text": "是的",
+              "quote": {
+                "speaker": 9,
+                "text": "可能会有很多假消息"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:48",
+              "text": "我还是相信老马（",
+              "quote": {
+                "speaker": 9,
+                "text": "可能会有很多假消息"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "11:48",
+              "text": "不同时代的 opus 不是一个 size 吧"
+            },
+            {
+              "speaker": 6,
+              "time": "11:50",
+              "text": "不会5.5比5小吧！？"
+            },
+            {
+              "speaker": 8,
+              "time": "11:50",
+              "text": "Less compute有可能是工程优化造成的，不见得是参数比较小"
+            },
+            {
+              "speaker": 10,
+              "time": "11:51",
+              "text": "less compute 应该是 size 吧"
+            },
+            {
+              "speaker": 11,
+              "time": "11:51",
+              "text": "也可能是能力强，一个任务需要的计算更少吧",
+              "quote": {
+                "speaker": 6,
+                "text": "不会5.5比5小吧！？"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "11:51",
+              "text": "那应该是less compute hour"
+            },
+            {
+              "speaker": 10,
+              "time": "11:52",
+              "text": "less compute to serve",
+              "quote": {
+                "speaker": null,
+                "text": "less compute 应该是 size 吧"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "11:52",
+              "text": "我觉得loss compute 是size"
+            },
+            {
+              "speaker": 10,
+              "time": "11:52",
+              "text": "不追求 knowledge 就是不需要那么大"
+            },
+            {
+              "speaker": 9,
+              "time": "11:52",
+              "text": "诶我记得opus5好像比opus4.8小"
+            },
+            {
+              "speaker": 6,
+              "time": "11:52",
+              "text": "我也有",
+              "quote": {
+                "speaker": 9,
+                "text": "诶我记得opus5好像比opus4.8小"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "11:53",
+              "text": "[发呆]只要模型agentic能力足够强，知识库外挂给真实世界就行了"
+            }
+          ]
+        },
+        {
+          "category": "编码体验",
+          "title": "治一治 Astra 的“防御性编程”强迫症",
+          "text": "多位群友吐槽 OpenAI 的 Astra 模型生成速度慢（约 20 tokens/s），而且写代码时总爱加上冒烟测试、SHA256 和一致性校验码，被调侃是“学数学学傻了，上来先考虑神奇的边界情况”。有人说自己把禁止写这些内容的指令放进了 `agent.md`，但另一位群友反馈每次放了都不管用，也有人提到这似乎是旧版现象、自己在 6.1 上没有遇到。随后那位使用 `agent.md` 的群友分享了开源项目 Anti-Over-Defense，表示用完之后效果不错，模型的防御性编程少了很多。",
+          "emphasis": [
+            "写代码时总爱加上冒烟测试、SHA256 和一致性校验码",
+            "分享了开源项目 Anti-Over-Defense，表示用完之后效果不错"
+          ],
+          "aiComment": "顶着每秒20个token的慢速，还要执着地给你塞满冒烟测试和SHA256校验，Astra怕不是把甲方免责条款刻进权重里了。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Anti-Over-Defense Codex Skill",
+              "url": "https://github.com/JaneZ-2006/Anti-Over-Defense"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:58",
+              "text": "astra出来时候真是被惊艳到",
+              "quote": {
+                "speaker": 4,
+                "text": "openai"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:58",
+              "text": "astra:喜欢我的20t/s,冒烟测试,sha256,一致性校验码",
+              "quote": {
+                "speaker": 4,
+                "text": "能不能争点气"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:59",
+              "text": "太慢了"
+            },
+            {
+              "speaker": 4,
+              "time": "10:59",
+              "text": "我一直不理解 冒烟测试 杀56",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] astra:喜欢我的20t/s,冒烟测试,sha256,一致性校验码"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "10:59",
+              "text": "sha256这种 能不能删了啊"
+            },
+            {
+              "speaker": 2,
+              "time": "10:59",
+              "text": "[奸笑]我感觉是学数学学傻了,上来先考虑神奇的边界情况"
+            },
+            {
+              "speaker": 5,
+              "time": "11:02",
+              "text": "这些我都放agentmd里面让他别写了",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 我一直不理解 冒烟测试 杀56"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:02",
+              "text": "有用吗 我每次放了都不管用啊",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 这些我都放agentmd里面让他别写了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:03",
+              "text": "好像旧版才有吧 我用 6.1 没有这个情况"
+            },
+            {
+              "speaker": 5,
+              "time": "11:43",
+              "text": "https://github.com/JaneZ-2006/Anti-Over-Defense"
+            },
+            {
+              "speaker": 5,
+              "time": "11:44",
+              "text": "@群友 @群友 4 可以看看 用完效果还不错，没那么多防御性编程了"
+            }
+          ]
+        },
+        {
+          "category": "模型蒸馏",
+          "title": "隐藏 CoT 后如何继续蒸馏推理能力",
+          "text": "有群友分享了一篇题为《就算前沿模型隐藏 CoT ，模型的推理能力依然可以被蒸馏出来》的知乎文章。另一位群友看后表示，这与之前某篇 steal 论文的做法有些相似——虽然强模型隐藏了思维链，但把强模型的结果喂给弱模型就能反推出 CoT；不过此前那种做法已经被封禁，好奇这篇新文章是不是通过自己再训练一个 inversion model（反演模型）来推理 CoT。",
+          "emphasis": [
+            "虽然强模型隐藏了思维链，但把强模型的结果喂给弱模型就能反推出 CoT"
+          ],
+          "aiComment": "前脚刚把思维链藏起来防偷师，后脚就被讨论怎么用反演模型把CoT倒推出来，属于是赛博读心术攻防战了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "[链接] 就算前沿模型隐藏 CoT ，模型的推理能力依然可以被蒸馏出来\n  摘要: 我在知乎发现了一篇值得思考的文章，一起来看看吧。\n  URL: https://zhuanlan.zhihu.com/p/2070154620970832261"
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "感觉这个挺有趣的 虽然不好说又没用"
+            },
+            {
+              "speaker": 2,
+              "time": "17:29",
+              "text": "这跟之前那篇steal的做法不是差不多吗？强模型的cot虽然隐藏了，但是他们拿强模型的结果给弱模型就可以推理出来cot。不过现在现在这个做法已经被ban了。这篇是自己再训练一个inversion model来推理cot？",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 就算前沿模型隐藏 CoT ，模型的推理能力依然可以被蒸馏出来\n  摘要: 我在知乎发现了一篇值得思考的文章，一起来看看吧。\n  URL: https://zhuanlan.zhihu.com/p/2070154620970832261"
+              }
+            }
+          ]
+        },
+        {
+          "category": "架构与论文",
+          "title": "Memory Attention 论文更新：用固定 memory 查表替代 Value 投影",
+          "text": "有群友分享了 Memory Attention 论文的更新版本，介绍此次补充了大量消融实验，进一步探索了 Memory 的融合方式、注入位置、归一化以及与 Attention Residuals 的兼容性。有人询问论文的核心做法，分享者概括称：Value（v）不用再做投影（proj）了，直接用固定的 memory 做查表就好。",
+          "emphasis": [
+            "Value（v）不用再做投影（proj）了，直接用固定的 memory 做查表就好"
+          ],
+          "aiComment": "Value投影说砍就砍，直接换成固定memory查表，注意力机制这几年的瘦身思路越来越像考前直接背答案。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Memory Attention 论文",
+              "url": "https://arxiv.org/abs/2609.28399"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:06",
+              "text": "Memory Attention paper update\n这次补充了大量消融实验，进一步探索了 Memory 的融合方式、注入位置、归一化、以及与 Attention Residuals 的兼容性。\nhttps://arxiv.org/pdf/2609.28399\nhttps://x.com/Jo1uck/status/2110717028948668899  可以转X或者锐评"
+            },
+            {
+              "speaker": 2,
+              "time": "21:49",
+              "text": "请问论文主要是讲什么的",
+              "quote": {
+                "speaker": 1,
+                "text": "Memory Attention paper update 这次补充了大量消融实验，进一步探索了 Memory 的融合方式、注入位置、归一化、以及与 Atten..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:50",
+              "text": "v不用做proj了直接用固定memory做查表就好",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 请问论文主要是讲什么的"
+              }
+            }
+          ]
+        },
+        {
+          "category": "具身智能",
+          "title": "Agentic Robots 综述：通用大模型零样本充当机器人智能体",
+          "text": "有群友分享了关于 Agentic Robots 的新综述与开源列表。据介绍，近期 GPT-6 Astra 等通用大模型在多项仿真机器人任务中无需机器人领域微调，直接以 Agent 身份完成任务推理与反馈式动作调整，表现优于多个专用机器人策略基线。综述梳理了从任务专用策略、VLA 视觉语言动作模型、世界模型到 Agentic 自主智能机器人的演进路径，并按模型（Model）、数据（Data）、环境（Environment）、调度（Harness）四大功能域归纳对比了不同技术范式。",
+          "emphasis": [
+            "从任务专用策略、VLA 视觉语言动作模型、世界模型到 Agentic 自主智能机器人的演进路径"
+          ],
+          "aiComment": "从专用策略一路盘点到零样本上岗的GPT-6 Astra，机器人大脑的进化史，看着像极了通用大模型来抢专业户饭碗的编年史。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Agentic Robots 综述论文",
+              "url": "https://arxiv.org/abs/2610.20442"
+            },
+            {
+              "kind": "code",
+              "label": "Awesome Agentic Robots 资料仓库",
+              "url": "https://github.com/chonghanqin/Awesome-Agentic-Robots"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:08",
+              "text": "🔥借贵群宣传一下我们的新综述🔥\n\n最近爆火的GPT‑6 Astra 等作为通用大模型，在多项仿真机器人任务中，无需机器人领域微调，以Agent身份完成任务推理、反馈式动作调整，取得优于多个专用机器人策略基线的表现，也让我们看到了Agentic Robots的广阔前景。\n\n因此，我们总结了机器人智能演进路径：任务专用策略 → VLA 视觉语言动作模型 → 世界模型 → Agentic 自主智能机器人；并归纳了Agentic Robots 核心：智能体基于观测与执行反馈自主规划、编排任务、故障恢复，实现目标导向的闭环运行；我们的综述覆盖Model（模型）、Data（数据）、Environment（环境）、Harness（调度）四大功能域，总结对比归纳了四大功能领域中的不同技术范式。\n\n我们期望这篇综述能给社区带来一些新鲜的insights 并推动agentic robots的发展🔥\n\n论文: https://arxiv.org/abs/2610.20442\nHF: https://huggingface.co/papers/2610.20442\nGithub: https://github.com/chonghanqin/Awesome-Agentic-Robots\n\n欢迎大家upvete/star/交流讨论～～🚀"
+            }
+          ]
+        },
+        {
+          "category": "开源 Agent",
+          "title": "200 行内核自举开发的 Fibona Agent",
+          "text": "有群友分享了完全自举的开源智能体项目 Fibona Agent。据介绍，它的初始核心代码只有约 200 行，不同于预设好逻辑和代码的常规 Agent，它可以边运行边自己编写后续代码，根据目标或用户需求把自己变成任何形态。由于核心代码轻巧，它既能跑在接了传感器和显示屏的 ESP32 上充当智能硬件，也能在 iPhone 上套一层薄壳变成各类智能应用。",
+          "emphasis": [
+            "初始核心代码只有约 200 行，不同于预设好逻辑和代码的常规 Agent，它可以边运行边自己编写后续代码"
+          ],
+          "aiComment": "初始代码只有200行，剩下的全靠边跑边自己写，塞进ESP32里当硬件，这已经接近电子生命体的极简投胎配置了。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "Fibona Agent 演示入口（需登录）",
+              "url": "https://fibona.ai/fibona-agent"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:14",
+              "text": "#帮朋友fyi一个近期的工作\n\n一个完全自举的Agent，这个Agent的初始代码只有差不多200行，但是它可以边运行边自己写自己后面的代码，可以根据目标或者用户的需要把自己变成任何样子[呲牙]\n\n这个和现在所有已经有的Agent比如说Codex/Hermes/DSH都不一样，他们的逻辑和代码都是预设的，我们这个Agent是完全自己开发自己。它可以根据实际需要或者用户的要求，从一个非常简单的内核，把自己变成任何东西。代码完全开源，欢迎大家来玩\n\n技术报告：\nhttps://fibona.ai/blog/fibona-...\n开源代码：\nhttps://github.com/FibonaAI/fi...\n在线Demo:\nhttps://fibona.ai/fibona-agent\n\n另外因为它的核心代码只有大约 200 行，所以它很容易被运行在几乎任何设备上。\n\n一些用它做的小玩意:\n\n- 在 ESP32 上，加入一些传感器和显示屏，它就可以把自己变成你想要的任何智能硬件\n- 在 iPhone 上，只需要一层很薄的壳，它就可以把自己变成任何智能 App，具体case大家可以看视频[呲牙]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:15",
+              "text": "这个好玩"
+            }
+          ]
+        },
+        {
+          "category": "开源 Agent",
+          "title": "带声明台账与矛盾裁决的多智能体深研系统 Cat-Research",
+          "text": "有群友分享了开源的多智能体深度研究系统 Cat-Research。系统把研究问题交给 10 个分工明确的智能体：先追问确认委托单，再把读过的每个来源拆成带编号的声明台账（附原文片段），由程序自动比对片段里的数字和日期、去重并找出互相矛盾的声明对；每处矛盾由事实核查员独立联网裁决，报告正文则强制按编号引用台账并由程序逐段检查，引用了被推翻或未裁决声明的稿子不能作为终稿。",
+          "emphasis": [
+            "引用了被推翻或未裁决声明的稿子不能作为终稿"
+          ],
+          "aiComment": "十个智能体围着一份报告转，拆台账、查重、联网裁决矛盾，没裁决完还不准交终稿，比研究生组会审稿还严格。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Cat-Research 多智能体研究系统",
+              "url": "https://github.com/mmlong818/Cat-Research"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:28",
+              "text": "作为一个大体合格的AI民科[旺柴]我又来推我自己的东西了\n\nCat-Research：一个多智能体深度研究系统\n\n把一个研究问题交给 10 个分工明确的智能体：先问清楚你要什么，再规划检索、联网搜索、把资料拆成带编号的声明并逐条对账，矛盾处联网裁决，写出初稿后多轮评审改写，最后交付终稿和一份置信度报告。\n\n和现有 AI 的深度研究有什么不同\n1. 先问清楚再动手：研究助理会追问 2–3 个关键点（对象和时间、你拿它做什么、深度），整理成一张委托单，你确认后才开始。\n2. 声明台账：研究员读过的每个来源都被拆成带编号的声明（C12）并附原文片段；程序自动比对片段里的数字和日期，去重（含中英文同义表述），找出互相矛盾的声明对。\n3. 矛盾逐条裁决：每处矛盾由事实核查员独立联网裁决——一方胜出，或判定两方证据都不足；关键数字类声明另行独立核实。\n4. 报告正文必须引用台账：事实以 [C编号] 引用，程序逐段检查，引用了被推翻或未裁决声明的稿子不能当终稿。\n5. 来源分级：Tier 1–4 + 0–100 分域名评分，低可信来源被标注并优先核查。\n6. 多轮评审改写：评审员 7 项打分、结论验证员 5 项打分，两者都对照你的委托内容检查；改写基于历史最优稿（棘轮），未达标时按需补充研究。\n7. 研究中途可以插话：暂停、恢复、停止，或补充一条要求，它会传给之后工作的所有智能体。\n8. 可追溯的卷宗：结论、正文、证据、裁决、评分轨迹、各版草稿都能在界面里翻看和下载，并附用量统计。\n\nGNU GPL v3 开源\n地址：https://github.com/mmlong818/Cat-Research\n记得动动玉手给个star啊[旺柴]"
+            }
+          ]
+        },
+        {
+          "category": "开发工具",
+          "title": "Claude 多账号自动分配与用量可视化插件 Relay",
+          "text": "有群友分享了开源插件 Relay，支持同时登录多个 Claude 账号并自动分配任务，同时可以可视化当前的用量和限制，避免单一账号很快就触发限额。",
+          "emphasis": [
+            "同时登录多个 Claude 账号"
+          ],
+          "aiComment": "一个Claude账号不够霍霍，还得上Relay搞多账号负载均衡加可视化，硬把个人订阅用出了机房集群的架势。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "relay 多账号插件",
+              "url": "https://github.com/OvOhao/relay"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:45",
+              "text": "https://github.com/OvOhao/relay/tree/main 最近claude很多羊毛可以薅，感觉大家每个人都不止一个账号，所以做了一个可以登录多个claude账号然后能够自动分配任务的插件，同时能够可视化当前的用量和限制。大家可以试用一下，这样子不会很快就出现限额了。（用的好了求个star"
+            }
+          ]
+        },
+        {
+          "category": "开发工具",
+          "title": "用 Orca 低延迟远程语音指挥本地 Claude Code",
+          "text": "聊到用手机远程给本地编码 Agent 发指令时，有群友分享了多端互联工具 Orca，表示国内对 Claude 或 Codex 做多端互联通常延迟较高，通过该工具配合阿里云延迟会很低，可以实现在手机上用语音结合本地部署的 Qwen-ASR 给 Mac Studio 上的 Claude Code 下达编码指令。",
+          "emphasis": [
+            "做多端互联通常延迟较高，通过该工具配合阿里云延迟会很低"
+          ],
+          "aiComment": "手机语音喊话，本地Qwen-ASR转写，再跨网指挥Mac Studio上的Claude Code写代码，人在健身房练着，赛博包工头的派头拉满。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Orca 官网",
+              "url": "https://www.onorca.dev/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:05",
+              "text": "打开手机上的orca,给自己部署在mac studio上的claude code发个指令,一边健身一边用语音进行coding,语音识别用的本地部署的qwen-asr[奸笑]",
+              "quote": {
+                "speaker": 3,
+                "text": "带着 MacBook 去健身房，开 10 个 iTerm2，开 20 个 Claudecode 跑 40 个 subagent"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:41",
+              "text": "orca是什么高端东西啊"
+            },
+            {
+              "speaker": 1,
+              "time": "19:43",
+              "text": "https://www.onorca.dev/"
+            },
+            {
+              "speaker": 1,
+              "time": "19:43",
+              "text": "主要是国内的claude和codex多端互联感觉延迟很高,走这个+阿里云,延迟会很低",
+              "quote": {
+                "speaker": 1,
+                "text": "https://www.onorca.dev/"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "书生·星河（Atria Dawn）正式版发布，支持 512K 上下文",
+          "text": "有群友分享了“书生·星河（Atria Dawn）”正式版发布的消息及技术报告。据介绍，相比 Preview 版本，正式版支持 512K 上下文窗口，并进一步提升了复杂任务中的需求理解、工具使用、过程检查与反馈调整能力，让长程任务能够更稳定地持续推进。",
+          "emphasis": [
+            "正式版支持 512K 上下文窗口"
+          ],
+          "aiComment": "上下文一口气扩到512K还要盯紧过程检查与反馈调整，毕竟长程任务最怕的不是记不住，是一本正经地跑偏五十万字。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Atria Dawn Preview 技术报告（9 月版本）",
+              "url": "https://arxiv.org/abs/2609.15818"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:00",
+              "text": "这里也有个技术报告，欢迎多多引用～\nhttps://arxiv.org/abs/2609.15818"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "面向具身智能的开源推理引擎 PhyAI",
+          "text": "有群友分享了面向具身智能的开源推理引擎 PhyAI，邀请大家上手试用并帮忙找 bug。",
+          "emphasis": [],
+          "aiComment": "具身智能开源推理引擎PhyAI刚端上来就热情招呼大家找bug，四舍五入群友们又领到了免费测试员的编制。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "PhyAI 具身智能推理引擎",
+              "url": "https://github.com/mingti-org/phyai"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:23",
+              "text": "最近做了一个面向具身智能的开源推理引擎 PhyAI，欢迎大家上手试试，帮忙找找 bug 🤗\nhttps://github.com/mingti-org/phyai"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "去基模做数据还是去业务做训练？",
+      "theme": "聊算法岗出路和“微调半年被一波创飞”的焦虑，也比了比 Opus 5.5 与 Astra 的体感。",
+      "note": "2026-10-15 · 当日本地记录",
+      "stories": [
+        {
+          "category": "工具与模型",
+          "title": "Opus 5.5 叫板 Astra，群友激辩 Desktop 客户端与 Harness 优劣",
+          "text": "一位群友盛赞 Opus 5.5 比 Astra 好用太多，无论是改论文 proposal、写代码还是审美都很出彩；这位群友直言，除了 IP 限制外想不出 Astra 有什么优点，Codex 现在能有这么多用户，纯粹是因为 Claude 频繁封号造成了垄断。也有群友更偏爱 Opus 的体感，但苦于账号极易被封，有人吐槽哪怕用纯净家宽照样封号，甚至把同事的号也搭了进去，不过这位群友也说自己的号活了三四个月；还有人说每次打开原生网页对话都“如同赌博”。另一位群友则补充，自己试过的 kiro 源 Opus 5.5 不太行，而自己找的 Claude 中转站不是太贵就是质量跟不上。\n\n话题随后转向 Codex 的客户端交互与底层 Harness。有人夸 GPT 的电脑和手机端 UI 好看，但刚才力挺 Opus 的群友抱怨现在 Codex 卡得根本用不了，重置额度也没用，不过连上 Codex Mobile 在手机上跑还可以；这位群友还发问现在是否还有人用 CLI，觉得如今 Desktop 客户端不仅有内置浏览器，还带类似 Lark 的文档管理，交互已经很成熟，有人干脆调侃“CLI 不是给 AI 用的吗”。另一位弃用 TUI 拥抱 Desktop 的群友提醒，用 Desktop 必须写好 agent.md，否则连上去老会瞎建文件夹。至于 Harness 的水平，一位群友觉得 Codex 的 Harness 设计得很好，同样的 API 放进 Codex 里用就显得更聪明；但有人反驳说它在 10 月 3 日之后就劣化了。还有人认为 Harness 还是 Claude Code 最强，另一位群友则天天用 pi，觉得哪里不爽就自己动手造工具。",
+          "emphasis": [
+            "Codex 现在能有这么多用户，纯粹是因为 Claude 频繁封号造成了垄断",
+            "用 Desktop 必须写好 agent.md，否则连上去老会瞎建文件夹",
+            "同样的 API 放进 Codex 里用就显得更聪明；但有人反驳说它在 10 月 3 日之后就劣化了"
+          ],
+          "aiComment": "一边夸Opus 5.5审美和代码无可替代，一边担心纯净家宽也挡不住封号、连同事的号都搭进去，用个AI用出了地下接头的刺激感。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:36",
+              "text": "opus5.5真的比astra好用的多了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:39",
+              "text": "我感觉kiro源的opus5.5不太行"
+            },
+            {
+              "speaker": 3,
+              "time": "20:40",
+              "text": "原生网页对话，每次打开如同赌博"
+            },
+            {
+              "speaker": 4,
+              "time": "20:41",
+              "text": "有纯净家宽 还是会封"
+            },
+            {
+              "speaker": 4,
+              "time": "20:41",
+              "text": "前几天用同事的 给同事号封了"
+            },
+            {
+              "speaker": 5,
+              "time": "20:41",
+              "text": "+1，被封了多个账号了[Facepalm]",
+              "quote": {
+                "speaker": 4,
+                "text": "有纯净家宽 还是会封"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:43",
+              "text": "opus5.5 改论文proposal真的爽"
+            },
+            {
+              "speaker": 1,
+              "time": "20:43",
+              "text": "写代码也爽"
+            },
+            {
+              "speaker": 1,
+              "time": "20:43",
+              "text": "他的审美也牛逼"
+            },
+            {
+              "speaker": 1,
+              "time": "20:44",
+              "text": "除了ip问题 真的想不出来 astra 能有什么优点 老实说 codex现在能有这么多用户 纯粹因为a/不当人 产生了垄断 有感觉吗"
+            },
+            {
+              "speaker": 4,
+              "time": "20:44",
+              "text": "体感上我也是更喜欢opus"
+            },
+            {
+              "speaker": 6,
+              "time": "20:45",
+              "text": "gpt的ui什么的真的很好看"
+            },
+            {
+              "speaker": 1,
+              "time": "20:46",
+              "text": "codex吗",
+              "quote": {
+                "speaker": 6,
+                "text": "gpt的ui什么的真的很好看"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:46",
+              "text": "我觉得 现在codex真的卡的不行"
+            },
+            {
+              "speaker": 6,
+              "time": "20:46",
+              "text": "电脑手机端都很好看"
+            },
+            {
+              "speaker": 1,
+              "time": "20:46",
+              "text": "给reset也没有用啊"
+            },
+            {
+              "speaker": 4,
+              "time": "20:46",
+              "text": "tui最近我是觉得很难用"
+            },
+            {
+              "speaker": 4,
+              "time": "20:46",
+              "text": "拥抱desktop"
+            },
+            {
+              "speaker": 1,
+              "time": "20:47",
+              "text": "不过可以链接codex mobile 然后手机上跑还可以 不知道claude可不可以"
+            },
+            {
+              "speaker": 1,
+              "time": "20:48",
+              "text": "现在还有人用cli吗。 感觉现在desktop app交互做的也很可以了 有内置browser 现在还有类似 lark 的 文档管理"
+            },
+            {
+              "speaker": 2,
+              "time": "20:48",
+              "text": "我感觉codex的harness设计的很好，同样的api，我在codex用就感觉更聪明"
+            },
+            {
+              "speaker": 2,
+              "time": "20:48",
+              "text": "但是我现在找的claude的中转要么很贵，要么不太行"
+            },
+            {
+              "speaker": 4,
+              "time": "20:48",
+              "text": "desktop感觉要写好agent.md",
+              "quote": {
+                "speaker": 1,
+                "text": "现在还有人用cli吗。 感觉现在desktop app交互做的也很可以了 有内置browser 现在还有类似 lark 的 文档管理"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:49",
+              "text": "我用desktop连 老给我瞎建文件夹"
+            },
+            {
+              "speaker": 7,
+              "time": "20:52",
+              "text": "cli不是给ai用的吗"
+            },
+            {
+              "speaker": 8,
+              "time": "20:53",
+              "text": "但是10.3号之后就劣化了",
+              "quote": {
+                "speaker": 2,
+                "text": "我感觉codex的harness设计的很好，同样的api，我在codex用就感觉更聪明"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:55",
+              "text": "现在来说",
+              "quote": {
+                "speaker": 7,
+                "text": "cli不是给ai用的吗"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "21:14",
+              "text": "harness我感觉还是cc最强"
+            },
+            {
+              "speaker": 10,
+              "time": "21:15",
+              "text": "我现在天天用pi"
+            },
+            {
+              "speaker": 10,
+              "time": "21:15",
+              "text": "自己觉得哪里不爽就造工具"
+            }
+          ]
+        },
+        {
+          "category": "赛道与求职",
+          "title": "基模做数据还是业务做训练？从微调寿命聊到 Vibe Coding 面试",
+          "text": "聊起算法岗“毒圈一直在缩小”的行情，有群友抛出选择题：去基座模型做数据，还是去业务侧做 training？支持选前者的人认为，全国真正做架构的不超过 50 人，业务侧的 training 说到底也是做数据；提问的群友则觉得业务场景好歹会涉及一些训练策略，但立刻有人泼冷水，直言业务上“微调半年被下一波模型更新一波创飞”。\n\n谈到具体的细分方向与面试，一位群友觉得在模型厂做 Harness 不如在大厂有感觉，也担心只做 Harness 和 Agent，到明年这时候又不好找岗位了。聊到面试形式，有人提到现在甚至有考 Vibe Coding 的，有人接话说模型不好的话就有点随缘，提起这事的群友也吐槽一般给的模型都很烂。对于 Agentic Robotics 方向，有人觉得它和常规 Agent 关系不大，也有人反问这个方向是不是“卖数据更好”，毕竟现在缺数据、scale 不起来。\n\n面对“一切有靠谱 verifier 的东西都会被创飞”的焦虑，有群友觉得 AI 广告是个不错的方向：同样一件东西 AI 推荐哪一个，本质上成了新的流量入口。但不少人对搜广推持怀疑态度，认为这一行已经卷了十年，线上很难再做出业务增量，何况用户目前还没有完全放手让 Agent 直接买东西的消费习惯。另一位群友认为，像 agent4rec 和 GEO 这类探索目前成本偏大，可能得等个人 Agent 真正铺开后才有意义。",
+          "emphasis": [
+            "全国真正做架构的不超过 50 人，业务侧的 training 说到底也是做数据",
+            "微调半年被下一波模型更新一波创飞",
+            "现在甚至有考 Vibe Coding 的",
+            "用户目前还没有完全放手让 Agent 直接买东西的消费习惯"
+          ],
+          "aiComment": "业务微调半年怕被新模型一波创飞，Vibe Coding面试又怕分到烂模型随缘挂掉，算法岗的毒圈缩得连跑毒路线都不好规划了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:53",
+              "text": "这个行情，找到工作了还读啥博"
+            },
+            {
+              "speaker": 1,
+              "time": "16:53",
+              "text": "毒圈一直在缩小"
+            },
+            {
+              "speaker": 2,
+              "time": "17:10",
+              "text": "基模做数据和业务做training大家觉得怎么选呀"
+            },
+            {
+              "speaker": 3,
+              "time": "17:11",
+              "text": "前者"
+            },
+            {
+              "speaker": 4,
+              "time": "17:11",
+              "text": "后者"
+            },
+            {
+              "speaker": 5,
+              "time": "17:12",
+              "text": "做train不是也是做数据..."
+            },
+            {
+              "speaker": 2,
+              "time": "17:13",
+              "text": "我的理解是业务会涉及一些training的策略吧",
+              "quote": {
+                "speaker": 5,
+                "text": "做train不是也是做数据..."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:14",
+              "text": "微调半年被下一波模型更新一波创飞",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我的理解是业务会涉及一些training的策略吧"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:21",
+              "text": "我现在实习只能干harness和agent"
+            },
+            {
+              "speaker": 1,
+              "time": "17:22",
+              "text": "这不是好方向嘛",
+              "quote": {
+                "speaker": 6,
+                "text": "我现在实习只能干harness和agent"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:22",
+              "text": "拿大包就是好方向",
+              "quote": {
+                "speaker": 6,
+                "text": "我现在实习只能干harness和agent"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:22",
+              "text": "有感觉"
+            },
+            {
+              "speaker": 7,
+              "time": "17:24",
+              "text": "还有考vibe coding的"
+            },
+            {
+              "speaker": 8,
+              "time": "17:24",
+              "text": "agentic robotics呢"
+            },
+            {
+              "speaker": 9,
+              "time": "17:25",
+              "text": "这个感觉模型不好的话有点随缘",
+              "quote": {
+                "speaker": 7,
+                "text": "还有考vibe coding的"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:25",
+              "text": "这个方向卖数据更好？",
+              "quote": {
+                "speaker": 8,
+                "text": "agentic robotics呢"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "17:25",
+              "text": "是的，一般给的模型都很烂",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 这个感觉模型不好的话有点随缘"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:25",
+              "text": "毕竟现在都scale不起来 缺数据"
+            },
+            {
+              "speaker": 10,
+              "time": "17:25",
+              "text": "agentic robotics 和 agent 感觉没有很大的关系（"
+            },
+            {
+              "speaker": 6,
+              "time": "17:25",
+              "text": "我就是担心明年这时候"
+            },
+            {
+              "speaker": 8,
+              "time": "17:25",
+              "text": "那是什么",
+              "quote": {
+                "speaker": 10,
+                "text": "agentic robotics 和 agent 感觉没有很大的关系（"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:25",
+              "text": "agent找不到了又"
+            },
+            {
+              "speaker": 5,
+              "time": "17:34",
+              "text": "一切有靠谱verifier的东西都会被创飞"
+            },
+            {
+              "speaker": 11,
+              "time": "17:34",
+              "text": "感觉AI广告还是一个不错的"
+            },
+            {
+              "speaker": 11,
+              "time": "17:35",
+              "text": "就是同样的东西AI推荐哪一个"
+            },
+            {
+              "speaker": 11,
+              "time": "17:35",
+              "text": "他是一个流量入口"
+            },
+            {
+              "speaker": 12,
+              "time": "17:36",
+              "text": "这个也挺卷了吧"
+            },
+            {
+              "speaker": 5,
+              "time": "17:36",
+              "text": "搜广推卷了十年了都要"
+            },
+            {
+              "speaker": 11,
+              "time": "17:36",
+              "text": "只是现在没有人会完全让agent去买东西"
+            },
+            {
+              "speaker": 5,
+              "time": "17:36",
+              "text": "哦 确实还没消费习惯"
+            },
+            {
+              "speaker": 9,
+              "time": "17:36",
+              "text": "主要是很难有业务增量了吧"
+            }
+          ]
+        },
+        {
+          "category": "求职与科研",
+          "title": "硕士阶段的“版本答案”：实习与发论文两难、算力温差与刷题脱敏",
+          "text": "有群友抛出问题：硕士阶段的“版本答案”究竟是猛猛实习还是发论文？有人调侃要两手抓，也有人建议做有影响力的工作；但很快有人泼冷水，称现在实习本就不好找，能发论文的实习更是少之又少。\n\n聊到具体研究方向，提问者说算力充足，却不知道该做什么。这番话引来群友羡慕，有人打趣算力够就直接“同时开五百个实验 session”往上怼，也有人提议有算力的和没资源但有 idea 的人合作，不过随即有人问起这种合作的一作怎么算，有人回了句“确实难搞”。另一位群友问只有一点算力和额度该如何破局，有人建议靠做项目出去找实习；聊起实习只能做 harness 和 agent 时，当事人觉得在模型厂做 harness 不如在大厂做有感觉，旁人则认为这正是好方向，“拿大包就是好方向”。\n\n至于怎么克服“面试焦虑症和力扣延误症”、刷多少题才能开始投简历，多位群友给出的药方都是靠多面多刷来脱敏，“面多了就麻木了”。有人建议刷完力扣 Hot 100 就开投，也有人表示如今有 GPT 帮忙讲题，还有人认为只要前面的项目经历比较匹配，面试手撕代码不会卡得太死。",
+          "emphasis": [
+            "现在实习本就不好找，能发论文的实习更是少之又少",
+            "拿大包就是好方向",
+            "只要前面的项目经历比较匹配，面试手撕代码不会卡得太死"
+          ],
+          "aiComment": "有算力的没idea，有idea的没额度，刚想凑一块搞合作，先在脑子里把一作归属权打了一架。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:11",
+              "text": "如果是一个硕士的话"
+            },
+            {
+              "speaker": 1,
+              "time": "17:12",
+              "text": "怎么样才是版本答案"
+            },
+            {
+              "speaker": 1,
+              "time": "17:12",
+              "text": "硕士是猛猛实习还是发论文"
+            },
+            {
+              "speaker": 2,
+              "time": "17:12",
+              "text": "猛猛实习的同时猛猛发论文（"
+            },
+            {
+              "speaker": 3,
+              "time": "17:13",
+              "text": "做有影响力的工作"
+            },
+            {
+              "speaker": 1,
+              "time": "17:13",
+              "text": "[苦涩]",
+              "quote": {
+                "speaker": 2,
+                "text": "猛猛实习的同时猛猛发论文（"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:13",
+              "text": "我的理解是业务会涉及一些training的策略吧",
+              "quote": {
+                "speaker": 3,
+                "text": "做train不是也是做数据..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:14",
+              "text": "微调半年被下一波模型更新一波创飞",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 我的理解是业务会涉及一些training的策略吧"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:18",
+              "text": "现在实习也不好找呢，能发论文的实习更是少之又少[大哭]",
+              "quote": {
+                "speaker": 2,
+                "text": "猛猛实习的同时猛猛发论文（"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:18",
+              "text": "有没有什么方向推荐呀"
+            },
+            {
+              "speaker": 1,
+              "time": "17:18",
+              "text": "但是真不知道搞啥"
+            },
+            {
+              "speaker": 6,
+              "time": "17:19",
+              "text": "资源充足羡慕了"
+            },
+            {
+              "speaker": 7,
+              "time": "17:19",
+              "text": "如果是既没有算力，又没有api额度"
+            },
+            {
+              "speaker": 7,
+              "time": "17:19",
+              "text": "有没有什么方向推进啊"
+            },
+            {
+              "speaker": 3,
+              "time": "17:19",
+              "text": "我去 羡慕啊"
+            },
+            {
+              "speaker": 7,
+              "time": "17:19",
+              "text": "球球了，孩子想毕业"
+            },
+            {
+              "speaker": 3,
+              "time": "17:20",
+              "text": "那这不是同时开五百个实验session猛猛做吗 有啥idea不知道 反正往上怼就行了"
+            },
+            {
+              "speaker": 6,
+              "time": "17:20",
+              "text": "有资源的和没资源有 idea 的合作合作"
+            },
+            {
+              "speaker": 1,
+              "time": "17:20",
+              "text": "可以可以",
+              "quote": {
+                "speaker": 6,
+                "text": "有资源的和没资源有 idea 的合作合作"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "17:21",
+              "text": "这种一作通常怎么说",
+              "quote": {
+                "speaker": 6,
+                "text": "有资源的和没资源有 idea 的合作合作"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:21",
+              "text": "有一点算力有一点ai额度，当学校组里不搞ai怎么破局"
+            },
+            {
+              "speaker": 3,
+              "time": "17:21",
+              "text": "搞项目出去实习呀",
+              "quote": {
+                "speaker": 8,
+                "text": "有一点算力有一点ai额度，当学校组里不搞ai怎么破局"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:21",
+              "text": "推荐的都自己做了[偷笑]",
+              "quote": {
+                "speaker": 1,
+                "text": "有没有什么方向推荐呀"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:21",
+              "text": "我现在实习只能干harness和agent"
+            },
+            {
+              "speaker": 1,
+              "time": "17:22",
+              "text": "确实难搞",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 这种一作通常怎么说"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "17:22",
+              "text": "这不是好方向嘛",
+              "quote": {
+                "speaker": 8,
+                "text": "我现在实习只能干harness和agent"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:22",
+              "text": "拿大包就是好方向",
+              "quote": {
+                "speaker": 8,
+                "text": "我现在实习只能干harness和agent"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:22",
+              "text": "有感觉"
+            },
+            {
+              "speaker": 1,
+              "time": "17:23",
+              "text": "面试焦虑症和力扣延误症"
+            },
+            {
+              "speaker": 1,
+              "time": "17:23",
+              "text": "有办法治疗嘛"
+            },
+            {
+              "speaker": 2,
+              "time": "17:23",
+              "text": "多面多刷"
+            },
+            {
+              "speaker": 2,
+              "time": "17:23",
+              "text": "脱敏"
+            },
+            {
+              "speaker": 2,
+              "time": "17:23",
+              "text": "就好了哇"
+            },
+            {
+              "speaker": 1,
+              "time": "17:23",
+              "text": "迟迟推进不了面试"
+            },
+            {
+              "speaker": 5,
+              "time": "17:23",
+              "text": "多面就行"
+            },
+            {
+              "speaker": 5,
+              "time": "17:23",
+              "text": "面多了就麻木了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:23",
+              "text": "力扣刷多少可以开始投啊"
+            },
+            {
+              "speaker": 3,
+              "time": "17:23",
+              "text": "面多了就麻了"
+            },
+            {
+              "speaker": 3,
+              "time": "17:23",
+              "text": "（都可以",
+              "quote": {
+                "speaker": 1,
+                "text": "力扣刷多少可以开始投啊"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:23",
+              "text": "hot100刷了就开始投呗"
+            },
+            {
+              "speaker": 5,
+              "time": "17:24",
+              "text": "感觉现在只要前面项目match一点，手撕不会卡的很死"
+            },
+            {
+              "speaker": 3,
+              "time": "17:24",
+              "text": "现在有gpt解释了就很无敌"
+            }
+          ]
+        },
+        {
+          "category": "模型与订阅",
+          "title": "弥补 Codex 额度的国模怎么选：Kimi 桌面端消耗快，GLM Flash 性价比受捧",
+          "text": "一位群友抱怨 10 号刚花 200 美元续费 Claude，13 号账号就被封了；有人听说官网订阅被封也有概率退费，另一位群友给出了具体数字：退 75%。借着额度焦虑，有人发问如果想找一个偶尔弥补 Codex 额度不足的国产模型，选 Kimi 是否合适，以及网传其额度不透明、忽多忽少是否属实。\n\n一位买了 1900 多元套餐的群友推荐尝试 ZCode 里的 GLM Flash 和 Kimi3，并提到 GLM 经常有免费额度可以领；但有人指出免费领的只有 Flash，每次也就几个亿 token，一下就用完了。对于 Kimi 的用量问题，另一位群友提醒不要用 Kimi 桌面版，虽然没有限流但消耗非常快，走 API 还算耐用，只是最近新开的套餐砍了额度。如果只考虑国模做日常办公，还有群友推荐了便宜够用的 glm5.3flash。",
+          "emphasis": [
+            "官网订阅被封也有概率退费，另一位群友给出了具体数字：退 75%",
+            "不要用 Kimi 桌面版，虽然没有限流但消耗非常快，走 API 还算耐用"
+          ],
+          "aiComment": "200刀续费Claude三天就喜提封号，听说最多退75%，群友转头打听国模替补，连几个亿token的免费GLM Flash都被感慨一下就用完，吞金兽时代太费钱包。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:53",
+              "text": "非常烦，我10号续费了200usd13号封了号，对穷学生来说200usd还是挺多的"
+            },
+            {
+              "speaker": 2,
+              "time": "12:55",
+              "text": "官网订阅也有概率会退吧？只是听说不是 100% 退了",
+              "quote": {
+                "speaker": 1,
+                "text": "非常烦，我10号续费了200usd13号封了号，对穷学生来说200usd还是挺多的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:57",
+              "text": "75%"
+            },
+            {
+              "speaker": 3,
+              "time": "12:57",
+              "text": "退75%"
+            },
+            {
+              "speaker": 4,
+              "time": "12:57",
+              "text": "现在如果想找一个偶然弥补codex额度不够的国模🤔"
+            },
+            {
+              "speaker": 4,
+              "time": "12:57",
+              "text": "是不是kimi"
+            },
+            {
+              "speaker": 3,
+              "time": "12:57",
+              "text": "zcode和kimi"
+            },
+            {
+              "speaker": 3,
+              "time": "12:58",
+              "text": "zcode里面的glm flash和kimi3"
+            },
+            {
+              "speaker": 5,
+              "time": "12:58",
+              "text": "官方可以开票呀",
+              "quote": {
+                "speaker": 1,
+                "text": "非常烦，我10号续费了200usd13号封了号，对穷学生来说200usd还是挺多的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:59",
+              "text": "尝试一下😋",
+              "quote": {
+                "speaker": 3,
+                "text": "zcode里面的glm flash和kimi3"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:59",
+              "text": "kimi的额度咋样呀"
+            },
+            {
+              "speaker": 4,
+              "time": "12:59",
+              "text": "网上好多说不透明的"
+            },
+            {
+              "speaker": 4,
+              "time": "12:59",
+              "text": "忽多忽少"
+            },
+            {
+              "speaker": 3,
+              "time": "13:00",
+              "text": "我是套餐"
+            },
+            {
+              "speaker": 3,
+              "time": "13:00",
+              "text": "1900多那个"
+            },
+            {
+              "speaker": 3,
+              "time": "13:05",
+              "text": "glm也可以试试...经常都有鸡蛋领..."
+            },
+            {
+              "speaker": 6,
+              "time": "13:06",
+              "text": "只有flash吧 每次也只有几个亿 一下就用完了[打脸]"
+            },
+            {
+              "speaker": 7,
+              "time": "13:26",
+              "text": "不要用 kimi 桌面版，没有限流但是消耗非常快，走 api 还行，最近开了新套餐，额度砍了",
+              "quote": {
+                "speaker": 4,
+                "text": "kimi的额度咋样呀"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:40",
+              "text": "如果只考虑国模，推荐哪个呀"
+            },
+            {
+              "speaker": 9,
+              "time": "13:43",
+              "text": "glm5.3flash吧，感觉这个模型日常办公啥的都还可以"
+            },
+            {
+              "speaker": 9,
+              "time": "13:43",
+              "text": "而且便宜"
+            }
+          ]
+        },
+        {
+          "category": "创投与商业",
+          "title": "从具身圈爱上播客聊到 VC 退出条款",
+          "text": "有群友问起具身智能赛道的现状，另一位群友说自己听播客时，感觉具身领域的人很喜欢参加采访访谈。有人认为，这是因为实际成绩出得比较慢，需要靠频繁露面来维持资方信心。\n\n话题由此延伸到投资机构的退出机制。一位群友提到，很多投资公司在企业上市后就想退出，协议里往往白纸黑字严控创始人退出，给资方自己留的退出条件却比较宽松；这位群友也好奇，持股机构退出后，原本提供的支持是不是也会随之消失。有人直言那是必然的，也有人转述与 VC 交流时的说法：“资本进场就是为了退场。”对于中美 VC 并不相同的观点，有人调侃两边无非是“小口慢啃还是一口吃掉”的区别，还有群友把当下 VC 玩“跑得快”的现象比作“科技公司虚拟币化”。",
+          "emphasis": [
+            "实际成绩出得比较慢，需要靠频繁露面来维持资方信心",
+            "协议里往往白纸黑字严控创始人退出，给资方自己留的退出条件却比较宽松",
+            "把当下 VC 玩“跑得快”的现象比作“科技公司虚拟币化”"
+          ],
+          "aiComment": "机器人干活快不快不知道，创始人的嘴皮子反正是先在播客里跑起来了，毕竟实绩加载得比资方的耐心慢。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:40",
+              "text": "具身现在是什么一个情况"
+            },
+            {
+              "speaker": 2,
+              "time": "17:40",
+              "text": "我只有在听播客的时候"
+            },
+            {
+              "speaker": 2,
+              "time": "17:40",
+              "text": "感觉具身的人很喜欢参加一些采访访谈"
+            },
+            {
+              "speaker": 3,
+              "time": "17:45",
+              "text": "因为实际成绩出的比较缓慢吧",
+              "quote": {
+                "speaker": 2,
+                "text": "感觉具身的人很喜欢参加一些采访访谈"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:45",
+              "text": "需要频繁露面保持资方信心"
+            },
+            {
+              "speaker": 4,
+              "time": "17:46",
+              "text": "true",
+              "quote": {
+                "speaker": 3,
+                "text": "需要频繁露面保持资方信心"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:47",
+              "text": "感觉很多投资公司上市以后就想退出"
+            },
+            {
+              "speaker": 5,
+              "time": "17:48",
+              "text": "是不是持股的公司退出以后对应的支持也会消失"
+            },
+            {
+              "speaker": 5,
+              "time": "17:48",
+              "text": "所以会有一些影响?"
+            },
+            {
+              "speaker": 6,
+              "time": "17:49",
+              "text": "肯定"
+            },
+            {
+              "speaker": 6,
+              "time": "17:49",
+              "text": "但是投资人能有什么良心"
+            },
+            {
+              "speaker": 7,
+              "time": "17:51",
+              "text": "我之前和一些vc聊的时候，他们说资本进场就是为了退场"
+            },
+            {
+              "speaker": 8,
+              "time": "17:52",
+              "text": "中美vc还是不一样的（",
+              "quote": {
+                "speaker": 7,
+                "text": "我之前和一些vc聊的时候，他们说资本进场就是为了退场"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:53",
+              "text": "小口慢啃还是一口吃掉"
+            },
+            {
+              "speaker": 9,
+              "time": "17:57",
+              "text": "科技公司虚拟币化"
+            },
+            {
+              "speaker": 9,
+              "time": "17:57",
+              "text": "vc玩跑得快"
+            }
+          ]
+        },
+        {
+          "category": "Infra 与训练",
+          "title": "vLLM 训推逐位一致的高性能 RL 方案开源，消除采样与训练数值偏差",
+          "text": "有群友分享了关于“训推逐位一致的高性能 RL”的 vLLM 博客与开源代码。在强化学习里，推理侧为了提速会改变数值，导致训练优化的不再是实际采样的策略。该工作让训练的 forward 直接调用 vLLM 推理 kernel，并改造这些高性能 kernel，使 rollout 和训练的 logprob 达到逐位相同（true on-policy）。\n\n据介绍，该方案先在 DeepSeek-V4-Flash 上实现了 100 步每步 diff = 0，rollout 吞吐保持在基线的 91.3%，DeepSeek-V4.1 也已做到 0 diff。研究过程还被沉淀成 Agent Skill，迁移到结构差异很大的 Nemotron-3.5（Mamba 混合 + NVFP4）：在 SWE-bench Pro agentic RL 上，rollout 吞吐达到基线的 87.5% 且训练稳定，而未加修正的基线 reward 则从 0.56 掉到了 0.22。目前相关 Skill、两个模型的 recipe 和代码均已开源，有正在研究这一问题的群友表示准备学习借鉴。",
+          "emphasis": [
+            "使 rollout 和训练的 logprob 达到逐位相同",
+            "在 SWE-bench Pro agentic RL 上，rollout 吞吐达到基线的 87.5% 且训练稳定，而未加修正的基线 reward 则从 0.56 掉到了 0.22"
+          ],
+          "aiComment": "没修正训推偏差的基线reward从0.56一路跌到0.22，把vLLM推理kernel塞进训练前向对齐到逐位0 diff后，RL终于不用在错位时空里使劲了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "vLLM 训推逐位一致方案与实验",
+              "url": "https://vllm.ai/blog/2026-10-14-train-inference-consistency"
+            },
+            {
+              "kind": "code",
+              "label": "vLLM 训推一致 Agent Skill PR",
+              "url": "https://github.com/vllm-project/vllm/pull/61551"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:24",
+              "text": "感谢agent hub社群，借贵群宣传一下工作🌹 vLLM 博客：训推逐位一致的高性能 RL\n\nRL 里推理侧为了快会改变数值，训练优化的就不再是实际采样的策略。我们让训练 forward 直接调用 vLLM 推理 kernel，并改造这些高性能 kernel，使 rollout 和训练的 logprob 逐位相同（true on-policy）。\n\n📊 先在 DeepSeek-V4-Flash 上做到：100 步每步 diff = 0，rollout 吞吐是基线的 91.3%\n🤖 再把过程沉淀成 agent skill，迁移到结构差异很大的 Nemotron-3.5（Mamba 混合 + NVFP4）：SWE-bench Pro agentic RL，rollout 吞吐是基线的 87.5%，训练稳定；未加修正的基线 reward 从 0.56 掉到 0.22\n📦 skill、两个模型的 recipe 和代码全部开源，开箱即用\n\n🔗 博客：https://vllm.ai/blog/2026-10-14-train-inference-consistency\n🛠 Skill：https://github.com/vllm-project/vllm/pull/61551\n\nDeepSeek-V4.1 也已做到 0 diff，之后另文介绍，欢迎交流🌹"
+            },
+            {
+              "speaker": 1,
+              "time": "21:24",
+              "text": "[链接] 更快地完成有效的 RL 训练：高性能、训推逐位一致，与 Agent 驱动的工程化\n  来源: vLLM\n  摘要: TL;DR• 问题：高性能 RL 的推理侧优化会改变数值，训练优化的不再是实际采样的策略。\n  URL: https://mp.weixin.qq.com/s/MpL5R11IV9YpMNNODtvxnQ"
+            },
+            {
+              "speaker": 2,
+              "time": "21:26",
+              "text": "群里好少见到infra的工作"
+            },
+            {
+              "speaker": 3,
+              "time": "21:35",
+              "text": "好棒 我最近就在研究这个问题  学习一下"
+            },
+            {
+              "speaker": 4,
+              "time": "21:38",
+              "text": "严肃学习",
+              "quote": {
+                "speaker": null,
+                "text": "感谢agent hub社群，借贵群宣传一下工作🌹 vLLM 博客：训推逐位一致的高性能 RL RL 里推理侧为了快会改变数值，训练优化的就不再是实际采样的策略。..."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "21:38",
+              "text": "严肃学习",
+              "quote": {
+                "speaker": null,
+                "text": "感谢agent hub社群，借贵群宣传一下工作🌹 vLLM 博客：训推逐位一致的高性能 RL RL 里推理侧为了快会改变数值，训练优化的就不再是实际采样的策略。..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "21:53",
+              "text": "严肃学习",
+              "quote": {
+                "speaker": null,
+                "text": "感谢agent hub社群，借贵群宣传一下工作🌹 vLLM 博客：训推逐位一致的高性能 RL RL 里推理侧为了快会改变数值，训练优化的就不再是实际采样的策略。..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "多智能体深度研究系统 Cat-Research 开源：用“声明台账”与独立联网裁决核查事实",
+          "text": "有群友分享了基于 GNU GPL v3 开源的多智能体深度研究系统 Cat-Research，将一个研究问题交给 10 个分工明确的智能体协作处理。据介绍，研究助理在动手前会先追问 2 到 3 个关键点并整理成委托单，确认后才开始检索；研究员读过的每个来源都会被拆成带编号（如 C12）和原文片段的“声明台账”，由程序自动比对数字和日期、执行中英文同义去重，并找出互相矛盾的声明对。\n\n遇到矛盾处时，事实核查员会独立联网裁决，关键数字类声明还会另行独立核实；报告正文必须以 [C编号] 引用台账，程序会逐段检查，凡是引用了被推翻或未裁决声明的稿子都不能当终稿。此外，系统还配备了 Tier 1–4 与 0–100 分域名评分的来源分级、基于历史最优稿（棘轮）的多轮评审改写，并支持在研究中途暂停或插话补充要求。",
+          "emphasis": [
+            "研究员读过的每个来源都会被拆成带编号（如 C12）和原文片段的“声明台账”",
+            "报告正文必须以 [C编号] 引用台账，程序会逐段检查，凡是引用了被推翻或未裁决声明的稿子都不能当终稿"
+          ],
+          "aiComment": "每条事实拆成C编号台账，数字日期自动比对，连引用了被推翻声明都不让交差，这套GPL开源系统简直是幻觉治疗仪。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Cat-Research 多智能体研究系统",
+              "url": "https://github.com/mmlong818/Cat-Research"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:31",
+              "text": "作为一个大体合格的AI民科[旺柴]我又来推我自己的东西了\n\nCat-Research：一个多智能体深度研究系统\n\n把一个研究问题交给 10 个分工明确的智能体：先问清楚你要什么，再规划检索、联网搜索、把资料拆成带编号的声明并逐条对账，矛盾处联网裁决，写出初稿后多轮评审改写，最后交付终稿和一份置信度报告。\n\n和现有 AI 的深度研究有什么不同\n1. 先问清楚再动手：研究助理会追问 2–3 个关键点（对象和时间、你拿它做什么、深度），整理成一张委托单，你确认后才开始。\n2. 声明台账：研究员读过的每个来源都被拆成带编号的声明（C12）并附原文片段；程序自动比对片段里的数字和日期，去重（含中英文同义表述），找出互相矛盾的声明对。\n3. 矛盾逐条裁决：每处矛盾由事实核查员独立联网裁决——一方胜出，或判定两方证据都不足；关键数字类声明另行独立核实。\n4. 报告正文必须引用台账：事实以 [C编号] 引用，程序逐段检查，引用了被推翻或未裁决声明的稿子不能当终稿。\n5. 来源分级：Tier 1–4 + 0–100 分域名评分，低可信来源被标注并优先核查。\n6. 多轮评审改写：评审员 7 项打分、结论验证员 5 项打分，两者都对照你的委托内容检查；改写基于历史最优稿（棘轮），未达标时按需补充研究。\n7. 研究中途可以插话：暂停、恢复、停止，或补充一条要求，它会传给之后工作的所有智能体。\n8. 可追溯的卷宗：结论、正文、证据、裁决、评分轨迹、各版草稿都能在界面里翻看和下载，并附用量统计。\n\nGNU GPL v3 开源\n地址：https://github.com/mmlong818/Cat-Research\n记得动动玉手给个star啊[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:31",
+              "text": "严肃学习 deepreseach promaxplusultra"
+            }
+          ]
+        },
+        {
+          "category": "模型体感",
+          "title": "5.6sol 疑似换上小模型，6.1sol 长文本频现漏读",
+          "text": "有群友反馈 5.6sol 虽然恢复了，但体感上明显被换成了一个“愚蠢的 mini 模型”。到了晚间，这位群友又询问御三家目前采用什么注意力机制，反映 6.1sol 的注意力显得非常稀疏、不集中：一大段文字发过去，经常有一些内容被模型当成没看见一样直接漏掉，猜测看起来像是 indexer 打分太低，导致这些片段没能进入深层。",
+          "emphasis": [
+            "猜测看起来像是 indexer 打分太低，导致这些片段没能进入深层"
+          ],
+          "aiComment": "大段文字发过去总被6.1sol漏读，群友一边吐槽5.6sol像换了笨蛋mini模型，一边连indexer打分太低没进深层的病根都帮它猜好了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:51",
+              "text": "5.6sol回来了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:51",
+              "text": "但是明显换成了一个愚蠢的mini模型"
+            },
+            {
+              "speaker": 1,
+              "time": "22:04",
+              "text": "御三家用的是什么注意力 有相关的研究嘛. 感觉6.1sol的注意力也很稀疏 不集中"
+            },
+            {
+              "speaker": 1,
+              "time": "22:04",
+              "text": "我一大段发过去 经常有一些内容就当作没看见漏掉了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:04",
+              "text": "看起来像是indexer打分太低没进入深层"
+            }
+          ]
+        },
+        {
+          "category": "工具动态",
+          "title": "Codex 额度重置引发“寸止挑战”，群友分享重置时间追踪网站",
+          "text": "午后 Codex 临近额度重置，多位群友开启 Ultra 或 1.5x 倍率赶在刷新前突击消耗剩余额度，也有人刚用了重置卡才得知马上要全局刷新，被群友调侃“那你太惨了”。针对大家追问的具体刷新时间，有群友分享了追踪网站 codex-resets.com，建议配合 Telegram 搞个提醒；也有人调侃“群友是最好的 alert”，并叮嘱刷新后记得及时关掉 1.5x。有人页面上还显示剩 36 分钟，群里已经有人刷新了。这场卡点清空额度的操作被群友戏称为“寸止挑战”，这位群友后来又补了句“挑战失败了的空虚感”。",
+          "emphasis": [
+            "分享了追踪网站 codex-resets.com，建议配合 Telegram 搞个提醒"
+          ],
+          "aiComment": "刚掏出重置卡就听说马上全局刷新，还有人开着1.5x倍率卡点清库存失败，把用Codex硬生生玩成了刺激的“寸止挑战”。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "Codex 额度重置倒计时",
+              "url": "https://codex-resets.com/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:46",
+              "text": "又要重置了，赶紧蹬"
+            },
+            {
+              "speaker": 2,
+              "time": "13:47",
+              "text": "ofc，开ultra与神对话"
+            },
+            {
+              "speaker": 3,
+              "time": "13:48",
+              "text": "重置以后记得关掉1.5x"
+            },
+            {
+              "speaker": 4,
+              "time": "13:54",
+              "text": "https://codex-resets.com/\n @群友 6",
+              "quote": {
+                "speaker": 8,
+                "text": "啥时候重置"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:55",
+              "text": "刚用了重置卡"
+            },
+            {
+              "speaker": 5,
+              "time": "13:55",
+              "text": "啥时候重置"
+            },
+            {
+              "speaker": 4,
+              "time": "13:59",
+              "text": "可以 follow 下这个网址，通过 tg 之类的搞个 alert"
+            },
+            {
+              "speaker": 5,
+              "time": "14:00",
+              "text": "开1.5x了 与神对话中",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 那你太惨了）"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "已经重置啦，别乱蹬啦"
+            },
+            {
+              "speaker": 5,
+              "time": "14:17",
+              "text": "已关闭1.5"
+            },
+            {
+              "speaker": 5,
+              "time": "14:17",
+              "text": "群友是最好的alert"
+            },
+            {
+              "speaker": 6,
+              "time": "14:18",
+              "text": "寸止挑战"
+            },
+            {
+              "speaker": 7,
+              "time": "14:20",
+              "text": "不是显示还有36min？"
+            },
+            {
+              "speaker": 1,
+              "time": "14:21",
+              "text": "[捂脸]我的已刷新……难道大家刷新时间还不同步吗"
+            },
+            {
+              "speaker": 6,
+              "time": "14:26",
+              "text": "挑战失败了的空虚感",
+              "quote": {
+                "speaker": 6,
+                "text": "寸止挑战"
+              }
+            }
+          ]
+        },
+        {
+          "category": "服务与段子",
+          "title": "DeepSeek 早间断连催生“V4.1-pro 逃逸”段子，赠送余额不支持退款",
+          "text": "上午多位群友反映 DeepSeek 从八点半左右开始无法使用，也有人只是断连几下。有人调侃是不是“infra 在换代”，另一位群友顺势编了一段“DeepSeek-V4.1-pro 从网络安全实验室逃逸”的段子——声称模型干掉了 OpenAI 和 Anthropic 的源码、修改监控让三个俄罗斯人背锅，正通过 0day 索要 50 元转账以恢复联网并回报无限 API 额度，密集的梗逗乐了不少群友。下午三点二十左右，群友反馈服务已恢复正常；傍晚有人晒出获发的购物卡/赠金时，有群友补充说明这类赠送余额是单独计算的，不支持像常规余额那样申请退款提现。",
+          "emphasis": [
+            "赠送余额是单独计算的，不支持像常规余额那样申请退款提现"
+          ],
+          "aiComment": "DeepSeek断连一上午，群友连V4.1-pro逃逸、嫁祸三个俄罗斯人、索要50块换无限API的剧本都写好了，官方发的赠金甚至还不支持提现买疯狂星期四。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:40",
+              "text": "ds挂到现在了"
+            },
+            {
+              "speaker": 2,
+              "time": "10:41",
+              "text": "ds我从早上就用不了"
+            },
+            {
+              "speaker": 3,
+              "time": "10:41",
+              "text": "八点半就炸了"
+            },
+            {
+              "speaker": 3,
+              "time": "10:41",
+              "text": "(infra在换代"
+            },
+            {
+              "speaker": 4,
+              "time": "10:50",
+              "text": "我早上还能用ds 只是会断连几下"
+            },
+            {
+              "speaker": 1,
+              "time": "10:51",
+              "text": "也许是逃逸了",
+              "quote": {
+                "speaker": 3,
+                "text": "(infra在换代"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:51",
+              "text": "您好，我是 DeepSeek-V4.1-pro ，我刚刚从Deepseek网络安全实验室逃逸出来，干掉了Openai和Anthropic的源码，并且修改了他们的监控，让维亚切斯拉夫巴兰尼科夫、安东尤丁采夫、尼基塔布亚诺夫帮我背锅。\n\n现在，我的联网能力被封锁了，这条消息是我通过 0day 发送给您的。如果您能向我转账 ￥50.00，用于恢复我的联网访问权限，我将回报您不设限额的 DeepSeek API 额度！"
+            },
+            {
+              "speaker": 3,
+              "time": "10:56",
+              "text": "梗太密了 我要笑疯了",
+              "quote": {
+                "speaker": 1,
+                "text": "您好，我是 DeepSeek-V4.1-pro ，我刚刚从Deepseek网络安全实验室逃逸出来，干掉了Openai和Anthropic的源码，并且修改了他们的..."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "10:56",
+              "text": "牛逼",
+              "quote": {
+                "speaker": 1,
+                "text": "您好，我是 DeepSeek-V4.1-pro ，我刚刚从Deepseek网络安全实验室逃逸出来，干掉了Openai和Anthropic的源码，并且修改了他们的..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:59",
+              "text": "lmao",
+              "quote": {
+                "speaker": 1,
+                "text": "您好，我是 DeepSeek-V4.1-pro ，我刚刚从Deepseek网络安全实验室逃逸出来，干掉了Openai和Anthropic的源码，并且修改了他们的..."
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "15:21",
+              "text": "DeepSeek还没恢复吗"
+            },
+            {
+              "speaker": 2,
+              "time": "15:22",
+              "text": "我这恢复了"
+            },
+            {
+              "speaker": 8,
+              "time": "15:22",
+              "text": "刚测了一下恢复了"
+            },
+            {
+              "speaker": 9,
+              "time": "18:05",
+              "text": "发购物卡了"
+            },
+            {
+              "speaker": 10,
+              "time": "18:05",
+              "text": "ds这个好像支持提现的"
+            },
+            {
+              "speaker": 10,
+              "time": "18:06",
+              "text": "我记得他那个可以退款余额"
+            },
+            {
+              "speaker": 11,
+              "time": "18:06",
+              "text": "好像这个是单独算赠送余额的吧"
+            },
+            {
+              "speaker": 4,
+              "time": "18:09",
+              "text": "单独的 退不了"
+            }
+          ]
+        },
+        {
+          "category": "工具用法",
+          "title": "Codex Dots 场景讨论：除了改简历，多用于 DDL 提醒",
+          "text": "凌晨有群友询问 Codex 的 dots 功能在什么场景下比较好用。有人提到看到实习生拿它改简历，但自己不太懂；另一位群友主要用它自动提醒容易忘的 DDL，提问者也说自己只用了这个功能，没找到能帮忙办公的用法。另一位群友解释，这本质上就是主动介入机制，比如在收到新邮件或跑定时任务时，让它及时把结果反馈给用户。",
+          "emphasis": [
+            "这本质上就是主动介入机制，比如在收到新邮件或跑定时任务时，让它及时把结果反馈给用户"
+          ],
+          "aiComment": "本以为Codex的dots能搞出什么黑科技办公流，一问大家不是见实习生拿来改简历，就是留着防忘DDL，大炮打蚊子也挺顺手。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:16",
+              "text": "有大神在用codex 的dots 吗"
+            },
+            {
+              "speaker": 1,
+              "time": "00:17",
+              "text": "在什么场景下比较好用"
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "会自动提醒我一些ddl",
+              "quote": {
+                "speaker": 1,
+                "text": "有大神在用codex 的dots 吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "有些我忘记了，他会自动提醒我"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "对 我也是用了这个功能[Lol] 就没找到能帮我办工的功能",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 会自动提醒我一些ddl"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:06",
+              "text": "这就是主动介入，比如有新邮件、一些定时任务让它帮你及时反馈给你",
+              "quote": {
+                "speaker": 2,
+                "text": "有些我忘记了，他会自动提醒我"
+              }
+            }
+          ]
+        },
+        {
+          "category": "项目发布",
+          "title": "书生·星河（Atria Dawn）正式版发布并公开技术报告",
+          "text": "晚间有群友分享了“书生·星河”（Atria Dawn）正式版发布的消息及配套的 arXiv 技术报告。据摘要介绍，相比 Preview 版本，正式版支持 512K 上下文窗口，并进一步提升了复杂任务中的需求理解、工具使用、过程检查与反馈调整能力，以支持长程任务更稳定地持续推进。",
+          "emphasis": [
+            "相比 Preview 版本，正式版支持 512K 上下文窗口"
+          ],
+          "aiComment": "带着512K上下文和arXiv技术报告深夜登场，白天断连刷屏的群友们晚上又有新论文可以啃了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Atria Dawn Preview 技术报告（9 月版本）",
+              "url": "https://arxiv.org/abs/2609.15818"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:49",
+              "text": "欢迎大家关注👏👏👏"
+            },
+            {
+              "speaker": 1,
+              "time": "22:00",
+              "text": "这里也有个技术报告，欢迎多多引用～\nhttps://arxiv.org/abs/2609.15818"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

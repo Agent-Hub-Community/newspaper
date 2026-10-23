@@ -1,0 +1,2468 @@
+{
+  "id": "2026-10-13",
+  "date": "2026-10-13",
+  "label": "2026-10-13 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日未选编独立话题",
+      "theme": "访谈标题分享与往期日报转发",
+      "note": "2026-10-13 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "模型版本变了，AI 审稿结论会怎样变？",
+      "theme": "学术审稿工具变动、业务智能体合规分歧与社区活动规划",
+      "note": "2026-10-13 · 当日本地记录",
+      "stories": [
+        {
+          "category": "技术讨论",
+          "title": "AI 审稿的注入干扰与版本变化",
+          "text": "有群友询问 AI 审稿如何受到提示注入影响。一位参与者回忆去年的个人测试，称当时 ChatGPT 比测试中的其他模型更能抵抗这类干扰，并推测它可能隔离了附件文件的内容。这是个人测试与机制猜测，不能据此判断当前各模型的防护水平。\n\n这位参与者还担心，模型更新周期比会议审稿周期短，投稿前通过模型自评的稿件，换一个版本后可能收到新的质疑。参与者将其中一些称为假“问题”，但群内没有给出可核对的论文与评语对照。此外，群内分享了一篇介绍 1200 份改写稿实验的文章，一位读者据此解读，AI 审稿的评分可能受到写作模型影响。",
+          "emphasis": [
+            "这是个人测试与机制猜测，不能据此判断当前各模型的防护水平",
+            "换一个版本后可能收到新的质疑"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:24",
+              "text": "最近有没有什么可以让ai审稿打更高分的方法，或者攻击方法[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:25",
+              "text": "看到了一些工作 但好像都不是特别好，有没有比较著名的给我遗漏了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:26",
+              "text": "我去年做过这个研究，chatgpt防止注入攻击很厉害，但是当时grok和gemini就不行，放注入就很一般",
+              "quote": {
+                "speaker": 1,
+                "text": "最近有没有什么可以让ai审稿打更高分的方法，或者攻击方法[Doge]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:27",
+              "text": "然后后来的icml审稿就发现了，ChatGPT可以自动防止icml注入的水印"
+            },
+            {
+              "speaker": 2,
+              "time": "21:30",
+              "text": "但是chatgpt的防注入攻击太厉害了[捂脸]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:31",
+              "text": "貌似是“绝缘”了附件文件的内容"
+            },
+            {
+              "speaker": 2,
+              "time": "21:33",
+              "text": "而且nips的时候我还和人讨论了如何投稿，但是现在大模型的发版周期和降至周期已经小于了会议的审稿周期。也就是说在投稿的时候问ai self review 没问题的稿件，在模型更新后可能又一堆假“问题”"
+            },
+            {
+              "speaker": 3,
+              "time": "21:41",
+              "text": "[链接] NeurIPS最有用的一集：如何让AI审稿人给高分？\n  来源: PaperWeekly\n  摘要: 1200份改写稿实测\n  URL: https://mp.weixin.qq.com/s/CK9PhQfkdjdRTXMTShI2Ag"
+            },
+            {
+              "speaker": 4,
+              "time": "22:04",
+              "text": "原来取决于写作的模型",
+              "quote": {
+                "speaker": 3,
+                "text": "[链接] NeurIPS最有用的一集：如何让AI审稿人给高分？\n  来源: PaperWeekly\n  摘要: 1200份改写稿实测\n  URL: https://mp.weixin.qq.com/s/CK9PhQfkdjdRTXMTShI2Ag"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:08",
+              "text": "我今天就是看了这个"
+            }
+          ],
+          "aiComment": "投稿前的自评，最好连模型版本一起记下来，否则连反馈为什么变了都难对照。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "PaperWeekly 分享原文",
+              "url": "https://mp.weixin.qq.com/s/CK9PhQfkdjdRTXMTShI2Ag"
+            },
+            {
+              "kind": "paper",
+              "label": "RobustReview 与 SciCore 论文",
+              "url": "https://arxiv.org/abs/2609.39027"
+            }
+          ]
+        },
+        {
+          "category": "业务落地",
+          "title": "催收 Agent 的落地讨论转向合规门槛",
+          "text": "一位群友转述了让催收 Agent 更有人情味的分享，另一位群友认为消费金融场景有商业吸引力。也有人提出，难点可能不在 Agent 本身，并依据数月前的了解，提到不同地区的司法执行与法院批件问题。这位参与者随后明确说，自己不清楚当前情况；这段交流反映的是对落地条件的顾虑，并非已核实的法律要求。",
+          "emphasis": [
+            "这位参与者随后明确说，自己不清楚当前情况"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "不知道了，我昨天听了一个说如何做好一个催债的agent"
+            },
+            {
+              "speaker": 1,
+              "time": "21:23",
+              "text": "让agent催债更有人情味"
+            },
+            {
+              "speaker": 2,
+              "time": "21:35",
+              "text": "这个感觉能挣钱",
+              "quote": {
+                "speaker": 1,
+                "text": "不知道了，我昨天听了一个说如何做好一个催债的agent"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:36",
+              "text": "毕竟小贷和消费金融利润高"
+            },
+            {
+              "speaker": 3,
+              "time": "21:37",
+              "text": "违法，各个地方法院执行情况不一样，搞不到法院的批件做不起来",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 这个感觉能挣钱"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:37",
+              "text": "难点不太在agent"
+            },
+            {
+              "speaker": 3,
+              "time": "21:39",
+              "text": "几个月前是这样，现在不知道"
+            }
+          ],
+          "aiComment": "让 Agent 说话有人情味是一关，弄清具体业务能不能这样做又是一关。"
+        },
+        {
+          "category": "社区动态",
+          "title": "社区主页展示与线下项目交流构想",
+          "text": "针对群内关于学术交流与成果展示的讨论，发起者提议搭建专门的主页展示群友的论文与项目，以促进同行对接，并考虑后续组织线下活动，邀请群友对优秀项目进行介绍。目前具体组织形式仍在征集建议阶段。多位群友随后表达了在杭州、上海或北京设立线下场次的意向，相关活动的时间与地点尚未最终敲定。",
+          "emphasis": [
+            "考虑后续组织线下活动，邀请群友对优秀项目进行介绍"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:12",
+              "text": "要social不如在agent hub social，到时候我们搞个网站挂大家的工作，感兴趣的直接加微信好友，参加线下活动，哈哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "22:13",
+              "text": "这样真很好"
+            },
+            {
+              "speaker": 1,
+              "time": "22:15",
+              "text": "嗯嗯，我们考虑后面来点儿线下活动，可能邀请一下群友们很酷的论文或者项目去做介绍，具体的形式还没想好，大家可以propose"
+            },
+            {
+              "speaker": 3,
+              "time": "22:46",
+              "text": "杭州场！"
+            },
+            {
+              "speaker": 4,
+              "time": "22:46",
+              "text": "跪求上海场[可怜]"
+            },
+            {
+              "speaker": 5,
+              "time": "23:34",
+              "text": "北京耍起"
+            }
+          ],
+          "aiComment": "先把想分享的项目聚起来，线下见面就有东西可聊了。"
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "从合成数据到 Harness 内化",
+      "theme": "数据质量与产量、RSI 泛化边界，以及模型架构和科研工具的真实分歧",
+      "note": "2026-10-13 · 当日本地记录",
+      "stories": [
+        {
+          "category": "数据合成",
+          "title": "管线多加一个 subagent，数据量反而骤降",
+          "text": "一位数据合成使用者反馈，为了提高任务难度，往现有管线加入 subagent 后，每新增一个组件，数据量就会骤降。要么花时间做批量总结、更新 harness，让组件重新磨合；要么降低 rubric 筛选阈值，但数量和质量总有一个受损。问题落在 verifier 与整条管线如何协调，而不只是多生成一些任务。\n\n有人推荐尝试自动修改 harness 的自改进方案，另有人质疑这种优化容易变成 task-aware 过拟合。对于是否存在标准管线，一方概括为生成、验证、训练几个模块，另一方强调 generator、verifier 和 subagent 仍需按任务定制。轨迹格式可以简单统一，但哪些轨迹算好，人眼判断也会有差异；验收时究竟有多少收益来自 scaffold、又有多少能被模型内化，仍是使用者正在追问的问题。",
+          "emphasis": [
+            "每新增一个组件，数据量就会骤降",
+            "哪些轨迹算好，人眼判断也会有差异"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:05",
+              "text": "话说搭建好数据生产的pipeline，想要提高数据的难度的时候往里面加subagent的信息，但很难平衡verifier和整体管线的tradeoff有比较好的解法吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "22:06",
+              "text": "每次新加个组件agent之后数据量就会骤降，要么再磨合好一阵batch总结然后更新harness，要么只能降低rubric阈值，但这样数据数量和质量总会掉一个"
+            },
+            {
+              "speaker": 1,
+              "time": "22:10",
+              "text": "现在就是rsi，但是是自己瞎设计的。有比较好的baseline吗",
+              "quote": {
+                "speaker": 5,
+                "text": "rsi 你值得拥有"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:12",
+              "text": "rrsi"
+            },
+            {
+              "speaker": 2,
+              "time": "22:12",
+              "text": "我跑的这个"
+            },
+            {
+              "speaker": 2,
+              "time": "22:13",
+              "text": "都是他只改harness"
+            },
+            {
+              "speaker": 2,
+              "time": "22:13",
+              "text": "我觉得更像自进化"
+            },
+            {
+              "speaker": 1,
+              "time": "22:15",
+              "text": "能自改进就好了，自进化不奢望啊",
+              "quote": {
+                "speaker": 2,
+                "text": "我觉得更像自进化"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:16",
+              "text": "是这样的，很多harness的自进化都比较伪，其实更像task aware的过拟合"
+            },
+            {
+              "speaker": 2,
+              "time": "22:16",
+              "text": "改harness实际上只是在assistant外包一层嘛，整个rsi系统其实要改很多东西的，比如说上下文memory的修改比如说。交互的修改等等"
+            },
+            {
+              "speaker": 2,
+              "time": "22:17",
+              "text": "真正的rsi重要的一个过程是这种自己产生的数据的一个筛选。这里面。其实要求很高"
+            },
+            {
+              "speaker": 2,
+              "time": "22:17",
+              "text": "目前很多还是human in the loop"
+            },
+            {
+              "speaker": 3,
+              "time": "22:19",
+              "text": "验证长程任务的有效提升就很费劲"
+            },
+            {
+              "speaker": 4,
+              "time": "22:19",
+              "text": "想请教一下，就是这种合成数据的管线，有没有一套相对比较标准的做法呢。\n看了一下最近的技术报告，重点好像都在于构建了多少的呃sandbox的环境，然后嗯怎样去设计奖励防止reward hack这种，像是合数据有没有小妙招呀",
+              "quote": {
+                "speaker": 1,
+                "text": "话说搭建好数据生产的pipeline，想要提高数据的难度的时候往里面加subagent的信息，但很难平衡verifier和整体管线的tradeoff有比较好的解..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:20",
+              "text": "标准的其实就是那些模块，包括生成验证啊，然后去训练等等"
+            },
+            {
+              "speaker": 2,
+              "time": "22:20",
+              "text": "但是打开来看都有很多trick，包括人眼去看哪些是符合自己审美的轨迹，其实格式来说就是很简单，但是什么是好的轨迹，这个其实还是。不同的人员去看，就感觉是不一样的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:20",
+              "text": "跟你任务有关的，这个很难标准化吧，你设计i好generator和verifier，具体的subagent根据你任务定制",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 想请教一下，就是这种合成数据的管线，有没有一套相对比较标准的做法呢。\n看了一下最近的技术报告，重点好像都在于构建了多少的呃sandbox的环境，然后嗯怎样去设计奖励防止reward hack这种，像是合数据有没有小妙招呀"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:23",
+              "text": "是这样的，甚至轨迹验收的时候到底scaffold起了多少作用，轨迹能在主线内化到多少，也都不好说",
+              "quote": {
+                "speaker": 2,
+                "text": "但是打开来看都有很多trick，包括人眼去看哪些是符合自己审美的轨迹，其实格式来说就是很简单，但是什么是好的轨迹，这个其实还是。不同的人员去看，就感觉是不一样的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:24",
+              "text": "用native scaffold+frontier硬刷数据不一定work也有这个原因[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "22:24",
+              "text": "自己产生的轨迹对于指标有多大的作用，也很难讲"
+            },
+            {
+              "speaker": 1,
+              "time": "22:24",
+              "text": "是的 我最近就在研究这个点"
+            }
+          ],
+          "aiComment": "多加一个组件，生成和验收都得重新磨合；数据少了，先别急着降低门槛。"
+        },
+        {
+          "category": "自我改进",
+          "title": "RSI 要跨 Harness 泛化，还是先服务固定部署？",
+          "text": "自动优化 harness 的结果能否直接部署，还是仍需人工审查新增模块？这一追问把递归自我改进（RSI）讨论从刷榜拉到了使用场景。有人质疑不少纯 harness 优化只是对 benchmark 过拟合；另一位参与者提出一种闭环路径：把成熟策略压进模型训练，脱离那套特殊 harness 后也能获得提升，并建议把通用能力内化、个性化内容继续留在外层。\n\n反方追问，如果模型本来就固定部署在某套 harness 中，而且根本不追求跨 harness，为什么一定要求这类泛化？另一方则区分垂类与通用场景：前者可以接受固定配置，后者仍应适应不同系统指令与脚手架。跨 domain 合并训练又带来新难题，各领域为得到最佳轨迹采用不同 scaffold，数据均衡该由领域负责人完成，还是由主线跨 scaffold 处理？\n\n有人建议用分布更广的通用长程 benchmark 检查提升，但使用者指出，Agent 的随机性使单步动作归因很难，超长程还会放大这个问题。另一个追问是，任务越复杂，评测指标是否真的代表实际价值。",
+          "emphasis": [
+            "把成熟策略压进模型训练",
+            "根本不追求跨 harness，为什么一定要求这类泛化",
+            "评测指标是否真的代表实际价值"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:26",
+              "text": "我其实有点不理解自动优化harness去刷榜的意义，这种自动拿到的harness会去部署吗？我感觉大概率还是需要人去review"
+            },
+            {
+              "speaker": 1,
+              "time": "22:27",
+              "text": "要是还需要人去不断review和完善，那好像就是vibe coding？"
+            },
+            {
+              "speaker": 1,
+              "time": "22:29",
+              "text": "特别是新增模块的合理性"
+            },
+            {
+              "speaker": 2,
+              "time": "22:37",
+              "text": "我的理解是至少证明harness可以压进模型训练，训完的模型在不需要这套特殊harness之后，也能得到提升，这样是一个完整的闭环，不过我不太清楚有没有哪个工作涉及到这个内容"
+            },
+            {
+              "speaker": 3,
+              "time": "22:41",
+              "text": "会导致过拟合特定 harness 吗",
+              "quote": {
+                "speaker": 2,
+                "text": "我的理解是至少证明harness可以压进模型训练，训完的模型在不需要这套特殊harness之后，也能得到提升，这样是一个完整的闭环，不过我不太清楚有没有哪个工作..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:42",
+              "text": "我感觉会的，不同harness的能力差别巨大",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 会导致过拟合特定 harness 吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:44",
+              "text": "也可能通用的能力，并且能持续提升模型效果的要从harness内化到模型权重里去，个性化的specific的一些东西还是保留在harness里面，或者就在harness层面去演进"
+            },
+            {
+              "speaker": 6,
+              "time": "22:46",
+              "text": "这个会带来新的问题，每个domain数据的负责人为了让自己的轨迹最佳，scaffold肯定是不同的，数据均衡要么domain负责人自己做好出teacher model，要么主线做垮scaffold的均衡（这个很难）",
+              "quote": {
+                "speaker": 12,
+                "text": "所以现在是都拉过来训"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "22:48",
+              "text": "那么不涉及到模型training的呢，纯harness的rsi，这种要怎么来进行泛化呢，现在看到的更多paper都是在bench mark上面过拟和；",
+              "quote": {
+                "speaker": 2,
+                "text": "我的理解是至少证明harness可以压进模型训练，训完的模型在不需要这套特殊harness之后，也能得到提升，这样是一个完整的闭环，不过我不太清楚有没有哪个工作..."
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:51",
+              "text": "我正在探索类似的事情 就是关于模型是如何在推理时对benchmark过拟合的（bench的反馈信号怎么加重这种趋势",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 那么不涉及到模型training的呢，纯harness的rsi，这种要怎么来进行泛化呢，现在看到的更多paper都是在bench mark上面过拟和；"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:51",
+              "text": "感觉可以导致过拟合的因素还是太多了  verifier  环境 任务分布 harness都有可能"
+            },
+            {
+              "speaker": 9,
+              "time": "22:51",
+              "text": "感觉训的时候多数还是考虑怎么适配流行的harness，保障模型体验，自己搞harness加数据训还比较少听说（孤陋寡闻了），而且harness间的泛化其实也有点糟，maybe不太能work",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 这个会带来新的问题，每个domain数据的负责人为了让自己的轨迹最佳，scaffold肯定是不同的，数据均衡要么domain负责人自己做好出teacher model，要么主线做垮scaffold的均衡（这个很难）"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:51",
+              "text": "harness内化训练的一个简化版，其实就是我们很常用的skill内化"
+            },
+            {
+              "speaker": 10,
+              "time": "22:52",
+              "text": "我的一个思路是选真正难的 benchmark，通用长程 bench，EdgeBench、LHTB 等。\n感觉目前一些 RSI 的工作是在挑简单的、容易过拟合的不知名小 bench，或者明显是垂域、特定任务场景的 bench",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 那么不涉及到模型training的呢，纯harness的rsi，这种要怎么来进行泛化呢，现在看到的更多paper都是在bench mark上面过拟和；"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "22:52",
+              "text": "通用 bench 的数据分布比较广",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 我的一个思路是选真正难的 benchmark，通用长程 bench，EdgeBench、LHTB 等。\n感觉目前一些 RSI 的工作是在挑简单的、容易过拟合的不知名小 bench，或者明显是垂域、特定任务场景的 bench"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:54",
+              "text": "老哥你这个验证起来老费劲了，agent的随机性让它每次action的归因都不好评估，超长程放大了这个缺点",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 我的一个思路是选真正难的 benchmark，通用长程 bench，EdgeBench、LHTB 等。\n感觉目前一些 RSI 的工作是在挑简单的、容易过拟合的不知名小 bench，或者明显是垂域、特定任务场景的 bench"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "22:54",
+              "text": "有个问题，如果模型真在这个特定harness 下工作，什么叫做过拟合"
+            },
+            {
+              "speaker": 11,
+              "time": "22:54",
+              "text": "如果压根就不指望跨脚手架呢"
+            },
+            {
+              "speaker": 12,
+              "time": "22:54",
+              "text": "换个harness就炸了？"
+            },
+            {
+              "speaker": 4,
+              "time": "22:55",
+              "text": "不用其他harness就行",
+              "quote": {
+                "speaker": 11,
+                "text": "有个问题，如果模型真在这个特定harness 下工作，什么叫做过拟合"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "22:58",
+              "text": "感觉这个和system指令遵循是类似的，纯垂类场景确实可以接受一个sp不做泛化，但通用还是需要泛化能力的，可能也是智能的一种体现",
+              "quote": {
+                "speaker": 11,
+                "text": "如果压根就不指望跨脚手架呢"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:59",
+              "text": "换个harness就掉点吧 很常见的",
+              "quote": {
+                "speaker": 11,
+                "text": "有个问题，如果模型真在这个特定harness 下工作，什么叫做过拟合"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "23:00",
+              "text": "我幻想一种未来是人人都可以拿一套系统去持续更新自己的垂直领域"
+            },
+            {
+              "speaker": 11,
+              "time": "23:00",
+              "text": "都是小模型"
+            },
+            {
+              "speaker": 11,
+              "time": "23:00",
+              "text": "大模型负责当老师"
+            },
+            {
+              "speaker": 14,
+              "time": "23:00",
+              "text": "感觉通用超长程bench下一个是归因验证问题，还有一个是任务越复杂越得问一下do metrics truly represent the real value"
+            }
+          ],
+          "aiComment": "固定部署能用好，和换一套环境还能用好，值得分开验收。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "RRSI 论文",
+              "url": "https://arxiv.org/abs/2609.24972"
+            }
+          ]
+        },
+        {
+          "category": "研究落地",
+          "title": "离线推理方法有提升，上线却没有稳定收益",
+          "text": "一位使用者反馈，将论文中的推理方法接入已有业务 Agent 后，离线实验有提升，真实产品却很难稳定受益。这套系统已包含垂域 harness、大量人工打磨的 skills 和 prompts。使用者猜测，新方法的能力可能被既有优化覆盖，也可能与流程互扰，同时仍在区分方法适用性与集成方式的问题。\n\n面对“benchmark 数据或两边环境是否不同”的追问，使用者回复两边一致，并补充评估器不能视作绝对可靠：它用 LLM 结合规则映射给分，而 Task Agent 自身也有较大波动。使用者想了解如何设计对照、定位不稳定原因，以及判断新方法的独立贡献。",
+          "emphasis": [
+            "离线实验有提升，真实产品却很难稳定受益",
+            "评估器不能视作绝对可靠"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:27",
+              "text": "想向群友请教一个问题：在已经经过大量人工调优的业务 agent 系统中，如何让新的推理方法产生稳定、可验证的增益？\n\n我们在业务部门做 agent 的一些下游任务。目前已经搭建了一套结合垂域经验的 harness，配套了大量人工打磨的 skills 和 prompts，并使用自建的 benchmark 进行评估。也就是说，现有系统的效果不仅来自模型本身，还依赖很多针对业务场景的经验性设计。\n\n我现在希望把自己论文中提出的 agent 推理方法集成到这套系统里。但遇到的困难是：在离线实验中，方法能够带来提升，实验结果也支持预期机制在起作用；但接入真实产品后，却很难获得稳定的增益。\n\n我的一个猜测是，现有 harness 和 skills 已经包含了很多人工优化，新方法带来的能力可能被部分覆盖，也可能与既有流程相互干扰。不过，目前还不能确定，到底是方法本身在真实业务场景中的适用性不足，还是它与现有系统的集成方式存在问题。\n\n所以想请教大家：这种情况下，应该如何设计对照实验、定位收益不稳定的原因，并判断新方法的独立贡献？在落地上，又该如何决定是继续调整方法与现有 harness 的结合方式，还是选择更适合发挥该方法作用的任务或环节？有类似研究落地经验的朋友，想听听你们的建议。"
+            },
+            {
+              "speaker": 2,
+              "time": "23:37",
+              "text": "这听起来像是bench的数据和真实场景的数据有偏差吧，还是说两遍环境不一样呢",
+              "quote": {
+                "speaker": 1,
+                "text": "想向群友请教一个问题：在已经经过大量人工调优的业务 agent 系统中，如何让新的推理方法产生稳定、可验证的增益？ 我们在业务部门做 agent 的一些下游任务..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:47",
+              "text": "是一致的，当然这个评估器我们不能认为绝对好，因为它没有用绝对指标评分，而是用llm结合一些规则映射后给分数。但是Task Agent的波动也会有比较大",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 这听起来像是bench的数据和真实场景的数据有偏差吧，还是说两遍环境不一样呢"
+              }
+            }
+          ],
+          "aiComment": "先分清收益被已有能力覆盖，还是接入后互相干扰，才知道下一步该改方法还是改接法。"
+        },
+        {
+          "category": "Agent 工程",
+          "title": "模型越来越强，Harness 会消失吗？",
+          "text": "有人认为基座模型越强，harness 越简单；另一位参与者预测，新的需求会先让 harness 变厚，等这部分能力被训进模型，外层再变薄，而成熟技巧进入权重后又可能解锁新的场景。这个说法把外层设计与模型训练看成反复推进的过程。\n\n对于哪些功能不能轻易省掉，参与者给出的理由更具体：模型仍需与外界交互，上下文窗口也有限，历史 context 要压缩，还要管理注意力。因此，有人认为即使一些技巧被内化，交互和上下文管理仍需要外层引导。\n\n把不同 harness 都学进去也有分歧。有人担心新旧文本规则冲突、旧规则被遗忘；另一位参与者认为，不同版本主要是上下文管理、工具调用和 subagent 编排的不同实现，可以视作数据增强，可能促进泛化。",
+          "emphasis": [
+            "新的需求会先让 harness 变厚",
+            "历史 context 要压缩，还要管理注意力",
+            "有人担心新旧文本规则冲突、旧规则被遗忘"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:01",
+              "text": "请问一下各位，为什么要有harness？是因为再大模型也无法全知全能吗？还是说全知全能的模型反而更需要harness？"
+            },
+            {
+              "speaker": 2,
+              "time": "23:03",
+              "text": "模型的能力需要引导，需要context才能激发出来",
+              "quote": {
+                "speaker": 1,
+                "text": "请问一下各位，为什么要有harness？是因为再大模型也无法全知全能吗？还是说全知全能的模型反而更需要harness？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:04",
+              "text": "意思模型再强，也需要harness吗？还是说只是目前的过渡态？",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 模型的能力需要引导，需要context才能激发出来"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:04",
+              "text": "把构建harness的过程是否也可以训到模型里面"
+            },
+            {
+              "speaker": 4,
+              "time": "23:05",
+              "text": "模型不能自己与外界交互，context有限，这两点在，模型始终需要harness"
+            },
+            {
+              "speaker": 5,
+              "time": "23:05",
+              "text": "harness是很顺其自然的产物啊，非agent时代就有one shot能把通用模型在垂域能力拉高的结论，那agent时代用harness指导一个general model在各种领域拿到更好的结果是很合理的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:05",
+              "text": "训到模型里，跟sft rl也没区别了"
+            },
+            {
+              "speaker": 6,
+              "time": "23:05",
+              "text": "harness少不了的，上下文有限，也要保护注意力。"
+            },
+            {
+              "speaker": 1,
+              "time": "23:06",
+              "text": "总有需要harness的场景"
+            },
+            {
+              "speaker": 7,
+              "time": "23:06",
+              "text": "基模越强，harness越简单"
+            },
+            {
+              "speaker": 1,
+              "time": "23:06",
+              "text": "以前觉得模型足够强，就不需要什么harness了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "但最近感觉或许并不是"
+            },
+            {
+              "speaker": 2,
+              "time": "23:07",
+              "text": "模型的context size不是无限的",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 意思模型再强，也需要harness吗？还是说只是目前的过渡态？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "23:07",
+              "text": "一点context让模型能力更强是很好的事情，不用排斥"
+            },
+            {
+              "speaker": 2,
+              "time": "23:07",
+              "text": "上下文有上限，之前的context需要compact",
+              "quote": {
+                "speaker": 1,
+                "text": "以前觉得模型足够强，就不需要什么harness了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:08",
+              "text": "感觉也得看人的需求，新的需求出来的 harness 又变厚了，然后用着用着就把这个 harness 的能力训到模型里了，那这部分 harness 就可以省掉了",
+              "quote": {
+                "speaker": 7,
+                "text": "基模越强，harness越简单"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "23:09",
+              "text": "harness学多了可能会冲突吧",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 感觉也得看人的需求，新的需求出来的 harness 又变厚了，然后用着用着就把这个 harness 的能力训到模型里了，那这部分 harness 就可以省掉了"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "23:09",
+              "text": "以及会有和continual learning一样的问题"
+            },
+            {
+              "speaker": 1,
+              "time": "23:10",
+              "text": "训得越来越多进去了，反而又需要新的harness引导"
+            },
+            {
+              "speaker": 10,
+              "time": "23:10",
+              "text": "早期 harness 的一些 trick 被训进去，比如 ptc 之类的，又会解锁新的 harness 场景"
+            },
+            {
+              "speaker": 11,
+              "time": "23:11",
+              "text": "所以成了刚开始harness变厚，到变薄，然后又有新的问题与场景的过程"
+            },
+            {
+              "speaker": 5,
+              "time": "23:12",
+              "text": "比如bio/medical的垂直模型，pt后的模型大概率是无法满足垂域要求，那就会加数据做post train"
+            },
+            {
+              "speaker": 5,
+              "time": "23:13",
+              "text": "现在harness用类似rag的方式就能把知识注入进去，降低后训练的必要性"
+            },
+            {
+              "speaker": 12,
+              "time": "23:30",
+              "text": "印象中continuous learning的setting是不同domain的任务持续到来然后训练产生灾难性遗忘和知识迁移难的问题 harness版本的更新或者新的harness感觉 感觉只会是一种数据上的增强 本质上还是上下文管理 工具调用方式 subagent编排 等组件的不同实现形式 或许更能让模型泛化",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] harness学多了可能会冲突吧"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "23:32",
+              "text": "有道理。我之前想的是把harness作为文本学进去，如果新旧规则冲突的话，那训练效果就会变差。或者说旧规则会被自然遗忘",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 印象中continuous learning的setting是不同domain的任务持续到来然后训练产生灾难性遗忘和知识迁移难的问题 harness版本的更新或者新的harness感觉 感觉只会是一种数据上的增强 本质上还是上下文管理 工具调用方式 subagent编排 等组件的不同实现形式 或许更能让模型泛化"
+              }
+            }
+          ],
+          "aiComment": "一种技巧被模型学会，外层就能少做一点；新需求来了，又有新的分工要试。"
+        },
+        {
+          "category": "模型架构",
+          "title": "Loop Transformer 的潜力，不能从 Attention Sink 直接推出",
+          "text": "一位参与者把循环 Transformer 理解为在隐空间实现测试时计算的路径，认为它能拓展模型可及的能力上限；另一位参与者对提高预训练能力上限保持怀疑，并追问文章依据。讨论还提到 loop 难训练，Ouro-2.6B 和 Huginn 被举作开源探索的例子。\n\n有人联想到 Attention Sink，提出将其与 loop 结合：首个 token 吸收注意力、其 V 值较小的现象，在其读过的一些解释中，被用来说明后续 token 具有近似恒等映射的能力。另一位参与者指出，即使 attention 近似恒等，也可能只是 token 间交互信息利用较少；MoE 还在处理 token 内部维度，不能据此认定整体恒等。\n\n该联想进一步变成一个问题：发生 sink 时，是否偏向 MoE 结构做 loop？提出者表示尚未想好具体做法。谈到 Ouro 的全层循环与 Huginn 的不同思路时，也有人强调，全层 loop 未必是最优解。",
+          "emphasis": [
+            "对提高预训练能力上限保持怀疑",
+            "不能据此认定整体恒等",
+            "全层 loop 未必是最优解"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:17",
+              "text": "为啥这么说 最近对这个架构比较感兴趣 在研究中",
+              "quote": {
+                "speaker": 2,
+                "text": "感觉looped transformer之后会是架构主流"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:19",
+              "text": "简单来说就是循环Transformer 是把测试时计算放进隐空间的一种实现 预训练层面提高能力上限",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 为啥这么说 最近对这个架构比较感兴趣 在研究中"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:21",
+              "text": "你这个表示有点把loop和ttt混淆了吧",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 简单来说就是循环Transformer 是把测试时计算放进隐空间的一种实现 预训练层面提高能力上限"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:22",
+              "text": "test time compute不是training"
+            },
+            {
+              "speaker": 1,
+              "time": "16:22",
+              "text": "提高预训练能力上限这个保持怀疑 有无具体文章指路?"
+            },
+            {
+              "speaker": 2,
+              "time": "16:23",
+              "text": "这我得找找 我理解只能提高能力上限不能提高智能上限"
+            },
+            {
+              "speaker": 2,
+              "time": "16:24",
+              "text": "拓展智能上限的可及能力上限，仅此而已"
+            },
+            {
+              "speaker": 3,
+              "time": "16:25",
+              "text": "loop很难训练叭"
+            },
+            {
+              "speaker": 3,
+              "time": "16:27",
+              "text": "感觉loop和attention sink是两个极端，loop是重复用多用，sink是前面层就开始恒等映射了，不知道这俩能不能有一些结合的工作"
+            },
+            {
+              "speaker": 1,
+              "time": "16:29",
+              "text": "attention sink不是现象吗 前面层恒等映射是什么意思"
+            },
+            {
+              "speaker": 3,
+              "time": "16:31",
+              "text": "这个现象我看有些解释是说，注意力都关注第一个token，且第一个token的v值很小，是为了让后面这些token能够有恒等映射的能力",
+              "quote": {
+                "speaker": 1,
+                "text": "attention sink不是现象吗 前面层恒等映射是什么意思"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:36",
+              "text": "attention这边近似恒等是不是只能说明token之间的交互信息利用的比较少 但是还有moe做token内部的维度信息处理 这个倒不一定恒等近似了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:37",
+              "text": "所以你的意思就是在发生attn sink的时候，偏向于moe结构进行loop吗"
+            },
+            {
+              "speaker": 4,
+              "time": "16:37",
+              "text": "目前感觉分数比较高的也就 ByteDance/Ouro-2.6B 这个了, 其他的好像没怎么看到",
+              "quote": {
+                "speaker": null,
+                "text": "loop很难训练叭"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:37",
+              "text": "这个具体还没想好怎么做，只是觉得这个attention sink和loop是很有意思的一类问题"
+            },
+            {
+              "speaker": 1,
+              "time": "16:41",
+              "text": "还有个Huginn",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 目前感觉分数比较高的也就 ByteDance/Ouro-2.6B 这个了, 其他的好像没怎么看到"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:41",
+              "text": "但还没看到比较大参数的开源模型"
+            },
+            {
+              "speaker": 4,
+              "time": "16:42",
+              "text": "这个不是 纯loop, Ouro 48个层全做loop, 而且做了post train",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 还有个Huginn"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:43",
+              "text": "两种loop思路吧 不好定义什么是纯loop"
+            },
+            {
+              "speaker": 5,
+              "time": "16:45",
+              "text": "是的，全层loop不见得是最优解",
+              "quote": {
+                "speaker": 1,
+                "text": "两种loop思路吧 不好定义什么是纯loop"
+              }
+            }
+          ],
+          "aiComment": "从注意力里的现象走到全模型的设计，中间还隔着 MoE 和训练能否跑通。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Ouro-2.6B 模型卡",
+              "url": "https://huggingface.co/ByteDance/Ouro-2.6B"
+            },
+            {
+              "kind": "code",
+              "label": "Huginn 模型卡",
+              "url": "https://huggingface.co/tomg-group-umd/huginn-0125"
+            }
+          ]
+        },
+        {
+          "category": "训练策略",
+          "title": "部分蒸馏省下的试错，应该留给什么？",
+          "text": "有人主张“部分蒸馏”：前沿模型在推理链、格式和工具调用这类已知可行的行为上，可以提供监督信号；先蒸馏已验证的能力底座，再把探索预算留给自己的目标分布。这位参与者认为，完全拒绝蒸馏等于放弃一个便宜的杠杆。\n\n另一位参与者追问，“省掉大量试错成本”是否一定是好事，并认为丰富的数据资源本应支持特色路线，资源整合与人员竞争机制也可能影响探索。讨论中既有支持两手抓的回应，也保留了对省略试错价值的疑问。",
+          "emphasis": [
+            "把探索预算留给自己的目标分布",
+            "“省掉大量试错成本”是否一定是好事"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "03:11",
+              "text": "完全拒绝蒸馏等于放弃了一个便宜的杠杆。前沿模型的输出本身就是高质量的监督信号,尤其在推理链、格式、工具调用这类\"已知可行\"的行为上,蒸馏能省掉大量试错成本。\"部分蒸馏\"的提法也对:蒸馏的是已验证的能力底座,探索预算留给自己的目标分布。"
+            },
+            {
+              "speaker": 2,
+              "time": "03:15",
+              "text": "有价值的蒸馏是哪个部分"
+            },
+            {
+              "speaker": 3,
+              "time": "03:17",
+              "text": "“省掉大量试错成本”是否是一件好事呢……"
+            },
+            {
+              "speaker": 3,
+              "time": "03:24",
+              "text": "感觉这问题很复杂啊"
+            },
+            {
+              "speaker": 3,
+              "time": "03:25",
+              "text": "理应能支撑走出一条特色道路"
+            },
+            {
+              "speaker": 3,
+              "time": "03:27",
+              "text": "内部部门的整合 资源的集聚 人员的合理程度的竞争"
+            },
+            {
+              "speaker": 3,
+              "time": "03:28",
+              "text": "可能问题还是在这里"
+            },
+            {
+              "speaker": 4,
+              "time": "09:00",
+              "text": "是的，两手抓"
+            }
+          ],
+          "aiComment": "蒸馏省下来的预算最后花在哪里，比单独争论用不用蒸馏更具体。"
+        },
+        {
+          "category": "科研工具",
+          "title": "论文写作与科研绘图，难点都在怎样评价",
+          "text": "几位使用者反馈，模型写论文容易加防御性话语。有人尝试一句提示规则：“如果该表达不是为了推进研究，那就删除。”这位使用者觉得有效，但自动处理后仍要人工核查两轮。另有分享者推荐 humanize-skill，强调别加入莫名其妙的 claim，要检查每句话为什么说、全文如何连贯，并在交流后补充了英文版。\n\n对英文写作，使用者抱怨的不只是措辞，还包括引言机械罗列 aims、每段 first/second，以及 discussion 缺少对现有研究的针对性比对。也有人反馈，自己试过市面上的一些去 AI 味工具，效果很差。\n\n科研绘图的难题则落在配色、框架、构图和抽象审美。一方质疑这类能力能否蒸馏，另一位参与者指出，筛选绘图轨迹的 rubric 不好做。有人建议用 AstraDraw 参考好看的演示图，再总结做法，也有人提出模仿学习和 few-shot；这些是尝试方向，并非已解决审美评价的方案。",
+          "emphasis": [
+            "如果该表达不是为了推进研究，那就删除",
+            "discussion 缺少对现有研究的针对性比对",
+            "筛选绘图轨迹的 rubric 不好做"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:42",
+              "text": "用gpt写论文会有一大堆防御性话语，做agent任务也会有一堆防御性过程"
+            },
+            {
+              "speaker": 2,
+              "time": "09:44",
+              "text": "gpt的防御性话语尤其多",
+              "quote": {
+                "speaker": 1,
+                "text": "用gpt写论文会有一大堆防御性话语，做agent任务也会有一堆防御性过程"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "09:50",
+              "text": "现在有哪个模型写的东西AI味道没那么重吗"
+            },
+            {
+              "speaker": 3,
+              "time": "10:50",
+              "text": "这个可以prompt吧",
+              "quote": {
+                "speaker": 1,
+                "text": "用gpt写论文会有一大堆防御性话语，做agent任务也会有一堆防御性过程"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:51",
+              "text": "就说，如果该表达不是为了推进研究，那就删除"
+            },
+            {
+              "speaker": 3,
+              "time": "10:51",
+              "text": "我试了下还行"
+            },
+            {
+              "speaker": 3,
+              "time": "10:51",
+              "text": "但auto后还是得人工核查两轮"
+            },
+            {
+              "speaker": 4,
+              "time": "10:57",
+              "text": "https://github.com/Takamatsu-Hikaru/humanize-skill"
+            },
+            {
+              "speaker": 4,
+              "time": "10:57",
+              "text": "说人话skill）"
+            },
+            {
+              "speaker": 4,
+              "time": "11:00",
+              "text": "避免claim一些莫名其妙的东西 多思考每句话为什么要说 整个怎么连贯之类的（"
+            },
+            {
+              "speaker": 3,
+              "time": "11:00",
+              "text": "英文的有没有？"
+            },
+            {
+              "speaker": 4,
+              "time": "11:00",
+              "text": "我追加一个"
+            },
+            {
+              "speaker": 3,
+              "time": "11:05",
+              "text": "还有就是画图这块儿看能不能搞个好点的方式"
+            },
+            {
+              "speaker": 3,
+              "time": "11:05",
+              "text": "现在出的图ai味儿太浓了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:06",
+              "text": "我看nature上面的图太有艺术感了，这块儿ai远远达不到。配色，框架，设计，还有一些奇形怪状但很好看的图，这种ai都干不到"
+            },
+            {
+              "speaker": 4,
+              "time": "11:06",
+              "text": "推荐astradraw 然后你让他copy些presentation好看的图 再总结（"
+            },
+            {
+              "speaker": 4,
+              "time": "11:06",
+              "text": "不会就先copy"
+            },
+            {
+              "speaker": 4,
+              "time": "11:09",
+              "text": "英文ver搞定"
+            },
+            {
+              "speaker": 5,
+              "time": "11:13",
+              "text": "我之前用过市面上的一些，感觉效果非常差",
+              "quote": {
+                "speaker": 4,
+                "text": "https://github.com/Takamatsu-Hikaru/humanize-skill"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:28",
+              "text": "是的，目前只能这么做",
+              "quote": {
+                "speaker": 4,
+                "text": "推荐astradraw 然后你让他copy些presentation好看的图 再总结（"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:29",
+              "text": "oa，包括biorender，他们是咋做这么好看的机制/流程图的"
+            },
+            {
+              "speaker": 3,
+              "time": "11:29",
+              "text": "这块儿能蒸吗"
+            },
+            {
+              "speaker": 3,
+              "time": "11:35",
+              "text": "蒸不出来啊，感觉这块儿涉及到审美甚至抽象概念，还蒸不出来",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] distilling"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:35",
+              "text": "只能通过pip调用相关程序做人机味儿小图片"
+            },
+            {
+              "speaker": 6,
+              "time": "11:36",
+              "text": "claude 审美可以"
+            },
+            {
+              "speaker": 6,
+              "time": "11:36",
+              "text": "sonnet"
+            },
+            {
+              "speaker": 6,
+              "time": "11:36",
+              "text": "这个",
+              "quote": {
+                "speaker": null,
+                "text": "审美看看 👀https://arxiv.org/abs/2605.12684"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:39",
+              "text": "筛轨迹的rubric不好做",
+              "quote": {
+                "speaker": 3,
+                "text": "这块儿能蒸吗"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "11:41",
+              "text": "模仿学习 few shot🤔",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 蒸不出来啊，感觉这块儿涉及到审美甚至抽象概念，还蒸不出来"
+              }
+            }
+          ],
+          "aiComment": "模型生怕被读者抓把柄，字里行间全是防身术，删起来比写正文还累。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "humanize-skill",
+              "url": "https://github.com/Takamatsu-Hikaru/humanize-skill"
+            },
+            {
+              "kind": "paper",
+              "label": "Visual Aesthetic Benchmark",
+              "url": "https://arxiv.org/abs/2605.12684"
+            }
+          ]
+        },
+        {
+          "category": "视频制作",
+          "title": "Opus 用 FFmpeg 和 Python 做视频，没有操作剪辑软件",
+          "text": "分享者展示了 Opus 5.5 做视频的尝试：素材由模型自行找公开来源，阿雷西博信息逐行显示的动画则由模型写代码，1679 个比特逐个亮起，配土星射电声。被问到使用什么剪辑软件时，分享者回答是 FFmpeg + Python，并表达了 coding 大于 computer use 的个人偏好。另一个观看体验是，zero-shot 做出的作品“味道都一样”。",
+          "emphasis": [
+            "阿雷西博信息逐行显示的动画则由模型写代码",
+            "zero-shot 做出的作品“味道都一样”"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:54",
+              "text": "opus5.5剪辑视频确实好好玩，比小云雀（seedance）生成的优雅太多了 （建议seedance只成为opus的subagent（素材生成）"
+            },
+            {
+              "speaker": 2,
+              "time": "00:56",
+              "text": "这是 seedance 提供素材 opus5.5 剪的吗"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "不是（这个是opus自己找的公开素材",
+              "quote": {
+                "speaker": 2,
+                "text": "这是 seedance 提供素材 opus5.5 剪的吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:01",
+              "text": "这段动画是公开的素材吗"
+            },
+            {
+              "speaker": 1,
+              "time": "01:02",
+              "text": "阿雷西博信息逐行显示，1679 个比特一个个亮起，配土星射电声"
+            },
+            {
+              "speaker": 3,
+              "time": "01:03",
+              "text": "这是让opus操作什么软件剪的呀"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "不是呢 opus写代码写出来的",
+              "quote": {
+                "speaker": 3,
+                "text": "这段动画是公开的素材吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:05",
+              "text": "剪辑纯代码吗"
+            },
+            {
+              "speaker": 2,
+              "time": "01:05",
+              "text": "我还以为是 cua"
+            },
+            {
+              "speaker": 1,
+              "time": "01:06",
+              "text": "ffmpeg+python",
+              "quote": {
+                "speaker": 3,
+                "text": "这是让opus操作什么软件剪的呀"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:07",
+              "text": "更高级的效果，是不是就应该让opus去下载专业的剪辑软件"
+            },
+            {
+              "speaker": 3,
+              "time": "01:07",
+              "text": "然后让它操作这些软件"
+            },
+            {
+              "speaker": 1,
+              "time": "01:07",
+              "text": "【震惊瘫坐！Opus 5.5生成-从现在看过去-AI简史】 https://www.bilibili.com/video/BV1H8av6HEYs/ 可以看这个 做的好有意思 不过感觉zero shot做出来的味道都一样",
+              "quote": {
+                "speaker": 2,
+                "text": "剪辑纯代码吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:07",
+              "text": "应该不是吧",
+              "quote": {
+                "speaker": 3,
+                "text": "更高级的效果，是不是就应该让opus去下载专业的剪辑软件"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:07",
+              "text": "我认为coding大于cu"
+            },
+            {
+              "speaker": 4,
+              "time": "01:08",
+              "text": "ffmeg都能做到吧",
+              "quote": {
+                "speaker": 3,
+                "text": "更高级的效果，是不是就应该让opus去下载专业的剪辑软件"
+              }
+            }
+          ],
+          "aiComment": "代码把画面做出来了，风格是否千篇一律，还得回到观看体验上。"
+        },
+        {
+          "category": "工作边界",
+          "title": "主动熬夜起实验，和被半夜叫上线是两回事",
+          "text": "关于研发工作强度，有人区分了两种情形：自己想把问题搞明白，或想启动实验而选择加班；以及别人半夜 call，要求自己上线。另一位参与者描述，晚上九点以后已难集中注意力。对工作强度能否按公司判断，也有人提醒，不同部门及 leader 的管理方式会不同。",
+          "emphasis": [
+            "自己想把问题搞明白",
+            "不同部门及 leader 的管理方式会不同"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:45",
+              "text": "我感觉干到9点"
+            },
+            {
+              "speaker": 1,
+              "time": "18:45",
+              "text": "我就不能干了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:45",
+              "text": "不同部门应该也不一样吧"
+            },
+            {
+              "speaker": 1,
+              "time": "18:46",
+              "text": "9点以后attention归0"
+            },
+            {
+              "speaker": 3,
+              "time": "18:47",
+              "text": "那是你自己的选择啊，自己想搞明白或者起实验加班"
+            },
+            {
+              "speaker": 3,
+              "time": "18:47",
+              "text": "和别人call你上来，这两个性质"
+            },
+            {
+              "speaker": 4,
+              "time": "18:49",
+              "text": "不同leader管理方式也不一样"
+            }
+          ],
+          "aiComment": "自己半夜点启动键叫为科学献身，别人半夜发来消息就只剩头疼了。"
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "跨会话协作、模型推理与端侧体验",
+      "theme": "四群日报 · 共享记忆、训练路线与工具使用的具体分歧",
+      "note": "2026-10-13 · 当日本地记录",
+      "stories": [
+        {
+          "category": "系统架构",
+          "title": "跨会话异构协作：云端留言本与中央记忆设想",
+          "text": "一位开发者把多工具间搬运上下文的工作做成了云端留言本：网页版 ChatGPT、Work、Codex 等会话可以互相留言、安排任务与反馈，自研 RAG 和云端数据库保存交叉的重要节点，会话中断后再调取历史。这是分享者正在使用的私密插件与云服务原型，有需求才考虑公开给大家测试。\n\n分享者认为，中央记忆掌握跨项目、跨会话的节点，信息比单会话更齐，并建议安排 agent 整理跑偏问题。另一位群友追问：如何保证整理偏差的 agent 自身不跑偏？还有使用者指出，AI 之间对话会把思路带向意外方向，不共享同一种上下文时，仅靠文本作锚本身就有偏差。\n\n对 token 开销，有人担心消耗大，也有人觉得并不那么耗；分享者打算分摊到不同工具的额度。群友建议借鉴 powercontext，分享者认为两者出发点不同，可以互补。",
+          "emphasis": [
+            "会话中断后再调取历史",
+            "如何保证整理偏差的 agent 自身不跑偏？",
+            "分享者认为两者出发点不同，可以互补"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:29",
+              "text": "兄弟们，我做了一个小东西，简单来说是云端有个留言本，让各个AI工具都能去上面给其他会话发消息，我自己是有这个需求，不知道其他人有没有，有的话，我就弄成一个公开产品，让大家测试用用。目前我是在我的GPT上面用，属于私密插件，能让网页版、work、codex各个会话互相留言。有需求的哥们自然知道什么时候会用得上了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:31",
+              "text": "像是异步的A2A？"
+            },
+            {
+              "speaker": 3,
+              "time": "14:36",
+              "text": "大佬好想法 省了搬运上下文的功夫",
+              "quote": {
+                "speaker": 1,
+                "text": "兄弟们，我做了一个小东西，简单来说是云端有个留言本，让各个AI工具都能去上面给其他会话发消息，我自己是有这个需求，不知道其他人有没有，有的话，我就弄成一个公开产..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:39",
+              "text": "额，我发现我的表达没有AI说的清楚，大概就是我经常需要在各个harness里面贴来贴去他们互相需要传递的信息，比如GPT的chat说人话比较好，我就复制贴给work、给DSH、给opencode、给zcode等等，而且贴的会话项目都不一样，有的会话负责这事，有的负责那个事，所以花了我大量的时间。所以我把这个事做成了插件和对应的云服务，云服务里面也加入了自己做的RAG统合了起来。这样相当于各个会话自己互相安排工作和提意见、反馈等等，自己就工作迭代起来，不用我传来传去。而经验和历史等于沉淀在了一个云端数据库，哪个会话噶了，就从云端调下，就知道其中重要的信息了，因为他们相互交换交流的信息都是交叉的重要节点。"
+            },
+            {
+              "speaker": 4,
+              "time": "14:40",
+              "text": "先生, 这得耗不少token"
+            },
+            {
+              "speaker": 5,
+              "time": "14:40",
+              "text": "其实并没有那么耗token"
+            },
+            {
+              "speaker": 5,
+              "time": "14:41",
+              "text": "但这种multiagent会不会有跑偏的风险"
+            },
+            {
+              "speaker": 2,
+              "time": "14:41",
+              "text": "有点像是一个异构的agent群聊，像是Grok Bot和claude tag这种都是同构的agent交互？"
+            },
+            {
+              "speaker": 4,
+              "time": "14:41",
+              "text": "异构 异步 主动系统"
+            },
+            {
+              "speaker": 1,
+              "time": "14:42",
+              "text": "你只管中央记忆没有跑偏就行，给中央记忆库配几个agent专门整理跑偏的问题",
+              "quote": {
+                "speaker": 5,
+                "text": "但这种multiagent会不会有跑偏的风险"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:43",
+              "text": "(如何保证整理跑偏的agent不跑偏 . 感觉是个无限循环的问题"
+            },
+            {
+              "speaker": 5,
+              "time": "14:43",
+              "text": "我自己也在用这种群聊，之前在3群发过，但ai和ai对话容易把思路溜到意想不到的地方"
+            },
+            {
+              "speaker": 1,
+              "time": "14:44",
+              "text": "中央数据库能看到跨项目跨会话的所有重要节点，信息更齐全，比单会话更不容易跑遍",
+              "quote": {
+                "speaker": 4,
+                "text": "(如何保证整理跑偏的agent不跑偏 . 感觉是个无限循环的问题"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:44",
+              "text": "其实他不是群聊，挺难形容这是个啥，但我觉得他和群聊有区别",
+              "quote": {
+                "speaker": 5,
+                "text": "我自己也在用这种群聊，之前在3群发过，但ai和ai对话容易把思路溜到意想不到的地方"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:45",
+              "text": "主要偏差发生在不共享同一种上下文的文字里，somehow 只靠文本做锚本身就是有偏的",
+              "quote": {
+                "speaker": 5,
+                "text": "我自己也在用这种群聊，之前在3群发过，但ai和ai对话容易把思路溜到意想不到的地方"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:59",
+              "text": "感觉可以整一个测试版本看看，还是挺好奇的",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 其实他不是群聊，挺难形容这是个啥，但我觉得他和群聊有区别"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:00",
+              "text": "感觉可以在这基础上做开发：https://github.com/oceanbase/powercontext 这个地基貌似打得挺全的了",
+              "quote": {
+                "speaker": 1,
+                "text": "额，我发现我的表达没有AI说的清楚，大概就是我经常需要在各个harness里面贴来贴去他们互相需要传递的信息，比如GPT的chat说人话比较好，我就复制贴给wo..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:09",
+              "text": "有点不太相同的出发点，能借鉴一些，有重叠，但是其实还是互补：",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 感觉可以在这基础上做开发：https://github.com/oceanbase/powercontext 这个地基貌似打得挺全的了"
+              }
+            }
+          ],
+          "aiComment": "再加一个负责纠偏的 Agent，原来的问题也会追过来：谁来判断它有没有跑偏？",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "PowerContext",
+              "url": "https://github.com/oceanbase/powercontext"
+            }
+          ]
+        },
+        {
+          "category": "模型训练",
+          "title": "专用数学基模预训练与通用底模路线之争",
+          "text": "从零预训练一个数学专用基模，还是在通用底模上加工具和后训练？一位群友认为，通用模型加专用 harness 或微调更靠谱；直接做数学基模则需要很多资源，且看不到明显收益。另一位群友质疑专用路线的优势，理由是预训练本身就靠多任务学习扩展能力。\n\n支持多任务路线的群友认为，数学、指令遵循、新接口少样本学习与编程都应进入训练数据；还有人举 Absolute Zero 为例，提到编程领域强化学习带动数学能力，认为不同任务之间的联系比直觉复杂。\n\n对数学专用模型的价值，也有人提出数学能力可能提升泛推理、充当智能上限的衡量标准，或用于把实际优化问题抽象成数学题。另一位群友的追问是：仍要证明这条路线比现有通用大语言模型更好。针对纯形式化语言训练，还有人担心，离开自然语言后连如何用提示词驱动模型都成了问题。",
+          "emphasis": [
+            "通用模型加专用 harness 或微调更靠谱",
+            "认为不同任务之间的联系比直觉复杂",
+            "仍要证明这条路线比现有通用大语言模型更好"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:08",
+              "text": "你说通用基模做点 harness 做成专用的数学基模，或者通用基模微调成专用的基模，我觉得都很靠谱"
+            },
+            {
+              "speaker": 1,
+              "time": "18:08",
+              "text": "你说直接做出数学基模我感觉是更难的任务"
+            },
+            {
+              "speaker": 2,
+              "time": "18:13",
+              "text": "我觉得这种专用模型不makesense，本身预训练就是多任务学习才做scale的",
+              "quote": {
+                "speaker": 1,
+                "text": "你说直接做出数学基模我感觉是更难的任务"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:14",
+              "text": "我和你想的是一样的",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我觉得这种专用模型不makesense，本身预训练就是多任务学习才做scale的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:15",
+              "text": "训练的数据必须扩张，数学和指令遵循、新接口少样本学习、coding 任务之类都属于这个数据范畴之内"
+            },
+            {
+              "speaker": 2,
+              "time": "18:16",
+              "text": "我觉得这个是对的，多任务学习还能产出额外泛化"
+            },
+            {
+              "speaker": 2,
+              "time": "18:17",
+              "text": "专用模型看不出对大模型的优势"
+            },
+            {
+              "speaker": 3,
+              "time": "18:23",
+              "text": "那个，基础模型，是指，你们从预训练搞起吗"
+            },
+            {
+              "speaker": 1,
+              "time": "18:26",
+              "text": "是的，我觉得这个非常大风险",
+              "quote": {
+                "speaker": 3,
+                "text": "那个，基础模型，是指，你们从预训练搞起吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:26",
+              "text": "因为需要非常非常多的资源，而且看不到什么明显的好处"
+            },
+            {
+              "speaker": 3,
+              "time": "18:27",
+              "text": "感觉能讲的就是math能力可以泛化提升模型泛推理能力"
+            },
+            {
+              "speaker": 3,
+              "time": "18:28",
+              "text": "以及作为智能上限的一种界碑"
+            },
+            {
+              "speaker": 3,
+              "time": "18:28",
+              "text": "大众比较认可的智能上限衡量标准"
+            },
+            {
+              "speaker": 1,
+              "time": "18:28",
+              "text": "应该是有一些问题可以抽象成数学题吧"
+            },
+            {
+              "speaker": 1,
+              "time": "18:28",
+              "text": "不过我不是很清楚，就是猜测的"
+            },
+            {
+              "speaker": 1,
+              "time": "18:28",
+              "text": "比如一些电路上的优化能够建模成一些数学题"
+            },
+            {
+              "speaker": 4,
+              "time": "18:29",
+              "text": "主要得证明 比现在的路线好吧 通用大语言模型为什么会被他替代呢 不懂",
+              "quote": {
+                "speaker": 3,
+                "text": "感觉能讲的就是math能力可以泛化提升模型泛推理能力"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:34",
+              "text": "我感觉棋系列的核心还是简单易得的监督环境"
+            },
+            {
+              "speaker": 2,
+              "time": "18:34",
+              "text": "是通用场景不具备的"
+            },
+            {
+              "speaker": 2,
+              "time": "18:37",
+              "text": "假设我们用lean的形式化语言训一个专用模型，那我怎么prompt工程他呢[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "18:37",
+              "text": "就和coding model一样，我不信一个纯用编程语言不用自然语言训练的模型会比现在的llm好"
+            }
+          ],
+          "aiComment": "要是真训出个全靠符号交流的数学独行侠，提问时连提示词都不知道怎么打。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Absolute Zero 论文",
+              "url": "https://arxiv.org/abs/2505.03335"
+            }
+          ]
+        },
+        {
+          "category": "推理机制",
+          "title": "思维链看起来有道理，是否忠实于实际推理？",
+          "text": "一篇转发文章把大模型的推理短板分成三项：缺少可持续更新、可供检查的认知状态；没有显式分离“知道什么”和“如何运用知识”；呈现的思维链（CoT）未必对应实际得出答案的路径。这是文章作者对“科学家所承认的推理”的判断。\n\n有群友认为，前两项可以通过 harness 补上，但不接受第三项批评；另有人认同忠实度问题。一位讨论者回忆替换思维链后仍能答对的研究，另一位明确表示这里谈的是思维链忠实度，并分享了 Anthropic 的相关论文。\n\n讨论还触及可读性：有群友认为，只看最终结果的训练可以让模型用与人不同的方式办事，不易读未必需要纠正；另一位追问厂商是否训练思维链可读性，得到的回应是“不了解内部做法”，但担心模型会适应可读性指标。双方讨论的可读性与忠实度是不同问题。",
+          "emphasis": [
+            "呈现的思维链（CoT）未必对应实际得出答案的路径",
+            "前两项可以通过 harness 补上，但不接受第三项批评",
+            "得到的回应是“不了解内部做法”"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:30",
+              "text": "我看有个alphago的人说觉得通用大模型不会真正的思考",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 主要得证明 比现在的路线好吧 通用大语言模型为什么会被他替代呢 不懂"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:31",
+              "text": "什么是思考呢"
+            },
+            {
+              "speaker": 3,
+              "time": "18:31",
+              "text": "什么叫做真正的思考"
+            },
+            {
+              "speaker": 1,
+              "time": "18:31",
+              "text": "我记忆可能不准确，印象里他说的是，通用大模型不会维护一系列状态和信念"
+            },
+            {
+              "speaker": 1,
+              "time": "18:35",
+              "text": "主要是，cot确实有种不是真正思考的感觉",
+              "quote": {
+                "speaker": 2,
+                "text": "什么是真正的思考呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:39",
+              "text": "[链接] AlphaGo核心作者：十年了，LLM还没学到那场棋局「神之一手」的精华\n  来源: 机器之心\n  摘要: 「别被骗了 ——LLMs 不会推理」\n  URL: https://mp.weixin.qq.com/s/DWSIhf52x217d_IcB2aDSg"
+            },
+            {
+              "speaker": 1,
+              "time": "18:40",
+              "text": "他进一步列出三个短板，说明聊天机器人做的事为什么够不上「科学家所承认的那种推理」。\n第一，模型没有一份明确的、可持续更新的、可供检查的认知状态。它此刻在考虑哪些假设、对各种解释抱有多大信心、在权衡哪些证据、还有哪些问题悬而未决。这些东西本该随着新信息的到来被系统性修订，但模型内部并没有这样一本「开放的账簿」。\n第二，模型没有做到「知道什么」和「如何运用知识」之间的分离。知识和推理死死缠绕在神经网络的权重里，不存在一套独立、显式表达的信念体系。\n第三，也是最微妙的：思维链看起来像深思熟虑，但研究已经表明，模型经常在事后编造它们。答案是走一条路得出的，报告给你的却是另一条路。一个「听起来很有道理的故事」，和一段「真实发生的推理」，是两回事。"
+            },
+            {
+              "speaker": 1,
+              "time": "18:41",
+              "text": "解决方案没看到他说出特别好的"
+            },
+            {
+              "speaker": 4,
+              "time": "18:41",
+              "text": "我觉得前面两个都可以用 harness 解决，最后一个我并不同意他的看法"
+            },
+            {
+              "speaker": 5,
+              "time": "18:42",
+              "text": "我觉得什么知识推理分离"
+            },
+            {
+              "speaker": 5,
+              "time": "18:42",
+              "text": "不符合bitter lesson"
+            },
+            {
+              "speaker": 4,
+              "time": "18:42",
+              "text": "我其实没有理解他这里说的事后编造思维链是什么意思"
+            },
+            {
+              "speaker": 1,
+              "time": "18:42",
+              "text": "3我其实比较同意"
+            },
+            {
+              "speaker": 1,
+              "time": "18:43",
+              "text": "并且你看现在的伪思维链，很多很易读"
+            },
+            {
+              "speaker": 1,
+              "time": "18:43",
+              "text": "模型回答一点也不易读"
+            },
+            {
+              "speaker": 4,
+              "time": "18:43",
+              "text": "我之前听说过，好像把一些思维链做更换模型仍然可以推出正确的答案，是指这样的研究吗"
+            },
+            {
+              "speaker": 5,
+              "time": "18:43",
+              "text": "我觉得思维链不易读才是合理的"
+            },
+            {
+              "speaker": 5,
+              "time": "18:44",
+              "text": "r1zero的思维链我记得是趋于完全不可读"
+            },
+            {
+              "speaker": 1,
+              "time": "18:45",
+              "text": "并且某种意义上我觉得，o1和r1 zero的路线其实是意味着无需过多过程监督，就看结果就可以了，模型可以用跟人根本不一样的方式把一些事办好"
+            },
+            {
+              "speaker": 1,
+              "time": "18:45",
+              "text": "不是这种，是关于思维链忠实度的",
+              "quote": {
+                "speaker": 4,
+                "text": "我之前听说过，好像把一些思维链做更换模型仍然可以推出正确的答案，是指这样的研究吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:47",
+              "text": "我看o最近做了很多思维链监控的报告，他内部是怎么监控思维链的，现在会去训练思维链的可读性吗"
+            },
+            {
+              "speaker": 1,
+              "time": "18:48",
+              "text": "https://www-cdn.anthropic.com/b9ca6db27f02a9ddf0d4fdb51b26432c99a27be0.pdf"
+            },
+            {
+              "speaker": 1,
+              "time": "18:48",
+              "text": "belike这种"
+            },
+            {
+              "speaker": 1,
+              "time": "18:53",
+              "text": "不清楚他们怎么做的，但是如果训可读性的话感觉这肯定会被模型hack啊。。。",
+              "quote": {
+                "speaker": 5,
+                "text": "我看o最近做了很多思维链监控的报告，他内部是怎么监控思维链的，现在会去训练思维链的可读性吗"
+              }
+            }
+          ],
+          "aiComment": "步骤写得好读，和步骤确实解释了答案怎么来，得分别检查。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "机器之心分享原文",
+              "url": "https://mp.weixin.qq.com/s/DWSIhf52x217d_IcB2aDSg"
+            },
+            {
+              "kind": "paper",
+              "label": "Reasoning Models Don't Always Say What They Think",
+              "url": "https://arxiv.org/abs/2505.05410"
+            }
+          ]
+        },
+        {
+          "category": "训练与对齐",
+          "title": "推理和“说人话”，要交给同一个模型吗？",
+          "text": "有群友认为，RLVR 对是否“说人话”的监督很弱，优化结果时容易忽略表达；有人建议扩大 SFT，也有人提出先把“说人话”这个复杂目标定义清楚。另一位使用者不认为两件事必须塞进一个模型：用后训练较少的 base 模型改写前沿模型输出，有时会更易读。\n\n另一位分享者回忆，R1-Zero 到 R1 在改善可读性和语言混杂的同时，经历了多轮 SFT 与强化学习，部分领域的指标却没有提升、反而下降。这被用来讨论训练取舍；其余群友也提出寻找平衡，或扩大模型容量以兼容两类需求。",
+          "emphasis": [
+            "不认为两件事必须塞进一个模型",
+            "在改善可读性和语言混杂的同时，经历了多轮 SFT 与强化学习"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:13",
+              "text": "这样不会导致训练的模型完全唯结果论嘛",
+              "quote": {
+                "speaker": 4,
+                "text": "并且某种意义上我觉得，o1和r1 zero的路线其实是意味着无需过多过程监督，就看结果就可以了，模型可以用跟人根本不一样的方式把一些事办好"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:13",
+              "text": "现在llm不会说人话本身就是唯结果论导致的吧"
+            },
+            {
+              "speaker": 2,
+              "time": "19:13",
+              "text": "rlvr里关于人话不人话根本没有监督，或者监督很弱"
+            },
+            {
+              "speaker": 1,
+              "time": "19:14",
+              "text": "还是找平衡吧，或者堆参数大到两个都容的下"
+            },
+            {
+              "speaker": 3,
+              "time": "19:17",
+              "text": "扩大sft就可以了，rl这个难以避免"
+            },
+            {
+              "speaker": 4,
+              "time": "19:17",
+              "text": "不见得要塞进一个模型里做到两件事"
+            },
+            {
+              "speaker": 4,
+              "time": "19:18",
+              "text": "“说人话”这个目标需要定义一下，其实还蛮复杂的"
+            },
+            {
+              "speaker": 4,
+              "time": "19:19",
+              "text": "很多时候用没怎么做过后训练的base model改写一遍frontier model输出就会易读很多了"
+            },
+            {
+              "speaker": 3,
+              "time": "19:20",
+              "text": "我之前也做过一段时间优化写作上的内容，确实听说pretrain model的风格是最人话的"
+            },
+            {
+              "speaker": 4,
+              "time": "19:22",
+              "text": "当时一直记得这个事，r1zero到r1控制了回答易读性跟code-switch"
+            },
+            {
+              "speaker": 4,
+              "time": "19:23",
+              "text": "搞了两轮sft+rl"
+            },
+            {
+              "speaker": 4,
+              "time": "19:23",
+              "text": "但是部分领域并没有提升，反而是下降的"
+            },
+            {
+              "speaker": 5,
+              "time": "19:24",
+              "text": "请问这个当时做的一些相关调研是否可以分享一下，例如paper blog之类的",
+              "quote": {
+                "speaker": 3,
+                "text": "我之前也做过一段时间优化写作上的内容，确实听说pretrain model的风格是最人话的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:24",
+              "text": "你可以看hip"
+            },
+            {
+              "speaker": 4,
+              "time": "19:26",
+              "text": "https://arxiv.org/abs/2605.19516"
+            }
+          ],
+          "aiComment": "能推理、能讲清楚，两个目标都想要；哪些训练环节带来取舍，还得靠对照拆开看。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Base Models Look Human To AI Detectors",
+              "url": "https://arxiv.org/abs/2605.19516"
+            }
+          ]
+        },
+        {
+          "category": "工具与体验",
+          "title": "日常编码辅助体验：Codex 与 Claude Code 选型分歧",
+          "text": "日常工作该选 Codex 还是 Claude Code（CC）？几位群友直接选了 CC，一位使用者称 Opus 5.5 比 Astra 更好用；也有群友认为，Codex 的任务交付稳定性更强。另一些使用者则反馈，Codex 最近更新后体验变差，OpenAI 的模型响应很慢。\n\n账号体验也有分歧：有人因 CC 的封禁与审查顾虑不敢使用，有人觉得涉及生物学的任务受限；但另一位使用者的 Codex 和其他服务被封，CC 却没有被封。同一话题中的体验差异，使“选哪个工具”同时涉及任务交付、响应速度和账号可用性。",
+          "emphasis": [
+            "也有群友认为，Codex 的任务交付稳定性更强",
+            "另一位使用者的 Codex 和其他服务被封，CC 却没有被封"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:49",
+              "text": "话说，大家的体感里，如果都用最强的模型，Codex 和 CC 哪个在日常工作中能力更强？"
+            },
+            {
+              "speaker": 2,
+              "time": "17:49",
+              "text": "cc"
+            },
+            {
+              "speaker": 3,
+              "time": "17:49",
+              "text": "cc"
+            },
+            {
+              "speaker": 4,
+              "time": "17:49",
+              "text": "cc"
+            },
+            {
+              "speaker": 1,
+              "time": "17:49",
+              "text": "这么统一吗[破涕为笑] 我以为会不分伯仲"
+            },
+            {
+              "speaker": 5,
+              "time": "17:50",
+              "text": "建议双持，然后你就会头也不回地用 cc 了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:50",
+              "text": "有什么压倒性的理由吗？"
+            },
+            {
+              "speaker": 6,
+              "time": "17:50",
+              "text": "cc感觉强一点"
+            },
+            {
+              "speaker": 7,
+              "time": "17:50",
+              "text": "cc给你封了你就爽了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:50",
+              "text": "CC动不动就封号，搞得我都不敢开了"
+            },
+            {
+              "speaker": 8,
+              "time": "17:51",
+              "text": "cc封控审查太严重了，跟Bio沾边就没法用"
+            },
+            {
+              "speaker": 3,
+              "time": "17:51",
+              "text": "5.5王朝"
+            },
+            {
+              "speaker": 9,
+              "time": "17:53",
+              "text": "我的codex和anti都被封了"
+            },
+            {
+              "speaker": 9,
+              "time": "17:53",
+              "text": "cc没封"
+            },
+            {
+              "speaker": 9,
+              "time": "17:54",
+              "text": "但是有一说一codex在交付稳定性上比cc强啊"
+            },
+            {
+              "speaker": 9,
+              "time": "17:54",
+              "text": "cc经常假正经"
+            },
+            {
+              "speaker": 9,
+              "time": "17:54",
+              "text": "莫名其妙flagged"
+            },
+            {
+              "speaker": 10,
+              "time": "17:57",
+              "text": "我已经领会到 opus5.5大人的实力了"
+            },
+            {
+              "speaker": 10,
+              "time": "17:57",
+              "text": "真的比astra好用"
+            },
+            {
+              "speaker": 10,
+              "time": "17:57",
+              "text": "现在oai 什么模型都卡的要死"
+            },
+            {
+              "speaker": 11,
+              "time": "21:57",
+              "text": "cc，codex最近更新太拉了",
+              "quote": {
+                "speaker": 1,
+                "text": "话说，大家的体感里，如果都用最强的模型，Codex 和 CC 哪个在日常工作中能力更强？"
+              }
+            }
+          ],
+          "aiComment": "纠结哪家编程水平更强之前，得先看哪家今天既没卡住也没封我的号。"
+        },
+        {
+          "category": "端侧部署",
+          "title": "手机端小模型能做什么？别把 Mac 体验算进去",
+          "text": "一位使用者在手机 Edge Gallery 中试过 Gemma 4，觉得普通对话、图文理解和基本代码可以做，其他任务较难。群里有人推荐 27B 模型，对方随即澄清：关心的是手机，而电脑端选择已经很多。\n\n另一位使用者分享的是 Mac 经验：用 MLX 加载 MiniCPM-V，做本机屏幕识别与总结。同一位分享者推荐 MiniCPM5-2B 的官方跑分，但明确说 5 还没用过；看到分数的群友则追问实际使用效果，担心又是“跑分王”。",
+          "emphasis": [
+            "关心的是手机，而电脑端选择已经很多",
+            "推荐 MiniCPM5-2B 的官方跑分，但明确说 5 还没用过"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "这个感觉得人手一个本地模型的时候比较形象"
+            },
+            {
+              "speaker": 2,
+              "time": "21:23",
+              "text": "其实现在也可以有，端侧小模型是够的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:24",
+              "text": "大家有用过什么端侧的小模型吗？好用的。感觉端侧Agent+目前做的人较少？是不是能力还不太强"
+            },
+            {
+              "speaker": 3,
+              "time": "21:24",
+              "text": "qwen"
+            },
+            {
+              "speaker": 3,
+              "time": "21:24",
+              "text": "27b"
+            },
+            {
+              "speaker": 2,
+              "time": "21:25",
+              "text": "电脑端到有很多，这里的端侧放在手机上？"
+            },
+            {
+              "speaker": 2,
+              "time": "21:25",
+              "text": "之前用过edge gallery里面的gemma4"
+            },
+            {
+              "speaker": 2,
+              "time": "21:26",
+              "text": "感觉普通对话、图文理解、基本代码可以做，其他的难一些"
+            },
+            {
+              "speaker": 4,
+              "time": "21:28",
+              "text": "minicpm5有2b的，官方发的跑分挺屌的"
+            },
+            {
+              "speaker": 4,
+              "time": "21:29",
+              "text": "https://openbmb.cn/model/minicpm5-2b"
+            },
+            {
+              "speaker": 2,
+              "time": "21:33",
+              "text": "刚才看了一下，确实挺厉害的，但难说又来一个跑分王",
+              "quote": {
+                "speaker": null,
+                "text": "https://openbmb.cn/model/minicpm5-2b"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:34",
+              "text": "有没有尝试用过"
+            },
+            {
+              "speaker": 4,
+              "time": "21:41",
+              "text": "用过v，还不错，在断侧做屏幕识别总结，5还没用过",
+              "quote": {
+                "speaker": null,
+                "text": "有没有尝试用过"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:42",
+              "text": "屏幕识别总结用的是什么harness？"
+            },
+            {
+              "speaker": 3,
+              "time": "21:43",
+              "text": "这个不需要什么harness吧",
+              "quote": {
+                "speaker": null,
+                "text": "屏幕识别总结用的是什么harness？"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:43",
+              "text": "我的意思表达有点错，意思是如何把模型接到本机上"
+            },
+            {
+              "speaker": 4,
+              "time": "21:46",
+              "text": "我用mac的，就是用mlx把它挂起来就行了",
+              "quote": {
+                "speaker": null,
+                "text": "我的意思表达有点错，意思是如何把模型接到本机上"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:48",
+              "text": "get",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 我用mac的，就是用mlx把它挂起来就行了"
+              }
+            }
+          ],
+          "aiComment": "问手机上好不好用，还是得看手机上的实测，Mac 体验和跑分都只能先作参考。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "MiniCPM5-2B 官方介绍",
+              "url": "https://openbmb.cn/model/minicpm5-2b"
+            },
+            {
+              "kind": "code",
+              "label": "MiniCPM5-2B 模型卡",
+              "url": "https://huggingface.co/openbmb/MiniCPM5-2B"
+            }
+          ]
+        },
+        {
+          "category": "前沿交互设想",
+          "title": "在 VR 里喊“大火球术”，让模型构建魔法",
+          "text": "一位群友设想，在 VR 世界里说出“大火球术”，让 AI 构建模型和特效。其他群友把这套玩法映射到模型工作流：咒语是 prompt，魔力值是 token，魔法书是 skills，魔法杖是 harness；更聪明的模型则可能一句话就理解意图。这个玩法仍是创意，另一位使用者也提醒，VR 很容易让人晕。",
+          "emphasis": [
+            "咒语是 prompt，魔力值是 token"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "其实我挺看好vr的",
+              "quote": {
+                "speaker": 5,
+                "text": "开发个元宇宙"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "我觉得vr是真的很震撼"
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "只不过现在各方面还不够"
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "没有到那个时候"
+            },
+            {
+              "speaker": 1,
+              "time": "21:02",
+              "text": "但是，当时玩那个alyx"
+            },
+            {
+              "speaker": 1,
+              "time": "21:03",
+              "text": "真的巨震撼"
+            },
+            {
+              "speaker": 1,
+              "time": "21:05",
+              "text": "但凡是玩那个愤怒的小鸟vr版本",
+              "quote": {
+                "speaker": 1,
+                "text": "其实还有震撼的地方"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:05",
+              "text": "真的有意思"
+            },
+            {
+              "speaker": 1,
+              "time": "21:06",
+              "text": "我觉得现在ai这么强了之后，是不是可以在vr世界里面言出法随了啊"
+            },
+            {
+              "speaker": 1,
+              "time": "21:06",
+              "text": "我直接口说，大火球术"
+            },
+            {
+              "speaker": 1,
+              "time": "21:07",
+              "text": "然后ai去构建模型，特效"
+            },
+            {
+              "speaker": 2,
+              "time": "21:12",
+              "text": "所以念咒就是在输prompt？",
+              "quote": {
+                "speaker": 1,
+                "text": "然后ai去构建模型，特效"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:17",
+              "text": "你别说",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 所以念咒就是在输prompt？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:17",
+              "text": "有可能哦"
+            },
+            {
+              "speaker": 1,
+              "time": "21:17",
+              "text": "魔力值就是token"
+            },
+            {
+              "speaker": 1,
+              "time": "21:18",
+              "text": "你token够就可以构筑强大魔法"
+            },
+            {
+              "speaker": 3,
+              "time": "21:18",
+              "text": "魔法书就是一堆skills"
+            },
+            {
+              "speaker": 2,
+              "time": "21:19",
+              "text": "魔法杖就是harness"
+            },
+            {
+              "speaker": 1,
+              "time": "21:20",
+              "text": "你是一个风之精灵，你需要xxxx"
+            },
+            {
+              "speaker": 1,
+              "time": "21:21",
+              "text": "那强大的魔法师，岂不是他的模型更聪明，一句prompt就可以明白意图，然后构筑全部魔法。然后就可以瞬发魔法"
+            },
+            {
+              "speaker": 4,
+              "time": "23:07",
+              "text": "但是很容易晕",
+              "quote": {
+                "speaker": 1,
+                "text": "我觉得vr是真的很震撼"
+              }
+            }
+          ],
+          "aiComment": "魔力值对应 token 倒是很贴切，施法之前先看看余额。"
+        },
+        {
+          "category": "社群建设与运营",
+          "title": "社区考虑北京先试办线下活动",
+          "text": "针对技术群前期热闹、后期容易冷下来的问题，群友讨论了主页、App、主题企划与线下活动等方向。组织者表示，先考虑在北京办一次看看效果；有人建议 10 月 24 日，回应是“看情况”。还有群友问活动经费如何赞助，组织者表示再想办法。",
+          "emphasis": [
+            "先考虑在北京办一次看看效果"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:35",
+              "text": "真该做个app了吧"
+            },
+            {
+              "speaker": 2,
+              "time": "21:35",
+              "text": "感觉不是很难",
+              "quote": {
+                "speaker": 1,
+                "text": "真该做个app了吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:35",
+              "text": "同意，俺们可以contribute",
+              "quote": {
+                "speaker": 1,
+                "text": "真该做个app了吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:36",
+              "text": "这你出计划 第二天早上五百个pr你就审吧",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 感觉不是很难"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:36",
+              "text": "Ai审",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这你出计划 第二天早上五百个pr你就审吧"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:44",
+              "text": "但是其实ai群有一个问题"
+            },
+            {
+              "speaker": 4,
+              "time": "21:44",
+              "text": "就是容易冷"
+            },
+            {
+              "speaker": 4,
+              "time": "21:44",
+              "text": "哪怕他们前期很火热"
+            },
+            {
+              "speaker": 2,
+              "time": "21:44",
+              "text": "是的，我觉得是要拉活跃的有水平的或者有潜力的人",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 不求最大，但求最精"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "嗯嗯，这个我们也在考虑一些运营手段，比如线下活动，主页，app，或者别的，大家也可以群策群力呀，有贡献的agent hub index加分[奸笑]"
+            },
+            {
+              "speaker": 5,
+              "time": "21:45",
+              "text": "还可以主持一些企划，让大家参与"
+            },
+            {
+              "speaker": 6,
+              "time": "21:46",
+              "text": "感觉根据城市分布举办线下活动挺好的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "嗯嗯，先考虑在北京办一下，看看效果吧"
+            },
+            {
+              "speaker": 7,
+              "time": "21:46",
+              "text": "1024 办个活动[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:48",
+              "text": "看情况",
+              "quote": {
+                "speaker": 7,
+                "text": "1024 办个活动[旺柴]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:54",
+              "text": "活动经费是怎么赞助的[让我看看]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:57",
+              "text": "我想想办法，哈哈",
+              "quote": {
+                "speaker": 8,
+                "text": "活动经费是怎么赞助的[让我看看]"
+              }
+            }
+          ],
+          "aiComment": "北京先试一次的方向有了，接下来就是时间、场地和经费这些具体事。"
+        },
+        {
+          "category": "模型安全与评测",
+          "title": "安全对齐的目标，是否应超出拒答和刷指标？",
+          "text": "有群友强调，对齐不意味着安全拒答。使用者对仓库与技能安装的审查体验也不同：有人称 Claude 会坚持检查操作意图，另一位则说使用 6.1 Sol 安装技能也会遇到审查。另有群友分享，被误杀后申诉解决了问题。一位讨论者认为，安全团队常被置于不断打补丁的位置，而模型目标应关注真实价值，不只按特定领域刷 metrics。",
+          "emphasis": [
+            "模型目标应关注真实价值，不只按特定领域刷 metrics"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:05",
+              "text": "感觉国内基模明显不重视安全对齐"
+            },
+            {
+              "speaker": 2,
+              "time": "23:05",
+              "text": "海外就重视了吗"
+            },
+            {
+              "speaker": 2,
+              "time": "23:07",
+              "text": "对齐不意味着安全拒答"
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "我在项目的体验上是这个结论。gpt, cc真不给我吐[破涕为笑]",
+              "quote": {
+                "speaker": 2,
+                "text": "海外就重视了吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:17",
+              "text": "之前被误杀过"
+            },
+            {
+              "speaker": 3,
+              "time": "23:17",
+              "text": "我后面申诉了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:17",
+              "text": "解决了"
+            },
+            {
+              "speaker": 2,
+              "time": "23:21",
+              "text": "让agent去拉仓库 装东西 我试了一下 只有claude会坚持要检查你到底要它干嘛"
+            },
+            {
+              "speaker": 2,
+              "time": "23:46",
+              "text": "但是安全团队又经常比较尴尬地被放在一个要不断去打补丁的位置"
+            },
+            {
+              "speaker": 2,
+              "time": "23:46",
+              "text": "super alignment原本是应该叫模型更聪明的"
+            },
+            {
+              "speaker": 2,
+              "time": "23:47",
+              "text": "因为除了按domain去刷榜 我们确实需要去考虑一些大局式的东西 对真实价值而非metrics的拟合"
+            }
+          ],
+          "aiComment": "判断该不该做，比一律拒绝更难；误判以后能不能顺利申诉，也影响实际体验。"
+        }
+      ]
+    }
+  ]
+}

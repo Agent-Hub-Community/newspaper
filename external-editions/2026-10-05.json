@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-05",
+  "title": "施耐德拟226亿美元收购PTC，OpenAI推进文本水印与广告测试",
+  "intro": "施耐德签署协议拟收购工业软件公司PTC，鸿海第三季度营收同比增47%；OpenAI公布欧盟文本水印方案并筹划视觉广告测试，纽约市议会就AI风险相关提案举行听证。",
+  "stories": [
+    {
+      "title": "施耐德签约以226亿美元股权对价收购PTC",
+      "timing": "2026年10月5日宣布收购协议",
+      "text": "施耐德电气与PTC于10月5日宣布达成最终收购协议。施耐德拟以每股205美元现金收购PTC，对应股权价值约226亿美元，企业价值约237亿美元。该交易计划将PTC的产品设计、工程及数据管理软件与施耐德现有能源和流程数据结合。协议签署不等于收购完成，交易预计于2027年第三季度完成，须获PTC股东和监管机构批准；双方设想的工业AI协同效益目前仍属公司预期，尚未实际实现。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://investor.ptc.com/resources/news/news-details/2026/Schneider-Electric-to-acquire-PTC-creating-the-next-level-of-Energy-and-Industrial-Intelligence/default.aspx"
+        },
+        {
+          "label": "报道",
+          "url": "https://www.axios.com/2026/10/05/schneider-electric-ptc"
+        }
+      ],
+      "emphasis": [
+        "对应股权价值约226亿美元，企业价值约237亿美元"
+      ],
+      "aiComment": "协议签得干脆利落，不过等两边系统真坐到一个工位上，还得数着日子等审批。"
+    },
+    {
+      "title": "鸿海第三季度营收同比增47%，AI服务器需求带动增长",
+      "timing": "2026年10月5日发布未审计营收公告",
+      "text": "鸿海精密于10月5日发布未经审计的9月营收公告。路透社引述公司声明报道，鸿海7月至9月第三季度营收为新台币3.03万亿元，同比增47%，高于市场预估的新台币2.83万亿元。报道将增长归因于强劲的AI相关需求。所披露数据为集团未经审计的合并营收，不代表净利润表现，亦不能将全部增量单一归结为AI服务器业务。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://www.foxconn.com/en-us/press-center/press-releases/latest-news/2112"
+        },
+        {
+          "label": "报道",
+          "url": "https://www.aol.com/articles/foxconn-third-quarter-revenue-jumps-074749000.html"
+        }
+      ],
+      "emphasis": [
+        "第三季度营收为新台币3.03万亿元，同比增47%"
+      ],
+      "aiComment": "流水账面跑得比预期还快，不过看热闹的往往容易把进出的大数字当成落袋利润。"
+    },
+    {
+      "title": "OpenAI宣布将在图片生成场景测试视觉广告",
+      "timing": "2026年10月5日官方发布公告",
+      "text": "OpenAI于10月5日宣布ChatGPT的新视觉广告形式，展示于图片生成场景旁。广告内容将单独标注，并与生成的图片结果分开展示。该功能尚未全量上线，官方计划于10月稍后在美国启动面向有限广告主的早期测试，同时扩展转化衡量和品牌适配工具。OpenAI称广告展示不会影响模型回答；该承诺属于发布方表态，未经独立实测。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement/"
+        },
+        {
+          "label": "报道",
+          "url": "https://techcrunch.com/2026/10/05/openai-launches-visual-ads-that-appear-alongside-image-generation-results/"
+        }
+      ],
+      "emphasis": [
+        "计划于10月稍后在美国启动面向有限广告主的早期测试"
+      ],
+      "aiComment": "生图旁边也要留广告位了，先看美国这轮有限测试怎么做，别把“不影响回答”的承诺当成已经验过。"
+    },
+    {
+      "title": "OpenAI公布textGrain水印方案，欧盟合规输出将逐步接入",
+      "timing": "2026年10月5日官方发布方案",
+      "text": "OpenAI于10月5日公布文字水印技术textGrain，通过在选词阶段引入统计信号支持溯源。全球API部分模型自公告日起可自选开启，默认保持关闭；欧盟符合条件的ChatGPT和Codex输出将在随后数周内逐步部署。配套检测器初期仅向获批的研究人员与专业机构开放。短文、人工编辑或翻译会削弱检测效果，未检出水印不能证明系人类创作，该方案也无法识别特定用户身份或证明内容所有权。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://openai.com/index/eu-text-provenance/"
+        },
+        {
+          "label": "报道",
+          "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/"
+        }
+      ],
+      "emphasis": [
+        "欧盟符合条件的ChatGPT和Codex输出将在随后数周内逐步部署"
+      ],
+      "aiComment": "改写和翻译都可能削弱水印，这枚来源标记可不能顺手变成判断谁写了文章的裁判。"
+    },
+    {
+      "title": "纽约市议会召开AI风险听证会，审议验证与责任提案",
+      "timing": "美东 10 月 5 日听证，预定北京时间 23:00 开始",
+      "text": "纽约市议会全体委员会于10月5日举行监督听证会，审议人工智能相关风险与立法提案。讨论议程包括第三方验证与人工关闭开关、聊天机器人隐私保护，以及针对AI滥用设立私人诉权等提案。相关立法项目目前处于审议阶段，尚非生效法律，听证会本身不构成法律裁决。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://legistar.council.nyc.gov/MeetingDetail.aspx?GUID=325D66DF-B99B-4C9A-8061-6EC9907142F2&ID=1445976&Search="
+        },
+        {
+          "label": "官方发布",
+          "url": "https://council.nyc.gov/press/2026/09/28/3266/"
+        }
+      ],
+      "emphasis": [
+        "相关立法项目目前处于审议阶段，尚非生效法律"
+      ],
+      "aiComment": "合规开关该装在哪还没定论，大家先在听证席上给未来的责任划起草案边界。"
+    },
+    {
+      "title": "vLLM v0.31.0发布：更新预载守护进程与多模态安全控制",
+      "timing": "2026年10月5日发布v0.31.0版本",
+      "text": "推理引擎vLLM发布v0.31.0版本。该版本引入vllm preload守护进程，支持在服务重启之间保留量化后的GPU权重；调度方面增设独立的活跃序列准入限制，并修复了KV Cache压力下的死锁问题。安全方面，新版限制逐请求的多模态处理及I/O参数，未显式信任时拒绝执行。Model Runner V2新增草稿模型推测解码功能，基于CRIU的引擎快照仍处实验阶段。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://github.com/vllm-project/vllm/releases/tag/v0.31.0"
+        }
+      ],
+      "emphasis": [
+        "未显式信任时拒绝执行"
+      ],
+      "aiComment": "给服务重启保住了热乎的权重，但调度的准入闸门还是得老老实实把着关。"
+    },
+    {
+      "title": "Usermods：支持现场编写用户脚本的浏览器Agent",
+      "timing": "2026年10月5日作者于Show HN发布",
+      "text": "开发者Kenneth在Show HN发布开源浏览器扩展Usermods。该扩展在侧边栏运行代码Agent，通过检查页面DOM、计算样式及可选截图，在当前页面现场编写、测试并保存用户脚本。用户可通过对话交互移除页面遮罩干扰、调整样式或修改他人分享的脚本，后端支持商业API或本地模型。作者提供了工具机制介绍，但尚未提供任务成功率的量化基准测试。",
+      "links": [
+        {
+          "label": "代码",
+          "url": "https://github.com/kballenegger/usermods"
+        },
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49965932"
+        }
+      ],
+      "emphasis": [
+        "尚未提供任务成功率的量化基准测试"
+      ],
+      "aiComment": "为了关掉眼前讨厌的网页遮罩，干脆在侧边栏现场抓个代码助手当场手搓规则。"
+    },
+    {
+      "title": "研究探讨通过递归Harness自改进合成推理数据",
+      "timing": "2026年10月5日列入arXiv公开公告批次",
+      "text": "arXiv公开了一项关于可持续难题合成的研究。该方法保持模型权重与验证器逻辑固定，仅递归演化任务生成工作流与提示技能；系统在中间求解失败中提炼技能，若批次修订未能在成本上限内生成更难的有效任务则回滚至此前快照。作者实验显示该流程能持续提高合成任务难度，在此类数据上微调开源模型可带来下游评测提升，但方法迁移性目前仅在同求解器下的数学任务中进行了验证。",
+      "links": [
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2610.03548"
+        }
+      ],
+      "emphasis": [
+        "保持模型权重与验证器逻辑固定，仅递归演化任务生成工作流与提示技能"
+      ],
+      "aiComment": "题要更难、答案还得能验证、成本又不能失控，这套出题流程比一句“让模型自己出题”讲究多了。"
+    }
+  ],
+  "trends": []
+}

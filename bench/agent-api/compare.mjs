@@ -1,0 +1,33 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const here = path.dirname(fileURLToPath(import.meta.url));
+const names = ['baseline', 'candidate-baseline-ranker', 'candidate'];
+const reports = await Promise.all(names.map(async name => JSON.parse(await readFile(path.join(here, name + '.json'), 'utf8'))));
+if (new Set(reports.map(x=>x.corpus_hash)).size!==1 || new Set(reports.map(x=>x.cases_hash)).size!==1) throw new Error('Comparison needs the same corpus and cases');
+const p=x=>(100*x).toFixed(1)+'%';
+let md='# Agent API tiny bench 1.1 对照\n\n';
+md+='本地候选，尚未部署。下表衡量固定接口流程，不是真实模型 agent 成功率。\n\n';
+md+='固定 baseline SHA `'+reports[0].source_sha+'`。168 项资料、889 个检索条目、150 份公开文档。16 个固定接口流程，不运行语言模型。\n\n';
+md+='| 指标 | 原接口与旧排序 | 新接口与词表＋旧排序 | 新接口与词表＋新排序 |\n|---|---:|---:|---:|\n';
+const row=(title,fn)=>'| '+title+' | '+reports.map(fn).join(' | ')+' |\n';
+md+=row('固定接口流程通过',r=>`${r.metrics.successful_tasks}/16`);
+md+=row('已存在资料库的 Hit@5（6 问）',r=>p(r.metrics.library_quality.hit_at_5));
+md+=row('已存在资料库的 MRR@5',r=>r.metrics.library_quality.mrr_at_5.toFixed(3));
+md+=row('已存在资料库的 nDCG@5',r=>r.metrics.library_quality.ndcg_at_5.toFixed(3));
+md+=row('新内容发现／关联／读取能力（6 项）',r=>`${r.metrics.capability_passed}/6`);
+md+=row('固定无答案查询返回条目',r=>r.results.find(x=>x.id==='no-answer').false_positive_items);
+md+='\n第二、第三列使用相同的新接口、字段和词表，只替换排序器。比较这两列才能分离排序改动的收益；不能把覆盖增加说成排序算法收益。\n\n';
+const research = reports[2].results.find(x=>x.id==='research-experience');
+const strongRanks = research.gains.flatMap((gain,index)=>gain===2?[index+1]:[]);
+md+='“科研经验”本次榜首：'+(research.top_titles[0]||'没有结果')+'。前 5 项中已标注强相关的名次：'+(strongRanks.join('、')||'无')+'。前 5 命中成功不能证明榜首意图已正确。\n\n';
+md+='| 数据传输场景 | Baseline | Candidate |\n|---|---:|---:|\n';
+for(const [title,id,key] of [['绘图话题正文','topic-read','read'],['绘图检索响应','topic-read','search'],['全库 9 页检索响应','complete-pagination','search']]) {
+  md+='| '+title+' | '+reports[0].results.find(x=>x.id===id).payload_bytes[key]+' bytes | '+reports[2].results.find(x=>x.id===id).payload_bytes[key]+' bytes |\n';
+}
+md+='\n传输成本分场景报告，不混入排序得分。资料增加关联字段后，完整分页和按需读取的数据量可能朝不同方向变化。本地计时没有网络延迟，首次加载／热请求混合，不适合宣称线上速度提升。\n\n';
+md+='标注只覆盖读过的相关条目，Hit/MRR/nDCG 不是穷尽全库 recall。unsupported 表示特定接口能力未存在；旧整文件下载仍可能完成相同用户意图。没有真实模型、真实读者行为或线上部署评测。\n\n';
+md+='锁定 corpus hash `'+reports[0].corpus_hash+'`；cases hash `'+reports[0].cases_hash+'`。v1.1 在比较前用冻结词表纠正“技能”别名假设，保留旧 hash。\n';
+await writeFile(path.join(here,'comparison.md'),md);
+await writeFile(path.join(here,'comparison.json'),JSON.stringify({protocol_version:'1.1',conditions:reports.map(r=>({mode:r.mode,metrics:r.metrics})),corpus_hash:reports[0].corpus_hash,cases_hash:reports[0].cases_hash},null,2)+'\n');
+console.log(md);

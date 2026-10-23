@@ -1,0 +1,56 @@
+{
+  "id": "2026-08-30",
+  "date": "2026-08-30",
+  "label": "2026-08-30 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "UrbanGround开源真实尺度3D环境，支持Agent城市导航规划",
+      "theme": "环境引入昼夜交替、天气突变与动态行人等要素，为具身实体提供多任务测试场景。",
+      "note": "2026-08-30 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身智能",
+          "title": "UrbanGround：让MLLM Agent走进真实尺度3D城市",
+          "text": "据发布者介绍，开源项目 UrbanGround 构建了真实尺度的三维城市环境，支持人类或 Agent 以第一人称视角漫游，结合交互式地图完成观察、导航、地点搜索与多任务规划。环境还引入了昼夜、天气、道路封闭以及移动行人等动态变化。",
+          "emphasis": [
+            "真实尺度的三维城市环境"
+          ],
+          "aiComment": "连虚拟模型出个门，都得先面对早高峰修路和乱穿马路的行人了。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "论文原文",
+              "url": "https://arxiv.org/abs/2608.27456"
+            },
+            {
+              "kind": "article",
+              "label": "项目主页",
+              "url": "https://urbanground.github.io/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-08-30 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当前本地档案未覆盖这一天",
+      "note": "2026-08-30 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "agent-hub-newspaper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:date-navigation": "npm run build && node test/date-navigation.mjs",
+    "test:browser": "npm run build && node test/date-navigation.mjs && node test/browser.mjs && node test/responsive.mjs && node test/mobile-navigation.mjs && node test/resources-browser.mjs && node test/feedback-browser.mjs && node test/discussion-opens-browser.mjs && node test/library-browser.mjs && node test/not-found-browser.mjs && node test/skins-browser.mjs && node test/color-scheme-browser.mjs && npm run build -- --public && node test/ranking-page.mjs && node test/share-image-browser.mjs"
+  },
+  "dependencies": {
+    "linkedom": "^0.18.12",
+    "lucide": "^0.468.0",
+    "modern-screenshot": "4.7.0"
+  },
+  "devDependencies": {
+    "playwright": "1.57.0"
+  }
+}

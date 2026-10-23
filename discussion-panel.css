@@ -1,0 +1,263 @@
+/* Anonymous source discussions: the article trigger, the shared reader, and its message list. */
+.discussion-trigger {
+  display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; margin-top: 18px; padding: 8px 12px;
+  border: 0; border-radius: 6px; background: rgb(128 128 128 / 8%); background: color-mix(in srgb, var(--ink) 4%, var(--paper));
+  color: var(--ink); font: 500 14px/1.5 var(--sans); text-align: left; cursor: pointer;
+  transition: background-color 150ms ease-out;
+}
+@media (hover: hover) { .discussion-trigger:hover { background: rgb(128 128 128 / 14%); background: color-mix(in srgb, var(--ink) 8%, var(--paper)); } }
+.discussion-trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.discussion-trigger .discussion-icon { width: 16px; height: 16px; flex: none; color: var(--muted); }
+.discussion-trigger-label { flex: 1; min-width: 0; }
+.discussion-trigger-meta { color: var(--muted); font-size: 12px; font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.capture-stage .discussion-trigger { display: none; }
+
+/* The reader. Narrow screens get one column: title, then the chat with the summary folded on top.
+   Wide screens (min-width: 900px, at the end) lay it out as a spread: summary left, chat right. */
+html.discussion-reader-open { overflow: hidden; }
+#discussion-dialog {
+  position: fixed; inset: 0 0 0 auto; margin: 0; padding: 0;
+  /* top and bottom size the panel; vh units misplace fixed layers under iOS WeChat's toolbar. */
+  width: min(640px, calc(100vw - 48px)); max-width: none; height: auto; max-height: none;
+  border: 0; border-left: 1px solid var(--rule); border-radius: 0;
+  background: var(--paper); color: var(--ink); box-shadow: -24px 0 64px -32px rgb(28 27 25 / 40%); overflow: hidden;
+}
+#discussion-dialog[open] { display: flex; flex-direction: column; animation: discussion-panel-in 240ms cubic-bezier(.22, 1, .36, 1); }
+#discussion-dialog::backdrop { background: rgb(28 27 25 / 32%); animation: discussion-backdrop-in 240ms ease-out; }
+:root[data-color-scheme="dark"] #discussion-dialog::backdrop { background: rgb(10 11 10 / 66%); }
+@keyframes discussion-panel-in { from { opacity: 0; transform: translateX(32px); } }
+@keyframes discussion-sheet-in { from { opacity: 0; transform: translateY(24px); } }
+@keyframes discussion-spread-in { from { opacity: 0; transform: translateY(12px); } }
+@keyframes discussion-backdrop-in { from { opacity: 0; } }
+#discussion-dialog button:focus-visible, #discussion-dialog a:focus-visible, #discussion-dialog summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.discussion-dialog-close {
+  position: absolute; top: 14px; right: 12px; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px;
+  border-radius: 50%; color: var(--muted);
+}
+@media (hover: hover) { .discussion-dialog-close:hover { background: rgb(128 128 128 / 12%); background: color-mix(in srgb, var(--ink) 6%, var(--paper)); color: var(--ink); } }
+.discussion-dialog-close .discussion-icon { width: 20px; height: 20px; }
+.discussion-dialog-header { flex: none; padding: 20px 64px 16px 28px; border-bottom: 1px solid var(--rule); }
+.discussion-dialog-heading { min-width: 0; }
+.discussion-dialog-kicker { margin: 0; color: var(--accent); font: 600 12px/1.6 var(--sans); font-variant-numeric: tabular-nums; }
+#discussion-dialog-title {
+  margin: 4px 0 0; font: 700 20px/1.45 var(--serif); text-wrap: pretty;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+.discussion-dialog-meta { margin: 6px 0 0; color: var(--muted); font: 12px/1.6 var(--sans); font-variant-numeric: tabular-nums; }
+
+.discussion-lead { display: none; }
+.discussion-chat { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.discussion-chat-label { display: none; }
+.discussion-dialog-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px 28px max(32px, env(safe-area-inset-bottom)); }
+.discussion-dialog-body:focus { outline: none; }
+
+/* Both columns scroll; default bars drew two heavy stripes through the spread. */
+#discussion-dialog :is(.discussion-lead, .discussion-dialog-body) { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+#discussion-dialog :is(.discussion-lead, .discussion-dialog-body)::-webkit-scrollbar { width: 8px; }
+#discussion-dialog :is(.discussion-lead, .discussion-dialog-body)::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 8px; background: var(--rule); background-clip: padding-box; }
+#discussion-dialog :is(.discussion-lead, .discussion-dialog-body)::-webkit-scrollbar-track { background: transparent; }
+
+/* Editorial summary: the article's own text, emphasis, AI comment and links. */
+.discussion-lead-text p { margin: 0 0 14px; color: var(--ink); font: 16px/1.85 var(--serif); white-space: pre-line; text-wrap: pretty; }
+.discussion-lead-text p:last-child { margin-bottom: 0; }
+.discussion-lead-text strong {
+  font-weight: 700; background: linear-gradient(transparent 62%, var(--emphasis-marker, #ede5b6) 62%);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.discussion-lead-comment { margin-top: 20px; }
+.discussion-lead-comment span { display: block; margin-bottom: 4px; color: var(--accent); font: 600 11px/1.6 var(--sans); }
+.discussion-lead-comment p { margin: 0; font: 15px/1.8 var(--sans); }
+.discussion-lead-resources { margin-top: 24px; }
+.discussion-lead-label { margin: 0 0 8px; color: var(--muted); font: 600 11px/1.6 var(--sans); }
+.discussion-lead-links { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.discussion-lead-links a {
+  display: grid; grid-template-columns: 32px minmax(0, 1fr) 16px; align-items: center; gap: 10px; padding: 10px 12px;
+  border: 1px solid var(--rule); border-radius: 10px; color: var(--ink); text-decoration: none;
+  transition: border-color 150ms ease-out, background-color 150ms ease-out;
+}
+@media (hover: hover) { .discussion-lead-links a:hover { border-color: var(--muted); background: rgb(128 128 128 / 6%); background: color-mix(in srgb, var(--ink) 4%, var(--paper)); } }
+.discussion-lead-link-icon {
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; color: var(--accent);
+  background: rgb(128 128 128 / 10%); background: color-mix(in srgb, var(--accent) 10%, var(--paper));
+}
+.discussion-lead-link-icon .discussion-icon { width: 16px; height: 16px; }
+.discussion-lead-link-text { display: grid; min-width: 0; }
+.discussion-lead-link-text strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 14px/1.45 var(--sans); }
+.discussion-lead-link-text small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font: 12px/1.5 var(--sans); }
+.discussion-lead-links a > .discussion-icon { width: 16px; height: 16px; color: var(--muted); }
+.discussion-lead-empty { margin: 0; color: var(--muted); font: 14px/1.7 var(--sans); }
+
+/* On narrow screens the summary is one tap away above the chat. */
+.discussion-lead-inline { margin: -4px 0 24px; border-bottom: 1px solid var(--rule); }
+.discussion-lead-inline > summary {
+  display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; list-style: none;
+  font: 600 13px/1.5 var(--sans);
+}
+.discussion-lead-inline > summary::-webkit-details-marker { display: none; }
+.discussion-lead-inline-label { color: var(--accent); }
+.discussion-lead-inline-hint { color: var(--muted); font-weight: 400; }
+.discussion-lead-inline[open] .discussion-lead-inline-hint { display: none; }
+.discussion-lead-inline summary .discussion-icon { width: 16px; height: 16px; margin-left: auto; color: var(--muted); transition: transform 200ms cubic-bezier(.22, 1, .36, 1); }
+.discussion-lead-inline[open] summary .discussion-icon { transform: rotate(180deg); }
+.discussion-lead-inline .discussion-lead-body { padding: 4px 0 20px; }
+
+.discussion-chat-meta { display: none; }
+/* Marks the end of the transcript so a reader knows nothing was cut off. */
+.discussion-end { display: flex; align-items: center; gap: 12px; margin: 28px 0 0; color: var(--muted); font: 12px/1.6 var(--sans); font-variant-numeric: tabular-nums; }
+.discussion-end::before, .discussion-end::after { content: ""; flex: 1; border-top: 1px solid var(--rule); }
+
+/* Topic navigation: under the chat on narrow screens, under the summary on wide ones. */
+.discussion-dialog-footer { display: grid; gap: 8px; margin-top: 24px; }
+.discussion-next {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 12px; width: 100%; padding: 14px 16px;
+  border-radius: 8px; background: rgb(128 128 128 / 8%); background: color-mix(in srgb, var(--ink) 4%, var(--paper)); color: var(--ink); text-align: left;
+}
+@media (hover: hover) { .discussion-next:hover { background: rgb(128 128 128 / 14%); background: color-mix(in srgb, var(--ink) 8%, var(--paper)); } }
+.discussion-next-label { color: var(--muted); font: 12px/1.6 var(--sans); font-variant-numeric: tabular-nums; }
+.discussion-next strong { grid-column: 1; font: 700 16px/1.55 var(--serif); }
+.discussion-next .discussion-icon { grid-column: 2; grid-row: 1 / 3; width: 18px; height: 18px; color: var(--muted); }
+.discussion-dialog-actions { display: flex; justify-content: space-between; gap: 12px; }
+.discussion-dialog-actions button { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; color: var(--muted); font: 14px/1.5 var(--sans); }
+@media (hover: hover) { .discussion-dialog-actions button:hover { color: var(--ink); } }
+.discussion-dialog-actions .discussion-icon { width: 16px; height: 16px; }
+.discussion-return {
+  position: absolute; left: 50%; bottom: max(20px, env(safe-area-inset-bottom)); transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 16px; border-radius: 999px;
+  background: var(--ink); color: var(--paper); font: 500 13px/1 var(--sans); box-shadow: 0 8px 24px -10px rgb(0 0 0 / 45%);
+}
+.discussion-return[hidden] { display: none; }
+.discussion-return .discussion-icon { width: 14px; height: 14px; }
+
+/* Chat transcript. Each speaker keeps one hue for the avatar, name and a faint bubble tint. */
+[data-speaker-color] { --speaker-lightness: 43%; --speaker-color: oklch(var(--speaker-lightness) .09 var(--speaker-hue)); --bubble-tint: 7%; }
+[data-speaker-color="0"] { --speaker-hue: 250; }
+[data-speaker-color="1"] { --speaker-hue: 165; }
+[data-speaker-color="2"] { --speaker-hue: 315; }
+[data-speaker-color="3"] { --speaker-hue: 70; }
+[data-speaker-color="4"] { --speaker-hue: 15; }
+[data-speaker-color="5"] { --speaker-hue: 285; }
+[data-speaker-color="unknown"] { --speaker-color: var(--muted); }
+:root[data-color-scheme="dark"] [data-speaker-color] { --speaker-lightness: 78%; --bubble-tint: 12%; }
+.discussion-messages { display: grid; gap: 20px; list-style: none; margin: 0; padding: 0; }
+.discussion-messages > li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; min-width: 0; }
+.discussion-messages > .discussion-day { display: flex; align-items: center; gap: 12px; margin: 6px 0 -2px; color: var(--muted); font: 600 12px/1.6 var(--sans); font-variant-numeric: tabular-nums; }
+.discussion-day::before, .discussion-day::after { content: ""; flex: 1; border-top: 1px solid var(--rule); }
+.discussion-avatar {
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+  background: rgb(128 128 128 / 10%); background: color-mix(in srgb, var(--speaker-color) 14%, var(--paper));
+  color: var(--speaker-color); font: 600 13px/1 var(--sans); font-variant-numeric: tabular-nums;
+}
+.discussion-message { min-width: 0; }
+.discussion-meta { display: flex; align-items: baseline; gap: 8px; padding: 6px 0 6px; font: 13px/1.5 var(--sans); }
+.discussion-speaker { color: var(--speaker-color); font-weight: 600; }
+.discussion-meta time { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.discussion-entries { display: grid; justify-items: start; gap: 3px; }
+.discussion-entry {
+  max-width: min(100%, 40em); min-width: 0; padding: 6px 12px 7px; border-radius: 14px; scroll-margin-block: 24px;
+  background: rgb(128 128 128 / 8%); background: color-mix(in srgb, var(--speaker-color) var(--bubble-tint), var(--paper));
+}
+.discussion-entry:first-child { border-top-left-radius: 4px; }
+.discussion-entry.is-card { padding: 0; background: none; }
+.discussion-entry.is-card .discussion-card { margin: 0; }
+.discussion-entry.is-card .discussion-card + .discussion-card { margin-top: 6px; }
+.discussion-entry:focus { outline: none; }
+.discussion-entry:focus-visible { outline: 2px solid var(--speaker-color); outline-offset: 2px; }
+.discussion-entry.is-highlighted { animation: discussion-highlight 1.8s ease-out; }
+@keyframes discussion-highlight {
+  0%, 35% { box-shadow: 0 0 0 3px var(--speaker-color); }
+  100% { box-shadow: 0 0 0 3px transparent; }
+}
+.discussion-text { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink); font: 15px/1.65 var(--sans); }
+.discussion-text a { color: var(--speaker-color); text-decoration: underline; text-underline-offset: 3px; }
+.discussion-text a:focus-visible { outline: 2px solid var(--speaker-color); outline-offset: 3px; }
+.discussion-sticker { color: var(--muted); font-size: .9em; }
+.discussion-emoji { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; font-size: 1.15em; line-height: 1; vertical-align: -.05em; }
+/* Shared article cards, files and unparsed media replace the export's raw field lines. */
+.discussion-text .discussion-card {
+  display: grid; gap: 2px; max-width: 36em; margin: 6px 0; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 10px;
+  background: var(--paper); color: var(--ink); text-decoration: none; white-space: normal;
+}
+@media (hover: hover) { .discussion-text a.discussion-card:hover { border-color: var(--muted); } }
+.discussion-card-origin { display: flex; align-items: center; gap: 6px; color: var(--muted); font: 12px/1.6 var(--sans); }
+.discussion-card-origin .discussion-icon { width: 13px; height: 13px; flex: none; }
+.discussion-card-title { color: var(--ink); font: 600 15px/1.6 var(--sans); }
+.discussion-card-summary { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; color: var(--muted); font: 13px/1.7 var(--sans); }
+.discussion-attachment {
+  display: inline-flex; align-items: center; gap: 6px; max-width: 100%; padding: 3px 10px; border-radius: 8px;
+  background: rgb(128 128 128 / 10%); background: color-mix(in srgb, var(--ink) 6%, transparent); color: var(--ink); font: 14px/1.6 var(--sans); white-space: normal;
+}
+.discussion-attachment .discussion-icon { width: 14px; height: 14px; flex: none; color: var(--muted); }
+.discussion-attachment small { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.discussion-attachment.is-placeholder { color: var(--muted); font-size: 13px; }
+/* A reply shows its quote inside the bubble; tapping jumps to the quoted message when it is known. */
+.discussion-quote {
+  display: grid; align-content: center; width: 100%; min-height: 32px; margin: 3px 0 5px; padding: 4px 9px;
+  border: 0; border-radius: 8px; background: rgb(128 128 128 / 8%); background: color-mix(in srgb, var(--ink) 5%, transparent);
+  color: var(--muted); font: 12.5px/1.6 var(--sans); text-align: left; cursor: pointer;
+}
+@media (hover: hover) { .discussion-quote:hover { background: rgb(128 128 128 / 16%); background: color-mix(in srgb, var(--ink) 10%, transparent); } }
+#discussion-dialog .discussion-quote:focus-visible { outline: 2px solid var(--speaker-color); outline-offset: 2px; }
+.discussion-quote-label { margin-right: 6px; color: var(--speaker-color); font-weight: 600; white-space: nowrap; }
+.discussion-quote-label .discussion-icon { width: 13px; height: 13px; margin-right: 3px; vertical-align: -2px; }
+.discussion-quote-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+/* Clamp an inner box: clamping the padded button lets a third line show through its padding. */
+.discussion-quote-body { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.discussion-quote[aria-expanded="true"] .discussion-quote-body { display: block; }
+
+@media (max-width: 899px) {
+  /* Fold the header to one line while reading the chat. */
+  #discussion-dialog.is-scrolled .discussion-dialog-meta { display: none; }
+  #discussion-dialog.is-scrolled #discussion-dialog-title { -webkit-line-clamp: 1; }
+}
+@media (max-width: 700px) {
+  /* Long discussions get the whole phone screen; the back gesture closes them. */
+  #discussion-dialog { inset: 0; width: 100%; border: 0; box-shadow: none; }
+  #discussion-dialog[open] { animation-name: discussion-sheet-in; }
+  .discussion-dialog-close { top: max(4px, env(safe-area-inset-top)); right: 4px; }
+  .discussion-dialog-header { padding: max(12px, env(safe-area-inset-top)) 52px 12px 20px; }
+  #discussion-dialog-title { font-size: 18px; }
+  .discussion-dialog-body { padding: 16px 16px max(28px, env(safe-area-inset-bottom)); }
+  .discussion-lead-inline { margin-inline: 4px; }
+  .discussion-messages > li { grid-template-columns: 28px minmax(0, 1fr); gap: 8px; }
+  .discussion-avatar { width: 28px; height: 28px; font-size: 12px; }
+  .discussion-meta { padding-top: 4px; }
+  .discussion-text { font-size: 16px; }
+}
+@media (min-width: 900px) {
+  #discussion-dialog {
+    inset: 24px; margin: 0 auto; width: min(1180px, calc(100vw - 48px));
+    border: 1px solid var(--rule); border-radius: 12px; box-shadow: 0 40px 96px -48px rgb(28 27 25 / 50%);
+  }
+  #discussion-dialog[open] {
+    display: grid; grid-template-columns: clamp(340px, 37%, 440px) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas: "head chat" "lead chat"; animation-name: discussion-spread-in;
+  }
+  .discussion-dialog-header { grid-area: head; padding: 36px 36px 20px; border-bottom: 0; }
+  #discussion-dialog-title { display: block; font-size: clamp(22px, 1.6vw + 6px, 26px); line-height: 1.4; }
+  .discussion-lead { grid-area: lead; display: flex; flex-direction: column; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 36px 28px; }
+  .discussion-lead > .discussion-lead-body { padding-top: 22px; border-top: 1px solid var(--rule); }
+  .discussion-lead-nav { display: grid; gap: 8px; margin-top: auto; padding-top: 32px; }
+  .discussion-chat {
+    grid-area: chat; border-left: 1px solid var(--rule);
+    background: rgb(128 128 128 / 4%); background: color-mix(in srgb, var(--ink) 3%, var(--paper));
+  }
+  .discussion-chat-label {
+    flex: none; display: flex; align-items: center; gap: 8px; min-height: 60px; margin: 0; padding: 0 76px 0 32px;
+    border-bottom: 1px solid var(--rule); color: var(--ink); font: 600 13px/1.5 var(--sans);
+  }
+  .discussion-chat-label .discussion-icon { color: var(--muted); }
+  .discussion-chat-meta { display: inline; color: var(--muted); font-weight: 400; font-variant-numeric: tabular-nums; }
+  /* The chat bar carries the message counts on wide screens; the title keeps the left column. */
+  .discussion-dialog-meta { display: none; }
+  .discussion-chat-label .discussion-icon { width: 16px; height: 16px; }
+  .discussion-dialog-close { top: 8px; right: 12px; }
+  .discussion-dialog-body { padding: 28px 32px 48px; }
+  .discussion-dialog-body > * { max-width: 680px; margin-inline: auto; }
+  .discussion-entry { max-width: min(100%, 36em); }
+  .discussion-lead-inline, .discussion-dialog-footer { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #discussion-dialog[open], #discussion-dialog::backdrop { animation: none; }
+  .discussion-trigger, .discussion-lead-inline summary .discussion-icon { transition: none; }
+}

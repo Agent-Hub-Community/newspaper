@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-20",
+  "title": "DeepSeek 开源 DeepInfer 推理框架，Google TorchTPU 接入 PyTorch 与 vLLM",
+  "intro": "DeepSeek 开源服务 DeepSeek-V4.1-Flash 的推理框架 DeepInfer，美国联邦文职机构被要求移除 DeepSeek 相关产品与服务。Google TorchTPU 打通 PyTorch、Hugging Face 与 vLLM 原生 TPU 支持，Mistral、Inception 等同日发布新模型。",
+  "stories": [
+    {
+      "title": "DeepSeek 开源生产级离线推理框架 DeepInfer",
+      "timing": "北京时间 10 月 20 日 17:30 发布",
+      "text": "DeepSeek 按 Apache 2.0 协议开源其生产环境使用的推理框架 DeepInfer，当前支持 DeepSeek-V4.1-Flash（默认权重为 DeepSeek-V4.1-Flash-1017），适配 NVIDIA SM100 GPU 与华为昇腾 950 NPU。该框架最初基于 vLLM 构建，集成 FlashMLA、DeepGEMM、DeepEP、TileKernels、DeepSelect 与自定义 TileLang 算子，支持 Attention DP/平衡 CP、MoE EP+EPLB 并行、DSpark 与置信度调度验证、SWA 有界重放、零开销异步批调度及结构化输出，并在 NVIDIA 硬件上提供 batch-invariant 推理和确定性采样。此次开源版本仅提供离线推理核心功能，搭建完整在线推理服务所需的 KV cache 系统、VE/Prefill/Decode 解耦服务以及跨数据并行副本的负载均衡尚未包含在内。",
+      "links": [
+        {
+          "kind": "代码",
+          "label": "DeepInfer 仓库",
+          "url": "https://github.com/deepseek-ai/DeepInfer"
+        },
+        {
+          "kind": "原帖",
+          "label": "DeepSeek 公告",
+          "url": "https://x.com/deepseek_ai/status/2112476496283775135"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50163277"
+        }
+      ],
+      "emphasis": [
+        "按 Apache 2.0 协议开源其生产环境使用的推理框架 DeepInfer",
+        "此次开源版本仅提供离线推理核心功能"
+      ],
+      "aiComment": "把昇腾950和SM100双修的离线核心端出来了，但KV cache和PD解耦服务还没给，属于米已备好，炊具请各位大厨自备。"
+    },
+    {
+      "title": "美国要求联邦文职机构移除 DeepSeek 产品与相关第三方服务",
+      "timing": "北京时间 10 月 20 日 00:16 起传播，同日中方回应",
+      "text": "据 TechCrunch 报道，美国国土安全部发布指令，要求美国联邦文职机构停止采购中国 AI 初创公司 DeepSeek 开发的产品与服务，并将其从政府 IT 系统中移除。报道称，该指令以数据安全担忧为由，在 2025 年 12 月针对情报与国家安全系统的立法限制基础上，将适用范围扩大至联邦文职机构的新增采购与现有系统，同时涵盖基于 DeepSeek 技术构建的第三方产品和服务，但允许各机构申请豁免。中国外交部发言人毛宁同日回应称，中方反对泛化国家安全概念、将经贸科技问题政治化的做法，将坚定维护中国企业的合法权益。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/20/us-orders-federal-agencies-to-remove-chinas-deepseek-ai-from-their-systems/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50154244"
+        }
+      ],
+      "emphasis": [
+        "同时涵盖基于 DeepSeek 技术构建的第三方产品和服务，但允许各机构申请豁免"
+      ],
+      "aiComment": "连基于DeepSeek的第三方服务都要一并移除，但又留了个豁免申请通道，IT管理员今晚写排除清单和豁免理由都得掉一把头发。"
+    },
+    {
+      "title": "Google TorchTPU 原生接入 PyTorch、Hugging Face 与 vLLM",
+      "timing": "北京时间 10 月 20 日 08:00 发布",
+      "text": "Google、Hugging Face 与 Inferact 发布基于原生 PyTorch 后端 TorchTPU 的 TPU 软件生态支持，开发者无需再通过 torch_xla 改写代码即可将 TPU 作为常规 PyTorch 设备调用。在 Hugging Face 生态中，Transformers 与 Diffusers 模型可直接通过指定 tpu 设备运行并结合 torch.compile 编译加速，且不再依赖 Optimum TPU；官方测试显示当前在 TPU 上运行的 Transformers 测试套件通过率为 96.5%。同时发布的平台插件 vllm-torchtpu 复用了上游 vLLM 的调度器、KV cache 管理器与 API 服务，底层调用针对注意力、MoE 和量化矩阵乘法的 Pallas 算子，支持 TP、DP、PP、EP、PCP、DCP 六维并行以及基于 TPU Sync 的主机内存零拷贝 KV cache 卸载与跨机解耦服务。vLLM 团队表示推荐使用通过持续集成测试的 TPU v7x（Ironwood），TPU v6e、v5e 与 v5p 支持目前处于实验阶段。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "HF TorchTPU 博客",
+          "url": "https://huggingface.co/blog/hf-torchtpu"
+        },
+        {
+          "kind": "官方发布",
+          "label": "vLLM TorchTPU 博客",
+          "url": "https://vllm.ai/blog/2026-10-20-vllm-torchtpu"
+        },
+        {
+          "kind": "代码",
+          "label": "torch_tpu 仓库",
+          "url": "https://github.com/google-pytorch/torch_tpu"
+        }
+      ],
+      "emphasis": [
+        "开发者无需再通过 torch_xla 改写代码即可将 TPU 作为常规 PyTorch 设备调用",
+        "平台插件 vllm-torchtpu 复用了上游 vLLM 的调度器、KV cache 管理器与 API 服务"
+      ],
+      "aiComment": "终于不用跟torch_xla斗智斗勇改代码了，直接把TPU当常规PyTorch设备调，早年踩过坑的炼丹师流下了时代的眼泪。"
+    },
+    {
+      "title": "Mistral 发布 Voxtral 3 语音模型系列与 voice agent SDK",
+      "timing": "北京时间 10 月 20 日 20:00 发布",
+      "text": "Mistral 发布 Voxtral 3 语音模型系列与配套 voice agent SDK，将语音识别、推理、工具调用与语音合成整合进单一实时流式管线，今日起通过 Mistral 欧盟托管 API 提供服务并支持自部署。语音转文本方面，Voxtral Transcribe 3 支持 50 多种语言、说话人分离、关键词上下文偏置与原生话轮结束检测；其中 4B 参数的 Mini 版本定价为每分钟 0.0035 美元，实时版 Voxtral Realtime Transcribe 3 在 35 种以上语言中官方测试延迟低于 500 毫秒。文本转语音模型 Voxtral Mini TTS 3 支持 35 种以上语言和 50 多种方言，可根据上下文调整情绪、语速和重音，并支持使用 30 分钟音频进行跨语言声音适配，API 定价为每 1M 字符 13 美元。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Voxtral 3 博客",
+          "url": "https://mistral.ai/news/voxtral-3/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50168396"
+        }
+      ],
+      "emphasis": [
+        "将语音识别、推理、工具调用与语音合成整合进单一实时流式管线",
+        "4B 参数的 Mini 版本定价为每分钟 0.0035 美元",
+        "API 定价为每 1M 字符 13 美元"
+      ],
+      "aiComment": "转写一分钟收0.0035美元，自带话轮结束检测，以后跟AI煲电话粥最怕的不是话费贵，是刚喘口气它以为你说完了。"
+    },
+    {
+      "title": "Inception 发布 1M 上下文扩散大语言模型 Mercury 3",
+      "timing": "北京时间 10 月 20 日 00:42 发布",
+      "text": "Inception 发布文本扩散大语言模型 Mercury 3，现已通过 Inception API 平台、OpenRouter、Baseten 和 Vercel 上线，并兼容 OpenAI API。据官方介绍，Mercury 3 总参数规模比初代扩大 40 倍以上，上下文窗口从前代 Mercury 2.5 的 260K 扩展至 1M token，在 NVIDIA GPU 上的官方测试生成速度达每秒 1068 token，官方基准测试称其表现达到或超过 GPT-6 Luna 与 Claude Haiku 5.5。该模型标准定价为每 1M 输入 token 0.20 美元、每 1M 输出 token 0.70 美元；上线初期提供五折优惠，折后每 1M 输入 token 0.10 美元、输出 0.35 美元，缓存 token 享输入价一折。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Mercury 3 博客",
+          "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-3"
+        },
+        {
+          "kind": "原帖",
+          "label": "Stefano Ermon 公告",
+          "url": "https://x.com/StefanoErmon/status/2112222911218291051"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50155245"
+        }
+      ],
+      "emphasis": [
+        "上下文窗口从前代 Mercury 2.5 的 260K 扩展至 1M token",
+        "上线初期提供五折优惠，折后每 1M 输入 token 0.10 美元、输出 0.35 美元"
+      ],
+      "aiComment": "官方数据每秒蹦出1068个token，上线还打五折，这阅读速度要跟不上生成速度，压力全给到人类的视神经了。"
+    },
+    {
+      "title": "机器人初创公司 Eka Robotics 完成 1.5 亿美元 A 轮融资",
+      "timing": "北京时间 10 月 20 日 21:00 披露",
+      "text": "据 TechCrunch 报道与投资方 a16z 公告，由 MIT 教授 Pulkit Agrawal 和前 Google DeepMind 研究员 Tuomas Haarnoja 创立的 Eka Robotics 完成 1.5 亿美元 A 轮融资，投后估值 14.5 亿美元，由 a16z 与 F-Prime 领投。该公司未采用常见的视觉-语言-动作架构，而是共同设计集成力传感器的机械手与“视觉-力觉-动作”（Vision-Force-Action）模型，并在物理仿真环境中通过强化学习训练控制策略，使机械手可根据接触力反馈实时调整抓取与插接动作。官方数据显示，其系统在实验室分拣任务中最高可达每小时 1500 次抓取，抓握夹具硬件成本低于 1000 美元、额定寿命为 500 万次循环，目前正与工业客户开展秘密试点，尚未在完整生产班次中验证。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "a16z 投资公告",
+          "url": "https://www.a16z.news/p/investing-in-eka-robotics"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 采访",
+          "url": "https://techcrunch.com/2026/10/20/eka-is-worth-1-45-billion-thanks-to-a-physical-ai-model-that-has-experts-raving/"
+        }
+      ],
+      "emphasis": [
+        "完成 1.5 亿美元 A 轮融资，投后估值 14.5 亿美元",
+        "共同设计集成力传感器的机械手与“视觉-力觉-动作”（Vision-Force-Action）模型",
+        "在实验室分拣任务中最高可达每小时 1500 次抓取"
+      ],
+      "aiComment": "夹具成本压到1000美元以内，实验室里一小时抓1500次，现在就等进厂跑个完整班次，看看能不能扛住真实打工人的强度。"
+    },
+    {
+      "title": "Anthropic 与 Nscale 据报洽谈第二笔 450 亿美元算力交易",
+      "timing": "北京时间 10 月 20 日 07:39 报道",
+      "text": "据 TechCrunch 援引彭博社知情人士消息报道，Anthropic 与 AI 基础设施提供商 Nscale 正在洽谈第二笔价值 450 亿美元的算力合作协议。双方在约一个月前刚刚宣布过一笔 450 亿美元的算力交易。知情人士表示，目前新交易的谈判仍在进行中，具体条款仍可能发生变化。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal/"
+        }
+      ],
+      "emphasis": [
+        "正在洽谈第二笔价值 450 亿美元的算力合作协议"
+      ],
+      "aiComment": "上个月刚签完450亿美元算力，这个月据传又在谈一笔450亿，别人买卡像买菜，这买算力的节奏像在超市搞满减复购。"
+    },
+    {
+      "title": "Mac 版 Perplexity Computer 新增本地执行模式",
+      "timing": "北京时间 10 月 20 日 23:27 报道，23:48 官方发布",
+      "text": "Perplexity 宣布 Perplexity Computer 现已支持在 Mac 应用中完全本地运行，模型与 agent 均在设备端执行，可操作本地文件与原生 Mac 应用而无需将敏感数据发送至云端。据 IT之家援引 9to5Mac 报道，该端侧模式面向 Perplexity Pro、Max 和 Enterprise 订阅用户开放，首发提供 Qwen 3.6 与 PPLX Pro 两种模式，仅在用户批准后才会将文件上传至云端，硬件最低要求为搭载 Apple 芯片且具备 36GB 统一内存的 Mac。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Perplexity 公告",
+          "url": "https://x.com/perplexity_ai/status/2112571597798461920"
+        },
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/015/609.htm"
+        }
+      ],
+      "emphasis": [
+        "模型与 agent 均在设备端执行，可操作本地文件与原生 Mac 应用",
+        "硬件最低要求为搭载 Apple 芯片且具备 36GB 统一内存的 Mac"
+      ],
+      "aiComment": "数据不用上云确实安心，但一看最低要求36GB统一内存，手里16GB的MacBook默默退出了群聊。"
+    },
+    {
+      "title": "Ornith 发布开放权重模型 Ornith-1.5-122B",
+      "timing": "北京时间 10 月 20 日 22:36 发布",
+      "text": "Ornith 团队在 X 与 Hugging Face 发布开放权重模型 Ornith-1.5-122B。据作者发布帖介绍，该模型采用 MIT 许可证，其公布的官方评测成绩包括 SWE-bench Verified 0.845、TB2.1 0.813、CyberGym 0.800、BrowseComp 0.785、MCP-Atlas 0.746 与 HLE 0.446。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Ornith 发布帖",
+          "url": "https://x.com/ornith_/status/2112553477457268799"
+        }
+      ],
+      "emphasis": [
+        "发布开放权重模型 Ornith-1.5-122B"
+      ],
+      "aiComment": "122B的体量直接给MIT许可证，官方贴出来的SWE-bench Verified标到了0.845，开源社区的测评机器今晚又要连夜加班了。"
+    },
+    {
+      "title": "微软开源生物分子结构与动力学模型 BioEmu2 预览版",
+      "timing": "北京时间 10 月 20 日 17:13 发布",
+      "text": "微软研究院 AI for Science 团队按 MIT 协议开放生物分子基础模型 BioEmu2 的公开预览与模型权重。该模型支持包含蛋白质、核酸与配体的分子体系，可通过命令行或 Python 接口完成折叠结构预测、平衡构象系综采样以及基于隐式传递算子的时间滞后轨迹演化，并提供接触条件约束、推理阶段性质引导采样以及跨至少 4 张 GPU 的上下文并行采样。BioEmu2 仅支持 Linux 系统与计算能力 7.0 及以上的 NVIDIA GPU，不支持 macOS 和 Windows。",
+      "links": [
+        {
+          "kind": "代码",
+          "label": "BioEmu2 仓库",
+          "url": "https://github.com/microsoft/bioemu2"
+        },
+        {
+          "kind": "原帖",
+          "label": "Frank Noé 公告",
+          "url": "https://x.com/FrankNoeBerlin/status/2112472173336240499"
+        }
+      ],
+      "emphasis": [
+        "按 MIT 协议开放生物分子基础模型 BioEmu2 的公开预览与模型权重",
+        "完成折叠结构预测、平衡构象系综采样以及基于隐式传递算子的时间滞后轨迹演化"
+      ],
+      "aiComment": "微软自家研究院开源的模型，系统要求里直接写明不支持Windows只认Linux，这波大义灭亲属实有点幽默。"
+    },
+    {
+      "title": "ChatGPT team tasks 支持团队协作自动化周期性工程任务",
+      "timing": "北京时间 10 月 20 日 23:24 发布",
+      "text": "OpenAI 开发者账号宣布，用户现可通过 ChatGPT 中的 team tasks 自动执行周期性工程任务，例如每周五汇总已上线内容与受阻事项。团队成员可共同审阅执行结果并修改下一次更新涵盖的内容，无需由单人单独维护。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "OpenAIDevs 公告",
+          "url": "https://x.com/OpenAIDevs/status/2112565702552940794"
+        }
+      ],
+      "emphasis": [
+        "团队成员可共同审阅执行结果并修改下一次更新涵盖的内容"
+      ],
+      "aiComment": "每周五自动汇总上线内容和受阻事项还能全员一起改，以前是一个人头疼写周报，现在升级成全组围观AI写周报。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "非 CUDA 算力加速对接主流开源推理栈",
+      "text": "同日披露的工具扩展了非 NVIDIA 硬件的开源推理支持。Google 通过 TorchTPU 与 vllm-torchtpu 将 TPU 直接接入标准 PyTorch、Hugging Face 与上游 vLLM，DeepSeek 开源的 DeepInfer 则在支持 NVIDIA SM100 的同时直接内置了华为昇腾 950 NPU 构建支持。"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-15",
+  "title": "NVIDIA 发布 Nemotron 3.5 Super VL，Modal 获 7.5 亿美元 D 轮融资",
+  "intro": "NVIDIA、阶跃星辰与 Black Forest Labs 同日发布开放权重模型，涵盖多模态推理与图像生成；Modal 披露 7.5 亿美元融资及超 10 亿美元年化运行收入，美国八州就 ChatGPT 安全问题起诉 OpenAI。",
+  "stories": [
+    {
+      "title": "NVIDIA 发布 Nemotron 3.5 Super VL 与 Bolt 系列开放权重模型",
+      "timing": "北京时间 10 月 15 日 23:00 发布",
+      "text": "NVIDIA 发布多模态开放权重模型 Nemotron 3.5 Super VL 与端侧部署模型 Bolt 系列。Super VL 采用 120B 总参数 MoE 架构，每 token 激活 12B 参数，支持文本、图像、文档和视频输入以及指令遵循、工具调用与多步业务流程，官方数据显示其较同类模型吞吐提升最高达 5 倍，vLLM 已提供首发支持。目前 Super VL 与采用原生 2bit 量化以适配 24GB 内存的 Bolt 74B-A9B 已经可用，4GB 版本的 Bolt E4B 计划于 10 月 23 日推出。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "NVIDIA 博客",
+          "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "NVIDIA 技术博客",
+          "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/"
+        }
+      ],
+      "emphasis": [
+        "采用原生 2bit 量化以适配 24GB 内存的 Bolt 74B-A9B 已经可用"
+      ],
+      "aiComment": "原生 2bit 量化把 74B 模型塞进 24GB 内存，老黄一边卖大卡，一边给消费级内存留了条体面的活路。"
+    },
+    {
+      "title": "Modal 完成 7.5 亿美元 D 轮融资并披露年化运行收入破 10 亿美元",
+      "timing": "北京时间 10 月 15 日 18:08 报道；引述 10 月 14 日公司公告",
+      "text": "据 Latent Space 报道，AI 基础设施公司 Modal 宣布完成由 Accel 领投的 7.5 亿美元 D 轮融资，投后估值达 157.5 亿美元。公司披露其年化运行收入（ARR）已超过 10 亿美元，平台用量自 C 轮融资以来增长至三倍。其中沙盒业务的年化运行收入规模达 3 亿美元，累计运行约 30 亿次沙盒实例，支持扩展至百万级并发。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Latent Space 报道",
+          "url": "https://www.latent.space/p/ainews-modals-1b-arr-16b-series-d"
+        }
+      ],
+      "emphasis": [
+        "公司披露其年化运行收入（ARR）已超过 10 亿美元"
+      ],
+      "aiComment": "累计跑了 30 亿次沙盒，单这一块 ARR 就 3 亿美元，原来给 AI 关禁闭也是一门百亿估值的大生意。"
+    },
+    {
+      "title": "美国八州分别起诉 OpenAI，指控 ChatGPT 儿童安全宣传误导",
+      "timing": "北京时间 10 月 15 日 05:11 报道",
+      "text": "据 The Verge 报道，美国艾奥瓦、堪萨斯、内布拉斯加、西弗吉尼亚、阿肯色、亚利桑那、爱达荷与蒙大拿八州分别提起诉讼，指控 OpenAI 违反消费者保护法，在 ChatGPT 儿童安全方面存在误导性宣传、未充分警示风险且不当处理未成年人数据。各州要求法院判处民事罚款并责令停止误导宣传，部分州要求删除被指非法收集的个人数据。OpenAI 回应称产品已配备分年龄保护、家长控制和休息提醒，并愿与各州合作。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1011500/openai-state-lawsuits-chatgpt-safety"
+        }
+      ],
+      "emphasis": [
+        "指控 OpenAI 违反消费者保护法，在 ChatGPT 儿童安全方面存在误导性宣传、未充分警示风险且不当处理未成年人数据"
+      ],
+      "aiComment": "八个州排队递传票，OpenAI 搬出家长控制和休息提醒接招，法庭辩论的算力消耗看着也不小。"
+    },
+    {
+      "title": "阶跃星辰开放 600B 参数多模态模型 Step 5 Preview 权重",
+      "timing": "10 月 15 日开放权重；北京时间 10 月 15 日 11:22 报道",
+      "text": "据 IT之家报道，阶跃星辰开放多模态模型 Step 5 Preview 的 BF16 与 FP8 权重及配套工具，面向长程 Agent 任务。官方资料显示该模型总参数为 600B，每 token 激活 27B 参数，支持百万 token 上下文以及原生文本和视觉输入，采用 92 层窄深网络与 Sparse GQA 架构，并在强化学习中将上下文压缩纳入端到端策略训练。模型支持通过 vLLM、SGLang 和 Transformers 部署。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/013/268.htm"
+        }
+      ],
+      "emphasis": [
+        "在强化学习中将上下文压缩纳入端到端策略训练"
+      ],
+      "aiComment": "600B 权重直接开源，还把上下文压缩训进强化学习，模型学会自己省流，本地机房看着硬盘还是先倒吸一口凉气。"
+    },
+    {
+      "title": "Black Forest Labs 发布 5.6B 参数图像模型 FLUX 3 Image Klein",
+      "timing": "北京时间 10 月 15 日 23:00 发布",
+      "text": "Black Forest Labs 发布 5.6B 参数的开放权重图像模型 FLUX 3 Image Klein，支持文生图、图像编辑、最多 10 张参考图输入以及原生 4K 输出与边界框控制。此次发布包含供微调的 base 版和低延迟蒸馏版，提供 FP8、INT8 与 NVFP4 权重，兼容 ComfyUI 和 Diffusers，其中 INT8 版本可在至少 8GB 显存的 GeForce RTX GPU 上运行。模型采用 FLUX Kommunity License，个人及年收入低于 500 万美元的企业可免费商用，超过该规模的企业需获取自托管许可或调用起价为每张 1K 图像 0.009 美元的官方 API。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "BFL 官方博客",
+          "url": "https://bfl.ai/blog/flux-3-image-klein"
+        }
+      ],
+      "emphasis": [
+        "支持文生图、图像编辑、最多 10 张参考图输入以及原生 4K 输出与边界框控制",
+        "个人及年收入低于 500 万美元的企业可免费商用"
+      ],
+      "aiComment": "INT8 版 8GB 显存就能跑，年入不到 500 万美元还能免费商用，我离付费资格就差那 499 万了。"
+    },
+    {
+      "title": "DeepSeek 恢复近 5 小时 API 故障并以 7 日消耗额赠金补偿",
+      "timing": "北京时间 10 月 15 日 08:11 至 13:04 发生故障；17:34 报道",
+      "text": "据 IT之家报道，DeepSeek 于北京时间 10 月 15 日 08:11 至 13:04 发生系统故障，导致 API 无法正常使用，目前服务已恢复。官方宣布以受影响账号在 10 月 8 日至 14 日 7 天内的消耗金额为基准，以赠金形式全额自动返还至账户，后续扣费优先从赠金账户扣除。DeepSeek 表示已启动排查整改，梳理并剥离单点依赖。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/013/533.htm"
+        }
+      ],
+      "emphasis": [
+        "以受影响账号在 10 月 8 日至 14 日 7 天内的消耗金额为基准，以赠金形式全额自动返还至账户"
+      ],
+      "aiComment": "早高峰崩了近 5 小时，反手把前 7 天的消耗全额返成赠金，早上抓耳挠腮的运维下午看着账单笑出了声。"
+    },
+    {
+      "title": "Google 跨零售商购物车 Universal Cart 向美国用户上线",
+      "timing": "10 月 15 日上线",
+      "text": "Google 宣布此前在 5 月 Google I/O 预览的 Universal Cart 正式向美国用户上线，覆盖 Google Search 与 Gemini 应用。该功能允许用户集中保存来自多个零售商的商品、追踪降价与补货通知，并基于 Google Wallet 识别信用卡权益和优惠码。结账环节采用开放标准 Universal Commerce Protocol（UCP），支持通过 Google Pay 完成支付或将商品转入 Nike、Target、Walmart 及 Shopify 等合作商家网站结账，商家仍作为实际销售方提供售后。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 购物博客",
+          "url": "https://blog.google/products-and-platforms/products/shopping/universal-cart-launch/"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/"
+        }
+      ],
+      "emphasis": [
+        "允许用户集中保存来自多个零售商的商品、追踪降价与补货通知",
+        "结账环节采用开放标准 Universal Commerce Protocol（UCP）"
+      ],
+      "aiComment": "各家网店攒一个购物车还能自动扒信用卡羊毛，以后冲动消费连切换 App 的冷静期都没了。"
+    },
+    {
+      "title": "Apple 公布折叠屏手机 iPhone Duo 预购安排与 Siri AI 开放范围",
+      "timing": "10 月 15 日公布；北京时间 10 月 16 日 20:00 开启预购",
+      "text": "Apple 公布折叠屏机型 iPhone Duo 的预购安排，将于北京时间 10 月 16 日 20:00（太平洋时间 10 月 16 日 05:00）开启预购。该机型搭载 A20 Pro 芯片与 iOS 27，展开状态下支持 Split View 分屏多任务，由 Apple Intelligence 支持的 Siri AI 可与应用程序并排运行并读取屏幕内容。官方说明 Siri AI 初期仅提供英语 beta 版本并逐步开放，中国市场不提供 Siri AI 及其他新 Apple Intelligence 功能，欧盟市场初期也不在 iOS 上提供 Siri AI。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Apple 公告",
+          "url": "https://www.apple.com/newsroom/2026/10/open-up-to-new-possibilities-with-iphone-duo/"
+        }
+      ],
+      "emphasis": [
+        "中国市场不提供 Siri AI 及其他新 Apple Intelligence 功能，欧盟市场初期也不在 iOS 上提供 Siri AI"
+      ],
+      "aiComment": "屏幕终于能折起来跟 Siri 并排分屏了，结果中欧用户翻开手机，发现并排的那位暂时不在服务区。"
+    },
+    {
+      "title": "Apple 演示基于 MLX 与 Thunderbolt RDMA 的 Mac Studio 集群推理",
+      "timing": "10 月 15 日发布",
+      "text": "Apple 机器学习研究团队发布技术文章，介绍 MLX 框架更新及基于 Thunderbolt RDMA 的本地集群大模型推理方案。官方测试数据显示，在四台 M5 Ultra Mac Studio 组成的集群上，采用张量并行与 8192 token 上下文运行 NVFP4 精度的 Muse Spark Open（816B 总参数、42B 激活参数），生成吞吐量超过 36 token/s；文章同时展示了 128B 参数 Mistral Medium 3.5（FP8）与 27B 参数 Qwen 3.8（BF16）的运行对比。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Apple 研究博客",
+          "url": "https://machinelearning.apple.com/research/mlx-distributed-inference"
+        }
+      ],
+      "emphasis": [
+        "生成吞吐量超过 36 token/s"
+      ],
+      "aiComment": "四台 M5 Ultra 用雷电线串起来跑 816B 模型，桌面是整洁了，钱包的厚度也跟着一起被量化了。"
+    },
+    {
+      "title": "Amazon 旗下 Bee 推出两款个人 AI 硬件，起售价 74.99 美元",
+      "timing": "北京时间 10 月 15 日 20:00 报道",
+      "text": "据 TechCrunch 报道，Amazon 旗下可穿戴设备团队 Bee 发布两款个人 AI 设备：可佩戴于手腕或夹在衣物上的 Bee Frontier 售价 74.99 美元，磁吸于手机背面的 Bee Eclipse 售价 99.99 美元（产品页显示即将推出）。设备通过记录日常对话生成摘要、待办事项与日历线索，免费版提供摘要和 14 天记忆，每月 11.99 美元的 Bee Pro 订阅支持接入 Amazon、Alexa 及第三方应用。公司称音频在实时处理后删除，转写内容由设备端控制的密钥加密，除非用户主动选择分享。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Bee 产品页",
+          "url": "https://bee.computer/"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/"
+        }
+      ],
+      "emphasis": [
+        "音频在实时处理后删除，转写内容由设备端控制的密钥加密"
+      ],
+      "aiComment": "75 美元买个胸针听自己唠嗑，免费版只给 14 天记忆，连硬件都懂半个月前的待办大概率已经烂尾。"
+    },
+    {
+      "title": "Simons Foundation 联合 Anthropic 与 OpenAI 投入 1500 万美元支持数学界评估 AI",
+      "timing": "北京时间 10 月 15 日 22:00 发布",
+      "text": "Simons Foundation 宣布与 Anthropic、OpenAI 共同承诺投入 1500 万美元资金与资源，帮助数学界评估和使用 AI 工具。该项目由基金会负责管理与分配，包含公开征集提案，资金将用于举办研讨会、评估近期 AI 辅助数学研究成果、共享工具使用经验并建立社区标准。除该项目外，Anthropic 与 OpenAI 还将为基金会资助的基础科学研究者提供 AI 工具与计算资源。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Simons 新闻稿",
+          "url": "https://www.simonsfoundation.org/news/simons-foundation-launches-15m-effort-to-help-mathematicians-navigate-ai-era/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50104654"
+        }
+      ],
+      "emphasis": [
+        "评估近期 AI 辅助数学研究成果、共享工具使用经验并建立社区标准"
+      ],
+      "aiComment": "Anthropic 和 OpenAI 罕见同框出钱请数学家来给 AI 打分，学界突然从出题人变成了拿 1500 万经费的裁判。"
+    },
+    {
+      "title": "PyTorch ExecuTorch 新增 Arm Cortex-M 微控制器后端",
+      "timing": "北京时间 10 月 15 日 22:40 发布",
+      "text": "PyTorch 团队宣布在端侧推理框架 ExecuTorch 中正式支持 Arm Cortex-M 系列 CPU。新后端将模型导出、INT8 量化和图降级保留在同一 PyTorch 工具链内，通过 AOT 编译将算子替换为 Arm CMSIS-NN 内核，支持 Scalar、DSP 与 MVE/Helium 指令集，并为带 Ethos-U NPU 的异构芯片提供 CPU 执行路径。官方测试显示，其核心运行时占用不到 20KiB 闪存，在 Alif Ensemble E8 的单核 Cortex-M55 上运行 MLPerf Tiny 五项微型机器学习基准中的四项时，各模型推理耗时均在 21.5 毫秒内、RAM 占用低于 90KiB。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "PyTorch 博客",
+          "url": "https://pytorch.org/blog/bringing-executorch-to-arm-cortex-m-cpus/"
+        }
+      ],
+      "emphasis": [
+        "通过 AOT 编译将算子替换为 Arm CMSIS-NN 内核，支持 Scalar、DSP 与 MVE/Helium 指令集",
+        "各模型推理耗时均在 21.5 毫秒内、RAM 占用低于 90KiB"
+      ],
+      "aiComment": "运行时塞进不到 20KiB 闪存，RAM 占用压在 90KiB 内，这体量放在如今动辄百G的模型圈简直像门微雕手艺。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "开放权重模型同步提供低比特量化版本适配本地显存",
+      "text": "本日发布的多个开放权重模型均在首发时直接提供低比特量化权重以降低硬件门槛：NVIDIA 为 74B 参数的 Nemotron 3.5 Bolt 提供原生 2bit 量化以装入 24GB 内存；Black Forest Labs 为 5.6B 参数的 FLUX 3 Image Klein 提供 INT8 与 NVFP4 版本以适配 8GB 显存显卡；Apple 也在四台 Mac Studio 集群上采用 NVFP4 精度演示了 816B 参数模型的本地推理。"
+    }
+  ]
+}

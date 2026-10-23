@@ -1,0 +1,152 @@
+{
+  "date": "2026-09-29",
+  "title": "Anthropic发布Claude Sonnet 5.5与AMD拟收购World Labs",
+  "intro": "Anthropic发布新一代主力模型Claude Sonnet 5.5，AMD签署协议拟以全股票收购李飞飞创立的World Labs。本期还涵盖微软研究院面向生物学的多模态系统Quine，以及Perplexity Agent API上线配置复用能力等动态。",
+  "stories": [
+    {
+      "title": "Anthropic发布Claude Sonnet 5.5",
+      "timing": "9月29日发布（北京时间）",
+      "text": "Anthropic推出Claude 5.5系列第二款模型Sonnet 5.5，已在AWS、Google Cloud和Azure上线。Token单价与Sonnet 5相同，每百万输入2美元、输出10美元；官方称完成同类任务所需Token更少，单项任务成本最多可降低30%，输出生成速度提升超30%。官方报告其Terminal-Bench 4.0得分为70.6%，并认为复杂开放任务仍是Opus 5.5更强。高风险网络安全请求会回退至Sonnet 5，常规软件开发不受这一限制影响。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://www.anthropic.com/claude-sonnet-5-5"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/AnthropicAI/status/2104633259925630995"
+        }
+      ],
+      "emphasis": [
+        "单项任务成本最多可降低30%"
+      ],
+      "aiComment": "单价没降，省钱还得看每个任务到底用掉多少Token。"
+    },
+    {
+      "title": "AMD签署协议拟收购空间智能初创公司World Labs",
+      "timing": "9月29日04:05（北京时间）宣布拟收购",
+      "text": "AMD宣布已达成最终协议，拟收购由李飞飞联合创立的空间智能研究机构World Labs。该笔全股票交易估值约为82亿美元，交易须经监管审批及惯常交割条件，预计于2026年年底前完成。World Labs专注于从文本、图像和视频生成并仿真交互式三维物理环境的模型研发。AMD计划借助其模型研究经验指导芯片与计算架构设计。交易交割完成后，World Labs团队将继续推进模型研发，李飞飞将出任AMD执行副总裁兼首席科学家，向董事长兼CEO苏姿丰汇报。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/theworldlabs/status/2104665621120311465"
+        }
+      ],
+      "emphasis": [
+        "全股票交易估值约为82亿美元"
+      ],
+      "aiComment": "刚学会生成三维世界，转头就要去给芯片架构出主意了。"
+    },
+    {
+      "title": "微软研究院介绍生物学多模态研究系统Quine",
+      "timing": "9月29日22:00（北京时间）官方研究介绍",
+      "text": "微软研究院公布面向生物学复杂系统的研究项目Quine。该系统由生物学多模态世界模型与连接文献、实验工具及研究团队的交互框架组成，联合训练序列、结构、细胞状态与成像等跨尺度表征，以在湿实验前预测并排序干预效果。在与Broad研究所针对胰腺导管腺癌的合作中，研究团队利用Quine在周末完成化合物优先级筛选，部分预测在细胞状态转移湿实验中得到初步印证。目前系统仅面向Quine Fellows及部分合作项目开放，属实验性研究工具，不用于临床或医疗用途。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/"
+        }
+      ],
+      "emphasis": [
+        "仅面向Quine Fellows及部分合作项目开放"
+      ],
+      "aiComment": "化合物名单排出来了，后面还得让湿实验逐个检验。"
+    },
+    {
+      "title": "Perplexity Agent API上线配置复用与版本化机制",
+      "timing": "9月29日官方介绍；Profiles与Skills已上线，连接器预览",
+      "text": "Perplexity宣布在Perplexity Agent API中加入Profiles、Skills及托管连接器功能。Profile通过版本化ID将模型选型、提示词、工具集合与运行设置固化，管理员配置一次后，团队内开发者即可通过项目API Key调用统一流程，无需在各应用中分散维护。Skills同样支持独立版本化升级，便于在调整特定步骤时不影响上下游接入。目前GitHub、Slack、Drive等托管连接器处于预览阶段，凭据由管理员集中托管，Profiles与Skills则已正式上线可用。",
+      "links": [
+        {
+          "label": "原帖",
+          "url": "https://x.com/AravSrinivas/status/2104734162276012052"
+        },
+        {
+          "label": "原帖",
+          "url": "https://x.com/perplexitydevs/status/2104646637381660738"
+        }
+      ],
+      "emphasis": [
+        "通过版本化ID将模型选型、提示词、工具集合与运行设置固化"
+      ],
+      "aiComment": "提示词和配置固化成版本号，改坏了至少能顺着编号找回去。"
+    },
+    {
+      "title": "Physical Coding研究提出以代码表征机器人世界状态与策略",
+      "timing": "9月29日HF收录的近期研究，论文于北京时间9月28日首发",
+      "text": "针对VLA与WAM模型将状态隐含在动作序列中导致的长程任务脆弱问题，HexaFuture等团队提出Physical Coding范式。系统将物理交互拆解为记录实体、观测和约束的Code as World，以及负责规划、工具调用、独立验证与恢复的Code as Policy，由Harness连接语言模型与底层策略。作者报告在固定XR-1动作模型下，HexaAnything使RoboCasa365复合未见任务成功率由34.3%提升至38.3%。真机部分在AgileX平台上测试了7项桌面任务，每项运行3次。",
+      "links": [
+        {
+          "label": "官方发布",
+          "url": "https://hexafuture.ai/blog/physical-coding"
+        },
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2609.35432"
+        }
+      ],
+      "emphasis": [
+        "固定XR-1动作模型下，HexaAnything使RoboCasa365复合未见任务成功率由34.3%提升至38.3%"
+      ],
+      "aiComment": "物理世界都被写成了代码，机械臂动一下大概也得走一遍调用流程。"
+    },
+    {
+      "title": "CompoWorld通过组合可执行服务训练通用跨环境智能体",
+      "timing": "9月29日HF收录的近期研究，论文于北京时间9月27日首发",
+      "text": "针对通用智能体跨系统协作数据稀缺问题，研究团队提出组合环境扩展框架CompoWorld。该方案将448个服务封装为具备类型化状态与统一API的可执行环境，覆盖10,130个工具，对无法确定性编码的工具引入语言世界模型补充模拟。框架利用随机游走生成跨服务依赖图并验证可达性，训练引入聚焦未通过项权重的细则奖励。作者报告在3K条SFT轨迹与1K个RL任务微调后，Qwen3.6-35B-A3B在AutomationBench的任务完全成功率从10.33%提升至32.33%。增加训练数据并未在所有基准上持续带来提升。",
+      "links": [
+        {
+          "label": "论文",
+          "url": "https://arxiv.org/abs/2609.33665"
+        }
+      ],
+      "emphasis": [
+        "AutomationBench的任务完全成功率从10.33%提升至32.33%"
+      ],
+      "aiComment": "一万多个工具拼在一起，先画满依赖关系网才敢把模型放进去学。"
+    },
+    {
+      "title": "学术研究揭示主流对话式AI客户端存在会话工件泄漏风险",
+      "timing": "9月29日引发HN社区讨论，论文实验于2026年5月在西班牙进行",
+      "text": "一项研究分析了9家对话式AI服务的网页端及其中8家的Android客户端。作者在被测生态中识别出44个第三方组织，报告6个网页端、3个Android端披露了一种或多种会话衍生信息，如URL、标题、提示词或截图，部分与持久标识符关联；公开分享链接的访问控制也存在风险。实验于2026年5月在西班牙进行，研究对象为消费级服务。",
+      "links": [
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49890226"
+        },
+        {
+          "label": "论文",
+          "url": "https://jorgegarciaherrero.com/wp-content/interactivos/20260916-Prompt-like-a-butterfly-sting-like-a-tracker-(clean).pdf"
+        }
+      ],
+      "emphasis": [
+        "披露了一种或多种会话衍生信息"
+      ],
+      "aiComment": "以为在和AI促膝长谈，顺手生成的标题和链接已经先去见第三方了。"
+    },
+    {
+      "title": "开源决策模型Jeeves通过引入推理提升分类准确率",
+      "timing": "9月29日引发HN社区讨论，项目首发日期未确认",
+      "text": "开发者开源了基于Qwen3.5-9B的Jev风格决策分类模型Jeeves。模型采用LoRA微调与指针头结构，在做出结构化决策前生成思考链，并支持扩散推测解码加速。作者测试显示，在包含2,962道测试题的同checkpoint评估中，开启思考使准确率从0.804提升至0.840。然而推理带来了显著的延迟开销：在另一个325题开发集、单张H100的测试中，不思考耗时约0.3秒，而完整思考的中位延迟为3.3秒、p90达到17.1秒。此外，该模型在MMLU与跨领域迁移能力上仍落后于Jev模型。",
+      "links": [
+        {
+          "label": "讨论",
+          "url": "https://news.ycombinator.com/item?id=49891290"
+        },
+        {
+          "label": "代码",
+          "url": "https://github.com/PostHog/jeeves"
+        }
+      ],
+      "emphasis": [
+        "在包含2,962道测试题的同checkpoint评估中，开启思考使准确率从0.804提升至0.840"
+      ],
+      "aiComment": "做个分类题突然陷入长考，屏幕前的人只能看着它慢慢想通。"
+    }
+  ],
+  "trends": []
+}
