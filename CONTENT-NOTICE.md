@@ -8,16 +8,16 @@
 
 | 路径 | 内容 |
 |---|---|
-| `editions/` | 群聊日报 |
-| `weekly-editions/` | 周报 |
-| `external-editions/` | 外部资讯 |
-| `library.json` | 资料库 |
-| `glossary.json` | 群聊黑话 |
-| `opportunities.json` | 招聘、活动和征稿 |
-| `public-activity/` | 活跃榜快照和头像 |
-| `library-avatars/` | 资料库分享人头像 |
-| `weekly-assets/` | 周榜头像 |
-| `semantic-vectors.json` | 由上述内容计算的文档向量 |
+| `data/editions/` | 群聊日报 |
+| `data/weekly-editions/` | 周报 |
+| `data/external-editions/` | 外部资讯 |
+| `data/library.json` | 资料库 |
+| `data/glossary.json` | 群聊黑话 |
+| `data/opportunities.json` | 招聘、活动和征稿 |
+| `data/public-activity/` | 活跃榜快照和头像 |
+| `data/library-avatars/` | 资料库分享人头像 |
+| `data/weekly-assets/` | 周榜头像 |
+| `data/semantic-vectors.json` | 由上述内容计算的文档向量 |
 
 ## 使用条件
 
@@ -28,7 +28,7 @@
 
 ## 删除个人内容
 
-如果某个页面包含你的发言、头像或其他个人内容，而你希望删除，请在 GitHub 提 issue。
+如果某个页面包含你的发言、头像或其他个人内容，而你希望删除，请在 GitHub 上[提 issue](https://github.com/Agent-Hub-Community/newspaper/issues)。
 issue 是公开的。请只写页面地址和需要删除的位置，不要在 issue 里贴出更多个人信息。
 
 ---
@@ -37,11 +37,11 @@ issue 是公开的。请只写页面地址和需要删除的位置，不要在 i
 
 The source code in this repository is licensed under the [MIT License](LICENSE). The reader content shown on the website is not covered by the MIT License.
 
-This notice covers `editions/`, `weekly-editions/`, `external-editions/`, `library.json`, `glossary.json`, `opportunities.json`, `public-activity/`, `library-avatars/`, `weekly-assets/`, `semantic-vectors.json`, and the pages, Markdown, JSON and feeds built from them.
+This notice covers `data/editions/`, `data/weekly-editions/`, `data/external-editions/`, `data/library.json`, `data/glossary.json`, `data/opportunities.json`, `data/public-activity/`, `data/library-avatars/`, `data/weekly-assets/`, `data/semantic-vectors.json`, and the pages, Markdown, JSON and feeds built from them.
 
 - Group members keep the rights to their own messages and discussion excerpts. These are for reading only. When you quote them, credit "AgentHub 日报" and link to the original page.
 - Avatars come from members' public profiles and are used only for display on this site. Do not use them for any other purpose.
 - Copyright in the original articles cited by external news summaries belongs to their authors.
 - Editorial titles, summaries and AI comments are also not covered by the MIT License. Credit the source and link to the original page when you quote them.
 
-To remove your personal content, open an issue on GitHub. Issues are public: include only the page address and the location of the content.
+To remove your personal content, [open an issue on GitHub](https://github.com/Agent-Hub-Community/newspaper/issues). Issues are public: include only the page address and the location of the content.
