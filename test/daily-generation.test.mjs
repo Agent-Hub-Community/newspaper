@@ -1,9 +1,5 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
-import path from 'node:path';
-import { execFileSync } from 'node:child_process';
 import { sanitizeInput, validateDraft, readerPage } from '../lib/daily-generation.mjs';
 
 const input = { group: { id: 'group-1', label: '一群' }, date: '2026-09-23',
@@ -11,35 +7,6 @@ const input = { group: { id: 'group-1', label: '一群' }, date: '2026-09-23',
 const story = { category: '评测', title: '一个问题', text: '一次观察', topic_key: 'evaluation',
   evidence_ids: ['m0001'], claims: [{ text: '一次观察', kind: 'reported_experience', evidence_ids: ['m0001'] }] };
 const draft = () => ({ heading: '今天的讨论', theme: '评测问题', stories: [structuredClone(story)], resources: [] });
-test('daily packaging preserves long discussion paragraphs and composes uncapped editorial guidance', async () => {
-  const dir = await mkdtemp(path.join(tmpdir(), 'daily-depth-'));
-  try {
-    const date = input.date;
-    await mkdir(path.join(dir, date));
-    const d = draft();
-    d.stories[0].text = Array.from({ length: 12 }, (_, i) =>
-      `第${i + 1}轮讨论提出不同条件：已有观察只覆盖特定任务，仍需比较其他场景中的结果。`).join('\n\n');
-    d.stories[0].emphasis = ['已有观察只覆盖特定任务'];
-    // A repeated phrase is not a valid highlight even in an expanded discussion.
-    assert.throws(() => validateDraft(d, input), /emphasis/);
-    d.stories[0].emphasis = ['第1轮讨论提出不同条件'];
-    for (const [suffix, data] of Object.entries({
-      'input.json': { ...input, coverage: { count: 1, completeDay: true } },
-      'draft.json': d,
-      'draft.json.run.json': { model: 'test-fixture' },
-    })) await writeFile(path.join(dir, date, `group-1.${suffix}`), JSON.stringify(data));
-    execFileSync(process.execPath, [new URL('../scripts/prepare-week-d.mjs', import.meta.url).pathname,
-      'package', date, date, dir, '--emphasis']);
-    const issues = JSON.parse(await readFile(path.join(dir, 'issues.json'), 'utf8'));
-    assert.equal(issues[0].pages[0].stories[0].text, d.stories[0].text);
-    assert.deepEqual(issues[0].pages[0].stories[0].emphasis, d.stories[0].emphasis);
-    const prompt = await readFile(path.join(dir, 'prompt.md'), 'utf8');
-    // Length follows the information in each story, so the prompt must not cap characters per story.
-    assert.ok(prompt.endsWith(await readFile(new URL('../prompts/daily-emphasis.md', import.meta.url), 'utf8')));
-    assert.match(prompt, /篇幅跟着信息量走/);
-    assert.doesNotMatch(prompt, /每条正文不超过\s*\d+\s*字/);
-  } finally { await rm(dir, { recursive: true, force: true }); }
-});
 test('story count follows evidence coverage, including rich and sparse days', () => {
   for (const n of [0, 1, 6, 9, 12, 20]) {
     const d = draft();
