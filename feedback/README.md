@@ -149,13 +149,13 @@ Compare them with the page views of the same group page (see the next section) f
 ## 浏览量统计 (Page Views)
 
 The worker counts page views itself, so the site has traffic numbers without Cloudflare Web Analytics.
-`analytics.js` (the Web Analytics loader) is a separate path and stays empty until it has a token.
+`site/analytics.js` (the Web Analytics loader) is a separate path and stays empty until it has a token.
 
-Only a public build with `FEEDBACK_API_URL` adds `views.js`. The script tag carries the worker origin in
+Only a public build with `FEEDBACK_API_URL` adds `site/views.js`. The script tag carries the worker origin in
 `data-endpoint`, and each page's CSP `connect-src` allows that origin. Every reader page loads it: home, daily
 sections, rank boards, weekly sections, library, glossary and search. The 404 page and the `/weekly/` forwarding
 page load no script and never report. The script reports only when `location.origin` is the site origin and the path
-starts with `basePath` (both from `site.mjs`), so local previews, `file://` and the old site address send nothing.
+starts with `basePath` (both from `lib/site.mjs`), so local previews, `file://` and the old site address send nothing.
 
 The script reports the current path once when the page loads, again after `history.pushState` (date and
 section changes in `app.js`) and after `popstate` (back and forward). It skips a report when the path equals
