@@ -1,4 +1,5 @@
 import { searchEvents } from './search-events.mjs';
+import { pageViews } from './page-views.mjs';
 import { agentReads } from './agent-reads.mjs';
 import { librarySearch } from './library-search.mjs';
 import { contentAPI } from './content-api.mjs';
@@ -57,6 +58,7 @@ export default {
     const json = (value, status = 200) => Response.json(value, { status, headers });
     const url = new URL(request.url);
     if (url.pathname === '/search-events') return searchEvents(request, env, headers);
+    if (url.pathname === '/views') return pageViews(request, env, headers);
     // POST /opens?story= counts one opening of a registered story's discussion for the Beijing date.
     // Only the story and the count are stored; the reader stays anonymous.
     if (url.pathname === '/opens') {

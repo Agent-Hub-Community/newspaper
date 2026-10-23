@@ -137,6 +137,23 @@ for (const file of files) {
   }
 }
 assert.equal(paths.includes('analytics.js'), data.publicBuild);
+// Page views: only a public build with a feedback endpoint ships views.js, unchanged, on every reader page.
+// The 404 page and the /weekly/ forwarding page load no script.
+const viewsBuild = Boolean(data.publicBuild && data.feedbackEndpoint);
+assert.equal(paths.includes('views.js'), viewsBuild);
+if (viewsBuild) assert.equal(await readFile(path.join(root, 'views.js'), 'utf8'), await readFile(new URL('../views.js', import.meta.url), 'utf8'));
+for (const page of paths.filter(p => p.endsWith('.html')).map(p => p.split(path.sep).join('/'))) {
+  const html = await readFile(path.join(root, page), 'utf8');
+  const tags = [...html.matchAll(/<script\b[^>]*\bsrc="[^"]*views\.js[^"]*"[^>]*>/g)].map(([tag]) => tag);
+  const expected = viewsBuild && !['404.html', 'weekly/index.html'].includes(page);
+  assert.equal(tags.length, expected ? 1 : 0, `${page} views script`);
+  if (!expected) continue;
+  assert.equal(tags[0].match(/\bdata-endpoint="([^"]*)"/)?.[1], data.feedbackEndpoint, `${page} views endpoint`);
+  const connect = html.match(/http-equiv="Content-Security-Policy" content="[^"]*connect-src ([^;"]*)/)?.[1].split(' ') || [];
+  assert.ok(connect.some(source => source.replace(/\/$/, '') === new URL(data.feedbackEndpoint).origin), `${page} CSP allows the Worker`);
+  // On reader-app pages, views.js reports the address the reader opened before app.js rewrites it.
+  if (html.includes('app.js?v=')) assert.ok(html.indexOf(tags[0]) < html.search(/<script\b[^>]*src="[^"]*app\.js/), `${page} views before app.js`);
+}
 // Library: the page, its agent copies and the avatars it shows; the agent copies carry no avatars.
 const library = JSON.parse(await readFile(path.join(root, 'library/resources.json'), 'utf8'));
 const libraryPage = parseHTML(await readFile(path.join(root, 'library/index.html'), 'utf8')).document;

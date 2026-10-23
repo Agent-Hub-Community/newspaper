@@ -117,6 +117,87 @@ Counts are approximate: each tab counts once per story, and blocked storage or b
 Compare them with Cloudflare Web Analytics page views of the same group page for an open rate.
 `node test/discussion-opens-browser.mjs` checks the reader side; `test/discussion-opens.test.mjs` the worker.
 
+## 浏览量统计 (Page Views)
+
+The worker counts page views itself, so the site has traffic numbers without Cloudflare Web Analytics.
+`analytics.js` (the Web Analytics loader) is a separate path and stays empty until it has a token.
+
+Only a public build with `FEEDBACK_API_URL` adds `views.js`. The script tag carries the worker origin in
+`data-endpoint`, and each page's CSP `connect-src` allows that origin. Every reader page loads it: home, daily
+sections, rank boards, weekly sections, library, glossary and search. The 404 page and the `/weekly/` forwarding
+page load no script and never report. The script reports only when `location.origin` is the site origin and the path
+starts with `basePath` (both from `site.mjs`), so local previews, `file://` and the old site address send nothing.
+
+The script reports the current path once when the page loads, again after `history.pushState` (date and
+section changes in `app.js`) and after `popstate` (back and forward). It skips a report when the path equals
+the previous report, so hash and query changes such as the discussion reader do not count. `replaceState` does
+not count. On the reader app, `views.js` runs before `app.js`, so a reader who opens the home address counts as a
+home view (`/newspaper/`) before `app.js` replaces the address with the latest daily section.
+
+Each report is `POST /views` with a `text/plain` JSON body `{"path": "/newspaper/daily/2026-10-22/group-1/",
+"visitor": "<uuid>"}`. A text body needs no CORS preflight. The script uses `fetch` with `keepalive`,
+`credentials: 'omit'` and no referrer, not `navigator.sendBeacon`: WebKit (Safari and WeChat on iOS)
+sends `Origin: null` for a beacon from a page with `no-referrer` policy, and the worker rejects that origin.
+Failed reports are dropped silently.
+
+The worker applies the same checks as the other browser routes:
+
+- The `Origin` header must be one of `ALLOWED_ORIGIN`. The rate limiter key is `views:<IP>` (120 per minute).
+- The body must be `text/plain` or `application/json` and at most 1024 bytes.
+- The path loses its query and hash, and `index.html` names its directory. It must start with `basePath`,
+  be at most 200 characters, and match a published route shape: home, `daily/<date>/<group-N|external>/`,
+  `weekly/<start>/<end>/<page>/`, `weekly/<start>_<end>/<page>/`, `rank/<week|month|all>/[group-N/]`,
+  `library/`, `glossary/` or `search/`. Anything else returns HTTP 400.
+- `source` is `wechat` when the User-Agent contains `MicroMessenger`, otherwise `other`.
+- The date is the Beijing date, as for discussion opens.
+
+A valid report returns HTTP 204 and writes in one D1 batch:
+
+| Table | Key | Write |
+|---|---|---|
+| `page_views` | `(day, path, source)` | Upsert; `views` adds one |
+| `daily_visitors` | `(day, visitor_hash)` | `INSERT OR IGNORE`; only when `visitor` is a lowercase UUID v4 |
+
+`visitor_hash` is the first 16 bytes, in hex, of SHA-256 of `day + ':' + visitor`. A report with a
+missing or malformed visitor still counts the view.
+
+Privacy limits:
+
+- D1 stores no IP address, User-Agent string, referrer, query string, hash or raw visitor ID.
+  The rate limiter reads the IP transiently, as for votes.
+- The visitor ID is the anonymous browser ID of the vote buttons (`localStorage` key
+  `agenthub:feedback:v1:voter`). `views.js` creates it when missing. When storage is blocked, the report
+  carries no visitor ID, because a new ID on every page would inflate the visitor count.
+- `daily_visitors` holds no path. Hashes of one browser differ from day to day. `votes.voter` stores the raw ID
+  of browsers that voted, so an operator with D1 access can link those browsers' daily visitor rows.
+- No retention schedule deletes these rows. There is no public read endpoint.
+
+Counts are approximate. Readers whose network cannot reach `workers.dev` (common in mainland China without
+a proxy) are not counted, so the WeChat share and the totals undercount those readers. Blocked scripts,
+bots and forged requests also skew the numbers; the Origin check and the rate limit are not bot protection.
+Visitors are unique per day only. A browser that visits on three days counts three times, so daily visitor
+counts cannot be added into a weekly unique count.
+
+Deploy in this order. A worker that runs before the tables exist answers HTTP 503 and stores nothing.
+
+1. Apply `feedback/schema.sql` to the remote database. All statements use `IF NOT EXISTS`.
+2. Deploy the worker with `feedback/wrangler.jsonc`.
+3. Publish the public site build with `FEEDBACK_API_URL`.
+
+Private report, with read-only fixed queries and Beijing dates. The default range is the last 7 days.
+Set `WRANGLER_BIN` to an installed Wrangler, or the script runs `npx -y wrangler@4`. Wrangler must be logged in.
+
+```sh
+node scripts/traffic-report.mjs
+node scripts/traffic-report.mjs --from 2026-10-16 --to 2026-10-22
+node scripts/traffic-report.mjs --json
+```
+
+Each day lists total views, daily visitors, the WeChat share of views and the ten most viewed paths.
+`test/page-views.test.mjs` checks the worker, `test/views.test.mjs` the browser script and
+`test/traffic-report.test.mjs` the report. `node test/views-browser.mjs` (add `BROWSER=webkit` for WebKit)
+runs the public build at the production URL with the worker intercepted; build it first with `FEEDBACK_API_URL`.
+
 ## Search Statistics
 
 Public search pages use `POST /search-events` when `FEEDBACK_API_URL` is configured.
