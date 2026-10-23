@@ -6,7 +6,7 @@ import { parseHTML } from 'linkedom';
 import { contentBase } from '../agent-reading.mjs';
 import { basePath, origin, site } from '../site.mjs';
 
-const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
+const read = file => readFile(new URL(`../site/${file}`, import.meta.url), 'utf8');
 const hostname = new URL(origin).hostname;
 // Browser files load without a build step, so each keeps a literal copy of the address.
 const browserFiles = ['app.js', 'analytics.js', 'search-tracking.js', '404.html'];

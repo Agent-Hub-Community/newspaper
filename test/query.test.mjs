@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import '../bm25.js';
-import '../query.js';
+import '../site/bm25.js';
+import '../site/query.js';
 
 test('shared query finds resource labels and URLs without exposing raw discussion', () => {
   const entries = [{ title: '群友讨论', text: '大家交换工具使用方法。', keywords: [],

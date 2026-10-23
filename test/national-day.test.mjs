@@ -4,11 +4,11 @@ import { readFile } from 'node:fs/promises';
 import { inflateSync } from 'node:zlib';
 import vm from 'node:vm';
 import { parseHTML } from 'linkedom';
-import { loadSkins } from '../skins/build.mjs';
+import { loadSkins } from '../site/skins/build.mjs';
 
 const skins = await loadSkins();
-const source = await readFile(new URL('../skins.js', import.meta.url), 'utf8');
-const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const source = await readFile(new URL('../site/skins.js', import.meta.url), 'utf8');
+const html = await readFile(new URL('../site/index.html', import.meta.url), 'utf8');
 
 function preview(search) {
   const { document } = parseHTML(html);

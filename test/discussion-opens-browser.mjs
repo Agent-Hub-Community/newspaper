@@ -18,7 +18,7 @@ try {
   await page.route('https://site.example/**', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><main></main>' }));
   await page.goto('https://site.example/daily/');
   await page.evaluate(() => { window.AGENT_HUB_DATA = { feedbackEndpoint: 'https://feedback.example/' }; });
-  await page.addScriptTag({ content: await readFile(`${root}discussion-panel.js`, 'utf8') });
+  await page.addScriptTag({ content: await readFile(`${root}site/discussion-panel.js`, 'utf8') });
   const message = text => ({ speaker: 1, time: '10:00', text });
   await page.evaluate(([first, second, third]) => {
     const topics = [

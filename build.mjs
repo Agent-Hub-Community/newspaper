@@ -8,7 +8,7 @@ import { mergeDraftEditions } from './draft-editions.mjs';
 import { mergeExternalEditions } from './external-editions.mjs';
 import { feedbackId } from './feedback-id.mjs';
 import { createHash } from 'node:crypto';
-import { loadSkins } from './skins/build.mjs';
+import { loadSkins } from './site/skins/build.mjs';
 import { writeRoutePages } from './route-pages.mjs';
 import { buildIconBundle } from './icons.mjs';
 import { readerReport, validateExternalDraft } from './external-workflow.mjs';
@@ -28,6 +28,8 @@ import { readSynonyms, searchVocabulary } from './synonyms.mjs';
 import { weeklyRoute } from './weekly-editions.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
+// Browser files and templates copied into the build as they are.
+const siteDir = path.join(root, 'site');
 const publicBuild = process.argv.includes('--public');
 const feedbackEndpoint = publicBuild ? (process.env.FEEDBACK_API_URL || '') : '';
 if (feedbackEndpoint) {
@@ -208,12 +210,12 @@ const index = {
 };
 await writeFile(path.join(out, 'data.js'), `window.AGENT_HUB_DATA = ${JSON.stringify(index).replaceAll('<', '\\u003c')};\n`);
 for (const file of ['index.html', '404.html', 'app.js', 'routes.js', 'appearance.js', 'digest.js', 'feedback.js', 'ranking.js', 'share-image.js', 'style.css', 'daily.css', 'color-scheme.css', 'skins.js', 'weekly.css', 'weekly-reader.js', 'discussion-panel.js', 'discussion-panel.css', 'library.css', 'library.js', 'copy.js', 'bm25.js', 'query.js', 'search.js']) {
-  const content = await exists(path.join(root, file));
+  const content = await exists(path.join(siteDir, file));
   if (content) await writeFile(path.join(out, file), file === 'index.html' ? withAnalytics(content, 'analytics.js') : content);
 }
 if (publicBuild) {
-  await copyFile(path.join(root, 'analytics.js'), path.join(out, 'analytics.js'));
-  await copyFile(path.join(root, 'search-tracking.js'), path.join(out, 'search-tracking.js'));
+  await copyFile(path.join(siteDir, 'analytics.js'), path.join(out, 'analytics.js'));
+  await copyFile(path.join(siteDir, 'search-tracking.js'), path.join(out, 'search-tracking.js'));
 }
 await writeFile(path.join(out, '.nojekyll'), '');
 await writeFile(path.join(out, 'robots.txt'), 'User-agent: *\nDisallow: /\n');

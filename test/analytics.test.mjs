@@ -4,7 +4,7 @@ import { runInNewContext } from 'node:vm';
 import { test } from 'node:test';
 import { basePath, origin, site } from '../site.mjs';
 
-const source = await readFile(new URL('../analytics.js', import.meta.url), 'utf8');
+const source = await readFile(new URL('../site/analytics.js', import.meta.url), 'utf8');
 const declaration = /const token = '([^']*)';/;
 const withToken = token => source.replace(declaration, `const token = '${token}';`);
 const sample = 'a'.repeat(32);

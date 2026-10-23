@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
 import { parseHTML } from 'linkedom';
 
-const source = await readFile(new URL('../ranking.js', import.meta.url), 'utf8');
+const source = await readFile(new URL('../site/ranking.js', import.meta.url), 'utf8');
 const leaders = [1, 2, 2].map((rank, i) => ({ key: `m${i}`, rank }));
 function render(groups, period = 'week', groupId) {
   const { document } = parseHTML('<main id="reading"></main>');

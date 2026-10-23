@@ -1,5 +1,5 @@
-import '../bm25.js';
-import '../query.js';
+import '../site/bm25.js';
+import '../site/query.js';
 import { contentBase, readingBase } from '../agent-reading.mjs';
 import { readerHeaders, readLimit, recordRead } from './agent-reads.mjs';
 import { relevance, searchReading, zeroResultHint } from './search-explain.mjs';

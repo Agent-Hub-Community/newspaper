@@ -12,11 +12,11 @@ const dist = path.resolve(process.env.DIST_DIR || path.join(root, 'dist'));
 const screenshots = process.env.SCREENSHOT_DIR || path.join(root, 'output/playwright/responsive');
 await mkdir(screenshots, { recursive: true });
 // Exercise the existing local build without rebuilding or modifying its files.
-const css = await readFile(path.join(root, 'style.css'));
+const css = await readFile(path.join(root, 'site/style.css'));
 const sourceUI = new Map([['/style.css', css]]);
 if (process.env.SOURCE_UI === '1') {
   for (const name of ['daily.css', 'digest.js']) {
-    sourceUI.set(`/${name}`, await readFile(path.join(root, name)));
+    sourceUI.set(`/${name}`, await readFile(path.join(root, 'site', name)));
   }
 }
 const files = new Map(await Promise.all((await readdir(dist, { recursive: true, withFileTypes: true }))

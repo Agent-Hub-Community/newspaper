@@ -1,5 +1,5 @@
-import '../bm25.js';
-import '../query.js';
+import '../site/bm25.js';
+import '../site/query.js';
 import { contentAPIBase, contentBase, librarySearchUrl, readingBase } from '../agent-reading.mjs';
 
 const links = { search: contentAPIBase + 'search', item: contentAPIBase + 'item', library: librarySearchUrl };

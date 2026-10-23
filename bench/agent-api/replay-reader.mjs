@@ -58,7 +58,9 @@ for (const task of original.frozen_tasks) {
     matches_recording: calls.every(call => call.matches_recording), calls });
 }
 const source_hashes = {};
-for (const file of [...Object.keys(original.source_hashes), 'feedback/agent-reads.mjs']) {
+// The frozen audit names files by their paths when it was recorded; browser files now live in site/.
+const currentPath = file => ['bm25.js', 'query.js'].includes(file) ? `site/${file}` : file;
+for (const file of [...Object.keys(original.source_hashes).map(currentPath), 'feedback/agent-reads.mjs']) {
   source_hashes[file] = createHash('sha256').update(await readFile(path.join(root, file))).digest('hex');
 }
 const report = { generated_at: new Date().toISOString(),

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
-const source = await readFile(new URL('../routes.js', import.meta.url), 'utf8');
+const source = await readFile(new URL('../site/routes.js', import.meta.url), 'utf8');
 function harness(href, prefix='./') {
   let url = new URL(href);
   const context = {

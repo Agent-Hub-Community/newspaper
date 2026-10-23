@@ -5,7 +5,7 @@ import { weeklyRoute } from './weekly-editions.mjs';
 import { AGENTS_PAGE, weeklyMarkdownPath } from './agent-docs.mjs';
 import { clip, headTags, robots } from './seo.mjs';
 import { site } from './site.mjs';
-import './discussion-panel.js';
+import './site/discussion-panel.js';
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const marked=s=>{let text=s.text,at=0,html='';for(const range of(s.emphasis||[]).map(t=>({t,index:text.indexOf(t)})).filter(x=>x.index>=0).sort((a,b)=>a.index-b.index)){if(range.index<at)continue;html+=esc(text.slice(at,range.index))+`<strong>${esc(range.t)}</strong>`;at=range.index+range.t.length;}return(html+esc(text.slice(at))).split('\n\n').map(p=>`<p>${p}</p>`).join('');};
 const pad = n => String(n).padStart(2, '0');

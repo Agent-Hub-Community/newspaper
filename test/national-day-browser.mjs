@@ -2,12 +2,12 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { parseHTML } from 'linkedom';
 import { chromium } from 'playwright';
-import { loadSkins } from '../skins/build.mjs';
+import { loadSkins } from '../site/skins/build.mjs';
 
 // Source-only fixture: no build, dist access, screenshots or downloaded files.
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
 const skins = await loadSkins();
-const { document } = parseHTML(await read('index.html'));
+const { document } = parseHTML(await read('site/index.html'));
 for (const node of document.querySelectorAll('script, link, meta[http-equiv]')) node.remove();
 document.body.dataset.view = 'digest';
 document.querySelector('#date-label').textContent = '2026.09.30';
@@ -17,12 +17,12 @@ document.querySelector('#reading').innerHTML = `<section class="digest-stories">
     <h2>刊头皮肤测试</h2><p>这段文字仅用于检查正文的字号、行距与阅读配色，不属于实际日报。</p>
   </article></section>`;
 const style = document.createElement('style');
-style.textContent = (await Promise.all(['style.css', 'daily.css', 'color-scheme.css'].map(read))).join('\n') + skins.css;
+style.textContent = (await Promise.all(['site/style.css', 'site/daily.css', 'site/color-scheme.css'].map(read))).join('\n') + skins.css;
 document.head.append(style);
 const fixture = document.toString();
-const runtime = await read('skins.js');
+const runtime = await read('site/skins.js');
 const screenshotRuntime = await read('node_modules/modern-screenshot/dist/index.js');
-const shareRuntime = await read('share-image.js');
+const shareRuntime = await read('site/share-image.js');
 const assets = new Map(await Promise.all(skins.assets.map(async asset => [asset.file, await readFile(asset.source)])));
 const browser = await chromium.launch({
   executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',

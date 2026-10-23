@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 
 // The daily renderer depends on the shared discussion module, as in index.html.
-const sources = ['../discussion-panel.js', '../digest.js'].map(file => readFileSync(new URL(file, import.meta.url), 'utf8'));
+const sources = ['../site/discussion-panel.js', '../site/digest.js'].map(file => readFileSync(new URL(file, import.meta.url), 'utf8'));
 export function runDigest(context) {
   for (const source of sources) runInNewContext(source, context);
   return context;

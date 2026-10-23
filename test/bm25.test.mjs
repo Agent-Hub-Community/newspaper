@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-await import('../bm25.js');
+await import('../site/bm25.js');
 const { tokens, createIndex, variants, ranges } = globalThis.AgentHubBM25;
 
 // “模型” appears in most items, as on the real site, so it carries little weight.

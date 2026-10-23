@@ -5,13 +5,13 @@ import { chromium } from 'playwright';
 
 // Run the actual app against an in-memory archive without touching shared dist.
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8');
-const { document } = parseHTML(await read('index.html'));
+const { document } = parseHTML(await read('site/index.html'));
 for (const node of document.querySelectorAll('script, link, meta[http-equiv]')) node.remove();
 const style = document.createElement('style');
-style.textContent = (await Promise.all(['style.css', 'daily.css', 'color-scheme.css'].map(read))).join('\n');
+style.textContent = (await Promise.all(['site/style.css', 'site/daily.css', 'site/color-scheme.css'].map(read))).join('\n');
 document.head.append(style);
 const html = document.toString();
-const scripts = await Promise.all(['node_modules/lucide/dist/umd/lucide.min.js', 'routes.js', 'discussion-panel.js', 'digest.js', 'ranking.js', 'app.js'].map(read));
+const scripts = await Promise.all(['node_modules/lucide/dist/umd/lucide.min.js', 'site/routes.js', 'site/discussion-panel.js', 'site/digest.js', 'site/ranking.js', 'site/app.js'].map(read));
 const page = (id, content = true) => ({
   id, label: { 'group-1': '一群', 'group-2': '二群', 'group-3': '三群', 'group-4': '四群', external: '外部资讯' }[id],
   heading: `${id} 测试标题`, section: '测试版面', theme: '源码测试夹具',

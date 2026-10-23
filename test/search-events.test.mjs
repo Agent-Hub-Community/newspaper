@@ -76,7 +76,7 @@ test('query normalization and retention apply at the server', async () => {
   for (const query of ['GPT-6.1 Sol', 'Qwen3.6-35B-A3B', 'ICLR 2026', 'arxiv 2605.19516', '2026-10-07 到 2026-10-13', 'gpt-4o', 'o5-mini']) {
     assert.equal(cleanQuery(query), query, query);
   }
-  const browser = (await import('node:fs')).readFileSync(new URL('../search-tracking.js', import.meta.url), 'utf8');
+  const browser = (await import('node:fs')).readFileSync(new URL('../site/search-tracking.js', import.meta.url), 'utf8');
   assert.ok(browser.includes(SENSITIVE.toString()), 'the browser redacts with the same pattern');
   for (const query of ['a@example.com', 'sk-credential', 'https://private.example/?token=x', '13812345678']) {
     await send({ ...payload, search: { ...payload.search, id: randomUUID(), query } });

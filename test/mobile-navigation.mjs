@@ -9,7 +9,7 @@ const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const sourceUI = new Map();
 if (process.env.SOURCE_UI === '1') {
   for (const name of ['daily.css', 'digest.js']) {
-    sourceUI.set(name, await readFile(new URL(`../${name}`, import.meta.url)));
+    sourceUI.set(name, await readFile(new URL(`../site/${name}`, import.meta.url)));
   }
 }
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png' };

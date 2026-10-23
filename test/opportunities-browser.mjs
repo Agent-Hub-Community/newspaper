@@ -7,7 +7,7 @@ import { normalizeLibrary } from '../library.mjs';
 import { renderLibraryPage } from '../library-render.mjs';
 import { normalizeOpportunities } from '../opportunities.mjs';
 
-const root = new URL('../', import.meta.url);
+const root = new URL('../site/', import.meta.url);
 const library = normalizeLibrary({ version: 1, through: '2026-10-17', items: [
   { id: 'cua-paper', title: 'CUA 论文', summary: 'Computer Use 研究。', type: 'paper', topics: ['computer-use'], keywords: ['OSWorld', 'RLVR', '环境'],
     links: [{ kind: 'paper', url: 'https://arxiv.org/abs/2605.25624' }], shares: [{ date: '2026-10-16', group: 'group-1', avatar: null }] },

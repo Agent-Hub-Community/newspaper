@@ -25,8 +25,8 @@ export function searchIndex({ digests, weeklies, library, opportunities = null }
 
 // How many results the search page lists for each query, with the fields and weights search.js uses.
 export async function searchCounts(entries, vocabulary, queries) {
-  await import('./bm25.js');
-  await import('./query.js');
+  await import('./site/bm25.js');
+  await import('./site/query.js');
   const index = globalThis.AgentHubQuery.createSearcher(entries, vocabulary);
   return new Map(queries.map(query => [query, index.search(query).size]));
 }

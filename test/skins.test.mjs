@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import vm from 'node:vm';
-import { loadSkins, validateCampaigns } from '../skins/build.mjs';
+import { loadSkins, validateCampaigns } from '../site/skins/build.mjs';
 
 const loaded = await loadSkins();
 const campaign = {
@@ -16,7 +16,7 @@ const campaign = {
 validateCampaigns([campaign], loaded.data.plugins);
 const scheduled = { ...loaded.data, campaigns: [campaign] };
 const context = { window: {}, document: { querySelector: () => null } };
-vm.runInNewContext(await readFile(new URL('../skins.js', import.meta.url), 'utf8'), context);
+vm.runInNewContext(await readFile(new URL('../site/skins.js', import.meta.url), 'utf8'), context);
 const select = (preview, now, data = scheduled) => context.window.AgentHubSkins.selectSkin(data, preview, Date.parse(now))?.id || null;
 
 test('production schedule restores the normal theme outside National Day', () => {
@@ -60,7 +60,7 @@ test('rejects ambiguous schedules and unknown plugins', () => {
 test('every plugin ships both appearances and local assets', async () => {
   const root = await mkdtemp(path.join(tmpdir(), 'agenthub-skins-'));
   try {
-    await cp(new URL('../skins/', import.meta.url), root, { recursive: true });
+    await cp(new URL('../site/skins/', import.meta.url), root, { recursive: true });
     const url = pathToFileURL(root + path.sep);
     const theme = await loadSkins(url);
     for (const plugin of theme.data.plugins) {

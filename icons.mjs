@@ -3,7 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 // Files that write `data-lucide` placeholders. Names built at runtime appear here as string literals.
-export const iconSources = ['index.html', 'app.js', 'digest.js', 'ranking.js', 'feedback.js'];
+export const iconSources = ['site/index.html', 'site/app.js', 'site/digest.js', 'site/ranking.js', 'site/feedback.js'];
 
 const toPascalCase = name => name.replace(/(\w)(\w*)(_|-|\s*)/g, (_, first, rest) => first.toUpperCase() + rest.toLowerCase());
 

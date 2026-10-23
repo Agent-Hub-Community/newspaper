@@ -11,7 +11,8 @@ const root = path.resolve(fileURLToPath(new URL('../', import.meta.url)));
 const dist = path.resolve(process.env.AGENT_HUB_DIST_DIR || path.join(root, 'dist'));
 await readFile(path.join(dist, 'data.js'));
 const output = path.join(root, 'output/playwright/color-scheme');
-const { document } = parseHTML(await readFile(path.join(root, 'index.html'), 'utf8'));
+const site = path.join(root, 'site');
+const { document } = parseHTML(await readFile(path.join(site, 'index.html'), 'utf8'));
 // Skin bundles/config are generated separately; this test owns the unskinned color layer.
 for (const node of document.querySelectorAll('link[href^="skins.css"], script[src^="skins.js"]')) node.remove();
 const daily = [...document.querySelectorAll('link[rel="stylesheet"]')]
@@ -37,7 +38,7 @@ const server = createServer(async (request, response) => {
     if (pathname === '/' || pathname === '/index.html') body = html;
     else if (generated.has(pathname)) body = await readFile(generated.get(pathname));
     else {
-      const base = pathname === '/data.js' || /^\/(?:assets|avatars|issues)\//.test(pathname) ? dist : root;
+      const base = pathname === '/data.js' || /^\/(?:assets|avatars|issues)\//.test(pathname) ? dist : site;
       const file = path.resolve(base, `.${pathname}`);
       if (!file.startsWith(`${base}${path.sep}`)) return response.writeHead(403).end();
       body = await readFile(file);

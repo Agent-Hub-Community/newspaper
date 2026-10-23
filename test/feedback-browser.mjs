@@ -61,7 +61,7 @@ try {
   await context.close();
 
   const remote = await browser.newPage();
-  const source = await readFile(`${root}feedback.js`, 'utf8');
+  const source = await readFile(`${root}site/feedback.js`, 'utf8');
   await remote.route('https://feedback.example/**', route => route.fulfill({
     contentType: 'application/json', body: JSON.stringify({ vote: null, up: 3, down: 1 }),
   }));

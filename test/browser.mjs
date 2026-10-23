@@ -66,7 +66,7 @@ async function checkDigestPage() {
 try {
   if (process.env.SOURCE_UI === '1') {
     for (const name of ['daily.css', 'digest.js']) {
-      const body = await readFile(path.join(root, name));
+      const body = await readFile(path.join(root, 'site', name));
       await page.route(`**/${name}`, route => route.fulfill({
         body, contentType: name.endsWith('.css') ? 'text/css' : 'text/javascript',
       }));
