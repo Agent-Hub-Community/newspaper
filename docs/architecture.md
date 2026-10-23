@@ -20,7 +20,6 @@ lib/  (Node 模块) ─┘        │                                          �
 | `data/` | 审核后的读者数据，见 [数据格式](data-format.md) |
 | `build.mjs` | 构建入口 |
 | `scripts/` | 命令行脚本：入库、预览、登记和统计，见 [发布流程](publishing.md) |
-| `prompts/` | 写稿用的模型 prompt。写稿流程见 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放） |
 | `feedback/` | 反馈 Worker（Cloudflare Workers + D1），见 [feedback/README.md](../feedback/README.md) |
 | `test/` | 单元测试和浏览器测试，见 [测试](testing.md) |
 | `bench/` | 查询接口的小型基准，见 [bench/agent-api/README.md](../bench/agent-api/README.md) |

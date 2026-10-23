@@ -97,7 +97,6 @@ npm run test:browser     # 浏览器测试，需要本机 Chrome；改界面时�
 | `data/` | 审核后公开的读者数据：日报、周报、外部资讯、资料库、机会、黑话、榜单快照和头像 |
 | `build.mjs` | 构建入口：读 `data/`，生成 `dist/` |
 | `scripts/` | 命令行脚本：入库、预览、登记赞踩目录、统计报告等 |
-| `prompts/` | 写稿用的模型 prompt，写稿流程见 bot-workflow |
 | `feedback/` | Cloudflare Worker：赞踩、统计和公开查询接口 |
 | `test/` | 单元测试和浏览器测试 |
 | `bench/` | 查询接口的小型基准 |
