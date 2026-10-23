@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import worker from '../feedback/worker.mjs';
-import { feedbackId, libraryFeedbackId } from '../feedback-id.mjs';
-import { origin } from '../site.mjs';
+import { feedbackId, libraryFeedbackId } from '../lib/feedback-id.mjs';
+import { origin } from '../lib/site.mjs';
 
 const story = 'a'.repeat(32);
 const voter = '00000000-0000-4000-8000-000000000001';

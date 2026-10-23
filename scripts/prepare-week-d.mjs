@@ -2,9 +2,9 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readerPage, validateDraft } from '../daily-generation.mjs';
-import { applyComments } from '../story-comments.mjs';
-import { isGroupId, pageGroups } from '../groups.mjs';
+import { readerPage, validateDraft } from '../lib/daily-generation.mjs';
+import { applyComments } from '../lib/story-comments.mjs';
+import { isGroupId, pageGroups } from '../lib/groups.mjs';
 
 // Drafts and packages a batch whose DIRECTORY/<date>/group-N.input.json files were written by the chat collector,
 // which lives in the separate private pipeline (collect-batch.mjs FROM THROUGH DIRECTORY).

@@ -3,7 +3,7 @@ import { readFile, mkdir } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import { chromium } from 'playwright';
-import { validatePublicActivity } from '../public-activity.mjs';
+import { validatePublicActivity } from '../lib/public-activity.mjs';
 
 const directory = path.resolve(process.argv[2] || '');
 if (!process.argv[2]) throw new Error('Provide month draft directory');

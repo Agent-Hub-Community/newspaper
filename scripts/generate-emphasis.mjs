@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { commentStories } from '../story-comments.mjs';
-import { validateEmphasis } from '../emphasis.mjs';
-import { llmModel, llmUrl, llmHeaders } from '../llm.mjs';
+import { commentStories } from '../lib/story-comments.mjs';
+import { validateEmphasis } from '../lib/emphasis.mjs';
+import { llmModel, llmUrl, llmHeaders } from '../lib/llm.mjs';
 
 const [file, output, promptFile] = process.argv.slice(2);
 if (!file || !output) throw new Error('Provide issues and output');

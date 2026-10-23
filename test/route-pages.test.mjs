@@ -5,8 +5,8 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { writeRoutePages } from '../route-pages.mjs';
-import { site } from '../site.mjs';
+import { writeRoutePages } from '../lib/route-pages.mjs';
+import { site } from '../lib/site.mjs';
 
 const template = `<!doctype html><html><head>
 <meta name="robots" content="noindex,nofollow">

@@ -1,7 +1,7 @@
 import { readFile, mkdir, copyFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { normalizeWeeklyIssue } from '../weekly-editions.mjs';
+import { normalizeWeeklyIssue } from '../lib/weekly-editions.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = process.argv[2];

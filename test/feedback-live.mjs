@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { basePath, origin, site } from '../site.mjs';
+import { basePath, origin, site } from '../lib/site.mjs';
 
 // Explicit opt-in: this exercises and then cancels one vote on the deployed service.
 if (!process.argv.includes('--live')) throw new Error('Pass --live to test the deployed feedback API');

@@ -1,12 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
-import { contentCatalog, topicMarkdown } from '../agent-content.mjs';
+import { contentCatalog, topicMarkdown } from '../lib/agent-content.mjs';
 import { createContentAPI } from '../feedback/content-api.mjs';
-import { readingBase } from '../agent-reading.mjs';
-import { normalizeLibrary } from '../library.mjs';
-import { renderLibraryPage } from '../library-render.mjs';
-import { looksLikePosting, normalizeOpportunities, opportunitiesJson, opportunitiesMarkdown, readOpportunities } from '../opportunities.mjs';
+import { readingBase } from '../lib/agent-reading.mjs';
+import { normalizeLibrary } from '../lib/library.mjs';
+import { renderLibraryPage } from '../lib/library-render.mjs';
+import { looksLikePosting, normalizeOpportunities, opportunitiesJson, opportunitiesMarkdown, readOpportunities } from '../lib/opportunities.mjs';
 
 const root = new URL('../', import.meta.url).pathname;
 const hiring = (overrides = {}) => ({ id: 'sensetime-code-intern', kind: 'hiring', title: '基座模型 Code 方向实习', org: '商汤科技',

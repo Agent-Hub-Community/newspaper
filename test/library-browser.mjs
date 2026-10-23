@@ -6,8 +6,8 @@ import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { AGENTS_PAGE } from '../agent-docs.mjs';
-import { basePath } from '../site.mjs';
+import { AGENTS_PAGE } from '../lib/agent-docs.mjs';
+import { basePath } from '../lib/site.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dist = path.join(root, 'dist');

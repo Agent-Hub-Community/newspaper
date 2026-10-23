@@ -5,7 +5,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LINK_KINDS, TOPICS, TYPES } from '../library.mjs';
+import { LINK_KINDS, TOPICS, TYPES } from '../lib/library.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);

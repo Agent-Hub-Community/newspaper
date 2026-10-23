@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import { agentReads, clientCategory } from '../feedback/agent-reads.mjs';
-import { contentBase, readingBase, readingLinks, readablePath } from '../agent-reading.mjs';
+import { contentBase, readingBase, readingLinks, readablePath } from '../lib/agent-reading.mjs';
 import worker from '../feedback/worker.mjs';
 
 function fixture() {

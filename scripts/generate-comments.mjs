@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { commentStories, validateComments } from '../story-comments.mjs';
-import { llmModel, llmUrl, llmHeaders } from '../llm.mjs';
+import { commentStories, validateComments } from '../lib/story-comments.mjs';
+import { llmModel, llmUrl, llmHeaders } from '../lib/llm.mjs';
 
 const [file, output, promptFile, reviewFile] = process.argv.slice(2);
 if (!file || !output) throw new Error('Usage: generate-comments.mjs ISSUES_JSON OUTPUT_JSON [PROMPT_FILE] [REVIEW_FILE]');

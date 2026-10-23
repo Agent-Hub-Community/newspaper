@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { glossaryJson, glossaryMarkdown, mergedAliases, normalizeGlossary, readGlossary } from '../glossary.mjs';
-import { normalizeLibrary, readLibrary } from '../library.mjs';
+import { glossaryJson, glossaryMarkdown, mergedAliases, normalizeGlossary, readGlossary } from '../lib/glossary.mjs';
+import { normalizeLibrary, readLibrary } from '../lib/library.mjs';
 
 const library = normalizeLibrary({ version: 1, through: '2026-10-13', aliases: { OpenAI: ['open ai'] }, items: [{
   id: 'gpt', title: 'GPT', summary: '模型发布。', type: 'model', topics: ['models'], keywords: ['OpenAI', 'GPT', 'Codex'],

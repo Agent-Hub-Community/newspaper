@@ -6,8 +6,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { createLibrarySearch } from '../feedback/library-search.mjs';
-import { contentBase, librarySearchUrl } from '../agent-reading.mjs';
-import { basePath } from '../site.mjs';
+import { contentBase, librarySearchUrl } from '../lib/agent-reading.mjs';
+import { basePath } from '../lib/site.mjs';
 
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.css': 'text/css' };

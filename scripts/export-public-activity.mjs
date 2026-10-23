@@ -1,8 +1,8 @@
 import { readFile, writeFile, mkdir, rm, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { projectActivity } from '../public-activity.mjs';
-import { digests } from '../digest.mjs';
+import { projectActivity } from '../lib/public-activity.mjs';
+import { digests } from '../lib/digest.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const source = path.join(root, 'scratch/activity');

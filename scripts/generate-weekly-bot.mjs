@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { weeklyRoute } from '../weekly-editions.mjs';
+import { weeklyRoute } from '../lib/weekly-editions.mjs';
 
 const [,, issueFile, outputFile, ...args] = process.argv;
 if (!issueFile || !outputFile) {

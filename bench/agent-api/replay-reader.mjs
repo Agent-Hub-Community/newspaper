@@ -13,7 +13,7 @@ globalThis.fetch = async () => { throw new Error('Network access disabled in rea
 const { createContentAPI } = await import('../../feedback/content-api.mjs');
 const { createLibrarySearch } = await import('../../feedback/library-search.mjs');
 const { agentReads } = await import('../../feedback/agent-reads.mjs');
-const { contentBase, contentAPIBase } = await import('../../agent-reading.mjs');
+const { contentBase, contentAPIBase } = await import('../../lib/agent-reading.mjs');
 async function fixture(url) {
   if (!url.startsWith(contentBase)) throw new Error('Unexpected upstream origin');
   const file = path.resolve(dist, url.slice(contentBase.length));

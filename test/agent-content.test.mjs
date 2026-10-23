@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { contentCatalog, topicMarkdown, writeContentFiles } from '../agent-content.mjs';
-import { normalizeLibrary } from '../library.mjs';
-import { site } from '../site.mjs';
+import { contentCatalog, topicMarkdown, writeContentFiles } from '../lib/agent-content.mjs';
+import { normalizeLibrary } from '../lib/library.mjs';
+import { site } from '../lib/site.mjs';
 
 const librarySource = { version: 1, through: '2026-10-16', items: [{
   id: 'research-guide', title: '科研指南', summary: '选题与研究工具。', type: 'article', topics: ['research-tools'],

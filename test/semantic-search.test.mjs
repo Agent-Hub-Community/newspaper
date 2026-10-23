@@ -1,9 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createContentAPI } from '../feedback/content-api.mjs';
-import { readingBase } from '../agent-reading.mjs';
-import { site } from '../site.mjs';
-import { SEMANTIC_DIMENSIONS, SEMANTIC_MODEL, embeddingText, packVectors, quantize, textHash } from '../semantic.mjs';
+import { readingBase } from '../lib/agent-reading.mjs';
+import { site } from '../lib/site.mjs';
+import { SEMANTIC_DIMENSIONS, SEMANTIC_MODEL, embeddingText, packVectors, quantize, textHash } from '../lib/semantic.mjs';
 
 const base = new URL('/content/', readingBase).href;
 // Unit vectors along one axis each; the query vector chooses which entry is semantically closest.

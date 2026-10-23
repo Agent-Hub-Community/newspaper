@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import { test } from 'node:test';
-import { basePath, origin, site } from '../site.mjs';
+import { basePath, origin, site } from '../lib/site.mjs';
 
 const source = await readFile(new URL('../site/analytics.js', import.meta.url), 'utf8');
 const declaration = /const token = '([^']*)';/;

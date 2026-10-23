@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { validateEmphasis } from '../emphasis.mjs';
-import { llmModel, llmUrl, llmHeaders } from '../llm.mjs';
+import { validateEmphasis } from '../lib/emphasis.mjs';
+import { llmModel, llmUrl, llmHeaders } from '../lib/llm.mjs';
 
 const [,, pagesDirArg] = process.argv;
 if (!pagesDirArg) throw new Error('Usage: generate-weekly-emphasis.mjs WEEKLY_PAGES_DIR');

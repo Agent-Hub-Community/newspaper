@@ -3,7 +3,7 @@ import { mkdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { basePath, site } from '../site.mjs';
+import { basePath, site } from '../lib/site.mjs';
 
 // Serve dist/ the way GitHub Pages does: existing files as-is, any missing path gets 404.html with status 404.
 const root = fileURLToPath(new URL('../dist/', import.meta.url));

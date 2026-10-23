@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { chromium } from 'playwright';
-import { basePath } from '../site.mjs';
+import { basePath } from '../lib/site.mjs';
 const base=process.env.AGENT_HUB_SITE_URL || `http://127.0.0.1:4175${basePath}`;
 const date='2026-09-27';
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});

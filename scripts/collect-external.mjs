@@ -3,7 +3,7 @@ import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { parseHTML } from 'linkedom';
-import { externalWindow } from '../external-workflow.mjs';
+import { externalWindow } from '../lib/external-workflow.mjs';
 
 const [date, directory] = process.argv.slice(2);
 if (!date || !directory) throw new Error('Usage: node scripts/collect-external.mjs EDITION_DATE NEW_BATCH_DIRECTORY');

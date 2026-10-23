@@ -8,8 +8,8 @@ import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { llmModel } from '../llm.mjs';
-import { site as publicSite } from '../site.mjs';
+import { llmModel } from '../lib/llm.mjs';
+import { site as publicSite } from '../lib/site.mjs';
 
 const exec = promisify(execFile);
 const root = fileURLToPath(new URL('../', import.meta.url));

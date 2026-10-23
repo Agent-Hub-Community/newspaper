@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import { parseHTML } from 'linkedom';
-import { buildIconBundle, iconSources } from '../icons.mjs';
+import { buildIconBundle, iconSources } from '../lib/icons.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const bundle = await buildIconBundle(root);

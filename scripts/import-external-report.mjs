@@ -1,5 +1,5 @@
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
-import { validateExternalReview } from '../external-workflow.mjs';
+import { validateExternalReview } from '../lib/external-workflow.mjs';
 
 const [input, selectionFile, reviewFile] = process.argv.slice(2);
 if (!input || !selectionFile || !reviewFile) {

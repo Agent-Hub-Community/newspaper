@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
 import {
   dailyMarkdown, indexMarkdown, llmsFullTxt, llmsTxt, siteSkill, weeklyMarkdown, weeklyMarkdownPath,
-} from '../agent-docs.mjs';
-import { normalizeLibrary } from '../library.mjs';
-import { searchIndex } from '../search-render.mjs';
-import { headTags, robots, sitemap } from '../seo.mjs';
-import { site } from '../site.mjs';
+} from '../lib/agent-docs.mjs';
+import { normalizeLibrary } from '../lib/library.mjs';
+import { searchIndex } from '../lib/search-render.mjs';
+import { headTags, robots, sitemap } from '../lib/seo.mjs';
+import { site } from '../lib/site.mjs';
 
 const issue = { date: '2026-10-13', pages: [
   { id: 'group-1', label: '一群', heading: '本日群聊版尚未收录', stories: [] },
@@ -109,7 +109,7 @@ test('head tags keep sections out of search until listed and escape page text', 
   assert.equal(ld.isPartOf.url, site);
 });
 test('the skill section gives agents one install prompt with the skill address and both skill folders', async () => {
-  const { renderAgentsPage } = await import('../agents-render.mjs');
+  const { renderAgentsPage } = await import('../lib/agents-render.mjs');
   const { document } = parseHTML(renderAgentsPage({ latest: '2026-10-13', libraryCount: 1, dailyHref: '../', weeklyHref: '../' }));
   const prompt = document.querySelector('#install-skill').textContent;
   assert.equal(document.querySelector('.copy[data-copy="install-skill"]').textContent, '复制');

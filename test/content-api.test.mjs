@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createContentAPI } from '../feedback/content-api.mjs';
-import { contentBase, readingBase } from '../agent-reading.mjs';
+import { contentBase, readingBase } from '../lib/agent-reading.mjs';
 
 const base = new URL('/content/', readingBase).href;
 const revision = 'a'.repeat(64);

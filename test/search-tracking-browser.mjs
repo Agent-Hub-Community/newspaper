@@ -3,7 +3,7 @@ import { readFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { basePath, site } from '../site.mjs';
+import { basePath, site } from '../lib/site.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const endpoint = 'https://agenthub-feedback.haoqingeric.workers.dev';

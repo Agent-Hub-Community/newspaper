@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateEmphasis } from '../emphasis.mjs';
+import { validateEmphasis } from '../lib/emphasis.mjs';
 
 test('allows one exact highlight per natural paragraph without a count or fragment-length cap', () => {
   const phrases = ['保留原文的完整判断以及它成立的前提条件', '第二段呈现机制', '第三段说明限制'];

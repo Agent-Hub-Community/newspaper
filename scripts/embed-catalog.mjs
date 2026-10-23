@@ -12,7 +12,7 @@ import { execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SEMANTIC_DIMENSIONS, SEMANTIC_MODEL, embeddingText, quantize, serializeVectors, textHash } from '../semantic.mjs';
+import { SEMANTIC_DIMENSIONS, SEMANTIC_MODEL, embeddingText, quantize, serializeVectors, textHash } from '../lib/semantic.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const account = process.env.CLOUDFLARE_ACCOUNT_ID;

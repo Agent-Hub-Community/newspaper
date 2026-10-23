@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { sanitizeInput, validateDraft } from '../daily-generation.mjs';
+import { sanitizeInput, validateDraft } from '../lib/daily-generation.mjs';
 
 const [file, output] = process.argv.slice(2);
 if (!file || !output) throw new Error('Usage: node scripts/generate-daily.mjs INPUT OUTPUT');

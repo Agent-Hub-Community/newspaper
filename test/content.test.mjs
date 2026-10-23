@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseMessages, sanitizeFragment, safeUrl, extractReport } from '../content.mjs';
+import { parseMessages, sanitizeFragment, safeUrl, extractReport } from '../lib/content.mjs';
 
 test('multiline messages, quoted replies and same-minute repeats remain intact', () => {
   const data = parseMessages('=== group ===\n[2026-09-21 16:27] 张三: 提问\n第二行\n[2026-09-21 16:27] A: [引用] 回答\n  ↳ 张三: 提问\n[2026-09-21 16:27] A: [引用] 回答\n', 'week');

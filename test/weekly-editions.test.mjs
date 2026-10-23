@@ -1,14 +1,14 @@
-import { robots } from '../seo.mjs';
+import { robots } from '../lib/seo.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile,readdir,mkdtemp,writeFile,mkdir,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {parseHTML} from 'linkedom';
-import {normalizeWeeklyIssue,weeklyRoute} from '../weekly-editions.mjs';
-import {renderWeeklyPage,writeWeeklyPages} from '../weekly-render.mjs';
-import {AGENTS_PAGE} from '../agent-docs.mjs';
-import {site} from '../site.mjs';
+import {normalizeWeeklyIssue,weeklyRoute} from '../lib/weekly-editions.mjs';
+import {renderWeeklyPage,writeWeeklyPages} from '../lib/weekly-render.mjs';
+import {AGENTS_PAGE} from '../lib/agent-docs.mjs';
+import {site} from '../lib/site.mjs';
 import {expectedMessageText,visibleMessageText} from './digest-context.mjs';
 
 const issue=normalizeWeeklyIssue(JSON.parse(await readFile(new URL('../weekly-editions/2026-10-05_2026-10-11.json',import.meta.url))));

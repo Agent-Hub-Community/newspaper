@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { basePath, site } from '../site.mjs';
+import { basePath, site } from '../lib/site.mjs';
 
 // Test the vendor script under the production CSP without sending real telemetry.
 // Supply a freshly downloaded official script through CF_BEACON_FILE. While analytics.js has no token yet,

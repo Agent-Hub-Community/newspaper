@@ -2,8 +2,8 @@ import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-import { validateDraft, readerPage } from '../daily-generation.mjs';
-import { validatePublicActivity } from '../public-activity.mjs';
+import { validateDraft, readerPage } from '../lib/daily-generation.mjs';
+import { validatePublicActivity } from '../lib/public-activity.mjs';
 
 // Explicit release packaging: revalidate the reviewed source, copy only reader fields.
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -27,7 +27,7 @@ assert.equal(cutoffs.size, 1);
 const reader = { id: issue.id, date: issue.date, label: `${issue.date} 讨论选编`, pages: issue.pages };
 await mkdir(path.join(root, 'editions'), { recursive: true });
 await writeFile(path.join(root, 'editions', `${issue.date}.json`), JSON.stringify(reader, null, 2) + '\n');
-const { digests } = await import('../digest.mjs');
+const { digests } = await import('../lib/digest.mjs');
 const snapshotDir = path.join(directory, 'activity');
 const snapshot = JSON.parse(await readFile(path.join(snapshotDir, 'snapshot.json'), 'utf8'));
 validatePublicActivity(snapshot, digests);

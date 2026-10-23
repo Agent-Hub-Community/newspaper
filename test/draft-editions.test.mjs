@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mergeDraftEditions } from '../draft-editions.mjs';
+import { mergeDraftEditions } from '../lib/draft-editions.mjs';
 
 const issue = date => ({ id: date, date, pages: [1, 2, 3].map(n => ({ id: `group-${n}`, stories: [] })) });
 test('batch preview replaces matching dates and preserves untouched editions and papers', () => {

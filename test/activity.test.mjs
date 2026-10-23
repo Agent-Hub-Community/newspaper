@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { classify, deduplicate, summarize, startOf, dayOf } from '../activity.mjs';
+import { classify, deduplicate, summarize, startOf, dayOf } from '../lib/activity.mjs';
 
 const row = (sender, type, timestamp, server, extra = {}) => ({
   sender, type, timestamp, server, group: 'one', content: '分享', ...extra,

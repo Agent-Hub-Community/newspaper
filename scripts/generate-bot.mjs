@@ -1,8 +1,8 @@
 // Writes the single combined group message for one daily issue.
 // DATA is the publication read-back (.data.json with digests) or a preview issue (final-reader-issue.json).
 import { readFile, writeFile, rm } from 'node:fs/promises';
-import { llmModel, llmUrl, llmHeaders } from '../llm.mjs';
-import { site as publicSite } from '../site.mjs';
+import { llmModel, llmUrl, llmHeaders } from '../lib/llm.mjs';
+import { site as publicSite } from '../lib/site.mjs';
 
 const args = process.argv.slice(2);
 const option = name => {

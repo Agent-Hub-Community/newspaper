@@ -1,7 +1,7 @@
 import { readFile, writeFile, rm } from 'node:fs/promises';
-import { validateSelection, validateExternalDraft } from '../external-workflow.mjs';
-import { validateEmphasis } from '../emphasis.mjs';
-import { llmModel, llmUrl, llmHeaders, llmMaxOutputTokens } from '../llm.mjs';
+import { validateSelection, validateExternalDraft } from '../lib/external-workflow.mjs';
+import { validateEmphasis } from '../lib/emphasis.mjs';
+import { llmModel, llmUrl, llmHeaders, llmMaxOutputTokens } from '../lib/llm.mjs';
 
 const [inputFile, output, reviewFile] = process.argv.slice(2);
 if (!inputFile || !output) throw new Error('Usage: node scripts/generate-external.mjs SELECTION_JSON OUTPUT_JSON [REVIEW_MD]');

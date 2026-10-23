@@ -8,9 +8,9 @@ import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { externalWindow, readerReport, validateSelection, validateExternalDraft, validateExternalReview } from '../external-workflow.mjs';
-import { mergeExternalEditions } from '../external-editions.mjs';
-import { llmModel } from '../llm.mjs';
+import { externalWindow, readerReport, validateSelection, validateExternalDraft, validateExternalReview } from '../lib/external-workflow.mjs';
+import { mergeExternalEditions } from '../lib/external-editions.mjs';
+import { llmModel } from '../lib/llm.mjs';
 
 const run = promisify(execFile);
 const root = fileURLToPath(new URL('../', import.meta.url));

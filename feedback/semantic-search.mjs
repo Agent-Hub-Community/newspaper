@@ -1,5 +1,5 @@
-import { contentBase } from '../agent-reading.mjs';
-import { QUERY_INSTRUCTION, SEMANTIC_MODEL } from '../semantic.mjs';
+import { contentBase } from '../lib/agent-reading.mjs';
+import { QUERY_INSTRUCTION, SEMANTIC_MODEL } from '../lib/semantic.mjs';
 
 // Semantic candidates must clear this cosine similarity; below it the 2026-10-18 tests found mostly noise.
 export const SIMILARITY_FLOOR = 0.5;

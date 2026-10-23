@@ -6,10 +6,10 @@ import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
-import { readBuiltData } from '../built-data.mjs';
-import { mergeExternalEditions } from '../external-editions.mjs';
-import { readerReport } from '../external-workflow.mjs';
-import { basePath } from '../site.mjs';
+import { readBuiltData } from '../lib/built-data.mjs';
+import { mergeExternalEditions } from '../lib/external-editions.mjs';
+import { readerReport } from '../lib/external-workflow.mjs';
+import { basePath } from '../lib/site.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { values } = parseArgs({ options: {

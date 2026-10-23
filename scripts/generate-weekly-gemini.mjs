@@ -1,9 +1,9 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { validateEmphasis } from '../emphasis.mjs';
-import { modelInput } from '../image-messages.mjs';
-import { llmModel, llmUrl, llmHeaders, llmMaxOutputTokens } from '../llm.mjs';
+import { validateEmphasis } from '../lib/emphasis.mjs';
+import { modelInput } from '../lib/image-messages.mjs';
+import { llmModel, llmUrl, llmHeaders, llmMaxOutputTokens } from '../lib/llm.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const [from, through, inputDirArg, outputDirArg] = process.argv.slice(2);

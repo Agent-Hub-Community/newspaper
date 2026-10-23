@@ -1,8 +1,8 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import path from 'node:path';
-import { applyComments } from '../story-comments.mjs';
-import { feedbackId } from '../feedback-id.mjs';
+import { applyComments } from '../lib/story-comments.mjs';
+import { feedbackId } from '../lib/feedback-id.mjs';
 
 const directory = path.resolve(process.argv[2] || '');
 if (!process.argv[2]) throw new Error('Provide the month draft directory');

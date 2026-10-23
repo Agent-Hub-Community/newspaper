@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { projectActivity, validatePublicActivity } from '../public-activity.mjs';
+import { projectActivity, validatePublicActivity } from '../lib/public-activity.mjs';
 
 const issues = [{ date: '2026-09-21', pages: [{ id: 'group-1' }] }];
 function fixture() {

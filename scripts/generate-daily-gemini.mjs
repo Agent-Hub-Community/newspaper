@@ -1,8 +1,8 @@
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import path from 'node:path';
-import { modelInput } from '../image-messages.mjs';
-import { sanitizeInput, validateDraft } from '../daily-generation.mjs';
-import { llmModel, llmFetch, llmMaxOutputTokens } from '../llm.mjs';
+import { modelInput } from '../lib/image-messages.mjs';
+import { sanitizeInput, validateDraft } from '../lib/daily-generation.mjs';
+import { llmModel, llmFetch, llmMaxOutputTokens } from '../lib/llm.mjs';
 
 const [file, output, promptFile] = process.argv.slice(2);
 if (!file || !output || !promptFile) throw new Error('Usage: INPUT OUTPUT PROMPT');

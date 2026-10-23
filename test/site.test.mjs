@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import { test } from 'node:test';
 import { parseHTML } from 'linkedom';
-import { contentBase } from '../agent-reading.mjs';
-import { basePath, origin, site } from '../site.mjs';
+import { contentBase } from '../lib/agent-reading.mjs';
+import { basePath, origin, site } from '../lib/site.mjs';
 
 const read = file => readFile(new URL(`../site/${file}`, import.meta.url), 'utf8');
 const hostname = new URL(origin).hostname;

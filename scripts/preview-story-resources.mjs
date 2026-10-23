@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { digests } from '../digest.mjs';
+import { digests } from '../lib/digest.mjs';
 
 const issues = structuredClone(digests);
 function attach(date, group, title, resources) {

@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import { readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
-import { digests } from '../digest.mjs';
-import { libraryFeedbackId } from '../feedback-id.mjs';
+import { digests } from '../lib/digest.mjs';
+import { libraryFeedbackId } from '../lib/feedback-id.mjs';
 import {
   canonicalUrl, libraryJson, libraryMarkdown, normalizeLibrary, readLibrary, resourceKey,
-} from '../library.mjs';
-import { renderLibraryPage } from '../library-render.mjs';
+} from '../lib/library.mjs';
+import { renderLibraryPage } from '../lib/library-render.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const item = (overrides = {}) => ({

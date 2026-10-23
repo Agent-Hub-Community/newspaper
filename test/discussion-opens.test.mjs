@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import worker from '../feedback/worker.mjs';
-import { origin } from '../site.mjs';
+import { origin } from '../lib/site.mjs';
 
 const story = 'b'.repeat(32);
 function fixture(limit = () => true) {

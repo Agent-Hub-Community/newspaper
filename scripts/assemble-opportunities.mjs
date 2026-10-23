@@ -7,8 +7,8 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { canonicalUrl, resourceKey } from '../library.mjs';
-import { normalizeOpportunities, readOpportunities } from '../opportunities.mjs';
+import { canonicalUrl, resourceKey } from '../lib/library.mjs';
+import { normalizeOpportunities, readOpportunities } from '../lib/opportunities.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const index = process.argv.indexOf('--dir');

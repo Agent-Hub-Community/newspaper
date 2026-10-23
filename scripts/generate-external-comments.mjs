@@ -2,8 +2,8 @@ import { lstat, readFile, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { mergeExternalEditions } from '../external-editions.mjs';
-import { commentStories, validateComments } from '../story-comments.mjs';
+import { mergeExternalEditions } from '../lib/external-editions.mjs';
+import { commentStories, validateComments } from '../lib/story-comments.mjs';
 
 const [input, output, reviewFile] = process.argv.slice(2);
 if (!input || !output || path.resolve(input) === path.resolve(output)) {

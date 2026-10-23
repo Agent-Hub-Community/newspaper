@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { groups, groupIds, collectedGroups, pageGroups, isGroupId } from '../groups.mjs';
+import { groups, groupIds, collectedGroups, pageGroups, isGroupId } from '../lib/groups.mjs';
 
 test('group ids and labels are unique and no chat identifier is published', () => {
   for (const key of ['id', 'label']) {

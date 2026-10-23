@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { llmModel, llmUrl, llmHeaders } from '../llm.mjs';
+import { llmModel, llmUrl, llmHeaders } from '../lib/llm.mjs';
 const [file, output] = process.argv.slice(2);
 if (!file || !output) throw new Error('Usage: generate-headlines.mjs ISSUES OUTPUT');
 const issues = JSON.parse(await readFile(file, 'utf8'));

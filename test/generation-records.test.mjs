@@ -8,9 +8,9 @@ import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { commentStories } from '../story-comments.mjs';
+import { commentStories } from '../lib/story-comments.mjs';
 import { packageResources } from '../scripts/package-month-resources.mjs';
-import { llmModel } from '../llm.mjs';
+import { llmModel } from '../lib/llm.mjs';
 
 const exec = promisify(execFile);
 const root = fileURLToPath(new URL('../', import.meta.url));

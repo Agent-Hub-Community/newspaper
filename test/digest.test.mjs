@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { digests } from '../digest.mjs';
-import { validateStoryDiscussion } from '../story-discussion.mjs';
+import { digests } from '../lib/digest.mjs';
+import { validateStoryDiscussion } from '../lib/story-discussion.mjs';
 
 test('edited issues retain source evidence and distinguish missing groups from empty activity', async () => {
   for (const issue of digests.filter(issue => issue.source)) {

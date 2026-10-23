@@ -1,10 +1,10 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { readerPage } from '../daily-generation.mjs';
-import { digests } from '../digest.mjs';
-import { mergeDraftEditions } from '../draft-editions.mjs';
-import { applyComments } from '../story-comments.mjs';
-import { validateEmphasis } from '../emphasis.mjs';
+import { readerPage } from '../lib/daily-generation.mjs';
+import { digests } from '../lib/digest.mjs';
+import { mergeDraftEditions } from '../lib/draft-editions.mjs';
+import { applyComments } from '../lib/story-comments.mjs';
+import { validateEmphasis } from '../lib/emphasis.mjs';
 
 const directory = process.argv[2];
 if (!directory) throw new Error('Usage: package-group-daily.mjs DIRECTORY');

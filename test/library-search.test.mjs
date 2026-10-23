@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 import { createLibrarySearch } from '../feedback/library-search.mjs';
-import { librarySearchUrl, readingBase, contentBase } from '../agent-reading.mjs';
+import { librarySearchUrl, readingBase, contentBase } from '../lib/agent-reading.mjs';
 
 const data = { coverage: { through: '2026-10-15' }, types: [{ id: 'benchmark' }, { id: 'code' }],
   topics: [{ id: 'computer-use' }, { id: 'training' }], keywords: [{ keyword: 'agent skills', aliases: ['技能'] }], items: [

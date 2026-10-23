@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateStoryDiscussion } from '../story-discussion.mjs';
+import { validateStoryDiscussion } from '../lib/story-discussion.mjs';
 
 const message = () => ({ speaker: 1, time: '09:33', text: '我用学校的邮箱注册账号，没有被封。', quote: { speaker: 2, text: '这个写了基本没用吧' } });
 test('discussion keeps verbatim bodies and anonymous reply participants', () => {

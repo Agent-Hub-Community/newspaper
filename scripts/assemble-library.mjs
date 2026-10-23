@@ -9,7 +9,7 @@ import { copyFile, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promi
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { canonicalUrl, normalizeLibrary, resourceKey } from '../library.mjs';
+import { canonicalUrl, normalizeLibrary, resourceKey } from '../lib/library.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const index = process.argv.indexOf('--dir');

@@ -1,7 +1,7 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { readerPage } from '../daily-generation.mjs';
-import { isGroupId } from '../groups.mjs';
+import { readerPage } from '../lib/daily-generation.mjs';
+import { isGroupId } from '../lib/groups.mjs';
 
 const [directory, variant = 'agent'] = process.argv.slice(2);
 if (!directory || !['agent', 'llm'].includes(variant)) throw new Error('Usage: node scripts/package-daily.mjs DIRECTORY [agent|llm]');

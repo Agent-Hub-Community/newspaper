@@ -3,7 +3,7 @@ import { agentReads } from './agent-reads.mjs';
 import { librarySearch } from './library-search.mjs';
 import { contentAPI } from './content-api.mjs';
 import { readerHeaders } from './agent-reads.mjs';
-import { contentAPIBase, contentBase, librarySearchUrl, readingBase } from '../agent-reading.mjs';
+import { contentAPIBase, contentBase, librarySearchUrl, readingBase } from '../lib/agent-reading.mjs';
 
 const rootGuide = `AgentHub public reader API: published daily and weekly digests and the resource library of the AgentHub
 WeChat groups for AI agent researchers. No login. Percent-encode Chinese and spaces in query strings.

@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { sanitizeInput, validateDraft, readerPage } from '../daily-generation.mjs';
+import { sanitizeInput, validateDraft, readerPage } from '../lib/daily-generation.mjs';
 
 const input = { group: { id: 'group-1', label: '一群' }, date: '2026-09-23',
   cutoff: '2026-09-23T09:41:09Z', messages: [{ id: 'm0001', content: '一项有条件的观察' }] };

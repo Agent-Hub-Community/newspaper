@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { atomFeed, jsonFeed } from '../feed.mjs';
-import { site } from '../site.mjs';
+import { atomFeed, jsonFeed } from '../lib/feed.mjs';
+import { site } from '../lib/site.mjs';
 
 const page = (id, heading, text = '摘要。') => ({ id, label: id, heading, stories: text ? [{ title: '题', text }] : [], trends: [], papers: [] });
 const data = {

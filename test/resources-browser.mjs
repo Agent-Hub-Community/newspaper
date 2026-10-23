@@ -2,8 +2,8 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { digests } from '../digest.mjs';
-import { site } from '../site.mjs';
+import { digests } from '../lib/digest.mjs';
+import { site } from '../lib/site.mjs';
 
 const root = new URL('../', import.meta.url);
 const production = process.argv.includes('--production');

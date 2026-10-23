@@ -1,8 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
-import { readBuiltData } from '../built-data.mjs';
-import { libraryFeedbackId } from '../feedback-id.mjs';
+import { readBuiltData } from '../lib/built-data.mjs';
+import { libraryFeedbackId } from '../lib/feedback-id.mjs';
 
 const { positionals } = parseArgs({ allowPositionals: true });
 if (positionals.length !== 2) throw new Error('Usage: node scripts/feedback-catalog.mjs dist/data.js scratch/catalog.sql');

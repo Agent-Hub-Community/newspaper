@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { createContentAPI } from '../../feedback/content-api.mjs';
 import { agentReads } from '../../feedback/agent-reads.mjs';
-import { contentBase, contentAPIBase } from '../../agent-reading.mjs';
+import { contentBase, contentAPIBase } from '../../lib/agent-reading.mjs';
 
 const here = new URL('./', import.meta.url);
 const dist = new URL('../../dist/', import.meta.url);
@@ -110,7 +110,7 @@ if (process.argv.includes('--freeze')) {
     baseline: baseline.tasks, candidate: { browse_all_titles: browseCost, read_two_selected: focusedCost,
       browse_one_group: groupCost, browse_weekly: weeklyCost, missing_date_recovery: recoveryCost },
     selected, title_coverage: 'all frozen topics with unchanged content versions',
-    source_hashes: Object.fromEntries(await Promise.all(['agent-content.mjs', 'feedback/content-api.mjs'].map(async file =>
+    source_hashes: Object.fromEntries(await Promise.all(['lib/agent-content.mjs', 'feedback/content-api.mjs'].map(async file =>
       [file, createHash('sha256').update(await readFile(new URL('../../' + file, here))).digest('hex')]))),
     passed: true };
   await writeFile(new URL('candidate.json', here), JSON.stringify(report, null, 2) + '\n');

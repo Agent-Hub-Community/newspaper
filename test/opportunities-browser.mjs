@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { chromium } from 'playwright';
-import { normalizeLibrary } from '../library.mjs';
-import { renderLibraryPage } from '../library-render.mjs';
-import { normalizeOpportunities } from '../opportunities.mjs';
+import { normalizeLibrary } from '../lib/library.mjs';
+import { renderLibraryPage } from '../lib/library-render.mjs';
+import { normalizeOpportunities } from '../lib/opportunities.mjs';
 
 const root = new URL('../site/', import.meta.url);
 const library = normalizeLibrary({ version: 1, through: '2026-10-17', items: [

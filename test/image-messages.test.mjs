@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { imageCoverage, imageMessageText, modelInput } from '../image-messages.mjs';
-import { sanitizeInput } from '../daily-generation.mjs';
-import { validateStoryDiscussion } from '../story-discussion.mjs';
+import { imageCoverage, imageMessageText, modelInput } from '../lib/image-messages.mjs';
+import { sanitizeInput } from '../lib/daily-generation.mjs';
+import { validateStoryDiscussion } from '../lib/story-discussion.mjs';
 
 const input = {
   group: { id: 'group-1' }, date: '2026-10-15', coverage: { count: 4 },

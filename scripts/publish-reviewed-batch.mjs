@@ -3,12 +3,12 @@ import { createHash } from 'node:crypto';
 import { readFile, writeFile, copyFile, readdir, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { digests } from '../digest.mjs';
-import { mergeDraftEditions } from '../draft-editions.mjs';
-import { validatePublicActivity } from '../public-activity.mjs';
-import { validateStoryDiscussion } from '../story-discussion.mjs';
-import { validateEmphasis } from '../emphasis.mjs';
-import { isGroupId } from '../groups.mjs';
+import { digests } from '../lib/digest.mjs';
+import { mergeDraftEditions } from '../lib/draft-editions.mjs';
+import { validatePublicActivity } from '../lib/public-activity.mjs';
+import { validateStoryDiscussion } from '../lib/story-discussion.mjs';
+import { validateEmphasis } from '../lib/emphasis.mjs';
+import { isGroupId } from '../lib/groups.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 assert.ok(process.argv[2], 'Provide an explicitly approved batch directory');

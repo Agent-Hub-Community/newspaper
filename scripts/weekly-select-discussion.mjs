@@ -5,7 +5,7 @@
 // Usage: node scripts/weekly-select-discussion.mjs READER_JSON OUT_DIR [--target 20-40]
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
-import { llmModel, llmUrl, llmHeaders } from '../llm.mjs';
+import { llmModel, llmUrl, llmHeaders } from '../lib/llm.mjs';
 
 const [readerFile, outDir] = process.argv.slice(2);
 if (!readerFile || !outDir) throw new Error('Usage: weekly-select-discussion.mjs READER_JSON OUT_DIR');

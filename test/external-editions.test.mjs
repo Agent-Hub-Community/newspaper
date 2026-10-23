@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mergeExternalEditions } from '../external-editions.mjs';
+import { mergeExternalEditions } from '../lib/external-editions.mjs';
 
 const issue = date => ({ id: date, date, pages: [1, 2, 3].map(i => ({ id: `group-${i}`, stories: [{ title: 'Existing' }] })) });
 const report = () => ({

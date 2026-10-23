@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { parseHTML } from 'linkedom';
-import { validatePublicActivity } from '../public-activity.mjs';
+import { validatePublicActivity } from '../lib/public-activity.mjs';
 import { createHash } from 'node:crypto';
-import { validateStoryDiscussion } from '../story-discussion.mjs';
-import { AGENTS_PAGE, dailyMarkdown } from '../agent-docs.mjs';
-import { searchIndex } from '../search-render.mjs';
-import { readingBase, readingLinks, readingNotice, readablePath } from '../agent-reading.mjs';
-import { basePath, site } from '../site.mjs';
+import { validateStoryDiscussion } from '../lib/story-discussion.mjs';
+import { AGENTS_PAGE, dailyMarkdown } from '../lib/agent-docs.mjs';
+import { searchIndex } from '../lib/search-render.mjs';
+import { readingBase, readingLinks, readingNotice, readablePath } from '../lib/agent-reading.mjs';
+import { basePath, site } from '../lib/site.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), process.argv.includes('--preview') ? '../dist-preview' : '../dist');
 const source = await readFile(path.join(root, 'data.js'), 'utf8');
@@ -218,7 +218,7 @@ const rankPage = parseHTML(await readFile(path.join(root, 'rank/week/index.html'
 assert.equal(rankPage.querySelector('.wordmark span').textContent, '活跃榜');
 assert.equal(rankPage.querySelector('#footer-label').textContent, 'AGENT HUB / 活跃榜');
 // Until a section is listed in seo.mjs, every page stays out of search indexes.
-const { INDEXED } = await import('../seo.mjs');
+const { INDEXED } = await import('../lib/seo.mjs');
 if (!INDEXED.size) {
   assert.ok(!paths.includes('sitemap.xml'));
   for (const page of paths.filter(p => p.endsWith('.html') && p !== '404.html')) {

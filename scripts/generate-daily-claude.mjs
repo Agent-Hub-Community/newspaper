@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import path from 'node:path';
-import { sanitizeInput, validateDraft } from '../daily-generation.mjs';
+import { sanitizeInput, validateDraft } from '../lib/daily-generation.mjs';
 
 const [file, output, promptFile] = process.argv.slice(2);
 if (!file || !output || !promptFile) throw new Error('Usage: INPUT OUTPUT PROMPT');

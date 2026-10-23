@@ -6,7 +6,7 @@
 // Usage: node scripts/weekly-discussion-evidence.mjs READER_JSON INPUT_DIR OUT_DIR [--groups group-1,...]
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
-import { llmModel, llmUrl, llmHeaders } from '../llm.mjs';
+import { llmModel, llmUrl, llmHeaders } from '../lib/llm.mjs';
 
 const [readerFile, inputDir, outDir] = process.argv.slice(2);
 if (!readerFile || !inputDir || !outDir) throw new Error('Usage: weekly-discussion-evidence.mjs READER_JSON INPUT_DIR OUT_DIR [--groups ...]');

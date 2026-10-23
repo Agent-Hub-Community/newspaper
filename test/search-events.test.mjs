@@ -5,8 +5,8 @@ import { readFileSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import worker from '../feedback/worker.mjs';
 import { SENSITIVE, cleanQuery } from '../feedback/search-events.mjs';
-import { renderSearchPage } from '../search-render.mjs';
-import { origin } from '../site.mjs';
+import { renderSearchPage } from '../lib/search-render.mjs';
+import { origin } from '../lib/site.mjs';
 
 function fixture() {
   const db = new DatabaseSync(':memory:');

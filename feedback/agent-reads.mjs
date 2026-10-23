@@ -1,4 +1,4 @@
-import { contentBase, contentAPIBase, readablePath } from '../agent-reading.mjs';
+import { contentBase, contentAPIBase, readablePath } from '../lib/agent-reading.mjs';
 
 export const readerHeaders = { 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store',
   'X-Content-Type-Options': 'nosniff', 'X-AgentHub-Recorded': '0',

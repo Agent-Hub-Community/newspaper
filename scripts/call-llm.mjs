@@ -1,7 +1,7 @@
 // Sends one prompt file to the shared model and saves the raw response next to the output.
 // Batch-specific steps (weekly chunks, revisions) call this instead of copying scripts that fix a model.
 import { readFile, writeFile, rm } from 'node:fs/promises';
-import { llmModel, llmFetch, llmMaxOutputTokens } from '../llm.mjs';
+import { llmModel, llmFetch, llmMaxOutputTokens } from '../lib/llm.mjs';
 
 const args = process.argv.slice(2);
 const option = name => {

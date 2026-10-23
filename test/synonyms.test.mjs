@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readSynonyms, searchVocabulary, validateSynonyms } from '../synonyms.mjs';
-import { mergedAliases, normalizeGlossary, readGlossary } from '../glossary.mjs';
-import { normalizeLibrary, readLibrary } from '../library.mjs';
+import { readSynonyms, searchVocabulary, validateSynonyms } from '../lib/synonyms.mjs';
+import { mergedAliases, normalizeGlossary, readGlossary } from '../lib/glossary.mjs';
+import { normalizeLibrary, readLibrary } from '../lib/library.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const entry = (term, variants, category, refersTo, keyword) => ({ term, variants, meaning: '释义。', category, refersTo, keyword });

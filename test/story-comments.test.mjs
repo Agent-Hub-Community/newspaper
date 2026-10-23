@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { commentStories, validateComments, applyComments } from '../story-comments.mjs';
+import { commentStories, validateComments, applyComments } from '../lib/story-comments.mjs';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 import { parseHTML } from 'linkedom';
