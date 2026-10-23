@@ -4,7 +4,7 @@
   "compatibility_date": "2026-09-01",
   "triggers": { "crons": ["15 19 * * *"] },
   "vars": {
-    // Comma-separated site origins that may vote, count discussion opens and report searches: the site in
+    // Comma-separated site origins that may vote, count discussion opens and page views, and report searches: the site in
     // site.mjs, and the old address, whose pages readers may still have open.
     "ALLOWED_ORIGIN": "https://agent-hub-community.github.io,https://hqhq1025.github.io"
   },

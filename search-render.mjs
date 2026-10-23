@@ -56,7 +56,9 @@ export function renderSearchPage({ prefix = '../', assets = {}, publicBuild = fa
     `<div class="filter-status"><p id="search-status" role="status" aria-live="polite">群里的叫法也能搜，比如 A社、oai、哈基米。</p><div class="sort" role="group" aria-label="排序"><button type="button" data-sort="relevance" aria-pressed="true">相关度</button><button type="button" data-sort="new" aria-pressed="false">最新</button></div></div></section>` +
     `<ol class="results" id="results"></ol><button type="button" class="results-more" id="results-more" hidden>显示更多</button></main>` +
     footer('搜索', tracking ? '为改进搜索，记录搜索词、筛选条件、结果数和点击，保留 30 天。不记录身份，请勿输入隐私信息。' : '搜索只在浏览器里进行，不上传。') + `</div>` +
-    `<script src="${esc(asset('search/data.js'))}"></script><script src="${esc(asset('bm25.js'))}"></script><script src="${esc(asset('query.js'))}"></script>${tracking ? `<script src="${esc(asset('search-tracking.js'))}"></script>` : ''}<script src="${esc(asset('search.js'))}"></script>${publicBuild ? `<script defer src="${esc(asset('analytics.js'))}"></script>` : ''}</body></html>`;
+    `<script src="${esc(asset('search/data.js'))}"></script><script src="${esc(asset('bm25.js'))}"></script><script src="${esc(asset('query.js'))}"></script>${tracking ? `<script src="${esc(asset('search-tracking.js'))}"></script>` : ''}<script src="${esc(asset('search.js'))}"></script>` +
+    (tracking ? `<script defer src="${esc(asset('views.js'))}" data-endpoint="${esc(feedbackEndpoint)}"></script>` : '') +
+    `${publicBuild ? `<script defer src="${esc(asset('analytics.js'))}"></script>` : ''}</body></html>`;
 }
 
 export async function writeSearchFiles(out, { entries, vocabulary, weeklyHref, publicBuild = false, feedbackEndpoint = '' }) {
@@ -64,7 +66,7 @@ export async function writeSearchFiles(out, { entries, vocabulary, weeklyHref, p
   const data = { entries, expand: vocabulary.expand, synonyms: vocabulary.groups, groups: PAGES };
   await writeFile(path.join(out, 'search/data.js'), `window.AGENT_HUB_SEARCH = ${JSON.stringify(data).replaceAll('<', '\\u003c')};\n`);
   const assets = {};
-  for (const file of ['weekly.css', 'library.css', 'bm25.js', 'query.js', 'search.js', 'search/data.js', 'appearance.js', 'color-scheme.css', ...(publicBuild ? ['analytics.js', 'search-tracking.js'] : [])]) {
+  for (const file of ['weekly.css', 'library.css', 'bm25.js', 'query.js', 'search.js', 'search/data.js', 'appearance.js', 'color-scheme.css', ...(publicBuild ? ['analytics.js', 'search-tracking.js'] : []), ...(publicBuild && feedbackEndpoint ? ['views.js'] : [])]) {
     assets[file] = createHash('sha256').update(await readFile(path.join(out, file))).digest('hex').slice(0, 16);
   }
   const examples = ['RSI', 'computer use', 'A社'];

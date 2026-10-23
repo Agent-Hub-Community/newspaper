@@ -105,6 +105,15 @@ function withAnalytics(html, scriptPath) {
   script.src = scriptPath;
   script.defer = true;
   document.head.append(script);
+  if (feedbackEndpoint) {
+    // Runs before app.js, so a reader arriving at the home address counts as a home view before app.js
+    // replaces the address with the latest daily section.
+    const views = document.createElement('script');
+    views.src = 'views.js';
+    views.defer = true;
+    views.dataset.endpoint = feedbackEndpoint;
+    document.querySelector('script[src="app.js"]').before(views);
+  }
   return document.toString();
 }
 
@@ -215,6 +224,7 @@ if (publicBuild) {
   await copyFile(path.join(root, 'analytics.js'), path.join(out, 'analytics.js'));
   await copyFile(path.join(root, 'search-tracking.js'), path.join(out, 'search-tracking.js'));
 }
+if (feedbackEndpoint) await copyFile(path.join(root, 'views.js'), path.join(out, 'views.js'));
 await writeFile(path.join(out, '.nojekyll'), '');
 await writeFile(path.join(out, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 await writeFile(path.join(out, 'icons.js'), await buildIconBundle(root));
@@ -254,6 +264,6 @@ const weeklyHref = latestWeekly
   ? `../${weeklyRoute(latestWeekly, latestWeekly.pages.find(page => page.id === 'group-3')?.id || latestWeekly.pages[0].id)}` : '../';
 const entries = searchIndex({ digests: data.digests, weeklies: data.weeklies, library, opportunities });
 const counts = await searchCounts(entries, vocabulary, glossary.terms.map(entry => entry.term));
-await writeGlossaryFiles(out, { glossary, counts, publicBuild, weeklyHref });
+await writeGlossaryFiles(out, { glossary, counts, publicBuild, feedbackEndpoint, weeklyHref });
 await writeSearchFiles(out, { entries, vocabulary, publicBuild, weeklyHref, feedbackEndpoint });
 console.log(JSON.stringify({ digests: editions.length, first: data.coverage.first, last: data.coverage.last }));

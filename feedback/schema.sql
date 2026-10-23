@@ -69,3 +69,21 @@ CREATE TABLE IF NOT EXISTS api_searches (
   created_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS api_searches_time ON api_searches(created_at);
+
+-- POST /views counts page views per Beijing date, site path and coarse source. No IP address, User-Agent string,
+-- referrer or query string is stored; source only records whether the User-Agent named WeChat.
+CREATE TABLE IF NOT EXISTS page_views (
+  day TEXT NOT NULL,
+  path TEXT NOT NULL,
+  source TEXT NOT NULL CHECK (source IN ('wechat', 'other')),
+  views INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (day, path, source)
+);
+-- One row per browser and Beijing date, for daily unique visitors. visitor_hash is the first 16 bytes of
+-- SHA-256(day + ':' + random browser ID). Rows of different days join only through that ID, which votes.voter
+-- holds for browsers that voted. No path is stored here.
+CREATE TABLE IF NOT EXISTS daily_visitors (
+  day TEXT NOT NULL,
+  visitor_hash TEXT NOT NULL,
+  PRIMARY KEY (day, visitor_hash)
+);

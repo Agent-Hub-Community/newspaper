@@ -192,7 +192,9 @@ export function renderLibraryPage(library, { prefix = '../', assets = {}, public
     (publicBuild ? `<p>查询入口会记录搜索词、筛选条件和结果数，读取入口统计请求次数，都保留 30 天，不保存 IP 或身份信息。<a class="inline-link" href="${readingBase}agents/SKILL.md">查看 AgentHub Skill 与查询说明</a></p>` : '') +
     (AGENTS_PAGE ? `<p>想让 agent 以后自己会查，可以装 AgentHub skill，见<a class="inline-link" href="${esc(prefix)}agents/">给 Agent 用</a>。</p>` : '') + `</section></main>` +
     footer('资料库', '资料归原作者，简介由编辑按原文写成。') + `</div>` +
-    `<script src="${esc(asset('bm25.js'))}"></script><script src="${esc(asset('query.js'))}"></script><script src="${esc(asset('library.js'))}"></script><script src="${esc(asset('copy.js'))}"></script>${publicBuild ? `<script defer src="${esc(asset('analytics.js'))}"></script>` : ''}</body></html>`;
+    `<script src="${esc(asset('bm25.js'))}"></script><script src="${esc(asset('query.js'))}"></script><script src="${esc(asset('library.js'))}"></script><script src="${esc(asset('copy.js'))}"></script>` +
+    (publicBuild && feedbackEndpoint ? `<script defer src="${esc(asset('views.js'))}" data-endpoint="${esc(feedbackEndpoint)}"></script>` : '') +
+    `${publicBuild ? `<script defer src="${esc(asset('analytics.js'))}"></script>` : ''}</body></html>`;
 }
 
 export async function writeLibraryPages(out, { library, root, digests = [], weeklies = [], publicBuild = false, feedbackEndpoint = '', vocabulary, opportunities = null }) {
@@ -203,7 +205,7 @@ export async function writeLibraryPages(out, { library, root, digests = [], week
     await copyFile(path.join(root, 'library-avatars', file), path.join(out, 'library-avatars', file));
   }
   const assets = {};
-  for (const file of ['weekly.css', 'library.css', 'bm25.js', 'query.js', 'library.js', 'copy.js', 'appearance.js', 'color-scheme.css', ...(publicBuild ? ['analytics.js'] : [])]) {
+  for (const file of ['weekly.css', 'library.css', 'bm25.js', 'query.js', 'library.js', 'copy.js', 'appearance.js', 'color-scheme.css', ...(publicBuild ? ['analytics.js'] : []), ...(publicBuild && feedbackEndpoint ? ['views.js'] : [])]) {
     assets[file] = createHash('sha256').update(await readFile(path.join(out, file))).digest('hex').slice(0, 16);
   }
   const latestWeekly = weeklies.at(-1);
