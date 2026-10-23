@@ -3,9 +3,9 @@ import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { runInNewContext } from 'node:vm';
 import { test } from 'node:test';
-import { basePath, origin, site } from '../site.mjs';
+import { basePath, origin, site } from '../lib/site.mjs';
 
-const source = await readFile(new URL('../views.js', import.meta.url), 'utf8');
+const source = await readFile(new URL('../site/views.js', import.meta.url), 'utf8');
 const endpoint = 'https://feedback.example';
 const key = 'agenthub:feedback:v1:voter';
 const voter = 'c0ffee00-1234-4abc-9def-0123456789ab';
@@ -84,5 +84,5 @@ test('in-page navigation reports each new path once', () => {
 });
 
 test('the 404 page loads no script, so missing paths never report', async () => {
-  assert.doesNotMatch(await readFile(new URL('../404.html', import.meta.url), 'utf8'), /<script|views\.js/);
+  assert.doesNotMatch(await readFile(new URL('../site/404.html', import.meta.url), 'utf8'), /<script|views\.js/);
 });

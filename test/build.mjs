@@ -141,7 +141,7 @@ assert.equal(paths.includes('analytics.js'), data.publicBuild);
 // The 404 page and the /weekly/ forwarding page load no script.
 const viewsBuild = Boolean(data.publicBuild && data.feedbackEndpoint);
 assert.equal(paths.includes('views.js'), viewsBuild);
-if (viewsBuild) assert.equal(await readFile(path.join(root, 'views.js'), 'utf8'), await readFile(new URL('../views.js', import.meta.url), 'utf8'));
+if (viewsBuild) assert.equal(await readFile(path.join(root, 'views.js'), 'utf8'), await readFile(new URL('../site/views.js', import.meta.url), 'utf8'));
 for (const page of paths.filter(p => p.endsWith('.html')).map(p => p.split(path.sep).join('/'))) {
   const html = await readFile(path.join(root, page), 'utf8');
   const tags = [...html.matchAll(/<script\b[^>]*\bsrc="[^"]*views\.js[^"]*"[^>]*>/g)].map(([tag]) => tag);

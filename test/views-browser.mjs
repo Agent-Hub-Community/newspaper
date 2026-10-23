@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium, webkit } from 'playwright';
-import { basePath, site } from '../site.mjs';
+import { basePath, site } from '../lib/site.mjs';
 
 // Page view reports from the public build, served at the production URL with the Worker intercepted.
 // Build first: FEEDBACK_API_URL=https://agenthub-feedback.haoqingeric.workers.dev npm run build -- --public

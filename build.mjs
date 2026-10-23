@@ -228,7 +228,7 @@ if (publicBuild) {
   await copyFile(path.join(siteDir, 'analytics.js'), path.join(out, 'analytics.js'));
   await copyFile(path.join(siteDir, 'search-tracking.js'), path.join(out, 'search-tracking.js'));
 }
-if (feedbackEndpoint) await copyFile(path.join(root, 'views.js'), path.join(out, 'views.js'));
+if (feedbackEndpoint) await copyFile(path.join(siteDir, 'views.js'), path.join(out, 'views.js'));
 await writeFile(path.join(out, '.nojekyll'), '');
 await writeFile(path.join(out, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 await writeFile(path.join(out, 'icons.js'), await buildIconBundle(root));

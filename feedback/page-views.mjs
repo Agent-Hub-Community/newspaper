@@ -1,4 +1,4 @@
-import { basePath } from '../site.mjs';
+import { basePath } from '../lib/site.mjs';
 
 // Route shapes the site publishes, relative to basePath: home, daily sections, weekly sections (by start/end
 // directories or by issue id), rank boards, and the library, glossary and search pages. The 404 page never reports.

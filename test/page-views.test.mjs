@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import worker from '../feedback/worker.mjs';
 import { viewPath } from '../feedback/page-views.mjs';
-import { basePath, origin } from '../site.mjs';
+import { basePath, origin } from '../lib/site.mjs';
 
 const visitor = 'c0ffee00-1234-4abc-9def-0123456789ab';
 const wechat = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 MicroMessenger/8.0.50(0x18003231) NetType/WIFI Language/zh_CN';

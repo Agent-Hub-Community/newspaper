@@ -4,7 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dateRange, formatReport, trafficReport } from '../scripts/traffic-report.mjs';
-import { basePath } from '../site.mjs';
+import { basePath } from '../lib/site.mjs';
 
 // Stands in for `wrangler d1 execute --json`: runs each statement against a local copy of the schema.
 function database() {
