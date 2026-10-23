@@ -33,3 +33,9 @@ test('isGroupId accepts every known group and nothing else', () => {
   for (const id of groupIds) assert.ok(isGroupId(id));
   for (const id of ['external', 'group-0', 'group-9', '', undefined]) assert.ok(!isGroupId(id));
 });
+
+test('reader prose names the whole range of configured groups', async () => {
+  const { groupSpan, groups } = await import('../lib/groups.mjs');
+  assert.equal(groupSpan, `${groups[0].label}到${groups.at(-1).label}`);
+  assert.equal(groupSpan, '一群到五群');
+});

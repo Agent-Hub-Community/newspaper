@@ -121,3 +121,13 @@ test('historical weekly editions retain every story under both route forms',asyn
   assert.equal(rank.querySelectorAll('.leaders .missing').length,2);
   assert.equal(rank.querySelector('.shell').textContent.includes('2026.10.05'),false);
 });
+
+test('weekly editions accept every configured group and reject unknown ones', () => {
+  const copy = structuredClone(issue);
+  copy.pages.splice(-1, 0, { ...structuredClone(copy.pages[0]), id: 'group-5', label: '五群' });
+  if (copy.rank) copy.rank.groups.push({ id: 'group-5', label: '五群', leaders: [] });
+  assert.ok(normalizeWeeklyIssue(copy).pages.some(page => page.id === 'group-5'));
+  const unknown = structuredClone(issue);
+  unknown.pages[0].id = 'group-9';
+  assert.throws(() => normalizeWeeklyIssue(unknown));
+});

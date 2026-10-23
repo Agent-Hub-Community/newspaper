@@ -12,7 +12,7 @@
   const ranks = Object.entries({ week: '周榜', month: '月榜', all: '总榜' }).map(([id, label]) => ({
     id, label, date: data.activity?.windows[id]?.through || data.coverage.last,
   }));
-  const rankGroups = () => (data.activity?.groups || []).filter(group => /^group-[1-5]$/.test(group.id));
+  const rankGroups = () => (data.activity?.groups || []).filter(group => /^group-\d+$/.test(group.id));
   // The board shows every group; a route may still name one (rank/week/group-2/) so going back to the daily opens it.
   const rankGroup = pageId => rankGroups().some(group => group.id === pageId) ? pageId : undefined;
   const entries = mode => mode === 'rank' ? ranks : mode === 'weekly' ? weeklies : data.digests;

@@ -54,13 +54,19 @@
   window.digestPageHasContent = hasContent;
   window.renderDigest = (issue, navigate, archive, pageId, mode = 'digest') => {
     const weekly = mode === 'weekly';
-    // Show an unavailable fourth-group tab without rewriting historical editions.
-    if (!weekly && !issue.pages.some(page => page.id === 'group-4') &&
-        archive.digests?.some(edition => edition.pages.some(page => page.id === 'group-4'))) {
-      const pages = [...issue.pages];
-      const extras = pages.findIndex(page => !page.id.startsWith('group-'));
-      pages.splice(extras < 0 ? pages.length : extras, 0, { id: 'group-4', label: '四群', stories: [] });
-      issue = { ...issue, pages };
+    // Groups added later (四群, 五群, …) show as unavailable tabs on older editions, without rewriting them.
+    if (!weekly) {
+      const known = new Map();
+      for (const edition of archive.digests || []) {
+        for (const page of edition.pages) if (/^group-\d+$/.test(page.id) && !known.has(page.id)) known.set(page.id, page.label);
+      }
+      const missing = [...known].filter(([id]) => !issue.pages.some(page => page.id === id));
+      if (missing.length) {
+        const number = page => Number(page.id.slice(6));
+        const groupPages = [...issue.pages.filter(page => page.id.startsWith('group-')),
+          ...missing.map(([id, label]) => ({ id, label, stories: [] }))].sort((a, b) => number(a) - number(b));
+        issue = { ...issue, pages: [...groupPages, ...issue.pages.filter(page => !page.id.startsWith('group-'))] };
+      }
     }
     pageIndex = Math.max(0, issue.pages.findIndex(page => page.id === pageId));
     const page = issue.pages[pageIndex];

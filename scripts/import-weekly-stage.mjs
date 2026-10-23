@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { groupLabels, isGroupId, pageGroups } from '../lib/groups.mjs';
 
 const sourceDir = process.env.WEEKLY_SOURCE_DIR;
 const outDir = process.env.WEEKLY_OUT_DIR || path.resolve('data/weekly-editions');
@@ -8,15 +9,16 @@ if (!sourceDir) throw new Error('WEEKLY_SOURCE_DIR is required');
 
 const [start, end] = issueId.split('_');
 const pages = [];
-const groupIds = (process.env.WEEKLY_GROUPS || 'group-1,group-2,group-3,group-4').split(',')
-  .filter(id => /^group-[1-4]$/.test(id));
-for (const id of [...groupIds, 'external']) {
+// Default to the groups that had a reader section on the week's last day.
+const weekGroups = (process.env.WEEKLY_GROUPS ? process.env.WEEKLY_GROUPS.split(',') : pageGroups(end).map(group => group.id))
+  .filter(isGroupId);
+for (const id of [...weekGroups, 'external']) {
   const source = JSON.parse(await readFile(path.join(sourceDir, `${id}.json`), 'utf8'));
   pages.push({
     id,
-    label: id === 'external' ? '外部资讯' : `${id.slice(-1)}群`.replace('1群', '一群').replace('2群', '二群').replace('3群', '三群').replace('4群', '四群'),
+    label: id === 'external' ? '外部资讯' : groupLabels[id],
     section: id === 'external' ? '本期外部资讯' : '本周讨论',
-    heading: source.title.replace(/^\s*(?:AgentHub\s*)?(?:一群|二群|三群|四群|外部资讯)?\s*周报\s*[:：]\s*/u, ''),
+    heading: source.title.replace(new RegExp(`^\\s*(?:AgentHub\\s*)?(?:${[...Object.values(groupLabels), '外部资讯'].join('|')})?\\s*周报\\s*[:：]\\s*`, 'u'), ''),
     theme: source.intro,
     note: `${start} 至 ${end} · 周报`,
     stories: source.stories.map(story => ({

@@ -148,3 +148,10 @@ test('links on a site the entry uses once show the site; links sharing a site sh
     ['论文 arxiv.org', '代码 openai/math', '代码 math/lean', '代码 math/…/explore']);
   assert.ok([...document.querySelectorAll('.entry-links a')].every(a => a.title === a.getAttribute('href')));
 });
+
+test('every configured group can share, including groups added after the library began', () => {
+  const result = normalizeLibrary(library([item({ shares: [{ date: '2026-10-21', group: 'group-5', avatar: null }] })], '2026-10-22'));
+  assert.equal(result.items[0].shares[0].group, 'group-5');
+  assert.match(libraryMarkdown(result), /五群/);
+  assert.throws(() => normalizeLibrary(library([item({ shares: [{ date: '2026-10-21', group: 'group-9', avatar: null }] })], '2026-10-22')));
+});
