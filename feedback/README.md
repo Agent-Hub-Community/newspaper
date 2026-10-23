@@ -146,10 +146,6 @@ Counts are approximate: each tab counts once per story, and blocked storage or b
 Compare them with the page views of the same group page (see the next section) for an open rate.
 `node test/discussion-opens-browser.mjs` checks the reader side; `test/discussion-opens.test.mjs` checks the Worker.
 
-## 浏览量统计 (Page Views)
-
-TODO: written in the page-view change.
-
 ## Search Statistics
 
 Public search pages send `POST /search-events` when `FEEDBACK_API_URL` is set.
