@@ -8,8 +8,8 @@ import { chromium } from 'playwright';
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const output = fileURLToPath(new URL('../output/playwright/external/', import.meta.url));
 await mkdir(output, { recursive: true });
-const report = JSON.parse(await readFile(new URL('../external-editions/2026-09-25.json', import.meta.url), 'utf8'));
-const groupEdition = JSON.parse(await readFile(new URL('../editions/2026-09-25.json', import.meta.url), 'utf8'));
+const report = JSON.parse(await readFile(new URL('../data/external-editions/2026-09-25.json', import.meta.url), 'utf8'));
+const groupEdition = JSON.parse(await readFile(new URL('../data/editions/2026-09-25.json', import.meta.url), 'utf8'));
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png' };
 const server = createServer(async (request, response) => {
   try {

@@ -9,7 +9,7 @@ const draft = JSON.parse(await readFile(input, 'utf8'));
 const selection = JSON.parse(await readFile(selectionFile, 'utf8'));
 const review = JSON.parse(await readFile(reviewFile, 'utf8'));
 const report = validateExternalReview(draft, selection, review);
-const directory = new URL('../external-editions/', import.meta.url);
+const directory = new URL('../data/external-editions/', import.meta.url);
 await mkdir(directory, { recursive: true });
 const output = new URL(`${report.date}.json`, directory);
 await writeFile(output, JSON.stringify(report, null, 2) + '\n');

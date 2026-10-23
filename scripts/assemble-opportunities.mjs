@@ -33,7 +33,7 @@ const missing = candidates.filter(candidate => !seen.has(candidate.key)).map(can
 if (missing.length) errors.push(`${missing.length} candidates not reviewed: ${missing.slice(0, 5).join(', ')}`);
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 
-const existing = await readOpportunities(root);
+const existing = await readOpportunities(path.join(root, 'data'));
 const items = [...existing.items];
 const ids = new Set(items.map(item => item.id));
 const linkOwner = new Map(items.flatMap(item => item.links.map(link => [resourceKey(link.url), item])));
@@ -72,5 +72,5 @@ for (const item of items) {
 }
 const file = { version: 1, through: [existing.through, through].sort().at(-1), items: items.sort((a, b) => a.shares[0].date.localeCompare(b.shares[0].date) || a.id.localeCompare(b.id)) };
 normalizeOpportunities(file);
-await writeFile(path.join(root, 'opportunities.json'), `${JSON.stringify(file, null, 2)}\n`);
+await writeFile(path.join(root, 'data/opportunities.json'), `${JSON.stringify(file, null, 2)}\n`);
 console.log(JSON.stringify({ items: items.length, added, merged, through: file.through }, null, 2));

@@ -30,6 +30,8 @@ import { weeklyRoute } from './lib/weekly-editions.mjs';
 const root = path.dirname(fileURLToPath(import.meta.url));
 // Browser files and templates copied into the build as they are.
 const siteDir = path.join(root, 'site');
+// Reviewed reader data: editions, activity snapshots, the library and its vocabularies.
+const dataDir = path.join(root, 'data');
 const publicBuild = process.argv.includes('--public');
 const feedbackEndpoint = publicBuild ? (process.env.FEEDBACK_API_URL || '') : '';
 if (feedbackEndpoint) {
@@ -61,11 +63,11 @@ if (draftExternalIndex >= 0) {
   validateExternalDraft(external, JSON.parse(await readFile(path.resolve(selectionFile), 'utf8')));
   draftExternal = readerReport(external);
 }
-const externalDirectory = path.join(root, 'external-editions');
+const externalDirectory = path.join(dataDir, 'external-editions');
 const externalReports = await Promise.all((await readdir(externalDirectory))
   .filter(name => /^\d{4}-\d{2}-\d{2}\.json$/.test(name)).sort()
   .map(async name => JSON.parse(await readFile(path.join(externalDirectory, name), 'utf8'))));
-const weeklyDirectory = path.join(root, 'weekly-editions');
+const weeklyDirectory = path.join(dataDir, 'weekly-editions');
 const weeklyReports = await Promise.all((await readdir(weeklyDirectory).catch(error => {
   if (error.code === 'ENOENT') return [];
   throw error;
@@ -78,9 +80,9 @@ for (const issue of editions) for (const page of issue.pages) for (const story o
   validateStoryDiscussion(story.discussion);
 }
 // The library is a separate static page; it never enters data.js.
-const library = normalizeLibrary(await readLibrary(root), editions, weeklyReports);
+const library = normalizeLibrary(await readLibrary(dataDir), editions, weeklyReports);
 // Glossary spellings linked to a library keyword also find that keyword's items.
-const glossary = normalizeGlossary(await readGlossary(root), library);
+const glossary = normalizeGlossary(await readGlossary(dataDir), library);
 library.aliases = mergedAliases(library, glossary);
 if (publicBuild && localActivity) throw new Error('Public builds use the approved snapshot; do not combine --public and --local-activity.');
 const out = path.join(root, draft || localActivity ? 'dist-preview' : 'dist');
@@ -124,7 +126,7 @@ const data = { digests: editions.map(({ source, ...issue }) => ({
   }),
 })), weeklies: weeklyReports, publicBuild, feedbackEndpoint, skins: skins.data, coverage: { first: dates[0], last: dates.at(-1) } };
 if ((publicBuild || draft) && !localActivity) {
-  const approvedDir = draftActivityFile ? path.dirname(path.resolve(draftActivityFile)) : path.join(root, 'public-activity');
+  const approvedDir = draftActivityFile ? path.dirname(path.resolve(draftActivityFile)) : path.join(dataDir, 'public-activity');
   data.activity = JSON.parse(await readFile(draftActivityFile ? path.resolve(draftActivityFile) : path.join(approvedDir, 'snapshot.json'), 'utf8'));
   validatePublicActivity(data.activity, editions);
   await mkdir(path.join(out, 'avatars'), { recursive: true });
@@ -169,7 +171,7 @@ for (const asset of skins.assets) {
 for (const file of new Set(weeklyReports.flatMap(issue => issue.rank?.groups.flatMap(group =>
   group.leaders.map(leader => leader.avatar).filter(Boolean)) || []))) {
   await mkdir(path.dirname(path.join(out, file)), { recursive: true });
-  await copyFile(path.join(root, file), path.join(out, file));
+  await copyFile(path.join(dataDir, file), path.join(out, file));
 }
 await writeFile(path.join(out, 'skins.css'), skins.css);
 // Loaded only when exporting from file://, where canvas cannot read local images.
@@ -238,15 +240,15 @@ for (const element of document.querySelectorAll('script[src], link[rel="styleshe
 }
 await writeFile(path.join(out, 'index.html'), document.toString());
 await writeRoutePages(out, data, { issueVersions });
-const vocabulary = searchVocabulary({ aliases: library.aliases, glossary, synonyms: await readSynonyms(root) });
+const vocabulary = searchVocabulary({ aliases: library.aliases, glossary, synonyms: await readSynonyms(dataDir) });
 library.vocabulary = vocabulary;
 // Opportunities close on a Beijing date; the build date decides which are still open (a daily rebuild moves them).
-const opportunities = normalizeOpportunities(await readOpportunities(root), { today: new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10) });
-await writeLibraryPages(out, { library, root, weeklies: data.weeklies, publicBuild, feedbackEndpoint, vocabulary, opportunities });
+const opportunities = normalizeOpportunities(await readOpportunities(dataDir), { today: new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10) });
+await writeLibraryPages(out, { library, dataDir, weeklies: data.weeklies, publicBuild, feedbackEndpoint, vocabulary, opportunities });
 await writeAgentFiles(out, { data, library, glossary, publicBuild });
 await writeFile(path.join(out, 'feed.json'), jsonFeed(data));
 await writeFile(path.join(out, 'feed.xml'), atomFeed(data));
-const semanticVectors = await readFile(path.join(root, 'semantic-vectors.json'), 'utf8').then(JSON.parse, error => {
+const semanticVectors = await readFile(path.join(dataDir, 'semantic-vectors.json'), 'utf8').then(JSON.parse, error => {
   if (error.code === 'ENOENT') return null;
   throw error;
 });

@@ -8,7 +8,7 @@ import { normalizeLibrary } from '../lib/library.mjs';
 import { renderLibraryPage } from '../lib/library-render.mjs';
 import { looksLikePosting, normalizeOpportunities, opportunitiesJson, opportunitiesMarkdown, readOpportunities } from '../lib/opportunities.mjs';
 
-const root = new URL('../', import.meta.url).pathname;
+const dataDir = new URL('../data/', import.meta.url).pathname;
 const hiring = (overrides = {}) => ({ id: 'sensetime-code-intern', kind: 'hiring', title: '基座模型 Code 方向实习', org: '商汤科技',
   summary: '研究 Code Agent 与 Coding LLM。', roles: ['intern'], topics: ['Code Agent'], links: [],
   shares: [{ date: '2026-10-16', group: 'group-4' }], ...overrides });
@@ -51,7 +51,7 @@ test('records that would publish a contact, a sender or a malformed field are re
 });
 
 test('the reviewed opportunities file validates and publishes no contact details', async () => {
-  const opportunities = normalizeOpportunities(await readOpportunities(root), { today: '2026-10-18' });
+  const opportunities = normalizeOpportunities(await readOpportunities(dataDir), { today: '2026-10-18' });
   assert.ok(opportunities.items.length > 0);
   const published = JSON.stringify(opportunitiesJson(opportunities)) + opportunitiesMarkdown(opportunities);
   assert.doesNotMatch(published, /@[a-z0-9-]+\.[a-z]|微信号|wxid_|二维码|sender|avatar/i);

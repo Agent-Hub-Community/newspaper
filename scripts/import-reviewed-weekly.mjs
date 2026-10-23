@@ -18,10 +18,10 @@ for (const group of reader.rank?.groups || []) for (const leader of group.leader
   avatars.set(original, leader.avatar);
 }
 const issue = normalizeWeeklyIssue(reader);
-await mkdir(path.join(root, 'weekly-editions'), { recursive: true });
+await mkdir(path.join(root, 'data/weekly-editions'), { recursive: true });
 for (const [original, file] of avatars) {
-  await mkdir(path.dirname(path.join(root, file)), { recursive: true });
-  await copyFile(path.join(directory, 'preview', original), path.join(root, file));
+  await mkdir(path.dirname(path.join(root, 'data', file)), { recursive: true });
+  await copyFile(path.join(directory, 'preview', original), path.join(root, 'data', file));
 }
-await writeFile(path.join(root, 'weekly-editions', `${issue.id}.json`), JSON.stringify(issue, null, 2) + '\n');
+await writeFile(path.join(root, 'data/weekly-editions', `${issue.id}.json`), JSON.stringify(issue, null, 2) + '\n');
 console.log(JSON.stringify({ id: issue.id, pages: issue.pages.length, avatars: avatars.size }));

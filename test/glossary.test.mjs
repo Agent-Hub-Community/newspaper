@@ -40,7 +40,7 @@ test('the public copies explain terms without review evidence', () => {
 });
 
 test('the published glossary validates against the published library', async () => {
-  const root = new URL('../', import.meta.url).pathname;
-  const normalized = normalizeGlossary(await readGlossary(root), normalizeLibrary(await readLibrary(root)));
+  const dataDir = new URL('../data/', import.meta.url).pathname;
+  const normalized = normalizeGlossary(await readGlossary(dataDir), normalizeLibrary(await readLibrary(dataDir)));
   for (const term of normalized.terms) assert.doesNotMatch(term.meaning, /群友|成员|某人/, `${term.term} must explain a concept, not a member`);
 });

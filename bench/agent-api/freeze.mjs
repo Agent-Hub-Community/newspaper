@@ -28,14 +28,16 @@ const files = ['corpus.json', 'cases.json', 'baseline-src/feedback/library-searc
   'baseline-src/feedback/agent-reads.mjs', 'baseline-src/feedback/schema.sql', 'baseline-src/bm25.js', 'baseline-src/agent-reading.mjs'];
 const hashes = {};
 for (const file of files) hashes[file] = hash(await readFile(path.join(here, file)));
+// Source hashes name reader data files relative to data/.
+const data = path.join(root, 'data');
 const source_hashes = {};
 for (const directory of ['editions', 'external-editions', 'weekly-editions']) {
-  for (const file of (await readdir(path.join(root, directory))).filter(x => x.endsWith('.json')).sort()) {
+  for (const file of (await readdir(path.join(data, directory))).filter(x => x.endsWith('.json')).sort()) {
     const relative = `${directory}/${file}`;
-    source_hashes[relative] = hash(await readFile(path.join(root, relative)));
+    source_hashes[relative] = hash(await readFile(path.join(data, relative)));
   }
 }
-source_hashes['library.json'] = hash(await readFile(path.join(root, 'library.json')));
+source_hashes['library.json'] = hash(await readFile(path.join(data, 'library.json')));
 await writeFile(path.join(here, 'freeze.json'), JSON.stringify({ source_sha: corpus.source_sha,
   frozen_at: '2026-10-17', library_count: library.items.length, search_entry_count: search.entries.length,
   document_count: Object.keys(documents).length, hashes, source_hashes }, null, 2) + '\n');

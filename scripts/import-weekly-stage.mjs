@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const sourceDir = process.env.WEEKLY_SOURCE_DIR;
-const outDir = process.env.WEEKLY_OUT_DIR || path.resolve('weekly-editions');
+const outDir = process.env.WEEKLY_OUT_DIR || path.resolve('data/weekly-editions');
 const issueId = process.env.WEEKLY_ISSUE_ID || '2026-09-28_2026-10-04';
 if (!sourceDir) throw new Error('WEEKLY_SOURCE_DIR is required');
 

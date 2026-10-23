@@ -13,8 +13,9 @@ const hash = value => createHash('sha256').update(value).digest('hex');
 for (const [file, expected] of Object.entries(lock.hashes)) {
   if (hash(await readFile(path.join(here, file))) !== expected) throw new Error(`Frozen file changed: ${file}`);
 }
+// Source hashes name reader data files relative to data/.
 for (const [file, expected] of Object.entries(lock.source_hashes || {})) {
-  if (hash(await readFile(path.join(root, file))) !== expected) throw new Error(`Content changed; not comparable: ${file}`);
+  if (hash(await readFile(path.join(root, 'data', file))) !== expected) throw new Error(`Content changed; not comparable: ${file}`);
 }
 const corpus = JSON.parse(await read('corpus.json'));
 const cases = JSON.parse(await read('cases.json')).cases;

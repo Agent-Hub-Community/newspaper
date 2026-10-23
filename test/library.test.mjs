@@ -10,7 +10,7 @@ import {
 } from '../lib/library.mjs';
 import { renderLibraryPage } from '../lib/library-render.mjs';
 
-const root = fileURLToPath(new URL('../', import.meta.url));
+const dataDir = fileURLToPath(new URL('../data/', import.meta.url));
 const item = (overrides = {}) => ({
   id: 'cua-gym', title: 'CUA-Gym', summary: '合成 computer-use 训练环境。', type: 'dataset', topics: ['computer-use'], keywords: ['OSWorld', 'RLVR', 'data synthesis'],
   links: [{ kind: 'paper', url: 'https://arxiv.org/abs/2605.25624' }],
@@ -130,10 +130,10 @@ test('the page escapes text, keys hearts by item id and only allows the configur
 });
 
 test('the reviewed library validates against published editions and ships exactly its avatars', async () => {
-  const normalized = normalizeLibrary(await readLibrary(root), digests);
+  const normalized = normalizeLibrary(await readLibrary(dataDir), digests);
   assert.ok(normalized.items.length > 0);
   const used = new Set(normalized.items.flatMap(entry => entry.shares.map(share => share.avatar)).filter(Boolean));
-  assert.deepEqual((await readdir(new URL('../library-avatars/', import.meta.url))).sort(), [...used].sort());
+  assert.deepEqual((await readdir(new URL('../data/library-avatars/', import.meta.url))).sort(), [...used].sort());
 });
 
 test('links on a site the entry uses once show the site; links sharing a site show their paths', () => {

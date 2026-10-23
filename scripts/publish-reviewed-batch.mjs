@@ -54,7 +54,7 @@ for (const issue of issues) {
 // Read all approved images before changing release files.
 const avatars = Object.values(snapshot.avatars);
 await Promise.all(avatars.map(file => readFile(path.join(activityDirectory, file))));
-const target = path.join(root, 'public-activity');
+const target = path.join(root, 'data/public-activity');
 // A batch refreshes only its own dates; every other published daily rank keeps its ranks and avatar bytes.
 const published = JSON.parse(await readFile(path.join(target, 'snapshot.json'), 'utf8'));
 const batchDates = new Set(issues.map(issue => issue.date));
@@ -73,7 +73,7 @@ for (const group of published.groups) {
   }
 }
 for (const issue of issues) {
-  await writeFile(path.join(root, 'editions', `${issue.date}.json`), JSON.stringify(issue, null, 2) + '\n');
+  await writeFile(path.join(root, 'data/editions', `${issue.date}.json`), JSON.stringify(issue, null, 2) + '\n');
 }
 for (const file of avatars) await copyFile(path.join(activityDirectory, file), path.join(target, file));
 for (const name of await readdir(path.join(target, 'avatars'))) {

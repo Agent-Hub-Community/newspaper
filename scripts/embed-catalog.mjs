@@ -30,7 +30,7 @@ function wranglerToken() {
 }
 const token = process.env.CLOUDFLARE_API_TOKEN || wranglerToken();
 if (!token) throw new Error('No Cloudflare token: run `npx wrangler login` in newspaper/feedback, or set CLOUDFLARE_API_TOKEN.');
-const file = path.join(root, 'semantic-vectors.json');
+const file = path.join(root, 'data/semantic-vectors.json');
 const catalog = JSON.parse(await readFile(path.join(root, 'dist/search/catalog.json'), 'utf8'));
 const stored = await readFile(file, 'utf8').then(JSON.parse, error => {
   if (error.code === 'ENOENT') return { schema_version: 1, model: SEMANTIC_MODEL, dimensions: SEMANTIC_DIMENSIONS, vectors: {} };

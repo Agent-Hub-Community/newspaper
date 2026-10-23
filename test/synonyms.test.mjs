@@ -4,7 +4,7 @@ import { readSynonyms, searchVocabulary, validateSynonyms } from '../lib/synonym
 import { mergedAliases, normalizeGlossary, readGlossary } from '../lib/glossary.mjs';
 import { normalizeLibrary, readLibrary } from '../lib/library.mjs';
 
-const root = new URL('..', import.meta.url).pathname;
+const dataDir = new URL('../data', import.meta.url).pathname;
 const entry = (term, variants, category, refersTo, keyword) => ({ term, variants, meaning: '释义。', category, refersTo, keyword });
 const glossary = (...terms) => ({ terms });
 
@@ -36,9 +36,9 @@ test('a synonym group that names a glossary entry joins it; a glossary spelling 
 });
 
 test('the published glossary, synonym table and keyword aliases form one vocabulary', async () => {
-  const library = normalizeLibrary(await readLibrary(root));
-  const terms = normalizeGlossary(await readGlossary(root), library);
-  const { expand, groups } = searchVocabulary({ aliases: mergedAliases(library, terms), glossary: terms, synonyms: await readSynonyms(root) });
+  const library = normalizeLibrary(await readLibrary(dataDir));
+  const terms = normalizeGlossary(await readGlossary(dataDir), library);
+  const { expand, groups } = searchVocabulary({ aliases: mergedAliases(library, terms), glossary: terms, synonyms: await readSynonyms(dataDir) });
   const group = spelling => (groups.find(list => list.some(term => term.toLowerCase() === spelling.toLowerCase())) || []).map(term => term.toLowerCase());
   assert.ok(group('画图').includes('绘图'));
   assert.ok(group('基座模型').includes('基模') && group('基座模型').includes('base model'), 'the formal name finds the slang');

@@ -6,7 +6,7 @@ import { digests } from '../lib/digest.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const source = path.join(root, 'scratch/activity');
-const target = path.join(root, 'public-activity');
+const target = path.join(root, 'data/public-activity');
 // Pass visually reviewed placeholder/missing avatar keys as positional arguments.
 const unavailable = new Set(process.argv.slice(2));
 const activity = JSON.parse(await readFile(path.join(source, 'activity.local.json'), 'utf8'));

@@ -2,7 +2,7 @@
 //   node scripts/assemble-library.mjs [--dir scratch/library]
 // Inputs under --dir: candidates.json (written by the private pipeline's chat collector), curated/*.json
 // (reviewed batches, see GUIDE.md) and avatar-review.json ({ "approved": [file], "rejected": [file] }).
-// Only approved avatars are copied into library-avatars/; new ones wait in <dir>/avatars-pending/ and their
+// Only approved avatars are copied into data/library-avatars/; new ones wait in <dir>/avatars-pending/ and their
 // shares show the group without an avatar until a later run. Items already in library.json keep their id and
 // wording, so edit published wording in library.json; curated batches only add new items.
 import { copyFile, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
@@ -21,7 +21,7 @@ const read = async (file, fallback) => JSON.parse(await readFile(file, 'utf8').c
 const { since, candidates, members = {}, generatedFrom, operators } = await read(path.join(dir, 'candidates.json'));
 const byKey = new Map(candidates.map(candidate => [candidate.key, candidate]));
 const review = await read(path.join(dir, 'avatar-review.json'), { approved: [], rejected: [] });
-const existing = await read(path.join(root, 'library.json'), { version: 1, through: generatedFrom.through, items: [] });
+const existing = await read(path.join(root, 'data/library.json'), { version: 1, through: generatedFrom.through, items: [] });
 
 // Avatars are cached per member hash; the public file name is a hash of the image bytes.
 const cacheDir = path.join(dir, 'avatar-cache');
@@ -29,7 +29,7 @@ const pendingDir = path.join(dir, 'avatars-pending');
 await mkdir(cacheDir, { recursive: true, mode: 0o700 });
 await rm(pendingDir, { recursive: true, force: true });
 await mkdir(pendingDir, { recursive: true, mode: 0o700 });
-await mkdir(path.join(root, 'library-avatars'), { recursive: true });
+await mkdir(path.join(root, 'data/library-avatars'), { recursive: true });
 const cached = new Set(await readdir(cacheDir));
 const pending = new Set();
 const avatars = new Map();
@@ -58,7 +58,7 @@ async function avatar(sender) {
     const bytes = await readFile(path.join(cacheDir, name));
     const candidate = `${createHash('sha256').update(bytes).digest('hex').slice(0, 16)}${path.extname(name)}`;
     if (review.approved.includes(candidate)) {
-      await copyFile(path.join(cacheDir, name), path.join(root, 'library-avatars', candidate));
+      await copyFile(path.join(cacheDir, name), path.join(root, 'data/library-avatars', candidate));
       file = candidate;
     } else if (!review.rejected.includes(candidate)) {
       await copyFile(path.join(cacheDir, name), path.join(pendingDir, candidate));
@@ -161,10 +161,10 @@ items.sort((a, b) => first(b).localeCompare(first(a)) || a.id.localeCompare(b.id
 const through = [existing.through, generatedFrom.through].sort().at(-1);
 const library = { version: 1, through, items };
 normalizeLibrary(library);
-await writeFile(path.join(root, 'library.json'), `${JSON.stringify(library, null, 2)}\n`);
+await writeFile(path.join(root, 'data/library.json'), `${JSON.stringify(library, null, 2)}\n`);
 // Drop approved files no share uses any more, so the repository only carries published avatars.
 const used = new Set(items.flatMap(item => item.shares.map(share => share.avatar)).filter(Boolean));
-for (const name of await readdir(path.join(root, 'library-avatars'))) if (!used.has(name)) await rm(path.join(root, 'library-avatars', name));
+for (const name of await readdir(path.join(root, 'data/library-avatars'))) if (!used.has(name)) await rm(path.join(root, 'data/library-avatars', name));
 await writeFile(path.join(dir, 'avatar-pending.json'), `${JSON.stringify([...pending].sort(), null, 2)}\n`);
 console.log(JSON.stringify({ items: items.length, added, merged, through, avatars: used.size, pendingAvatars: pending.size }, null, 2));
 if (pending.size) console.log(`Review ${path.relative(root, pendingDir)}/ and list each file in avatar-review.json, then run again.`);

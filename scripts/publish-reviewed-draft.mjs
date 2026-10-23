@@ -25,13 +25,13 @@ for (let i = 0; i < 3; i++) {
 }
 assert.equal(cutoffs.size, 1);
 const reader = { id: issue.id, date: issue.date, label: `${issue.date} 讨论选编`, pages: issue.pages };
-await mkdir(path.join(root, 'editions'), { recursive: true });
-await writeFile(path.join(root, 'editions', `${issue.date}.json`), JSON.stringify(reader, null, 2) + '\n');
+await mkdir(path.join(root, 'data/editions'), { recursive: true });
+await writeFile(path.join(root, 'data/editions', `${issue.date}.json`), JSON.stringify(reader, null, 2) + '\n');
 const { digests } = await import('../lib/digest.mjs');
 const snapshotDir = path.join(directory, 'activity');
 const snapshot = JSON.parse(await readFile(path.join(snapshotDir, 'snapshot.json'), 'utf8'));
 validatePublicActivity(snapshot, digests);
-const target = path.join(root, 'public-activity');
+const target = path.join(root, 'data/public-activity');
 for (const file of Object.values(snapshot.avatars)) await copyFile(path.join(snapshotDir, file), path.join(target, file));
 await writeFile(path.join(target, 'snapshot.json'), JSON.stringify(snapshot, null, 2) + '\n');
 console.log(`Packaged ${reader.date}: ${reader.pages.length} groups and approved Top 3 only`);

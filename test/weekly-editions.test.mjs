@@ -11,7 +11,7 @@ import {AGENTS_PAGE} from '../lib/agent-docs.mjs';
 import {site} from '../lib/site.mjs';
 import {expectedMessageText,visibleMessageText} from './digest-context.mjs';
 
-const issue=normalizeWeeklyIssue(JSON.parse(await readFile(new URL('../weekly-editions/2026-10-05_2026-10-11.json',import.meta.url))));
+const issue=normalizeWeeklyIssue(JSON.parse(await readFile(new URL('../data/weekly-editions/2026-10-05_2026-10-11.json',import.meta.url))));
 test('published weekly keeps reviewed paragraphs, highlights, anonymous messages and layout',()=>{
   for(const page of issue.pages){
     const document=parseHTML(renderWeeklyPage(issue,page,{weeklies:[issue]})).document;
@@ -103,7 +103,7 @@ test('public weekly reuses existing analytics with restricted CSP and same-origi
 });
 test('historical weekly editions retain every story under both route forms',async t=>{
   const out=await mkdtemp(path.join(tmpdir(),'weekly-pages-'));t.after(()=>rm(out,{recursive:true,force:true}));
-  const weeklies=await Promise.all((await readdir(new URL('../weekly-editions/',import.meta.url))).map(async file=>normalizeWeeklyIssue(JSON.parse(await readFile(new URL('../weekly-editions/'+file,import.meta.url))))));
+  const weeklies=await Promise.all((await readdir(new URL('../data/weekly-editions/',import.meta.url))).map(async file=>normalizeWeeklyIssue(JSON.parse(await readFile(new URL('../data/weekly-editions/'+file,import.meta.url))))));
   for(const file of ['weekly.css','weekly-reader.js','screenshot.js','appearance.js','color-scheme.css','discussion-panel.js','discussion-panel.css',...new Set(weeklies.flatMap(w=>w.rank?.groups.flatMap(g=>g.leaders.map(m=>m.avatar).filter(Boolean))||[]))]){
     await mkdir(path.dirname(path.join(out,file)),{recursive:true});await writeFile(path.join(out,file),'asset');
   }
