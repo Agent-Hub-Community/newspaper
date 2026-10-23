@@ -1,7 +1,7 @@
 # AgentHub 机会审核规范
 
-审核 agent 和主编按这份规范处理维护者采集的候选（`scratch/opportunities/candidates.json`；采集脚本读取私有聊天记录，不在本仓库）。
-字段和取值以 `opportunities.mjs` 为准；完整流程见 `README.md`“资料库”一节下的“机会”。
+审核 agent 和编辑按这份规范处理候选（`scratch/opportunities/candidates.json`）。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）从群聊收集，含聊天原文，只放在被 Git 忽略的 `scratch/` 下。
+字段和取值以 [`lib/opportunities.mjs`](../../lib/opportunities.mjs) 为准；审核之后的入库步骤见 [入库与发布](../publishing.md#资料库机会和黑话)。
 
 ## 收什么
 
@@ -46,7 +46,7 @@
 | `deadline` | 可选，原文写明的截止日期 `YYYY-MM-DD` |
 | `event_date` | 可选，活动举办日（多天活动写最后一天） |
 | `topics` | 0 到 6 个方向词，例如 `Code Agent`、`AI4S`、`RL` |
-| `links` | `{ "key": 候选 key, "kind": "article" }` 或 `{ "url": 验证过的 https 地址, "kind": "docs" }`，kind 取 `LINK_KINDS` |
+| `links` | `{ "key": 候选 key, "kind": "article" }` 或 `{ "url": 验证过的 https 地址, "kind": "docs" }`，`kind` 取 `lib/library.mjs` 的 `LINK_KINDS` |
 
 日期只写原文写明的。原文只写“10/15-16”这类日期时，按分享当年补全年份；不确定时不写，页面会按最后一次分享后 60 天算有效期。
 

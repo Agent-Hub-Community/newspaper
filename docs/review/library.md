@@ -1,17 +1,18 @@
 # AgentHub 资料库审核规范
 
-审核 agent 和主编按这份规范处理维护者采集的候选链接（`scratch/library/candidates.json`；采集脚本读取私有聊天记录，不在本仓库）。类型、主题和链接种类的取值以 `library.mjs` 为准，这里的表格是同一份定义的说明。完整的更新流程见 `README.md`“资料库”一节。
+审核 agent 和编辑按这份规范处理候选链接（`scratch/library/candidates.json`）。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）从群聊收集，含私有聊天上下文，只放在被 Git 忽略的 `scratch/` 下。
+类型、主题和链接种类的取值以 [`lib/library.mjs`](../../lib/library.mjs) 为准，这里的表格是同一份定义的说明。审核之后怎样合进 `data/library.json`，见 [入库与发布](../publishing.md#资料库机会和黑话)。
 
 ## 背景
 
-AgentHub 是一组研究 AI Agent 的微信群（目前五个群，几百位研究者和开发者）。
+Agent Hub 是几个讨论 LLM Agent 研究与工程的微信群，成员是几百位研究者和开发者。
 公开网站 https://agent-hub-community.github.io/newspaper/ 每天发布群聊日报。“资料库”栏目
 把群里分享过、有长期参考价值的论文、代码、数据集、评测、工具和文章按类别整理，方便人和 agent 查找。
 
 批次文件（大批量回补时用）里，每个 `cluster` 是一组在同一条消息里一起出现的链接（通常是同一项工作的论文、代码、主页、数据集）。
 每个候选链接带有：
 
-- `key`：候选唯一标识，输出时必须原样引用。
+- `key`：候选唯一标识，输出时应原样引用。
 - `url`：规范化后的地址。
 - `metadata`：脚本预取的页面信息（arXiv 标题摘要、GitHub 描述和星数、网页标题描述、X 帖子正文）。`status` 不是 200 或 `blocked: true` 表示没取到。
 - `published`：这个链接已经出现在哪几天日报的哪条话题里。
@@ -33,7 +34,7 @@ AgentHub 是一组研究 AI Agent 的微信群（目前五个群，几百位研�
 | 代码 | 含义 |
 |---|---|
 | `news` | 时效性新闻、八卦、人事变动、融资、公司传闻；只是转述官方发布、没有额外信息的媒体稿 |
-| `promo` | 优惠、营销、产品推广；招聘、活动报名、见面会和征稿也在这里排除，它们另由 `OPPORTUNITY_REVIEW.md` 收进“机会” |
+| `promo` | 优惠、营销、产品推广；招聘、活动报名、见面会和征稿也在这里排除，它们另按 [机会审核规范](opportunities.md) 收进“机会” |
 | `personal` | 个人主页、自我介绍、简历、个人社交账号首页 |
 | `ephemeral` | 一次性玩具演示页、状态页、临时页面、无上下文的截图链接 |
 | `broken` | 打不开，且从聊天卡片和上下文也无法确认它是什么 |
@@ -57,13 +58,13 @@ AgentHub 是一组研究 AI Agent 的微信群（目前五个群，几百位研�
 - 每条收录的标题和简介都要以资料本身为准：优先用 `metadata`；`metadata` 缺失、失败或信息不足时，用 WebFetch 或 `curl -sL -m 20` 打开一次原链接（arXiv 可用 `https://export.arxiv.org/api/query?id_list=ID`，GitHub 可用 `gh api repos/OWNER/REPO`，X 帖子可用 `https://api.fxtwitter.com/status/ID`）。不要做网页搜索。
 - 仍然打不开时：如果聊天里的链接卡片或消息原文清楚说明了它是什么（例如公众号卡片标题、作者发布说明），可以收录，`verified` 写 `chat-only`，简介只写卡片和原文能支持的内容；否则排除为 `broken`。
 - 不编造数字、作者、机构、会议录用情况。数字只写来源页面写明的。
-- 链接本身有误（例如末尾混进了中文括号编码 `%EF%BC%89`、截断）时，可以在该 link 里给出修正后的 `url`，但修正后的地址必须实际打开验证过。
+- 链接本身有误（例如末尾混进了中文括号编码 `%EF%BC%89`、截断）时，可以在该 link 里给出修正后的 `url`，但修正后的地址应实际打开验证过。
 
 ## 合并与拆分
 
 - 一项工作一条 item：同一工作的论文、代码、主页、数据集、模型、帖子、公众号介绍合并到同一个 item 的 `keys` 和 `links` 里。
 - 一个 cluster 里如果有几项不同的工作（例如一条消息介绍了三篇论文），拆成几条 item。
-- 批次里每个候选 `key` 必须恰好出现一次：要么在某条 item 的 `keys` 里，要么在 `excluded` 里。
+- 批次里每个候选 `key` 应恰好出现一次：要么在某条 item 的 `keys` 里，要么在 `excluded` 里。
 - 同一工作的公众号介绍、X 宣传帖如果没有额外信息，可以放进 `keys` 但不放进 `links`（这样它不会单独显示）。
 
 ## 字段
@@ -117,7 +118,7 @@ AgentHub 是一组研究 AI Agent 的微信群（目前五个群，几百位研�
 ### `keywords`（3 到 12 个，按重要程度排序）
 
 读者会用来找这条资料的具体词：模型或模型家族、benchmark、框架和工具、机构、方法和概念、应用领域。
-写法和资料库已有的词表一致（见 `library-keywords.json` 和线上 `library/resources.json` 顶层的 `keywords`）；用了别名而不是规范词时，构建会报错并提示规范写法。英文专有名词保持官方大小写，
+写法和资料库已有的词表一致（见 `data/library-keywords.json` 和线上 `library/resources.json` 顶层的 `keywords`）；用了别名而不是规范词时，构建会报错并提示规范写法。英文专有名词保持官方大小写，
 技术概念优先用社区常用的英文写法，中文领域名词用简短中文。不重复 `topics` 和 `type`，
 不用 agent、LLM、AI 这类泛词，不写人名，不含 `|`。
 

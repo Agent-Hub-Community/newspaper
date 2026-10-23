@@ -1,8 +1,8 @@
 # AgentHub 群聊黑话审核规范
 
 群聊黑话词典收录 AgentHub 群里常用、新读者或 agent 读日报时可能看不懂的说法：缩写、代号、梗和行话。
-词典公开发布在 `/glossary/`，也是全站搜索和资料库搜索的词表（规则见 `README.md`“全站搜索”）。审核 agent 按这份规范通读
-维护者导出的聊天分块，主编合并后写进 `glossary.json`。导出脚本读取私有聊天记录，不在本仓库。
+词典公开发布在 `/glossary/`，也是全站搜索和资料库搜索的词表（规则见 [搜索与词表](../search.md)）。审核 agent 按这份规范通读
+聊天分块，编辑合并后写进 `data/glossary.json`。聊天分块由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）导出，只放在被 Git 忽略的 `scratch/` 下。
 
 ## 输入
 
@@ -55,14 +55,14 @@ AI、LLM、GPU 这类人人都懂的词不收，除非群里有特殊用法。
 - `term`：群里最常见的写法。`variants`：其他写法，不含 `term` 本身。
 - `meaning`：中文一句话，不超过 40 个汉字，平实具体，不写聊天里的评价。
 - `category`：`缩写`、`代号`、`梗`、`行话`、`网络用语` 之一。
-- `count`：本分块里大致出现的次数。`evidence`：一到两条消息的“日期 群 时间”，只用于主编核对，不发布。
+- `count`：本分块里大致出现的次数。`evidence`：一到两条消息的“日期 群 时间”，只用于编辑核对，不发布。
 
-## 主编合并
+## 编辑合并
 
 1. 合并各分块的同一词条，`count` 相加，`variants` 取并集，释义选最准确的一条。
 2. 删去 `confidence` 为 `low` 且无法从证据确认的条目。
 3. 检查每一条都不指向具体群友。
 4. 代号或缩写对应资料库已有的规范关键词时，在 `keyword` 字段写上该关键词，搜索时 `term` 和 `variants` 会作为它的别名。
    分类也影响搜索：缩写、行话、网络用语的各写法和正式名称双向互通，代号和梗只从写法指向正式名称。
-   新写法已在 `search-synonyms.json` 里时，从同义词表删掉再写进词条；两边重复时构建会报错。
-5. 写进 `glossary.json`，运行 `npm test` 和 `npm run build`。
+   新写法已在 `data/search-synonyms.json` 里时，从同义词表删掉再写进词条；两边重复时构建会报错。
+5. 写进 `data/glossary.json`，运行 `npm test` 和 `npm run build`。字段约束见 [数据格式](../data-format.md#黑话)。
