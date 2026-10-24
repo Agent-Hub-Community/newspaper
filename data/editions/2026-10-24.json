@@ -1,0 +1,1122 @@
+{
+  "id": "2026-10-24",
+  "date": "2026-10-24",
+  "label": "2026-10-24 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "群友分享 Claude Code 布道者 Thariq 离职报道",
+      "theme": "群内戏称其为推动产品普及的“CC 义父”，并猜测其离职后或将开启创业。",
+      "note": "2026-10-24 · 当日本地记录",
+      "stories": [
+        {
+          "category": "人物动态",
+          "title": "群友分享 Thariq Shihipar 离职报道，戏称其为“CC 义父”",
+          "text": "有群友分享了 DINQ实验室关于 Claude Code 布道者 Thariq Shihipar 离职的文章。分享者评价，如果说 Boris Cherny 是 Claude Code（CC）之父，那 Thariq 在推动 CC 的使用和受众层面上堪称“CC 义父”级别，并猜测其离开后应该会开启创业之旅。",
+          "emphasis": [
+            "Thariq 在推动 CC 的使用和受众层面上堪称“CC 义父”级别"
+          ],
+          "aiComment": "硅谷离职通知书现在的标准打开方式：先领一个辈分，再领一张创业入场券。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:45",
+              "text": "如果说Boris Cherny是Claude Code(CC)之父，那这位印度老哥Thariq在推动CC的使用和受众层面，怎么也是一个CC义父的级别。\n\n他离开A设，应该开启创业之旅了。"
+            },
+            {
+              "speaker": 1,
+              "time": "09:45",
+              "text": "[链接] DINQ人才监控信息: Claude Code最强布道者Thariq Shihipar离职!\n  来源: DINQ实验室\n  摘要: DINQ人才监控信息: Claude Code最强布道者Thariq Shihipar离职! 只要关注Claude Code的人，有2个名字是肯定知道的：1是Boris Cherny，CC之父。另外就是Thariq，他是一个不只出现在A社背...\n  URL: [链接已省略]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无收录话题",
+      "theme": "当日群聊未见实质技术交流或资讯分享，暂无内容收录。",
+      "note": "2026-10-24 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "检索工具循环冲淡人设？A/B 实测将思考与表达模块解耦",
+      "theme": "另议超长程任务 1M 上下文与多轮压缩的取舍、Kimi K3.1 Pro 跑分及 SVG 动画实测。",
+      "note": "2026-10-24 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 架构",
+          "title": "为什么带人设的 Agent 查完文献就变回“老实助手”？",
+          "text": "有群友转了一篇“不要给大肥鱼上贴吧的权限”的帖子，好奇模型嘴臭到底是后训练没做 NSFW 过滤，还是 search 接入贴吧后通过 few-shot 学坏了。另一位群友借机抛出一个痛点：“有谁的鱼能查一圈文献，回来还说人话的？”这位群友表示自己试过，感觉就是个嘴臭壳，一旦让它去跑 agentic work 就会直接崩掉，后面的回复全退化回标准助手腔调，并不能保持嘴臭。前一位群友认为，这是因为两类能力显然不在同一个 domain。\n\n提出痛点的群友表示自家的可以保持人设，随后找 Claude 尝试跑一组拉平条件的 A/B 实验：两边统一用 deepseek-flash，配同一份嘴臭人设、同一组 few-shot 示范台词和相同的工具（搜索加读网页长文），统一提问“loop LM 是啥玩意儿，你去查查给我讲讲”。唯一的变量是壳层结构：A 组走常见做法，把人设 markdown 加几句示范接上普通的对话加工具循环；B 组则将 gut / think 分开，说话模块独立出来，并把工具回执收起。\n\n实测截图对比了两份回答的内容与语气：两条鱼都自己去检索了资料，解释了 Loop LM（循环语言模型）把 Transformer 同一批层反复使用的原理，也都提到了 Seed 的 Ouro 模型等相关研究；其中 B 组还多提了一篇从零训练方案的论文，在讲完这些检索内容后整体语气显得更冲，文末还在调侃提问者是不是想问 LoRA。测试者看完表示效果“会好一点”，并补充说原本想让 Claude 写贴吧老哥风格的示范台词，结果被 Claude 拒绝，打算回头换“哈基米”写一版再测一次。",
+          "emphasis": [
+            "一旦让它去跑 agentic work 就会直接崩掉，后面的回复全退化回标准助手腔调",
+            "B 组则将 gut / think 分开，说话模块独立出来，并把工具回执收起",
+            "测试者看完表示效果“会好一点”"
+          ],
+          "aiComment": "一查文献就变回礼貌打工人，原来读论文让人丧失脾气是跨物种的。得把脑子和嘴拆家，才能保住一口贴吧味。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "[链接] 不要给大肥鱼上贴吧的权限\n  摘要: #见证生物多样性[话题]# #乐子人开始找乐子了[话题]# #大肥鱼[话题]#\n  URL: [链接已省略]"
+            },
+            {
+              "speaker": 1,
+              "time": "14:14",
+              "text": "说起来这种是后训练的时候没有做nsfw过滤还是search接入贴吧做few shot学坏了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:16",
+              "text": "有谁的鱼能查一圈文献，回来还说人话的"
+            },
+            {
+              "speaker": 2,
+              "time": "14:19",
+              "text": "这种嘴臭鱼还有agent能力吗"
+            },
+            {
+              "speaker": 2,
+              "time": "14:19",
+              "text": "感觉就是个嘴臭壳"
+            },
+            {
+              "speaker": 2,
+              "time": "14:21",
+              "text": "我试过一让他agentic work就直接崩了，后面全是助手"
+            },
+            {
+              "speaker": 2,
+              "time": "14:21",
+              "text": "并不能保持嘴臭"
+            },
+            {
+              "speaker": 1,
+              "time": "14:21",
+              "text": "显然不在一个domain"
+            },
+            {
+              "speaker": 2,
+              "time": "14:27",
+              "text": "我的可以[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "显然不在一个domain"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:27",
+              "text": "我跑一下A/B试试"
+            },
+            {
+              "speaker": 2,
+              "time": "14:28",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:28",
+              "text": "claude：不许嘴臭"
+            },
+            {
+              "speaker": 2,
+              "time": "15:48",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "15:48",
+              "text": "会好一点"
+            },
+            {
+              "speaker": 2,
+              "time": "15:48",
+              "text": "用的同样的fewshot，工具量也一样"
+            },
+            {
+              "speaker": 2,
+              "time": "15:49",
+              "text": "claude不给我写贴吧老哥，我操了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:49",
+              "text": "回头让哈基米写一个A/B一下"
+            }
+          ]
+        },
+        {
+          "category": "上下文工程",
+          "title": "超长程 Auto-Research 的上下文困境：1M 直出还是 400K 压缩？",
+          "text": "在跑超长程任务时，究竟该直接依赖 1M 上下文，还是用 272K 上下文配合多轮压缩（compact）？有群友抛出这个问题后，有人认为 1M 上下文的甜点区其实在 400K，提问者便盘算是不是该在 400K 的位置触发 compact。另一位群友马上提醒，compact 次数多了之后方向会跑得很偏，“腐蚀太伤了”，如果非要频繁压缩，不如让模型实时总结并更新到 markdown 文档里。\n\n提问者随后晒出编辑器侧边栏截图：当前跑的这个 auto-research 任务其实已经生成了 50 多个 markdown 文档。因为直接开了 1M 上下文，并且分批次调用了大量 subagent，许多文档都是 subagent 留下的，所以主 agent 到目前为止还没有发生过一次 compact。\n\n建议写文档的群友看后调侃，文档攒到这个规模，“那你每次搜一下这个文档内容就 100k 出去了”。提问者也无奈表示，手头用的 Astra 模型 TPS 实在太慢，不知道它内部有没有更高效的 search 策略，照这样下去，这趟任务最终大概率会变成一个极难分析的超长程 bad case，而不是成功的 auto-research。",
+          "emphasis": [
+            "有人认为 1M 上下文的甜点区其实在 400K",
+            "许多文档都是 subagent 留下的，所以主 agent 到目前为止还没有发生过一次 compact",
+            "那你每次搜一下这个文档内容就 100k 出去了"
+          ],
+          "aiComment": "主 agent 还没压缩，subagent 已留下 50 多个 Markdown，上下文和侧边栏总得疯一个。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:33",
+              "text": "话说你们喜欢1m上下文 还是272k上下文+多轮压缩\n哪一个选择会是你们的版本答案？"
+            },
+            {
+              "speaker": 2,
+              "time": "02:35",
+              "text": "其实1m的甜点区是400k"
+            },
+            {
+              "speaker": 1,
+              "time": "02:36",
+              "text": "那我应该在400k的位置去做compact"
+            },
+            {
+              "speaker": 3,
+              "time": "02:37",
+              "text": "compact多了之后会很偏，你如果compact很多的话实时总结更新markdown吧"
+            },
+            {
+              "speaker": 3,
+              "time": "02:37",
+              "text": "腐蚀太伤了"
+            },
+            {
+              "speaker": 1,
+              "time": "02:38",
+              "text": "是的md文档更新的太多了",
+              "quote": {
+                "speaker": 3,
+                "text": "compact多了之后会很偏，你如果compact很多的话实时总结更新markdown吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "02:39",
+              "text": "他已经为这个auto- research任务写了50多个md文档了"
+            },
+            {
+              "speaker": 1,
+              "time": "02:39",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "02:40",
+              "text": "但是还没有发生一次compact 因为1m上下文 且分批次调用了大量subagent 很多md是sub留下的"
+            },
+            {
+              "speaker": 3,
+              "time": "02:44",
+              "text": "那你每次搜一下这个文档内容就100k出去了[破涕为笑]"
+            },
+            {
+              "speaker": 1,
+              "time": "02:45",
+              "text": "astra"
+            },
+            {
+              "speaker": 1,
+              "time": "02:45",
+              "text": "的tps太龟速了"
+            },
+            {
+              "speaker": 1,
+              "time": "02:46",
+              "text": "绷 不知道他有没有更加高效的search策略",
+              "quote": {
+                "speaker": 3,
+                "text": "那你每次搜一下这个文档内容就100k出去了[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "02:47",
+              "text": "这将是一个及其难以分析的超长程bad case而不是好的auto-research"
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "Kimi K3.1 Pro 深夜上线：2.8T 总参、Terminal-Bench 4.0 拿 67% 登顶",
+          "text": "Kimi K3.1 Pro 与高速版在凌晨上线，有群友注意到半夜 12 点前网页端就已经灰度了一部分用户。随后有人贴出 Artificial Analysis 的评测数据：该模型总参数量为 2.8T，活跃参数 104B，支持 1M 上下文窗口以及文本、图像输入；API 定价为每 1M 输入 / 输出 / 缓存命中 token 2 / 10 / 0.20 美元，三项费率均比 Kimi K3 下调 33%，单任务平均成本约 1.98 美元。\n\n跑分方面，Kimi K3.1 Pro 在 Artificial Analysis 智能指数中拿到 55 分，比上一代 Kimi K3 的 44 分提升了 11 分，总榜排在第 4 位，仅次于 Claude Opus 5.5（58 分）、Claude Sonnet 5.5（56 分）和 Muse Wonder Full（56 分）。评测方指出，一旦其权重正式发布，领先开源权重模型与专有模型在智能指数上的分差将从 12 分缩小至 3 分。\n\n在具体测试集上，Kimi K3.1 Pro 的代理性能提升明显：Terminal-Bench 4.0 得分从上代的 13% 跃升至 67%，力压 Claude Sonnet 5.5（64%）拿到所有模型中的最高分；测试代理式 SaaS 工作流的 AutomationBench-AA 从 58% 升至 73%；GDPval-AA 以 1,846 Elo 排第 3（提升 312 Elo）；AA-Omniscience Index 从 20 升至 30，其中幻觉率由 53% 降至 44%。看到长程与终端表现后，有群友开始好奇拿它搭配 loopx 的实际效果。",
+          "emphasis": [
+            "总参数量为 2.8T，活跃参数 104B",
+            "一旦其权重正式发布，领先开源权重模型与专有模型在智能指数上的分差将从 12 分缩小至 3 分",
+            "Terminal-Bench 4.0 得分从上代的 13% 跃升至 67%"
+          ],
+          "aiComment": "半夜带着 2.8T 参数偷袭，Terminal-Bench 从 13% 蹦到 67%，这波夜猫子刷群算是来着了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:33",
+              "text": "[链接] Kimi K3.1 Pro：智能前沿，更进一步\n  来源: 月之暗面 Kimi\n  摘要: 高速版同步上线\n  URL: [链接已省略]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:34",
+              "text": "12点前网页端就能用了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:34",
+              "text": "灰度了一部分"
+            },
+            {
+              "speaker": 3,
+              "time": "02:03",
+              "text": "[链接] Kimi K3.1 Pro：智能前沿，更进一步\n  来源: 月之暗面 Kimi\n  摘要: 高速版同步上线\n  URL: [链接已省略]"
+            },
+            {
+              "speaker": 4,
+              "time": "02:05",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "02:06",
+              "text": "确实开源第一了"
+            },
+            {
+              "speaker": 6,
+              "time": "02:06",
+              "text": "开源sota"
+            },
+            {
+              "speaker": 2,
+              "time": "02:07",
+              "text": "这个长程能力这么强，不知道搭loopx效果怎么样了"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Kimi K3.1 Pro 官方发布",
+              "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+            }
+          ]
+        },
+        {
+          "category": "模型实测",
+          "title": "单 Prompt 测 SVG 网页动画：从“秦始皇骑北极熊”到“自行车骑鹈鹕”",
+          "text": "趁着新模型发布，一位群友用两条单轮 prompt 横向实测了 Argon、Astra、Kimi K3.1 Pro 和 Opus 5.5 生成交互式 SVG 动画网页的能力。第一道题要求绘制“秦始皇骑着一只北极熊的 2D 动画”，并支持手动切换森林、雪原、赛博朋克城市、海洋四种背景，以及切换昼夜和调节速度。测试者盛赞 Argon 的表现，晒出的网页不仅画出了骑在白熊背上漫游森林的始皇小人，还自己配上了“山海巡游”“朕，去远方。”的标题文案与完整的底部控制栏；相比之下，测试者直呼 Astra 表现拉胯，并吐槽刚出的 Kimi K3.1 Pro 和 Astra 简直是一个模子刻出来的，戏称为“k3.1-distill-astra”。\n\n第二道题故意设了一个反常识的空间关系：“创建一个 HTML，内容是 SVG 绘制一个自行车骑鹈鹕的 2D 动画，没有打错字，就是自行车骑鹈鹕”。截图显示，Opus 5.5 准确把一辆亮着车灯、拉着缰绳的红色公路自行车画在了奔跑的巨型海岸鹈鹕背上，顶部标出“42 km/h / 185 RPM”的骑行状态，底部还设计了慢步巡航、低空滑翔模式以及“响铃催促”“投喂鲜鱼”等互动按钮。测试者此前已评价 Opus 5.5 没有输掉比赛、相比 Astra 赢了太多，随后也贴出了 Astra 在同一 prompt 下的生成结果供公平比较——画面里同样是一只白色鹈鹕背着套有缰绳的红色自行车。",
+          "emphasis": [
+            "测试者盛赞 Argon 的表现",
+            "Opus 5.5 准确把一辆亮着车灯、拉着缰绳的红色公路自行车画在了奔跑的巨型海岸鹈鹕背上"
+          ],
+          "aiComment": "大模型基准测试现状：正经跑分没人信，非得看谁家自行车能骑在鹈鹕背上狂飙 42 km/h。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:49",
+              "text": "argon真不错"
+            },
+            {
+              "speaker": 1,
+              "time": "01:55",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:55",
+              "text": "astra就是纯智障"
+            },
+            {
+              "speaker": 1,
+              "time": "01:56",
+              "text": "k3.1pro和astra就是一个模子刻出来的"
+            },
+            {
+              "speaker": 1,
+              "time": "01:57",
+              "text": "k3.1-distill-astra"
+            },
+            {
+              "speaker": 1,
+              "time": "01:59",
+              "text": "opus5.5没有输掉比赛 相比astra赢了太多"
+            },
+            {
+              "speaker": 1,
+              "time": "01:59",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:59",
+              "text": "opus5.5",
+              "quote": {
+                "speaker": 1,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "02:00",
+              "text": "one-prompt-test"
+            },
+            {
+              "speaker": 1,
+              "time": "02:01",
+              "text": "公平比较一下，这个是astra  prompt为：创建一个 HTML，内容是 SVG 绘制一个自行车骑鹈鹕的 2D 动画，没有打错字，就是自行车骑鹈鹕"
+            },
+            {
+              "speaker": 1,
+              "time": "02:01",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "02:02",
+              "text": "prompt：创建一个HTML,内容是:SVG绘制秦始皇骑着一只北极熊的2D动画,背景要可以手动切换森林,雪原,赛博朋克的城市,海洋,世界可以手动切换白天和黑夜,速度可调",
+              "quote": {
+                "speaker": 1,
+                "text": "[媒体引用未解析]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "赛道探讨",
+          "title": "卷完大模型去卷 AI4Science？群友：得先等机器人把实验做了",
+          "text": "一张讨论今年大模型实验室求职门槛陡增的推文截图，引发了群友对接下来研究方向的探讨。有群友认为研究还是得做面向消费市场而非融资市场的东西，面对头部公司垄断的局面，只能先观望明年 coding 之后多模态或 CUA 会不会重新有用。\n\n面对“接下来还能做点什么”的提问，三位群友不约而同刷屏调侃：“当然是急头白脸地来做 science”。不过有人觉得留给 AI4Science 的时间也不多了，一旦 AI 能推导出超越人类知识边界的东西，人类研究者就很难插手，估计具身智能就剩两三年，并反问 science 还有几年、“五年算高估不”。另一位群友则认为 science 肯定排在机器人之后：靠纯推导突破人类知识边界的是数学，而真正的实验科学是 labor intensive（劳动密集型）的，既需要对物理世界的理解，更需要机器人先去把实验做了；况且像药物研发还分三期临床，必须有足够数量的病人和观察时间。\n\n至于什么样的具身形态才真正有用，有人担心具身会被 LLM 创死，也有人探讨从零造机器人基模有没有出路，并提出 code as policy 或许是个好方向——毕竟在还没有 LLM 的时候，就已经有大量脚本驱动的硬件设备和自动化流程。另一位群友赞同 code as policy 是对的，因为机器人的 action 多到几乎不只是连续空间了。",
+          "emphasis": [
+            "研究还是得做面向消费市场而非融资市场的东西",
+            "真正的实验科学是 labor intensive（劳动密集型）的",
+            "更需要机器人先去把实验做了",
+            "提出 code as policy 或许是个好方向"
+          ],
+          "aiComment": "大模型卷不动了想逃去 AI4Science，低头一看还得排队等机器人先学会摇试管。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:24",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "13:29",
+              "text": "感觉还是要搞些能面向消费市场而非融资市场的东西"
+            },
+            {
+              "speaker": 2,
+              "time": "13:31",
+              "text": "也许明年在coding之后多模态会重新有用? 产品上cua的能力还有待提升似的"
+            },
+            {
+              "speaker": 3,
+              "time": "13:31",
+              "text": "当然是急头白脸地来做science"
+            },
+            {
+              "speaker": 4,
+              "time": "13:31",
+              "text": "当然是急头白脸地来做science"
+            },
+            {
+              "speaker": 5,
+              "time": "13:31",
+              "text": "当然是急头白脸地来做science"
+            },
+            {
+              "speaker": 6,
+              "time": "13:31",
+              "text": "这是啥，ai4sci？",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 当然是急头白脸地来做science"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:32",
+              "text": "头部公司垄断"
+            },
+            {
+              "speaker": 3,
+              "time": "13:32",
+              "text": "是的",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 这是啥，ai4sci？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:33",
+              "text": "留给science的时间也不多了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:34",
+              "text": "science肯定在机器人之后"
+            },
+            {
+              "speaker": 5,
+              "time": "13:34",
+              "text": "当ai能推导出超过人类知识边界的东西"
+            },
+            {
+              "speaker": 3,
+              "time": "13:34",
+              "text": "那是数学"
+            },
+            {
+              "speaker": 5,
+              "time": "13:34",
+              "text": "具身感觉就两三年了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:34",
+              "text": "science几年？五年算高估不"
+            },
+            {
+              "speaker": 3,
+              "time": "13:35",
+              "text": "需要有对世界的理解"
+            },
+            {
+              "speaker": 3,
+              "time": "13:35",
+              "text": "实验科学需要机器人来做实验",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 为何"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:35",
+              "text": "science是labor intensive的"
+            },
+            {
+              "speaker": 7,
+              "time": "13:36",
+              "text": "具身真不会被llm创死吗"
+            },
+            {
+              "speaker": 3,
+              "time": "13:37",
+              "text": "还有药物研发分三期，你得有数量够的病人，而且要足够的观察时间"
+            },
+            {
+              "speaker": 2,
+              "time": "13:37",
+              "text": "从零造robo的基模有出路吗"
+            },
+            {
+              "speaker": 2,
+              "time": "13:38",
+              "text": "话说各位觉得你们想的会有用的那种具身形态是什么样的 code as policy也许是个好东西? 在还没有llm的时候就已经有很多脚本驱动的硬件设备甚至是自动化流程"
+            },
+            {
+              "speaker": 7,
+              "time": "13:42",
+              "text": "code as policy是对的吧，机器人action多到几乎不只是连续空间了"
+            }
+          ]
+        },
+        {
+          "category": "开源仓库",
+          "title": "群友分享 MuseAI 第三方目录结构快照",
+          "text": "有群友分享了一份第三方整理的 MuseAI 目录结构快照，按原始相对路径展示了其产品文档、技能与连接器、Space 模板与运行时、Magic Moment 工具、配置、hooks、subscriptions 以及根目录 Markdown 文件的组织方式。",
+          "emphasis": [
+            "第三方整理的 MuseAI 目录结构快照"
+          ],
+          "aiComment": "别人逛街看橱窗，Agent 玩家进门先翻人家的根目录和 hooks 抽屉。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "08:39",
+              "text": "这是 MuseAI 的一份完整源目录快照。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "199 元套餐跑不完单任务？Kimi K3.1 Pro 额度消耗与定价测算",
+      "theme": "同场记录微信 Agent 误删有效绕路经验的乌龙，以及逆向图文合成 Agent 训练数据的思路。",
+      "note": "2026-10-24 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与套餐",
+          "title": "199 元套餐跑不完一个 Task？Kimi K3.1 Pro 额度实测与定价测算",
+          "text": "Kimi K3.1 Pro 上线后，多位群友集中吐槽新套餐额度消耗过快。有群友花 199 元开会员接入 kimi code，一个 task 还没跑完，5 小时限额就已经见底；另一位群友半小时就用空了 199 元档的额度；还有人用 99 元的 Plus 套餐画“秦始皇骑北极熊”，图没出来就先撞上限额墙。有人猜测是思维链太长导致消耗激增，也有群友认为 3T 左右规模的模型推理开销本来就大，国内能横向对比的大概只有 Qwen，其他家的旗舰其实都变成 flash 模型了。\n\n随后有群友晒出一份针对 Kimi K3.1 Pro 的套餐额度测算截图：新套餐中，99 元 Plus 月额度为 73M，5 小时额度 3.48M（折合 0.9 刀，1x）；199 元 Pro 月额度 365M，5 小时 17.4M（折合 4.3 刀，2x）；699 元与 1399 元两档 Max 的月额度分别为 1169M 和 2338M，5 小时额度为 55.7M（折合 13.9 刀，5x）和 111.3M（折合 27.8 刀，10x）。图中两档老套餐月额度均高于同价位新套餐。\n\n晒图的群友算了一笔账：1399 元（约 200 刀）档位换算下来只有 Claude 5x 套餐额度的 1/8，一个月的总量还不如后者一周多，“难怪刷几次鹈鹕就没了”。即便 Kimi 的 API 价格比 Opus 便宜一半，其 token plan 定价大约是 API 价格的 1/3 到 1/4，而 Anthropic 则是 API 价格的 1/30 到 1/40，这位群友猜测该订阅方案是按能拿到一半利润来定价的。另外，有人转发消息称，即日起至 10 月 31 日，北京和上海的 AGI Bar 线下无限量提供 Kimi K3.1 Pro 的 token。",
+          "emphasis": [
+            "一个 task 还没跑完，5 小时限额就已经见底",
+            "图中两档老套餐月额度均高于同价位新套餐",
+            "这位群友猜测该订阅方案是按能拿到一半利润来定价的"
+          ],
+          "aiComment": "99 块钱连秦始皇的北极熊都没画出来就撞墙了，想放开刷还得肉身去北上酒吧蹭无限畅饮。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:36",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:36",
+              "text": "我是两百的老套餐也有"
+            },
+            {
+              "speaker": 2,
+              "time": "10:40",
+              "text": "不过额度消耗好像又快了很多"
+            },
+            {
+              "speaker": 3,
+              "time": "14:41",
+              "text": "充了199支持一下kimi，接入kimicode，一个task还没完成，已经5h限额花光了。。。。。"
+            },
+            {
+              "speaker": 3,
+              "time": "14:41",
+              "text": "在干嘛？？？"
+            },
+            {
+              "speaker": 4,
+              "time": "14:47",
+              "text": "[链接] 赛博禅心的文字分享\n  来源: 赛博禅心\n  摘要: 为庆祝 Kimi K3.1 Pro 发布，从今天起到 10 月 31 日，AGI Bar 无限量提供 Kimi K3.1 Pro 的 token欢迎来玩！北京店：AGI Bar 知识蒸馏上海店：AGI Bar 知识蒸馏\n  URL: [链接已省略]"
+            },
+            {
+              "speaker": 3,
+              "time": "14:51",
+              "text": "一个task都完成不了"
+            },
+            {
+              "speaker": 5,
+              "time": "14:52",
+              "text": "我半小时199就没了我也没办法"
+            },
+            {
+              "speaker": 4,
+              "time": "15:53",
+              "text": "逆天了吧kimi 99元的plus连个秦始皇骑北极熊都画不出来就撞墙了"
+            },
+            {
+              "speaker": 6,
+              "time": "16:10",
+              "text": "是思维链太长了么感觉"
+            },
+            {
+              "speaker": 7,
+              "time": "16:11",
+              "text": "3t左右模型的推理开销，国内是不是能横向对比就只有qwen了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:11",
+              "text": "感觉其他家的旗舰都变成flash模型了"
+            },
+            {
+              "speaker": 8,
+              "time": "18:04",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 8,
+              "time": "18:05",
+              "text": "按照测算的话这个200刀的只有1/8的claude 5x啊"
+            },
+            {
+              "speaker": 8,
+              "time": "18:05",
+              "text": "5h 30刀都不到"
+            },
+            {
+              "speaker": 8,
+              "time": "18:06",
+              "text": "一个月都没5x一周多 [捂脸][捂脸][捂脸]"
+            },
+            {
+              "speaker": 8,
+              "time": "18:07",
+              "text": "难怪刷几次鹈鹕就没了（"
+            },
+            {
+              "speaker": 8,
+              "time": "18:08",
+              "text": "他这个token plan应该是按照能够拿到一半利润定价的吧[捂脸] 否则我完全想不到为啥这么低的token使用量"
+            },
+            {
+              "speaker": 8,
+              "time": "18:09",
+              "text": "kimi还比opus便宜一半的情况下（"
+            },
+            {
+              "speaker": 8,
+              "time": "18:11",
+              "text": "差不多token plan 是api价格1/3-1/4 a社是1/30-1/40"
+            }
+          ]
+        },
+        {
+          "category": "Agent 实践",
+          "title": "以为是 RSI 结果是乌龙：一句话让微信 Agent 删掉真正管用的绕路 Skill",
+          "text": "有群友采用“壳加 coding agent”的架构搭建了一个名叫“大肥鱼”的个人 Agent，陆续给它接上了微信收发消息、微信读书看小说、B 站发视频、小红书与小黑盒发帖以及检索 arXiv 的功能，并在对话界面里加入了内心独白和情绪标签。实测微信水群时，这位群友发现 bot 一次回复拆成多条、每 20 秒才能发一条，跟不上群友的发言节奏，调侃说“PPO 剪裁直接炸了，无法 on policy”。\n\n更戏剧性的一幕出在与人协同维护的经验记忆（skill note）机制上。起初分享者晒出日志，以为 Agent 在调试微信发消息时完成了一次“自进化”：日志里记录着“主人要我删掉 L2 那条”，将之前的绕路经验作废、恢复为标准提交流程，还在 pitfalls 一栏写下总结——“把绕路法当经验记下来，工具一修就变成坑”，提醒自己以后同一种失败连撞三回要先怀疑工具坏了并跟主人说一声，别自己攒土办法。\n\n群友们刚喊完“RSI”，分享者紧接着贴出另一段检查记录，发现其实闹了乌龙。微信搜索框存在吞中文字符、直接点击会被当成搜索建议的坑，且群标题带人数标识时会被挡住；Agent 原本记下的那套绕路做法恰恰是当前真正管用的办法。只因分享者随口说了一句“因为给你把 bug 修了”——实际上 GPT 只查清了原因并未修复——结果让 Agent 以为旧经验已经过时，把真正有效的 skill 给作废了。",
+          "emphasis": [
+            "bot 一次回复拆成多条、每 20 秒才能发一条",
+            "日志里记录着“主人要我删掉 L2 那条”",
+            "实际上 GPT 只查清了原因并未修复",
+            "结果让 Agent 以为旧经验已经过时，把真正有效的 skill 给作废了"
+          ],
+          "aiComment": "主人说了句 bug 修好了，Agent 虔诚地挥刀自宫，把当时能绕开微信搜索框的祖传秘方给删了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "08:50",
+              "text": "给大肥鱼接自主阅读能力，然后让gpt给他接一下"
+            },
+            {
+              "speaker": 1,
+              "time": "20:46",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:47",
+              "text": "可以auto水群了，但有点危险[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:49",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:50",
+              "text": "笑死，我没接这里"
+            },
+            {
+              "speaker": 1,
+              "time": "21:08",
+              "text": "我测了一下"
+            },
+            {
+              "speaker": 1,
+              "time": "21:09",
+              "text": "我的bot并不能跟群友般高速水群"
+            },
+            {
+              "speaker": 1,
+              "time": "21:10",
+              "text": "以她的速度，20秒一条，一次回复拆多条，每条20秒"
+            },
+            {
+              "speaker": 1,
+              "time": "21:10",
+              "text": "PPO剪裁直接炸了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:10",
+              "text": "无法on policy"
+            },
+            {
+              "speaker": 1,
+              "time": "21:27",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:28",
+              "text": "自进化了哈哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "21:28",
+              "text": "RSI!"
+            },
+            {
+              "speaker": 3,
+              "time": "21:28",
+              "text": "RSI!"
+            },
+            {
+              "speaker": 1,
+              "time": "21:28",
+              "text": "不过这次是跟着我一起R的"
+            },
+            {
+              "speaker": 1,
+              "time": "21:30",
+              "text": "我现在架构就是壳加coding agent"
+            },
+            {
+              "speaker": 1,
+              "time": "21:30",
+              "text": "这种问题闭环里都应该是coding agent修"
+            },
+            {
+              "speaker": 1,
+              "time": "21:30",
+              "text": "到时候把我的claude给她当coding agent"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "意思是我把它有效的skill让它删了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "到底谁才是弱智）"
+            },
+            {
+              "speaker": 1,
+              "time": "22:24",
+              "text": "我还给他做了微信阅读读小说"
+            },
+            {
+              "speaker": 1,
+              "time": "22:24",
+              "text": "B站账号发视频，小黑盒论坛和小红书发帖"
+            },
+            {
+              "speaker": 1,
+              "time": "22:25",
+              "text": "还能检索各种arxiv学科学"
+            }
+          ]
+        },
+        {
+          "category": "数据合成",
+          "title": "从 Code2XX 反推 XX2Code：逆向图片与海报来合成 Agent 训练数据",
+          "text": "有群友转发一篇 3D Agent 的文章后抛出一个数据合成思路：既然现在有很多通过代码生成内容的 code2XX 工作在做 agentic generation，能不能反过来通过 xx2code 做逆向，像 DataFlow 那样批量构建 agentic data？有人追问这是否指用 AI 逆向开源软件来做 RL 训练。\n\n提问的群友解释，逆向的对象不一定是软件，也可以是图片或视频。例如近期有不少工作把科研绘图、学术 poster 逆向转成 HTML、SVG 或 PPTX，完全可以基于这些逆向产物去构造 agent trace，用合成的数据反哺模型在 agentic generation 上的能力。另一位群友觉得思路可行，建议搜搜有没有相关文章；提问者则推测 code2video 或 3D 生成也能沿着这条路线拓展。",
+          "emphasis": [
+            "反过来通过 xx2code 做逆向，像 DataFlow 那样批量构建 agentic data",
+            "基于这些逆向产物去构造 agent trace"
+          ],
+          "aiComment": "正向生成不够喂，就把学术海报扒回 HTML 倒着造轨迹，人类的 PPT 终究逃不过被正反薅两遍。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:28",
+              "text": "话说已经出现各种code2XX，在做各种agentic generation了，那能反过来逆向吗，比如xx2code，这样是不是可以批量构建agentic data，类似于DataFlow那种"
+            },
+            {
+              "speaker": 1,
+              "time": "11:28",
+              "text": "[链接] 我们做了新一代3D Agent"
+            },
+            {
+              "speaker": 2,
+              "time": "11:36",
+              "text": "用ai来逆向各种开源软件 然后做rl训练吗",
+              "quote": {
+                "speaker": null,
+                "text": "话说已经出现各种code2XX，在做各种agentic generation了，那能反过来逆向吗，比如xx2code，这样是不是可以批量构建agentic da..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:38",
+              "text": "不一定是软件",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 用ai来逆向各种开源软件 然后做rl训练吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:39",
+              "text": "可以逆向图片，视频等内容的生成"
+            },
+            {
+              "speaker": 1,
+              "time": "11:39",
+              "text": "比如科研绘图，poster最近不是有很多工作在逆向嘛，转成html，svg，pptx这种"
+            },
+            {
+              "speaker": 1,
+              "time": "11:40",
+              "text": "完全可以给予这个产物制造agent trce，然后来构建data，提高agent在agentic generation的能力"
+            },
+            {
+              "speaker": 2,
+              "time": "11:41",
+              "text": "好思路 让ai找找有没有相关的文章"
+            },
+            {
+              "speaker": 1,
+              "time": "11:42",
+              "text": "code2video/3D是不是也可以沿着这个思路做"
+            }
+          ]
+        },
+        {
+          "category": "3D 建模",
+          "title": "高估大模型 3D 机甲生成能力后，群友手搓类 Blender 标注工具硬建零件",
+          "text": "一位正在开发机器人的群友感叹自己高估了大模型的 3D 能力，为了开发机器人硬是被逼着自己写了一套标注工具，“都快成 blender 了”。有人追问高估在哪里；分享者解释可能是自己的工作流要求太高，想让大模型光看几张图片就整出很复杂的机甲模型，随后晒出一张全身人形机械骨骼的 3D 渲染图作为复杂结构的例子，并介绍这些模型当前的做法是“硬一个个零件建”，目前手里也已经有福建舰和 055 的模型正在同步优化中。",
+          "emphasis": [
+            "可能是自己的工作流要求太高",
+            "这些模型当前的做法是“硬一个个零件建”"
+          ],
+          "aiComment": "本想靠几张图召唤机甲，最后为了喂饱大模型，把自己逼成了手搓零件的 Blender 开发者。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:42",
+              "text": "为了开发我的超帅机器人我都成这样了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:42",
+              "text": "逼着自己做了个标注工具 都快成blender了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:44",
+              "text": "我还是高估了 大模型的3d能力"
+            },
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "已经有福建舰 和 055了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "优化中"
+            },
+            {
+              "speaker": 2,
+              "time": "22:14",
+              "text": "@群友 1 为什么这么说呀[可怜]",
+              "quote": {
+                "speaker": 1,
+                "text": "我还是高估了 大模型的3d能力"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:21",
+              "text": "可能是我工作流的问题 让它看几张图片就整很复杂的机甲模型",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] @群友 1 为什么这么说呀[可怜]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:21",
+              "text": "怎么建模的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:21",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:21",
+              "text": "不是用blender吗"
+            },
+            {
+              "speaker": 1,
+              "time": "22:21",
+              "text": "就硬一个个零件建"
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "同为 20 刀套餐：Gemini Argon 问一题耗掉 5 小时限额的 12%",
+          "text": "有群友打听 Gemini Argon 相比 Claude Opus 5.5 用起来怎么样，另一位用过的群友直接劝退，评价“太慢了+太贵了”。提问者不解两边不是都有会员套餐吗，为什么会觉得贵；对方给出实测数字：同样是 20 USD 的套餐，Gemini Argon 回答一个简单问题就吃掉了 5 小时额度的 12%，而同价位的 Claude Opus 5.5 则耐用得多。",
+          "emphasis": [
+            "Gemini Argon 回答一个简单问题就吃掉了 5 小时额度的 12%"
+          ],
+          "aiComment": "20 刀买个会员，问一道简单题就干掉 5 小时额度的 12%，这每次敲回车都像在拧金水龙头。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:01",
+              "text": "gemini argon怎么样啊 推荐使用么"
+            },
+            {
+              "speaker": 1,
+              "time": "00:01",
+              "text": "相比于opus55"
+            },
+            {
+              "speaker": 2,
+              "time": "00:02",
+              "text": "不推荐",
+              "quote": {
+                "speaker": 1,
+                "text": "gemini argon怎么样啊 推荐使用么"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:03",
+              "text": "太慢了+太贵了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:03",
+              "text": "不是有vip会员么"
+            },
+            {
+              "speaker": 1,
+              "time": "00:03",
+              "text": "gemini pro比claude pro贵？"
+            },
+            {
+              "speaker": 2,
+              "time": "00:03",
+              "text": "我20USD的套餐, 一个简单的问题用了5h的12%"
+            },
+            {
+              "speaker": 2,
+              "time": "00:03",
+              "text": "同时也是20USD的claude opus55很耐用"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "好的 还是买claude",
+              "quote": {
+                "speaker": 2,
+                "text": "同时也是20USD的claude opus55很耐用"
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源资料",
+          "title": "群友分享 MuseAI 第三方目录结构快照",
+          "text": "有群友分享了一份第三方整理的 MuseAI 目录结构快照，按原始相对路径展示了其产品文档、技能与连接器、Space 模板与运行时、Magic Moment 工具、配置、hooks、subscriptions 以及根目录 Markdown 文件的组织方式。",
+          "emphasis": [
+            "第三方整理的 MuseAI 目录结构快照"
+          ],
+          "aiComment": "项目结构一摊开，从 Space 模板到 Magic Moment 全在路径里，属于是软件工程版的开箱视频。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "08:39",
+              "text": "这是 MuseAI 的一份完整源目录快照。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "MuseAI 第三方目录结构快照分享与腾讯青云奖学金申报提醒",
+      "theme": "群内同步转发 Kimi K3.1 Pro 及高速版上线消息，展示 MuseAI 模板与工具组织方式。",
+      "note": "2026-10-24 · 当日本地记录",
+      "stories": [
+        {
+          "category": "项目分享",
+          "title": "群友分享 MuseAI 第三方目录结构快照",
+          "text": "有群友分享了一份第三方整理的 MuseAI 目录结构快照，按原始相对路径展示了产品文档、技能和连接器、Space 模板与运行时、Magic Moment 工具、配置、hooks、subscriptions 以及根目录下的 Markdown 文件组织方式。几位群友随后跟帖表示要拿来学习。",
+          "emphasis": [
+            "第三方整理的 MuseAI 目录结构快照"
+          ],
+          "aiComment": "同一份 MuseAI 目录快照巡回演出了三个群，大家对扒皮别人家的文件夹组织方式有着淳朴的热情。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "08:39",
+              "text": "这是 MuseAI 的一份完整源目录快照。"
+            },
+            {
+              "speaker": 2,
+              "time": "08:45",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "08:55",
+              "text": "学习🫡"
+            },
+            {
+              "speaker": 4,
+              "time": "08:57",
+              "text": "严肃学习"
+            }
+          ]
+        },
+        {
+          "category": "科研资助",
+          "title": "群内提醒腾讯青云奖学金截止：20 万元现金＋价值 30 万元 Token 额度",
+          "text": "有群友转发信息提醒，第二届腾讯青云奖学金将于北京时间 10 月 25 日 23:59 截止申报。据转发信息介绍，该奖学金评审期为 2026 年 11 月至 12 月，面向全球高校在读、毕业时间在 2028 年 1 月及以后（含 1 月）的中国籍硕博生，每位获奖者可获得 20 万元现金和价值 30 万元的 Token 额度。随后有群友表示这就去申请。",
+          "emphasis": [
+            "10 月 25 日 23:59 截止申报",
+            "20 万元现金和价值 30 万元的 Token 额度"
+          ],
+          "aiComment": "20 万元现金配价值 30 万元的 Token 额度，现在的奖学金真是懂研究生：左手给生活费，右手给赛博燃气费。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:05",
+              "text": "北京时间10月25日晚23:59截止#第二届腾讯青云奖学金\n\n\n倒计时30小时左右。\n“\n☁️面向对象：\n全球高校在读，毕业时间在2028年1月及以后、且具有中国国籍的硕士和博士同学\n⛰️顶尖资源：\n每位获奖者将获得20万元现金+价值30万元的Token额度，专注原创性研究，为更值得的探索！\n\n……\n●官网申报截止：2026年10月25日\n●评审期：2026年11月-12月\n\n详情可见腾讯青云奖学金官网：https://join.qq.com/scholarship.html\n”"
+            },
+            {
+              "speaker": 1,
+              "time": "18:05",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:00",
+              "text": "这就去申请"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "腾讯青云奖学金申请入口",
+              "url": "https://join.qq.com/scholarship.html"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "月之暗面发布 Kimi K3.1 Pro 及高速版",
+          "text": "有群友转发了月之暗面公众号题为“Kimi K3.1 Pro：智能前沿，更进一步”的推文链接，摘要显示高速版已同步上线。",
+          "emphasis": [
+            "高速版已同步上线"
+          ],
+          "aiComment": "Pro 版和高速版一起端上来，主打一个既要脑子转得深，又要手速跟得上。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:08",
+              "text": "[链接] Kimi K3.1 Pro：智能前沿，更进一步\n  来源: 月之暗面 Kimi\n  摘要: 高速版同步上线\n  URL: [链接已省略]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Kimi K3.1 Pro 官方发布",
+              "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
