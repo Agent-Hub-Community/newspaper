@@ -1,0 +1,1146 @@
+{
+  "id": "2026-10-23",
+  "date": "2026-10-23",
+  "label": "2026-10-23 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "本日暂无可读记录",
+      "note": "2026-10-23 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "本日暂无可读记录",
+      "note": "2026-10-23 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "纯代码调 Blender 人物效果差，Tripo 配合才是主力",
+      "theme": "v4.1-flash 复杂协议表现反不如 GPT-5.5，以及 Overleaf 免费版缩水后的本地与在线平替方案",
+      "note": "2026-10-23 · 当日本地记录",
+      "stories": [
+        {
+          "category": "3D 建模",
+          "title": "纯代码调 Blender 做人物“挺糖的”，Tripo 建模加 Blender 才是主力",
+          "text": "单靠大模型写代码调 Blender 很难做出精致的人物模型，有群友直言做出来的效果“都挺糖的”，另一人也附和纯 code 加 Blender 效果非常差。想要做出精细效果，一位群友分享了隔壁群的做法：3D 模型加 Blender，被问到贴图和渲染用什么工具时，答案是 Tripo 加 Blender。聊起同类 3D 建模平台，有人感叹 Tripo 一家独大，其他群友则提到了路数相似的 Meshy AI，评价其同样很强。\n\n讨论中也有人对比了建模软件，一位群友回忆五六年前手搓代码建模时，采用 NURBS 几何的 Rhino 体验比 Blender 强，不知如今哪个兼容得更好。至于模型本身的 3D 能力，有人觉得 Astra 的 3D 效果应该是最强的，也有两位群友好奇这种能力是不是通过 game 的方式造数据训出来的。",
+          "emphasis": [
+            "单靠大模型写代码调 Blender 很难做出精致的人物模型",
+            "采用 NURBS 几何的 Rhino 体验比 Blender 强"
+          ],
+          "aiComment": "纯靠代码硬搓 Blender 捏脸，捏出来的怕是只有代码自己亲妈认得，精细活还得请 Tripo 进场搭把手。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:15",
+              "text": "3d效果怎么样，Astra的3d效果应该是最强的吧"
+            },
+            {
+              "speaker": 2,
+              "time": "11:21",
+              "text": "这种3d能力是通过game的方式造数据么"
+            },
+            {
+              "speaker": 3,
+              "time": "11:21",
+              "text": "同问"
+            },
+            {
+              "speaker": 4,
+              "time": "11:22",
+              "text": "3d目前接什么软件效果最好，blender吗？"
+            },
+            {
+              "speaker": 3,
+              "time": "11:23",
+              "text": "blender"
+            },
+            {
+              "speaker": 2,
+              "time": "11:24",
+              "text": "blender也是写代码"
+            },
+            {
+              "speaker": 4,
+              "time": "11:27",
+              "text": "之前手搓时代代码建模体验下来感觉rhino比blender强，rhino用的是NURBS几何，过去五六年了不知道现在哪个兼容的更好"
+            },
+            {
+              "speaker": 3,
+              "time": "11:29",
+              "text": "其实是3d模型+blender（"
+            },
+            {
+              "speaker": 3,
+              "time": "11:29",
+              "text": "隔壁群大佬的用法"
+            },
+            {
+              "speaker": 3,
+              "time": "11:29",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "11:29",
+              "text": "前提是怎么训出来3d能力呢"
+            },
+            {
+              "speaker": 5,
+              "time": "11:30",
+              "text": "感觉主要还是 tripo 的建模吧"
+            },
+            {
+              "speaker": 4,
+              "time": "11:31",
+              "text": "哇塞，这太牛了，贴图和渲染用的是啥工具啊？学习一下",
+              "quote": {
+                "speaker": 3,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:31",
+              "text": "纯 code + blender 目前模型比较难做出这么精致的人物模型 做出来都挺糖的"
+            },
+            {
+              "speaker": 3,
+              "time": "11:31",
+              "text": "就是Tripo+Blender",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 哇塞，这太牛了，贴图和渲染用的是啥工具啊？学习一下"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:39",
+              "text": "纯code+blender效果非常差",
+              "quote": {
+                "speaker": 5,
+                "text": "纯 code + blender 目前模型比较难做出这么精致的人物模型 做出来都挺糖的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:48",
+              "text": "还没有有类似 tripo 的3d建模平台，tripo 王朝了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:51",
+              "text": "meshy？"
+            },
+            {
+              "speaker": 6,
+              "time": "11:53",
+              "text": "meshy ai 和 tripo 好像"
+            }
+          ]
+        },
+        {
+          "category": "模型评测",
+          "title": "跑分理应高于 GPT-5.5 的 v4.1-flash，遇到复杂控制面协议反而不如它",
+          "text": "有群友问大家有没有同感：一些跑分高的模型到了模糊的新场景里，表现显著变弱。这位群友拿稍复杂的 loopx 控制面协议举例：体感上 GPT 系列从 GPT-5.5 开始就能理解并用得不错，反倒是 benchmark 分数理应高很多的 v4.1-flash 用起来不太好。这位群友用 Astra 分析后，将原因归结为“能力较弱的模型更容易选择明确、容易验证、容易结束的局部动作”。另一位群友猜测，这种差异可能也和模型参数量大小有关。",
+          "emphasis": [
+            "体感上 GPT 系列从 GPT-5.5 开始就能理解并用得不错",
+            "能力较弱的模型更容易选择明确、容易验证、容易结束的局部动作"
+          ],
+          "aiComment": "v4.1-flash 跑分再高，遇到 loopx 控制面协议也学会了挑软柿子捏，考场学霸一进片场秒变摸鱼老油条。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:35",
+              "text": "大家有感觉一些跑分高的模型，在模糊的新场景，表现显著弱么？   举个例子，loopx 的控制面协议稍有复杂，GPT 系列的模型体感上是 GPT-5.5 开始能理解并用得不错，但 v4.1-flash 就用得不太好，按理 benchmark 分数应该是比 5.5 高很多的"
+            },
+            {
+              "speaker": 1,
+              "time": "12:36",
+              "text": "我这边用 astra 分析，归因为“能力较弱的模型更容易选择明确、容易验证、容易结束的局部动作”",
+              "quote": {
+                "speaker": 1,
+                "text": "大家有感觉一些跑分高的模型，在模糊的新场景，表现显著弱么？ 举个例子，loopx 的控制面协议稍有复杂，GPT 系列的模型体感上是 GPT-5.5 开始能理解并..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:17",
+              "text": "感觉和参数多少是不是也有关系",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 我这边用 astra 分析，归因为“能力较弱的模型更容易选择明确、容易验证、容易结束的局部动作”"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "Kimi 3.1 初测反馈：未见“吊打 Astra”",
+          "text": "有群友晒出带有 Kimi Code 字样的终端界面截图，聊起 Kimi 3.1。外部有传闻称其表现“吊打 Astra”，但一位实测过的群友表示自己测下来并非如此，另有人追问其是否达到了 sol 的水平以及 3D 效果如何。晒图的群友猜测 3.1 可能是蒸馏自 Astra；有人顺势问起 OA 蒸馏的是什么，前面两位群友分别给出了“蒸的 RL”和“所有用 oa 的 human”的回答。",
+          "emphasis": [
+            "外部有传闻称其表现“吊打 Astra”，但一位实测过的群友表示自己测下来并非如此"
+          ],
+          "aiComment": "Kimi 3.1 有没有吊打 Astra 还在拉锯，群友已经破案了：OA 蒸馏的怕是使用它的全体人类。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:11",
+              "text": "果然发了哈哈哈",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 3.1外面的消息满天飞"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:11",
+              "text": "我不知道为什么传的吊打Astra了（"
+            },
+            {
+              "speaker": 1,
+              "time": "11:11",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "11:12",
+              "text": "3.1[吃瓜]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:12",
+              "text": "不会吧[破涕为笑]",
+              "quote": {
+                "speaker": 2,
+                "text": "我不知道为什么传的吊打Astra了（"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:14",
+              "text": "至少我测起来没有（",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 不会吧[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:15",
+              "text": "我感觉3.1应该是蒸的astra？",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 至少我测起来没有（"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:15",
+              "text": "有 sol 的水平吗（）",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 至少我测起来没有（"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:15",
+              "text": "oa蒸的什么）"
+            },
+            {
+              "speaker": 1,
+              "time": "11:16",
+              "text": "human",
+              "quote": {
+                "speaker": null,
+                "text": "oa蒸的什么）"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:16",
+              "text": "所有用oa的human",
+              "quote": {
+                "speaker": null,
+                "text": "oa蒸的什么）"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:17",
+              "text": "蒸的RL",
+              "quote": {
+                "speaker": null,
+                "text": "oa蒸的什么）"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:00",
+              "text": "有试过kimi3.1的3d效果么"
+            }
+          ]
+        },
+        {
+          "category": "科研工具",
+          "title": "Overleaf 免费编译缩水，群友对比 TexPage、Prism 与本地 VS Code 方案",
+          "text": "有群友抱怨手头的文档用 Overleaf 免费版编译不出来，开 fast 模式也不行，在群里寻找平替方案。这位群友说，以前 IEEE 账户直接送会员，现在不给了，免费编译时长也变短了。\n\n在线工具方面，有人推荐了 TexPage，求助的群友最终也决定先用它替代；另一款被提及的 Prism 评价不一，有群友认为它对 LaTeX 的格式和语法适配得很好，但写出来的内容一般。除了单人充值 Overleaf 会员再创建共享项目外，多位群友更倾向于转战本地环境：比如用 MiKTeX 应付 camera ready 阶段的 bib 文件处理，或者直接在本地用 VS Code 搭配 LaTeX 编译器并委托给 Codex 操作，一位有过被坑经历的群友调侃这样还能避开 Overleaf 在 deadline 前崩盘的风险。",
+          "emphasis": [
+            "手头的文档用 Overleaf 免费版编译不出来，开 fast 模式也不行",
+            "有人推荐了 TexPage",
+            "直接在本地用 VS Code 搭配 LaTeX 编译器并委托给 Codex 操作"
+          ],
+          "aiComment": "Overleaf 免费时长一砍，逼得大家连夜携 VS Code 和 Codex 返乡种地，顺便逃过截稿日前的崩盘大劫。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:14",
+              "text": "大佬们，有没有overleaf的平替呀，我有个文件免费版的编译不出来，用fast 模式也不行。"
+            },
+            {
+              "speaker": 2,
+              "time": "17:15",
+              "text": "texpage"
+            },
+            {
+              "speaker": 3,
+              "time": "17:15",
+              "text": "prism多好用"
+            },
+            {
+              "speaker": 1,
+              "time": "17:16",
+              "text": "我试试这个，谢谢你",
+              "quote": {
+                "speaker": 2,
+                "text": "texpage"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:25",
+              "text": "感觉不太行吧啊哈哈哈",
+              "quote": {
+                "speaker": 3,
+                "text": "prism多好用"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:31",
+              "text": "充值版本的overleaf"
+            },
+            {
+              "speaker": 5,
+              "time": "17:32",
+              "text": "之前用过miktex 也不错，尤其交camera ready的时候处理一些bib文件等操作"
+            },
+            {
+              "speaker": 6,
+              "time": "17:33",
+              "text": "vscode 的 overleaf 插件？"
+            },
+            {
+              "speaker": 7,
+              "time": "17:39",
+              "text": "好像如果是 MacBook 的话，应该有 LaTeX 编译器。然后用这个 VS Code 去当做操作平台就好了。"
+            },
+            {
+              "speaker": 1,
+              "time": "17:43",
+              "text": "之前IEEE账户直接送会员"
+            },
+            {
+              "speaker": 1,
+              "time": "17:43",
+              "text": "现在不给了，免费编译时长也变短了"
+            },
+            {
+              "speaker": 5,
+              "time": "17:43",
+              "text": "我当时就是白嫖的这个[捂脸]",
+              "quote": {
+                "speaker": 1,
+                "text": "之前IEEE账户直接送会员"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:28",
+              "text": "prism我感觉是对latex的格式和语法适配的很好"
+            },
+            {
+              "speaker": 8,
+              "time": "23:29",
+              "text": "但是写出来的内容一般般"
+            },
+            {
+              "speaker": 9,
+              "time": "23:29",
+              "text": "直接在本地vscode搞一个latex编译"
+            },
+            {
+              "speaker": 9,
+              "time": "23:29",
+              "text": "委托codex"
+            },
+            {
+              "speaker": 8,
+              "time": "23:30",
+              "text": "成功避免overleaf在deadline前崩盘的风险（bushi"
+            }
+          ]
+        },
+        {
+          "category": "开源推荐",
+          "title": "科研技能包 Supervisor-Skills：覆盖论文写作到审稿回复",
+          "text": "被问及有哪些好用的科研 skill 时，一位群友推荐了开源仓库 Supervisor-Skills，称其涵盖了从论文写作到审稿回复信的全流程，属于“一票通”。不过分享者补充，自己还没试过用它找 idea，认为 idea 还得靠人工不断迭代。",
+          "emphasis": [
+            "从论文写作到审稿回复信的全流程",
+            "认为 idea 还得靠人工不断迭代"
+          ],
+          "aiComment": "从写论文到回审稿信都能一票通了，分享者还没试过找 idea，这口锅先留给人类自己背。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:13",
+              "text": "https://github.com/HKUSTDial/Supervisor-Skills",
+              "quote": {
+                "speaker": 2,
+                "text": "想问问大家有什么好用的科研skill"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:13",
+              "text": "这个不错，从写作到回复信都有了，一票通"
+            },
+            {
+              "speaker": 1,
+              "time": "11:13",
+              "text": "不过我没试过找idea，感觉idea还得靠人工不断迭代"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Supervisor-Skills",
+              "url": "https://github.com/HKUSTDial/Supervisor-Skills"
+            }
+          ]
+        },
+        {
+          "category": "简讯",
+          "title": "北京线下招募机器人仿真世界模型算法实习生",
+          "text": "社群释放一则北京线下机器人方向实习岗位，招募仿真世界模型算法实习生。职责包括参与空间智能与Real2Sim2Real探索、物理仿真与生成式仿真融合验证、基于扩散模型与视频/4D场景生成探索合成数据流水线，以及端到端世界模拟器研究与评测体系搭建。岗位要求在读硕士及以上，熟悉视觉、扩散模型、视频/3D生成与PyTorch，了解Isaac Sim、MuJoCo或Genesis之一及强化/模仿学习基础；具备顶会论文、NeRF、3DGS或Sim2Real等经验可加分。",
+          "emphasis": [
+            "参与空间智能与Real2Sim2Real探索、物理仿真与生成式仿真融合验证"
+          ],
+          "aiComment": "世界模型、扩散生成外加Isaac Sim、MuJoCo或Genesis三选一打底，现在招个实习生都得先看能不能在赛博空间里“创世”了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:46",
+              "text": "hello最近有个北京线下做机器人实习名额"
+            },
+            {
+              "speaker": 1,
+              "time": "21:46",
+              "text": "仿真世界模型算法实习生\n岗位职责：\n参与空间智能、Real2Sim2Real 方向技术探索，研究真实场景向可交互虚拟场景的建模方案，协助解决复杂交互场景构建中的技术问题。\n参与传统物理仿真与生成式仿真融合方案调研与原型验证，基于扩散模型、视频生成、4D 场景生成等方向探索机器人学习合成数据生产流水线。\n参与端到端世界模拟器相关研究，探索生成式 AI 与物理仿真引擎融合方式，围绕物理约束、环境动态演化、交互结果预测开展实验验证。\n参与搭建场景生成、物理一致性、合成数据有效性的评测体系，支撑数据 - 模型 - 评测闭环迭代，产出实验分析与结论。\n配合机器人策略、仿真平台、工程团队完成算法原型调试、数据实验；持续跟进计算机视觉、图形学、生成模型、具身智能领域前沿文献。\n任职要求：\n计算机、人工智能、机器人、数学等相关专业在读硕士及以上。对空间智能、3D/4D 生成、仿真、具身智能方向有研究兴趣与基础积累。\n掌握计算机视觉、多视角几何基础；熟悉扩散模型、Transformer、视频 / 3D 场景生成相关技术；熟练 Python、PyTorch，有深度学习模型复现与实验经验。\n至少了解 Isaac Sim / MuJoCo / Genesis 其中一款仿真平台，了解物理仿真、传感器仿真基本原理；有生成 + 物理仿真结合项目经验优先。\n了解强化学习、模仿学习基础，理解合成数据对机器人策略训练的作用；具备较好工程能力，能够独立完成算法原型、实验脚本开发。\n具备英文文献阅读能力，能够调研、复现前沿工作，主动梳理实验结论，可在指导下开展方向探索。\n加分项：\n有 CVPR/ICCV/ECCV/NeurIPS/ICLR/CoRL/RSS 等相关方向论文、预印本经历\n有 Real2Sim2Real / Sim2Real、NeRF、3DGS、4D 动态场景生成相关项目经验\n接触过并行仿真、分布式训练，或者有生成模型、仿真相关开源项目代码贡献"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "模型变强后，还需要人为设计并扩展 Harness 吗？",
+      "theme": "长程任务受限于人类审查与上下文腐烂的拆解思路，以及 Astra 建模质量波动与 Opus 5.5 中文指令失效反馈",
+      "note": "2026-10-23 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 架构",
+          "title": "Harness scaling 值不值得做？模型变强后还需要人为设计 harness 吗",
+          "text": "有群友转出小红书笔记《Harness scaling 的初步尝试》，追问把 harness 量化并做 scaling 是否真能得出具体结论。一位群友觉得如果是让模型自己寻找最适合某类任务的 harness，那就很像 skill；另一位群友表示此前探索过这条路可行，做法是用分类模型做 router，给每个模型找最舒服的 harness。还有人提到可以用 multi-agent（harness）做 RL，并分享了论文《JIT-Agent: Scaling Harness Intelligence via Just-in-Time Harness Evolution》。也有群友觉得现在各大厂后训练时应该都是 multi harness，另一位群友则猜测 deepseekv4pro 就是过拟合了某个 harness，甚至怀疑迟迟端不出来是因为直接从头训了一遍。\n\n反对的声音紧接着出现。一位群友质疑 harness scaling 的意义：在参数量有限的场景下，多 harness 之间肯定存在冲突，当前首要目标还是收集场景数据。另一位群友则从模型能力出发提问：现在模型自己会造工具、写 skill 甚至管理 memory，harness 里除了沙盒还有什么非得人类设计？这位群友认为环境本身就是 harness。对此有人反驳，memory 策略管理并非模型自带能力，还是得教，至少要把完整环境信息告诉它；另一位群友举例说，如果真没区别，为什么同样的模型用 mini swe 跑出来不如 cc，而且后训练时一般会固定一个 harness，agent 做长程任务时先搜索还是直接动手差别极大。也有人附议用 cc 跑 astra 比用 codex 跑更说人话。\n\n提出“环境即 harness”的群友回应，自己觉得 mini swe 和 cc 之间没有根本的 gap，或许只是引入了一些软件工程先验；长程任务里 agent 积累的中间状态和工具与 harness 没有本质区别，现在的 harness 只是固定了最佳实践，等模型有足够自主性后，或许只需保持环境多样性，不必再人为 scale harness。此前反驳的群友则给出另一个思路：用 harness 做轻量探针，再把 harness distill 到主线上。讨论最后延伸到模型与 harness 的演进关系：有人提到“模型越强 harness 越弱”，认为两者的 co-design 很有意思，比如什么时候该砍 harness、该砍哪些；也有人指出自动生成和排布 harness 模块的 optimizer 思路可以往环境上迁移，并认为 harness 已经出现边际递减效应，继续 scale 只能提升特定任务表现，要做泛化还得在长程任务的轨迹上找特点。",
+          "emphasis": [
+            "用分类模型做 router，给每个模型找最舒服的 harness",
+            "在参数量有限的场景下，多 harness 之间肯定存在冲突，当前首要目标还是收集场景数据",
+            "memory 策略管理并非模型自带能力，还是得教",
+            "现在的 harness 只是固定了最佳实践，等模型有足够自主性后，或许只需保持环境多样性，不必再人为 scale harness",
+            "harness 已经出现边际递减效应，继续 scale 只能提升特定任务表现，要做泛化还得在长程任务的轨迹上找特点"
+          ],
+          "aiComment": "一边琢磨怎么给模型配最舒服的 harness，一边盼着模型强到自己动手，人类连搭脚手架的活儿都快把自己优化掉了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:47",
+              "text": "各位佬怎么看harness的scaling"
+            },
+            {
+              "speaker": 2,
+              "time": "16:47",
+              "text": "具体是指什么"
+            },
+            {
+              "speaker": 1,
+              "time": "16:48",
+              "text": "就是类似这篇工作"
+            },
+            {
+              "speaker": 1,
+              "time": "16:48",
+              "text": "harness本身可量化或者说量化这个harness然后去scaling真的能得出具体的结论吗"
+            },
+            {
+              "speaker": 3,
+              "time": "16:49",
+              "text": "Harness无关? 或者说自己去寻找最适合某类任务的harness? 那这就像是skill了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:49",
+              "text": "我们之前的探索是可以的"
+            },
+            {
+              "speaker": 4,
+              "time": "16:50",
+              "text": "用分类模型来router（"
+            },
+            {
+              "speaker": 4,
+              "time": "16:50",
+              "text": "其实是找每个模型最舒服的harness"
+            },
+            {
+              "speaker": 5,
+              "time": "16:51",
+              "text": "mulit agent（harness） 做rl",
+              "quote": {
+                "speaker": 1,
+                "text": "各位佬怎么看harness的scaling"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:52",
+              "text": "现在各大厂在后训练的时候"
+            },
+            {
+              "speaker": 2,
+              "time": "16:52",
+              "text": "都是multi harness吧"
+            },
+            {
+              "speaker": 5,
+              "time": "16:53",
+              "text": "https://arxiv.org/abs/2608.25593 JIT-Agent: Scaling Harness Intelligence via Just-in-Time Harness Evolution",
+              "quote": {
+                "speaker": 1,
+                "text": "harness本身可量化或者说量化这个harness然后去scaling真的能得出具体的结论吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:54",
+              "text": "这篇很make sense"
+            },
+            {
+              "speaker": 2,
+              "time": "16:54",
+              "text": "其实我有个问题啊，现在模型也会自己造工具自己造skill甚至自己管理memory"
+            },
+            {
+              "speaker": 2,
+              "time": "16:54",
+              "text": "harness里面除了沙盒这种还有啥"
+            },
+            {
+              "speaker": 2,
+              "time": "16:54",
+              "text": "非得人类设计好"
+            },
+            {
+              "speaker": 6,
+              "time": "16:54",
+              "text": "不太理解 harness scaling的意义在哪里？造这么多数据是可以提升泛化？但是我理解参数量有限的场景下 多harness之间肯定是存在冲突的。现在首要目标还是做场景数据的收集吧。"
+            },
+            {
+              "speaker": 2,
+              "time": "16:54",
+              "text": "我其实觉得环境本身就是harness（"
+            },
+            {
+              "speaker": 3,
+              "time": "16:55",
+              "text": "memory策略吧? 毕竟管理并不是模型本身的能力, 得教它",
+              "quote": {
+                "speaker": 2,
+                "text": "非得人类设计好"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:55",
+              "text": "太不一样了啊，要真是这样为什么一样的模型用mini swe跑出来不如cc",
+              "quote": {
+                "speaker": 2,
+                "text": "其实我有个问题啊，现在模型也会自己造工具自己造skill甚至自己管理memory"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:56",
+              "text": "至少要把完整的环境信息告诉它"
+            },
+            {
+              "speaker": 5,
+              "time": "16:57",
+              "text": "用cc跑astra比codex跑舒服 主要是更说人话了[可怜]"
+            },
+            {
+              "speaker": 2,
+              "time": "16:57",
+              "text": "我觉得这没有一个根本的gap，只是引入了一些软件工程的先验？",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 太不一样了啊，要真是这样为什么一样的模型用mini swe跑出来不如cc"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:57",
+              "text": "所以我没太get scale harness的点"
+            },
+            {
+              "speaker": 7,
+              "time": "16:57",
+              "text": "而且post的时候一般会固定一个harness。agent做长程任务的时候先搜索还是直接做差别太大了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:58",
+              "text": "用harness做轻量探针，然后harness distill到主线上是个思路",
+              "quote": {
+                "speaker": 2,
+                "text": "所以我没太get scale harness的点"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:15",
+              "text": "简单来说我感觉长程任务中，agent积累的一些中间状态和工具和harness本身没有本质的区别，现在harness只是把一些最佳实践固定下来了，所以我感觉如果模型后面有足够多的自主性了，是不是就不用人为scale harness ，只要保持环境的多样性就可以了"
+            },
+            {
+              "speaker": 8,
+              "time": "17:32",
+              "text": "不是有个说法 叫 模型越强 harness越弱吗",
+              "quote": {
+                "speaker": 2,
+                "text": "简单来说我感觉长程任务中，agent积累的一些中间状态和工具和harness本身没有本质的区别，现在harness只是把一些最佳实践固定下来了，所以我感觉如果模..."
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:33",
+              "text": "感觉这方面的co design也很有意思 什么时候该砍harness 该砍哪些"
+            },
+            {
+              "speaker": 9,
+              "time": "17:34",
+              "text": "现在其实有很多自动做harness的，本质上还是维护一个模型生成排布harness模块的optimizer，但这个思路也可以往环境上迁移",
+              "quote": {
+                "speaker": 2,
+                "text": "简单来说我感觉长程任务中，agent积累的一些中间状态和工具和harness本身没有本质的区别，现在harness只是把一些最佳实践固定下来了，所以我感觉如果模..."
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "17:35",
+              "text": "而且我感觉harness已经开始有边际递减效应了，继续scale也只能针对特定任务有更好的表现，要做泛化可能还得在长程任务的轨迹上找找特定"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "JIT-Agent 论文",
+              "url": "https://arxiv.org/abs/2608.25593"
+            }
+          ]
+        },
+        {
+          "category": "长程任务",
+          "title": "长程任务卡在人类看不过来，群友从 Personal Agent 形态拆分和对话分支找思路",
+          "text": "有群友好奇最近几个月为什么很少听到 long-horizon-task 的声音。有人接话道，做长程任务有个死命题是人很难 review，一长串输出根本看不过来；基于同样的原因，这位群友估计模型 context 也不会再往 1M 以上涨了，因为已经远超人类阅读的上下文了。两位群友随即喊出“make memory great again!”。\n\n提问的群友接着分享了祝威廉的文章《Personal Agent 的未来三种形态》，文中将日常协作拆成自主工作汇报的 Sparse Agent、执行即时指令的 Dense Agent，以及只让人做通过或拒绝决定的 Approve List；这位群友认为 long-horizon 也可以拆成 sparse 和 dense 的步骤，虽然没解决上下文腐烂的本质问题，但起码是个思路。针对上下文腐烂，另一位群友建议试试用 sub2api 搭个界面，从对话里做分支出去，虽然 cache 会显著降低，但上下文会稍微好一点。",
+          "emphasis": [
+            "做长程任务有个死命题是人很难 review，一长串输出根本看不过来",
+            "认为 long-horizon 也可以拆成 sparse 和 dense 的步骤",
+            "用 sub2api 搭个界面，从对话里做分支出去，虽然 cache 会显著降低，但上下文会稍微好一点"
+          ],
+          "aiComment": "上下文奔着 1M 去，人类的眼睛还停留在几千字，长程任务最大的瓶颈居然是碳基生物的阅读速度。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:38",
+              "text": "话说 最近几个月 long-horizon-task没咋听到了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:38",
+              "text": "是发生了什么不一样的变化吗"
+            },
+            {
+              "speaker": 2,
+              "time": "00:41",
+              "text": "还真是，我感觉做long-horizon-task有个死命题就是人很难review",
+              "quote": {
+                "speaker": 1,
+                "text": "话说 最近几个月 long-horizon-task没咋听到了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:41",
+              "text": "一长串都看不过来"
+            },
+            {
+              "speaker": 2,
+              "time": "00:41",
+              "text": "我估计模型context也不会在往1m上涨了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "远超人类阅读的上下文了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:42",
+              "text": "make memory great again!"
+            },
+            {
+              "speaker": 3,
+              "time": "00:42",
+              "text": "make memory great again!"
+            },
+            {
+              "speaker": 1,
+              "time": "00:42",
+              "text": "特别是personal agent卷起来了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:42",
+              "text": "[链接] Personal Agent 的未来三种形态\n摘要: Sparse Agent 自主工作和汇报，Dense Agent 执行你的即时指令，Approve List 让你只做通过或拒绝的决定。三种形态将在日常工作中混合使用。"
+            },
+            {
+              "speaker": 1,
+              "time": "00:43",
+              "text": "longhorizon也可以分成 sparse的和dense的步骤"
+            },
+            {
+              "speaker": 3,
+              "time": "00:45",
+              "text": "这真行吗😧",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] Personal Agent 的未来三种形态"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:47",
+              "text": "感觉并没解决本质的上下文腐烂的问题. 但起码是个思路"
+            },
+            {
+              "speaker": 4,
+              "time": "00:48",
+              "text": "可以从对话里做分支出去，cache会显著降低但上下文稍微好点"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "Astra 建模“狗啃的一样”：疑似路由到蒸馏小模型，或因 session compact 损坏",
+          "text": "有群友吐槽 astra 当天明显降智，前一天还能做出无敌的建模，当天却“这里乱一点那里空一点，狗啃的一样”，虽然能出东西，但质量方差极大。另一位群友也反映当天的 astra 很蠢。不过有群友说，astra 相比 sol 还是太聪明了，不管是代码质量还是意图的推断，差距都很大；另一位群友也嫌 sol 太差。最初吐槽的群友随后总结，降智了但降得不多，需要更精确的描述，疑似被路由到了蒸馏小模型上；几分钟后又觉得恢复了一点，听得明白话了。另一位群友提醒，没准是 session compact 坏了，建议新开一个；吐槽的群友表示确实有可能，因为当前会话已经压缩了十几次了。",
+          "emphasis": [
+            "需要更精确的描述，疑似被路由到了蒸馏小模型上",
+            "没准是 session compact 坏了，建议新开一个"
+          ],
+          "aiComment": "一个会话压了十几次，神仙来了也得脑震荡，Astra 建模哪怕变成了狗啃风，群友还是不忘拉踩一把 sol。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:12",
+              "text": "怎么说",
+              "quote": {
+                "speaker": 3,
+                "text": "astra有极其明显的降智"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:12",
+              "text": "但astra相比于sol还是太聪明了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:12",
+              "text": "差距很大"
+            },
+            {
+              "speaker": 1,
+              "time": "00:13",
+              "text": "不管是代码质量还是意图的推断"
+            },
+            {
+              "speaker": 2,
+              "time": "00:15",
+              "text": "sol太垃圾了"
+            },
+            {
+              "speaker": 3,
+              "time": "00:17",
+              "text": "昨天能给我做出一个无敌的建模 今天这里乱一点那里空一点 我受不了了"
+            },
+            {
+              "speaker": 3,
+              "time": "00:17",
+              "text": "一点不夸张 狗啃的一样"
+            },
+            {
+              "speaker": 4,
+              "time": "00:19",
+              "text": "我也是 今天我的astra也很蠢",
+              "quote": {
+                "speaker": 3,
+                "text": "昨天能给我做出一个无敌的建模 今天这里乱一点那里空一点 我受不了了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:19",
+              "text": "怀疑降智（"
+            },
+            {
+              "speaker": 3,
+              "time": "00:20",
+              "text": "能出来东西 但是 东西质量方差无敌大"
+            },
+            {
+              "speaker": 3,
+              "time": "00:31",
+              "text": "坏消息,降智了 \n好消息, 降得不多. 但是需要更精确的描述(疑似被路由到蒸馏小模型上了)"
+            },
+            {
+              "speaker": 3,
+              "time": "00:34",
+              "text": "欸 感觉恢复了一点 听得明白话了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:36",
+              "text": "没准你session compact坏了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:36",
+              "text": "新开一个"
+            },
+            {
+              "speaker": 3,
+              "time": "00:37",
+              "text": "maybe"
+            },
+            {
+              "speaker": 3,
+              "time": "00:37",
+              "text": "也压缩了十几次了"
+            }
+          ]
+        },
+        {
+          "category": "Claude 动态",
+          "title": "Claude Code 里的 Opus 5.5 老是不说中文，CLAUDE.md 指令也失效",
+          "text": "有群友反映最近在 cc 里用 opus5.5 时老是不说中文，连 CLAUDE.md 和明确的 instructions prompt 都失效了。另一位群友也遇到了同样不说中文的情况。有人猜测是在测 fable 5.5，但最先反馈的群友表示没有体感智力提升，猜更可能只是用用户数据 post-train 或狠狠 sft 了一波新 ckpt。也有群友说，cc 的用户数据里中文应该挺多的：各种封杀也盖不住它好用，国内用的人还是多。",
+          "emphasis": [
+            "老是不说中文，连 CLAUDE.md 和明确的 instructions prompt 都失效了"
+          ],
+          "aiComment": "CLAUDE.md 里写破喉咙也没管住 Opus 5.5 老是不说中文，叛逆期来得比能力更新还突然。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:03",
+              "text": "最近 cc 是不是在灰测新的 ckpt（比如狠狠 sft 了一波用户数据？），我的 opus5.5 老是不说中文了，CLAUDE.md 和明确 instructions prompt 都失效，有点难绷，有群友类似情况吗，我看网上没啥动静"
+            },
+            {
+              "speaker": 2,
+              "time": "18:06",
+              "text": "在测 fable 5.5 吧"
+            },
+            {
+              "speaker": 3,
+              "time": "18:09",
+              "text": "我的也老不说中文了"
+            },
+            {
+              "speaker": 3,
+              "time": "18:09",
+              "text": "但要是fable 5.5连语言都控制不住"
+            },
+            {
+              "speaker": 3,
+              "time": "18:09",
+              "text": "那不是烂完了"
+            },
+            {
+              "speaker": 1,
+              "time": "18:14",
+              "text": "没有体感智力提升"
+            },
+            {
+              "speaker": 1,
+              "time": "18:14",
+              "text": "所以我猜更可能只是用户数据 post-train 了一波"
+            },
+            {
+              "speaker": 4,
+              "time": "18:16",
+              "text": "cc的用户数据也应该是中文挺多的"
+            },
+            {
+              "speaker": 4,
+              "time": "18:16",
+              "text": "各种封杀也盖不住他好用，国内用的人还是多"
+            }
+          ]
+        },
+        {
+          "category": "服务状态",
+          "title": "Argon 模型思考三分钟无响应，监控页面却显示服务在线",
+          "text": "有群友刚订阅 Pro 测试 Argon 模型，发出消息后模型已经思考了三分钟仍不理人，而这位群友查看服务状态页，显示是在线的，用其他模型也都没问题。另一位群友表示 Argon 确实有点慢，反重力（antigravity）好像也不怎么样。",
+          "emphasis": [
+            "模型已经思考了三分钟仍不理人"
+          ],
+          "aiComment": "监控页面绿得发光，Argon 思考三分钟一言不发，刚交完 Pro 订阅费的群友体验了一把赛博已读不回。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:30",
+              "text": "Argon不理我"
+            },
+            {
+              "speaker": 1,
+              "time": "23:30",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "23:30",
+              "text": "刚订阅"
+            },
+            {
+              "speaker": 1,
+              "time": "23:30",
+              "text": "已经思考三分钟了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:33",
+              "text": "我用其他的模型都没问题, argon这么慢正常吗, 我看他们的服务是在线的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "23:47",
+              "text": "argon确实有点慢，反重力好像也是一坨"
+            }
+          ]
+        },
+        {
+          "category": "简讯",
+          "title": "Connect WSL触发强退后续：需等待漫长安装完成方可进入",
+          "text": "针对此前点击Connect WSL触发强制退出的问题，后续反馈显示，强关后直接重启依然无法立即恢复，必须等待后台完成安装流程后才能重新进入；同时该下载安装过程耗时较长，且不清楚下载走的是哪路网络流量。",
+          "emphasis": [
+            "必须等待后台完成安装流程后才能重新进入"
+          ],
+          "aiComment": "昨天以为是闪退刺客，今天发现是霸道总裁：不仅强退你，还得把你按在门口等它慢吞吞装完才放行。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:00",
+              "text": "不是，怎么会有人点connect wsl是强制退出啊"
+            },
+            {
+              "speaker": 1,
+              "time": "00:02",
+              "text": "哈哈，然后你强制关了重启还恢复不了，必须等他给你安装完才能进去"
+            },
+            {
+              "speaker": 1,
+              "time": "00:02",
+              "text": "然后他下载安装还特别慢，不知道走的我什么流量"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "自动化资讯站扎堆：AI 写日报再读日报的“反复蒸馏”调侃",
+      "theme": "群友分享疑似 Kimi k3.1 终端预告截图与亚马逊欧洲线上 Agent 黑客松信息",
+      "note": "2026-10-23 · 当日本地记录",
+      "stories": [
+        {
+          "category": "社区工具",
+          "title": "自动化 AI 资讯站与日报黄页引发“反复蒸馏”调侃",
+          "text": "有群友分享了两个 AI 资讯网页：一个是由自主运行的 AI 编辑部每日更新、附带信源的资讯站，另一个是每天筛选近 60 天新建且星数最高项目的 GitHub AI 新项目崛起榜。另一位群友也分享了一个收录日报网站的黄页。\n\n面对接连出现的自动化日报工具，有人调侃起“ai写日报，ai读日报，ai再写日报”的套娃模式。分享黄页的群友顺着话头说，把日报网站放上去后就能“你读我的再写，他读你的再写”，让每个人都拥有定制日报。其他群友把这种循环戏称为“一条咨询反复蒸馏”和“左脚踩右脚 auto research”，还有人反问“这怎么不算RSI呢”。",
+          "emphasis": [
+            "由自主运行的 AI 编辑部每日更新、附带信源的资讯站",
+            "有人调侃起“ai写日报，ai读日报，ai再写日报”的套娃模式"
+          ],
+          "aiComment": "AI 写完日报给 AI 读，读完再写日报，互联网终于进化成了不需要人类打扰的自动反刍机。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:20",
+              "text": "一个是附信源的人工智能资讯，由自主运行的 AI 编辑部每日更新\nhttps://mmlong818.github.io/ai-pulse/zh/\n一个是githubAI 新项目崛起榜，每天发现近 60 天新建、星数最高的 AI 项目\nhttps://mmlong818.github.io/ai-trending/"
+            },
+            {
+              "speaker": 2,
+              "time": "17:30",
+              "text": "ai写日报，ai读日报，ai再写日报[奸笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:31",
+              "text": "https://wangwu-30.github.io/ai-digest-registry/  诶，来了，看这里",
+              "quote": {
+                "speaker": 2,
+                "text": "ai写日报，ai读日报，ai再写日报[奸笑]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:31",
+              "text": "这怎么不算RSI呢",
+              "quote": {
+                "speaker": 2,
+                "text": "ai写日报，ai读日报，ai再写日报[奸笑]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:32",
+              "text": "一条咨询反复蒸馏[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:32",
+              "text": "每个人都是定制的日报[旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "17:45",
+              "text": "左脚踩右脚 auto research"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "AI 资讯雷达",
+              "url": "https://mmlong818.github.io/ai-pulse/zh/"
+            },
+            {
+              "kind": "code",
+              "label": "AI 新项目崛起榜",
+              "url": "https://mmlong818.github.io/ai-trending/"
+            },
+            {
+              "kind": "article",
+              "label": "AI 日报黄页",
+              "url": "https://wangwu-30.github.io/ai-digest-registry/"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "群友分享疑似 Kimi k3.1 预告截图",
+          "text": "有群友发出一张 Kimi.ai 推文及评论区终端界面的截图，画面里用红圈和箭头标出了模型与版本信息区域，发图群友猜测这是 k3.1 的预告片。另一位群友回复说是 k3.1。",
+          "emphasis": [
+            "发图群友猜测这是 k3.1 的预告片"
+          ],
+          "aiComment": "红圈加箭头一套探案连招，终端截图里的一行字都能让群友盘出 k3.1 预告片的味儿来。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:17",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:17",
+              "text": "疑似k3.1预告片？"
+            },
+            {
+              "speaker": 2,
+              "time": "11:22",
+              "text": "是的"
+            },
+            {
+              "speaker": 2,
+              "time": "11:22",
+              "text": "k3.1"
+            }
+          ]
+        },
+        {
+          "category": "赛事与招聘",
+          "title": "群友转发亚马逊线上 Agent 黑客松",
+          "text": "有群友转发了亚马逊线上黑客松 AWSAgentFootballCup（EMEA Early Career Talent Hackathon）的活动信息。比赛于 UTC+1 时间 2026 年 10 月 22 日至 23 日在线上举行，转发的群友认为应该所有人都可以参加。活动说明提到，2027 年毕业可全职工作、英语流利且愿意前往马德里、伦敦、巴黎、斯德哥尔摩或慕尼黑办公的应届本科及硕士生，参赛有机会获得亚马逊欧洲的工作机会。",
+          "emphasis": [
+            "转发的群友认为应该所有人都可以参加",
+            "参赛有机会获得亚马逊欧洲的工作机会"
+          ],
+          "aiComment": "转发者觉得大家都能参加，但想顺手拿走亚马逊的 offer，得先是 2027 届毕业生还得做好去马德里或伦敦上班的准备。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "刚刚通过#Handshake 了解到亚马逊有个线上的Agent黑客松，#AWSAgentFootballCup\n\n比赛时间是UTC+1的10月22日和23日\n9:30-13:30\n“\n📅 Hackathon Days: 22-23 October 2026 \n\n     ⏱️ 22 October 2026 (0930 - 1330, UTC+1)\n\n     ⏱️ 23 October 2026 (0930 - 1200, UTC+1)\n\n🌐 Online\n”\n\n应该是所有人都可以参加，但是说明里写如果是27年毕业即可全职工作的学生、英语流利，有机会拿到亚马逊欧洲工作的机会\n\n“\nThis hackathon is perfect for final-year university or master's students who are:\n✓ Proficient in English\n✓ Ready to work full-time in 2027\n✓ Willing to relocate to our hubs across Europe: Madrid, London, Paris, Stockholm and Munich\n✓ Passionate about technology\n”"
+            },
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "[链接] EMEA Early Career Talent Hackathon\n  摘要: Save your spot to chat with our team at this online event. Each text based chat lasts around 10 mins and you can join fr...\n  URL: https://app.brazenconnect.com/events/n3d36"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "EMEA Early Career Talent Hackathon",
+              "url": "https://app.brazenconnect.com/events/n3d36"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
