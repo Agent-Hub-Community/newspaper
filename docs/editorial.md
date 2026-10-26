@@ -3,7 +3,7 @@
 本文说明网站上的读者内容应满足什么条件、怎样呈现：版面和缺稿、重点、AI 锐评、原始讨论节选和隐私。
 构建和入库脚本会检查其中能机器检查的部分；其余部分由编辑在审核时负责。
 
-选题、写法、审稿和锐评怎样写，属于写稿流程，见 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）。本文只写读者数据和网页这一侧的规则。
+选题、写法、审稿和锐评怎样写，属于写稿流程，见 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)。本文只写读者数据和网页这一侧的规则。
 
 ## 定位
 

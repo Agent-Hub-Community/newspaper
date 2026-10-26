@@ -29,10 +29,10 @@ The site and its content are in Chinese.
 
 ## 一期日报怎样产生
 
-采集、读图、写稿和审稿在流程仓库 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）完成。本仓库负责网站、读者数据和发布。
+采集、读图、写稿和审稿在流程仓库 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 完成。本仓库负责网站、读者数据和发布。
 
 ```text
-bot-workflow（流程仓库，即将开放）
+bot-workflow（公开的流程仓库）
   采集       各群按北京时间整日读取消息，发言者换成化名
     ↓
   读图       看图模型为群聊图片写客观描述

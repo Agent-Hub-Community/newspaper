@@ -2,7 +2,7 @@
 
 “外部资讯”是与各群版面并列的一个版面，收录当天 AI 与科技行业的重要新闻，每条保留原始出处。本文说明外部资讯稿件交给本仓库时的格式、审核记录、导入和网页呈现。
 
-采集候选、回读原文、选题和写稿的方法属于写稿流程，见 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）。外部资讯不读取群聊数据。
+采集候选、回读原文、选题和写稿的方法属于写稿流程，见 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)。外部资讯不读取群聊数据。
 
 ## 交给本仓库的文件
 

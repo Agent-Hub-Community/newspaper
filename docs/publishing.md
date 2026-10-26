@@ -2,7 +2,7 @@
 
 本文说明审核后的内容怎样进入 `data/`，以及网站怎样构建、登记、部署和核验。只有维护者执行入库和发布。
 
-内容的采集、写稿和审稿在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）完成。bot-workflow 把审核后的结果写成 `scratch/` 下的批次目录，本仓库从这里接手。
+内容的采集、写稿和审稿在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 完成。bot-workflow 把审核后的结果写成 `scratch/` 下的批次目录，本仓库从这里接手。
 
 ```text
 审核后的批次目录 ──► 本地预览 ──► 入库到 data/ ──► 公开构建和测试

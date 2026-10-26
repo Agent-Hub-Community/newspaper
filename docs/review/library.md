@@ -1,6 +1,6 @@
 # AgentHub 资料库审核规范
 
-审核 agent 和编辑按这份规范处理候选链接（`scratch/library/candidates.json`）。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）从群聊收集，含私有聊天上下文，只放在被 Git 忽略的 `scratch/` 下。
+审核 agent 和编辑按这份规范处理候选链接（`scratch/library/candidates.json`）。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 从群聊收集，含私有聊天上下文，只放在被 Git 忽略的 `scratch/` 下。
 类型、主题和链接种类的取值以 [`lib/library.mjs`](../../lib/library.mjs) 为准，这里的表格是同一份定义的说明。审核之后怎样合进 `data/library.json`，见 [入库与发布](../publishing.md#资料库机会和黑话)。
 
 ## 背景

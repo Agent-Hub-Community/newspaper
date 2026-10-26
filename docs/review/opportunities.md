@@ -1,6 +1,6 @@
 # AgentHub 机会审核规范
 
-审核 agent 和编辑按这份规范处理候选（`scratch/opportunities/candidates.json`）。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）从群聊收集，含聊天原文，只放在被 Git 忽略的 `scratch/` 下。
+审核 agent 和编辑按这份规范处理候选（`scratch/opportunities/candidates.json`）。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 从群聊收集，含聊天原文，只放在被 Git 忽略的 `scratch/` 下。
 字段和取值以 [`lib/opportunities.mjs`](../../lib/opportunities.mjs) 为准；审核之后的入库步骤见 [入库与发布](../publishing.md#资料库机会和黑话)。
 
 ## 收什么

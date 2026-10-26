@@ -42,4 +42,4 @@
 
 ## 不在本仓库的内容
 
-群聊采集、读图、活跃榜计算、模型写稿和审稿方法在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）。本仓库从“审核后的批次目录”开始接手，见 [入库与发布](publishing.md)。
+群聊采集、读图、活跃榜计算、模型写稿和审稿方法在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)。本仓库从“审核后的批次目录”开始接手，见 [入库与发布](publishing.md)。

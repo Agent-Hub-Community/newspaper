@@ -1,6 +1,6 @@
 # 参与贡献
 
-欢迎通过 issue 和 pull request 参与 AgentHub 日报。本仓库负责网站、读者数据和发布；群聊采集和模型写稿在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）。
+欢迎通过 issue 和 pull request 参与 AgentHub 日报。本仓库负责网站、读者数据和发布；群聊采集和模型写稿在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)。
 
 适合直接提 pull request 的改动：界面、无障碍、搜索和查询接口、构建脚本、测试、文档。
 读者内容（日报、周报、资料库等）由维护者按审核流程更新，不接受直接修改内容的 pull request。内容有错误时，请提 issue。

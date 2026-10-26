@@ -2,7 +2,7 @@
 
 群聊黑话词典收录 AgentHub 群里常用、新读者或 agent 读日报时可能看不懂的说法：缩写、代号、梗和行话。
 词典公开发布在 `/glossary/`，也是全站搜索和资料库搜索的词表（规则见 [搜索与词表](../search.md)）。审核 agent 按这份规范通读
-聊天分块，编辑合并后写进 `data/glossary.json`。聊天分块由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)（即将开放）导出，只放在被 Git 忽略的 `scratch/` 下。
+聊天分块，编辑合并后写进 `data/glossary.json`。聊天分块由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 导出，只放在被 Git 忽略的 `scratch/` 下。
 
 ## 输入
 
