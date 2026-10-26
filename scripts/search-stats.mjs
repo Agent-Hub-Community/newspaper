@@ -5,8 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const wrangler = process.env.WRANGLER_BIN;
-if (!wrangler) throw new Error('Set WRANGLER_BIN to the installed Wrangler executable.');
+const [wranglerCmd, ...wranglerPrefix] = process.env.WRANGLER_BIN ? [process.env.WRANGLER_BIN] : ['npx', '-y', 'wrangler@4'];
 const output = path.resolve(process.argv[2] || path.join(root, 'output/playwright/search-stats.html'));
 const sql = `SELECT s.is_test, COUNT(*) AS searches, SUM(s.result_count = 0) AS zero_results,
   SUM(EXISTS(SELECT 1 FROM search_clicks c WHERE c.search_id = s.id)) AS clicked_searches
@@ -29,8 +28,8 @@ SELECT is_test, endpoint, query, filters, COUNT(*) AS searches, SUM(result_count
   GROUP_CONCAT(DISTINCT client) AS clients, MAX(created_at) AS latest
   FROM api_searches WHERE created_at >= strftime('%Y-%m-%dT%H:%M:%fZ', 'now', '-30 days')
   GROUP BY is_test, endpoint, query, filters ORDER BY searches DESC, latest DESC LIMIT 200;`;
-const result = JSON.parse(execFileSync(wrangler, ['d1', 'execute', 'agenthub-feedback', '--remote',
-  '--config', path.join(root, 'feedback/wrangler.jsonc'), '--command', sql, '--json'], { encoding: 'utf8', timeout: 60000 }));
+const result = JSON.parse(execFileSync(wranglerCmd, [...wranglerPrefix, 'd1', 'execute', 'agenthub-feedback', '--remote',
+  '--config', path.join(root, 'feedback/wrangler.jsonc'), '--command', sql, '--json'], { encoding: 'utf8', timeout: 120000 }));
 if (result.length !== 5 || result.some(item => !item.success)) throw new Error('Search statistics query failed.');
 const [totals, queries, clicks, apiTotals, apiQueries] = result.map(item => item.results);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

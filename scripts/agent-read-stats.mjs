@@ -13,8 +13,7 @@ if (values.help) {
 }
 if (!/^(?:[1-9]|[12][0-9]|30)$/.test(values.days)) throw new Error('--days must be an integer from 1 to 30.');
 if (values.json && values.output) throw new Error('--json and --output cannot be combined.');
-const wrangler = process.env.WRANGLER_BIN;
-if (!wrangler) throw new Error('Set WRANGLER_BIN to the installed Wrangler executable.');
+const [wranglerCmd, ...wranglerPrefix] = process.env.WRANGLER_BIN ? [process.env.WRANGLER_BIN] : ['npx', '-y', 'wrangler@4'];
 const output = path.resolve(values.output || path.join(root, 'output/playwright/agent-read-stats.html'));
 const window = `hour >= strftime('%Y-%m-%dT%H:%M:%fZ', 'now', '-${values.days} days')`;
 const sql = `SELECT is_test, SUM(requests) requests,
@@ -25,8 +24,8 @@ SELECT date(hour, '+8 hours') day, SUM(requests) requests FROM agent_reads
   WHERE ${window} AND is_test=0 AND method='GET' AND status=200 GROUP BY day ORDER BY day DESC;
 SELECT path, client, method, status, is_test, SUM(requests) requests, MAX(hour) latest_hour
   FROM agent_reads WHERE ${window} GROUP BY path, client, method, status, is_test ORDER BY requests DESC LIMIT 200;`;
-const result = JSON.parse(execFileSync(wrangler, ['d1', 'execute', 'agenthub-feedback', '--remote',
-  '--config', path.join(root, 'feedback/wrangler.jsonc'), '--command', sql, '--json'], { encoding: 'utf8', timeout: 60000 }));
+const result = JSON.parse(execFileSync(wranglerCmd, [...wranglerPrefix, 'd1', 'execute', 'agenthub-feedback', '--remote',
+  '--config', path.join(root, 'feedback/wrangler.jsonc'), '--command', sql, '--json'], { encoding: 'utf8', timeout: 120000 }));
 if (result.length !== 3 || result.some(item => !item.success)) throw new Error('Agent read statistics query failed.');
 const [totals, days, files] = result.map(item => item.results);
 if (values.json) {
