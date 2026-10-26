@@ -13,8 +13,8 @@ In English: AgentHub Daily is the community newspaper of Agent Hub, a Chinese-la
 
 | 栏目 | 内容 | 入口 |
 |---|---|---|
-| 日报 | 每个群一版当日讨论选编，外加一版外部资讯。每条带重点下划线、AI 锐评、相关资料卡片和匿名原始讨论节选 | 首页默认打开最新一期；单版地址如 [`daily/2026-10-25/group-2/`](https://agent-hub-community.github.io/newspaper/daily/2026-10-25/group-2/) |
-| 周报 | 按北京时间自然周回顾各群讨论与行业动向，把跨天聊同一件事的脉络串起来 | [`weekly/`](https://agent-hub-community.github.io/newspaper/weekly/) |
+| 日报 | 每个群一版当日讨论选编（一群到五群），外加一版外部资讯与一页全版总览 `overview`。每条带重点下划线、AI 锐评、相关资料卡片和匿名原始讨论节选 | 首页默认打开最新一期；总览如 [`daily/2026-10-25/overview/`](https://agent-hub-community.github.io/newspaper/daily/2026-10-25/overview/)，单版如 [`daily/2026-10-25/group-2/`](https://agent-hub-community.github.io/newspaper/daily/2026-10-25/group-2/) |
+| 周报 | 按北京时间自然周回顾综合群（一群到五群）、垂类专项群（AI Safety、Robot、AI4S）与行业动向，配全刊总览 `overview` 与各群独立周榜 | [`weekly/`](https://agent-hub-community.github.io/newspaper/weekly/)、[`weekly/2026-10-19/2026-10-25/overview/`](https://agent-hub-community.github.io/newspaper/weekly/2026-10-19/2026-10-25/overview/) |
 | 资料库 | 群里分享过、过了几个月还有参考价值的论文、代码、评测基准、数据集、模型与工具；页底的“机会”区收招聘、活动和征稿 | [`library/`](https://agent-hub-community.github.io/newspaper/library/) |
 | 群聊黑话 | 群里常冒出来的缩写、模型外号、梗和行话对照表 | [`glossary/`](https://agent-hub-community.github.io/newspaper/glossary/) |
 | 活跃榜 | 各群日榜与全社区周榜、月榜、总榜，只展示前三名名次和头像 | [`rank/week/`](https://agent-hub-community.github.io/newspaper/rank/week/) |
