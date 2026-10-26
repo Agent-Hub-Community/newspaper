@@ -3,7 +3,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const labels = { week: '周榜', month: '月榜', all: '总榜' };
   const titles = { week: '本周最活跃的群友', month: '本月最活跃的群友', all: '累计最活跃的群友' };
-  const groupLabels = { 'group-1': '一群', 'group-2': '二群', 'group-3': '三群', 'group-4': '四群', 'group-5': '五群' };
+  const groupLabels = { 'group-1': '一群', 'group-2': '二群', 'group-3': '三群', 'group-4': '四群', 'group-5': '五群', 'group-6': 'AI Safety', 'group-7': 'Robot', 'group-8': 'AI4S' };
   const asset = file => window.AgentHubRoutes?.asset(file) || file;
   const dayText = date => date.replace(/^\d{4}-0?(\d+)-0?(\d+)$/, '$1 月 $2 日');
   // One board shows the whole community and every group for the chosen period, all alike; a group in

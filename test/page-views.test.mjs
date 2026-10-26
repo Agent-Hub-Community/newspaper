@@ -84,8 +84,8 @@ test('a missing or malformed visitor ID still counts the view but no visitor', a
 });
 
 test('only the published route shapes are accepted', () => {
-  const accepted = ['', 'index.html', 'daily/2026-10-22/group-1/', 'daily/2026-10-22/group-12/', 'daily/2026-10-22/external/',
-    'daily/2026-10-22/group-5/index.html', 'weekly/2026-10-12/2026-10-18/group-3/', 'weekly/2026-10-12/2026-10-18/rank/',
+  const accepted = ['', 'index.html', 'daily/2026-10-22/overview/', 'daily/2026-10-22/group-1/', 'daily/2026-10-22/group-12/', 'daily/2026-10-22/external/',
+    'daily/2026-10-22/group-5/index.html', 'weekly/2026-10-12/2026-10-18/overview/', 'weekly/2026-10-12/2026-10-18/group-3/', 'weekly/2026-10-12/2026-10-18/rank/',
     'weekly/2026-10-12_2026-10-18/external/', 'rank/week/', 'rank/month/group-2/', 'rank/all/', 'library/', 'glossary/',
     'search/', 'search/index.html'];
   for (const route of accepted) assert.equal(viewPath(basePath + route), basePath + route.replace(/index\.html$/, ''), route);

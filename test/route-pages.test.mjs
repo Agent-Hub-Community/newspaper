@@ -39,7 +39,7 @@ test('writes real directory indexes including missing sections and all ranking w
   await writeRoutePages(out, data);
   const expected = ['index.html'];
   for (const { date } of data.digests) {
-    for (const group of ['group-1', 'group-2', 'group-3', 'group-4', 'external']) {
+    for (const group of ['overview', 'group-1', 'group-2', 'group-3', 'group-4', 'external']) {
       expected.push(`daily/${date}/${group}/index.html`);
     }
   }

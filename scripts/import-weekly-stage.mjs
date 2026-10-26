@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { groupLabels, isGroupId, pageGroups } from '../lib/groups.mjs';
+import { groupLabels, isGroupId, weeklyGroups } from '../lib/groups.mjs';
 
 const sourceDir = process.env.WEEKLY_SOURCE_DIR;
 const outDir = process.env.WEEKLY_OUT_DIR || path.resolve('data/weekly-editions');
@@ -9,8 +9,8 @@ if (!sourceDir) throw new Error('WEEKLY_SOURCE_DIR is required');
 
 const [start, end] = issueId.split('_');
 const pages = [];
-// Default to the groups that had a reader section on the week's last day.
-const weekGroups = (process.env.WEEKLY_GROUPS ? process.env.WEEKLY_GROUPS.split(',') : pageGroups(end).map(group => group.id))
+// Default to the groups that had a weekly reader section on the week's last day.
+const weekGroups = (process.env.WEEKLY_GROUPS ? process.env.WEEKLY_GROUPS.split(',') : weeklyGroups(end).map(group => group.id))
   .filter(isGroupId);
 for (const id of [...weekGroups, 'external']) {
   const source = JSON.parse(await readFile(path.join(sourceDir, `${id}.json`), 'utf8'));

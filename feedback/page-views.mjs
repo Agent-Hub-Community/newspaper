@@ -2,7 +2,7 @@ import { basePath } from '../lib/site.mjs';
 
 // Route shapes the site publishes, relative to basePath: home, daily sections, weekly sections (by start/end
 // directories or by issue id), rank boards, and the library, glossary and search pages. The 404 page never reports.
-const route = /^(?:|daily\/\d{4}-\d{2}-\d{2}\/(?:group-[1-9]\d?|external)\/|weekly\/\d{4}-\d{2}-\d{2}[/_]\d{4}-\d{2}-\d{2}\/(?:group-[1-9]\d?|external|rank)\/|rank\/(?:week|month|all)\/(?:group-[1-9]\d?\/)?|(?:library|glossary|search)\/)$/;
+const route = /^(?:|daily\/\d{4}-\d{2}-\d{2}\/(?:group-[1-9]\d?|external|overview)\/|weekly\/\d{4}-\d{2}-\d{2}[/_]\d{4}-\d{2}-\d{2}\/(?:group-[1-9]\d?|external|rank|overview)\/|rank\/(?:week|month|all)\/(?:group-[1-9]\d?\/)?|(?:library|glossary|search)\/)$/;
 const uuid = /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
 
 // Returns the stored form of a reported page path, or null when the path is not a site page.

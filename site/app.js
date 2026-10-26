@@ -39,11 +39,16 @@
   // A readable page anywhere in the issue keeps its date reachable.
   const published = (mode = state.mode) => entries(mode).filter(item =>
     mode !== 'digest' || item.pages.some(window.digestPageHasContent));
-  const selectPage = (item, pageId) => item.pages?.find(page =>
-    page.id === pageId && window.digestPageHasContent(page)) ||
-    item.pages?.find(window.digestPageHasContent) ||
-    item.pages?.find(page => page.id === pageId) || item.pages?.[0];
+  const selectPage = (item, pageId) => pageId === 'overview' && item.pages?.some(window.digestPageHasContent)
+    ? { id: 'overview', label: '总览' }
+    : item.pages?.find(page => page.id === pageId && window.digestPageHasContent(page)) ||
+      item.pages?.find(window.digestPageHasContent) ||
+      item.pages?.find(page => page.id === pageId) || item.pages?.[0];
   const pageAvailability = item => {
+    if (state.page === 'overview') {
+      const active = item.pages.filter(window.digestPageHasContent).map(page => page.label);
+      return active.length ? `${active.join('、')}有稿` : '本期暂无稿件';
+    }
     const page = item.pages.find(page => page.id === state.page);
     if (window.digestPageHasContent(page)) return `${page.label}有稿`;
     const others = item.pages.filter(window.digestPageHasContent).map(page => page.label);
@@ -127,7 +132,8 @@
     let month = '';
     return list.slice().reverse().map(item => {
       const pages = item.pages.filter(window.digestPageHasContent);
-      const own = pages.find(page => page.id === state.page);
+      const isOverview = state.page === 'overview';
+      const own = isOverview ? pages[0] : pages.find(page => page.id === state.page);
       const shown = own || pages[0];
       // Older issues may lack the reader's section (三群-only days before 四群 existed); name it from the current issue.
       const ownLabel = item.pages.find(page => page.id === state.page)?.label || current().pages.find(page => page.id === state.page)?.label || '本版';

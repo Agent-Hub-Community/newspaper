@@ -62,6 +62,12 @@ try {
       assert.equal(await tab.getByRole('tab').count(), 5);
       assert.equal(await tab.locator('.daily-ranking').getAttribute('data-group'), 'group-4');
       assert.equal(await tab.locator('.daily-leaders li').count(), 1);
+      await tab.locator('.overview-inline-switch').click();
+      assert.equal(await tab.locator('#reading').getAttribute('data-page'), 'overview');
+      assert.equal(await tab.locator('.daily-overview-card').count(), 5);
+      assert.equal(await tab.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false, `${width} ${mode}: overview overflow`);
+      await tab.locator('.daily-overview-card[data-overview-page="group-4"] .daily-overview-enter').click();
+      assert.equal(await tab.locator('#reading').getAttribute('data-page'), 'group-4');
       const bounds = await tab.evaluate(() => {
         const tabs = [...document.querySelectorAll('[role="tab"]')].map(element => {
           const r = element.getBoundingClientRect();

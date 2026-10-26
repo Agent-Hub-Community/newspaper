@@ -27,7 +27,7 @@ for (const engine of ['chromium', 'webkit']) {
       const page = await context.newPage();
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
-      for (const section of ['group-3', 'external', 'rank']) {
+      for (const section of ['overview', 'group-3', 'external', 'rank']) {
         await page.goto(`${weekly}/${section}/`);
         const state = await page.evaluate(() => ({
           overflow: document.documentElement.scrollWidth - innerWidth,

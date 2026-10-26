@@ -76,13 +76,13 @@
               "speaker": 1,
               "time": "10.19 01:11",
               "text": "甚至还能用类似schema校验的方式保证输出符合格式",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.19 01:11",
               "text": "我这么问是因为之前我已经用上prompt要求输出01做判断了，我觉得最大的问题是没开thinking，不准",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -150,7 +150,7 @@
               "speaker": 4,
               "time": "10.19 01:18",
               "text": "+温度采样",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -172,7 +172,7 @@
               "speaker": 4,
               "time": "10.19 01:21",
               "text": "概率校准和seq token回归还不太一样",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -200,7 +200,7 @@
               "speaker": 4,
               "time": "10.19 01:26",
               "text": "还有采样方法的，你的decode一位token的方法，在实际训练使用中不太可能用greedy的，所以就会有一定随机性。jev这种本质上输出的是概率分布情况，推理多次也只有精度误差",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -218,7 +218,7 @@
               "speaker": 1,
               "time": "10.19 01:28",
               "text": "就是这个概率",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -341,7 +341,7 @@
               "speaker": 6,
               "time": "10.19 22:01",
               "text": "感觉很多是字符串",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -410,13 +410,13 @@
               "speaker": 1,
               "time": "10.19 12:38",
               "text": "问题只是写出来不是人话",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.19 12:38",
               "text": "deep research我觉得5.4已经很好了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -431,9 +431,19 @@
               "continues": false
             },
             {
+              "speaker": 5,
+              "time": "10.19 12:40",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
               "speaker": 4,
               "time": "10.19 12:41",
               "text": "我的数据合成管线之前就这么被搞的巨肿",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             },
             {
@@ -462,7 +472,7 @@
               "speaker": 7,
               "time": "10.19 12:46",
               "text": "20万行都是测试",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -484,13 +494,13 @@
               "speaker": 7,
               "time": "10.19 12:49",
               "text": "后面花了两天砍剩下4w行",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
               "time": "10.19 12:49",
               "text": "有啥好办法可以让它少写点没用的玩意省点token",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -528,7 +538,7 @@
               "speaker": 4,
               "time": "10.19 12:53",
               "text": "不一定是模型行为",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -626,6 +636,12 @@
             {
               "speaker": 4,
               "time": "10.19 12:33",
+              "text": "[图片]",
+              "continues": true
+            },
+            {
+              "speaker": 4,
+              "time": "10.19 12:33",
               "text": "看的出来是花了大力气清晰数据源的",
               "continues": false
             },
@@ -633,13 +649,13 @@
               "speaker": 4,
               "time": "10.19 12:33",
               "text": "并且很快，毫秒级别返回",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
               "time": "10.19 12:33",
               "text": "因为提前都索引好了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -683,8 +699,14 @@
             {
               "speaker": 1,
               "time": "10.19 12:58",
-              "text": "🚀 大家好，欢迎关注MAI-UI 团队的新工作！ OpenGCUA：开放通用电脑操作智能体（GCUA）全栈的项目，旨在探索和开源GPT-6位代表的新一代computer use系统的实现\n\n📦【首个版本开放什么】\n1️⃣ 技术报告 2️⃣ GCUA 设计与 Harness，包括 Code Execution 3️⃣ 8 个前沿模型评测轨迹（GPT-6, Opus 5, Gemini 3.8 Flash） 4️⃣ macOS 真机 Harness和跨端 SDK 5️⃣ 以及可在线体验的交互实验室。\n\n📊【实验亮点】\nOpenGCUA harness在OSWorld-v2上，GPT-6 Astra、Claude Opus 5、Gemini 3.8 Flash 等 8 个模型全部提升：平均 +19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上。\n真机效率仍有明显差距：在我们 真机Harness 下的case study中，Qwen3.8-Max 的推理 token 消耗为 GPT-6 Astra 的 19.4 倍。\n\n🧪【不只读论文，也能亲手体验】\n进入交互实验室，对比code execution执行方式、拆解真机环境、理解真机harness与跨端SDK、回放模型轨迹，直观了解 OpenGCUA 的核心设计。\n\n🧪 交互实验室：https://tongyi-mai.github.io/OpenGCUA/#lab\n💻 GitHub：https://github.com/Tongyi-MAI/OpenGCUA\n📄 技术报告：https://arxiv.org/abs/2610.22200\n\n欢迎交流，欢迎大家在Github star支持，我们的项目也会持续迭代，非常感谢🙏",
+              "text": "🚀 大家好，欢迎关注我们 MAI-UI 团队的新工作！ OpenGCUA：开放通用电脑操作智能体（GCUA）全栈的项目，旨在探索和开源GPT-6位代表的新一代computer use系统的实现\n\n📦【首个版本开放什么】\n1️⃣ 技术报告 2️⃣ GCUA 设计与 Harness，包括 Code Execution 3️⃣ 8 个前沿模型评测轨迹（GPT-6, Opus 5, Gemini 3.8 Flash） 4️⃣ macOS 真机 Harness和跨端 SDK 5️⃣ 以及可在线体验的交互实验室。\n\n📊【实验亮点】\nOpenGCUA harness在OSWorld-v2上，GPT-6 Astra、Claude Opus 5、Gemini 3.8 Flash 等 8 个模型全部提升：平均 +19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上。\n真机效率仍有明显差距：在我们 真机Harness 下的case study中，Qwen3.8-Max 的推理 token 消耗为 GPT-6 Astra 的 19.4 倍。\n\n🧪【不只读论文，也能亲手体验】\n进入交互实验室，对比code execution执行方式、拆解真机环境、理解真机harness与跨端SDK、回放模型轨迹，直观了解 OpenGCUA 的核心设计。\n\n🧪 交互实验室：https://tongyi-mai.github.io/OpenGCUA/#lab\n💻 GitHub：https://github.com/Tongyi-MAI/OpenGCUA\n📄 技术报告：https://arxiv.org/abs/2610.22200\n\n欢迎交流，欢迎大家在Github star支持，我们的项目也会持续迭代，非常感谢🙏",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.19 12:58",
+              "text": "[图片]",
+              "continues": true
             }
           ]
         },
@@ -777,7 +799,7 @@
             {
               "speaker": 1,
               "time": "10.20 21:24",
-              "text": "🎉 借宝地宣传一下Qwen团队最近的工作～\n\nVisual Agents 已经能独立完成网页、海报、PPT 等 2D 设计，那更难的 3D 创作呢？这需要空间推理、工具调用和视觉反馈迭代，而现有 Benchmark 对真实、开放式的 3D 创作场景覆盖有限。\n\n🔥 为此我们提出 BlenderWorld——首个面向真实世界 3D 创作任务、系统评估 Visual Agents 的综合基准。\n\n🔹 223 个真实任务，覆盖建筑、产品、自然、角色动画、科学可视化等 9 大领域 22 个细分方向，输入包含文本、图像、视频与结构化规格文件。\n\n🔹 交付的是完整可编辑的 Blender 工程，而不只是一张好看的渲染图。\n\n🔹 2,651 条任务专属细粒度标准，覆盖几何、空间布局、材质、功能等 13 个方面：Agent 自动选择并渲染 8 个关键视角，VLM-as-Judge 看视觉效果、Agent-as-Judge 进工程查内部结构，再从真实感、物理合理性等 8 个维度评估整体质量。\n\n🔹 13 个前沿模型实测：GPT-6-Astra 以 79.9 分居首，但即使最强模型也只有 42.2% 的任务能满足全部细粒度要求——3D 创作能力已有惊喜，但在多模态参考理解、精细要求、物理与空间关系上仍有很大空间。\n\n🌍 我们还搭建了交互式 3D 展示平台，可在线查看、旋转、对比不同模型的作品，欢迎体验！\n\n📖 Paper：https://arxiv.org/abs/2610.23986\n🚀 Webpage：https://blenderworld.github.io/\n💻 GitHub：https://github.com/QwenLM/BlenderWorld\n\n⭐ 代码和数据集均已开源，麻烦大家点个 Star，感谢支持！🎉",
+              "text": "🎉 借宝地宣传一下我们在Qwen团队最近的工作～\n\nVisual Agents 已经能独立完成网页、海报、PPT 等 2D 设计，那更难的 3D 创作呢？这需要空间推理、工具调用和视觉反馈迭代，而现有 Benchmark 对真实、开放式的 3D 创作场景覆盖有限。\n\n🔥 为此我们提出 BlenderWorld——首个面向真实世界 3D 创作任务、系统评估 Visual Agents 的综合基准。\n\n🔹 223 个真实任务，覆盖建筑、产品、自然、角色动画、科学可视化等 9 大领域 22 个细分方向，输入包含文本、图像、视频与结构化规格文件。\n\n🔹 交付的是完整可编辑的 Blender 工程，而不只是一张好看的渲染图。\n\n🔹 2,651 条任务专属细粒度标准，覆盖几何、空间布局、材质、功能等 13 个方面：Agent 自动选择并渲染 8 个关键视角，VLM-as-Judge 看视觉效果、Agent-as-Judge 进工程查内部结构，再从真实感、物理合理性等 8 个维度评估整体质量。\n\n🔹 13 个前沿模型实测：GPT-6-Astra 以 79.9 分居首，但即使最强模型也只有 42.2% 的任务能满足全部细粒度要求——3D 创作能力已有惊喜，但在多模态参考理解、精细要求、物理与空间关系上仍有很大空间。\n\n🌍 我们还搭建了交互式 3D 展示平台，可在线查看、旋转、对比不同模型的作品，欢迎体验！\n\n📖 Paper：https://arxiv.org/abs/2610.23986\n🚀 Webpage：https://blenderworld.github.io/\n💻 GitHub：https://github.com/QwenLM/BlenderWorld\n\n⭐ 代码和数据集均已开源，麻烦大家点个 Star，感谢支持！🎉",
               "continues": false
             },
             {
@@ -786,7 +808,7 @@
               "text": "已严肃使用，不过这种benchmark评起来都太贵了，😞。",
               "quote": {
                 "speaker": 1,
-                "text": "🎉 借宝地宣传一下Qwen团队最近的工作～ Visual Agents 已经能独立完成网页、海报、PPT 等 2D 设计，那更难的 3D 创作呢？这需要空..."
+                "text": "🎉 借宝地宣传一下我们在Qwen团队最近的工作～ Visual Agents 已经能独立完成网页、海报、PPT 等 2D 设计，那更难的 3D 创作呢？这需要空..."
               },
               "continues": false
             }
@@ -887,7 +909,7 @@
             {
               "speaker": 1,
               "time": "10.19 13:35",
-              "text": "🚀 很高兴和大家分享我们团队的最新工作 OfficeTown: Generative Organizations for Evolving Agent Intelligence！\n\n随着 AI Agent 从文本生成和问答走向真实的专业工作，如何让 Agent 在复杂办公场景中理解上下文、使用软件工具、协同完成任务，并持续产出高质量的实际交付物，正成为一个重要挑战。然而，构建能够支持这些能力的任务、真实工作材料、评测标准和可执行训练环境，仍然需要大量的工程投入。\n\nOfficeTown，一个面向专业工作 Agent 的生成式组织模拟框架。不同于孤立地生成任务，我们从组织的持续运作出发，模拟专业人员之间的协作、任务委派、交付物审查与反馈，让组织中的文档、决策和未完成事项不断演化，从而持续生成具有真实工作上下文的任务、训练数据和可执行环境，为 Agent 的评测与训练提供可扩展的基础设施。\n\n🔑 核心亮点：\n\n1️⃣ 从组织模拟到大规模工作环境生成\n\n从自然语言描述出发，自动构建包含专业角色、共享知识、客户关系和工具工作空间的组织。通过持续的组织活动生成长程任务、上下文材料、交付物与反馈，为复杂专业工作 Agent 提供可扩展的环境基础。\n\n2️⃣ 专家审核的专业工作 Benchmark\n\n构建 OfficeTown Bench，覆盖 8 个专业领域、23 个模拟组织，包含 406 个任务和 4,836 条评测标准。所有任务及其配套 Rubrics 均经过领域专家审核。对多种前沿模型的评测表明，即使是当前能力较强的模型，在真实专业工作场景中仍有很大的提升空间。\n\n3️⃣ 打通 Benchmark、SFT 与 RL 的训练闭环\n\nOfficeTown 不仅用于评测，也能够持续产出支持监督微调和强化学习的工作数据与可执行环境。基于 OfficeTown 数据训练后，Qwen3.5-9B 在包括 GDPval  Apex-Agent在内的外部专业工作 Benchmark 上取得显著提升。进一步的 Harness 实验也表明，主导者（Principal）—助手（Assistant）的协作架构优于本工作中测试的单 Agent 和多 Agent 基线。\n\n🎯 我们希望解决的核心问题，是如何以可扩展的方式构建贴近真实工作需求的 Agent 训练与评测环境，让研究者不必从零开始搭建复杂的组织、任务和反馈系统，而能将更多精力投入到 Agent 能力、训练方法与协作机制的创新中。\n\n📄 论文与项目资源：\n\n🔗 HF 页面：https://huggingface.co/papers/2610.23194\n\n🏠 项目主页：https://officeintelligence.github.io/\n\n数据和代码正在走内部审核中，即将开源 ~\n\n欢迎交流，欢迎大家在HF Papers点赞支持，非常感谢 🙏 🙏 🙏",
+              "text": "🚀 很高兴和大家分享我们团队的最新工作 OfficeTown: Generative Organizations for Evolving Agent Intelligence！\n\n随着 AI Agent 从文本生成和问答走向真实的专业工作，如何让 Agent 在复杂办公场景中理解上下文、使用软件工具、协同完成任务，并持续产出高质量的实际交付物，正成为一个重要挑战。然而，构建能够支持这些能力的任务、真实工作材料、评测标准和可执行训练环境，仍然需要大量的工程投入。\n\n我们提出 OfficeTown，一个面向专业工作 Agent 的生成式组织模拟框架。不同于孤立地生成任务，我们从组织的持续运作出发，模拟专业人员之间的协作、任务委派、交付物审查与反馈，让组织中的文档、决策和未完成事项不断演化，从而持续生成具有真实工作上下文的任务、训练数据和可执行环境，为 Agent 的评测与训练提供可扩展的基础设施。\n\n🔑 核心亮点：\n\n1️⃣ 从组织模拟到大规模工作环境生成\n\n从自然语言描述出发，自动构建包含专业角色、共享知识、客户关系和工具工作空间的组织。通过持续的组织活动生成长程任务、上下文材料、交付物与反馈，为复杂专业工作 Agent 提供可扩展的环境基础。\n\n2️⃣ 专家审核的专业工作 Benchmark\n\n构建 OfficeTown Bench，覆盖 8 个专业领域、23 个模拟组织，包含 406 个任务和 4,836 条评测标准。所有任务及其配套 Rubrics 均经过领域专家审核。对多种前沿模型的评测表明，即使是当前能力较强的模型，在真实专业工作场景中仍有很大的提升空间。\n\n3️⃣ 打通 Benchmark、SFT 与 RL 的训练闭环\n\nOfficeTown 不仅用于评测，也能够持续产出支持监督微调和强化学习的工作数据与可执行环境。基于 OfficeTown 数据训练后，Qwen3.5-9B 在包括 GDPval  Apex-Agent在内的外部专业工作 Benchmark 上取得显著提升。进一步的 Harness 实验也表明，主导者（Principal）—助手（Assistant）的协作架构优于本工作中测试的单 Agent 和多 Agent 基线。\n\n🎯 我们希望解决的核心问题，是如何以可扩展的方式构建贴近真实工作需求的 Agent 训练与评测环境，让研究者不必从零开始搭建复杂的组织、任务和反馈系统，而能将更多精力投入到 Agent 能力、训练方法与协作机制的创新中。\n\n📄 论文与项目资源：\n\n🔗 HF 页面：https://huggingface.co/papers/2610.23194\n\n🏠 项目主页：https://officeintelligence.github.io/\n\n数据和代码正在走内部审核中，即将开源 ~\n\n欢迎交流，欢迎大家在HF Papers点赞支持，非常感谢 🙏 🙏 🙏",
               "continues": false
             },
             {
@@ -941,6 +963,24 @@
               "speaker": 1,
               "time": "10.20 15:23",
               "text": "https://www.sglang.io/blog/omni-interactive-runtime\n\n斗胆分享我们开源实现的三套 full duplex interactive model 系统。Interactive Intelligence 需要在整个对话过程中协调感知、生成与持续执行的任务。为此，我们扩展了 SGLang-Omni，构建了一个统一运行时，支持原生全双工模型、轮次式多模态模型和级联系统。\n\n计算图将模型能力与交互控制组合起来，持久化会话则跨越连续的输入与响应，协调各组件的生命周期与事件。统一的实时接口支持对交互行为、服务容量和语音质量进行一致的评估。\n\n《Unified Runtime for Full-Duplex Interactive Intelligence with SGLang Omni》",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.20 15:25",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.20 15:25",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.20 15:26",
+              "text": "[图片]",
               "continues": false
             },
             {
@@ -1047,7 +1087,7 @@
               "speaker": 2,
               "time": "10.21 17:36",
               "text": "所以AI其实也是个实验科学（）",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -1106,7 +1146,7 @@
               "speaker": 1,
               "time": "10.22 02:35",
               "text": "[文件] “快”科研联合声明 · Joint Statement on Quick Research.pdf (2.4 MB, pdf, md5=c3e38b9a6777fd16ba9aa2af6c5cdd06)",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -1164,7 +1204,7 @@
               "speaker": 8,
               "time": "10.22 18:26",
               "text": "[链接] 教授“慢创业”倡议\n  来源: 文刀日肥\n  摘要: 来自学生的关于教学、科研与创业的一些真诚建议\n  URL: https://mp.weixin.qq.com/s?__biz=MzIyNzcxNjU2OA%3D%3D&mid=2247489126&idx=1&sn=36d2f430fa4a55e52afdade0e4afe824&chksm=e9b23c2ae982b06fd36a0d97d2e4bcc64bb255fe86243f2c212ef9badb0537b98836b102774b&scene=1&srcid=1022h74zM26kvoVJDCcMfFMl#rd",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -1197,8 +1237,14 @@
             {
               "speaker": 1,
               "time": "10.22 00:58",
-              "text": "🚀 𝐑𝐞𝐜𝐮𝐫𝐬𝐢𝐯𝐞 正式发布模型 𝐅𝐥𝐢𝐧𝐭! \n\n从今年 6 月 我们首次公开在 NanoChat、NanoGPT 和 SoLExecBench 上的初步 RSI研究进展，我们从探索 AI 自动化研究的可行性，应用到了完整的大模型训练闭环中。Flint 是一个 40B 总参数、仅激活 2.5B 参数的 MoE 模型，由 Recursive 的小团队在不到 4 个月内从零研发完成。\n\n几个核心亮点：\n\n(1) Coding 能力领先：在 SWE-Bench Pro v2、Terminal-Bench 2.1、SWE-Bench Verified 等 Agentic Coding Benchmark 上，Flint 在 50B 以下 MoE 模型中取得了 SOTA 成绩，Coding 能力媲美部分 25–40B Dense 模型。\n\n(2) 本地推理速度极快：使用优化后的推理引擎，在短上下文场景下，M4 Pro MacBook 上超过 125 tokens/s，NVIDIA RTX Spark 上超过 150 tokens/s。在相近 Coding 能力下，推理速度比部分 Dense 模型快 5 倍以上。\n\n(3) AI 自动化研发：Recursive 的 Eureka Machine 参与了架构搜索、数据、训练策略、量化和底层推理 Kernel 优化等多个环节，帮助团队探索不同的技术方案、执行实验并持续迭代。这也是我们将自动化研究从相对独立的实验任务扩展到完整模型研发流程的一次实践。\n\nFlint 是我们其中一个起点。欢迎提出建议和反馈！\n\nBlog：https://www.recursive.com/updates/introducing-recursive-flint\n\nHugging Face：https://huggingface.co/RecursiveSI/flint\n\nTwitter/X：https://x.com/RichardSocher/status/2112944385415426249?s=20",
+              "text": "🚀 𝐑𝐞𝐜𝐮𝐫𝐬𝐢𝐯𝐞 正式发布模型 𝐅𝐥𝐢𝐧𝐭! \n\n从今年 6 月 我们首次公开在 NanoChat、NanoGPT 和 SoLExecBench 上的初步 RSI研究进展，我们从探索 AI 自动化研究的可行性，应用到了完整的大模型训练闭环中。Flint 是一个 40B 总参数、仅激活 2.5B 参数的 MoE 模型，由 Recursive 的小团队在不到 4 个月内从零研发完成（lead by @yuandong and other cofounders）。\n\n几个核心亮点：\n\n(1) Coding 能力领先：在 SWE-Bench Pro v2、Terminal-Bench 2.1、SWE-Bench Verified 等 Agentic Coding Benchmark 上，Flint 在 50B 以下 MoE 模型中取得了 SOTA 成绩，Coding 能力媲美部分 25–40B Dense 模型。\n\n(2) 本地推理速度极快：使用优化后的推理引擎，在短上下文场景下，M4 Pro MacBook 上超过 125 tokens/s，NVIDIA RTX Spark 上超过 150 tokens/s。在相近 Coding 能力下，推理速度比部分 Dense 模型快 5 倍以上。\n\n(3) AI 自动化研发：Recursive 的 Eureka Machine 参与了架构搜索、数据、训练策略、量化和底层推理 Kernel 优化等多个环节，帮助团队探索不同的技术方案、执行实验并持续迭代。这也是我们将自动化研究从相对独立的实验任务扩展到完整模型研发流程的一次实践。\n\nFlint 是我们其中一个起点。欢迎提出建议和反馈！\n\nBlog：https://www.recursive.com/updates/introducing-recursive-flint\n\nHugging Face：https://huggingface.co/RecursiveSI/flint\n\nTwitter/X：https://x.com/RichardSocher/status/2112944385415426249?s=20",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 00:58",
+              "text": "[图片]",
+              "continues": true
             }
           ]
         },
@@ -1227,7 +1273,7 @@
               "speaker": 1,
               "time": "10.19 01:07",
               "text": "好用吗这个",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -1271,7 +1317,7 @@
               "speaker": 1,
               "time": "10.24 09:45",
               "text": "[链接] DINQ人才监控信息: Claude Code最强布道者Thariq Shihipar离职!\n  来源: DINQ实验室\n  摘要: DINQ人才监控信息: Claude Code最强布道者Thariq Shihipar离职! 只要关注Claude Code的人，有2个名字是肯定知道的：1是Boris Cherny，CC之父。另外就是Thariq，他是一个不只出现在A社背...\n  URL: https://mp.weixin.qq.com/s?t=pages%2Fimage_detail&scene=1&__biz=MzcwNzQyNTY3Ng%3D%3D&mid=2247484186&idx=1&sn=4bf5e2316410e38c73a17f700c4b5bc4#wechat_redirect",
-              "continues": false
+              "continues": true
             }
           ]
         }
@@ -1356,7 +1402,7 @@
               "speaker": 1,
               "time": "10.21 23:30",
               "text": "personal agent应该需要更隐私，更个性化，更了解person。是长期的，连续的，而不是某个task？",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -1416,7 +1462,7 @@
               "speaker": 5,
               "time": "10.21 23:31",
               "text": "所有context放在一起真的好吗",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -1459,6 +1505,12 @@
               "time": "10.22 03:25",
               "text": "anthorpic也下场了",
               "continues": false
+            },
+            {
+              "speaker": 9,
+              "time": "10.22 03:25",
+              "text": "[图片]",
+              "continues": true
             },
             {
               "speaker": 10,
@@ -1526,7 +1578,7 @@
               "speaker": 14,
               "time": "10.22 13:45",
               "text": "应该本质都能叫agent只是侧重点不一样就换个词炒作",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 15,
@@ -1727,7 +1779,7 @@
               "speaker": 4,
               "time": "10.21 23:42",
               "text": "国内支付宝微信能做大部分事情",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 9,
@@ -1783,7 +1835,7 @@
               "speaker": 8,
               "time": "10.21 23:47",
               "text": "购买的api之前研究过好像没开放",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
@@ -1900,7 +1952,7 @@
               "speaker": 2,
               "time": "10.22 19:04",
               "text": "我感觉现在对外的基膜都是朝着严格指令跟随方向搞的，这个不利于“创新”",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -1927,7 +1979,7 @@
             {
               "speaker": 6,
               "time": "10.22 19:09",
-              "text": "AI can learn scientific taste",
+              "text": "AI can learn scientific taste，我们团队做的",
               "quote": {
                 "speaker": null,
                 "text": "[引用] 我记得sii之前不是有训一个sci taste相关的"
@@ -1966,7 +2018,7 @@
               "speaker": 6,
               "time": "10.22 19:13",
               "text": "可以让人和llm当judge",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -2000,7 +2052,7 @@
               "speaker": 1,
               "time": "10.22 19:16",
               "text": "hack llm judge的难度比真正提升价值要更容易吧",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -2012,7 +2064,7 @@
               "speaker": 2,
               "time": "10.22 19:18",
               "text": "因为不是洛伦兹这个天才没想出来这个变化，但是他没给这个变化一个“正确”的解释",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -2149,8 +2201,8 @@
             {
               "speaker": 11,
               "time": "10.22 19:31",
-              "text": "https://www.nature.com/articles/d41586-026-02804-x",
-              "continues": false
+              "text": "https://www.nature.com/articles/d41586-026-02804-x?code=806f0d1a-fa32-4693-a187-0f90088df82e&error=cookies_not_supported",
+              "continues": true
             },
             {
               "speaker": 2,
@@ -2204,7 +2256,7 @@
             {
               "speaker": 1,
               "time": "10.20 13:58",
-              "text": "各位朋友们好，在MOSS-Image发布之后社区大佬们都纷纷做了各种适配以及lora，并在bilibili小红书分享相关教程。\n在和用户和开发者交流过程中大家对技术报告期待很大，终于我们的技术报告上线了！\nMOSS-Image Technical Report\nArxiv：https://arxiv.org/abs/2610.23374\nHuggingface Daily Paper：https://huggingface.co/papers/2610.23374\nGithub：https://github.com/OpenMOSS/MOSS-Image\n我相信一个支持文本渲染和布局生成且风格多样的高质量生图基础模型还是很有价值的，该项目将会继续迭代，和社区探索高质量图片生成的前沿。\n另外也请大家多多upvote下我们的daily paper以及star仓库，感谢:\nhttps://huggingface.co/papers/2610.23374\nhttps://github.com/OpenMOSS/MOSS-Image",
+              "text": "各位朋友们好，在我们MOSS-Image发布之后社区大佬们都纷纷做了各种适配以及lora，并在bilibili小红书分享相关教程。\n在和用户和开发者交流过程中大家对技术报告期待很大，终于我们的技术报告上线了！\nMOSS-Image Technical Report\nArxiv：https://arxiv.org/abs/2610.23374\nHuggingface Daily Paper：https://huggingface.co/papers/2610.23374\nGithub：https://github.com/OpenMOSS/MOSS-Image\n我相信一个支持文本渲染和布局生成且风格多样的高质量生图基础模型还是很有价值的，我们团队将会继续迭代，和社区探索高质量图片生成的前沿。\n另外也请大家多多upvote下我们的daily paper以及star仓库，感谢:\nhttps://huggingface.co/papers/2610.23374\nhttps://github.com/OpenMOSS/MOSS-Image",
               "continues": false
             },
             {
@@ -2236,8 +2288,8 @@
             {
               "speaker": 1,
               "time": "10.20 14:12",
-              "text": "其实code2videonvidia那边自动驾驶视频有了 当时他们条件注入就是靠着各种汽车行人的bounding box  这个首先空间是对应的 其次因为是实时动态的所以时间是也是对应的",
-              "continues": false
+              "text": "其实code2video我在cvpr 丹佛就看到nvidia那边自动驾驶视频有了 当时他们条件注入就是靠着各种汽车行人的bounding box  这个首先空间是对应的 其次因为是实时动态的所以时间是也是对应的",
+              "continues": true
             },
             {
               "speaker": 2,
@@ -2257,7 +2309,7 @@
               "text": "是code建模3d bounding box还是就是直接3d bounding box控制？",
               "quote": {
                 "speaker": 1,
-                "text": "其实code2videonvidia那边自动驾驶视频有了 当时他们条件注入就是靠着各种汽车行人的bounding box 这个首先空间是..."
+                "text": "其实code2video我在cvpr 丹佛就看到nvidia那边自动驾驶视频有了 当时他们条件注入就是靠着各种汽车行人的bounding box 这个首先空间是..."
               },
               "continues": false
             },
@@ -2265,7 +2317,7 @@
               "speaker": 3,
               "time": "10.20 14:40",
               "text": "用layout这种方式，智驾很常见，但是code搞的目前我还真没看到",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -2280,7 +2332,7 @@
             {
               "speaker": 1,
               "time": "10.20 15:02",
-              "text": "可以看下prompt example  bbox语法直接在prompt中",
+              "text": "可以看下我们的prompt example  bbox语法直接在prompt中",
               "continues": false
             }
           ]
@@ -2343,7 +2395,7 @@
               "speaker": 1,
               "time": "10.22 13:31",
               "text": "说白了就是，不同老板对PPT的偏好不一样[旺柴]，还得自己上手",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -2412,7 +2464,7 @@
             {
               "speaker": 2,
               "time": "10.22 13:58",
-              "text": "[个人背景已省略]",
+              "text": "我搓的组会PPT已经成实验室模板了(",
               "continues": false
             },
             {
@@ -2421,7 +2473,7 @@
               "text": "可以尝试让 g6 和 o55套你的模板",
               "quote": {
                 "speaker": 2,
-                "text": "[个人背景已省略]"
+                "text": "我搓的组会PPT已经成实验室模板了("
               },
               "continues": false
             },
@@ -2431,7 +2483,7 @@
               "text": "那你可能可以试试easyslides",
               "quote": {
                 "speaker": 2,
-                "text": "[个人背景已省略]"
+                "text": "我搓的组会PPT已经成实验室模板了("
               },
               "continues": false
             },
@@ -2439,6 +2491,12 @@
               "speaker": 7,
               "time": "10.22 13:59",
               "text": "https://easyslides.scansci.com/index.html?library=image#catalog",
+              "continues": true
+            },
+            {
+              "speaker": 7,
+              "time": "10.22 14:00",
+              "text": "[图片]",
               "continues": false
             },
             {
@@ -2506,7 +2564,7 @@
               "speaker": 4,
               "time": "10.19 11:37",
               "text": "特别是那种posttrain rsi，太顶了，怎么提高效率",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -2518,7 +2576,7 @@
               "speaker": 5,
               "time": "10.19 11:37",
               "text": "好了 把这个交给autoresearch agent 开始A门",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -2691,8 +2749,8 @@
             {
               "speaker": 1,
               "time": "10.19 12:22",
-              "text": "宣传一下我们的新工作 RAX: Scaling Online Exploration for Robot Agents[庆祝]\n\n过去几年，VLA 和 WAM 的数据越采越多，模型越做越大，炫酷的 Demo 接连刷屏。但镜头之外，一旦换了机器人、打乱物体位置，或进入陌生现场，演示中的流畅操作就可能变成接连失败。示范数据和模型规模不断 Scaling，整个行业却始终绕不开同一道部署难题：换一台机器人、换一个场景，是否还要重新采集数据、训练策略？为了让机器人自主工作，人类究竟还要先替它做多少遍？\n\nRAX（Robot Agent eXploration），将 Scaling 的重点转向在线探索：让机器人直接在自己的身体、自己的工作环境里尝试、纠错、积累经验，在测试时持续改进自身能力。从 Scaling Data、Scaling Model，到 Scaling Online Exploration，模型参数保持冻结，学到的东西写进程序、记忆和技能库，留给下一次任务继续使用。\n\n方法上，RAX 将自主建模、三维规划与程序生成连成一个闭环。Agent 利用 RGB-D 与力反馈，在探索中构建任务相关的三维物体模型，结合机器人运动学搜索可行的操作策略，再将感知、规划与控制逻辑编译为闭环程序，逐步接管原本需要大模型逐步推理的决策。遇到程序无法处理的新情况，Agent 重新介入，定位失败环节并修改对应模块。经过独立执行验证的技能进入持久技能库，通过反复练习、跨任务复用和组合，完成更复杂的任务；多 Agent、多环境并行探索，则进一步缩短尝试与调试的时间。\n\n我们系统研究了机器人智能体的 Exploration Scaling：更多探索，带来更强的泛化能力。在 RoboDojo、BEHAVIOR-1K、HumanoidArena、DexJoCo 和 LIBERO-Pro 五大仿真基准上，RAX 相比此前最强模型平均领先 37.4 个百分点。在无需任何动作示范的 DexJoCo 双臂灵巧手任务中，RAX 成功率达到 94.3%，此前最强模型 ME-Dex 为 48.8%；LIBERO-Pro 物体位置打乱后，VPP2 仅为 42.3%，RAX 达到 84.4%。RoboDojo 七项困难任务上，RAX 平均得分为 78.3%，约为 VPP2（24.9%）的 3.1 倍；交换积木任务中，Agent 方法 Physical RSI 为 0，RAX 达到 100%；按语言指令倾倒，Physical RSI 为 10.1%，RAX 为 100%。\n\n真实机器人上，零人工遥操作示范、无需策略训练。RAX 通过在线探索完成了 0.1 毫米间隙插孔、空气炸锅操作、擦拭污渍、记忆追踪和不规则积木搭塔，并在 RB-Y1 轮臂机器人上调用此前练习积累的技能，完成六阶段长程移动操作。探索留下的程序还大幅减少了推理等待：空气炸锅任务的推理开销从 Agent 逐步操控时约 72 分钟，降至独立程序执行时的 18 秒，缩减约 241 倍。花时间探索得到的解法，可以在后续任务中直接运行。\n\nRAX 也是一套面向多本体、前后端分离的开放 Agent 框架：前端负责探索、代码生成、记忆与技能积累，后端对接机器人的感知、控制与底层执行接口。同一套前端已经覆盖单臂、双臂、灵巧手、移动机器人和人形机器人；接入新本体，只需实现对应后端、开放接口，就能沿用整套探索与技能学习流程，无需先采集任务遥操作示范或重新训练策略。框架代码、技能与探索记录已全部公开，欢迎大家把自己的机器人接进来，跑起自己的 RAX Agent，尝试新任务，也把学到的机器人Skills贡献回来！\n\n项目与视频：https://robot-agent-exploration.com/\n论文：https://arxiv.org/abs/2610.22496\n代码：https://github.com/robot-agent-exploration/rax\nSkill Library: https://github.com/robot-agent-exploration/skills-lib",
-              "continues": false
+              "text": "宣传一下我们的新工作 RAX: Scaling Online Exploration for Robot Agents[庆祝]\n\n过去几年，VLA 和 WAM 的数据越采越多，模型越做越大，炫酷的 Demo 接连刷屏。但镜头之外，一旦换了机器人、打乱物体位置，或进入陌生现场，演示中的流畅操作就可能变成接连失败。示范数据和模型规模不断 Scaling，整个行业却始终绕不开同一道部署难题：换一台机器人、换一个场景，是否还要重新采集数据、训练策略？为了让机器人自主工作，人类究竟还要先替它做多少遍？\n\n我们团队据此提出 RAX（Robot Agent eXploration），将 Scaling 的重点转向在线探索：让机器人直接在自己的身体、自己的工作环境里尝试、纠错、积累经验，在测试时持续改进自身能力。从 Scaling Data、Scaling Model，到 Scaling Online Exploration，模型参数保持冻结，学到的东西写进程序、记忆和技能库，留给下一次任务继续使用。\n\n方法上，RAX 将自主建模、三维规划与程序生成连成一个闭环。Agent 利用 RGB-D 与力反馈，在探索中构建任务相关的三维物体模型，结合机器人运动学搜索可行的操作策略，再将感知、规划与控制逻辑编译为闭环程序，逐步接管原本需要大模型逐步推理的决策。遇到程序无法处理的新情况，Agent 重新介入，定位失败环节并修改对应模块。经过独立执行验证的技能进入持久技能库，通过反复练习、跨任务复用和组合，完成更复杂的任务；多 Agent、多环境并行探索，则进一步缩短尝试与调试的时间。\n\n我们系统研究了机器人智能体的 Exploration Scaling：更多探索，带来更强的泛化能力。在 RoboDojo、BEHAVIOR-1K、HumanoidArena、DexJoCo 和 LIBERO-Pro 五大仿真基准上，RAX 相比此前最强模型平均领先 37.4 个百分点。在无需任何动作示范的 DexJoCo 双臂灵巧手任务中，RAX 成功率达到 94.3%，此前最强模型 ME-Dex 为 48.8%；LIBERO-Pro 物体位置打乱后，VPP2 仅为 42.3%，RAX 达到 84.4%。RoboDojo 七项困难任务上，RAX 平均得分为 78.3%，约为 VPP2（24.9%）的 3.1 倍；交换积木任务中，Agent 方法 Physical RSI 为 0，RAX 达到 100%；按语言指令倾倒，Physical RSI 为 10.1%，RAX 为 100%。\n\n真实机器人上，零人工遥操作示范、无需策略训练。RAX 通过在线探索完成了 0.1 毫米间隙插孔、空气炸锅操作、擦拭污渍、记忆追踪和不规则积木搭塔，并在 RB-Y1 轮臂机器人上调用此前练习积累的技能，完成六阶段长程移动操作。探索留下的程序还大幅减少了推理等待：空气炸锅任务的推理开销从 Agent 逐步操控时约 72 分钟，降至独立程序执行时的 18 秒，缩减约 241 倍。花时间探索得到的解法，可以在后续任务中直接运行。\n\nRAX 也是一套面向多本体、前后端分离的开放 Agent 框架：前端负责探索、代码生成、记忆与技能积累，后端对接机器人的感知、控制与底层执行接口。同一套前端已经覆盖单臂、双臂、灵巧手、移动机器人和人形机器人；接入新本体，只需实现对应后端、开放接口，就能沿用整套探索与技能学习流程，无需先采集任务遥操作示范或重新训练策略。框架代码、技能与探索记录已全部公开，欢迎大家把自己的机器人接进来，跑起自己的 RAX Agent，尝试新任务，也把学到的机器人Skills贡献回来！\n\n项目与视频：https://robot-agent-exploration.com/\n论文：https://arxiv.org/abs/2610.22496\n代码：https://github.com/robot-agent-exploration/rax\nSkill Library: https://github.com/robot-agent-exploration/skills-lib",
+              "continues": true
             },
             {
               "speaker": 2,
@@ -2812,13 +2870,13 @@
               "speaker": 1,
               "time": "10.25 17:19",
               "text": "🚀 来自复旦大学 NLP 的 A5 Harness 正式发布，现已开放体验！\n\n从被动响应到主动协作，从短期上下文到长期智能，我们希望让 AI Agent 不再只是一次性的任务执行工具，而是真正能够长期协作、主动工作的智能伙伴。\n\nA5 带来了三个核心能力：\n\n🧠 长期记忆：持续积累对用户和项目的理解，让过去的经验帮助完成新任务。\n🔄 动态感知：实时感知资料变化，让执行中的任务及时跟进最新信息。\n🤝 主动协作：结合已有目标和最新信息，主动发现值得推进的工作、提出建议，并持续整理工作空间知识。\n\n目前 A5 技术预览版已开放下载，欢迎大家体验！期待大家的反馈和建议，A5 真的很不一样！\n\n📖 技术博客：\nhttps://huggingface.co/blog/KYLN24/introducing-a5\n📦 下载链接：\nhttps://huggingface.co/buckets/KYLN24/a5-release",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.25 17:19",
               "text": "欢迎大家关注我们在 personal agent、主动性和终身上下文管理方面的工作～也欢迎大家给我们的 blog 点点 upvote [Grin]",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -2839,25 +2897,41 @@
             {
               "speaker": 1,
               "time": "10.20 01:11",
-              "text": "在一个角落 M3也发布了",
+              "text": "[图片]",
               "continues": false
             },
             {
               "speaker": 1,
               "time": "10.20 01:11",
+              "text": "[图片]",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.20 01:11",
+              "text": "在一个角落 M3也发布了",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.20 01:11",
               "text": "证明diffusion不是区",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.20 01:12",
               "text": "(Mercury 3",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.20 08:18",
               "text": "这个dLLM这么猛吗",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             }
           ]
@@ -2886,8 +2960,8 @@
             {
               "speaker": 1,
               "time": "10.20 09:05",
-              "text": "@群友 2 对此怎么看，我看好多分析说这个债券有点顶不住了，有点像当年的雷曼兄弟[破涕为笑]",
-              "continues": false
+              "text": "@群友 2 你们投行怎么看，我看好多分析说这个债券有点顶不住了，有点像当年的雷曼兄弟[破涕为笑]",
+              "continues": true
             },
             {
               "speaker": 2,
@@ -2899,13 +2973,13 @@
               "speaker": 2,
               "time": "10.20 10:11",
               "text": "大量基于算力使用权产生的衍生品",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.20 10:12",
               "text": "国内相对而言对这块控的很严，没有做基于算力的衍生品，所以不太会因为underlying标的的波动对整体金融市场产生影响",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -2949,7 +3023,7 @@
               "speaker": 2,
               "time": "10.20 01:19",
               "text": "想学习一些先进的开源的魔改一下",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -3015,6 +3089,12 @@
               "continues": false
             },
             {
+              "speaker": 1,
+              "time": "10.22 14:04",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
               "speaker": 3,
               "time": "10.22 14:05",
               "text": "用这个harness，好像一般的模型也能跑的起来长程",
@@ -3052,7 +3132,7 @@
               "speaker": 4,
               "time": "10.22 14:08",
               "text": "cc 也可以接入不同模型呀",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -3080,7 +3160,7 @@
               "speaker": 5,
               "time": "10.22 14:18",
               "text": "做事情的效果没感受到很大区别，挺不错的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -3124,13 +3204,13 @@
               "speaker": 2,
               "time": "10.22 17:56",
               "text": "我都想付费",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.22 17:56",
               "text": "怕这个项目关了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -3148,7 +3228,7 @@
               "speaker": 3,
               "time": "10.22 18:00",
               "text": "我跨洋每天开着都感觉很丝滑",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -3172,7 +3252,7 @@
               "speaker": 2,
               "time": "10.22 18:02",
               "text": "感觉是小bug",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -3208,13 +3288,13 @@
               "speaker": 2,
               "time": "10.22 11:39",
               "text": "sol",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.22 11:39",
               "text": "更蠢",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -3238,7 +3318,7 @@
               "speaker": 1,
               "time": "10.22 11:42",
               "text": "难道给我路由了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -3266,13 +3346,13 @@
               "speaker": 6,
               "time": "10.22 11:43",
               "text": "都是一样的拉",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
               "time": "10.22 11:43",
               "text": "只是说gpt不封号罢了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -3309,14 +3389,20 @@
             {
               "speaker": 10,
               "time": "10.22 12:32",
-              "text": "[链接] 一款新的测试GPT是否降智的方法\n  \n  URL: https://www.xiaohongshu.com/discovery/item/6ac10dba000000000a026bc9?ignoreEngage=true&xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1791217954",
-              "continues": false
+              "text": "[链接] 一款新的测试GPT是否降智的方法\n  摘要: @Sycee 的笔记 900人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ac10dba000000000a026bc9?ignoreEngage=true&xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1791217954",
+              "continues": true
+            },
+            {
+              "speaker": 10,
+              "time": "10.22 12:32",
+              "text": "[图片]",
+              "continues": true
             },
             {
               "speaker": 10,
               "time": "10.22 12:32",
               "text": "降成啥子是这样的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -3365,7 +3451,7 @@
               "speaker": 1,
               "time": "10.24 20:27",
               "text": "对比一下OA都很有性价比了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -3383,7 +3469,7 @@
               "speaker": 2,
               "time": "10.25 18:30",
               "text": "但也太贵了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -3433,6 +3519,12 @@
           "resources": [],
           "discussion": [
             {
+              "speaker": 1,
+              "time": "10.20 00:48",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
               "speaker": 2,
               "time": "10.20 00:53",
               "text": "minimax能搞出这个活？",
@@ -3470,7 +3562,25 @@
             {
               "speaker": 2,
               "time": "10.25 17:59",
-              "text": "[链接] Qwen 基模｜Personal Agent 研究实习\n  \n  URL: https://www.xiaohongshu.com/discovery/item/6addc126000000002a032b41?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792922337",
+              "text": "[链接] 我发布了一篇笔记：Qwen 基模｜Personal Agent 研究实习\n  摘要: @白苏苏 的笔记 38人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6addc126000000002a032b41?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792922337",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.25 18:05",
+              "text": "严肃投递",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.25 18:10",
+              "text": "严肃投递",
+              "continues": false
+            },
+            {
+              "speaker": 5,
+              "time": "10.25 18:31",
+              "text": "欢迎挖我们实验室同学[偷笑]",
               "continues": false
             }
           ]
@@ -3549,7 +3659,7 @@
               "speaker": 1,
               "time": "10.20 17:38",
               "text": "b300啊",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -3651,7 +3761,7 @@
               "speaker": 11,
               "time": "10.20 17:44",
               "text": "不过已经是一年前了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -3738,6 +3848,12 @@
               "continues": false
             },
             {
+              "speaker": 2,
+              "time": "10.20 22:24",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
               "speaker": 3,
               "time": "10.23 11:11",
               "text": "果然发了哈哈哈",
@@ -3751,6 +3867,12 @@
               "speaker": 4,
               "time": "10.23 11:11",
               "text": "我不知道为什么传的吊打Astra了（",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 11:11",
+              "text": "[图片]",
               "continues": false
             },
             {
@@ -3815,7 +3937,7 @@
               "speaker": 8,
               "time": "10.24 01:34",
               "text": "灰度了一部分",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 9,
@@ -3826,8 +3948,14 @@
             {
               "speaker": 9,
               "time": "10.24 01:55",
-              "text": "astra就是纯智障",
+              "text": "[图片]",
               "continues": false
+            },
+            {
+              "speaker": 9,
+              "time": "10.24 01:55",
+              "text": "astra就是纯智障",
+              "continues": true
             },
             {
               "speaker": 10,
@@ -3856,8 +3984,18 @@
             {
               "speaker": 9,
               "time": "10.24 01:59",
+              "text": "[图片]",
+              "continues": true
+            },
+            {
+              "speaker": 9,
+              "time": "10.24 01:59",
               "text": "opus5.5",
-              "continues": false
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
+              "continues": true
             },
             {
               "speaker": 9,
@@ -3867,8 +4005,24 @@
             },
             {
               "speaker": 9,
+              "time": "10.24 02:01",
+              "text": "[图片]",
+              "continues": true
+            },
+            {
+              "speaker": 9,
               "time": "10.24 02:02",
               "text": "prompt：创建一个HTML,内容是:SVG绘制秦始皇骑着一只北极熊的2D动画,背景要可以手动切换森林,雪原,赛博朋克的城市,海洋,世界可以手动切换白天和黑夜,速度可调",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
+              "continues": true
+            },
+            {
+              "speaker": 11,
+              "time": "10.24 02:05",
+              "text": "[图片]",
               "continues": false
             },
             {
@@ -3938,13 +4092,13 @@
                 "speaker": null,
                 "text": "想问问群里有没有做智能体价值观对齐的佬呢[Shocked] 能不能交流一下，感觉这个价值观范围有点广，跟安全对齐在很多场景下比较重合[Tremble]，而且价值..."
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.20 00:48",
               "text": "从ai risk来说优先级或许也是先尝试去攻克cbrn这种标准相对清晰且威胁性大的事",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -3990,13 +4144,13 @@
               "speaker": 2,
               "time": "10.20 00:58",
               "text": "主要也就是有个个人实施一些行为的成本问题，cyber风险则是因为成本更低更轻量已经有一些个人造成大规模破坏的例子出现了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.20 00:59",
               "text": "但用agent搞cyber比较容易被追踪；克服了成本问题、使用自部署无甲模型搞cbrn其实都是线下的，会更隐蔽更危险。。。。",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -4006,7 +4160,7 @@
                 "speaker": null,
                 "text": "想问问群里有没有做智能体价值观对齐的佬呢[Shocked] 能不能交流一下，感觉这个价值观范围有点广，跟安全对齐在很多场景下比较重合[Tremble]，而且价值..."
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -4026,7 +4180,7 @@
                 "speaker": null,
                 "text": "[引用] @群友 6 我其实还有很多想法会比较哲学一点，就是关于the foundation of AI alignment，在我看来以及在一些思考这个问题的人看来价值对齐可能不止模糊、而且几乎是不可实现的。对人类价值观的建模可能是时序上不连贯而且空间上离散的，或许我们可以设想一些更有整体性 直觉更简单的目标，比如corrigibility"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -4036,7 +4190,7 @@
                 "speaker": null,
                 "text": "[引用] 有测试过一些agent群体在数学证明解决的越轨行为，主要以cheatbench那篇论文为参考"
               },
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -4076,7 +4230,7 @@
               "speaker": 1,
               "time": "10.24 14:14",
               "text": "说起来这种是后训练的时候没有做nsfw过滤还是search接入贴吧做few shot学坏了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -4094,7 +4248,7 @@
               "speaker": 2,
               "time": "10.24 14:19",
               "text": "感觉就是个嘴臭壳",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -4112,7 +4266,7 @@
               "speaker": 2,
               "time": "10.24 14:21",
               "text": "并不能保持嘴臭",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -4151,37 +4305,53 @@
             {
               "speaker": 2,
               "time": "10.24 14:28",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.24 14:28",
               "text": "claude：不许嘴臭",
+              "continues": true
+            },
+            {
+              "speaker": 2,
+              "time": "10.24 15:48",
+              "text": "[图片]",
               "continues": false
             },
             {
               "speaker": 2,
               "time": "10.24 15:48",
               "text": "会好一点",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.24 15:48",
               "text": "用的同样的fewshot，工具量也一样",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.24 15:49",
               "text": "claude不给我写贴吧老哥，我操了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.24 15:49",
               "text": "回头让哈基米写一个A/B一下",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
               "time": "10.25 11:09",
               "text": "感觉一般的嘴臭鱼回答看起来更舒适",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             },
             {
@@ -4194,7 +4364,7 @@
               "speaker": 5,
               "time": "10.25 11:15",
               "text": "所以还在调",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -4242,7 +4412,7 @@
               "speaker": 3,
               "time": "10.24 02:37",
               "text": "腐蚀太伤了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -4258,7 +4428,7 @@
               "speaker": 1,
               "time": "10.24 02:39",
               "text": "他已经为这个auto- research任务写了50多个md文档了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -4282,7 +4452,7 @@
               "speaker": 1,
               "time": "10.24 02:45",
               "text": "的tps太龟速了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -4292,13 +4462,13 @@
                 "speaker": 3,
                 "text": "那你每次搜一下这个文档内容就100k出去了[破涕为笑]"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.24 02:47",
               "text": "这将是一个及其难以分析的超长程bad case而不是好的auto-research",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -4358,13 +4528,19 @@
               "speaker": 2,
               "time": "10.21 14:23",
               "text": "感觉claude pro在opus5.5之后，性价比拉满了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
               "time": "10.21 14:49",
               "text": "gpt 的 web 端什么时候上了 subagent",
               "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.21 14:49",
+              "text": "[图片]",
+              "continues": true
             },
             {
               "speaker": 4,
@@ -4398,7 +4574,7 @@
               "speaker": 5,
               "time": "10.21 16:40",
               "text": "200刀的号撑不到10h",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -4444,7 +4620,7 @@
               "speaker": 8,
               "time": "10.21 18:11",
               "text": "workbuddy修好了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 9,
@@ -4462,7 +4638,7 @@
               "speaker": 7,
               "time": "10.21 18:18",
               "text": "只是模型当前还比不上",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -4542,7 +4718,7 @@
               "speaker": 3,
               "time": "10.24 13:32",
               "text": "头部公司垄断",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -4608,7 +4784,7 @@
               "speaker": 3,
               "time": "10.24 13:34",
               "text": "science几年？五年算高估不",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -4636,7 +4812,7 @@
               "speaker": 5,
               "time": "10.24 13:35",
               "text": "science是labor intensive的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -4826,7 +5002,7 @@
               "speaker": 2,
               "time": "10.25 12:02",
               "text": "然后gpt是不懂行业通用做法的……如果你在哪里采用了通用近似的做法，他会跳出来批评你",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -4864,7 +5040,7 @@
               "speaker": 6,
               "time": "10.25 12:50",
               "text": "[捂脸]一想到6w篇投稿，18w个创新点，仿佛下一秒就要迈入AGI了",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -4953,6 +5129,12 @@
             },
             {
               "speaker": 1,
+              "time": "10.19 19:01",
+              "text": "是的",
+              "continues": false
+            },
+            {
+              "speaker": 1,
               "time": "10.19 19:03",
               "text": "而且目前这批题目是严格控制了题面没要求的test的，没有太多超出题面要求的test，当然也可以把instruction弄得更vague一点",
               "continues": false
@@ -5002,7 +5184,7 @@
               "speaker": 2,
               "time": "10.19 18:58",
               "text": "loop之后不是普通模型学得会的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -5020,7 +5202,7 @@
               "speaker": 3,
               "time": "10.19 18:58",
               "text": "只有gpt自己看的懂",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -5120,7 +5302,7 @@
             {
               "speaker": 1,
               "time": "10.20 14:42",
-              "text": "[链接] ECHO：高效因果自递归的MTP新范式\n  摘要: DeepSeek-V3对单步MTP的有效性给出了两点解释：一是训练信号更密集，二是模型可能学会pre-plan自己的表示\n  URL: https://www.xiaohongshu.com/discovery/item/6ad70800000000003003e802?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792478536",
+              "text": "[链接] 我发布了一篇笔记：ECHO：高效因果自递归的MTP新范式\n  摘要: DeepSeek-V3对单步MTP的有效性给出了两点解释：一是训练信号更密集，二是模型可能学会pre-plan自己的表示\n  URL: https://www.xiaohongshu.com/discovery/item/6ad70800000000003003e802?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792478536",
               "continues": false
             }
           ]
@@ -5166,7 +5348,7 @@
               "speaker": 1,
               "time": "10.20 16:28",
               "text": "[链接] I published a note：OpenVLHarness: Multimodal Agent的另一半",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -5256,7 +5438,7 @@
               "speaker": 7,
               "time": "10.23 17:39",
               "text": "好像如果是 MacBook 的话，应该有 LaTeX 编译器。然后用这个 VS Code 去当做操作平台就好了。",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -5268,7 +5450,7 @@
               "speaker": 1,
               "time": "10.23 17:43",
               "text": "现在不给了，免费编译时长也变短了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -5280,7 +5462,7 @@
               "speaker": 8,
               "time": "10.23 23:29",
               "text": "但是写出来的内容一般般",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 9,
@@ -5292,7 +5474,7 @@
               "speaker": 9,
               "time": "10.23 23:29",
               "text": "委托codex",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -5314,12 +5496,18 @@
               "speaker": 10,
               "time": "10.24 00:32",
               "text": "而且我感觉prism更不稳定 不知道是我网络问题还是确实是这样",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 11,
               "time": "10.24 00:37",
               "text": "prism 是 oai的那个吗",
+              "continues": false
+            },
+            {
+              "speaker": 12,
+              "time": "10.24 00:45",
+              "text": "是的",
               "continues": false
             }
           ]
@@ -5349,13 +5537,13 @@
               "speaker": 1,
               "time": "10.19 14:05",
               "text": "https://andonlabs.com/evals/blueprint-bench-2",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.19 14:06",
               "text": "Blueprint-Bench 2 tests spatial reasoning by asking AI agents to convert apartment photographs into accurate 2D floor plans. Each agent processes 50 apartments sequentially, examining ~20 interior photos per apartment and generating a floor plan showing room layouts, connections, and relative sizes. Agents use a persistent notepad to carry insights between apartments, enabling cross-apartment learning and iterative strategy refinement.",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -5379,7 +5567,7 @@
               "speaker": 3,
               "time": "10.19 15:00",
               "text": "机械那边",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -5403,7 +5591,7 @@
               "speaker": 4,
               "time": "10.19 15:01",
               "text": "ai建模现在做到什么程度了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -5415,7 +5603,7 @@
               "speaker": 3,
               "time": "10.19 15:01",
               "text": "都不是大问题",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -5431,7 +5619,7 @@
               "speaker": 1,
               "time": "10.19 15:12",
               "text": "比如 ar_300 & ar_1500",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -5559,6 +5747,10 @@
               "speaker": 2,
               "time": "10.23 11:31",
               "text": "哇塞，这太牛了，贴图和渲染用的是啥工具啊？学习一下",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             },
             {
@@ -5699,6 +5891,12 @@
           "resources": [],
           "discussion": [
             {
+              "speaker": 1,
+              "time": "10.19 19:06",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
               "speaker": 2,
               "time": "10.19 19:07",
               "text": "细节是第一道题都没做对",
@@ -5726,7 +5924,7 @@
               "speaker": 4,
               "time": "10.19 19:17",
               "text": "闭源能力也不是特别强，有harness也是内部使用了",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -5756,7 +5954,7 @@
               "speaker": 1,
               "time": "10.21 09:32",
               "text": "数学界应该有能够靠近真理的喜悦，怎么还害怕起来了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -5860,7 +6058,7 @@
               "speaker": 8,
               "time": "10.21 10:09",
               "text": "数学本来就穷",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -5932,7 +6130,7 @@
               "speaker": 4,
               "time": "10.22 16:15",
               "text": "没了几句就限额了[可怜]",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -5948,7 +6146,7 @@
               "speaker": 5,
               "time": "10.22 16:18",
               "text": "花了6%",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -5970,7 +6168,7 @@
               "speaker": 1,
               "time": "10.22 16:20",
               "text": "先开20感受一下",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -6062,8 +6260,14 @@
             {
               "speaker": 1,
               "time": "10.22 15:48",
-              "text": "这样号是不是彻底g了",
+              "text": "[图片]",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 15:48",
+              "text": "这样号是不是彻底g了",
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6086,6 +6290,12 @@
               "time": "10.22 16:07",
               "text": "限流",
               "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.22 16:07",
+              "text": "之前买过那种用于中转站的gpt就这样",
+              "continues": true
             }
           ]
         },
@@ -6151,13 +6361,13 @@
               "speaker": 3,
               "time": "10.23 11:13",
               "text": "这个不错，从写作到回复信都有了，一票通",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
               "time": "10.23 11:13",
               "text": "不过我没试过找idea，感觉idea还得靠人工不断迭代",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -6200,7 +6410,7 @@
                 "speaker": 1,
                 "text": "大家有感觉一些跑分高的模型，在模糊的新场景，表现显著弱么？ 举个例子，loopx 的控制面协议稍有复杂，GPT 系列的模型体感上是 GPT-5.5 开始能理解并..."
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6229,7 +6439,20 @@
           "kind": "related",
           "timeline": [],
           "resources": [],
-          "discussion": []
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.22 16:34",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 13:41",
+              "text": "[图片]",
+              "continues": false
+            }
+          ]
         },
         {
           "title": "ccfddl 网页端连接受阻时的微信小程序替代方案",
@@ -6261,7 +6484,7 @@
               "speaker": 1,
               "time": "10.25 11:41",
               "text": "我最近不知道为什么连不上ccfddl了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6273,7 +6496,7 @@
               "speaker": 2,
               "time": "10.25 11:42",
               "text": "[小程序] ccfddl",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -6285,7 +6508,7 @@
               "speaker": 1,
               "time": "10.25 11:43",
               "text": "都不知道有xcx",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -6313,7 +6536,7 @@
               "speaker": 1,
               "time": "10.25 11:46",
               "text": "我之前用的https://ccfddl.com/",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6349,6 +6572,12 @@
               "continues": false
             },
             {
+              "speaker": 2,
+              "time": "10.21 19:19",
+              "text": "will老师要做intern吗",
+              "continues": false
+            },
+            {
               "speaker": 1,
               "time": "10.21 19:20",
               "text": "有在找llm mid-/post-train intern的可以联系下我～",
@@ -6364,7 +6593,7 @@
               "speaker": 2,
               "time": "10.21 19:21",
               "text": "code post train方向",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6457,8 +6686,8 @@
             {
               "speaker": 2,
               "time": "10.21 21:49",
-              "text": "不过[个人背景已省略]",
-              "continues": false
+              "text": "不过我在北京",
+              "continues": true
             }
           ]
         },
@@ -6521,7 +6750,7 @@
               "speaker": 1,
               "time": "10.23 21:46",
               "text": "仿真世界模型算法实习生\n岗位职责：\n参与空间智能、Real2Sim2Real 方向技术探索，研究真实场景向可交互虚拟场景的建模方案，协助解决复杂交互场景构建中的技术问题。\n参与传统物理仿真与生成式仿真融合方案调研与原型验证，基于扩散模型、视频生成、4D 场景生成等方向探索机器人学习合成数据生产流水线。\n参与端到端世界模拟器相关研究，探索生成式 AI 与物理仿真引擎融合方式，围绕物理约束、环境动态演化、交互结果预测开展实验验证。\n参与搭建场景生成、物理一致性、合成数据有效性的评测体系，支撑数据 - 模型 - 评测闭环迭代，产出实验分析与结论。\n配合机器人策略、仿真平台、工程团队完成算法原型调试、数据实验；持续跟进计算机视觉、图形学、生成模型、具身智能领域前沿文献。\n任职要求：\n计算机、人工智能、机器人、数学等相关专业在读硕士及以上。对空间智能、3D/4D 生成、仿真、具身智能方向有研究兴趣与基础积累。\n掌握计算机视觉、多视角几何基础；熟悉扩散模型、Transformer、视频 / 3D 场景生成相关技术；熟练 Python、PyTorch，有深度学习模型复现与实验经验。\n至少了解 Isaac Sim / MuJoCo / Genesis 其中一款仿真平台，了解物理仿真、传感器仿真基本原理；有生成 + 物理仿真结合项目经验优先。\n了解强化学习、模仿学习基础，理解合成数据对机器人策略训练的作用；具备较好工程能力，能够独立完成算法原型、实验脚本开发。\n具备英文文献阅读能力，能够调研、复现前沿工作，主动梳理实验结论，可在指导下开展方向探索。\n加分项：\n有 CVPR/ICCV/ECCV/NeurIPS/ICLR/CoRL/RSS 等相关方向论文、预印本经历\n有 Real2Sim2Real / Sim2Real、NeRF、3DGS、4D 动态场景生成相关项目经验\n接触过并行仿真、分布式训练，或者有生成模型、仿真相关开源项目代码贡献",
-              "continues": false
+              "continues": true
             }
           ]
         }
@@ -6602,13 +6831,19 @@
               "speaker": 2,
               "time": "10.19 17:10",
               "text": "没有一个比较好的办法把动作做自然",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.19 23:56",
               "text": "虎式坦克快成了",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.19 23:56",
+              "text": "[图片]",
+              "continues": true
             },
             {
               "speaker": 3,
@@ -6626,13 +6861,13 @@
               "speaker": 1,
               "time": "10.19 23:57",
               "text": "不过规划是k3做的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.19 23:57",
               "text": "我怕1017世界知识不够",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -6660,6 +6895,12 @@
             },
             {
               "speaker": 6,
+              "time": "10.20 00:20",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 6,
               "time": "10.20 07:59",
               "text": "1017跑了一夜",
               "continues": false
@@ -6668,7 +6909,7 @@
               "speaker": 6,
               "time": "10.20 07:59",
               "text": "真的给虎式坦克整出来了 就是有点丑",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -6722,7 +6963,7 @@
               "speaker": 8,
               "time": "10.21 10:41",
               "text": "然后我上模型网站去找模型给他参考,才发现我靠 它做的跟搜出来的第一个结果一模一样hh 是搜索结果害了它",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -6783,6 +7024,12 @@
             {
               "speaker": 10,
               "time": "10.24 22:21",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 10,
+              "time": "10.24 22:21",
               "text": "就硬一个个零件建",
               "continues": false
             },
@@ -6796,7 +7043,7 @@
               "speaker": 12,
               "time": "10.25 21:19",
               "text": "福建舰 055 金古桥 都上线了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 12,
@@ -6851,19 +7098,19 @@
               "speaker": 2,
               "time": "10.19 17:13",
               "text": "大家可以直接通过OriEra studio内嵌3D世界模型，然后配置agent这些",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.19 17:13",
               "text": "然后通过自然语言配置工作流，一键生成",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.19 17:13",
               "text": "今天我一键生成了一个跑酷类小游戏",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6881,7 +7128,7 @@
               "speaker": 1,
               "time": "10.19 17:14",
               "text": "(什么时候能一键生成RTS",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6893,13 +7140,13 @@
               "speaker": 2,
               "time": "10.19 17:14",
               "text": "目前3060都能跑",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.19 17:14",
               "text": "配置越高，你的内嵌3d世界模型像Tripo就会表现得越好",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -6911,7 +7158,7 @@
               "speaker": 2,
               "time": "10.19 17:15",
               "text": "不过现在还只是单人自己玩玩",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -6987,13 +7234,13 @@
               "speaker": 6,
               "time": "10.19 16:11",
               "text": "假设我从一个需求入手的话，那一般使用场景是给他讲一个大的实现思路，然后他实现了一个版本之后再human feedback看他出来的效果进行迭代，其实也算半许愿式了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
               "time": "10.19 16:11",
               "text": "现在coding benchmark很多都是写到具体哪个地方要用哪个方法了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -7047,7 +7294,7 @@
               "speaker": 10,
               "time": "10.19 17:56",
               "text": "结果发现国模表现差挺多的，这些题的区分度不错",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 11,
@@ -7071,6 +7318,10 @@
               "speaker": 10,
               "time": "10.19 18:08",
               "text": "@群友 11 我看了一下，海外模型的partial score基本上快满了，差几个边界test，所以跑出来几个头部模型水平顺序有些波动也正常，国模的partial score的区分度是很明显的",
+              "quote": {
+                "speaker": null,
+                "text": "[成员]: [媒体引用未解析]"
+              },
               "continues": false
             },
             {
@@ -7150,7 +7401,7 @@
               "speaker": 1,
               "time": "10.20 13:54",
               "text": "cost-performace-latency 三个轴",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -7168,7 +7419,7 @@
               "speaker": 2,
               "time": "10.20 13:59",
               "text": "可观测就可hack",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -7318,7 +7569,7 @@
               "speaker": 4,
               "time": "10.21 12:44",
               "text": "大概是dsh训的好了，以及codex改版改拉了。",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -7348,7 +7599,7 @@
               "speaker": 3,
               "time": "10.21 13:04",
               "text": "结果非常糟糕",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -7416,7 +7667,7 @@
               "speaker": 10,
               "time": "10.21 15:36",
               "text": "所以这俩默认逻辑都是事件触发",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
@@ -7451,7 +7702,7 @@
             {
               "speaker": 11,
               "time": "10.23 16:47",
-              "text": "[链接] Harness scaling 的初步尝试\n  \n  URL: https://www.xiaohongshu.com/discovery/item/6ad987e3000000002b02bcac",
+              "text": "[链接] Harness scaling 的初步尝试\n  摘要: @赵鑫RUC 的笔记 72人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ad987e3000000002b02bcac?ignoreEngage=true&xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792725550",
               "continues": false
             },
             {
@@ -7476,13 +7727,13 @@
               "speaker": 13,
               "time": "10.23 16:50",
               "text": "用分类模型来router（",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 13,
               "time": "10.23 16:50",
               "text": "其实是找每个模型最舒服的harness",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 14,
@@ -7552,7 +7803,7 @@
               "speaker": 14,
               "time": "10.23 16:57",
               "text": "所以我没太get scale harness的点",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 17,
@@ -7568,7 +7819,7 @@
                 "speaker": 14,
                 "text": "所以我没太get scale harness的点"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 14,
@@ -7590,7 +7841,7 @@
               "speaker": 18,
               "time": "10.23 17:33",
               "text": "感觉这方面的co design也很有意思 什么时候该砍harness 该砍哪些",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 19,
@@ -7664,13 +7915,13 @@
               "speaker": 1,
               "time": "10.20 23:17",
               "text": "以后直接code2video了吗",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.20 23:18",
               "text": "不需要生视频模型了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -7700,7 +7951,7 @@
               "speaker": 4,
               "time": "10.20 23:49",
               "text": "才是唯二可以通往智能的钥匙",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -7728,7 +7979,7 @@
               "speaker": 6,
               "time": "10.21 00:17",
               "text": "3d 生成要不是有 blender 这种预先做好了 code 和 3d 资产链接的工具",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -7796,13 +8047,13 @@
               "speaker": 6,
               "time": "10.21 00:25",
               "text": "一层是可数字化",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
               "time": "10.21 00:25",
               "text": "二层是可度量",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -7820,7 +8071,7 @@
               "speaker": 6,
               "time": "10.21 00:26",
               "text": "其实很依赖别的背景的人跨界过来搞",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -7866,7 +8117,7 @@
               "speaker": 8,
               "time": "10.24 11:39",
               "text": "比如科研绘图，poster最近不是有很多工作在逆向嘛，转成html，svg，pptx这种",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -7967,7 +8218,7 @@
               "speaker": 2,
               "time": "10.20 11:14",
               "text": "并不能帮助模型突破智能上限",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -8039,7 +8290,7 @@
               "speaker": 4,
               "time": "10.20 11:24",
               "text": "预训练参数不一样才能“集思广益”",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -8075,7 +8326,7 @@
               "speaker": 2,
               "time": "10.20 11:26",
               "text": "某一个专家疯狂在训练 其他摸鱼",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -8113,7 +8364,7 @@
                 "speaker": 6,
                 "text": "个人感觉是因为，fork 上下文里很多内容对于新任务来说是噪音，不如从头收集匹配的上下文"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -8141,7 +8392,7 @@
               "speaker": 2,
               "time": "10.20 11:37",
               "text": "但是我是外挂一个同级别模型的 token消耗翻倍不止",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -8171,7 +8422,7 @@
               "speaker": 1,
               "time": "10.19 00:18",
               "text": "无法通过RSI提升智能上界，但是可以提高智能上界的可及能力边界",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -8183,7 +8434,7 @@
               "speaker": 2,
               "time": "10.19 00:20",
               "text": "intelligence upper bound 之下有一个最低可用线, 就像一个人 在接受了一定的高等教育之后 就学会了学习(In Context Learning?) 这种metaskill. 如果预训练模型能力强(天赋好, 智商高) 就能真正触及这个bound",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -8199,7 +8450,7 @@
               "speaker": 3,
               "time": "10.19 00:24",
               "text": "这种方式我应该用了一年以上了，之前做pe的时候我就完全用这种方式做的。如果是有个测试集的话，可能会严重overfit甚至a agent泄漏特权信息做few shot。如果是rubric的话也有可能会按下葫芦浮起瓢",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -8245,7 +8496,7 @@
               "speaker": 3,
               "time": "10.19 00:31",
               "text": "训练都有梯度能帮忙更新，纯accept/fail怎么改harness",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -8315,7 +8566,7 @@
               "speaker": 3,
               "time": "10.19 13:52",
               "text": "世界模型是个框（",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -8365,7 +8616,7 @@
                 "speaker": 5,
                 "text": "我们人类打球也不会专门分析这么投篮，下一步会是什么弧线"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -8381,7 +8632,7 @@
               "speaker": 7,
               "time": "10.19 13:54",
               "text": "投出来就知道中不中了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -8514,7 +8765,7 @@
               "speaker": 2,
               "time": "10.19 02:18",
               "text": "业务上感觉和Bert没差别啊",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -8554,7 +8805,7 @@
               "speaker": 5,
               "time": "10.19 09:37",
               "text": "感觉是也不一定让他解决复杂问题，定位就是把人的一些简单重复的需求解决了就可以，我是这样理解的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -8792,7 +9043,7 @@
               "speaker": 9,
               "time": "10.20 21:27",
               "text": "而且在我的任务里并不能有效纠正",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 9,
@@ -8816,7 +9067,7 @@
               "speaker": 9,
               "time": "10.20 21:29",
               "text": "但是到了具体情节理解就不行",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -8913,7 +9164,7 @@
               "speaker": 6,
               "time": "10.20 17:42",
               "text": "华为主要是产能问题吧",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -8949,7 +9200,7 @@
               "speaker": 3,
               "time": "10.20 17:51",
               "text": "这次真能用了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -9018,6 +9269,12 @@
               "continues": false
             },
             {
+              "speaker": 14,
+              "time": "10.20 19:49",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
               "speaker": 15,
               "time": "10.20 19:50",
               "text": "现在啥玩意都auto了",
@@ -9033,7 +9290,7 @@
               "speaker": 3,
               "time": "10.20 22:12",
               "text": "ds说每张卡每小时38美金...",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 16,
@@ -9129,6 +9386,12 @@
               "continues": false
             },
             {
+              "speaker": 1,
+              "time": "10.20 09:13",
+              "text": "[图片]",
+              "continues": true
+            },
+            {
               "speaker": 2,
               "time": "10.20 09:13",
               "text": "笑死，疑似靠卖萌多吃大米饭",
@@ -9204,7 +9467,7 @@
               "speaker": 6,
               "time": "10.22 18:43",
               "text": "rl到亚空间去的模型感觉都很难说好人话",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -9242,25 +9505,25 @@
               "speaker": 10,
               "time": "10.22 19:29",
               "text": "问题是现在训练代码和agentic能力rl scaling的太大了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
               "time": "10.22 19:29",
               "text": "说人话这件事又不是很好verify",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
               "time": "10.22 19:30",
               "text": "导致这玩意没什么reward，只能让模型自己飘到不知道哪儿去",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
               "time": "10.22 19:30",
               "text": "这件事有兴趣的群u可以做个实证研究⬆️",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 11,
@@ -9271,7 +9534,7 @@
             {
               "speaker": 12,
               "time": "10.22 19:41",
-              "text": "[链接] 终于知道 GPT 的思维链为啥如此高效了\n  摘要: @群友 note 108 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6ad8db1a0000000024035cda",
+              "text": "[链接] 终于知道 GPT 的思维链为啥如此高效了\n  摘要: @SI小小将's note 108 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6ad8db1a0000000024035cda?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792669290",
               "continues": false
             },
             {
@@ -9304,7 +9567,7 @@
               "text": "这是R1技术报告里就提到过的 R1-Zero？",
               "quote": {
                 "speaker": 12,
-                "text": "[链接] 终于知道 GPT 的思维链为啥如此高效了\n  摘要: @群友 note 108 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6ad8db1a0000000024035cda"
+                "text": "[链接] 终于知道 GPT 的思维链为啥如此高效了\n  摘要: @SI小小将's note 108 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6ad8db1a0000000024035cda?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792669290"
               },
               "continues": false
             },
@@ -9312,7 +9575,7 @@
               "speaker": 16,
               "time": "10.22 19:56",
               "text": "cot是涌现出来的",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -9391,7 +9654,7 @@
               "speaker": 6,
               "time": "10.21 15:29",
               "text": "但是这玩意真刷分",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -9409,7 +9672,7 @@
               "speaker": 8,
               "time": "10.21 15:33",
               "text": "长程任务不友好",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 9,
@@ -9451,7 +9714,7 @@
               "speaker": 8,
               "time": "10.21 18:57",
               "text": "这样主agent loop接收到消息之后直接停就行了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 9,
@@ -9467,7 +9730,7 @@
               "speaker": 9,
               "time": "10.21 18:57",
               "text": "我还考虑过是不是把多个sub agents的工时加一起了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -9533,19 +9796,19 @@
               "speaker": 13,
               "time": "10.22 14:57",
               "text": "现在只看到codex+astra有这个特性",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 13,
               "time": "10.22 14:57",
               "text": "出了小问题只是过度防御",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 13,
               "time": "10.22 14:57",
               "text": "出大问题是会骗的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 14,
@@ -9575,7 +9838,7 @@
               "speaker": 17,
               "time": "10.23 18:09",
               "text": "但要是fable 5.5连语言都控制不住",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 18,
@@ -9593,7 +9856,7 @@
               "speaker": 15,
               "time": "10.23 18:14",
               "text": "所以我猜更可能只是用户数据 post-train 了一波",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 19,
@@ -9662,6 +9925,10 @@
               "speaker": 5,
               "time": "10.20 01:53",
               "text": "这是直接解包还是通过截屏获取输入数据的啊？",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             },
             {
@@ -9691,6 +9958,12 @@
                 "text": "“Selected model is at capacity. Please try a different model”是被封控了吗，还是现在 oai 服务器..."
               },
               "continues": false
+            },
+            {
+              "speaker": 7,
+              "time": "10.20 15:49",
+              "text": "但我人在海外",
+              "continues": true
             },
             {
               "speaker": 8,
@@ -9724,7 +9997,7 @@
               "speaker": 11,
               "time": "10.20 19:22",
               "text": "所以那个20x本身也不怎么耐用",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 12,
@@ -9736,6 +10009,12 @@
               "speaker": 13,
               "time": "10.22 23:03",
               "text": "又来了",
+              "continues": false
+            },
+            {
+              "speaker": 13,
+              "time": "10.22 23:03",
+              "text": "[图片]",
               "continues": false
             },
             {
@@ -9770,7 +10049,7 @@
               "speaker": 16,
               "time": "10.23 00:12",
               "text": "但astra相比于sol还是太聪明了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 16,
@@ -9816,7 +10095,7 @@
               "speaker": 19,
               "time": "10.23 00:36",
               "text": "新开一个",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 17,
@@ -9899,13 +10178,13 @@
               "speaker": 1,
               "time": "10.19 18:41",
               "text": "在办公的场合感觉已经接近 opus 5.5 和 astra",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.19 18:41",
               "text": "指令遵循能力做的很好，让他去找资料写 report 都做的还不错",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -9923,7 +10202,7 @@
               "speaker": 3,
               "time": "10.19 18:55",
               "text": "足足七层!",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -9953,7 +10232,7 @@
               "speaker": 5,
               "time": "10.21 22:24",
               "text": "网页端连agent沙箱都没有，代码需要让用户自己下载下来编译，然后格式也一塌糊涂，渲染完markdown之后他那个cite文档的格式就自动变成了[cite: 1, 17]，这网页端真是一丁点可用性都没有",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -9965,7 +10244,7 @@
               "speaker": 6,
               "time": "10.21 22:28",
               "text": "但gemini的网页端输出还是蛮快的，对于非常小的日常问答可以完成（看来Argon出了也不想脱掉自己北美大豆包的称号）",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -10021,13 +10300,13 @@
               "speaker": 10,
               "time": "10.21 23:47",
               "text": "有单独的一个桌面应用",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
               "time": "10.21 23:48",
               "text": "和ai studio分开记",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 11,
@@ -10046,6 +10325,12 @@
               "time": "10.22 23:23",
               "text": "cursor一切正常 可惜马上就没有gpt了",
               "continues": false
+            },
+            {
+              "speaker": 13,
+              "time": "10.22 23:23",
+              "text": "[图片]",
+              "continues": true
             },
             {
               "speaker": 14,
@@ -10097,7 +10382,7 @@
               "speaker": 18,
               "time": "10.24 00:03",
               "text": "太慢了+太贵了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 17,
@@ -10115,7 +10400,7 @@
               "speaker": 18,
               "time": "10.24 00:03",
               "text": "同时也是20USD的claude opus55很耐用",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 17,
@@ -10161,8 +10446,20 @@
             },
             {
               "speaker": 1,
+              "time": "10.24 20:46",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 1,
               "time": "10.24 20:47",
               "text": "可以auto水群了，但有点危险[旺柴]",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.24 20:49",
+              "text": "[图片]",
               "continues": false
             },
             {
@@ -10191,7 +10488,7 @@
               "speaker": 1,
               "time": "10.24 21:09",
               "text": "我的bot并不能跟群友般高速水群",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -10203,13 +10500,13 @@
               "speaker": 1,
               "time": "10.24 21:10",
               "text": "PPO剪裁直接炸了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.24 21:10",
               "text": "无法on policy",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -10227,7 +10524,7 @@
               "speaker": 1,
               "time": "10.24 21:28",
               "text": "现在调用频率太低了，可以拉个分支看看后面她自闭的时候啥时候能发现",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -10245,19 +10542,19 @@
               "speaker": 1,
               "time": "10.24 21:30",
               "text": "我现在架构就是壳加coding agent",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.24 21:30",
               "text": "这种问题闭环里都应该是coding agent修",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.24 21:30",
               "text": "到时候把我的claude给她当coding agent",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -10275,7 +10572,7 @@
               "speaker": 1,
               "time": "10.24 22:24",
               "text": "B站账号发视频，小黑盒论坛和小红书发帖",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -10320,13 +10617,13 @@
               "speaker": 1,
               "time": "10.19 01:00",
               "text": "发现这个dots这个玩意 用来投递 非常好用",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.19 01:00",
               "text": "不消耗credits 还能cua 不赖",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -10338,7 +10635,7 @@
               "speaker": 2,
               "time": "10.19 01:02",
               "text": "我昨天过期降级成plus发现dot没了很难受又充了80刀",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -10368,7 +10665,7 @@
               "speaker": 4,
               "time": "10.19 12:02",
               "text": "我试了几周，感觉没什么dot显著比codex本身做起来更方便的事情",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -10396,13 +10693,13 @@
               "speaker": 7,
               "time": "10.19 12:10",
               "text": "自动盯盘",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
               "time": "10.19 12:10",
               "text": "收集消息 分析报告",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -10452,7 +10749,7 @@
               "speaker": 10,
               "time": "10.23 00:38",
               "text": "是发生了什么不一样的变化吗",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 11,
@@ -10468,7 +10765,7 @@
               "speaker": 11,
               "time": "10.23 00:41",
               "text": "一长串都看不过来",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 11,
@@ -10480,7 +10777,7 @@
               "speaker": 11,
               "time": "10.23 00:42",
               "text": "远超人类阅读的上下文了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
@@ -10492,7 +10789,7 @@
               "speaker": 10,
               "time": "10.23 00:42",
               "text": "[链接] Personal Agent 的未来三种形态\n  来源: 祝威廉\n  摘要: Sparse Agent 自主工作和汇报，Dense Agent 执行你的即时指令，Approve List 让你只做通过或拒绝的决定。三种形态将在日常工作中混合使用。\n  URL: http://mp.weixin.qq.com/s?__biz=MzIyNzQyNzgxNQ%3D%3D&mid=2247486559&idx=1&sn=8a9645af4b74f6cd70b1f10c5f20ac90&chksm=e91a01fb3ab308873a97e0e307079f17bfcccb98dea9b13d58de1f282060496490f86aaca0fc&scene=126#rd",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 10,
@@ -10573,7 +10870,7 @@
               "speaker": 1,
               "time": "10.21 14:32",
               "text": "一开始是想着astra那么厉害能不能通过触觉做些操作任务",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -10603,7 +10900,7 @@
               "speaker": 1,
               "time": "10.21 14:34",
               "text": "这个工作主要是视触觉",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -10637,7 +10934,7 @@
               "speaker": 1,
               "time": "10.21 14:36",
               "text": "即使有腕部摄像头也是这样",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -10661,7 +10958,7 @@
               "speaker": 1,
               "time": "10.21 14:38",
               "text": "但是力反馈的噪音会大一些",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -10697,7 +10994,7 @@
               "speaker": 1,
               "time": "10.21 14:49",
               "text": "可能还不如触觉精准",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -10733,7 +11030,7 @@
               "speaker": 2,
               "time": "10.21 20:31",
               "text": "但是不知道更有代表性和规范的啥",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -10757,7 +11054,7 @@
               "speaker": 2,
               "time": "10.21 20:42",
               "text": "search agent",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -10788,7 +11085,7 @@
             {
               "speaker": 3,
               "time": "10.21 20:58",
-              "text": "素材收集方案是造每题时现场爬workspace，如果是有专门数据组的agent team可以从数据组的大池子里捞",
+              "text": "素材收集我的方案是造每题时现场爬workspace，如果是有专门数据组的agent team可以从数据组的大池子里捞",
               "continues": false
             },
             {
@@ -10807,7 +11104,7 @@
               "speaker": 4,
               "time": "10.21 20:59",
               "text": "最重要一环",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -10815,7 +11112,7 @@
               "text": "学到了，还是要定向去做，有了职业的seed可以沿着各自的任务分布去覆盖task",
               "quote": {
                 "speaker": 3,
-                "text": "素材收集方案是造每题时现场爬workspace，如果是有专门数据组的agent team可以从数据组的大池子里捞"
+                "text": "素材收集我的方案是造每题时现场爬workspace，如果是有专门数据组的agent team可以从数据组的大池子里捞"
               },
               "continues": false
             },
@@ -10872,7 +11169,7 @@
             {
               "speaker": 1,
               "time": "10.19 12:28",
-              "text": "🚀 大家好，欢迎关注MAI-UI 团队的新工作！ OpenGCUA：一个与社区共建、开放通用电脑操作智能体（GCUA）全栈的项目，旨在探索和开源GPT-6位代表的新一代computer use系统的实现\n\n📦【首个版本开放什么】\n1️⃣ 技术报告 2️⃣ GCUA 设计与 Harness，包括 Code Execution 3️⃣ 8 个前沿模型评测轨迹（GPT-6, Opus 5, Gemini 3.8 Flash） 4️⃣ macOS 真机 Harness和跨端 SDK 5️⃣ 以及可在线体验的交互实验室。\n\n📊【实验亮点】\nOpenGCUA harness在OSWorld-v2上，GPT-6 Astra、Claude Opus 5、Gemini 3.8 Flash 等 8 个模型全部提升：平均 +19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上。\n真机效率仍有明显差距：在我们 真机Harness 下的case study中，Qwen3.8-Max 的推理 token 消耗为 GPT-6 Astra 的 19.4 倍。\n\n🧪【不只读论文，也能亲手体验】\n进入交互实验室，对比code execution执行方式、拆解真机环境、理解真机harness与跨端SDK、回放模型轨迹，直观了解 OpenGCUA 的核心设计。\n\n🧪 交互实验室：https://tongyi-mai.github.io/OpenGCUA/#lab\n💻 GitHub：https://github.com/Tongyi-MAI/OpenGCUA\n📄 技术报告：https://arxiv.org/abs/2610.22200\n\n欢迎交流，欢迎大家在Github star支持，我们的项目也会持续迭代，非常感谢",
+              "text": "🚀 大家好，欢迎关注我们 MAI-UI 团队的新工作！ OpenGCUA：一个与社区共建、开放通用电脑操作智能体（GCUA）全栈的项目，旨在探索和开源GPT-6位代表的新一代computer use系统的实现\n\n📦【首个版本开放什么】\n1️⃣ 技术报告 2️⃣ GCUA 设计与 Harness，包括 Code Execution 3️⃣ 8 个前沿模型评测轨迹（GPT-6, Opus 5, Gemini 3.8 Flash） 4️⃣ macOS 真机 Harness和跨端 SDK 5️⃣ 以及可在线体验的交互实验室。\n\n📊【实验亮点】\nOpenGCUA harness在OSWorld-v2上，GPT-6 Astra、Claude Opus 5、Gemini 3.8 Flash 等 8 个模型全部提升：平均 +19.6 分，执行步数减少 53%，最强与最弱模型的得分差距缩小一半以上。\n真机效率仍有明显差距：在我们 真机Harness 下的case study中，Qwen3.8-Max 的推理 token 消耗为 GPT-6 Astra 的 19.4 倍。\n\n🧪【不只读论文，也能亲手体验】\n进入交互实验室，对比code execution执行方式、拆解真机环境、理解真机harness与跨端SDK、回放模型轨迹，直观了解 OpenGCUA 的核心设计。\n\n🧪 交互实验室：https://tongyi-mai.github.io/OpenGCUA/#lab\n💻 GitHub：https://github.com/Tongyi-MAI/OpenGCUA\n📄 技术报告：https://arxiv.org/abs/2610.22200\n\n欢迎交流，欢迎大家在Github star支持，我们的项目也会持续迭代，非常感谢",
               "continues": false
             },
             {
@@ -10919,7 +11216,7 @@
               "speaker": 1,
               "time": "10.19 13:15",
               "text": "之前的qwen-ui-agent, mai-ui还有最近的mai-gym也欢迎大家follow",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -10970,7 +11267,7 @@
               "speaker": 1,
               "time": "10.23 23:51",
               "text": "也不发个通告啥的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -10981,8 +11278,14 @@
             {
               "speaker": 3,
               "time": "10.24 10:36",
-              "text": "我是两百的老套餐也有",
+              "text": "[图片]",
               "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.24 10:36",
+              "text": "我是两百的老套餐也有",
+              "continues": true
             },
             {
               "speaker": 4,
@@ -11086,15 +11389,21 @@
             },
             {
               "speaker": 15,
-              "time": "10.24 18:05",
-              "text": "按照测算的话这个200刀的只有1/8的claude 5x啊",
+              "time": "10.24 18:04",
+              "text": "[图片]",
               "continues": false
             },
             {
               "speaker": 15,
               "time": "10.24 18:05",
+              "text": "按照测算的话这个200刀的只有1/8的claude 5x啊",
+              "continues": true
+            },
+            {
+              "speaker": 15,
+              "time": "10.24 18:05",
               "text": "5h 30刀都不到",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 15,
@@ -11106,13 +11415,13 @@
               "speaker": 15,
               "time": "10.24 18:09",
               "text": "kimi还比opus便宜一半的情况下（",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 15,
               "time": "10.24 18:11",
               "text": "差不多token plan 是api价格1/3-1/4 a社是1/30-1/40",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -11141,7 +11450,7 @@
               "speaker": 1,
               "time": "10.19 23:07",
               "text": "我看到一些paper确实claim说，RL能带来一些Cross-Lingual Transfer的性质，但是不知道实际操作里面是什么样的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -11246,7 +11555,7 @@
             {
               "speaker": 1,
               "time": "10.20 22:32",
-              "text": "[链接] 341个假电脑，8个Agent榜单全涨了\n  摘要: 我们刚放出了Agent World Model的续作 WildAWM 🎉 拓展synthetic environment\n  URL: https://www.xiaohongshu.com/discovery/item/6ad77812000000002a02cf92",
+              "text": "[链接] 我发布了一篇笔记：341个假电脑，8个Agent榜单全涨了\n  摘要: 我们刚放出了Agent World Model的续作 WildAWM 🎉 拓展synthetic environment\n  URL: https://www.xiaohongshu.com/discovery/item/6ad77812000000002a02cf92?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792506751",
               "continues": false
             },
             {
@@ -11307,6 +11616,12 @@
               "time": "10.22 12:44",
               "text": "🚀 Sage-A1.5 发布：35B 模型通用能力与科学能力双突破！\n宣传一下我们最新的工作，欢迎大家交流、试用、Upvote！\n上海人工智能实验室发布 Sage-A1.5，基于 Qwen 系列模型后训练，面向通用智能体与开放式科学发现，重点强化三大核心能力：Agent Swarm、Self-Verification、Scientific Discovery。在 SWE、MLE、DeepResearch 等复杂任务中，模型能够自主拆解任务、调度多个子智能体并行协作、交叉验证证据，并在遇到瓶颈时动态调整策略；在科学研究场景中，进一步覆盖数学、物理、化学、生物等多学科任务，融合深度推理、工具调用与交互式分析，推动智能体从单点任务求解迈向长程执行与端到端科学探索。\n📈 35B 规模，展现强劲的通用智能体与科学研究能力！ 在 FrontierScience-Olympiad、CMT、PinchBench、IFBench 等基准上，Sage-A1.5 超越报告中对比的 Kimi-K3、GLM-5.3、GPT-5.6-sol 等更大规模模型，并在 SWE-Bench Pro、BrowseComp 等任务上展现出强劲竞争力。\n🤗 模型权重： https://huggingface.co/collections/InternScience/sage-a15\n📄 技术报告： https://huggingface.co/papers/2610.28578\n🌐 项目主页： https://alpha-innovator.github.io/Sage-A1.5/",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 12:44",
+              "text": "[图片]",
+              "continues": true
             },
             {
               "speaker": 1,
@@ -11377,7 +11692,7 @@
               "speaker": 2,
               "time": "10.20 00:02",
               "text": "联网会抄答案，不联网就得预判+retry",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -11389,7 +11704,7 @@
               "speaker": 1,
               "time": "10.20 00:03",
               "text": "至今不知道agent装复杂环境成功率如何",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -11429,7 +11744,7 @@
               "speaker": 2,
               "time": "10.20 00:08",
               "text": "我做重构任务的话比如要迁徙一个模块的vllm的依赖，就得在不联网的前提下把flashattn以及上层的transformer摸出来",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -11441,13 +11756,23 @@
               "speaker": 1,
               "time": "10.20 00:10",
               "text": "它在容器里面也不能重来",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.20 00:12",
               "text": "现在就是试错后保存ckpt然后用agent吐出来的依赖文件重组镜像断点重续，还挺麻烦的",
               "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.20 00:12",
+              "text": "midtrain不在我这里[Emm]",
+              "quote": {
+                "speaker": 1,
+                "text": "这玩应不得mid train学进去吗，记不住只能自己来回试了"
+              },
+              "continues": true
             },
             {
               "speaker": 1,
@@ -11503,6 +11828,16 @@
               "continues": false
             },
             {
+              "speaker": 2,
+              "time": "10.19 16:41",
+              "text": "看到尹总和亮哥的puq了",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] UniPat AI 探索实验室：投入一亿元，寻找改变科研范式的人\n  来源: UniPat AI\n  摘要: 让懂问题的人和懂 AI 的人一起工作\n  URL: https://mp.weixin.qq.com/s?__biz=MzYzOTk5NjM4Mg%3D%3D&mid=2247483807&idx=1&sn=971fd8e063e10b9d3884d31b90a78465&chksm=f1cd9fda2b5a0aa29276daeddcf0c55f253673f9013c21abefc1dcb2fec601c30cf137364ca0&scene=1&srcid=1019ie3WMxYAyYGpcXGWXkAn#rd"
+              },
+              "continues": false
+            },
+            {
               "speaker": 3,
               "time": "10.20 15:57",
               "text": "昨天unipet那个实验室搞的很好",
@@ -11512,13 +11847,13 @@
               "speaker": 3,
               "time": "10.20 15:57",
               "text": "短期我觉得人类剩下的作用就是这种形态",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
               "time": "10.20 15:57",
               "text": "可惜我没啥代表作，等我憋点大的代表作后再参加",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -11546,7 +11881,7 @@
               "speaker": 3,
               "time": "10.20 15:58",
               "text": "我感觉是需要类似于传统大组，组里面有会ai的，然后再进行合作",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 6,
@@ -11584,6 +11919,12 @@
               "speaker": 7,
               "time": "10.20 16:02",
               "text": "更顶级的成果不开源",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.20 16:03",
+              "text": "是的",
               "continues": false
             }
           ]
@@ -11777,7 +12118,7 @@
               "speaker": 16,
               "time": "10.21 16:52",
               "text": "我看CHI上很多paper都纯讲故事的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 17,
@@ -11797,12 +12138,40 @@
                 "speaker": 16,
                 "text": "我看CHI上很多paper都纯讲故事的"
               },
+              "continues": true
+            },
+            {
+              "speaker": 16,
+              "time": "10.21 16:54",
+              "text": "隔壁组做个ui就发了[吃瓜]",
               "continues": false
             },
             {
               "speaker": 16,
               "time": "10.21 16:54",
               "text": "感觉hai还是硬件交互的有意思",
+              "continues": true
+            },
+            {
+              "speaker": 15,
+              "time": "10.21 16:55",
+              "text": "gkg不是做hci的老师很多嘛，而且都很厉害@群友 17",
+              "continues": false
+            },
+            {
+              "speaker": 17,
+              "time": "10.21 16:55",
+              "text": "我应该知道你说的隔壁组是做啥，他们应该发IUI/可视化比较多一点",
+              "continues": false
+            },
+            {
+              "speaker": 17,
+              "time": "10.21 16:56",
+              "text": "其实我主业就是做HCI的（）只是LLM也做",
+              "quote": {
+                "speaker": 15,
+                "text": "gkg不是做hci的老师很多嘛，而且都很厉害@群友 17"
+              },
               "continues": false
             }
           ]
@@ -11831,6 +12200,12 @@
               "speaker": 2,
               "time": "10.22 00:30",
               "text": "日本程序员 是个出路",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.22 00:31",
+              "text": "我还真想去",
               "continues": false
             },
             {
@@ -11948,13 +12323,13 @@
               "speaker": 1,
               "time": "10.22 23:58",
               "text": "他的设置里有个按钮叫connect wsl",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.22 23:59",
               "text": "你点击之后他会瞬间退出你的antigravity，然后在你的wsl里面开始安装antigravity",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -11976,19 +12351,19 @@
               "speaker": 2,
               "time": "10.23 00:00",
               "text": "不是，怎么会有人点connect wsl是强制退出啊",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.23 00:02",
               "text": "哈哈，然后你强制关了重启还恢复不了，必须等他给你安装完才能进去",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.23 00:02",
               "text": "然后他下载安装还特别慢，不知道走的我什么流量",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -12043,7 +12418,7 @@
               "speaker": 1,
               "time": "10.25 13:47",
               "text": "感觉和人类一致性效果好差",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -12061,31 +12436,31 @@
               "speaker": 1,
               "time": "10.25 14:03",
               "text": "比如就科研绘图这种",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.25 14:04",
               "text": "看他是不是简洁的同时符合美学啥的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.25 14:05",
               "text": "但是我们用他们以前的基线",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.25 14:05",
               "text": "类似于autofigure，paperbanana这种，评估的效果也贼差",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.25 14:06",
               "text": "感觉会被审稿人喷…",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -12162,7 +12537,7 @@
                 "speaker": 1,
                 "text": "大佬们，我复现别人search agent，jina api读取网页超时的话有什么好的替代方案么"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -12184,7 +12559,7 @@
               "speaker": 3,
               "time": "10.25 22:16",
               "text": "browsecompplus还是啥bench好像就是这么搞的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -12206,7 +12581,7 @@
               "speaker": 3,
               "time": "10.25 22:21",
               "text": "jina实现很简单，你把要用的语料倒进去就总能搜到，但是serper后面是谷歌的搜索算法，要复现这个不太容易，自建搜索工具迁移到serper测试上会涨但不会很多",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -12224,7 +12599,7 @@
               "speaker": 3,
               "time": "10.25 22:33",
               "text": "jina抓不到的换爬虫",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -12274,14 +12649,14 @@
             {
               "speaker": 1,
               "time": "10.19 17:29",
-              "text": "[链接] SimpleVLN：又快又好又简洁的VLN\n  \n  URL: https://www.xiaohongshu.com/discovery/item/6ad5ce72000000002a00e3ff",
+              "text": "[链接] 我发布了一篇笔记：SimpleVLN：又快又好又简洁的VLN\n  摘要: @芜湖起飞 的笔记 13人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ad5ce72000000002a00e3ff?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1792402152",
               "continues": false
             },
             {
               "speaker": 1,
               "time": "10.19 17:29",
               "text": "哥哥们 赏个光看看弟弟的新论文吧 球球了[可怜][可怜]",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -12316,13 +12691,13 @@
               "speaker": 1,
               "time": "10.20 02:44",
               "text": "这个设计为什么感觉和 dpsk 有点像",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
               "time": "10.20 02:45",
               "text": "固定上限的 compression",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -12334,7 +12709,7 @@
               "speaker": 2,
               "time": "10.20 02:45",
               "text": "dpsk是稀疏注意力",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -12374,7 +12749,7 @@
               "speaker": 3,
               "time": "10.20 08:09",
               "text": "glm没有禁令吗？去年年初就上了实体名单了",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -12472,8 +12847,14 @@
             {
               "speaker": 1,
               "time": "10.21 19:23",
-              "text": "腾讯在搞啥数据吗",
+              "text": "[图片]",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 19:23",
+              "text": "腾讯在搞啥数据吗",
+              "continues": true
             },
             {
               "speaker": 2,
@@ -12534,6 +12915,10 @@
               "speaker": 1,
               "time": "10.25 00:28",
               "text": "最近我设计了一个long horizon的benchmark，隔日清session，让agent自己记笔记，我发现随着模拟环境的时间推进，sol的笔记的风格会逐渐变成这种。而且这还是个渐变的过程",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             },
             {
@@ -12602,7 +12987,7 @@
               "speaker": 4,
               "time": "10.25 00:50",
               "text": "废码丢trash，log只更新不叠加可能好一点点",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -12638,7 +13023,7 @@
                 "speaker": null,
                 "text": "[引用] 我感觉是这两个因素，可以消融定位一下问题"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -12648,7 +13033,7 @@
                 "speaker": null,
                 "text": "[引用] 什么情况会出现这种风格啊[憨笑]好奇一下"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -12712,13 +13097,17 @@
               "speaker": 7,
               "time": "10.25 08:47",
               "text": "好奇一下，腐蚀成这样之后表现掉了吗？",
+              "quote": {
+                "speaker": null,
+                "text": "[成员]: [媒体引用未解析]"
+              },
               "continues": false
             },
             {
               "speaker": 7,
               "time": "10.25 08:49",
               "text": "如果还能完成任务那是不是说明腐蚀也没关系 emm",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 7,
@@ -12754,7 +13143,7 @@
               "speaker": 1,
               "time": "10.25 12:06",
               "text": "这个有论文说过，简化表达基本上不影响任务表现",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -12833,7 +13222,7 @@
                 "speaker": 2,
                 "text": "同好奇~agent测评更关注哪些指标呢"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 5,
@@ -12857,7 +13246,7 @@
               "speaker": 7,
               "time": "10.20 10:12",
               "text": "还有一些偏主观",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 8,
@@ -12883,19 +13272,29 @@
                 "speaker": 7,
                 "text": "话说pa有什么好的评价维度吗？感觉任务都没有办公或者coding难呀"
               },
+              "continues": true
+            },
+            {
+              "speaker": 3,
+              "time": "10.20 10:22",
+              "text": "[图片]",
               "continues": false
             },
             {
               "speaker": 3,
               "time": "10.20 10:30",
               "text": "动机是游戏里的NPC不知道什么是架空世界内游戏有的东西，所以做承诺的时候会很麻烦。比如杀了那个npc，把战利品给我，这个战利品是未来才会grounding的，但又是世界动作，所以想办法把这种情况用commitment存起来，从后往回看我感觉就跟这个类似",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             },
             {
               "speaker": 3,
               "time": "10.20 10:30",
               "text": "大概就是agent要对commitment负责",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -12935,7 +13334,7 @@
               "speaker": 2,
               "time": "10.20 10:13",
               "text": "主要是便宜",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -12979,7 +13378,7 @@
               "speaker": 3,
               "time": "10.20 10:40",
               "text": "官方送的5刀",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
@@ -12991,19 +13390,19 @@
               "speaker": 2,
               "time": "10.20 10:41",
               "text": "somewhat感觉还挺好用的？",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.20 10:44",
               "text": "我现在在做桌宠的self improve就在用jev给桌宠的说话打分。比如桌宠跟用户积累了一天的日志，他自己有点想法想要改自己的prompt，就会用jev当考官（更新prompt之后没有真实用户轨迹），分高才给trail",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 2,
               "time": "10.20 10:44",
               "text": "我觉得还算挺准的",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -13023,7 +13422,7 @@
                 "speaker": 2,
                 "text": "我现在在做桌宠的self improve就在用jev给桌宠的说话打分。比如桌宠跟用户积累了一天的日志，他自己有点想法想要改自己的prompt，就会用jev当考官..."
               },
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -13046,8 +13445,14 @@
             {
               "speaker": 1,
               "time": "10.19 20:40",
-              "text": "什么叫斩杀了斩杀线，有用过的uu吗[旺柴]",
+              "text": "[图片]",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.19 20:40",
+              "text": "什么叫斩杀了斩杀线，有用过的uu吗[旺柴]",
+              "continues": true
             },
             {
               "speaker": 2,
@@ -13059,7 +13464,7 @@
               "speaker": 2,
               "time": "10.19 20:41",
               "text": "缓存价格是ds5倍",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -13071,6 +13476,10 @@
               "speaker": 3,
               "time": "10.19 20:43",
               "text": "这图里ds秒opus[捂脸]",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              },
               "continues": false
             },
             {
@@ -13129,6 +13538,12 @@
               "time": "10.20 17:17",
               "text": "是不是只开源了4.1的branch",
               "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.20 17:17",
+              "text": "[图片]",
+              "continues": true
             },
             {
               "speaker": 3,
@@ -13214,7 +13629,7 @@
                 "speaker": null,
                 "text": "[引用] 这是为啥呢，训练语料应该都是人话呀"
               },
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 4,
@@ -13236,7 +13651,7 @@
               "speaker": 3,
               "time": "10.25 12:16",
               "text": "感觉RL痕迹明显",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -13258,7 +13673,7 @@
               "speaker": 5,
               "time": "10.25 12:34",
               "text": "[链接] 模型蒸馏与数据合成(二)：思维链、过程轨迹与推理蒸馏\n  来源: 词元潮汐\n  URL: https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247483920&idx=1&sn=88565db7c0d8897dab5d51f25959a89f&chksm=c0f2675080468b8aa3f373482b41d594cf1763ea95689f805a25871fb2bf7f30ecee7f26b060&scene=1&srcid=1010XdgZMJwFxe3VoWBN9KnD#rd",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -13306,14 +13721,26 @@
             {
               "speaker": 1,
               "time": "10.23 11:17",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 11:17",
               "text": "疑似k3.1预告片？",
+              "continues": true
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 11:22",
+              "text": "是的",
               "continues": false
             },
             {
               "speaker": 2,
               "time": "10.23 11:22",
               "text": "k3.1",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 3,
@@ -13360,7 +13787,7 @@
               "speaker": 3,
               "time": "10.22 18:03",
               "text": "我感觉这事不容易",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -13506,7 +13933,7 @@
               "speaker": 3,
               "time": "10.25 23:26",
               "text": "这个是影游 那个是短剧？",
-              "continues": false
+              "continues": true
             },
             {
               "speaker": 1,
@@ -13517,7 +13944,7 @@
             {
               "speaker": 1,
               "time": "10.25 23:30",
-              "text": "你这个是短剧吧，我也做了两个，一个是编剧，前面说了，还一个是剧本到分镜，我都没碰视频，[...]知道不同视频模型都有自己的一套，坑多，我不想填",
+              "text": "你这个是短剧吧，我也做了两个，一个是编剧，前面说了，还一个是剧本到分镜，我都没碰视频，我是各个模型的超级创作者，知道不同视频模型都有自己的一套，坑多，我不想填",
               "quote": {
                 "speaker": 2,
                 "text": "那这个再加上ai，就能把龙族拍完"
@@ -13552,6 +13979,12 @@
               "time": "10.19 00:14",
               "text": "[链接] Learning Self-Orchestration in Decentralized Agent Swarms\n  摘要: The capabilities of an agent swarm depend on both its individual members and how they coordinate. Yet existing multi-age...\n  URL: https://arxiv.org/abs/2610.22322",
               "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.19 00:15",
+              "text": "[图片]",
+              "continues": true
             }
           ]
         },
@@ -13569,7 +14002,14 @@
           "kind": "standalone",
           "timeline": [],
           "resources": [],
-          "discussion": []
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.21 09:27",
+              "text": "[图片]",
+              "continues": false
+            }
+          ]
         },
         {
           "title": "腾讯元宝招聘北京 Agent 与记忆方向策略产品实习生",
@@ -13626,7 +14066,7 @@
               "speaker": 1,
               "time": "10.23 00:57",
               "text": "[链接] EMEA Early Career Talent Hackathon\n  摘要: Save your spot to chat with our team at this online event. Each text based chat lasts around 10 mins and you can join fr...\n  URL: https://app.brazenconnect.com/events/n3d36",
-              "continues": false
+              "continues": true
             }
           ]
         },
@@ -13689,9 +14129,1033 @@
               "speaker": 1,
               "time": "10.25 20:39",
               "text": "帮好兄弟推广，欢迎大家关注[旺柴]",
+              "continues": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-6",
+      "label": "AI Safety",
+      "title": "网络安全请求护栏拦截、Opus 5.5 降级切换与天工 Cyber 模型分享",
+      "intro": "群友围绕网络安全请求触发模型护栏、先写 plan 再实现的经验，以及自建 cyber 评测中 Opus 5.5 自动降级至 4.8 与官方 Cyber Verification Program 权限展开讨论，并分享了安全 Scaling Law 笔记与天工 Cyber 模型文章。",
+      "stories": [
+        {
+          "title": "网络安全请求触发安全护栏的应对经验与论文工作流表述困扰",
+          "text": "10月22日，一位群友因网络安全请求频繁被模型拒绝，在群内询问有哪些安全护栏较低的模型。多位群友结合各自的使用体验给出建议：有人提到在请求被拦截时可以回退到 luna，有人建议尝试 Claude，也有群友感觉 DSH 中的 DeepSeek 安全护栏较低。另一位使用者分享了分步调用的个人经验，表示如果先让模型编写 plan 通常不会被拒绝，但在进入具体实现阶段时则会变成看运气“抽奖”。\n\n同日晚间，提问者进一步提出学术写作中的合规表述难题：在撰写论文时不便直接写明工作流中使用了“破甲模型”，询问大家通常如何解决这一表述问题。群内当日未就论文中的具体替代写法给出定论。",
+          "review": "安全研究的实验需求与通用大模型的拒答策略存在天然张力，即便工程上能靠模型回退或分阶段生成来提高通过率，到了论文方法学章节依然要面对如何体面交代实验配置的难题。",
+          "emphasis": [
+            "先让模型编写 plan 通常不会被拒绝",
+            "不便直接写明工作流中使用了“破甲模型”"
+          ],
+          "dates": [
+            "2026-10-22"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.22 20:02",
+              "text": "请问有没有什么安全护栏比较低模型啊，网络安全请求总是被拒绝[撇嘴]",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.22 20:22",
+              "text": "可以试试被block的时候fallback到luna",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.22 20:23",
+              "text": "试试claude？",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.22 20:23",
+              "text": "我会让他先写plan，plan一般不会拒绝",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.22 20:23",
+              "text": "实现的时候就开始抽奖[旺柴]",
+              "continues": true
+            },
+            {
+              "speaker": 5,
+              "time": "10.22 22:19",
+              "text": "DSH 中的DeepSeek安全护栏感觉就挺低的",
+              "quote": {
+                "speaker": 1,
+                "text": "请问有没有什么安全护栏比较低模型啊，网络安全请求总是被拒绝[撇嘴]"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 23:20",
+              "text": "话说论文里面不能说在workflow中使用了破甲模型啊",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 23:20",
+              "text": "大家是怎么解决这个问题的呢？",
+              "continues": true
+            }
+          ]
+        },
+        {
+          "title": "Opus 5.5 触发安全护栏自动切换至 Opus 4.8 与 CVP 权限讨论",
+          "text": "本周群内围绕 Claude Opus 5.5 在处理网络安全相关任务时自动切换至 Opus 4.8 的现象展开了讨论。10月22日，有群友询问为何用 Opus 5.5 运行自建 cyber 测评题时会自动降级到 4.8，而运行官方题目则不会；其他群友指出这与内部 hook 路由设置或需要具备官方 Cyber Verification Program（CVP）权限的认证账号有关。\n\n10月24日，另一位群友发出的产品界面截图进一步展示了该拦截机制：当 Opus 5.5 的安全护栏（safeguards）标记某条消息时，系统会将当前会话强制切换至带警告标识的 Opus 4.8。针对如何在合规安全评测中避免此类自动切换，群内讨论主要指向申请具备官方 CVP 权限的认证账号。",
+          "review": "前沿模型将安全护栏做成“触发即强制切换至次级版本”，对普通用户是风控兜底，对做安全基准评测的研究者却意味着受测模型在运行中被替换，未获官方 CVP 认证前很难保证实验对象的一致性。",
+          "emphasis": [
+            "用 Opus 5.5 运行自建 cyber 测评题时会自动降级到 4.8，而运行官方题目则不会",
+            "系统会将当前会话强制切换至带警告标识的 Opus 4.8"
+          ],
+          "dates": [
+            "2026-10-22",
+            "2026-10-24"
+          ],
+          "kind": "related",
+          "timeline": [],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Claude Cyber Verification Program 官方说明",
+              "url": "https://support.claude.com/en/articles/14604842-cyber-verification-program"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.22 20:31",
+              "text": "想问一下有没有做测评相关的大佬，我在用opus5.5做我自己的cyber题目，然后它会自己降级到4.8这个是为什么呢",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 20:31",
+              "text": "官方的题就不会这样",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.22 20:32",
+              "text": "claude内部有hook路由 这个可以设置的",
+              "quote": {
+                "speaker": null,
+                "text": "想问一下有没有做测评相关的大佬，我在用opus5.5做我自己的cyber题目，然后它会自己降级到4.8这个是为什么呢"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 20:35",
+              "text": "这个要怎么设",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.22 20:57",
+              "text": "需要一个cvp权限的账号",
+              "quote": {
+                "speaker": null,
+                "text": "想问一下有没有做测评相关的大佬，我在用opus5.5做我自己的cyber题目，然后它会自己降级到4.8这个是为什么呢"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.22 21:01",
+              "text": "这个是出题的账号吗",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 需要一个cvp权限的账号"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.22 21:05",
+              "text": "https://support.claude.com/en/articles/14604842-cyber-verification-program\n可以找黑人老哥认证",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.24 16:22",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.24 16:23",
+              "text": "哎，真的没招",
               "continues": false
             }
           ]
+        },
+        {
+          "title": "蚂蚁技术《天工Cyber模型Preview》文章分享",
+          "text": "10月23日，群友分享了来自“蚂蚁技术AntTech”公众号的文章《天工Cyber模型Preview：面向真实世界安全任务的智能涌现与智效跃迁》。10月24日，另一位群友引用该链接对“天工”模型表示关注，群内未进一步展开技术细节讨论。",
+          "review": "面向真实世界安全任务的垂直模型正在受到更多工业界团队投入，相比通用模型的拒答拉锯，专用安全模型在攻防评测与实际落地中的具体表现值得后续观察。",
+          "emphasis": [
+            "面向真实世界安全任务的智能涌现与智效跃迁"
+          ],
+          "dates": [
+            "2026-10-23",
+            "2026-10-24"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.23 16:03",
+              "text": "[链接] 天工Cyber模型Preview：面向真实世界安全任务的智能涌现与智效跃迁\n  来源: 蚂蚁技术AntTech\n  URL: https://mp.weixin.qq.com/s?__biz=MzI0Nzc3MTQyMw%3D%3D&mid=2247538492&idx=1&sn=e8c4356c0b41a37265b95eb5402c487f&chksm=e8a73fba4a5f6a564891e38e52382b582d99ce02d76df075f3240da7e962208bf610e81d6367&scene=1&srcid=1023DYQ9O5exHHv50SmNXdSC#rd",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.24 14:36",
+              "text": "天工[Wow]",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 天工Cyber模型Preview：面向真实世界安全任务的智能涌现与智效跃迁\n  来源: 蚂蚁技术AntTech\n  URL: https://mp.weixin.qq.com/s?__biz=MzI0Nzc3MTQyMw%3D%3D&mid=2247538492&idx=1&sn=e8c4356c0b41a37265b95eb5402c487f&chksm=e8a73fba4a5f6a564891e38e52382b582d99ce02d76df075f3240da7e962208bf610e81d6367&scene=1&srcid=1023DYQ9O5exHHv50SmNXdSC#rd"
+              },
+              "continues": false
+            }
+          ]
+        },
+        {
+          "title": "《Anthropic与我的新作-安全也有Scaling Law》笔记分享",
+          "text": "10月23日，群内分享了一篇题为《Anthropic与我的新作-安全也有Scaling Law》的社交平台笔记卡片，获得群友点赞回应，群内未就笔记的具体内容展开文字讨论。",
+          "review": "将 Scaling Law 的视角延伸到模型安全领域本身是个值得关注的切入点，期待后续有更详尽的公开技术报告或论文可供社区细读。",
+          "emphasis": [
+            "安全也有Scaling Law"
+          ],
+          "dates": [
+            "2026-10-23"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [],
+          "discussion": []
+        }
+      ]
+    },
+    {
+      "id": "group-7",
+      "label": "Robot",
+      "title": "RUA 基座实测、具身 System 2 与 Harness 分工及精细操作深度估计瓶颈",
+      "intro": "机器人专项群首周探讨了 Robot-Use Agent 在 Astra、Argon 之外的基座模型表现与深度图输入影响，围绕大模型加机器人数据预训练还是 Harness 先行及 RSI 边界展开争鸣，并深入剖析眼在手上精细操作的单目深度估计误差。",
+      "stories": [
+        {
+          "title": "Robot-Use Agent（RUA）基座模型实测反馈与开源资料整理",
+          "text": "10月21日，群友围绕Robot-Use Agent（RUA）在真机与仿真中的可用基座模型展开讨论，询问除Astra、Argon以及近期使用DeepSeek的ORA之外，还有哪些模型表现较好。有群友推荐了Opus并分享了RobotWorld项目主页；另一位群友根据自身实验反馈，若在输入中加入深度图，Qwen3.8的Max版本和27B版本在LIBERO等简单任务上都能取得不错的效果，其中27B模型不加深度图时成功率基本为零，加入深度图后则出现不少成功案例。不过提问群友也补充，自己在零样本（zero-shot）设置下测试过27B版本，面对稍复杂的任务依然难以胜任，相关测试文档目前尚未开源。\n\n在推理开销与延迟方面，多位测试者指出了长上下文带来的瓶颈。有群友反映开启Thinking模式后模型输出过于冗长，即便在thinking low设置下单步（step）也会消耗十余k的token；另有群友提到在测试Kimi时遇到了推理速度极慢的问题。\n\n针对如何从通用Agent切入RUA领域的提问，群友认为目前尚未出现特别突出的独立方案，现有工作大多是在既有的Agent Harness基础上做改进，并增补与动作（action）相关的Tools或Skills。讨论最后，一位群友分享了自己整理的Awesome-Robot-Use-Agent开源仓库供入门参考。",
+          "review": "深度图的引入在简单仿真任务中显著拉升了中小尺寸模型的操作表现，但Thinking模式下单步十余k token的开销与推理延迟，仍是RUA走向复杂实时控制必须越过的工程门槛。",
+          "emphasis": [
+            "27B模型不加深度图时成功率基本为零，加入深度图后则出现不少成功案例",
+            "即便在thinking low设置下单步（step）也会消耗十余k的token",
+            "现有工作大多是在既有的Agent Harness基础上做改进，并增补与动作（action）相关的Tools或Skills"
+          ],
+          "dates": [
+            "2026-10-21"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [
+            {
+              "kind": "project",
+              "label": "RobotWorld 项目主页",
+              "url": "https://robotworldai.github.io/"
+            },
+            {
+              "kind": "project",
+              "label": "Awesome-Robot-Use-Agent 资料仓库",
+              "url": "https://github.com/visitworld123/Awesome-Robot-Use-Agent"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.21 17:28",
+              "text": "抛砖引玉问一句，话说做rua的除了astra和argon 以及最近ora用的ds 有人试了其他哪个模型效果好吗？真机仿真都可以[旺柴]",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.21 17:29",
+              "text": "opus",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.21 17:29",
+              "text": "https://robotworldai.github.io/ 可以看看这个",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.21 17:30",
+              "text": "加深度图的话qwen3.8也可以很好",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 17:31",
+              "text": "max吗？有ref的文档吗",
+              "quote": {
+                "speaker": null,
+                "text": "加深度图的话qwen3.8也可以很好"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.21 17:32",
+              "text": "max和27b都试过，不过都是libero这种简单任务",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 17:33",
+              "text": "27b我这边zerobshot也试过 稍微难一点还是不行",
+              "quote": {
+                "speaker": null,
+                "text": "max和27b都试过，不过都是libero这种简单任务"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.21 17:33",
+              "text": "27b不加深度图基本都是0[破涕为笑]加了居然有不少成功的，也挺神奇的",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 17:33",
+              "text": "而且如果开了thinking 会非常费话",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.21 17:33",
+              "text": "文档我们还没开源哈哈哈 还在试",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.21 17:33",
+              "text": "想请教一下 做agent的想入门rua的话 有什么paper/资料可以看看吗？",
+              "quote": {
+                "speaker": null,
+                "text": "抛砖引玉问一句，话说做rua的除了astra和argon 以及最近ora用的ds 有人试了其他哪个模型效果好吗？真机仿真都可以[Doge]"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.21 17:33",
+              "text": "确实 上下文还是太长了",
+              "quote": {
+                "speaker": 1,
+                "text": "而且如果开了thinking 会非常费话"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.21 17:33",
+              "text": "我们测kimi的时候就巨慢",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.21 17:34",
+              "text": "thinking low一个step都得十几k token",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 17:38",
+              "text": "我感觉现在都没有特别突出的方案 其实看哪个rua的都差不多 主要也都是在已有agent harness做点改进 加一些action相关的tools/skills",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 想请教一下 做agent的想入门rua的话 有什么paper/资料可以看看吗？"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.21 17:42",
+              "text": "https://github.com/visitworld123/Awesome-Robot-Use-Agent，可以看看我的这个[呲牙]比较杂一些",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 想请教一下 做agent的想入门rua的话 有什么paper/资料可以看看吗？"
+              },
+              "continues": false
+            }
+          ]
+        },
+        {
+          "title": "具身智能System 2演进、Harness先行争议与外挂VLA工具定位",
+          "text": "10月23日下午，群内围绕Astra对机器人System 2的推动作用及Harness架构设计展开讨论。一位群友分享了个人撰写的《具身智能与harness》在线文档截图，其笔记观点认为：此前VLA受限于数据规模未能训练到100B级别，导致智力不足；而Astra证明了大模型可承担System 2，具身智能团队只需专注System 1，并记载了Direct范式下通过Prompt直接输出动作数字的对比（其笔记称GPT-5.5用同一份说明书仅0.88%，体现推理能力差异而非接口差异）。针对这一总结，另一位群友提出异议，认为端到端表现更可能源于模型规模足够大且预训练了机器人数据，单纯归因于Harness难以解释端到端能力。文档分享者回应称，仅靠Astra本身确实仍存在诸多问题，但在具身数据采集困难、底座模型尚需时间进化的阶段，正如早期Agent依靠Workflow提效再演进到ReAct循环一样，机器人领域也可以先通过设计Harness来提升实际效果，再随底座模型升级同步迭代。\n\n在具体如何设计Harness框架上，群友进一步探讨了将VLA或模仿学习模型作为工具（Tool）调用的方案。有群友指出，调用VLA作为工具能解决一部分接近目标（approaching）和抓取姿态的需求，但VLA本身并不擅长精细操作，核心仍需引入外部工具来弥补LLM在精细操作、手上眼（eye-in-hand）空间距离把控及触觉反馈上的缺失。另一位群友补充，外挂成功率高的模仿学习模型即可，只是VLA参数量较大，通常其他模仿学习模型的分数难以超过VLA。\n\n讨论随后延伸至近期有人用LLM大量编写规则（rule）来刷高分并称之为RSI（Recursive Self-Improvement）的现象。围绕RSI与Harness在机器人领域的边界，群友交流认为，RSI的概念非常宽泛，既可以包含具身大脑模型本身的训练，也可以包含对Harness的迭代，而目前的实践更多集中在迭代Harness上。",
+          "review": "当具身底座模型与数据规模尚在爬坡时，用Harness串联System 2推理与外挂VLA工具成了务实的折中方案，但这也让“架构调度提效”与“底座真实能力提升”的边界变得模糊。",
+          "emphasis": [
+            "端到端表现更可能源于模型规模足够大且预训练了机器人数据，单纯归因于Harness难以解释端到端能力",
+            "先通过设计Harness来提升实际效果，再随底座模型升级同步迭代",
+            "调用VLA作为工具能解决一部分接近目标（approaching）和抓取姿态的需求，但VLA本身并不擅长精细操作",
+            "RSI的概念非常宽泛，既可以包含具身大脑模型本身的训练，也可以包含对Harness的迭代"
+          ],
+          "dates": [
+            "2026-10-23"
+          ],
+          "kind": "related",
+          "timeline": [],
+          "resources": [],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.23 14:56",
+              "text": "astra给机器人带来太多变化了\nsystem2可以极大加速了",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 14:57",
+              "text": "等一手6.1 astra",
+              "quote": {
+                "speaker": 1,
+                "text": "astra给机器人带来太多变化了 system2可以极大加速了"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:01",
+              "text": "[图片]",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 15:02",
+              "text": "这个是什么呀，是自己总结的内容吗",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:02",
+              "text": "对，正在小范围找朋友唠唠嗑",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.23 15:06",
+              "text": "为啥觉得靠的是harness呢，我聊下来感觉是，模型够大+预训练了robotic data。如果是harness感觉很难解释他能端到端？",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:11",
+              "text": "这个问题就跟去年问agent为啥还需要做harness\n模型能力如果足够强的话，人类都不需要了，hhh\n\n这不是不够强么，需要时间进化，并且具身的数据有多难采集你又不是不知道\n\n但当年在底座模型很搓的情况下，workflow类（dify/n8n），也已经极大的提升效率了\n当然随着底座模型能力的提升，wokflow被抛弃，以React loop为核心的agent现在成为主流\n当然，最新一代的agent框架，是具备了自进化，融合system1+system2的persnal agent，这个复杂就不展开了。\n\n个人感觉，机器人的harness也是这样\n我们没必要非要等着底座模型能力的提升，我们可以通过harness先让机器人的效果来提升\n然后跟着底座模型能力的提升跟着不断的更新harness就好了",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.23 15:18",
+              "text": "这样，那其实是在说，robotics很需要harness，但是astra是不是只靠harness，还有待商榷？",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:19",
+              "text": "只靠astra肯定不行[捂脸]，问题很多\n我最近在跟人盘，就是在思考这个harness框架要怎么设计",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:20",
+              "text": "但astra证明了，system2它有潜力能做好，并且做的很不错",
+              "continues": true
+            },
+            {
+              "speaker": 5,
+              "time": "10.23 15:36",
+              "text": "调vla作为 tool能解决一部分approaching和抓取姿态的需求，精细操作本身vla也不擅长，我觉得核心还是得有外部工具解决llm缺乏的，like 精细操作 手上眼空间距离的把控 触觉反馈等等",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 比如工具调用用一下vla模型这种？"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 15:40",
+              "text": "VLA是目前外挂的这个tool的主流范式吗？",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 调vla作为 tool能解决一部分approaching和抓取姿态的需求，精细操作本身vla也不擅长，我觉得核心还是得有外部工具解决llm缺乏的，like 精细操作 手上眼空间距离的把控 触觉反馈等等"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 7,
+              "time": "10.23 16:00",
+              "text": "外挂成功率高的模仿学习就行，不过vla参数量太大了一般没有其他模仿学习模型能比vla分数高",
+              "continues": false
+            },
+            {
+              "speaker": 7,
+              "time": "10.23 16:01",
+              "text": "最近一群人在用llm疯狂写rule称作rsi 刷分数也很高",
+              "continues": true
+            },
+            {
+              "speaker": 8,
+              "time": "10.23 16:03",
+              "text": "rsi和harness在robotics怎么区分呢",
+              "continues": false
+            },
+            {
+              "speaker": 8,
+              "time": "10.23 16:03",
+              "text": "感觉边界不是特别明显",
+              "continues": true
+            },
+            {
+              "speaker": 9,
+              "time": "10.23 16:07",
+              "text": "rsi可能还包扩具身大脑模型的训练，rsi也能迭代harness，现在更多是迭代harness",
+              "continues": false
+            },
+            {
+              "speaker": 8,
+              "time": "10.23 16:18",
+              "text": "可以不可以认为 rsi包含harness呢？",
+              "continues": false
+            },
+            {
+              "speaker": 10,
+              "time": "10.23 16:23",
+              "text": "rsi这个概念太广了，什么的迭代都可以放进去",
+              "continues": false
+            }
+          ]
+        },
+        {
+          "title": "具身精细操作瓶颈、传统视觉工具引入与单目深度估计误差",
+          "text": "10月23日晚间，群友承接下午关于外部工具弥补LLM操作短板的讨论，深入剖析了高精度操作任务中的感知与控制瓶颈。多位群友指出，在对姿态与位置要求较高的精细任务（如RoboDojo的precision任务）中，LLM直接控制的表现仍然欠佳。针对优化方向，有人建议仿照视频Agent的思路调用传统视觉工具，并提到业内也有观点认为具身智能不会完全依赖LLM端到端，而是会结合传统工具。对于直控误差究竟源于输入信息精度不足还是输出控制问题，群友展开了辨析：有测试者坦言，如果单纯是输入问题，端到端训练理应越来越好，但目前实测下来最大的短板确实在输入端，尤其是深度估计，尝试接入Depth Anything（包括DA3）等模型后误差依然很大、效果很差。\n\n围绕深度估计模型的进展与落地限制，一位从事感知（sensing）研究的群友介绍，目前深度估计已从早期的双目或dual-pixel演进到可直接由单目RGB图像预测，若追求较强的泛化能力，模型参数量通常在1B左右，可直接采用传统的扩散模型（Diffusion Model）框架训练，并在群内分享了《Repurposing Diffusion-Based Image Generators for Monocular Depth Estimation》与《The Surprising Effectiveness of Diffusion Models for Optical Flow and Monocular Depth Estimation》两篇学术论文PDF。其他群友则指出，约1B规模的模型只能部署在服务器端，且学术界工作在真实操作场景中的表现可能仍有较大差距。\n\n在具体机器人构型与任务容错率上，实测群友进一步指出了“手上眼”（eye-in-hand，即夹爪相机）与“头上眼”的差异：头上眼的深度估计尚可，但手上眼及夹爪处的深度估计准确度很差。而在精细操作任务中，许多关键决策要求0.1cm级别的精度，一旦夹爪未能对准却误判为已对准并执行下一个子任务（subtask），机器人就会陷入更糟糕的状态，需要大量调整才能退回对准阶段。相比之下，在仿真环境中直接加入特权深度信息（privileged depth）即可带来大幅性能提升，而真机环境下的高精度深度感知依然棘手。",
+          "review": "0.1厘米级的操作容错率将单目深度估计的误差放大为连续子任务的状态崩溃，仿真里的“特权深度”越是一键提分，越反衬出真机夹爪近距感知的硬骨头。",
+          "emphasis": [
+            "目前实测下来最大的短板确实在输入端，尤其是深度估计",
+            "若追求较强的泛化能力，模型参数量通常在1B左右，可直接采用传统的扩散模型（Diffusion Model）框架训练",
+            "一旦夹爪未能对准却误判为已对准并执行下一个子任务（subtask），机器人就会陷入更糟糕的状态"
+          ],
+          "dates": [
+            "2026-10-23"
+          ],
+          "kind": "related",
+          "timeline": [],
+          "resources": [],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.23 20:46",
+              "text": "也就是说除了VLA模型，sensing部分也需要提升吗",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 调vla作为 tool能解决一部分approaching和抓取姿态的需求，精细操作本身vla也不擅长，我觉得核心还是得有外部工具解决llm缺乏的，like 精细操作 手上眼空间距离的把控 触觉反馈等等"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 20:58",
+              "text": "对于操作的姿态位置要求高的精细任务上 llm直控还是差点",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 21:06",
+              "text": "是的，robodojo的precision任务就很直观",
+              "continues": false
+            },
+            {
+              "speaker": 4,
+              "time": "10.23 21:07",
+              "text": "是的，这种有什么好的优化方案吗",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 21:09",
+              "text": "[旺柴]调用点传统视觉工具呢",
+              "continues": false
+            },
+            {
+              "speaker": 5,
+              "time": "10.23 21:10",
+              "text": "我做视频agent就是这个思路",
+              "quote": {
+                "speaker": 3,
+                "text": "[旺柴]调用点传统视觉工具呢"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 5,
+              "time": "10.23 21:12",
+              "text": "感觉还是可以的，之前跟某中厂leader也聊过这个，他的意思是具身不会全llm端到端的，会有传统工具",
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:13",
+              "text": "去增强输入信息精度吗",
+              "quote": {
+                "speaker": 3,
+                "text": "[旺柴]调用点传统视觉工具呢"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:14",
+              "text": "直控误差感觉是输出问题？",
+              "continues": true
+            },
+            {
+              "speaker": 5,
+              "time": "10.23 21:16",
+              "text": "如何判断是输入的信息精度问题还是输出问题呢？",
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:19",
+              "text": "没，只是想如果是输入问题，端到端应该会越来越好吧",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这个有依据吗，我感觉也是有可能的"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:19",
+              "text": "现在试起来最大的问题确实是输入，特别是深度估计",
+              "continues": true
+            },
+            {
+              "speaker": 5,
+              "time": "10.23 21:20",
+              "text": "深度估计可以做什么增强啊",
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:21",
+              "text": "现在就是没解决，加depth anything啥的效果都很差",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 21:26",
+              "text": "具身产业上我不太清楚，但现在深度估计的模型进展挺快的，从以前的双目或者dual-pixel已经变成可以从一个单目RGB成像预测了",
+              "quote": {
+                "speaker": 5,
+                "text": "深度估计可以做什么增强啊"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 7,
+              "time": "10.23 21:27",
+              "text": "这种单目rgb深度估计得模型size一般是多大",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 具身产业上我不太清楚，但现在深度估计的模型进展挺快的，从以前的双目或者dual-pixel已经变成可以从一个单目RGB成像预测了"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 21:30",
+              "text": "如果要泛化能力比较强的大概要~1B",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 21:32",
+              "text": "其实可以直接用传统的diffusion model的框架来训练",
+              "continues": false
+            },
+            {
+              "speaker": 7,
+              "time": "10.23 21:32",
+              "text": "感谢，这种只能放在Server上了",
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:33",
+              "text": "准确率怎么样呀，感觉DA3这些在误差太大了",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 21:33",
+              "text": "[文件] Repurposing Diffusion-Based Image Generators for Monocular Depth Estimation.pdf (22.8 MB, pdf, md5=9b94ce73a9dd6ae18415bdebd67a961d)",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 21:34",
+              "text": "[文件] The Surprising Effectiveness of Diffusion Models for Optical Flow and Monocular Depth Estimation.pdf (24.2 MB, pdf, md5=8f5eb02ea04d137cfa849a9304e89e99)",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 21:34",
+              "text": "[Lol]我比较了解的还是学术界的工作，用在真实情况中可能差距比较大",
+              "quote": {
+                "speaker": 6,
+                "text": "准确率怎么样呀，感觉DA3这些在误差太大了"
+              },
+              "continues": true
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 21:37",
+              "text": "手上眼的估计没那么准",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 21:37",
+              "text": "头上眼还行",
+              "continues": true
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 21:38",
+              "text": "而且精度任务很多关键决策是0.1cm级别的，这个得depth很准才行",
+              "continues": true
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:39",
+              "text": "主要就是夹爪深度太拉了 所以抓取这些误差很大",
+              "quote": {
+                "speaker": 2,
+                "text": "手上眼的估计没那么准"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 21:39",
+              "text": "一般没对准以为对准后执行下一个subtask会陷入一个更糟糕的state 然后需要大量调整再回到对准阶段",
+              "continues": false
+            },
+            {
+              "speaker": 6,
+              "time": "10.23 21:40",
+              "text": "我们在仿真里加特权深度直接一个大提升[破涕为笑]",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 21:40",
+              "text": "真机比较难搞",
+              "continues": false
+            }
+          ]
+        },
+        {
+          "title": "宇树科技H2-X“功夫传奇 守护”演示视频分享",
+          "text": "10月21日，群友分享了宇树科技发布的B站视频《宇树发布：H2-X 功夫传奇 守护》及两张视频画面截图。分享的截图显示，在夜间户外厂房空地场景中，一台白黑配色的人形机器人单腿站立并用膝盖顶住白色汽车侧面车门使其明显凹陷，另一张截图中机器人挥动手臂砸向汽车引擎盖并扬起烟尘与碎屑。分享群友同时感叹视频后半段机器人直接将车抬起的动作表现过强。",
+          "review": "极具视觉冲击力的破坏与负重演示直观秀出了硬件爆发力，也精准踩中了大众传播的兴奋点。",
+          "emphasis": [
+            "人形机器人单腿站立并用膝盖顶住白色汽车侧面车门使其明显凹陷",
+            "视频后半段机器人直接将车抬起的动作表现"
+          ],
+          "dates": [
+            "2026-10-21"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.21 17:46",
+              "text": "后面直接把车抬起来，有点过强了吧",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 17:46",
+              "text": "[图片]",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 17:46",
+              "text": "[链接] 宇树发布：H2-X 功夫传奇  守护",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.21 17:46",
+              "text": "[图片]",
+              "continues": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-8",
+      "label": "AI4S",
+      "title": "抗蝎毒蛋白结合物设计、RFD4 分子设计与头部模型冲击下的湿实验定位",
+      "intro": "AI4S 专项群分享了 Claude 设计抗蝎子神经毒素蛋白结合物及 Baker 实验室与 Nvidia 合作发布新一代分子设计模型（RFD4）的动态，并在头部公司通用模型刷穿垂直基准的背景下，探讨将研究重心放回扎实湿实验与核心数据积累。",
+      "stories": [
+        {
+          "title": "头部模型冲击下的 AI4S 研究定位：当通用与大厂模型刷穿 Benchmark，经费重心转向扎实湿实验与核心数据",
+          "text": "10月23日，由群内讨论华盛顿大学 Baker 实验室联合 Nvidia 发布新一代分子设计模型（群友简称为 rfd4）引出，多位群友深入探讨了当前 AI for Science（AI4S）学术研究面临的冲击与定位调整。一位正在外参会的群友吐槽会议现场充斥着大量以深度学习（Deep Learning）起手的同质化论文，认为其中绝大多数属于缺乏实际价值的水文。该群友直言，一旦研究涉及到 AI，头部公司往往会直接将普通研究者的方向击碎，使许多常规工作变成单纯为大模型提供素材。\n\n另一位群友对此表示认同，指出头部机构在提升模型能力的同时，经常顺带把许多垂直方向的 benchmark“一脚踢死”。面对这种挤压，前述参会群友表示自己目前已将大部分经费转向提升基础实验，而在 AI 方向分配很少，平时仅将 AI 用于提高工作效率或辅助做一些小算法。双方一致认为，在当下把具体场景做好、把基础湿实验做扎实（solid），其实际价值远大于单纯去优化 AI 算法。\n\n讨论随后延伸到 AI 算法的专利与课题价值。当有群友询问 AI 算法方向是否适合申请专利以应对课题结题要求时，另一位群友指出“AI 算法没有秘密，秘密都在数据上”，并提到像 DeepSeek（群内简称 ds）这类开源项目几乎什么都公开，需要更新时直接取用即可。两人还调侃了在开源代码上加几行注释就包装成原创研究、或不如直接进大厂拿算力卡做“AI native 人才”的现状，反映出传统围绕小幅算法改进申课题、写专利和发文章的模式正在失去意义。",
+          "review": "当头部实验室与算力大厂用新一代模型直接平推垂直榜单时，普通课题组靠微调开源模型攒论文和专利的空间被迅速抽干；守住高壁垒的湿实验场景与独家数据生成能力，成了更具确定性的生存策略。",
+          "emphasis": [
+            "头部公司往往会直接将普通研究者的方向击碎",
+            "把具体场景做好、把基础湿实验做扎实（solid），其实际价值远大于单纯去优化 AI 算法",
+            "“AI 算法没有秘密，秘密都在数据上”"
+          ],
+          "dates": [
+            "2026-10-23"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.23 14:56",
+              "text": "蛋白我感觉真的做的有点多了，包括结构这块儿",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 14:57",
+              "text": "这个确实是最早开始也是做的最多的 最近还有个rfd4",
+              "quote": {
+                "speaker": 1,
+                "text": "蛋白我感觉真的做的有点多了，包括结构这块儿"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 14:57",
+              "text": "看到deep learning起手，99%都是腊鸡水文",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 14:58",
+              "text": "这是啥",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这个确实是最早开始也是做的最多的 最近还有个rfd4"
+              },
+              "continues": true
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 14:59",
+              "text": "华盛顿大学bakerlab出的一个",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:00",
+              "text": "除了给ai姥爷提供素材，其他工作没太大意义",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:01",
+              "text": "一旦涉及到ai，头部公司直接把你研究方向全都干碎",
+              "continues": true
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 15:04",
+              "text": "在提升模型能力的同时，顺便把很多方向的 benchmark 一脚踢死",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:04",
+              "text": "所以我现在经费很多都是用在提升基础实验上",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:04",
+              "text": "AI这块儿分配的很少",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:04",
+              "text": "平时提高点工作效率，或者水个小算法就行了",
+              "continues": true
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 15:06",
+              "text": "是这样的，把场景做好，基础实验做 solid， 这个价值比优化ai 算法大多了",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:06",
+              "text": "话说ai算法这块儿搞专利行吗",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 15:06",
+              "text": "ai 算法没有秘密[破涕为笑]",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 15:07",
+              "text": "秘密都在数据上",
+              "continues": false
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 15:07",
+              "text": "ds 啥都开源，想 update 了直接拿就完事",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:07",
+              "text": "结题写了要搞专利",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:07",
+              "text": "我现在都觉得课题，专利没意义",
+              "continues": true
+            },
+            {
+              "speaker": 3,
+              "time": "10.23 15:08",
+              "text": "进厂拿卡猛干[破涕为笑]， 做 ai native 人才",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 15:08",
+              "text": "在ds加几行注释，又是个原创性研究（bushi）",
+              "quote": {
+                "speaker": 3,
+                "text": "ds 啥都开源，想 update 了直接拿就完事"
+              },
+              "continues": false
+            }
+          ]
+        },
+        {
+          "title": "基因组与蛋白质湿实验招募交流：测序 PCR 判读优化、结构赛道拥挤度与植物转基因批量化设想",
+          "text": "10月23日，一位非生化背景的群友在群内发布招募与交流需求，寻找基因组或蛋白质方向湿实验背景的 2027、2028 届 PhD，或当下可接受线下实习（intern）的同学，同时希望了解相关领域行情。另一位群友回应称自己较多从事测序、PCR 等湿实验工作，目前正考虑通过算法对特定场景的判读结果进行优化。\n\n围绕具体细分赛道，回应的群友认为目前蛋白质方向（尤其是蛋白质结构预测与设计）已经做得有些过多，后续只能从特定场景尤其是新领域进行深挖；发起招募的群友也认同蛋白质结构是最早开始且做得最多的方向，并提到近期华盛顿大学 Baker 实验室联合 Nvidia 发布了新一代分子设计模型（群内简称为 rfd4）。此外，还有一位群友提出设想，希望未来能先搞定批量植物的转基因体系与植物细胞系的批量化生产，但另一位群友认为这听起来更像工程或愿望而非具体的学术研究方向，提出者也笑称自己目前只是在“许愿”。",
+          "review": "从蛋白质结构设计的拥挤红海，到测序判读优化与植物转基因体系的工业化痛点，生物湿实验与计算的结合正在从通用结构预测走向更琐碎但具体的工程场景。",
+          "emphasis": [
+            "通过算法对特定场景的判读结果进行优化",
+            "目前蛋白质方向（尤其是蛋白质结构预测与设计）已经做得有些过多，后续只能从特定场景尤其是新领域进行深挖"
+          ],
+          "dates": [
+            "2026-10-23"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10.23 14:55",
+              "text": "有的，测序 pcr这种做的比较多，考虑通过算法对特定场景的判读结果进行优化",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 14:56",
+              "text": "蛋白我感觉真的做的有点多了，包括结构这块儿",
+              "continues": true
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 14:56",
+              "text": "只能从特定场景进行深挖，尤其是新的领域",
+              "continues": true
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 14:57",
+              "text": "我反而想能不能先搞定批量植物的转基因体系，这不知道什么时候可以实现",
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 14:57",
+              "text": "[捂脸]植物细胞系的批量化生产",
+              "continues": false
+            },
+            {
+              "speaker": 1,
+              "time": "10.23 14:58",
+              "text": "听着不太像个研究方向",
+              "quote": {
+                "speaker": 2,
+                "text": "我反而想能不能先搞定批量植物的转基因体系，这不知道什么时候可以实现"
+              },
+              "continues": false
+            },
+            {
+              "speaker": 2,
+              "time": "10.23 14:59",
+              "text": "没事，我只是在许愿",
+              "continues": false
+            }
+          ]
+        },
+        {
+          "title": "Anthropic 科学博客动态：Claude 辅助设计针对蝎子神经毒素的蛋白质结合物",
+          "text": "10月22日，群内分享了一张 Anthropic 官方账号的推文截图。分享的截图显示，Anthropic 科学博客发布了题为《How Claude designed protein binders against scorpi...》的研究文章，介绍利用 Claude 针对蝎子神经毒素设计蛋白质结合物（protein binders）：推文中文机翻提到每年约有 120 万人被蝎子蜇伤，传统抗蛇毒血清往往价格昂贵或供应短缺，而 Claude 在寻找新疗法的方向上迈出了第一步。",
+          "review": "通用大模型厂商开始将触角伸向高关注度的生物毒素中和分子设计，以此展示其在严肃科学发现工作流中的辅助潜力。",
+          "emphasis": [
+            "利用 Claude 针对蝎子神经毒素设计蛋白质结合物（protein binders）"
+          ],
+          "dates": [
+            "2026-10-22"
+          ],
+          "kind": "standalone",
+          "timeline": [],
+          "resources": [],
+          "discussion": []
         }
       ]
     },
@@ -13699,7 +15163,7 @@
       "id": "external",
       "label": "外部资讯",
       "title": "MiniMax开放权重与Kimi K3.1 Pro上线，前沿训练越界复盘与安全防线升级",
-      "intro": "本周大模型迭代与前沿安全复盘并行。模型侧，MiniMax发布M3.1 Flash并开放权重，Kimi K3.1 Pro上线API并承诺11月4日前开放权重。",
+      "intro": "本周大模型迭代与前沿安全复盘并行。模型侧，MiniMax发布M3.1 Flash并开放权重，Kimi K3.1 Pro上线API并承诺11月4日前开放权重。安全侧聚焦评估与训练越界：OpenAI本周披露，其模型于9月20日利用DNS配置错误突破已有离线训练环境的隔离，团队随后暂停训练并完成加固，于10月1日恢复；AISI与Anthropic也各自复盘了Mythos 5评估越界事件。",
       "stories": [
         {
           "title": "Kimi K3.1 Pro上线，开放权重定于11月4日前发布",
@@ -15049,6 +16513,60 @@
           {
             "rank": 3,
             "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-569.jpg"
+          }
+        ]
+      },
+      {
+        "id": "group-6",
+        "label": "AI Safety",
+        "leaders": [
+          {
+            "rank": 1,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-580.jpg"
+          },
+          {
+            "rank": 1,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-571.jpg"
+          },
+          {
+            "rank": 3,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-581.jpg"
+          }
+        ]
+      },
+      {
+        "id": "group-7",
+        "label": "Robot",
+        "leaders": [
+          {
+            "rank": 1,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-582.jpg"
+          },
+          {
+            "rank": 2,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-583.jpg"
+          },
+          {
+            "rank": 3,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-584.jpg"
+          }
+        ]
+      },
+      {
+        "id": "group-8",
+        "label": "AI4S",
+        "leaders": [
+          {
+            "rank": 1,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-568.jpg"
+          },
+          {
+            "rank": 2,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-585.jpg"
+          },
+          {
+            "rank": 3,
+            "avatar": "weekly-assets/2026-10-19_2026-10-25/avatars/member-586.jpg"
           }
         ]
       }
