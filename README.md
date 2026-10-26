@@ -2,62 +2,56 @@
 
 [![Publish](https://github.com/Agent-Hub-Community/newspaper/actions/workflows/deploy.yml/badge.svg)](https://github.com/Agent-Hub-Community/newspaper/actions/workflows/deploy.yml)
 
-AgentHub 日报把 Agent Hub 社群各群每天的讨论整理成一份日报，并附当天的 AI 行业资讯。Agent Hub 是讨论 LLM Agent 研究与工程的中文社群。
+Agent Hub 是聊 LLM Agent 研究与工程的中文社群。这个仓库把各群每天的讨论整理成日报、每周整理成周报，顺带附上当天的 AI 行业资讯、社区资料库和群聊黑话词典。
 
-- 网站：<https://agent-hub-community.github.io/newspaper/>
+- 线上阅读：<https://agent-hub-community.github.io/newspaper/>
 - 社群主页：<https://agent-hub-community.github.io/>
 
-In English: AgentHub Daily is the newspaper of Agent Hub, a Chinese-language community of researchers and engineers who work on LLM agents.
-Every day it publishes an edited digest of each group chat, together with a page of outside AI news; every week it publishes a weekly review.
-Discussion excerpts are anonymous, and raw chat logs never enter this repository.
-This repository holds the static website, the reviewed reader data, the publishing scripts, and a Cloudflare Worker for votes and a public query API.
-The site and its content are in Chinese.
+In English: AgentHub Daily is the community newspaper of Agent Hub, a Chinese-language group of researchers and engineers working on LLM agents. It publishes daily group digests, outside AI news, weekly reviews, a curated resource library, and a glossary of community slang. Raw chat logs never enter this repository; this repo holds the static site, reviewed reader data, build scripts, and a Cloudflare Worker for votes and public search APIs.
 
-## 网站有什么
+## 站里有什么
 
 | 栏目 | 内容 | 入口 |
 |---|---|---|
-| 日报 | 每个群一版群聊选编，另有一版当天的外部资讯。每条有标题、带重点的正文、AI 锐评和资料链接，部分话题附匿名的原始讨论节选 | 首页打开最新一期；单版地址形如 [`daily/2026-10-22/group-1/`](https://agent-hub-community.github.io/newspaper/daily/2026-10-22/group-1/) |
-| 周报 | 按北京时间自然周汇总各群讨论和外部资讯，同一主题跨天合并 | [`weekly/`](https://agent-hub-community.github.io/newspaper/weekly/) |
-| 资料库 | 群里分享过、有长期参考价值的论文、代码、数据集、评测、模型和工具，可按主题、类型、关键词筛选。页面底部的“机会”区收录招聘、活动和征稿 | [`library/`](https://agent-hub-community.github.io/newspaper/library/) |
-| 群聊黑话 | 群里常用的缩写、代号、梗和行话 | [`glossary/`](https://agent-hub-community.github.io/newspaper/glossary/) |
-| 活跃榜 | 各群日榜和社区周榜、月榜、总榜，只显示前三名的名次和头像 | [`rank/week/`](https://agent-hub-community.github.io/newspaper/rank/week/) |
-| 全站搜索 | 在浏览器里搜索日报、周报、外部资讯的动向观察、资料库和机会，查询不上传 | [`search/`](https://agent-hub-community.github.io/newspaper/search/) |
-| 给 agent 用 | 站点说明 `llms.txt`、每期的 Markdown、全站 skill、订阅源和公开查询接口 | [`llms.txt`](https://agent-hub-community.github.io/newspaper/llms.txt)、[`agents/SKILL.md`](https://agent-hub-community.github.io/newspaper/agents/SKILL.md)、[`feed.xml`](https://agent-hub-community.github.io/newspaper/feed.xml) |
+| 日报 | 每个群一版当日讨论选编，外加一版外部资讯。每条带重点下划线、AI 锐评、相关资料卡片和匿名原始讨论节选 | 首页默认打开最新一期；单版地址如 [`daily/2026-10-25/group-2/`](https://agent-hub-community.github.io/newspaper/daily/2026-10-25/group-2/) |
+| 周报 | 按北京时间自然周回顾各群讨论与行业动向，把跨天聊同一件事的脉络串起来 | [`weekly/`](https://agent-hub-community.github.io/newspaper/weekly/) |
+| 资料库 | 群里分享过、过了几个月还有参考价值的论文、代码、评测基准、数据集、模型与工具；页底的“机会”区收招聘、活动和征稿 | [`library/`](https://agent-hub-community.github.io/newspaper/library/) |
+| 群聊黑话 | 群里常冒出来的缩写、模型外号、梗和行话对照表 | [`glossary/`](https://agent-hub-community.github.io/newspaper/glossary/) |
+| 活跃榜 | 各群日榜与全社区周榜、月榜、总榜，只展示前三名名次和头像 | [`rank/week/`](https://agent-hub-community.github.io/newspaper/rank/week/) |
+| 全站搜索 | 在浏览器本地搜日报、周报、资料库和机会（查询词不上传服务器） | [`search/`](https://agent-hub-community.github.io/newspaper/search/) |
+| 给 Agent 读 | `llms.txt`、每期 Markdown、全站 Skill（[`Agent-Hub-Community/skills`](https://github.com/Agent-Hub-Community/skills)）、Atom / JSON 订阅源与公开检索 API | [`llms.txt`](https://agent-hub-community.github.io/newspaper/llms.txt)、[`agents/SKILL.md`](https://agent-hub-community.github.io/newspaper/agents/SKILL.md)、[`feed.xml`](https://agent-hub-community.github.io/newspaper/feed.xml) |
 
-表中的入口地址都在 `https://agent-hub-community.github.io/newspaper/` 下。查询接口的用法写在 `llms.txt` 和 `agents/SKILL.md` 里，参数说明见 [feedback/README.md](feedback/README.md)。
+公开检索 API 的参数和返回格式写在 `llms.txt`、`agents/SKILL.md` 和 [`feedback/README.md`](feedback/README.md) 里。
 
-## 一期日报怎样产生
+## 一期日报是怎么做出来的
 
-采集、读图、写稿和审稿在流程仓库 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 完成。本仓库负责网站、读者数据和发布。
+前面的微信消息导出、图片解码、调模型写初稿和主编审稿，都在旁边的流程仓库 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 里跑；审完定稿后，才交给本仓库构建网页并发布。
 
 ```text
-bot-workflow（公开的流程仓库）
-  采集       各群按北京时间整日读取消息，发言者换成化名
+bot-workflow（采集与写稿仓库）
+  采集       按北京时间整日导出各群消息，发言人换成化名
     ↓
-  读图       看图模型为群聊图片写客观描述
+  读图       解出群聊图片，调视觉模型写客观描述
     ↓
-  写稿       模型按群写稿，再生成 AI 锐评、报头和重点
+  写稿       模型按群写初稿，再补 AI 锐评、报头和重点下划线
     ↓
-  编辑审核   对照原始消息逐条改错、审核重点、附讨论节选
+  审稿定稿   对照原话改错、审隐私、挂资料卡与讨论节选，签出定稿回执
     ↓
-  外部资讯   采集候选，回读原文，成稿后审核
+  外部资讯   抓取热榜与博客候选，点开原文核实后成稿
     ↓
-  活跃榜     计算前三名，逐张审核头像
-    ↓  审核后的批次目录
+  活跃榜     算各群与社区前三名，逐张肉眼审新头像
+    ↓
 newspaper（本仓库）
-  预览       本地构建，在手机和桌面宽度下逐版检查
+  本地预览   合成静态预览站，在手机和桌面宽度下检查排版
     ↓
-  发布       入库到 data/，推送 main，GitHub Actions 部署到 GitHub Pages
+  入库发布   写入 data/，更新语义向量与 D1 目录，推送 main 部署到 GitHub Pages
 ```
 
-图：一期日报从采集到上线的步骤。只有审核后的读者字段进入本仓库。
+具体的入库与部署步骤见[入库与发布](docs/publishing.md)，内容与审稿要求见[读者内容规则](docs/editorial.md)。
 
-入库和发布的细节见 [入库与发布](docs/publishing.md)，读者内容要满足的规则见 [读者内容规则](docs/editorial.md)。
+## 在本地跑起来
 
-## 快速开始
-
-需要 Node.js 22 和 npm。
+需要 Node.js 22 以上和 npm。
 
 ```sh
 git clone https://github.com/Agent-Hub-Community/newspaper.git
@@ -66,7 +60,7 @@ npm ci
 npm run build
 ```
 
-构建结果在 `dist/`。线上网站位于 `/newspaper/` 路径下，本地预览也放在同一路径下：
+构建产物在 `dist/`。因为线上站点挂在 `/newspaper/` 路径下，本地起服务时也垫一层同名目录：
 
 ```sh
 mkdir -p output/preview
@@ -74,54 +68,44 @@ ln -sfn ../../dist output/preview/newspaper
 python3 -m http.server 8000 --bind 127.0.0.1 --directory output/preview
 ```
 
-然后在浏览器打开 <http://127.0.0.1:8000/newspaper/>。`output/` 已被 Git 忽略。
+浏览器打开 <http://127.0.0.1:8000/newspaper/> 即可（`output/` 已被 Git 忽略）。
 
-- 普通构建不含活跃榜。要在本地看活跃榜，改用 `npm run build -- --public`。
-- 本地预览不上报任何统计。赞踩只保存在本机，计数显示“—”。
+- 默认 `npm run build` 不带活跃榜；想在本地看活跃榜，跑 `npm run build -- --public`。
+- 本地构建不会往线上发任何浏览统计，点赞点踩也只记在浏览器本地。
 
-运行测试：
+跑测试：
 
 ```sh
-npm test                 # 单元测试，CI 也运行
-npm run test:browser     # 浏览器测试，需要本机 Chrome；改界面时运行
+npm test                 # 单元测试（不联网、不用浏览器）
+npm run test:browser     # 浏览器测试（需要本机装有 Chrome）
 ```
 
-浏览器测试的说明和已知失效的旧断言见 [测试](docs/testing.md)。
+## 目录一览
 
-## 仓库结构
-
-| 路径 | 内容 |
+| 路径 | 放什么 |
 |---|---|
-| `site/` | 浏览器端文件：`index.html`、`404.html`、前端脚本、样式和节日皮肤，构建时原样复制到 `dist/` |
-| `lib/` | Node 模块：读取和校验数据、渲染静态页面和给 agent 用的文件。站点地址在 `lib/site.mjs` |
-| `data/` | 审核后公开的读者数据：日报、周报、外部资讯、资料库、机会、黑话、榜单快照和头像 |
-| `build.mjs` | 构建入口：读 `data/`，生成 `dist/` |
-| `scripts/` | 命令行脚本：入库、预览、登记赞踩目录、统计报告等 |
-| `feedback/` | Cloudflare Worker：赞踩、统计和公开查询接口 |
-| `test/` | 单元测试和浏览器测试 |
-| `bench/` | 查询接口的小型基准 |
-| `docs/` | 技术文档，目录见 [docs/README.md](docs/README.md) |
-| `.github/` | 部署 workflow：推送 `main` 后构建并发布到 GitHub Pages |
+| `site/` | 浏览器端静态文件：`index.html`、`404.html`、前端 JS/CSS 和节日皮肤 |
+| `lib/` | Node 模块：读数据、跑校验、生成静态页与 Agent 导出文件（站点地址定义在 `lib/site.mjs`） |
+| `data/` | 已审完公开的读者数据：日报、周报、外部资讯、资料库、机会、黑话、榜单快照和头像 |
+| `build.mjs` | 静态站构建入口（读 `data/` 和 `site/`，写出 `dist/`） |
+| `scripts/` | 维护脚本：批次预览、正式入库、D1 目录登记、语义向量更新、统计报表 |
+| `feedback/` | Cloudflare Worker + D1：点赞点踩、浏览与搜索统计、公开检索 API |
+| `test/` | 单元测试与 Playwright 浏览器测试 |
+| `bench/` | 检索接口的小型评测基准 |
+| `docs/` | 技术与维护文档，总目录见 [`docs/README.md`](docs/README.md) |
 
-各部分怎样配合，见 [架构](docs/architecture.md)；数据文件的字段见 [数据格式](docs/data-format.md)。
+## 隐私与内容边界
 
-## 数据与隐私
+- 正文里不写群友真名、微信昵称、微信号、学校或所在公司，统一用“群友”“分享者”代称。
+- 原始讨论节选只带当条话题内部的匿名编号（“群友 1”“群友 2”）、时间和原话，不同话题之间不打通身份；原话里提到的群友昵称也会替换成“群友 N”。
+- 原始聊天记录、群号、成员映射表和模型初稿都不进本仓库。
+- 活跃榜只公布前三名名次和审核过的头像，不公布发言条数和计分细则。
+- 给 Agent 读的 Markdown / JSON 和检索接口不带原始讨论原话、头像和榜单。
 
-- 读者数据全部经过审核。正文不写群友的姓名、昵称和联系方式，用“群友”等代称。
-- 原始讨论节选只有匿名编号、时间和原话。编号只在一个话题内对应同一位发言者，不跨话题关联身份。节选保留原话，所以发言者匿名不等于内容已经脱敏。
-- 原始聊天记录、群 ID、成员身份映射、完整统计和模型原稿都不在本仓库。构建只读取 `data/` 下的读者字段。
-- 活跃榜只公开前三名的名次和头像，不公开分数和计分规则。头像能认出本人，所以逐张审核后才发布。
-- 给 agent 用的文件和查询接口不含原始讨论原话、头像和榜单。
-- 站点有第一方浏览量统计，只在正式站点上报。它和赞踩、搜索等统计存什么、不存什么，见 [feedback/README.md](feedback/README.md)。
+如果某页有你的发言或头像、想撤下来，直接按 [`CONTENT-NOTICE.md`](CONTENT-NOTICE.md) 的说明提 issue 即可。
 
-详细规则见 [读者内容规则](docs/editorial.md)。读者内容的使用条件和删除个人内容的方式见 [CONTENT-NOTICE.md](CONTENT-NOTICE.md)。
+## 参与贡献与许可证
 
-## 贡献与许可
+修界面、改搜索、补测试或改文档，欢迎直接提 pull request；报页面 bug、内容勘误或申请撤下个人内容，请提 issue。动手前请先看一眼 [`CONTRIBUTING.md`](CONTRIBUTING.md)。
 
-欢迎提 issue 和 pull request。提交前请读 [CONTRIBUTING.md](CONTRIBUTING.md)：
-
-- 页面错误、内容错误和删除个人内容的请求，请提 issue。issue 是公开的，只写页面地址和位置。
-- 界面、搜索、查询接口、测试和文档的改进，可以直接提 pull request。
-- 读者内容由维护者按审核流程更新。改动 `data/`、搜索引擎收录策略等需要维护者授权。
-
-源代码使用 [MIT 许可](LICENSE)。读者内容（`data/` 下的刊期、资料库、黑话、榜单和头像等，以及由它们生成的网页和文件）不随 MIT 许可授权，使用条件见 [CONTENT-NOTICE.md](CONTENT-NOTICE.md)。
+仓库里的源代码采用 [MIT 许可证](LICENSE)。`data/` 下的读者内容（日报、周报、外部资讯、资料库、黑话、榜单与头像）及由它们生成的页面不随 MIT 授权，引用与使用规则见 [`CONTENT-NOTICE.md`](CONTENT-NOTICE.md)。

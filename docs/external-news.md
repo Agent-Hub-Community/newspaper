@@ -1,22 +1,22 @@
-# 外部资讯
+# 外部资讯版格式与导入
 
-“外部资讯”是与各群版面并列的一个版面，收录当天 AI 与科技行业的重要新闻，每条保留原始出处。本文说明外部资讯稿件交给本仓库时的格式、审核记录、导入和网页呈现。
+“外部资讯”是和各群日报并列的一个独立版面，每天选编 AI 与科技行业里值得看的新发布、论文和开源进展，每条附上原始出处链接。
 
-采集候选、回读原文、选题和写稿的方法属于写稿流程，见 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow)。外部资讯不读取群聊数据。
+前期的多渠道抓取、点开原文核实和调模型写稿在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 仓库里做；这篇文档讲审好的外部资讯稿怎么校验并导入本仓库。
 
-## 交给本仓库的文件
+## 交给本仓库的三份文件
 
-一期外部资讯在批次目录（例如 `scratch/external-2026-10-22-run1/`）里交给本仓库三份文件：
+每一期外部资讯在 `scratch/external-YYYY-MM-DD-runN/` 目录下准备好三份文件：
 
-| 文件 | 内容 |
+| 文件 | 里面是什么 |
 |---|---|
-| `selection.json` | 审核后的候选和证据：每个事件的原文、热度快照和选题理由 |
-| 稿件，例如 `commented-reviewed.json` | 读者稿：报头、导语、各条正文、链接、重点和 AI 锐评 |
-| 审核记录，例如 `commented-review.json` | 编辑批准这份稿件和这份证据的记录 |
+| `selection.json` | 入选候选与证据：每件事的一手原文摘录、各平台热度快照、选题理由和淘汰记录 |
+| 读者稿（如 `commented-reviewed.json`） | 当期报头、导语、各条新闻正文、外链、重点下划线和 AI 锐评 |
+| 审核记录（如 `commented-review.json`） | 由 `scripts/review-external.mjs` 生成的批准回执，把读者稿和 `selection.json` 绑在一起 |
 
-这些文件都留在被 Git 忽略的 `scratch/` 下。只有导入后的读者字段进入 `data/external-editions/`。
+这三份原始文件留在被 Git 忽略的 `scratch/` 下；只有跑完导入脚本后抽出的纯读者字段，才会写进 `data/external-editions/<date>.json`。
 
-### selection.json
+### 1. `selection.json`
 
 ```json
 {
@@ -29,10 +29,10 @@
       "id": "copilot-update",
       "kind": "news",
       "title": "Copilot 更新",
-      "timing": "已核验的日期说明",
-      "selectionReason": "选题理由",
+      "timing": "已核实的时间说明",
+      "selectionReason": "为什么值得选",
       "attention": [{ "platform": "X", "url": "https://...", "fetchedAt": "ISO 时间", "observation": "热度快照" }],
-      "sources": [{ "publisher": "原发布方", "url": "https://...", "fetchedAt": "ISO 时间", "text": "实际读取的原文或摘录" }]
+      "sources": [{ "publisher": "原发布方", "url": "https://...", "fetchedAt": "ISO 时间", "text": "实际读到的原文或摘录" }]
     }
   ],
   "rejected": [],
@@ -40,13 +40,13 @@
 }
 ```
 
-[`lib/external-workflow.mjs`](../lib/external-workflow.mjs) 的 `validateSelection` 检查：
+[`lib/external-workflow.mjs`](../lib/external-workflow.mjs) 的 `validateSelection` 会检查：
 
-- 时间窗从内容日期的北京时间零点开始，不超过次日零点。
-- 每个候选有选题理由、至少一条热度快照和至少一条已读原文。所有链接都是 `https:`。
-- 论文候选（`kind: "paper"`）带 `paperRanks`，两个榜单的名次都在前五。
+- 时间窗口从刊期当天的北京时间 `00:00` 开始，不超过次日 `00:00`。
+- 每个候选都有选题理由、至少一条热度观察和至少一条实读过的一手原文（`sources`），所有链接均为 `https:`。
+- 标为双榜推荐论文（`kind: "paper"`）的候选，必须带有在 HF 和 alphaXiv 都进了前五的 `paperRanks`。
 
-### 稿件
+### 2. 读者稿
 
 ```json
 {
@@ -55,11 +55,11 @@
   "intro": "导语",
   "stories": [
     {
-      "title": "标题",
+      "title": "新闻标题",
       "timing": "北京时间 10 月 22 日 03:09 发布",
       "text": "正文",
       "links": [{ "kind": "官方发布", "label": "原文名称", "url": "https://..." }],
-      "emphasis": ["原文片段"],
+      "emphasis": ["原文重点片段"],
       "aiComment": "AI 锐评",
       "candidateIds": ["copilot-update"]
     }
@@ -68,58 +68,34 @@
 }
 ```
 
-`validateExternalDraft` 检查：
+`validateExternalDraft` 会检查：
 
-- `date` 等于 `selection.json` 的 `edition`。
-- 至少一条新闻，不为凑数补条目。“动向观察”最多 3 条。
-- 每条用 `candidateIds` 指向候选，一个候选只能用一次。
-- 每条有 1 到 3 个链接，每个链接应来自所指候选的原文或热度快照。
-- 每条有 `emphasis` 数组，规则见 [读者内容规则](editorial.md#重点)。
-- 导入时，每条都要有 `aiComment`。
+- `date` 与 `selection.json` 的 `edition` 一致。
+- 至少有 1 条新闻，“动向观察”（`trends`）最多 3 条。
+- 每条新闻用 `candidateIds` 指向 `selection.json` 里的候选，同一个候选不能被两条新闻重复用。
+- 每条带 1 到 3 个链接，且每个 URL 都必须在所指候选的 `sources` 或 `attention` 里逐字出现过。
+- `emphasis` 满足下划线规则（见[读者内容规则](editorial.md#重点下划线emphasis)），导入时每条都带 `aiComment`。
 
-链接正确不代表事实审核通过。事实归属、时间时区、指标的比较基线等仍由编辑人工检查。
+## 签发审核回执并入库
 
-## 审核记录
-
-编辑逐条审核稿件并决定采用后，运行：
+主编通读稿件、核对完原文时间和数字后，跑下面两条命令签回执并入库：
 
 ```sh
 E=scratch/external-2026-10-22-run1
-node scripts/review-external.mjs "$E/commented-reviewed.json" "$E/selection.json" "$E/commented-review.json" "<审核者>" --approve
-```
-
-审核记录保存 `status: "approved"`、审核者、审核时间，以及完整的稿件和 `selection.json`。导入时逐字比较，所以稿件、锐评或证据改过以后，应重新审核。审核记录直接保存原文，便于对照。
-
-## 导入
-
-```sh
+node scripts/review-external.mjs "$E/commented-reviewed.json" "$E/selection.json" "$E/commented-review.json" "<审核人>" --approve
 node scripts/import-external-report.mjs "$E/commented-reviewed.json" "$E/selection.json" "$E/commented-review.json"
 ```
 
-导入脚本重新运行上面的全部检查，然后只把读者字段（`date`、`title`、`intro`、`stories` 的 `title`、`timing`、`text`、`links`、`emphasis`、`aiComment`，以及 `trends`）写进 `data/external-editions/<date>.json`。
-候选 ID、证据、热度快照和审核记录不进入网页数据。格式见 [数据格式](data-format.md#外部资讯)。
+- `review-external.mjs` 把当时的稿件全文和 `selection.json` 一并存进 `commented-review.json`。如果后面又改了一句正文、换了一条锐评或动了 `selection.json`，导入时比对不上就会报错，需要重签回执。
+- `import-external-report.mjs` 复查通过后，去掉内部的 `candidateIds` 和证据，只把干净的读者字段写进 `data/external-editions/<date>.json`。
 
-导入以后与同日群稿一起预览、构建和发布，见 [发布流程](publishing.md)。还没入库的外部资讯稿也可以直接合进预览：
+如果还在审稿阶段、想先跟同日群稿合在一起看本地预览，不用先入库，直接用 `--draft-external` 即可（见[入库与发布](publishing.md#1-本地预览)）。
 
-```sh
-npm run build -- --draft scratch/day-2026-10-22-run1/issues.json --draft-external "$E/commented-reviewed.json" "$E/selection.json"
-node test/external-page.mjs
-```
+## 页面上怎么展示
 
-`test/external-page.mjs` 固定检查 2026-09-25 的外部资讯版和同日群版。检查新刊期时，请同步更新验收日期或另行检查。
+构建时 [`lib/external-editions.mjs`](../lib/external-editions.mjs) 会把当天的外部资讯拼成日报的最后一个版面：
 
-## 网页呈现
-
-构建时，[`lib/external-editions.mjs`](../lib/external-editions.mjs) 把外部资讯合并成当天的最后一个版面：
-
-| 网页 | 来源字段 |
-|---|---|
-| 版面名“外部资讯”，栏目“研究 · 产品 · 工程” | 固定 |
-| 报头、副题 | `title`、`intro` |
-| 每条的分类标签 | `timing` |
-| 资料卡片 | `links`。`kind` 是“论文”“代码”时显示对应图标，是“原帖”“讨论”时显示为讨论，其余（如“官方发布”“报道”）显示为文章 |
-| 动向观察 | `trends`，页内锚点 `#trends-heading` |
-
-- 外部资讯版不显示群活跃榜，也没有原始讨论入口。
-- 某天没有外部资讯时，版面显示“本日外部资讯尚未收录”。
-- 动向观察不算话题：期刊目录只用 `trend_count` 计数，全站搜索单独列出。
+- 版面页签固定叫“外部资讯”，眉题写“研究 · 产品 · 工程”，报头和副题取 `title` 和 `intro`。
+- 每条新闻头顶的小标签显示 `timing`（发布或事件时间）。
+- `links` 渲染成底部的资料卡片：`kind` 为“论文”“代码”时配对应图标，为“原帖”“讨论”时配讨论图标，其余（“官方发布”“报道”等）配文章图标。
+- `trends` 渲染在版面底部的“动向观察”区块（锚点 `#trends-heading`）。

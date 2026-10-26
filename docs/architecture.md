@@ -1,189 +1,107 @@
-# 架构
+# 架构说明
 
-本文说明仓库的各部分怎样配合：构建脚本读取 `data/` 下的读者数据，生成纯静态网站，GitHub Pages 托管网站，Cloudflare Worker 负责赞踩、统计和查询接口。
+这篇文档讲网站是怎么拼出来的：`build.mjs` 读取 `data/` 下的公开 JSON 数据，配合 `site/` 里的前端静态文件生成纯静态网站，由 GitHub Pages 托管；旁边的 Cloudflare Worker（`feedback/`）提供点赞点踩、浏览与搜索统计，以及给 Agent 调的公开查询 API。
 
 ```text
-data/ (读者数据) ──┐
-site/ (浏览器端) ──┼──► build.mjs ──► dist/ ──► GitHub Actions ──► GitHub Pages
-lib/  (Node 模块) ─┘        │                                          │
-                            └─ search/catalog.json 等 ──► feedback/ Worker ◄── 读者浏览器、agent
+data/ (公开 JSON) ──┐
+site/ (前端资源)   ──┼──► build.mjs ──► dist/ ──► GitHub Actions ──► GitHub Pages
+lib/  (构建模块)   ──┘        │                                          │
+                              └─ search/catalog.json 等 ──► feedback/ Worker ◄── 浏览器与 Agent
 ```
 
-图：构建和运行时的数据流。网站本身是静态文件，Worker 从已发布的网站读取查询数据。
+## 目录分工
 
-## 目录
-
-| 目录 | 内容 |
+| 目录 | 放什么 |
 |---|---|
-| `site/` | 浏览器端文件：`index.html`、`404.html`、前端 `.js`、`.css` 和 `skins/`。构建时原样复制到 `dist/` |
-| `lib/` | Node 模块：读数据、校验、渲染静态页面和给 agent 用的文件。站点地址在 `lib/site.mjs` |
-| `data/` | 审核后的读者数据，见 [数据格式](data-format.md) |
-| `build.mjs` | 构建入口 |
-| `scripts/` | 命令行脚本：入库、预览、登记和统计，见 [发布流程](publishing.md) |
-| `feedback/` | 反馈 Worker（Cloudflare Workers + D1），见 [feedback/README.md](../feedback/README.md) |
-| `test/` | 单元测试和浏览器测试，见 [测试](testing.md) |
-| `bench/` | 查询接口的小型基准，见 [bench/agent-api/README.md](../bench/agent-api/README.md) |
+| `site/` | 浏览器端文件：`index.html`、`404.html`、前端 `.js`、`.css` 和 `skins/` 节日皮肤。构建时拷进 `dist/` |
+| `lib/` | Node 模块：读数据、跑 schema 校验、渲染静态路由页和 Agent 导出文件（站点域名与路径前缀定义在 `lib/site.mjs`） |
+| `data/` | 审完公开的读者数据，字段说明见[数据格式](data-format.md) |
+| `build.mjs` | 静态站构建入口 |
+| `scripts/` | 维护脚本：本地预览、入库、D1 登记与统计报表，见[入库与发布](publishing.md) |
+| `feedback/` | Cloudflare Worker + D1 服务，见 [`feedback/README.md`](../feedback/README.md) |
+| `test/` | 单元测试与 Playwright 浏览器测试，见[测试说明](testing.md) |
+| `bench/` | 查询 API 的小型评测基准 |
 
-`scratch/`、`dist/`、`dist-preview/` 和 `output/` 被 Git 忽略。`scratch/` 放维护者的私有批次数据，不提交。
+`scratch/`、`dist/`、`dist-preview/` 和 `output/` 都被 `.gitignore` 排除。维护者平时跑日报的私有批次目录放在 `scratch/` 下，不会提交进仓库。
 
-## 构建
+## 构建流程与模式
 
-`npm run build` 运行 `build.mjs`。构建步骤：
+跑 `npm run build` 即执行 `build.mjs`，按顺序做六件事：
 
-1. 读取 `data/editions/`、`data/external-editions/` 和 `data/weekly-editions/`，校验并合并成刊期列表。
-2. 读取资料库、机会、黑话和同义词表，校验关键词和别名。
-3. 按构建模式读取榜单快照（见下表）。
-4. 写出 `data.js` 索引和每期的 `issues/<date>.js`。
-5. 复制 `site/` 下的浏览器端文件，给每个资源加上内容哈希 `?v=`。
-6. 写出深链目录、周报、资料库、黑话、搜索页、给 agent 用的文件、订阅源和查询目录。
+1. 读 `data/editions/`（群聊日报）、`data/external-editions/`（外部资讯）和 `data/weekly-editions/`（周报），校验后合并。
+2. 读资料库、机会、群聊黑话和搜索同义词表，校验关键词与别名有没有冲突。
+3. 按命令行参数决定读不读活跃榜快照（见下表）。
+4. 写出轻量索引 `dist/data.js` 和按天拆开的 `dist/issues/<date>.js`。
+5. 把 `site/` 下的静态文件拷进 `dist/`，给每个 JS/CSS 引用挂上内容哈希 `?v=`。
+6. 生成每一期的静态深链目录、周报页、资料库页、黑话页、搜索页、`llms.txt` 等 Agent 文件、Atom/JSON 订阅源以及检索目录。
 
-构建模式：
+常用的几种构建参数：
 
-| 命令 | 输出目录 | 用途 |
+| 命令 | 输出目录 | 什么时候用 |
 |---|---|---|
-| `npm run build` | `dist/` | 普通构建。读取全部读者数据，不含活跃榜 |
-| `npm run build -- --public` | `dist/` | 公开构建。另外读取 `data/public-activity/` 的榜单快照，生成统计加载器，并把给 agent 用的文件指向查询接口。部署只用这个模式 |
-| `npm run build -- --draft <issues.json>` | `dist-preview/` | 把还没入库的批次合进预览。不能与 `--public` 或 `--local-activity` 同用 |
-| `--draft-activity <snapshot.json>` | `dist-preview/` | 与 `--draft` 同用，预览批次的榜单快照 |
-| `--draft-external <稿件> <selection.json>` | `dist-preview/` | 与 `--draft` 同用，合入已审的外部资讯草稿 |
-| `npm run build -- --local-activity` | `dist-preview/` | 读取 `scratch/activity/` 里的本地完整榜单。只在维护者本机有数据 |
+| `npm run build` | `dist/` | 日常本地构建，包含全部文章与资料，但不带活跃榜 |
+| `npm run build -- --public` | `dist/` | 线上正式构建：带上 `data/public-activity/` 活跃榜、注入浏览统计脚本，并把 Agent 读取链接切到 Worker 的 `/read/`。GitHub Actions 部署只用这个模式 |
+| `npm run build -- --draft <issues.json>` | `dist-preview/` | 审稿阶段预览还没入库的群稿批次（可接着加 `--draft-activity` 和 `--draft-external`） |
+| `npm run build -- --local-activity` | `dist-preview/` | 在维护者本机预览 `scratch/activity/` 里的完整活跃榜 |
 
-公开构建读取环境变量 `FEEDBACK_API_URL`：反馈 Worker 的 HTTPS 源地址，不带路径。没有设置时，赞踩只保存在本机，计数显示“—”。
+公开构建会读环境变量 `FEEDBACK_API_URL`（反馈 Worker 的 HTTPS 根地址）。本地构建不设这个变量时，点赞点踩只存在浏览器 `localStorage` 里，票数显示“—”。
 
-## 构建产物
+## 构建出来的 `dist/` 里有什么
 
 | 路径 | 内容 |
 |---|---|
-| `index.html`、`data.js`、`issues/<date>.js` | 日报首页、索引和每期正文 |
-| `daily/<date>/<版面>/index.html` | 日报深链页，版面是 `group-N` 或 `external` |
-| `rank/week/`、`rank/month/`、`rank/all/` | 活跃榜 |
-| `weekly/index.html`、`weekly/<起始>/<结束>/<版面>/` | 周报入口和各版静态页 |
-| `library/`、`glossary/`、`search/` | 资料库（含机会）、黑话、全站搜索 |
-| `llms.txt`、`index.md`、`agents/` 等 | 给 agent 用的文件，见下文 |
-| `feed.json`、`feed.xml` | 订阅源 |
-| `404.html`、`robots.txt` | 缺失路径页和爬虫规则 |
-| `icons.js`、`screenshot.js`、`export-images.js`、`skins.css` | 构建生成的图标包、截图库、长图用图片和皮肤样式 |
+| `index.html`、`data.js`、`issues/<date>.js` | 首页、全站刊期索引、按天拆分的具体正文 |
+| `daily/<date>/<group-N \| external>/index.html` | 每天各群与外部资讯的独立深链页面 |
+| `rank/week/`、`rank/month/`、`rank/all/` | 社区周榜、月榜、总榜页面 |
+| `weekly/index.html`、`weekly/<起>/<止>/<版面>/` | 周报跳转入口与各版静态页 |
+| `library/`、`glossary/`、`search/` | 资料库（含页底机会区）、群聊黑话、全站搜索 |
+| `llms.txt`、`index.md`、`agents/` 等 | 给 Agent 读取的纯文本、Markdown 和 JSON |
+| `feed.json`、`feed.xml` | 最近 30 期日报与周报的 JSON Feed 和 Atom 订阅源 |
+| `404.html`、`robots.txt` | 404 页面与爬虫规则 |
+| `icons.js`、`screenshot.js`、`export-images.js`、`skins.css` | 打包好的按需 Lucide 图标、长图截图库、本地头像 base64 包与皮肤样式 |
 
-### data.js 索引和按需加载的正文
+### 为什么分成 `data.js` 和 `issues/<date>.js`
 
-`dist/data.js` 只是索引：每期的日期、各版 id、名称、是否有稿、报头和正文版本号，以及活跃榜和皮肤配置。
-每期正文写在 `dist/issues/<date>.js`，文件名不变，版本号是内容哈希的前 16 位。
+如果把所有往期正文全塞进一个 `data.js`，刊期越多首页打开越慢。所以现在 `dist/data.js` 只存目录索引（每天有哪些版面、报头是什么、有没有稿、内容版本号是多少），真正的文章、锐评和讨论节选按天放在 `dist/issues/<date>.js` 里。
 
-- 深链页预载本期正文。切换日期时，[`site/app.js`](../site/app.js) 按需加载并显示加载状态，失败时提供“重新加载”。
-- 周报正文只在各自的静态页里，不进 `data.js`。
-- 这样 `data.js` 的大小不随刊期线性增长。
-- Node 端用 [`lib/built-data.mjs`](../lib/built-data.mjs) 的 `readBuiltData(dist)` 还原完整数据。[`scripts/feedback-catalog.mjs`](../scripts/feedback-catalog.mjs) 和发布核验都走这条路径。
+- 打开某一天的深链页时，HTML 会直接预加载当天的 `issues/<date>.js`；在页面上切到别的日期时，[`site/app.js`](../site/app.js) 再按需拉取对应日期的脚本。
+- 周报单期体量更大，直接内嵌在各自的 `weekly/<起>/<止>/<版面>/index.html` 里，不进 `data.js`。
+- 在 Node 脚本里如果要一次读出 `dist/` 的完整数据，调 [`lib/built-data.mjs`](../lib/built-data.mjs) 的 `readBuiltData(dist)` 即可。
 
-### 静态深链目录
+### 静态深链与 404
 
-构建为每期输出 `daily/<date>/group-N/index.html` 和 `daily/<date>/external/index.html`，为榜单输出 `rank/week/`、`rank/month/` 和 `rank/all/`。GitHub Pages 可以直接打开或刷新这些地址。
+GitHub Pages 没有后端路由，为了让 `daily/2026-10-25/group-2/` 这种地址能直接点开和刷新，[`lib/route-pages.mjs`](../lib/route-pages.mjs) 会在构建时把每个日期、每个版面的目录和 `index.html` 都实打实写出来，并把里面的相对路径（`agenthub-root` meta）算好。当天没稿的群也会生成一个壳页面，点进去时前端会自动切到当天第一个有稿的版面。
 
-- 缺稿版面仍生成壳页面，由运行时的版面选择逻辑回退。
-- 旧的 hash 导航继续兼容，`#topic-N` 用于页内定位，查询参数保留。
-- [`lib/route-pages.mjs`](../lib/route-pages.mjs) 的 `writeRoutePages(out, data)` 在根页资源加上哈希以后运行。它复用这些哈希，并给深链页的脚本和样式路径加上回到资源根的相对前缀。
-- 日报深链页只预载本期的 `issues/<date>.js`，榜单页不预载正文。
-- `agenthub-root` meta 在根页为 `./`，日报页为 `../../../`，榜单页为 `../../`。页面不使用 `base` 元素。
-- 每页的 canonical 指向 `lib/site.mjs` 中 `site` 下对应的目录。
+访问不存在的路径时，GitHub Pages 会返回 `404.html`（状态码 404）。因为 404 可能发生在任意层级目录下，`404.html` 把样式全内联了，链接也全部写成带 `/newspaper/` 前缀的绝对路径。
 
-### 404 页
-
-`basePath` 下不存在的路径由 `404.html` 处理。GitHub Pages 原样返回这个文件，状态码是 404。
-这个页面可能出现在任意深度的路径上，所以样式内联、不加载脚本，链接写成以 `basePath` 开头的绝对路径。
-
-### 图标
-
-`icons.js` 由 [`lib/icons.mjs`](../lib/icons.mjs) 在构建时生成，只包含源码里出现的 Lucide 图标（约 5 KB，完整的包约 600 KB）。
-新增图标时，把名字写成字面量（`data-lucide="name"` 或查找表里的字符串），构建会自动收录。写错名字会让构建失败。
-
-## 页面关系
+## 页面层级关系
 
 ```text
 AgentHub 日报 /newspaper/
-├── 日报      daily/<date>/<group-N | external>/   ← 首页打开最新一期
-│   ├── 原始讨论面板   #discussion-N（同一页内）
-│   └── 往期目录       刊头日期或“往期目录”
-├── 周报      weekly/ → weekly/<起始>/<结束>/<版面>/
+├── 日报      daily/<date>/<group-N | external>/   ← 首页默认展示最新一期
+│   ├── 原始讨论浮窗   #discussion-N
+│   └── 往期目录弹层   点刊头日期或“往期目录”打开
+├── 周报      weekly/ → weekly/<起>/<止>/<版面>/
 ├── 活跃榜    rank/<week | month | all>/[<group-N>/]
-├── 资料库    library/        机会在页面底部 #opportunities
-├── 黑话      glossary/
-├── 搜索      search/
-└── 给 agent 用的文件   llms.txt、index.md、agents/SKILL.md、feed.xml ...
+├── 资料库    library/（底部 #opportunities 是招聘与活动机会）
+├── 群聊黑话  glossary/
+├── 全站搜索  search/
+└── Agent 入口 llms.txt、index.md、agents/SKILL.md、feed.xml ...
 ```
 
-图：网站的页面层级。日报、周报、活跃榜、资料库、黑话共用同一套刊头和栏目导航。
+## 群列表与站点地址
 
-## 群列表
+- 群列表唯一来源是 [`lib/groups.mjs`](../lib/groups.mjs)：定义每个群的 `id`、名称 `label`、开始采集的日期 `from`、是否出读者版面 `page` 以及版面起始日 `pageFrom`。加新群只改这一个文件。
+- 站点地址集中在 [`lib/site.mjs`](../lib/site.mjs)。因为 `site/` 下的浏览器脚本不走打包器编译，里面保留了几处域名和路径字面量，`test/site.test.mjs` 会在每次测试时核对它们和 `lib/site.mjs` 是否一致。
 
-[`lib/groups.mjs`](../lib/groups.mjs) 是群列表的唯一来源。每个群有 `id`、读者名称 `label`、`from`（采集起始日期）、`page`（是否有读者版面）和可选的 `pageFrom`（读者版面起始日期）。
-打包、榜单和页面都读这份列表，脚本里不要另写一份。
+## 给 Agent 读的导出文件与查询接口
 
-- `collectedGroups(date)` 返回当天要采集的群，`pageGroups(date)` 返回当天有读者版面的群。
-- `page: false` 的群照常采集和生成草稿，成员也计入社区榜，但不进 `issues.json`，没有读者版面。
-- 新群在 `pageFrom` 之前只计入社区榜。历史刊期不补造新群的稿件或路径。
+构建时 [`lib/agent-docs.mjs`](../lib/agent-docs.mjs) 和 [`lib/agents-render.mjs`](../lib/agents-render.mjs) 会生成一整套纯文本与 Markdown/JSON 文件（`llms.txt`、`llms-full.txt`、`index.md`、`daily/<date>/index.md`、`weekly/<起>/<止>/index.md`、`agents/SKILL.md`、`agents/topics/*.md`、`library/resources.json` 等）。
 
-## 站点地址
+- 这些文件只含正文摘要、AI 锐评和公开链接，不带原始讨论原话、成员头像和活跃榜（`test/build.mjs` 会专门检查）。
+- 公开构建会把 `llms.txt` 和 `agents/SKILL.md` 里的读取地址指到 Worker 的 `/read/...` 路由，用来按小时统计被读取的次数；直接访问 GitHub Pages 上的原始 `.md` / `.json` 地址也一样能读。
+- 注意用 `curl` 或 Python 调 Worker 查询接口传中文参数时，要经过 URL 百分号编码（比如 `curl -G --data-urlencode`），直接发裸中文字符会被 Cloudflare 边缘节点拦成空响应的 HTTP 400。
 
-站点地址集中在 [`lib/site.mjs`](../lib/site.mjs)：`origin`、`basePath`，以及两者拼成的 `site`。Node 端模块、构建和 Worker 都从这里取地址。
+## 搜索引擎收录开关
 
-浏览器端文件不经过构建步骤加载，所以保留地址的字面副本：
-
-- `site/app.js` 的 canonical 基址；
-- `site/analytics.js`、`site/search-tracking.js` 和 `site/views.js` 的域名和路径；
-- `site/404.html` 的链接。
-
-[`test/site.test.mjs`](../test/site.test.mjs) 检查这些副本与 `lib/site.mjs` 一致。改域名或路径时，同时改这些文件和 Worker 的 `ALLOWED_ORIGIN`（[`feedback/wrangler.jsonc`](../feedback/wrangler.jsonc)）。
-
-## 给 agent 用的文件
-
-[`lib/agent-docs.mjs`](../lib/agent-docs.mjs) 生成文本，[`lib/agents-render.mjs`](../lib/agents-render.mjs) 写文件。构建输出：
-
-| 文件 | 内容 |
-|---|---|
-| `llms.txt` | 站点说明、查询接口（公开构建）和全部入口。大文件列在 `## Optional` 下 |
-| `llms-full.txt` | 资料库、最新一期周报和最近 7 期日报的全文 |
-| `index.md` | 全部日报、周报和资料库的 Markdown 地址 |
-| `daily/<date>/index.md` | 当天各群和外部资讯的摘要、AI 锐评和资料链接 |
-| `weekly/<起始>/<结束>/index.md` | 周报全文 |
-| `agents/SKILL.md` | 全站 skill。回答规则在前，公开构建附查询接口说明 |
-| `agents/topics/` | 每个话题和资料的单独读取文件，供查询接口返回 |
-| `library/resources.json`、`library/resources.md` | 资料库 |
-| `library/opportunities.json`、`library/opportunities.md` | 机会，带发布日期、截止日期和是否开放 |
-| `glossary/glossary.json`、`glossary/glossary.md` | 群聊黑话 |
-| `search/catalog.json`、`search/vectors.*` | 查询接口的目录和语义向量 |
-| `feed.json`、`feed.xml` | 订阅源（JSON Feed 1.1 和 Atom），最近 30 期日报和周报 |
-
-这些文件与网页内容一致，但不含原始讨论原话、头像和榜单。[`test/build.mjs`](../test/build.mjs) 检查日报 Markdown 里没有讨论原话。
-
-- 每个网页的 head 有指向对应 Markdown 的 `rel="alternate"`，也声明两个订阅源。
-- 接口示例一律写成百分号编码的 ASCII，或用 `curl -G --data-urlencode`。curl 和 Python 直接发中文时，Cloudflare 边缘会返回正文为空的 HTTP 400。`test/build.mjs` 检查这一点。
-- 公开构建把 `llms.txt`、`index.md` 和 Skill 里的读取链接指向 Worker 的 `/read/` 入口，用于按小时统计读取次数。直接读取 GitHub Pages 上的原地址也可以，但不计数。
-
-“给 Agent 用”页面（`agents/index.html`）目前暂停上线。开关是 `lib/agent-docs.mjs` 的 `AGENTS_PAGE`，现在为 `false`：构建不写这个页面，任何页面和文件都不链接它；其余文件照常生成。改成 `true` 即恢复，入口是栏目导航最后一项。
-
-查询接口（`/content/search`、`/content/edition`、`/content/item`、`/library/search` 等）的参数、排序、错误码和统计字段见 [feedback/README.md](../feedback/README.md)。
-
-## 搜索引擎收录
-
-每页都有描述、Open Graph 和 JSON-LD：首页是 `WebSite`，日报和周报是 `Article`，资料库是 `Dataset`。
-
-是否允许收录由 [`lib/seo.mjs`](../lib/seo.mjs) 的 `INDEXED` 决定。它目前为空，所以所有页面都是 `noindex,nofollow`，也不生成 `sitemap.xml`。`test/build.mjs` 在 `INDEXED` 为空时逐页检查。
-
-把栏目加进 `INDEXED` 后，构建会生成只含这些栏目的 `sitemap.xml`，资料库页另加 `noimageindex`。改动 `INDEXED` 需要维护者授权，见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
-网站是 GitHub Pages 的项目站点，`basePath` 下的 `robots.txt` 和 `sitemap.xml` 不会被搜索引擎自动读取，需要在组织主页仓库根目录的 `robots.txt` 里引用 sitemap，或在搜索引擎后台提交。
-
-## 反馈 Worker 与统计
-
-[`feedback/`](../feedback/README.md) 是一个 Cloudflare Workers + D1 服务。它提供：
-
-- 赞踩和资料库点心；
-- 原始讨论打开数；
-- 站内搜索记录和接口搜索记录；
-- 第一方浏览量统计；
-- `/read/` 读取统计；
-- 公开的内容查询接口。
-
-浏览器端的规则：
-
-- 本地预览支持赞、踩、取消和本机保存，不上报，也不显示虚构的票数。
-- 只有设置了 `FEEDBACK_API_URL` 的公开构建才请求 Worker。取不到计数时显示“—”。
-- 站点有第一方浏览量统计，只在正式站点上报。各项统计存什么、不存什么，见 [feedback/README.md](../feedback/README.md)。
+全站默认不让搜索引擎抓取：[`lib/seo.mjs`](../lib/seo.mjs) 里的 `INDEXED` 目前是空数组，所有页面都会带上 `noindex,nofollow`，也不生成 `sitemap.xml`。只有将来经维护者同意把某个栏目加进 `INDEXED`，构建时才会给对应栏目放开收录并输出 `sitemap.xml`。

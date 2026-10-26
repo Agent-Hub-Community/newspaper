@@ -1,35 +1,34 @@
-# 内容声明
+# 内容版权与撤稿说明
 
-本仓库的源代码使用 [MIT 许可](LICENSE)。网站展示的读者内容不随 MIT 许可授权。
+本仓库的源代码采用 [MIT 许可证](LICENSE)开源。网站上展示的读者内容不随 MIT 许可证授权。
 
-## 适用范围
+## 涵盖范围
 
-本声明适用于以下读者内容，以及由它们构建出的网页、Markdown、JSON 和订阅源：
+本说明涵盖 `data/` 下的全部读者数据，以及由它们构建出来的网页、Markdown、JSON 和订阅源：
 
 | 路径 | 内容 |
 |---|---|
 | `data/editions/` | 群聊日报 |
-| `data/weekly-editions/` | 周报 |
+| `data/weekly-editions/`、`data/weekly-assets/` | 自然周周报与周榜头像 |
 | `data/external-editions/` | 外部资讯 |
-| `data/library.json` | 资料库 |
-| `data/glossary.json` | 群聊黑话 |
-| `data/opportunities.json` | 招聘、活动和征稿 |
-| `data/public-activity/` | 活跃榜快照和头像 |
-| `data/library-avatars/` | 资料库分享人头像 |
-| `data/weekly-assets/` | 周榜头像 |
-| `data/semantic-vectors.json` | 由上述内容计算的文档向量 |
+| `data/library.json`、`data/library-avatars/` | 资料库与分享者头像 |
+| `data/glossary.json` | 群聊黑话词典 |
+| `data/opportunities.json` | 招聘、活动与征稿机会 |
+| `data/public-activity/` | 活跃榜快照与头像 |
+| `data/semantic-vectors.json` | 由上述内容生成的检索向量 |
 
-## 使用条件
+## 引用与使用规则
 
-- 群友原话和原始讨论节选的权利归原发言者。这些内容只供阅读。引用时，请注明出处“AgentHub 日报”，并附原页面链接。
-- 头像来自成员的公开资料，只用于本站展示。请不要把头像用于其他用途。
-- 外部资讯摘要引用的原文，版权归原作者。摘要和链接用来引导读者阅读原文。
-- 编辑整理的标题、摘要和 AI 锐评同样不随 MIT 许可授权。引用时，请注明出处并附原页面链接。
+- 群友发言与原始讨论节选的权利归原发言者所有，仅供阅读。引用时请注明出处“AgentHub 日报”并附上原页面链接。
+- 网页上的成员头像仅用于本站榜单与资料分享展示，请勿抓取或用于其他用途。
+- 外部资讯所引用的原文版权归原作者所有，本站摘要与链接用于引导读者阅读一手原文。
+- 编辑整理的标题、摘要与 AI 锐评同样不随 MIT 许可证授权；引用时请注明出处并附原页面链接。
 
-## 删除个人内容
+## 申请撤下个人内容
 
-如果某个页面包含你的发言、头像或其他个人内容，而你希望删除，请在 GitHub 上[提 issue](https://github.com/Agent-Hub-Community/newspaper/issues)。
-issue 是公开的。请只写页面地址和需要删除的位置，不要在 issue 里贴出更多个人信息。
+如果某个页面包含你的发言、头像或其他与你有关的内容，而你希望撤下，请直接在 GitHub 上[提 issue](https://github.com/Agent-Hub-Community/newspaper/issues)。
+
+注意 issue 是公开可见的：只需要贴出页面地址和具体位置（比如哪一版第几条、哪句原话或哪个头像），不用证明你是谁，也不要在 issue 里贴出微信号、真名等额外个人信息。
 
 ---
 
