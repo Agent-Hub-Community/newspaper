@@ -88,9 +88,10 @@
     const rankingHref = routes?.href
       ? routes.href('rank', 'week', external || isOverview ? undefined : page.id)
       : `#/rank/week/${external || isOverview ? '' : `${encodeURIComponent(page.id)}/`}`;
-    const pageHref = (targetPage, anchor = '') => routes?.href && location.protocol !== 'file:'
-      ? `${routes.href(mode, issue.id, targetPage)}${location.search}${anchor}`
-      : `${location.pathname}${location.search}#${mode}/${encodeURIComponent(issue.id)}/${encodeURIComponent(targetPage)}${anchor}`;
+    const loc = typeof location !== 'undefined' ? location : window.location || { protocol: 'http:', pathname: '', search: '' };
+    const pageHref = (targetPage, anchor = '') => routes?.href && loc.protocol !== 'file:'
+      ? `${routes.href(mode, issue.id, targetPage)}${loc.search || ''}${anchor}`
+      : `${loc.pathname || ''}${loc.search || ''}#${mode}/${encodeURIComponent(issue.id)}/${encodeURIComponent(targetPage)}${anchor}`;
 
     let overviewBody = '';
     let overviewDeck = '';
