@@ -22,7 +22,7 @@ for (const engine of ['chromium', 'webkit']) {
     ? chromium.launch({ executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' })
     : webkit.launch());
   try {
-    for (const scheme of ['light', 'dark']) for (const width of [360, 390, 768, 1440]) {
+    for (const scheme of ['light', 'dark']) for (const width of [320, 360, 390, 768, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 844 }, colorScheme: scheme, hasTouch: width < 1000, reducedMotion: 'reduce' });
       const page = await context.newPage();
       const errors = [];

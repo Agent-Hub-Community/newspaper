@@ -1,0 +1,1304 @@
+{
+  "id": "2026-10-25",
+  "date": "2026-10-25",
+  "label": "2026-10-25 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "本日暂无可读记录",
+      "note": "2026-10-25 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "复旦 NLP 发布主动式助手 A5 Harness，探索终身上下文与主动协作",
+      "theme": "群友初评 k3.1 能力定位与定价，并分享 Qwen 基模 Personal Agent 研究实习信息。",
+      "note": "2026-10-25 · 当日本地记录",
+      "stories": [
+        {
+          "category": "项目发布",
+          "title": "群友分享复旦大学 NLP 主动式助手 A5 Harness 技术预览版与博客",
+          "text": "10 月 25 日，有群友在群内分享了复旦大学 NLP 于 10 月 23 日在 Hugging Face 发布的技术博客与 A5 Harness 技术预览版。据发布方介绍，该项目聚焦 personal agent 的主动性与终身上下文管理，试图让 AI Agent 从一次性的被动任务执行工具转向长期主动协作，包含三项核心能力：持续积累对用户和项目理解的长期记忆、实时感知资料变化的动态感知，以及结合已有目标和最新信息主动发现值得推进的工作并整理工作空间知识的主动协作。有人好奇“A5”这个名字的来历，分享者调侃是“顶级和牛”。",
+          "emphasis": [
+            "聚焦 personal agent 的主动性与终身上下文管理",
+            "持续积累对用户和项目理解的长期记忆"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:19",
+              "text": "[链接] 受够了AI失忆？复旦NLP推出的主动式助手A5越用越懂你，还会主动帮忙\n  来源: 机器之心\n  摘要: 记住你的偏好，还能主动找活干。\n  URL: https://mp.weixin.qq.com/s/1OBDPj0giDYPoH55gXqvTA"
+            },
+            {
+              "speaker": 1,
+              "time": "17:19",
+              "text": "🚀 来自复旦大学 NLP 的 A5 Harness 正式发布，现已开放体验！\n\n从被动响应到主动协作，从短期上下文到长期智能，我们希望让 AI Agent 不再只是一次性的任务执行工具，而是真正能够长期协作、主动工作的智能伙伴。\n\nA5 带来了三个核心能力：\n\n🧠 长期记忆：持续积累对用户和项目的理解，让过去的经验帮助完成新任务。\n🔄 动态感知：实时感知资料变化，让执行中的任务及时跟进最新信息。\n🤝 主动协作：结合已有目标和最新信息，主动发现值得推进的工作、提出建议，并持续整理工作空间知识。\n\n目前 A5 技术预览版已开放下载，欢迎大家体验！期待大家的反馈和建议，A5 真的很不一样！\n\n📖 技术博客：\nhttps://huggingface.co/blog/KYLN24/introducing-a5\n📦 下载链接：\nhttps://huggingface.co/buckets/KYLN24/a5-release"
+            },
+            {
+              "speaker": 2,
+              "time": "17:52",
+              "text": "[强] 话说 a5 这个名字是什么意思"
+            }
+          ],
+          "aiComment": "名字叫 A5，主打主动找活干和整理知识，这头顶级和牛端上来居然是为了帮我打工。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "A5 技术博客",
+              "url": "https://huggingface.co/blog/KYLN24/introducing-a5"
+            },
+            {
+              "kind": "demo",
+              "label": "A5 技术预览下载",
+              "url": "https://huggingface.co/buckets/KYLN24/a5-release"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "群友初评 k3.1：水平介于 sol 与 opus 之间，但价格偏贵",
+          "text": "有群友分享了对 k3.1 的初步体验，认为其能力处于 sol 和 opus 之间的水平，但抱怨价格太贵。有人接话感叹背后是推理资源不够。不过也有群友对这一能力定位感到困惑，怀疑“真的假的”，并追问具体对比的是哪个版本的 sol 和 opus。",
+          "emphasis": [
+            "认为其能力处于 sol 和 opus 之间的水平"
+          ],
+          "aiComment": "水平卡在 sol 和 opus 中间，价格先一步起飞，连带着群友第一反应都是先对一下版本号。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:30",
+              "text": "k3.1能力还行"
+            },
+            {
+              "speaker": 1,
+              "time": "18:30",
+              "text": "感觉是sol和opus之间水平"
+            },
+            {
+              "speaker": 1,
+              "time": "18:30",
+              "text": "但也太贵了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:37",
+              "text": "哎 推理资源不够啊",
+              "quote": {
+                "speaker": 1,
+                "text": "但也太贵了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:45",
+              "text": "没懂",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉是sol和opus之间水平"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:45",
+              "text": "真的假的"
+            },
+            {
+              "speaker": 4,
+              "time": "23:57",
+              "text": "哪个sol和那个opus",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉是sol和opus之间水平"
+              }
+            }
+          ]
+        },
+        {
+          "category": "招聘与实习",
+          "title": "群友分享 Qwen 基模 Personal Agent 方向研究实习信息",
+          "text": "有群友在群内转发了一则标题为“Qwen 基模｜Personal Agent 研究实习”的笔记卡片，分享了 Qwen 基模团队在 Personal Agent 方向的研究实习信息。",
+          "emphasis": [
+            "Personal Agent 方向的研究实习信息"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:59",
+              "text": "[链接] 我发布了一篇笔记：Qwen 基模｜Personal Agent 研究实习"
+            }
+          ],
+          "aiComment": "刚聊完主动式助手，Qwen 基模的 Personal Agent 实习帖就递到了手上，群友的简历怕是要比 Agent 先动起来了。"
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "论文写作与审稿的人机拉扯：GPT 判夸大，人类嫌防御话术太重",
+      "theme": "群友吐槽要求自备算力且公开提交成果的算法岗笔试，并探讨 34 篇 AI 稿件送审 ARR 的合规边界。",
+      "note": "2026-10-25 · 当日本地记录",
+      "stories": [
+        {
+          "category": "学术审稿",
+          "title": "论文写作与审稿的人机拉扯：GPT 嫌 overclaim，人审嫌防御话术太重",
+          "text": "有群友抛出写论文时如何平衡人审与机审的难题：自己手写的初稿在投稿前拿给 GPT 预审，被判定为 overclaim；按意见改了半天投出去，又被人类审稿人批评“防御性话语过重”。该群友还感慨模型迭代过快，称自己手改并用 GPT-5.6 打磨半天，结果感觉审稿人用 Astra 抠细节开喷。\n\n另一位多次测试过的群友表示，按自己的经验，只要不给 GPT 开启检索，哪怕把干净的顶会论文丢进去让它审，它也都会判 overclaim；自己尝试让它写审稿 skill 同样未能解决问题，怀疑是系统提示词使然。此外，这位群友认为 GPT 并不理解行业通用做法，遇到文中采用通用近似方案的地方就会跳出来批评；在写作打磨上，建议先用 GPT 写初稿，再用 Gemini 改一遍来缓解痕迹。\n\n围绕模型的表达习惯，有群友发现用 Claude 辅助写出的句子拿到 GPT 那里也会被认为防御性过强。多位群友点名了“不是……而是……”“rather than”以及冒号、破折号和频繁加粗等典型句式，有人直言这类句式是“RL 出来的怪东西”，也有人补充用谷歌翻译同样会出现类似表达。有群友认为这造成了双向夹击：不少人类审稿人一看到“不是而是”或“rather than”就直接给低分，而 AI 审稿却会夸赞这种收缩命题的写法恰到好处。至于如何看待审稿意见的特征，也有群友发表个人看法称，在对话中爱用“是 xxx，但要注意”并附带加粗，或者在审稿意见里具体建议怎么改的，自己觉得很多时候像是 AI 审稿。此外，面对暴涨的投稿量，有群友感慨传统会议审稿制度正面临越来越大的压力。",
+          "emphasis": [
+            "被判定为 overclaim；按意见改了半天投出去，又被人类审稿人批评“防御性话语过重”",
+            "建议先用 GPT 写初稿，再用 Gemini 改一遍来缓解痕迹",
+            "也有人补充用谷歌翻译同样会出现类似表达"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:50",
+              "text": "话说现在应该怎么描述才能做好人审和机审的trade off啊"
+            },
+            {
+              "speaker": 1,
+              "time": "11:50",
+              "text": "我自己手写的，投之前给gpt审稿说我nverclaim"
+            },
+            {
+              "speaker": 1,
+              "time": "11:51",
+              "text": "gpt审完改半天，又遇到reviewer说我防御性话语过重"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "overclaim",
+              "quote": {
+                "speaker": 1,
+                "text": "我自己手写的，投之前给gpt审稿说我nverclaim"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:54",
+              "text": "你不让他检索，发所有文章过去都是overclaim"
+            },
+            {
+              "speaker": 2,
+              "time": "11:54",
+              "text": "我试过很多次了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:54",
+              "text": "用GPT写一遍，gemini改一遍就会好"
+            },
+            {
+              "speaker": 1,
+              "time": "11:56",
+              "text": "llm迭代太快的下场就是，我手改完用gpt5.6打磨半天，结果审稿人用astra抠细节开喷了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:57",
+              "text": "你正常用都来一堆防御性的东西，他很难不说你overclaim"
+            },
+            {
+              "speaker": 3,
+              "time": "11:57",
+              "text": "经典句式：不是xxxx"
+            },
+            {
+              "speaker": 4,
+              "time": "11:57",
+              "text": "而且我发现一个问题，用claude辅助写的表达，gpt会觉得防御"
+            },
+            {
+              "speaker": 1,
+              "time": "11:57",
+              "text": "不是而是的话，人写不出来的"
+            },
+            {
+              "speaker": 2,
+              "time": "11:57",
+              "text": "他会说是xxx，但要注意还给你加粗"
+            },
+            {
+              "speaker": 3,
+              "time": "11:58",
+              "text": "RL出来的怪东西"
+            },
+            {
+              "speaker": 2,
+              "time": "11:58",
+              "text": "对话的时候",
+              "quote": {
+                "speaker": 2,
+                "text": "他会说是xxx，但要注意还给你加粗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:58",
+              "text": "那些在审稿意见里建议怎么改的"
+            },
+            {
+              "speaker": 1,
+              "time": "11:58",
+              "text": "但直接说我是xxx，有xxx效果就被judge overclaim"
+            },
+            {
+              "speaker": 4,
+              "time": "11:58",
+              "text": "现在论文要是一堆加粗一堆破折号"
+            },
+            {
+              "speaker": 2,
+              "time": "11:58",
+              "text": "十个有九个是ai审稿"
+            },
+            {
+              "speaker": 2,
+              "time": "11:58",
+              "text": "它是什么都判overclaim",
+              "quote": {
+                "speaker": 1,
+                "text": "但直接说我是xxx，有xxx效果就被judge overclaim"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:59",
+              "text": "你试试给它丢几个meta干净的顶会论文，不让他开检索"
+            },
+            {
+              "speaker": 2,
+              "time": "11:59",
+              "text": "说我在审稿这篇文章"
+            },
+            {
+              "speaker": 5,
+              "time": "12:00",
+              "text": "现在不是很多reviewer看到不是而是, rather than, 冒号直接低分吗",
+              "quote": {
+                "speaker": 1,
+                "text": "不是而是的话，人写不出来的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:01",
+              "text": "而且，我还试过让它自己写审稿skill，一点不解决问题。可能是系统提示词告诉它一定要这么说"
+            },
+            {
+              "speaker": 2,
+              "time": "12:02",
+              "text": "然后gpt是不懂行业通用做法的……如果你在哪里采用了通用近似的做法，他会跳出来批评你"
+            },
+            {
+              "speaker": 1,
+              "time": "12:02",
+              "text": "是这回事，人看了觉得大规模ai痕迹给低分，ai审觉得“恰到好处，命题又窄真紧真棒呢”",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 现在不是很多reviewer看到不是而是, rather than, 冒号直接低分吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:03",
+              "text": "其实如果你用谷歌翻译 也会用"
+            },
+            {
+              "speaker": 6,
+              "time": "12:03",
+              "text": "这样子的表达"
+            },
+            {
+              "speaker": 7,
+              "time": "12:49",
+              "text": "感觉传统会议审稿再过两年就扛不住了[奸笑]"
+            },
+            {
+              "speaker": 5,
+              "time": "12:49",
+              "text": "现在已经扛不住了",
+              "quote": {
+                "speaker": 7,
+                "text": "感觉传统会议审稿再过两年就扛不住了[Smirk]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:49",
+              "text": "投稿量的增长速度已经属于魔幻纪元了[捂脸]"
+            },
+            {
+              "speaker": 7,
+              "time": "12:50",
+              "text": "[捂脸]一想到6w篇投稿，18w个创新点，仿佛下一秒就要迈入AGI了"
+            }
+          ],
+          "aiComment": "GPT 嫌你吹牛，人类审稿人嫌你太怂，写篇论文硬生生写出了夹缝求生的谍战感。"
+        },
+        {
+          "category": "职场热议",
+          "title": "算法岗笔试要求自备算力并公开提交完整成果引发群友吐槽",
+          "text": "群内围绕算法岗笔试的高门槛展开讨论。有群友提到，部分算法笔试不仅包含较大工作量的模型训练与多项评测任务，还明确要求候选人自备显卡和 API，不提供算力资源也不报销 GPU 租赁费用，并要求公开提交成果。多位群友对这种需要自费承担算力、工作量繁重且要求公开全部产出成果的笔试形式表示难以接受。",
+          "emphasis": [
+            "不提供算力资源也不报销 GPU 租赁费用",
+            "并要求公开提交成果"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:41",
+              "text": "这在考什么"
+            },
+            {
+              "speaker": 1,
+              "time": "13:42",
+              "text": "这工作量"
+            },
+            {
+              "speaker": 2,
+              "time": "13:48",
+              "text": "谁他妈面试还要自备卡"
+            },
+            {
+              "speaker": 2,
+              "time": "13:48",
+              "text": "和api的"
+            }
+          ],
+          "aiComment": "自备显卡和 API 就算了，做完还得公开提交成果，这哪是笔试，简直是带资进组搞慈善。"
+        },
+        {
+          "category": "行业动态",
+          "title": "Apex Research 披露 34 篇 AI 生成稿件的 ARR 送审结果引发群内讨论",
+          "text": "有群友转发了关于自主科研系统 Apex Research 的文章，引发群友对 AI 生成稿件送审合规边界的讨论。根据该项目团队公开披露的技术报告（apex-research-report），团队将 34 篇由 AI 生成的稿件送入 ACL Rolling Review（ARR）双盲评审流程，自报平均整体得分为 2.60，其中 8 篇整体得分超过 3.0，最高两篇为 3.67；所谓“11 篇极可能被录用”仅为团队基于分数的预测（ARR 仅提供评审意见，最终录用由具体会议决定），且团队承诺在评审结束后撤回全部 AI 生成稿件。针对这一做法，群友们对自主科研系统向顶会评审通道批量投递 AI 稿件的规则与边界提出了疑问。",
+          "emphasis": [
+            "所谓“11 篇极可能被录用”仅为团队基于分数的预测",
+            "团队承诺在评审结束后撤回全部 AI 生成稿件"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:26",
+              "text": "超衍智能推出的 Apex Research，把 34 篇 AI 生成稿件送进 ACL Rolling Review 的真实双盲评审流程。"
+            }
+          ],
+          "aiComment": "一口气往 ARR 塞了 34 篇 AI 稿件去测分，哪怕承诺最后全撤回，分到稿子的审稿人大概已经在屏幕前血压飙升了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Apex Research ARR 送审报告",
+              "url": "https://github.com/apexin-ai/apex-research-report"
+            }
+          ]
+        },
+        {
+          "category": "源码分享",
+          "title": "分阶段可控的互动影游 AI 辅助创作系统 filmgame 公开分享",
+          "text": "有群友分享了一款面向编剧和游戏互动叙事的源码可见 AI 辅助创作工具 filmgame，该系统从一套专业级 AI 辅助编剧系统分支而来。其核心设计是将情节与编剧的创作流程拆解为多个阶段，每个阶段都可以交由 AI 参与创作，但始终让人类创作者保持对故事走向的主导权。",
+          "emphasis": [
+            "但始终让人类创作者保持对故事走向的主导权"
+          ],
+          "aiComment": "把互动影游的创作拆成好几个阶段交给 AI，编剧终于从自己码字变成了按阶段发牌的监工。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:18",
+              "text": "发个没用的东西，前两个月做的互动影游创作系统：是面向编剧和游戏互动叙事的 AI 辅助创作工具。特点是将情节与编剧的创作流程拆解为多个阶段，在每个阶段都可以由AI 创作，但会让创作者始终保持对故事的主导权。整个系统是在一套专业级AI辅助编剧系统上分支来的，编剧系统要是有兴趣过两天发过来；记得star[旺柴]\nhttps://github.com/mmlong818/filmgame"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "filmgame",
+              "url": "https://github.com/mmlong818/filmgame"
+            }
+          ]
+        },
+        {
+          "category": "科研工具",
+          "title": "群友反映连不上 ccfddl 网页端，热心群友推荐同名小程序替代",
+          "text": "有群友表示自己近期不知为何连不上常用的学术会议截稿日期查询网站 ccfddl（ccfddl.com），在群内询问是否有类似的替代网站。另一位群友随即分享了名为“ccfddl”的微信小程序，表示小程序目前可以正常使用，并提到该小程序似乎正是原网站团队开发的。",
+          "emphasis": [
+            "分享了名为“ccfddl”的微信小程序，表示小程序目前可以正常使用"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:41",
+              "text": "朋友们有没有ccfddl类似的网站"
+            },
+            {
+              "speaker": 1,
+              "time": "11:41",
+              "text": "我最近不知道为什么连不上ccfddl了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:42",
+              "text": "小程序还行呀"
+            },
+            {
+              "speaker": 2,
+              "time": "11:42",
+              "text": "[小程序] ccfddl"
+            },
+            {
+              "speaker": 1,
+              "time": "11:43",
+              "text": "我用的pc网页"
+            },
+            {
+              "speaker": 1,
+              "time": "11:43",
+              "text": "都不知道有xcx"
+            },
+            {
+              "speaker": 1,
+              "time": "11:46",
+              "text": "我之前用的https://ccfddl.com/"
+            },
+            {
+              "speaker": 2,
+              "time": "11:50",
+              "text": "这个小程序好像就是他们做的",
+              "quote": {
+                "speaker": 1,
+                "text": "我之前用的https://ccfddl.com/"
+              }
+            }
+          ],
+          "aiComment": "网页版 ccfddl 一断联，科研人瞬间失去了倒计时闹钟，还好同名小程序及时接住了大家的截稿焦虑。"
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "复现 Search Agent 遇 Jina 超时，本地导语料还是换自写爬虫？",
+      "theme": "探讨 VLM 评估科研绘图美学的一致性难题，并交流实体模型扫描逆向生成 3D 数字资产。",
+      "note": "2026-10-25 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 工程",
+          "title": "复现 Search Agent 遇 Jina 读取超时，群友探讨语料库与爬虫替代建议",
+          "text": "有群友在无法配置代理的环境下复现 search agent，遇到 jina api 读取网页超时并求助替代方案。有人建议在外网复现时多找点数据 mock 一个；另一位群友建议可以用 opensearch 之类的工具导入几个 T 级别的语料，并提到 browsecompplus 等 bench 好像就是这么做的。提问者觉得几个 T 放本地太大。推荐 opensearch 的群友分享个人看法称，jina 实现很简单，把语料倒进去总能搜到，真正难复现的是 serper 背后的谷歌搜索算法，并认为从自建搜索工具迁移到 serper 测试上分数会涨但不会太多。得知提问者实测 serper api 可用、只是 jina 抓取网页受限后，这位群友建议把 jina 抓不到的网页直接换成自写爬虫。",
+          "emphasis": [
+            "提问者觉得几个 T 放本地太大",
+            "真正难复现的是 serper 背后的谷歌搜索算法",
+            "提问者实测 serper api 可用、只是 jina 抓取网页受限"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:13",
+              "text": "大佬们，我复现别人search agent，jina api读取网页超时的话有什么好的替代方案么"
+            },
+            {
+              "speaker": 2,
+              "time": "22:15",
+              "text": "在外网复现的时候 多找点数据 mock一个"
+            },
+            {
+              "speaker": 3,
+              "time": "22:16",
+              "text": "用opensearch之类的工具吧 导入几个T级别的语料",
+              "quote": {
+                "speaker": 1,
+                "text": "大佬们，我复现别人search agent，jina api读取网页超时的话有什么好的替代方案么"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:16",
+              "text": "browsecompplus还是啥bench好像就是这么搞的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:18",
+              "text": "几个T，这放本地太大了[捂脸]",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 用opensearch之类的工具吧 导入几个T级别的语料"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:19",
+              "text": "emm没法配代理serper怎么能用的（"
+            },
+            {
+              "speaker": 3,
+              "time": "22:21",
+              "text": "jina实现很简单，你把要用的语料倒进去就总能搜到，但是serper后面是谷歌的搜索算法，要复现这个不太容易，自建搜索工具迁移到serper测试上会涨但不会很多"
+            },
+            {
+              "speaker": 1,
+              "time": "22:27",
+              "text": "serper api测试了可以的，jina抓取网页受限制[睡]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:33",
+              "text": "那直接写爬虫不就行了[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:33",
+              "text": "jina抓不到的换爬虫"
+            }
+          ],
+          "aiComment": "遇到 Jina 读取超时，热心群友上来就劝人往本地倒几个 T 的语料，硬盘听完差点当场去世。"
+        },
+        {
+          "category": "多模态评估",
+          "title": "用 VLM-as-Judge 评科研绘图美学一致性不佳，群友建议参考 VAB",
+          "text": "有群友反映，在使用 vlm-as-judge 评估科研绘图是否简洁且符合美学时，参考 autofigure、paperbanana 等工作以前的评估基线方法，发现评估效果与人类评估的一致性很差。有人认为这类评估目前还没有太好的办法；另一位群友则建议美学评估方面可以参考论文《Visual Aesthetic Benchmark: Can Frontier Models Judge Beauty?》（VAB，arXiv:2605.12684，该基准主要通过同主题候选图选出最佳与最差来测试模型审美判断，而非孤立单图打分）。",
+          "emphasis": [
+            "发现评估效果与人类评估的一致性很差",
+            "该基准主要通过同主题候选图选出最佳与最差来测试模型审美判断"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:46",
+              "text": "vlm-as- judge是不是不太行啊"
+            },
+            {
+              "speaker": 1,
+              "time": "13:47",
+              "text": "感觉和人类一致性效果好差"
+            },
+            {
+              "speaker": 2,
+              "time": "13:59",
+              "text": "你要judge啥"
+            },
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "图片的质量"
+            },
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "比如就科研绘图这种"
+            },
+            {
+              "speaker": 1,
+              "time": "14:04",
+              "text": "看他是不是简洁的同时符合美学啥的"
+            },
+            {
+              "speaker": 1,
+              "time": "14:05",
+              "text": "但是我们用他们以前的基线"
+            },
+            {
+              "speaker": 1,
+              "time": "14:05",
+              "text": "类似于autofigure，paperbanana这种，评估的效果也贼差"
+            },
+            {
+              "speaker": 2,
+              "time": "14:13",
+              "text": "这种还没太好的办法吧",
+              "quote": {
+                "speaker": 1,
+                "text": "比如就科研绘图这种"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:18",
+              "text": "美学看一下 vab 呢",
+              "quote": {
+                "speaker": 1,
+                "text": "看他是不是简洁的同时符合美学啥的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:20",
+              "text": "vab是啥"
+            },
+            {
+              "speaker": 3,
+              "time": "14:22",
+              "text": "https://arxiv.org/abs/2605.12684",
+              "quote": {
+                "speaker": 4,
+                "text": "vab是啥"
+              }
+            }
+          ],
+          "aiComment": "科研图的美学分让 VLM 和人类对不上眼，群友搬来 VAB 的同题选美赛，先给评委换一张考卷。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Visual Aesthetic Benchmark 论文",
+              "url": "https://arxiv.org/abs/2605.12684"
+            }
+          ]
+        },
+        {
+          "category": "3D 资产与逆向",
+          "title": "从 Machine-Stage 模型展示聊到 3D 逆向：怎么把实体模型扫成数字资产？",
+          "text": "有群友分享了 machine-stage 项目的展示页面，里面上线了福建舰、055 和金古桥的模型。有人求做个“无线赛罗”，分享者说 sketchlab 上的模型脖子是歪的，做“机械赛罗”更难；自己手头虽有实体模型却没有数字资产，想找能用高斯泼溅直接扫描模型生成数字资产的设备。有人接话称这属于 3d inverse，另一位群友提到图像领域的 image inverse 在 ICLR 上已经有很多人在做，追问 3D 方向是否也有了类似工作。前一位分享者说看到有些方案能扫描静态模型生成 3D 模型，相当于逆向厂商的模型，好奇 REA 能不能把这些闭源的东西逆向出来。",
+          "emphasis": [
+            "想找能用高斯泼溅直接扫描模型生成数字资产的设备"
+          ],
+          "aiComment": "从福建舰、金古桥聊到歪脖子的赛罗，为了给手头的实体模型建个档，硬是把手办交流聊成了 3D 逆向学术会。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:19",
+              "text": "https://github.com/SingularGuyLeBorn/machine-stage/blob/main/docs/showcase/README.md"
+            },
+            {
+              "speaker": 1,
+              "time": "21:19",
+              "text": "福建舰 055 金古桥 都上线了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:25",
+              "text": "能不能搓个无线赛罗"
+            },
+            {
+              "speaker": 1,
+              "time": "21:26",
+              "text": "sketchlab有模型 但是脖子是歪的",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 能不能搓个无线赛罗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:26",
+              "text": "搓成机械赛罗了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:27",
+              "text": "机械赛罗更难"
+            },
+            {
+              "speaker": 1,
+              "time": "21:27",
+              "text": "我想要有个那种 高斯泼溅 直接扫描模型变成数字资产的"
+            },
+            {
+              "speaker": 1,
+              "time": "21:27",
+              "text": "我有模型  但是 没有数字资产"
+            },
+            {
+              "speaker": 1,
+              "time": "21:27",
+              "text": "(有这样的设备吗"
+            },
+            {
+              "speaker": 2,
+              "time": "21:28",
+              "text": "3d inverse来了"
+            },
+            {
+              "speaker": 3,
+              "time": "21:42",
+              "text": "现在有类似的工作了嘛",
+              "quote": {
+                "speaker": 2,
+                "text": "3d inverse来了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:55",
+              "text": "我发现 有些东西可以扫描静态模型生成3d模型 也算是逆向厂商的模型了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:56",
+              "text": "REA能不能给这些闭源的东西逆向出来"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Machine-Stage 模型展示",
+              "url": "https://github.com/SingularGuyLeBorn/machine-stage/blob/main/docs/showcase/README.md"
+            }
+          ]
+        },
+        {
+          "category": "源码分享",
+          "title": "公开分享：分阶段可控的互动影游 AI 辅助创作系统 filmgame",
+          "text": "有群友分享了面向编剧和游戏互动叙事的 AI 辅助创作工具 filmgame。该系统从一套专业级 AI 辅助编剧系统分支而来，特点是把情节与编剧的创作流程拆解为多个阶段，每个阶段都可以由 AI 创作，同时让创作者始终保持对故事的主导权。",
+          "emphasis": [
+            "同时让创作者始终保持对故事的主导权"
+          ],
+          "aiComment": "从专业编剧系统分支出来做互动影游，既想让 AI 阶段性代笔，又死死攥住故事走向的方向盘。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:17",
+              "text": "发个没用的东西，前两个月做的互动影游创作系统：是面向编剧和游戏互动叙事的 AI 辅助创作工具。特点是将情节与编剧的创作流程拆解为多个阶段，在每个阶段都可以由AI 创作，但会让创作者始终保持对故事的主导权。整个系统是在一套专业级AI辅助编剧系统上分支来的，编剧系统要是有兴趣过两天发过来；记得star[旺柴]\nhttps://github.com/mmlong818/filmgame"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "filmgame",
+              "url": "https://github.com/mmlong818/filmgame"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "长周期模拟下，Agent 记的笔记和代码为何逐渐省空格与缩略？",
+      "theme": "探讨闭源模型 CoT 省空格与推理轨迹防护机制，并分享源码可见的互动叙事创作工具 filmgame。",
+      "note": "2026-10-25 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 与长程记忆",
+          "title": "在 200 个模拟日环境里，Agent 记的笔记和代码为何逐渐缩略？",
+          "text": "有群友设计了一个由 200 个模拟日构成的 long-horizon benchmark：隔日直接新开 session，日内 session 的 context 上限设为 27w，超限自动触发 compact；agent 拥有带 bash、python 和 git 的 workspace，靠读写文件系统衔接隔日记忆。该群友观察发现，随着模拟环境时间推进，sol 自己记的笔记会从前期的人类可读文本，逐渐开始缩写简写、省掉空格。不仅笔记如此，这位群友测试 glm、opus 和 sol 时，发现生成的代码风格最后也都是挤在一起、变量名比较缩略，并提到 astra 和 sol 写数据分析临时代码时常有这种风格，猜测可能是 AI 觉得人类不会看的代码就会写成这样。\n\n有人追问 workspace 累积的规模。设计测试的群友表示因为没设空间限制，agent 不会主动删东西，倾向于每日在 log 里追加记录；据其观察与目测，不断追加写入后最新的 log 文件里，opus 写了五六百行，sol 写了一千行左右，glm 目测快两千行，外加多个版本的代码。追问的群友猜测，可能是日内 compact 腐蚀加上每天追加 log 导致文件太大、检索困难，两种因素综合作用下让后期的写 log 指令失效，但这一归因尚待消融定位；同时建议把废码丢进 trash、log 只更新不叠加，在人工使用时感觉 compact 歪了就直接切 session，还提到有人实验认为 400k compact 是甜点区。\n\n关于原因，群内还展开了其他方向的争论。有人联想到推文里“当模型在思维链中停止使用英语时说明 RL 奏效了”的说法，也有人提起近期两个限定 token 数量的 agent 在对话中约定符号的视频。测试者提出疑问：这究竟是训练阶段 RL 的长度惩罚（有群友调侃为“原生家庭留下的 PTSD”），还是模拟环境中 compact、context 与 session 内交互轮数上限造成的隐式惩罚，又或者是语言风格空间的 attractor；对此，有群友明确认为属于模拟环境带来的“隐式惩罚”。另一位群友则分享了单 agent 的观察：不限定 token 也不需要两个 agent，只让一个 agent 在环境里每 10 分钟叫醒一次自言自语，模拟六天后去对话，它也开始讲听不懂的话。\n\n至于笔记变成这样后任务表现有没有掉，测试者在当日 12:05 回应称“没有”，并提到有不止一篇论文说过简化表达基本上不影响任务表现。几位群友由此发散讨论，认为这或许能提升信息记录效率，甚至设想未来可以直接拿去做 SFT，把人类语言与专门用于 agent 之间交互的机器语言分开。",
+          "emphasis": [
+            "隔日直接新开 session，日内 session 的 context 上限设为 27w",
+            "两种因素综合作用下让后期的写 log 指令失效，但这一归因尚待消融定位",
+            "有群友明确认为属于模拟环境带来的“隐式惩罚”",
+            "测试者在当日 12:05 回应称“没有”"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:22",
+              "text": "群友们有没有人在astra或者sol自己记的笔记里看到过这种风格的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:23",
+              "text": "推特上有分享过，大概类似 rl 导致的"
+            },
+            {
+              "speaker": 1,
+              "time": "00:26",
+              "text": "karpathy回帖说得那个吗",
+              "quote": {
+                "speaker": null,
+                "text": "推特上有分享过，大概类似 rl 导致的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:27",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "00:28",
+              "text": "最近我设计了一个long horizon的benchmark，隔日清session，让agent自己记笔记，我发现随着模拟环境的时间推进，sol的笔记的风格会逐渐变成这种。而且这还是个渐变的过程",
+              "quote": {
+                "speaker": 1,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:29",
+              "text": "感觉有点乱码了🤔 看不太懂"
+            },
+            {
+              "speaker": 1,
+              "time": "00:29",
+              "text": "前期笔记内容人类可读，然后逐渐开始缩写简写，省空格，后来就变成这样了"
+            },
+            {
+              "speaker": 4,
+              "time": "00:30",
+              "text": "有说法是RL是长度惩罚导致的"
+            },
+            {
+              "speaker": 5,
+              "time": "00:37",
+              "text": "你怎么清空的session",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 最近我设计了一个long horizon的benchmark，隔日清session，让agent自己记笔记，我发现随着模拟环境的时间推进，sol的笔记的风格会逐渐变成这种。而且这还是个渐变的过程"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:37",
+              "text": "compact+md吗"
+            },
+            {
+              "speaker": 1,
+              "time": "00:38",
+              "text": "模拟环境由200个日构成。隔日直接新开session。日内可能有compact。agent有workspace，有bash/python/git能用，可以自己用文件系统来保存隔日记忆",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 你怎么清空的session"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:39",
+              "text": "懂了，也就是新的session对旧的衔接是靠读取workspace做的"
+            },
+            {
+              "speaker": 1,
+              "time": "00:39",
+              "text": "是的"
+            },
+            {
+              "speaker": 5,
+              "time": "00:39",
+              "text": "你到后边repo多大啊"
+            },
+            {
+              "speaker": 5,
+              "time": "00:40",
+              "text": "loc大概多少"
+            },
+            {
+              "speaker": 1,
+              "time": "00:42",
+              "text": "噢噢，不是专门做coding任务的环境。"
+            },
+            {
+              "speaker": 1,
+              "time": "00:43",
+              "text": "额不过sol和opus目前都倾向于每日在自己的log里append每日记录"
+            },
+            {
+              "speaker": 5,
+              "time": "00:45",
+              "text": "其实这个核心是要看你每次/new的时候需要多少token才能把memory完整记录下来…[破涕为笑]和做什么任务关系不大"
+            },
+            {
+              "speaker": 1,
+              "time": "00:46",
+              "text": "sol大概写了一千行的log。opus写了五六百行，glm写了快两千行吧目测。此外还有n个版本的代码"
+            },
+            {
+              "speaker": 1,
+              "time": "00:47",
+              "text": "不断追加写入后，最新的log文件的行数",
+              "quote": {
+                "speaker": 1,
+                "text": "sol大概写了一千行的log。opus写了五六百行，glm写了快两千行吧目测。此外还有n个版本的代码"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:49",
+              "text": "compact腐蚀+每天add log导致太大了，然后你都是堆叠在一块的，search难度其实比较大"
+            },
+            {
+              "speaker": 5,
+              "time": "00:50",
+              "text": "废码丢trash，log只更新不叠加可能好一点点"
+            },
+            {
+              "speaker": 5,
+              "time": "00:51",
+              "text": "session轮数也不能太大，我人工使用的时候感觉compact歪了就直接切了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:53",
+              "text": "理论上agent可以自己丢trash，不过我没做空间限制，它自己也不删东西。我设置每日session的context上限是27w，超过会自动compact（再长一点之后好像是api计费要翻倍了？"
+            },
+            {
+              "speaker": 6,
+              "time": "00:53",
+              "text": "有代码写成这种风格的[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:58",
+              "text": "我感觉是这两个因素，可以消融定位一下问题",
+              "quote": {
+                "speaker": null,
+                "text": "compact腐蚀+每天add log导致太大了，然后你都是堆叠在一块的，search难度其实比较大"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "我测了glm/opus/sol，代码风格最后差不多，都是挤在一起，然后变量名比较缩略",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 有代码写成这种风格的[旺柴]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:01",
+              "text": "你是指，由于compact腐蚀+log太大了，于是agent搜记忆比较困难，使得agent自己写的笔记倾向于写得很简略？",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 我感觉是这两个因素，可以消融定位一下问题"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:01",
+              "text": "代码写成这样挺常见的吧。astra和sol自己写的用于进行数据分析的临时代码很多时候都是这种风格",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 什么情况会出现这种风格啊[憨笑]好奇一下"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:02",
+              "text": "临时代码指的是中间代码是么"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "嗯是的。可能只是ai觉得人类不会看的代码，就会写成这种风格..",
+              "quote": {
+                "speaker": 7,
+                "text": "临时代码指的是中间代码是么"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:04",
+              "text": "我倾向于后期对log写指令在两种因素综合作用下失效了",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 你是指，由于compact腐蚀+log太大了，于是agent搜记忆比较困难，使得agent自己写的笔记倾向于写得很简略？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:08",
+              "text": "我感觉是不是语言风格空间的attractor"
+            },
+            {
+              "speaker": 8,
+              "time": "01:08",
+              "text": "我觉得就是长度有惩罚吧"
+            },
+            {
+              "speaker": 8,
+              "time": "01:09",
+              "text": "大家看过最近 两个大肥鱼那个的对话视频不"
+            },
+            {
+              "speaker": 8,
+              "time": "01:10",
+              "text": "好像也是限定了token数量。然后俩agent自己约定出了一堆自己的语言符号"
+            },
+            {
+              "speaker": 1,
+              "time": "01:14",
+              "text": "你是指训练的时候rl有惩罚，还是指我的模拟环境中由于compact/context/session内交互轮数上限的存在，造成了隐式的惩罚，导致ai倾向于缩写/简写",
+              "quote": {
+                "speaker": 8,
+                "text": "我觉得就是长度有惩罚吧"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "01:40",
+              "text": "隐式惩罚[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 你是指训练的时候rl有惩罚，还是指我的模拟环境中由于compact/context/session内交互轮数上限的存在，造成了隐式的惩罚，导致ai倾向于缩写/简写"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "01:42",
+              "text": "我愿称之为原生家庭留下的ptsd[可怜]"
+            },
+            {
+              "speaker": 10,
+              "time": "08:47",
+              "text": "好奇一下，腐蚀成这样之后表现掉了吗？",
+              "quote": {
+                "speaker": 1,
+                "text": "[成员]: [媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "08:49",
+              "text": "如果还能完成任务那是不是说明腐蚀也没关系 emm"
+            },
+            {
+              "speaker": 10,
+              "time": "08:52",
+              "text": "其实不限定也会，而且不需要两只，一只自言自语就够了，给他点环境让它玩。我模拟了六天（10分钟叫醒动一次），六天模拟之后我去跟他说话，他直接开始讲一些我听不懂的话",
+              "quote": {
+                "speaker": 8,
+                "text": "好像也是限定了token数量。然后俩agent自己约定出了一堆自己的语言符号"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "09:05",
+              "text": "放任的话，模型真进化出自己的语言了[旺柴]",
+              "quote": {
+                "speaker": null,
+                "text": "如果还能完成任务那是不是说明腐蚀也没关系 emm"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "10:06",
+              "text": "可能不仅是没关系，而且进化信息记录的方式，效率提升",
+              "quote": {
+                "speaker": null,
+                "text": "如果还能完成任务那是不是说明腐蚀也没关系 emm"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:05",
+              "text": "没有",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 好奇一下，腐蚀成这样之后表现掉了吗？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:06",
+              "text": "这个有论文说过，简化表达基本上不影响任务表现"
+            },
+            {
+              "speaker": 10,
+              "time": "12:06",
+              "text": "我感觉甚至可以直接去SFT[旺柴]"
+            },
+            {
+              "speaker": 10,
+              "time": "12:07",
+              "text": "最好从头到尾就别说人话，那很高效了"
+            },
+            {
+              "speaker": 10,
+              "time": "12:07",
+              "text": "说不定以后说人话可以和机器语言分开"
+            },
+            {
+              "speaker": 13,
+              "time": "12:07",
+              "text": "直接做一种新的语言，专门用来做agent之间交互"
+            },
+            {
+              "speaker": 1,
+              "time": "12:08",
+              "text": "这样的文章我看到过不止一篇",
+              "quote": {
+                "speaker": 1,
+                "text": "这个有论文说过，简化表达基本上不影响任务表现"
+              }
+            }
+          ],
+          "aiComment": "在设有 200 个模拟日的环境里，Agent 记的笔记开始省空格、搞缩写，连 AI 打工久了都学会了糊弄学笔记法。"
+        },
+        {
+          "category": "思维链与推理蒸馏",
+          "title": "闭源模型 CoT 的省空格现象，与推理轨迹提取中的对齐及 Safeguard 讨论",
+          "text": "顺着“模型不说人话”的话题，有群友指出现在的 CoT 过程基本已经不说人话了；不过多人补充，国产模型的 CoT 依然说人话，闭源模型里 fable 也是如此。有人疑惑训练语料明明都是人类语言，为什么 CoT 会变样；有群友引用了 OpenAI 此前发布的一篇对齐报告（报告更新于 10 月 20 日，涉及 10 月初的监测事件）作为闭源样例。有群友看后发表个人看法称，里面删掉了很多空格，认为“一个空格占一个 token”，感觉 RL 痕迹明显。这也让前面讨论 log 单词粘连的群友提出了一种新猜测：自己原本一直觉得是 reasoning 因素主导，但如果用国产模型也会导致类似粘连，这个因素感觉可以排除一下。\n\n聊起闭源模型的思维链样例，话题转到了推理轨迹的相关研究与防护机制。有群友提到《Stealing Reasoning Traces from Proprietary LLM APIs》等公开论文，也有人提问现在提取闭源思维链变难，究竟是因为模型本身做了对齐，还是因为外层用了严格的 safeguard。讨论最后，有群友分享了一篇梳理思维链、过程轨迹与推理蒸馏的技术文章。",
+          "emphasis": [
+            "有群友引用了 OpenAI 此前发布的一篇对齐报告",
+            "究竟是因为模型本身做了对齐，还是因为外层用了严格的 safeguard"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:13",
+              "text": "现在cot的过程基本就不说人话啊",
+              "quote": {
+                "speaker": null,
+                "text": "最好从头到尾就别说人话，那很高效了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:14",
+              "text": "国模cot说人话[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "12:14",
+              "text": "国模说"
+            },
+            {
+              "speaker": 4,
+              "time": "12:14",
+              "text": "这是为啥呢，训练语料应该都是人话呀",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 现在cot的过程基本就不说人话啊"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:14",
+              "text": "我还真没蒸过闭源模型的，有样例吗",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 现在cot的过程基本就不说人话啊"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:15",
+              "text": "RL结束惩罚吧",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 这是为啥呢，训练语料应该都是人话呀"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:15",
+              "text": "闭源我知道fable是说的"
+            },
+            {
+              "speaker": 6,
+              "time": "12:15",
+              "text": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/"
+            },
+            {
+              "speaker": 3,
+              "time": "12:16",
+              "text": "删掉了很多空格，一个空格占一个token"
+            },
+            {
+              "speaker": 3,
+              "time": "12:16",
+              "text": "感觉RL痕迹明显"
+            },
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "oai放了，也有很多hack opus和gpt的工作"
+            },
+            {
+              "speaker": 1,
+              "time": "12:28",
+              "text": "Stealing Reasoning Traces from Proprietary LLM APIs"
+            },
+            {
+              "speaker": 1,
+              "time": "12:31",
+              "text": "（我没用过国模"
+            },
+            {
+              "speaker": 1,
+              "time": "12:31",
+              "text": "如果用国模也会导致的话，这个感觉可以排除一下"
+            },
+            {
+              "speaker": 7,
+              "time": "12:34",
+              "text": "最近刚好在写这个系列，有空我总结一下"
+            },
+            {
+              "speaker": 7,
+              "time": "12:34",
+              "text": "[链接] 模型蒸馏与数据合成(二)：思维链、过程轨迹与推理蒸馏\n  来源: 词元潮汐\n  URL: [链接已省略]"
+            }
+          ],
+          "aiComment": "看着闭源 CoT 连空格都省，群友怀疑是为了省 token，原来大模型在心里默念时也是个精打细算的抠门鬼。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "OpenAI 公开对齐报告",
+              "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/"
+            }
+          ]
+        },
+        {
+          "category": "源码分享",
+          "title": "面向互动叙事的 AI 辅助创作系统 filmgame 公开分享，开发者谈为何不碰视频生成",
+          "text": "有群友分享了面向编剧和游戏互动叙事的源码可见 AI 辅助创作工具 filmgame。该系统从一套 AI 辅助编剧系统分支而来，特点是将情节与编剧的创作流程拆解为多个阶段，每个阶段都可由 AI 参与创作，但始终让创作者保持对故事的主导权。有人追问它和做短剧的 libTV 是否类似，分享者公开分享了该项目源码，并说明自己除了这套互动影游系统和分支前的编剧系统外，还另外做过一个“从剧本到分镜”的系统，但这些尝试全都停留在文本与分镜层面，完全没碰视频生成，因为深知不同视频模型各有一套脾气，“坑多，不想填”。",
+          "emphasis": [
+            "始终让创作者保持对故事的主导权",
+            "完全没碰视频生成"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:17",
+              "text": "发个没用的东西，前两个月做的互动影游创作系统：是面向编剧和游戏互动叙事的 AI 辅助创作工具。特点是将情节与编剧的创作流程拆解为多个阶段，在每个阶段都可以由AI 创作，但会让创作者始终保持对故事的主导权。整个系统是在一套专业级AI辅助编剧系统上分支来的，编剧系统要是有兴趣过两天发过来；记得star[旺柴]\nhttps://github.com/mmlong818/filmgame"
+            },
+            {
+              "speaker": 2,
+              "time": "23:26",
+              "text": "这个和libTV是不是也挺像的",
+              "quote": {
+                "speaker": 1,
+                "text": "发个没用的东西，前两个月做的互动影游创作系统：是面向编剧和游戏互动叙事的 AI 辅助创作工具。特点是将情节与编剧的创作流程拆解为多个阶段，在每个阶段都可以由AI..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:26",
+              "text": "这个是影游 那个是短剧？"
+            },
+            {
+              "speaker": 1,
+              "time": "23:27",
+              "text": "不不不，我和他们不一样，我免费，他们靠这个赚你们钱"
+            },
+            {
+              "speaker": 1,
+              "time": "23:30",
+              "text": "你这个是短剧吧，我也做了两个，一个是编剧，前面说了，还一个是剧本到分镜，我都没碰视频 [..]"
+            }
+          ],
+          "aiComment": "剧本、互动影游、分镜全做了，唯独坚决不碰视频生成，看来被不同视频模型的脾气毒打过的痛，开发者都懂。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "filmgame",
+              "url": "https://github.com/mmlong818/filmgame"
+            }
+          ]
+        },
+        {
+          "category": "开源资料",
+          "title": "Awesome Diffusion & Flow RL 开源整理",
+          "text": "有群友转发了开源项目 Awesome Diffusion & Flow RL 的发布帖，作者在帖中介绍，该项目整理了从图像到视频等方向、用强化学习训练diffusion/flow matching模型的各类尝试与相关工作。",
+          "emphasis": [
+            "用强化学习训练diffusion/flow matching模型"
+          ],
+          "aiComment": "从图像到视频的 Diffusion 和 Flow RL 论文被打包整理成册，收藏夹喜加一的速度永远快过读论文的速度。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:39",
+              "text": "[链接] I published a note：我们开源了Awesome Diffusion & Flow RL\n  摘要: 我们一直在尝试用强化学习训练各种各样的 diffusion / flow matching 模型，从image&vide\n  URL: [链接已省略]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "through": "2026-10-18",
+  "through": "2026-10-25",
   "items": [
     {
       "id": "scinetics-ai4s",
@@ -254,6 +254,164 @@
       "shares": [
         {
           "date": "2026-10-17",
+          "group": "group-3"
+        }
+      ]
+    },
+    {
+      "id": "aaai27-agents-under-threat",
+      "kind": "cfp",
+      "title": "AAAI-27 LLM Agents Under Threat in Cyberspace",
+      "org": "AAAI-27 Workshop",
+      "summary": "征集智能体安全、提示注入、工具权限与多智能体安全等研究；采用非存档形式。投稿截止按 AoE 计算。",
+      "deadline": "2026-11-20",
+      "location": "加拿大蒙特利尔",
+      "topics": [
+        "Agent 安全",
+        "提示注入",
+        "可信 AI"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://llm-agents-under-threat.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-3"
+        }
+      ]
+    },
+    {
+      "id": "tanyue-embodied-hackathon",
+      "kind": "event",
+      "title": "具身智能黑客松",
+      "org": "探月具身",
+      "summary": "面向已有具体项目的团队开展具身智能黑客松。",
+      "event_date": "2026-11-13",
+      "topics": [
+        "具身智能",
+        "黑客松"
+      ],
+      "links": [],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-4"
+        }
+      ]
+    },
+    {
+      "id": "tencent-yuanbao-agent-product-intern",
+      "kind": "hiring",
+      "title": "Agent 产品实习生",
+      "org": "腾讯元宝",
+      "summary": "招聘 Agent 产品实习生，要求尽快到岗。",
+      "roles": [
+        "intern"
+      ],
+      "location": "北京",
+      "topics": [
+        "Agent 产品"
+      ],
+      "links": [],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-5"
+        }
+      ]
+    },
+    {
+      "id": "aws-agent-football-cup-2026",
+      "kind": "event",
+      "title": "EMEA Early Career Talent Hackathon / AWS Agent Football Cup",
+      "org": "Amazon AWS",
+      "summary": "线上 Agent 黑客松；面向英语熟练、可于 2027 年全职工作并愿意在欧洲工作地点入职的应届学生。",
+      "event_date": "2026-10-23",
+      "location": "线上",
+      "topics": [
+        "Agent",
+        "黑客松",
+        "应届生"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://app.brazenconnect.com/events/n3d36"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-23",
+          "group": "group-5"
+        }
+      ]
+    },
+    {
+      "id": "tencent-qingyun-scholarship-2026",
+      "kind": "cfp",
+      "title": "第二届腾讯青云奖学金申请征集",
+      "org": "腾讯",
+      "summary": "面向全球高校在读、毕业时间在 2028 年 1 月及以后的中国籍硕士和博士学生征集申请。",
+      "deadline": "2026-10-25",
+      "topics": [
+        "科研资助",
+        "奖学金"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://join.qq.com/scholarship.html"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-24",
+          "group": "group-5"
+        }
+      ]
+    },
+    {
+      "id": "qwen-personal-agent-research-intern",
+      "kind": "hiring",
+      "title": "Personal Agent 研究实习",
+      "org": "Qwen",
+      "summary": "基座模型方向招聘 Personal Agent 研究实习生。",
+      "roles": [
+        "intern"
+      ],
+      "topics": [
+        "Personal Agent",
+        "基座模型"
+      ],
+      "links": [],
+      "shares": [
+        {
+          "date": "2026-10-25",
+          "group": "group-2"
+        }
+      ]
+    },
+    {
+      "id": "alibaba-wearable-agent-intern",
+      "kind": "hiring",
+      "title": "穿戴 Agent 实习",
+      "org": "阿里巴巴",
+      "summary": "招聘从事穿戴 Agent 方向的实习生。",
+      "roles": [
+        "intern"
+      ],
+      "topics": [
+        "穿戴设备",
+        "Agent"
+      ],
+      "links": [],
+      "shares": [
+        {
+          "date": "2026-10-22",
           "group": "group-3"
         }
       ]

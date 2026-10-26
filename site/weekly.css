@@ -209,6 +209,7 @@ button.issue-date { border: 0; background: none; color: inherit; font: inherit; 
 }
 @media (max-width: 360px) {
   :root { --gutter: 16px; }
+  .page-links { display: grid; grid-auto-flow: row; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .wordmark { font-size: 24px; }
   .wordmark span { font-size: 16px; }
   .issue-date .period { font-size: 18px; }

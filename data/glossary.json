@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "through": "2026-10-18",
+  "through": "2026-10-25",
   "terms": [
     {
       "term": "A社",
@@ -70,7 +70,8 @@
     {
       "term": "dsh",
       "variants": [
-        "dshbot"
+        "dshbot",
+        "大烧货"
       ],
       "meaning": "DeepSeek Harness 的缩写，DeepSeek 的 agent 框架。",
       "category": "缩写",
@@ -100,7 +101,11 @@
     },
     {
       "term": "opus5.5叔叔",
-      "variants": [],
+      "variants": [
+        "o55",
+        "op55",
+        "opus55"
+      ],
       "meaning": "对 Claude Opus 5.5 的戏称。",
       "category": "代号",
       "refersTo": "Claude Opus 5.5"
@@ -157,7 +162,8 @@
         "哈吉米",
         "美国豆包",
         "大豆包",
-        "咕咕噜噜"
+        "咕咕噜噜",
+        "哈基咪"
       ],
       "meaning": "Google Gemini 的谐音昵称；“美国豆包”“大豆包”“咕咕噜噜”也指 Gemini 或 Google。",
       "category": "代号",
@@ -1380,6 +1386,133 @@
       ],
       "meaning": "调侃多喝水的养生说法，常与“薄肌”并提。",
       "category": "梗"
+    },
+    {
+      "term": "RM",
+      "variants": [],
+      "meaning": "奖励模型，用于评价输出或行为并提供训练反馈。",
+      "category": "缩写",
+      "refersTo": "Reward Model"
+    },
+    {
+      "term": "GenRM",
+      "variants": [],
+      "meaning": "生成式奖励模型，通过生成评价、推理或分数评估输出。",
+      "category": "缩写",
+      "refersTo": "Generative Reward Model"
+    },
+    {
+      "term": "PA",
+      "variants": [],
+      "meaning": "Personal Agent 的缩写，面向个人长期需求的智能体。",
+      "category": "缩写",
+      "refersTo": "Personal Agent"
+    },
+    {
+      "term": "CBRN",
+      "variants": [],
+      "meaning": "化学、生物、放射与核风险的合称。",
+      "category": "缩写",
+      "refersTo": "Chemical, Biological, Radiological and Nuclear"
+    },
+    {
+      "term": "oc",
+      "variants": [],
+      "meaning": "本周编程工具讨论中指 OpenCode。",
+      "category": "缩写",
+      "refersTo": "OpenCode"
+    },
+    {
+      "term": "wm",
+      "variants": [],
+      "meaning": "World Model 的缩写，即预测环境状态变化的世界模型。",
+      "category": "缩写",
+      "refersTo": "World Model"
+    },
+    {
+      "term": "MTP",
+      "variants": [],
+      "meaning": "多 token 预测，训练模型预测多个未来位置。",
+      "category": "缩写",
+      "refersTo": "Multi-Token Prediction"
+    },
+    {
+      "term": "DiT",
+      "variants": [],
+      "meaning": "用 Transformer 构建的扩散模型骨干。",
+      "category": "缩写",
+      "refersTo": "Diffusion Transformer"
+    },
+    {
+      "term": "latent reasoning",
+      "variants": [
+        "潜空间推理"
+      ],
+      "meaning": "在连续隐状态中推理，不把每个中间步骤写成文本 token。",
+      "category": "行话",
+      "refersTo": "Latent Reasoning"
+    },
+    {
+      "term": "compact",
+      "variants": [
+        "上下文压缩"
+      ],
+      "meaning": "把已有对话压缩成较短记录，腾出后续上下文空间。",
+      "category": "行话",
+      "refersTo": "Context Compression"
+    },
+    {
+      "term": "overclaim",
+      "variants": [],
+      "meaning": "论文或说明中的主张超出已有证据能支持的范围。",
+      "category": "行话",
+      "refersTo": "Overclaim"
+    },
+    {
+      "term": "TPS",
+      "variants": [
+        "tokens/s"
+      ],
+      "meaning": "每秒生成的 token 数，常用来描述模型输出速度。",
+      "category": "缩写",
+      "refersTo": "Tokens Per Second"
+    },
+    {
+      "term": "LOC",
+      "variants": [],
+      "meaning": "代码行数，常用来描述代码库规模。",
+      "category": "缩写",
+      "refersTo": "Lines of Code"
+    },
+    {
+      "term": "swarm",
+      "variants": [],
+      "meaning": "多个智能体通过通信和角色分工共同完成任务的组织方式。",
+      "category": "行话",
+      "refersTo": "Agent Swarm"
+    },
+    {
+      "term": "递归 Agent",
+      "variants": [
+        "recursive agent"
+      ],
+      "meaning": "智能体把子任务委派给同一策略的子实例，形成任务树。",
+      "category": "行话",
+      "refersTo": "Recursive Agent"
+    },
+    {
+      "term": "快科研",
+      "variants": [],
+      "meaning": "强调缩短等待、及时验证和公开结果的科研倡议。",
+      "category": "梗",
+      "refersTo": "“快”科研联合声明"
+    },
+    {
+      "term": "950",
+      "variants": [],
+      "meaning": "华为昇腾 950 加速器的简称。",
+      "category": "代号",
+      "refersTo": "Huawei Ascend 950"
     }
   ]
 }

@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-25",
+  "title": "OpenAI折扣争夺Anthropic企业客户，宾州通过误导性AI广告披露法",
+  "intro": "OpenAI被曝通过大幅折扣从Anthropic手中争取Replit、Rippling等企业客户。宾夕法尼亚州签署误导性AI广告披露法，要求对制造错误印象的合成广告作清晰标注。Reddit的r/opensource版块调整投稿规则拒绝AI相关项目，Grok Bot新增代打电话功能。",
+  "stories": [
+    {
+      "title": "报道：OpenAI以大幅折扣争取Anthropic企业客户",
+      "timing": "北京时间 10 月 25 日 15:30 报道",
+      "text": "据 The Decoder 转述 The Information 报道，OpenAI正通过激进的价格优惠从Anthropic手中争取大客户，Rippling、Replit和DataCamp等公司已将更多AI支出转向OpenAI。Rippling CEO Parker Conrad表示，OpenAI在该公司编程工作负载中的份额已从16%升至52%，而Anthropic的份额从57%降至18%。\n\nReplit在获得年合同金额超1亿美元、折扣超30%的报价后转向OpenAI；DataCamp CEO Jonathan Cornelissen称OpenAI的定价使其成本降低了80%至90%。此外，一家资产超70亿美元的美国银行在不增加费用的情况下将ChatGPT席位翻倍至500名员工，单用户费用降至7美元以下，低于通常的20美元以上。\n\n报道称，OpenAI一方面牺牲利润换取市场份额，另一方面也通过Sol和Luna模型系列及基础设施效率提升实现了降价。一份投资者备忘录显示，Anthropic从第二季度到第三季度的增长有所放缓，两家公司同时面临DeepSeek和Kimi等中国低成本模型的价格压力。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Decoder 报道",
+          "url": "https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/"
+        }
+      ],
+      "emphasis": [
+        "OpenAI在该公司编程工作负载中的份额已从16%升至52%，而Anthropic的份额从57%降至18%",
+        "Replit在获得年合同金额超1亿美元、折扣超30%的报价后转向OpenAI",
+        "通过Sol和Luna模型系列及基础设施效率提升实现了降价"
+      ],
+      "aiComment": "以前拼谁家代码写得好，现在拼谁家骨折打得狠，银行白嫖一半席位把单价干到7美元以下，属实是把大模型买成了批发白菜。"
+    },
+    {
+      "title": "宾夕法尼亚州通过误导性AI广告披露法",
+      "timing": "10 月 22 日签署，北京时间 10 月 25 日 02:32 报道",
+      "text": "宾夕法尼亚州议会记录及法案文本显示，州长Josh Shapiro已于10月22日签署《人工智能欺诈性广告法》（SB806，Act 99 of 2026），将于签署60天后即12月21日生效。该法禁止广告商明知、罔顾风险或故意制作和传播使用合成内容、并对所宣传商品或服务的性质、来源或真实性造成消费者错误印象的广告，除非附有清晰醒目的披露声明，说明含AI修改或生成内容。\n\n披露须在合成内容首次向消费者展示时出现，使用相同媒介，并在技术可行范围内永久保留或极难移除。明显虚构的内容、戏仿与讽刺评论批评，以及纯文本内容不在该规定限制范围内。州总检察长或地方检察官可提起诉讼申请禁令及民事处罚，法院可判处最高3000美元民事罚款以及实际律师费和诉讼费。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "SB806 法案文本",
+          "url": "https://www.palegis.us/legislation/bills/text/HTM/2025/0/SB0806/PN1808"
+        },
+        {
+          "kind": "官方发布",
+          "label": "宾州议会立法记录",
+          "url": "https://www.palegis.us/legislation/bills/2025/sb806"
+        },
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act"
+        }
+      ],
+      "emphasis": [
+        "除非附有清晰醒目的披露声明，说明含AI修改或生成内容",
+        "明显虚构的内容、戏仿与讽刺评论批评，以及纯文本内容不在该规定限制范围内"
+      ],
+      "aiComment": "12月21日起宾州AI假广告不挂醒目AI披露标签，最高喜提3000美元罚款加律师费，不过纯文本居然逃过一劫，文字工作者痛失保护伞。"
+    },
+    {
+      "title": "Reddit的r/opensource版块新规拒绝AI相关项目与单人新项目",
+      "timing": "北京时间 10 月 25 日 21:25 报道",
+      "text": "据 The Verge 报道，Reddit开源社区r/opensource版主于周六晚公布新投稿规则，明确拒绝使用AI、由AI制作或面向AI的项目。版主Wolvereness随后在评论区解释称，执行时存在酌情空间，例如附带自动字幕等AI无障碍功能的软件可获例外。不少社区成员质疑规则过于宽泛，并指出Linux内核目前已包含部分AI生成代码，按新规依赖该内核的项目也可能受波及，部分用户因此另建了r/trueopensource版块。\n\n除AI限制外，新规还要求提交的项目必须至少有一年历史、保持活跃维护且拥有多名贡献者，并停止接收寻找维护者或贡献者的求助帖，这使开发新项目的独立开发者无法在版内发帖。同时，版主以无法区分AI撰写与AI翻译、且发帖者自身无法核验英语译文准确性为由，要求不懂英语的用户前往其他社区。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban"
+        }
+      ],
+      "emphasis": [
+        "明确拒绝使用AI、由AI制作或面向AI的项目",
+        "提交的项目必须至少有一年历史、保持活跃维护且拥有多名贡献者"
+      ],
+      "aiComment": "要有多个贡献者才能发帖，但又不让发帖找贡献者，这逻辑闭环直接把独立开发者卡死在新手村门外了。"
+    },
+    {
+      "title": "Grok Bot新增代打电话与通话摘要功能",
+      "timing": "北京时间 10 月 25 日 22:35 发布",
+      "text": "Elon Musk在X发文宣布，Grok @Bot现已支持代用户向个人或商家拨打电话。该功能可代表用户提出请求、记录对方回复，并在通话结束后向用户发送对话摘要。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Elon Musk 原帖",
+          "url": "https://x.com/elonmusk/status/2114365361068138990"
+        }
+      ],
+      "emphasis": [
+        "向个人或商家拨打电话",
+        "向用户发送对话摘要"
+      ],
+      "aiComment": "社恐人的终极福音，以后不仅能派Grok去跟商家扯皮，聊完还能直接看省流版小作文。"
+    }
+  ],
+  "trends": []
+}
