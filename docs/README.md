@@ -35,4 +35,4 @@
 - [`site/skins/README.md`](../site/skins/README.md)：中秋、国庆等节日像素皮肤的插件格式与排期配置
 - [`CONTENT-NOTICE.md`](../CONTENT-NOTICE.md)：读者内容的版权说明与个人内容撤下方式
 
-群聊采集、图片解码、调模型写稿和定稿回执都在旁边的 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 仓库里，本仓库从审完的批次目录开始接手。
+群聊采集、图片解码、调模型写稿和审稿定稿都在旁边的 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 仓库里，本仓库从审完的批次目录开始接手。

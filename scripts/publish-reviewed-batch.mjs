@@ -7,7 +7,7 @@ import { mergeDraftEditions } from '../lib/draft-editions.mjs';
 import { validatePublicActivity } from '../lib/public-activity.mjs';
 import { validateStoryDiscussion } from '../lib/story-discussion.mjs';
 import { validateEmphasis } from '../lib/emphasis.mjs';
-import { isGroupId } from '../lib/groups.mjs';
+import { isGroupId, pageGroups } from '../lib/groups.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 assert.ok(process.argv[2], 'Provide an explicitly approved batch directory');
@@ -24,7 +24,8 @@ for (const period of ['week', 'month', 'all']) {
   assert.equal(snapshot.windows[period].through, latest, `Refresh ${period} ranking for the release date`);
 }
 for (const issue of issues) {
-  for (const page of issue.pages.filter(page => isGroupId(page.id))) {
+  const requiredDaily = new Set(pageGroups(issue.date).map(group => group.id));
+  for (const page of issue.pages.filter(page => isGroupId(page.id) && requiredDaily.has(page.id))) {
     assert.ok(snapshot.groups.find(group => group.id === page.id)?.daily[issue.date],
       `Missing release daily ranking: ${issue.date}/${page.id}`);
   }

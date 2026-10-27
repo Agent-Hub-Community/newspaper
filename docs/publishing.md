@@ -2,7 +2,7 @@
 
 这篇文档讲审好的日报、周报、资料库、机会和黑话批次怎么在本地预览、正式写入 `data/`、更新 Cloudflare D1 与语义向量，并推送到 GitHub Pages 上线。
 
-前面的微信采集、调模型写稿和定稿回执在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 仓库完成；本仓库从 `scratch/` 下已经审好的批次目录接手。
+前面的微信采集、调模型写稿和审稿校验在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 仓库完成；本仓库从 `scratch/` 下已经审好的批次目录接手。
 
 ```text
 审好的批次目录 ──► 本地预览 ──► 写入 data/ ──► 公开构建与测试
@@ -21,11 +21,11 @@
 |---|---|
 | 群聊日报 | `issues.json`（只含公开读者字段，结构见[数据格式](data-format.md#1-群聊日报dataeditionsdatejson)） |
 | 活跃榜 | `activity/snapshot.json`、`activity/avatars/`，以及 `pending` 已清空的 `activity/avatar-review.json` |
-| 外部资讯 | 审好的稿件、`selection.json` 和审核回执，见[外部资讯导入](external-news.md) |
+| 外部资讯 | 审好的稿件与 `selection.json`，见[外部资讯导入](external-news.md) |
 | 周报 | 审好的周报目录：`reader.json` 与 `preview/avatars/` |
 | 资料库、机会、黑话 | `scratch/library/`、`scratch/opportunities/`、`scratch/glossary/` 下的候选与审核结果 |
 
-批次目录里的原始输入 `input.json`、模型初稿 `draft.json` 和定稿回执 `receipt.json` 只留本机对账，不进 `data/`。
+批次目录里的原始输入 `input.json` 和模型初稿 `draft.json` 只留本机对账，不进 `data/`。
 
 ## 1. 本地预览
 

@@ -18,7 +18,7 @@ const read = async (file, fallback) => JSON.parse(await readFile(file, 'utf8').c
   if (error.code === 'ENOENT' && fallback !== undefined) return JSON.stringify(fallback);
   throw error;
 }));
-const { since, candidates, members = {}, generatedFrom, operators } = await read(path.join(dir, 'candidates.json'));
+const { since, candidates, members = {}, generatedFrom } = await read(path.join(dir, 'candidates.json'));
 const byKey = new Map(candidates.map(candidate => [candidate.key, candidate]));
 const review = await read(path.join(dir, 'avatar-review.json'), { approved: [], rejected: [] });
 const existing = await read(path.join(root, 'data/library.json'), { version: 1, through: generatedFrom.through, items: [] });
@@ -71,19 +71,11 @@ async function avatar(sender) {
   return file;
 }
 
-// The account that posts the daily updates also relays outside links into every group. Its posts are not
-// member shares: they never show an avatar and only count when no member shared the link. The collector lists
-// its member hashes in candidates.json; a file without that list treats every sender as a member.
-const OPERATORS = new Set(operators || []);
-if (!operators) console.warn('candidates.json lists no operators: relayed links count as member shares. Rerun the chat collector to add them.');
-
 // One share per sharer and group, at its earliest date; an unknown sharer only shows when the group has no known one.
 async function shares(keys) {
   const all = keys.flatMap(key => byKey.get(key)?.shares || []);
-  const members = all.filter(share => !OPERATORS.has(share.sender));
-  const relayed = all.filter(share => OPERATORS.has(share.sender)).sort((a, b) => a.date.localeCompare(b.date));
   const earliest = new Map();
-  for (const share of members.length ? members : relayed.slice(0, 1).map(share => ({ ...share, sender: null }))) {
+  for (const share of all) {
     const sender = share.quoted ? null : share.sender || null;
     const id = `${share.group}/${sender || '?'}`;
     if (!earliest.has(id) || share.date < earliest.get(id).date) earliest.set(id, { date: share.date, group: share.group, sender });

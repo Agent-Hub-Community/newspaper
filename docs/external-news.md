@@ -4,17 +4,16 @@
 
 前期的多渠道抓取、点开原文核实和调模型写稿在 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 仓库里做；这篇文档讲审好的外部资讯稿怎么校验并导入本仓库。
 
-## 交给本仓库的三份文件
+## 交给本仓库的两份文件
 
-每一期外部资讯在 `scratch/external-YYYY-MM-DD-runN/` 目录下准备好三份文件：
+每一期外部资讯在 `scratch/external-YYYY-MM-DD-runN/` 目录下准备好两份文件：
 
 | 文件 | 里面是什么 |
 |---|---|
 | `selection.json` | 入选候选与证据：每件事的一手原文摘录、各平台热度快照、选题理由和淘汰记录 |
 | 读者稿（如 `commented-reviewed.json`） | 当期报头、导语、各条新闻正文、外链、重点下划线和 AI 锐评 |
-| 审核记录（如 `commented-review.json`） | 由 `scripts/review-external.mjs` 生成的批准回执，把读者稿和 `selection.json` 绑在一起 |
 
-这三份原始文件留在被 Git 忽略的 `scratch/` 下；只有跑完导入脚本后抽出的纯读者字段，才会写进 `data/external-editions/<date>.json`。
+原始文件留在被 Git 忽略的 `scratch/` 下；只有跑完导入脚本后抽出的纯读者字段，才会写进 `data/external-editions/<date>.json`。
 
 ### 1. `selection.json`
 
@@ -85,7 +84,7 @@ E=scratch/external-2026-10-22-run1
 node scripts/import-external-report.mjs "$E/commented-reviewed.json" "$E/selection.json"
 ```
 
-- `import-external-report.mjs` 会校验读者稿与 `selection.json` 的候选及链接对应关系，去掉内部的 `candidateIds` 和证据，只把干净的读者字段写进 `data/external-editions/<date>.json`（`review-external.mjs` 回执为可选参数，不再强制要求）。
+- `import-external-report.mjs` 会校验读者稿与 `selection.json` 的候选及链接对应关系，去掉内部的 `candidateIds` 和证据，只把干净的读者字段写进 `data/external-editions/<date>.json`。
 
 如果还在审稿阶段、想先跟同日群稿合在一起看本地预览，不用先入库，直接用 `--draft-external` 即可（见[入库与发布](publishing.md#1-本地预览)）。
 

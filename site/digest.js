@@ -3,6 +3,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const routes = window.AgentHubRoutes;
   const asset = file => window.AgentHubRoutes?.asset(file) || file;
+  const isTopicalGroup = id => /^group-[6-9]$|^group-\d{2,}$/.test(String(id || ''));
   function storyResources(story) {
     const icons = { paper: 'file-text', article: 'book-open', code: 'code-xml', demo: 'play', discussion: 'messages-square' };
     const lucideNames = { ...icons, messages: 'messages-square', link: 'link' };
@@ -54,11 +55,14 @@
   window.digestPageHasContent = hasContent;
   window.renderDigest = (issue, navigate, archive, pageId, mode = 'digest') => {
     const weekly = mode === 'weekly';
-    // Groups added later (四群, 五群, …) show as unavailable tabs on older editions, without rewriting them.
+    // Main groups added later (四群, 五群) show as unavailable tabs on older editions; optional topical groups
+    // (group-6..group-8) appear only on days they actually have stories.
     if (!weekly) {
       const known = new Map();
       for (const edition of archive.digests || []) {
-        for (const page of edition.pages) if (/^group-\d+$/.test(page.id) && !known.has(page.id)) known.set(page.id, page.label);
+        for (const page of edition.pages) {
+          if (/^group-[1-5]$/.test(page.id) && !known.has(page.id)) known.set(page.id, page.label);
+        }
       }
       const missing = [...known].filter(([id]) => !issue.pages.some(page => page.id === id));
       if (missing.length) {
@@ -67,6 +71,10 @@
           ...missing.map(([id, label]) => ({ id, label, stories: [] }))].sort((a, b) => number(a) - number(b));
         issue = { ...issue, pages: [...groupPages, ...issue.pages.filter(page => !page.id.startsWith('group-'))] };
       }
+      issue = {
+        ...issue,
+        pages: issue.pages.filter(page => !isTopicalGroup(page.id) || hasContent(page)),
+      };
     }
     const availablePages = issue.pages.flatMap((page, index) => hasContent(page) ? [index] : []);
     const isOverview = !weekly && pageId === 'overview' && availablePages.length > 0;
@@ -98,7 +106,7 @@
     if (isOverview) {
       const groupPages = issue.pages.filter(p => p.id.startsWith('group-'));
       const activeGroupPages = groupPages.filter(hasContent);
-      const quietGroupPages = groupPages.filter(p => !hasContent(p));
+      const quietGroupPages = groupPages.filter(p => !isTopicalGroup(p.id) && !hasContent(p));
       const externalPage = issue.pages.find(p => p.id === 'external' && hasContent(p));
       const totalGroupTopics = activeGroupPages.reduce((sum, p) =>
         sum + (p.stories?.filter(s => typeof s.text === 'string' && s.text.trim()).length || 0), 0);
@@ -112,7 +120,7 @@
       overviewBody = `<div class="daily-overview-grid" aria-label="本日各版概览">
         ${activeGroupPages.map(p => {
           const pStories = p.stories?.filter(s => typeof s.text === 'string' && s.text.trim()) || [];
-          return `<article class="daily-overview-card" data-overview-page="${esc(p.id)}">
+          return `<article class="daily-overview-card${isTopicalGroup(p.id) ? ' is-topical' : ''}" data-overview-page="${esc(p.id)}">
             <div class="daily-overview-top">
               <div class="daily-overview-meta">
                 <a class="daily-overview-badge" href="${esc(pageHref(p.id))}" data-overview-target="${esc(p.id)}">${esc(p.label)}</a>
@@ -183,7 +191,7 @@
           <div class="digest-heading-top">
             <p class="digest-kicker">${esc(page.section)}${!weekly && availablePages.length > 1 ? `<a class="overview-inline-switch" href="${esc(pageHref('overview'))}" data-overview-target="overview">本日总览 ↗</a>` : ''}</p>
             ${weekly ? `<a class="ranking-link" href="${esc(rankingHref)}" aria-label="打开${external ? '社区' : page.label}周榜">${external ? '社区周榜' : '本群周榜'}<i data-lucide="arrow-up-right"></i></a>` : ''}
-            ${weekly || page.papers || external ? '' : `<div class="daily-ranking" aria-label="${esc(issue.date)} ${esc(page.label)}活跃榜" data-group="${esc(page.id)}">
+            ${weekly || page.papers || external || (!daily && isTopicalGroup(page.id)) ? '' : `<div class="daily-ranking" aria-label="${esc(issue.date)} ${esc(page.label)}活跃榜" data-group="${esc(page.id)}">
               <span id="daily-ranking-title">本群活跃榜</span>
               ${daily?.leaders.length ? `<ol class="daily-leaders" aria-label="本群 Top 3">${daily.leaders.slice(0, 3).map(m => `<li><span class="rank-number">${m.rank}</span>${avatar(m)}</li>`).join('')}</ol>` : '<span class="daily-rank-empty">暂无数据</span>'}
             </div>`}

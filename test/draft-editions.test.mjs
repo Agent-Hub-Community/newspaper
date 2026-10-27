@@ -41,8 +41,8 @@ test('four-group drafts accept an optional papers page without changing historic
   assert.throws(() => mergeDraftEditions([], duplicate), /Invalid draft/);
 });
 
-test('five-group drafts accept one external or papers page from the reader start date', () => {
-  const next = issue('2026-10-20');
+test('five-group drafts accept optional populated topical groups and one external or papers page', () => {
+  const next = issue('2026-10-21');
   next.pages.push(...[4, 5].map(n => ({ id: `group-${n}`, stories: [] })));
   for (const extra of [{ id: 'external', stories: [] }, { id: 'papers', papers: [] }]) {
     const complete = { ...next, pages: [...next.pages, extra] };
@@ -50,6 +50,21 @@ test('five-group drafts accept one external or papers page from the reader start
     const early = { ...complete, id: '2026-10-19', date: '2026-10-19' };
     assert.throws(() => mergeDraftEditions([], early), /Invalid draft/);
   }
+  const withTopical = {
+    ...next,
+    pages: [
+      ...next.pages,
+      { id: 'group-6', stories: [{ title: 'AI Safety 讨论', text: '实质安全话题' }] },
+      { id: 'group-8', stories: [{ title: 'AI4S 讨论', text: '实质科学话题' }] },
+      { id: 'external', stories: [] },
+    ],
+  };
+  assert.deepEqual(mergeDraftEditions([], withTopical), [withTopical]);
+  const emptyTopical = {
+    ...next,
+    pages: [...next.pages, { id: 'group-7', stories: [] }],
+  };
+  assert.throws(() => mergeDraftEditions([], emptyTopical), /Invalid draft/);
   const missingFourth = structuredClone(next);
   missingFourth.pages.splice(3, 1);
   assert.throws(() => mergeDraftEditions([], missingFourth), /Invalid draft/);
