@@ -55,31 +55,17 @@
   window.digestPageHasContent = hasContent;
   window.renderDigest = (issue, navigate, archive, pageId, mode = 'digest') => {
     const weekly = mode === 'weekly';
-    // Main groups added later (四群, 五群) show as unavailable tabs on older editions; optional topical groups
-    // (group-6..group-8) appear only on days they actually have stories.
     if (!weekly) {
-      const known = new Map();
-      for (const edition of archive.digests || []) {
-        for (const page of edition.pages) {
-          if (/^group-[1-5]$/.test(page.id) && !known.has(page.id)) known.set(page.id, page.label);
-        }
-      }
-      const missing = [...known].filter(([id]) => !issue.pages.some(page => page.id === id));
-      if (missing.length) {
-        const number = page => Number(page.id.slice(6));
-        const groupPages = [...issue.pages.filter(page => page.id.startsWith('group-')),
-          ...missing.map(([id, label]) => ({ id, label, stories: [] }))].sort((a, b) => number(a) - number(b));
-        issue = { ...issue, pages: [...groupPages, ...issue.pages.filter(page => !page.id.startsWith('group-'))] };
-      }
+      const readablePages = issue.pages.filter(hasContent);
       issue = {
         ...issue,
-        pages: issue.pages.filter(page => !isTopicalGroup(page.id) || hasContent(page)),
+        pages: readablePages.length ? readablePages : issue.pages.slice(0, 1),
       };
     }
     const availablePages = issue.pages.flatMap((page, index) => hasContent(page) ? [index] : []);
     const isOverview = !weekly && pageId === 'overview' && availablePages.length > 0;
     pageIndex = isOverview ? -1 : Math.max(0, issue.pages.findIndex(page => page.id === pageId));
-    const page = isOverview ? { id: 'overview', label: '本日总览', section: '本日全版总览' } : issue.pages[pageIndex];
+    const page = isOverview ? { id: 'overview', label: '总览', section: '本日全版总览' } : issue.pages[pageIndex] || { id: pageId || 'group-1', label: '本版', stories: [] };
     const external = page.id === 'external';
     const stories = page.stories?.filter(story => typeof story.text === 'string' && story.text.trim()) || [];
     const papers = page.papers?.filter(paper => typeof paper.text === 'string' && paper.text.trim()) || [];
@@ -104,57 +90,64 @@
     let overviewBody = '';
     let overviewDeck = '';
     if (isOverview) {
-      const groupPages = issue.pages.filter(p => p.id.startsWith('group-'));
-      const activeGroupPages = groupPages.filter(hasContent);
-      const quietGroupPages = groupPages.filter(p => !isTopicalGroup(p.id) && !hasContent(p));
+      const groupPages = issue.pages.filter(p => p.id.startsWith('group-') && hasContent(p));
+      const mainGroupPages = groupPages.filter(p => !isTopicalGroup(p.id));
+      const topicalGroupPages = groupPages.filter(p => isTopicalGroup(p.id));
       const externalPage = issue.pages.find(p => p.id === 'external' && hasContent(p));
-      const totalGroupTopics = activeGroupPages.reduce((sum, p) =>
+      const totalGroupTopics = groupPages.reduce((sum, p) =>
         sum + (p.stories?.filter(s => typeof s.text === 'string' && s.text.trim()).length || 0), 0);
       const externalStories = externalPage?.stories?.filter(s => typeof s.text === 'string' && s.text.trim()) || [];
       const externalPapers = externalPage?.papers?.filter(p => typeof p.text === 'string' && p.text.trim()) || [];
       const externalCount = externalStories.length + externalPapers.length;
       overviewDeck = [
-        activeGroupPages.length ? `${activeGroupPages.map(p => p.label).join(' · ')} 共 ${totalGroupTopics} 个话题` : '',
+        groupPages.length ? `${groupPages.map(p => p.label).join(' · ')} 共 ${totalGroupTopics} 个话题` : '',
         externalCount ? `外部资讯 ${externalCount} 条${externalPage?.trends?.length ? ` · ${externalPage.trends.length} 条动向` : ''}` : '',
       ].filter(Boolean).join(' · ');
-      overviewBody = `<div class="daily-overview-grid" aria-label="本日各版概览">
-        ${activeGroupPages.map(p => {
-          const pStories = p.stories?.filter(s => typeof s.text === 'string' && s.text.trim()) || [];
-          return `<article class="daily-overview-card${isTopicalGroup(p.id) ? ' is-topical' : ''}" data-overview-page="${esc(p.id)}">
-            <div class="daily-overview-top">
-              <div class="daily-overview-meta">
-                <a class="daily-overview-badge" href="${esc(pageHref(p.id))}" data-overview-target="${esc(p.id)}">${esc(p.label)}</a>
-                <span class="daily-overview-count">${pStories.length} 个话题</span>
-              </div>
-            </div>
-            <h2><a href="${esc(pageHref(p.id))}" data-overview-target="${esc(p.id)}">${esc(p.heading || p.label)}</a></h2>
-            ${p.theme ? `<p class="daily-overview-theme">${esc(p.theme)}</p>` : ''}
-            <ol class="daily-overview-topics" aria-label="${esc(p.label)}话题列表">${pStories.map((s, idx) =>
-              `<li><a href="${esc(pageHref(p.id, `#topic-${idx + 1}`))}" data-overview-target="${esc(p.id)}" data-overview-topic="topic-${idx + 1}"><span class="overview-topic-num">${String(idx + 1).padStart(2, '0')}</span><span class="overview-topic-title">${esc(s.title)}</span>${s.category ? `<span class="overview-topic-cat">${esc(s.category)}</span>` : ''}</a></li>`).join('')}</ol>
-            <a class="daily-overview-enter" href="${esc(pageHref(p.id))}" data-overview-target="${esc(p.id)}">阅读${esc(p.label)}全文 (${pStories.length}) <span aria-hidden="true">→</span></a>
-          </article>`;
-        }).join('')}
-        ${externalPage ? `<article class="daily-overview-card daily-overview-external" data-overview-page="external">
+      const renderGroupCard = p => {
+        const pStories = p.stories?.filter(s => typeof s.text === 'string' && s.text.trim()) || [];
+        return `<article class="daily-overview-card${isTopicalGroup(p.id) ? ' is-topical' : ''}" data-overview-page="${esc(p.id)}">
           <div class="daily-overview-top">
             <div class="daily-overview-meta">
-              <a class="daily-overview-badge" href="${esc(pageHref('external'))}" data-overview-target="external">${esc(externalPage.label)}</a>
-              <span class="daily-overview-count">${externalCount} 条资讯${externalPage.trends?.length ? ` · ${externalPage.trends.length} 条动向` : ''}</span>
+              <a class="daily-overview-badge" href="${esc(pageHref(p.id))}" data-overview-target="${esc(p.id)}">${esc(p.label)}</a>
+              <span class="daily-overview-count">${pStories.length} 个话题</span>
             </div>
           </div>
-          <h2><a href="${esc(pageHref('external'))}" data-overview-target="external">${esc(externalPage.heading || externalPage.label)}</a></h2>
-          ${externalPage.theme ? `<p class="daily-overview-theme">${esc(externalPage.theme)}</p>` : ''}
-          <ol class="daily-overview-topics daily-overview-external-list" aria-label="外部资讯列表">${(externalStories.length ? externalStories : externalPapers).map((s, idx) =>
-            `<li><a href="${esc(pageHref('external', externalStories.length ? `#topic-${idx + 1}` : ''))}" data-overview-target="external"${externalStories.length ? ` data-overview-topic="topic-${idx + 1}"` : ''}><span class="overview-topic-num">${String(idx + 1).padStart(2, '0')}</span><span class="overview-topic-title">${esc(s.title)}</span></a></li>`).join('')}</ol>
-          ${externalPage.trends?.length ? `<div class="daily-overview-trends" aria-label="动向观察概览"><span class="overview-trends-label">动向观察</span><div class="overview-trends-items">${externalPage.trends.map(t => `<span class="overview-trend-chip">${esc(t.title)}</span>`).join('')}</div></div>` : ''}
-          <a class="daily-overview-enter" href="${esc(pageHref('external'))}" data-overview-target="external">阅读外部资讯全文 (${externalCount}) <span aria-hidden="true">→</span></a>
-        </article>` : ''}
-        ${quietGroupPages.length ? `<p class="daily-overview-quiet">版面注记：今日${esc(quietGroupPages.map(p => p.label).join('、'))}暂无可读讨论记录。</p>` : ''}
+          <h2><a href="${esc(pageHref(p.id))}" data-overview-target="${esc(p.id)}">${esc(p.heading || p.label)}</a></h2>
+          ${p.theme ? `<p class="daily-overview-theme">${esc(p.theme)}</p>` : ''}
+          <ol class="daily-overview-topics" aria-label="${esc(p.label)}话题列表">${pStories.map((s, idx) =>
+            `<li><a href="${esc(pageHref(p.id, `#topic-${idx + 1}`))}" data-overview-target="${esc(p.id)}" data-overview-topic="topic-${idx + 1}"><span class="overview-topic-num">${String(idx + 1).padStart(2, '0')}</span><span class="overview-topic-title">${esc(s.title)}</span>${s.category ? `<span class="overview-topic-cat">${esc(s.category)}</span>` : ''}</a></li>`).join('')}</ol>
+          <a class="daily-overview-enter" href="${esc(pageHref(p.id))}" data-overview-target="${esc(p.id)}">阅读${esc(p.label)}全文 (${pStories.length}) <span aria-hidden="true">→</span></a>
+        </article>`;
+      };
+      const externalCard = externalPage ? `<article class="daily-overview-card daily-overview-external" data-overview-page="external">
+        <div class="daily-overview-top">
+          <div class="daily-overview-meta">
+            <a class="daily-overview-badge" href="${esc(pageHref('external'))}" data-overview-target="external">${esc(externalPage.label)}</a>
+            <span class="daily-overview-count">${externalCount} 条资讯${externalPage.trends?.length ? ` · ${externalPage.trends.length} 条动向` : ''}</span>
+          </div>
+        </div>
+        <h2><a href="${esc(pageHref('external'))}" data-overview-target="external">${esc(externalPage.heading || externalPage.label)}</a></h2>
+        ${externalPage.theme ? `<p class="daily-overview-theme">${esc(externalPage.theme)}</p>` : ''}
+        <ol class="daily-overview-topics daily-overview-external-list" aria-label="外部资讯列表">${(externalStories.length ? externalStories : externalPapers).map((s, idx) =>
+          `<li><a href="${esc(pageHref('external', externalStories.length ? `#topic-${idx + 1}` : ''))}" data-overview-target="external"${externalStories.length ? ` data-overview-topic="topic-${idx + 1}"` : ''}><span class="overview-topic-num">${String(idx + 1).padStart(2, '0')}</span><span class="overview-topic-title">${esc(s.title)}</span></a></li>`).join('')}</ol>
+        ${externalPage.trends?.length ? `<div class="daily-overview-trends" aria-label="动向观察概览"><span class="overview-trends-label">动向观察</span><div class="overview-trends-items">${externalPage.trends.map(t => `<span class="overview-trend-chip">${esc(t.title)}</span>`).join('')}</div></div>` : ''}
+        <a class="daily-overview-enter" href="${esc(pageHref('external'))}" data-overview-target="external">阅读外部资讯全文 (${externalCount}) <span aria-hidden="true">→</span></a>
+      </article>` : '';
+      overviewBody = `<div class="daily-overview-grid" aria-label="本日各版概览">
+        ${mainGroupPages.map(renderGroupCard).join('')}
+        ${topicalGroupPages.map(renderGroupCard).join('')}
+        ${externalCard}
       </div>`;
     }
 
     const firstReadableId = issue.pages[availablePages[0]]?.id || issue.pages[0]?.id;
+    const totalCount = availablePages.reduce((sum, idx) => {
+      const sec = issue.pages[idx];
+      return sum + (sec.stories?.filter(s => typeof s.text === 'string' && s.text.trim()).length || 0) +
+        (sec.papers?.filter(p => typeof p.text === 'string' && p.text.trim()).length || 0);
+    }, 0);
     const relaySequence = [
-      ...(!weekly && availablePages.length > 1 ? [{ id: 'overview', label: '本日总览', title: `${issue.date.replaceAll('-', '.')} 各群与外部资讯总览`, count: `${availablePages.length} 个版面` }] : []),
+      ...(!weekly && availablePages.length > 1 ? [{ id: 'overview', label: '总览', title: `${issue.date.replaceAll('-', '.')} 各群与外部资讯总览`, count: `${availablePages.length} 个版面` }] : []),
       ...availablePages.map(idx => {
         const sec = issue.pages[idx];
         const secStories = sec.stories?.filter(s => typeof s.text === 'string' && s.text.trim()) || [];
@@ -170,11 +163,37 @@
       <a class="relay-card is-prev" href="${esc(pageHref(prevRelay.id))}" data-overview-target="${esc(prevRelay.id)}" data-relay="prev"><span class="relay-dir">← 上一版 · ${esc(prevRelay.label)}（${esc(prevRelay.count)}）</span><strong class="relay-title">${esc(prevRelay.title)}</strong></a>
       <a class="relay-card is-next" href="${esc(pageHref(nextRelay.id))}" data-overview-target="${esc(nextRelay.id)}" data-relay="next"><span class="relay-dir">下一版 · ${esc(nextRelay.label)}（${esc(nextRelay.count)}） →</span><strong class="relay-title">${esc(nextRelay.title)}</strong></a>
     </nav>` : '';
+    const navGroup = p => p.id === 'external' ? 'meta' : isTopicalGroup(p.id) ? 'topical' : 'main';
+    const switcherPages = availablePages.map(idx => issue.pages[idx]);
+    const switcherMain = switcherPages.filter(sec => sec.id !== 'external' && !isTopicalGroup(sec.id));
+    const switcherTopical = switcherPages.filter(sec => isTopicalGroup(sec.id));
+    const switcherExternal = switcherPages.find(sec => sec.id === 'external');
+    const switcherCard = (targetId, label, meta, title) =>
+      `<a class="switcher-item" href="${esc(pageHref(targetId))}" data-overview-target="${esc(targetId)}" ${targetId === page.id ? 'aria-current="page"' : ''}>` +
+      `<div class="switcher-item-top"><strong>${esc(label)}</strong><span>${esc(meta)}</span></div>` +
+      (title ? `<p>${esc(title)}</p>` : '') +
+      `</a>`;
+    const switcherDialog = !weekly && availablePages.length > 1 ? `<dialog class="share section-switcher" id="section-switcher" aria-labelledby="switcher-title">
+      <div class="switcher-header"><h2 id="switcher-title">全部版面速跳</h2><button type="button" class="switcher-close" id="close-switcher">关闭</button></div>
+      <div class="switcher-body">
+        <div class="switcher-group"><h3 class="switcher-group-title">全刊导览与资讯</h3><div class="switcher-grid">
+          ${switcherCard('overview', '本日总览', `${availablePages.length} 个版面 · ${totalCount} 条`, '一页速览各群与外部资讯重点')}
+          ${switcherExternal ? switcherCard('external', switcherExternal.label, `${(switcherExternal.stories?.length || 0) + (switcherExternal.papers?.length || 0)} 条资讯`, switcherExternal.heading || switcherExternal.label) : ''}
+        </div></div>
+        ${switcherMain.length ? `<div class="switcher-group"><h3 class="switcher-group-title">综合讨论群</h3><div class="switcher-grid">
+          ${switcherMain.map(sec => switcherCard(sec.id, sec.label, `${sec.stories?.length || 0} 个话题`, sec.heading || sec.label)).join('')}
+        </div></div>` : ''}
+        ${switcherTopical.length ? `<div class="switcher-group"><h3 class="switcher-group-title">垂类专项群</h3><div class="switcher-grid">
+          ${switcherTopical.map(sec => switcherCard(sec.id, sec.label, `${sec.stories?.length || 0} 个话题`, sec.heading || sec.label)).join('')}
+        </div></div>` : ''}
+      </div>
+    </dialog>` : '';
     main.innerHTML = `
       <nav class="group-nav" aria-label="本期版面" data-page-count="${issue.pages.length}">
-        <div role="tablist" aria-label="群聊与外部资讯">${issue.pages.map((p, i) => `<button role="tab" id="group-${i}" ${hasContent(p) ? '' : `disabled title="${esc(p.label)}暂无稿件" aria-label="${esc(p.label)}，暂无稿件"`} aria-selected="${!isOverview && i === pageIndex}" aria-controls="digest-panel" tabindex="${!isOverview && i === pageIndex && hasContent(p) ? 0 : isOverview && i === availablePages[0] ? 0 : -1}" data-page="${i}"><span>${String(i + 1).padStart(2, '0')}</span>${esc(p.label)}</button>`).join('')}</div>
+        ${!weekly && availablePages.length > 1 ? `<a class="overview-pill" href="${esc(pageHref('overview'))}" ${isOverview ? 'aria-current="page"' : ''} aria-pressed="${isOverview}" title="查看本日各群与外部资讯总览">总览</a>` : ''}
+        <div class="page-links" role="tablist" aria-label="群聊与外部资讯">${issue.pages.map((p, i) => `<button role="tab" id="group-${i}" data-nav-group="${navGroup(p)}" ${hasContent(p) ? '' : `disabled title="${esc(p.label)}暂无稿件" aria-label="${esc(p.label)}，暂无稿件"`} aria-selected="${!isOverview && i === pageIndex}" ${!isOverview && i === pageIndex ? 'aria-current="page"' : ''} aria-controls="digest-panel" tabindex="${!isOverview && i === pageIndex && hasContent(p) ? 0 : isOverview && i === availablePages[0] ? 0 : -1}" data-page="${i}"><span>${String(i + 1).padStart(2, '0')}</span>${esc(p.label)}</button>`).join('')}</div>
         <div class="group-tools">
-          ${!weekly && availablePages.length > 1 ? `<button type="button" class="overview-pill" aria-pressed="${isOverview}" title="查看本日各群与外部资讯总览"><i data-lucide="layout-grid"></i><span>本日总览</span></button>` : ''}
+          ${!weekly && availablePages.length > 1 ? `<button type="button" class="switcher-toggle" id="switcher-toggle" aria-haspopup="dialog" aria-controls="section-switcher" title="查看全部版面与主题"><i data-lucide="layout-grid"></i><span>版面</span></button>` : ''}
           <button type="button" class="save-image" aria-label="保存图片" aria-haspopup="dialog" aria-controls="share-dialog" title="把这一版保存为长图"><i data-lucide="image-down"></i><span>保存图片</span></button>
         </div>
       </nav>
@@ -217,7 +236,8 @@
         ${!isOverview && external && page.trends?.length ? `<section class="external-trends" aria-labelledby="trends-heading"><h2 id="trends-heading">动向观察</h2><div>${page.trends.map(trend => `<article><h3>${esc(trend.title)}</h3><p>${esc(trend.text)}</p></article>`).join('')}</div></section>` : ''}
         ${!isOverview && note && hasContent(page) ? `<div class="digest-source">${esc(note)}</div>` : ''}
         ${relayNav}
-      </section>`;
+      </section>
+      ${switcherDialog}`;
     for (const image of main.querySelectorAll('.lead-figure img')) image.src = asset(image.getAttribute('src'));
     window.AgentHubDiscussion.configure(!isOverview && !external && !weekly && stories.some(story => story.discussion?.length) ? {
       section: page.label, back: '日报', total: stories.length,
@@ -256,12 +276,29 @@
     }
     const overviewPill = sections.querySelector('.overview-pill');
     if (overviewPill) {
-      overviewPill.onclick = () => navigate(mode, issue.id, true, isOverview ? firstReadableId : 'overview');
+      overviewPill.onclick = e => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        navigate(mode, issue.id, true, isOverview ? firstReadableId : 'overview');
+      };
+    }
+    const switcher = main.querySelector('#section-switcher');
+    const switcherOpener = sections.querySelector('#switcher-toggle');
+    if (switcher && switcherOpener) {
+      switcherOpener.onclick = () => switcher.showModal();
+      switcher.querySelector('#close-switcher')?.addEventListener('click', () => switcher.close());
+      switcher.addEventListener('close', () => switcherOpener.focus({ preventScroll: true }));
+      switcher.addEventListener('click', e => {
+        if (e.target !== switcher) return;
+        const r = switcher.getBoundingClientRect();
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) switcher.close();
+      });
     }
     for (const link of main.querySelectorAll('[data-overview-target]')) {
       link.onclick = e => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
         e.preventDefault();
+        if (switcher?.open) switcher.close();
         const targetPage = link.dataset.overviewTarget;
         const targetTopic = link.dataset.overviewTopic;
         navigate(mode, issue.id, !targetTopic, targetPage);
@@ -270,13 +307,10 @@
         }
       };
     }
-    if (window.matchMedia?.('(max-width: 700px)').matches) {
-      const selected = sections.querySelector('[aria-selected="true"]');
-      const tablist = selected?.closest('[role="tablist"]');
-      if (selected && tablist) {
-        const target = selected.offsetLeft - (tablist.clientWidth - selected.offsetWidth) / 2;
-        tablist.scrollLeft = Math.max(0, Math.min(target, tablist.scrollWidth - tablist.clientWidth));
-      }
+    const activeTab = sections.querySelector('.page-links [aria-selected="true"]');
+    if (activeTab && activeTab.parentElement.scrollWidth > activeTab.parentElement.clientWidth) {
+      const bar = activeTab.parentElement;
+      bar.scrollLeft = Math.max(0, activeTab.offsetLeft - (bar.clientWidth - activeTab.offsetWidth) / 2);
     }
     // The toolbar button and the compact header's copy save the same page.
     for (const button of document.querySelectorAll('.save-image')) button.onclick = () =>
