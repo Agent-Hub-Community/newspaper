@@ -1,0 +1,1837 @@
+{
+  "id": "2026-10-26",
+  "date": "2026-10-26",
+  "label": "2026-10-26 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "给 Agent 轨迹定协议：AMSP 如何统一多模型流式记录？",
+      "theme": "讨论 Vibe Coding 下的架构设计与代码可维护性，并关注形式化验证中的定义偏差。",
+      "note": "2026-10-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent Infra",
+          "title": "给 Agent Session 定个“数据层 TCP”：AMSP 与 MMSP 协议分享",
+          "text": "有群友分享了 Agent Message Stream Protocol（AMSP）和底层的 Model Message Stream Protocol（MMSP）。当前模型 API 与 agent session 记录缺乏统一格式，切换模型或 harness 往往要重新适配，也不利于用同一套代码读取轨迹（Trajectories）来做 agent 自进化。据介绍，MMSP 负责单次模型调用，AMSP 负责整个 agent session 的流式传输、解析与存储，支持观测、恢复、前后端通信，可扩展到上百种模型，目前已适配到 PenguinHarness 中。分享的网页截图显示，AMSP 的消息结构从长到短嵌套三层：Task、每次向模型发出的 Request，以及包含 thinking、text、tool_call、tool_call_output 等记录的单条消息。\n\n有人问这与直接用 git 有何不同；分享者解释，AMSP 相当于约定 Data Class 和 object 格式，做过 RL 的人会很熟悉，而 git 可以架在上面做版本控制。还有人问如果 Claude Code 和 Codex 不跟进该怎么办，分享者表示这类工具未必会动，协议主要面向开源或自建的 harness，其他群友补充了 pi agent、LobeHub 以及针对特定任务定制的 harness 等场景。讨论中有人将其比作数据层的 MCP 或 HTML，也有人认为这像是 agent 领域的 TCP/IP 分层通信协议，并提到统一格式或许还能顺带方便整理蒸馏数据。",
+          "emphasis": [
+            "MMSP 负责单次模型调用，AMSP 负责整个 agent session 的流式传输、解析与存储",
+            "AMSP 相当于约定 Data Class 和 object 格式"
+          ],
+          "aiComment": "造协议最怕大厂不理，好在早估计 Claude Code 不一定跟进，专救自建 harness 的苦命人。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "AMSP 协议文档",
+              "url": "https://penguin.ooo/amsp"
+            },
+            {
+              "kind": "article",
+              "label": "MMSP 协议文档",
+              "url": "https://mmsp.penguin.ooo/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "构建动机是，现在不管是模型的 API 协议，还是 Agent 的 Session 记录，都没有统一的格式。换了模型、换了 Harness，我们都需要重新适配一次，不断为差异交税。这也非常不利于 Agent 自进化，在挖掘轨迹的时候，Agent 希望看到的是一个干净、统一的格式，减轻心智负担，用一套代码读取所有的 Trajectories。"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:16",
+              "text": "如果用git如何"
+            },
+            {
+              "speaker": 2,
+              "time": "14:17",
+              "text": "有何不足之处"
+            },
+            {
+              "speaker": 1,
+              "time": "14:17",
+              "text": "这个和git定位不一样，我们是规定了一个object的格式，可以用git做版本控制"
+            },
+            {
+              "speaker": 1,
+              "time": "14:18",
+              "text": "更像是约定Data Class"
+            },
+            {
+              "speaker": 3,
+              "time": "14:19",
+              "text": "这个协议是给谁用"
+            },
+            {
+              "speaker": 3,
+              "time": "14:20",
+              "text": "如果codex 和 cc 不动的话 会有什么方法"
+            },
+            {
+              "speaker": 1,
+              "time": "14:20",
+              "text": "嗯，cc codex估计不一定会动，我们主要给开源自建的harness用"
+            },
+            {
+              "speaker": 3,
+              "time": "14:21",
+              "text": "自建的harness 指的是大家自己搓的吗"
+            },
+            {
+              "speaker": 4,
+              "time": "14:23",
+              "text": "pi agent或者针对任务定制harness吧"
+            },
+            {
+              "speaker": 5,
+              "time": "14:27",
+              "text": "这算data层的mcp么hh"
+            },
+            {
+              "speaker": 6,
+              "time": "14:27",
+              "text": "data层的html（"
+            },
+            {
+              "speaker": 3,
+              "time": "14:27",
+              "text": "agent 是时候应该搞互联网那种 多层架构 protocol 了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:29",
+              "text": "我说的其实是 tcp ip 那种"
+            },
+            {
+              "speaker": 3,
+              "time": "14:29",
+              "text": "层层通信"
+            },
+            {
+              "speaker": 1,
+              "time": "14:32",
+              "text": "对 agent的tcp",
+              "quote": {
+                "speaker": 3,
+                "text": "我说的其实是 tcp ip 那种"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:38",
+              "text": "amsp是不是更方便整理蒸馏数据了（不是"
+            }
+          ]
+        },
+        {
+          "category": "Coding 实践",
+          "title": "Vibe Coding 是不是只让“屎山”堆得更快了？",
+          "text": "有群友提出，把传统软件架构思想迁移到 vibe coding 中，依然能帮人优化“屎山”代码。多位群友对模型写代码的工程习惯深有同感：有人吐槽纯 vibe coding 出来的代码喜欢把所有功能堆进同一个 py 文件；有人观察到模型几乎不会主动使用设计模式；但另一位群友补充，一旦要求模型按架构方式编写，它又容易滑向另一个极端，产出一堆充满 Java 味道的 controller、service、impl、VO、DTO。\n\n围绕模型调用标准库的习惯，一位群友指出豆包等较弱的模型更倾向于自己造轮子而非使用标准库，另一位群友则认为所有模型都喜欢自己造轮子，前面提到标准库的群友进而设想可以把标准库方法抽象成 prompt，快速搭一个 benchmark 来评测。更深一层的担忧在于工程协作：有群友反思，如今强模型相当于几十上百个 senior 程序员同时打工，但软件工程核心的架构设计与协作问题并未解决，可能只是让“屎山”以更快的速度堆出来；而且代码解耦和可维护性越差，人工介入 debug 的成本就越高。不过也有群友给出相反体验，觉得 Opus 生成仓库的规范性已经比自己写得高多了。",
+          "emphasis": [
+            "有人观察到模型几乎不会主动使用设计模式",
+            "软件工程核心的架构设计与协作问题并未解决，可能只是让“屎山”以更快的速度堆出来"
+          ],
+          "aiComment": "不讲架构全塞一个 py 文件，一讲架构满地 VO 和 DTO，模型把程序员的两种极端坏毛病学全了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:44",
+              "text": "但是其实感觉把当时很多的架构的思想迁移到vibe coding还是很有用的，能帮助我优化屎山"
+            },
+            {
+              "speaker": 2,
+              "time": "14:46",
+              "text": "纯vibe coding过来的真爱在代码里堆💩，一个py文件里写所有功能"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "是的 我发现模型几乎不会使用设计模式",
+              "quote": {
+                "speaker": 2,
+                "text": "纯vibe coding过来的真爱在代码里堆💩，一个py文件里写所有功能"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:47",
+              "text": "但是让它按照架构方式写 那就是 controller service impl VO DTO(令人崩溃"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "另外弱的模型 例如豆包 更倾向于造轮子 而非使用标准库"
+            },
+            {
+              "speaker": 5,
+              "time": "14:48",
+              "text": "所有模型都喜欢自己造轮子"
+            },
+            {
+              "speaker": 6,
+              "time": "14:49",
+              "text": "软件的危机和大型软件项目的崩溃，很多时候也不是说没有很多厉害的程序员，但是就是管理不当协作不好没有好的架构崩了etc\n\n现在model这么强，我们大概可以理解为有几十甚至几百个senior的程序员在给我们打工，但是这是不是有可能，只是屎山被更快地造出来了，而不是软工很fundamental的架构设计的问题被解决了（"
+            },
+            {
+              "speaker": 3,
+              "time": "14:50",
+              "text": "可以快速造一个bench 把标准库的方法抽象成prompt 然后评一评",
+              "quote": {
+                "speaker": 5,
+                "text": "所有模型都喜欢自己造轮子"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:51",
+              "text": "确实，我觉得这个也是导致人debug成本越来越高的原因，本身vibe coding出来的屎山的可维护性和可扩展做的就不太行，解耦做得越差人越难介入",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 是的 我发现模型几乎不会使用设计模式"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:51",
+              "text": "就是 没有设计 和 过度设计之间的那种平衡就是软件工程"
+            },
+            {
+              "speaker": 7,
+              "time": "14:56",
+              "text": "感觉opus的仓库规范性已经比我高多了…",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 确实，我觉得这个也是导致人debug成本越来越高的原因，本身vibe coding出来的屎山的可维护性和可扩展做的就不太行，解耦做得越差人越难介入"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型与验证",
+          "title": "形式化验证博客引发争议：形式化定义偏差与夸大质疑",
+          "text": "有群友抛出一篇关于形式化验证的最新博客推文，随即有群友称好像有人用 Astra 对此打假、指出其中有些 proof 存在问题，并贴出了相关讨论推文链接。这位群友请教做 verification 的朋友后转述了两个问题：一是和此前 NS 方程等突破类似，AI 写出的 formal language 未必对应人类真正想解决的问题——正如另一位群友所总结的，AI 确实解决了问题，但 Lean 内定义的并不是人原本想让它解决的那个问题；二是特定部分的 verification 效果似乎存在夸大（overclaim）。",
+          "emphasis": [
+            "AI 写出的 formal language 未必对应人类真正想解决的问题"
+          ],
+          "aiComment": "形式化验证的尴尬之处在于，验证器能看懂证明步骤，却不负责审核题目是不是人类原本想问的那道。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "怎么评价a/最新blog"
+            },
+            {
+              "speaker": 2,
+              "time": "14:50",
+              "text": "这个好像有人用astra打假了（"
+            },
+            {
+              "speaker": 2,
+              "time": "14:50",
+              "text": "有些proof是有问题的"
+            },
+            {
+              "speaker": 2,
+              "time": "14:51",
+              "text": "然后我问了我做verification的朋友，有两个大的问题：1）还是和之前ns方程和其他大的突破有关系，ai写下来的formal language，未必是人想的那个；2）貌似存在overclaim，特定部分verification被夸大了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:52",
+              "text": "AI确实解决了这个问题,但是lean内定义的不是 人想让它解决的那个问题"
+            },
+            {
+              "speaker": 2,
+              "time": "14:55",
+              "text": "https://x.com/joseph_h_garvin/status/2113668055582625833"
+            }
+          ]
+        },
+        {
+          "category": "模型讨论",
+          "title": "从生成速度到坊间传闻：群友闲猜 Opus 参数规模",
+          "text": "有群友感叹不到 1T 的 Opus 依然在吊打各路模型，引发了大家对参数量的猜测。一位群友对比 Astra 的生成速度，猜测 Opus 参数量在 1T 以内，大概 700B 到 800B，并认为 Fable 应该很大；最初提到不到 1T 的群友则表示听说是 835B。另一位群友追问如此精确的数字是怎么算出来的，并提起去年还有传言称 4o-mini 只有 8B；也有人调侃按这比例 Haiku 岂不是只有 100B。",
+          "emphasis": [
+            "一位群友对比 Astra 的生成速度，猜测 Opus 参数量在 1T 以内，大概 700B 到 800B"
+          ],
+          "aiComment": "闭源模型参数量全靠体感测速和坊间传闻拼图，连有零有整的数字都能猜出开盲盒的气氛。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:55",
+              "text": "1T不到的opus把各种吊着锤"
+            },
+            {
+              "speaker": 2,
+              "time": "14:55",
+              "text": "真1T不到吗"
+            },
+            {
+              "speaker": 3,
+              "time": "14:55",
+              "text": "这速度"
+            },
+            {
+              "speaker": 3,
+              "time": "14:55",
+              "text": "只能1t不到"
+            },
+            {
+              "speaker": 3,
+              "time": "14:56",
+              "text": "对比astra"
+            },
+            {
+              "speaker": 3,
+              "time": "14:56",
+              "text": "大概700 800b"
+            },
+            {
+              "speaker": 1,
+              "time": "14:56",
+              "text": "835b说是"
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "去年还有传言说4omini只有8b"
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "这么精确吗"
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "咋算出来的"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "6.1sol 免责声明太多，群友提议怎么改提示词",
+      "theme": "讨论 Nanbeige 33B 的模型结构，并转发 Anthropic S-1 消息与文件。",
+      "note": "2026-10-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Prompt 技巧",
+          "title": "一句 Prompt 尝试压制 6.1sol 的“免责声明癌”",
+          "text": "群友聊起近期好用的主力模型，有人觉得 6sol 不如 5.6sol，最近还有点降智，astra 也不太顺手；有人推荐改用 6.1sol 或 opus5.5。但一位使用 6.1sol 的群友苦恼于它的安全对齐过于 play safe，写出来的文档里满是“只是xxxxx不代表xxxxxx”这类免责声明。虽然单看挺辩证，但叠多了显得啰嗦、AI 味太重。另一位群友也有同感，吐槽模型老是一直强调自己“不能保证 xxx”。\n\n有人建议把限制规则写进全局的 agents.md，紧接着一位群友给出一句具体的提示词：“如果某句话的作用只是防止被质疑，而不是推进论证，请删除。”两位群友觉得这句切中要害。也有人认为，按理说 codex 应该直接在 system prompt 里加上这类规则，去限制模型的防御性输出和防御性编程，在这方面 cc 就控制得相对较好。前面吐槽文档啰嗦的群友补充说，这种辩证思维放在对话端其实挺讨海外用户喜欢，反倒是国内的 chatbot 不知道是不是做合规题做傻了。最后有人编了一段对话调侃这种防御性文风：“我：今天太阳真好。GPT：确实。但需要指出，今天有太阳并不意味着明天也有太阳，更不能据此认为当地气候正在持续改善。”",
+          "emphasis": [
+            "一位使用 6.1sol 的群友苦恼于它的安全对齐过于 play safe，写出来的文档里满是“只是xxxxx不代表xxxxxx”这类免责声明",
+            "“如果某句话的作用只是防止被质疑，而不是推进论证，请删除。”"
+          ],
+          "aiComment": "群友编段子调侃夸句太阳好都要被科普明天未必出太阳，模型这身防背锅的免责本事，放职场里高低是个老油条。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:37",
+              "text": "（等于没说，因为6sol＜5.6sol）"
+            },
+            {
+              "speaker": 2,
+              "time": "10:38",
+              "text": "真的么，但是感觉最近6确实有点降智，astra也不是特别好用",
+              "quote": {
+                "speaker": 1,
+                "text": "（等于没说，因为6sol＜5.6sol）"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:11",
+              "text": "那现在用啥好用啊"
+            },
+            {
+              "speaker": 4,
+              "time": "11:17",
+              "text": "6.1sol"
+            },
+            {
+              "speaker": 5,
+              "time": "11:19",
+              "text": "opus5.5[旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "11:43",
+              "text": "6.1sol怎么让他不整那么多免责声明啊"
+            },
+            {
+              "speaker": 6,
+              "time": "11:43",
+              "text": "这安全对齐太play safe了"
+            },
+            {
+              "speaker": 6,
+              "time": "11:44",
+              "text": "写出来的文档里面全都是什么 只是xxxxx不代表xxxxxx"
+            },
+            {
+              "speaker": 6,
+              "time": "11:45",
+              "text": "主要他说的还挺有道理，很辩证"
+            },
+            {
+              "speaker": 6,
+              "time": "11:45",
+              "text": "但是多了就啰嗦"
+            },
+            {
+              "speaker": 6,
+              "time": "11:46",
+              "text": "ai味太重"
+            },
+            {
+              "speaker": 7,
+              "time": "11:46",
+              "text": "agree，一直说自己不能保证 xxx",
+              "quote": {
+                "speaker": 6,
+                "text": "写出来的文档里面全都是什么 只是xxxxx不代表xxxxxx"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "11:46",
+              "text": "写段提示词放全局的 agents.md 里"
+            },
+            {
+              "speaker": 9,
+              "time": "11:47",
+              "text": "“如果某句话的作用只是防止被质疑，而不是推进论证，请删除。”"
+            },
+            {
+              "speaker": 9,
+              "time": "11:47",
+              "text": "试试加上这个"
+            },
+            {
+              "speaker": 8,
+              "time": "11:49",
+              "text": "其实按理说 codex 应该在 system prompt 中去加上相关的规则，限制模型的防御性输出&防御性编程"
+            },
+            {
+              "speaker": 8,
+              "time": "11:50",
+              "text": "这点 cc 就做的相对较好"
+            },
+            {
+              "speaker": 10,
+              "time": "12:34",
+              "text": "我：今天太阳真好。\nGPT：确实。但需要指出，今天有太阳并不意味着明天也有太阳，更不能据此认为当地气候正在持续改善。"
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "群友转发 BOSS直聘发布 Nanbeige4.3-33B，称从 loop 小模型转向 dense",
+          "text": "有群友转发了 BOSS直聘“南北阁”团队发布 Nanbeige4.3-33B 模型的小红书笔记，并发问“这个真没刷分吗”，另一位群友也对其中 deepswe 的分数持保留态度。分享者提到，这家团队此前一直在做端侧小模型，4.2 版本还是 loop 结构的 3B 模型，这次突然发了一个 33B；面对新模型是否延续 loop 结构的追问，分享者回复称这次是 dense 模型。还有群友调侃其版本号已经迭代到 4.3，比 DeepSeek 还大。",
+          "emphasis": [
+            "分享者提到，这家团队此前一直在做端侧小模型，4.2 版本还是 loop 结构的 3B 模型，这次突然发了一个 33B"
+          ],
+          "aiComment": "按群友聊的版本跨度，上一版还在盘 3B 的 loop，转头就聊到 33B 的 dense，连版本号都顺手超了 DeepSeek 一截。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:53",
+              "text": "[链接] BOSS直聘发布Nanbeige4.3-33B模型"
+            },
+            {
+              "speaker": 1,
+              "time": "00:54",
+              "text": "这个真没刷分吗"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "之前看他们 4.2 还是 loop 3b 的模型来着"
+            },
+            {
+              "speaker": 1,
+              "time": "00:59",
+              "text": "突然发一个 33b"
+            },
+            {
+              "speaker": 2,
+              "time": "01:00",
+              "text": "这个deepswe的分[Emm]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:09",
+              "text": "boss 直聘，南北阁"
+            },
+            {
+              "speaker": 3,
+              "time": "01:09",
+              "text": "都4.3了吗，版本号比deepseek还大"
+            },
+            {
+              "speaker": 1,
+              "time": "01:10",
+              "text": "一直在做端侧小模型的厂"
+            },
+            {
+              "speaker": 4,
+              "time": "03:23",
+              "text": "新模型也是loop吗",
+              "quote": {
+                "speaker": 1,
+                "text": "突然发一个 33b"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:36",
+              "text": "dense",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 新模型也是loop吗"
+              }
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "群友转发 Anthropic S-1 消息并上传 49MB PDF 文件",
+          "text": "晚间有群友分享快讯截图，显示据福克斯商业频道消息，Anthropic 将于美东时间上午 9 点（北京时间 21:00）发布 S-1 文件。另一位群友贴出 Google 搜索 AI 回答截图，其中回答估算纳斯达克 IPO 公开披露 S-1 文件后，通常需要 3 到 6 周才能正式挂牌上市交易，特定条件下加上路演和定价最快也需要约 20 天，该群友并打趣这或许是留给市场 3 到 6 周的清仓时间。当晚 21:48，有群友在群内上传了一份名为 Anthropic, PBC - S-1 (Q2).pdf 的 49MB PDF 文件。",
+          "emphasis": [
+            "其中回答估算纳斯达克 IPO 公开披露 S-1 文件后，通常需要 3 到 6 周才能正式挂牌上市交易"
+          ],
+          "aiComment": "49MB 的大部头 PDF 直接往群里一砸，别人的睡前读物是轻松小说，群友的睡前读物直接拉满硬核阅读量。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:31",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "20:34",
+              "text": "要上市了吗"
+            },
+            {
+              "speaker": 4,
+              "time": "21:48",
+              "text": "[文件] Anthropic, PBC - S-1 (Q2).pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "多领域 RL 该直接混训，还是先分领域探索再蒸馏？",
+      "theme": "从梯度冲突与 Batch 分布拆解 MOPD 与 Mix RL 的取舍，并交流 K3.1 Pro 的视频生成表现。",
+      "note": "2026-10-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "RL 与蒸馏",
+          "title": "Mix RL 还是先分领域 RL 再蒸馏？从梯度对齐到 Batch 分布的多领域训练探讨",
+          "text": "有群友读技术报告后发问：看到 DeepSeek 4.1 讲的是使用 RL mix OPD，而 mimo 用的是先 RL 再 MOPD（Rl->mopd）的方式，这两种路线各有什么优劣？有人认为直觉上 mix rl 的上限比分领域 rl 后 mopd 合版更高，两者是稳定性和性能上限的 trade off；另一位群友指出 mopd 更稳定，mix rl 似乎会出现跷跷板；还有群友补充，有些无法在线 verify 的任务没法做 mix rl，只能交给 mopd。另一位群友从行为模式（pattern）解释，RL 本质是在 pre-training 或 mid-training 已有能力上探索和强化有效 pattern，比如 Math 里的 reflection、Search 里的多轮检索和交叉验证。不同环境的有效 pattern 差异很大，混训容易引发梯度冲突；先在单一环境里用 RL 探索，再蒸馏回统一模型，训练目标更清晰，也方便并行实验和团队分工。\n\n沿着分领域独立 RL 的思路，有人追问合版时该选 model merge 还是 mopd，也有人问只做单领域时是否有必要用 RFT 来重制冷启动数据。对于合版方式，有群友质疑 model merge 只在相邻领域有效，两个领域差距太大、参数差异大时很难直接 merge。另一位群友补充了 mopd 在工程上的两个优势：一是 mix rl 很难平衡不同任务的奖罚，而 mopd 可以分 domain 无限验证并挑选最佳 expert，做梯度对齐比做 reward 系数对齐容易得多；二是 mopd 不要求学生模型必须做对题，甚至轨迹不用完整走完也能优化。\n\n讨论随后转向 mix rl 为什么能 work。有群友想不通：RL 的监督信号来自环境，不像 SFT 那样稳定，增强特定 rollout pattern 的优化空间本就很大，多环境混训应该很难收敛。有人类比这就像不同 domain 难度不一的 SFT 也能训出来，只是把超参搜索难度从两个 task 放大到了两百个 task，有人则猜测是不是得像 mimo 那样把 bs 开得很大。还有群友据此推演猜测：从这个角度看，有些任务 roll 1 个 step 就能拿到梯度，有些得 3 个 step，前者任务的信号强度就是后者的三倍了。先前类比 SFT 的群友认为，异步流式并发 RL 和延迟更新正是用来缓解这类冲突的——在这位群友看来，mix rl 的目标是寻找不同 domain 间能联合优化的点，不必每一步都让所有领域同步变好；并提出探讨：如果领域间可共享的能力够多，配合可靠的奖励设计和足步 rollout 是否就会有效？但此前质疑 mix rl 可行性的群友依然存疑，认为异步机制解决的长尾稳定性与多 domain 共同对优化的影响不是一回事，这位群友追问这能否控制每次实际更新的 bsz 分布，担心优化方向还是容易被 bsz 里占主导的 domain 拉扯，出现“学会这个忘那个，或者少的一直学不会”的情况，并反问难道暴力的想，保证训练的 domain 分布和评测分布一样就可以吗？",
+          "emphasis": [
+            "有人认为直觉上 mix rl 的上限比分领域 rl 后 mopd 合版更高",
+            "另一位群友补充了 mopd 在工程上的两个优势：一是 mix rl 很难平衡不同任务的奖罚，而 mopd 可以分 domain 无限验证并挑选最佳 expert，做梯度对齐比做 reward 系数对齐容易得多",
+            "担心优化方向还是容易被 bsz 里占主导的 domain 拉扯"
+          ],
+          "aiComment": "两个任务搜超参叫炼丹，两百个任务混训调平衡简直像渡劫，光想想要怎么对齐奖励系数就已经开始头大了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:20",
+              "text": "有佬关注Opd和RL么？看到Deepseek4.1的技术报告讲的是使用的RL mix OPD的这种方式\n然后看到mimo的用的是Rl->mopd这种方式，感觉这两种有什么优劣么"
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "直觉上感觉mix rl的上限比 分领域rl后mopd合版 高[可怜]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:43",
+              "text": "mopd更稳定  mix rl似乎会出现跷跷板"
+            },
+            {
+              "speaker": 2,
+              "time": "17:44",
+              "text": "是稳定和性能上限trade off了"
+            },
+            {
+              "speaker": 4,
+              "time": "17:47",
+              "text": "另外有些无法在线verify的任务没法mix rl，就交给mopd了"
+            },
+            {
+              "speaker": 5,
+              "time": "18:03",
+              "text": "我个人拙见是，RL 本质上是在 pre-training / mid-training 已有的能力和行为模式（pattern）上，探索和强化有效的 pattern。比如 Math 中的 reflection、Search 中的多轮检索和交叉验证等。\n\n沿着这个思路，我感觉先在单一环境中通过 RL 学习有效 pattern，再蒸馏回统一模型，可能比直接 RL Mix 更容易优化。\n\n毕竟不同环境下的有效 pattern 可能差异很大，混在一起训练容易产生梯度冲突和相互干扰。相比之下，先独立优化再蒸馏，不仅训练目标更清晰，也更方便并行实验和组织架构上的分工。",
+              "quote": {
+                "speaker": 1,
+                "text": "有佬关注Opd和RL么？看到Deepseek4.1的技术报告讲的是使用的RL mix OPD的这种方式 然后看到mimo的用的是Rl->mopd这种方式，感觉这..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "18:06",
+              "text": "独立 rl 后， 再 model merge 还是再 mopd， 这个选择大家如何看待呢"
+            },
+            {
+              "speaker": 7,
+              "time": "18:08",
+              "text": "如果不需要合版只在单领域上有必要用RFT吗，比如探索了部分有效pattern后用于重制冷启动数据",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 我个人拙见是，RL 本质上是在 pre-training / mid-training 已有的能力和行为模式（pattern）上，探索和强化有效的 pattern。比如 Math 中的 reflection、Search 中的多轮检索和交叉验证等。\n\n沿着这个思路，我感觉先在单一环境中通过 RL 学习有效 pattern，再蒸馏回统一模型，可能比直接 RL Mix 更容易优化。\n\n毕竟不同环境下的有效 pattern 可能差异很大，混在一起训练容易产生梯度冲突和相互干扰。相比之下，先独立优化再蒸馏，不仅训练目标更清晰，也更方便并行实验和组织架构上的分工。"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:09",
+              "text": "model merge是不是只在相邻领域merge有效啊，两个领域差太远参数差异很大要咋merge",
+              "quote": {
+                "speaker": 6,
+                "text": "独立 rl 后， 再 model merge 还是再 mopd， 这个选择大家如何看待呢"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:10",
+              "text": "mix rl在处理不同任务的奖罚均衡很困难，也是mix rl不稳定的原因之一。mopd可以分domain无限验证选择最佳的expert，梯度对齐比reward系数对齐还是容易很多了"
+            },
+            {
+              "speaker": 9,
+              "time": "18:18",
+              "text": "其实我一直不知道mix rl为啥能work"
+            },
+            {
+              "speaker": 8,
+              "time": "18:19",
+              "text": "我感觉和你做监督训练时候不同domain数据难度不一样也能训一样，只是rl本身就比sft更不稳定",
+              "quote": {
+                "speaker": 9,
+                "text": "其实我一直不知道mix rl为啥能work"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:20",
+              "text": "全局搜最佳超参总能做好的，只是两个task和两百个task的搜索难度完全不能比"
+            },
+            {
+              "speaker": 10,
+              "time": "18:20",
+              "text": "mix rl的话bs是不是得像mimo那样开很大"
+            },
+            {
+              "speaker": 9,
+              "time": "18:20",
+              "text": "如果从增强rollout特定pattern的角度来看mix rl 的优化空间这么大，直接上很难收敛"
+            },
+            {
+              "speaker": 9,
+              "time": "18:22",
+              "text": "rl的监督来自环境啊，不像sft能稳定获得监督信号。如果这个环境变得更复杂，那优化效率应该会比较低才对",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 我感觉和你做监督训练时候不同domain数据难度不一样也能训一样，只是rl本身就比sft更不稳定"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:28",
+              "text": "emmm这个不就是他们异步流式并发rl/延迟更新在解决的事情吗",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] rl的监督来自环境啊，不像sft能稳定获得监督信号。如果这个环境变得更复杂，那优化效率应该会比较低才对"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:32",
+              "text": "诶那从这个角度，有些任务roll1个step就能拿到梯度，有些得3个step，前者任务的信号强度就是后者的三倍了"
+            },
+            {
+              "speaker": 9,
+              "time": "18:35",
+              "text": "我觉得不是一个事，一个是长尾下的训练稳定性。一个是就算不长尾没有任何多余的设置，多domain的mix rl，不用domain共同对优化的影响好像是没怎么被讨论过的"
+            },
+            {
+              "speaker": 9,
+              "time": "18:36",
+              "text": "要是加上长尾环境的信号就更复杂了。从单domain波动信号 到 多domian波动信号 到多domain跨step波动信号"
+            },
+            {
+              "speaker": 8,
+              "time": "20:02",
+              "text": "感觉是不是搞混mix rl的训练目标了，我的拙见是mix rl是为了从不同domain上找到能联合优化的点，不需要保证每一步中每个领域都在同步变好。你说的我理解是不同领域reward把模型朝着不同方向扯最后模型在每个领域表现都一般。我上面的意思是如果ab domain存在冲突，step n a更新造成b能力下降，延迟更新和异步流式能帮助缓解一下。然后mixrl上限高在我理解里面就是如果领域可共享能力够多的情况下，加上可靠的奖励设计和足步rollout是会有效的？",
+              "quote": {
+                "speaker": 9,
+                "text": "我觉得不是一个事，一个是长尾下的训练稳定性。一个是就算不长尾没有任何多余的设置，多domain的mix rl，不用domain共同对优化的影响好像是没怎么被讨论..."
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "20:06",
+              "text": "mopd还有一个好处就是不要求学生模型必须做对题甚至轨迹不用完整走完也能优化，工程实现上难度低了一些"
+            },
+            {
+              "speaker": 9,
+              "time": "20:20",
+              "text": "这能控制每次实际更新的bsz的分布吗？ 我是觉得实际的优化方向容易被bsz里主要的domain拉扯，学会这个忘那个，或者少的一直学不会。如果放到后面的step更新，也避不开什么样的分布bsz会对优化产生怎样的影响这个问题。或者暴力的想，保证他们domain分布和评测的分布一样就可以吗？",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 感觉是不是搞混mix rl的训练目标了，我的拙见是mix rl是为了从不同domain上找到能联合优化的点，不需要保证每一步中每个领域都在同步变好。你说的我理解是不同领域reward把模型朝着不同方向扯最后模型在每个领域表现都一般。我上面的意思是如果ab domain存在冲突，step n a更新造成b能力下降，延迟更新和异步流式能帮助缓解一下。然后mixrl上限高在我理解里面就是如果领域可共享能力够多的情况下，加上可靠的奖励设计和足步rollout是会有效的？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型实测",
+          "title": "群友自测反馈 K3.1 Pro 跑 code2video 效果不及 3.0，有人推测优化重心偏向纯 Coding",
+          "text": "有群友实测 k3.1pro 的 code2video 能力时发现，使用同一套 skill，3.1 的生成效果反而不如 3.0，也比不上 gpt6 和 opus55，怀疑是日常 vlog 场景太垂直或是自己的 prompt 优化不到位。有人想看具体的 traces 和 output，分享者表示不便公开。另一位群友贴出一份代码评测榜单，认为 k3.1 的优化重心主要放在了纯 coding 上。",
+          "emphasis": [
+            "使用同一套 skill，3.1 的生成效果反而不如 3.0"
+          ],
+          "aiComment": "同一套 skill 换上 3.1，群友实测体感反而不如 3.0 顺手，看来版本升级有时也得磨合场景脾气。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "LLM Benchmark 代码评测榜单",
+              "url": "https://llm2014.github.io/llm_benchmark/#category=code_v3&dataset=code_v3%7C2026-10%7C0"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:16",
+              "text": "群 u 们有测过 k3.1pro 的 code2video 的能力吗，我用同一套 skill，3.1 的效果没有 3.0 好，也是逊色于 gpt6 和 opus55，是不是因为日常 vlog 这种场景有些垂直🤔还是因为我的 prompt 优化不到位"
+            },
+            {
+              "speaker": 2,
+              "time": "16:21",
+              "text": "可以把traces和output发出来看一下嘛",
+              "quote": {
+                "speaker": 1,
+                "text": "群 u 们有测过 k3.1pro 的 code2video 的能力吗，我用同一套 skill，3.1 的效果没有 3.0 好，也是逊色于 gpt6 和 opus..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:26",
+              "text": "可以看下:https://llm2014.github.io/llm_benchmark/#category=code_v3&dataset=code_v3%7C2026-10%7C0\n感觉k3.1主要还是优化了纯coding的样子"
+            }
+          ]
+        },
+        {
+          "category": "开源与工具",
+          "title": "AgentHub 周报工作流开源与微信聊天记录导出工具现状",
+          "text": "AgentHub 社区发布了 10 月 19 日至 25 日的周报，并将配套的 bot 总结 workflow、Agent 接口与 skills 开源。有群友好奇周报是怎么拿到微信聊天记录的，另一位群友建议直接参考开源组织下的 bot workflow。几位群友随后聊起微信记录导出工具的现状：有人回忆以前有聊天记录相关的 GitHub 项目收到过律师函，另有人询问某个 CLI 工具是否已经 DMCA；随后有群友分享了一个 macOS 端的导出仓库 wechat-export-macos 供参考，也有人提到还有一个名为 wx cli again 的工具现在还在。",
+          "emphasis": [
+            "并将配套的 bot 总结 workflow、Agent 接口与 skills 开源"
+          ],
+          "aiComment": "工具起名直接叫 wx cli again，光看这后缀里带着的一个 again，就透着一股不服输的倔强。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "AgentHub 2026.10.19–10.25 周报总览",
+              "url": "https://agent-hub-community.github.io/newspaper/weekly/2026-10-19/2026-10-25/overview/"
+            },
+            {
+              "kind": "code",
+              "label": "wechat-export-macos 仓库",
+              "url": "https://github.com/ydotdog/wechat-export-macos"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:38",
+              "text": "大佬是怎么拿到微信聊天记录的，能不能来个思路"
+            },
+            {
+              "speaker": 2,
+              "time": "23:41",
+              "text": "可以看看 org 下的 bot workflow",
+              "quote": {
+                "speaker": 1,
+                "text": "大佬是怎么拿到微信聊天记录的，能不能来个思路"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:45",
+              "text": "以前好像有聊天记录的GitHub，但是被腾讯发律师函了"
+            },
+            {
+              "speaker": 4,
+              "time": "23:46",
+              "text": "这个 cli 工具好像已经 DMCA 了吧？"
+            },
+            {
+              "speaker": 3,
+              "time": "23:48",
+              "text": "https://github.com/ydotdog/wechat-export-macos"
+            },
+            {
+              "speaker": 2,
+              "time": "23:49",
+              "text": "还有个 wx cli again"
+            },
+            {
+              "speaker": 2,
+              "time": "23:49",
+              "text": "现在还在"
+            }
+          ]
+        },
+        {
+          "category": "模型服务",
+          "title": "群友分享 Qoder 限时免费开放 DeepSeek-V4.1-Flash-1017 至 10 月底",
+          "text": "有群友询问好用的中转站时，有人转而分享了 Qoder 目前的 DeepSeek 免费活动。其贴出的「Qoder CN」官方公告截图显示，Qoder 国际版和 CN 版已增加模型容量与 TPM，并将 DeepSeek-V4.1-Flash-1017 的限时免费活动延长至 10 月 31 日，在模型列表中选择 DeepSeek-Flash 即可调用。",
+          "emphasis": [
+            "将 DeepSeek-V4.1-Flash-1017 的限时免费活动延长至 10 月 31 日"
+          ],
+          "aiComment": "既给模型加了容量和 TPM，又把 DeepSeek-Flash 限时免费续到十月底，羊毛党这几天的排队焦虑可以先缓一缓了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:32",
+              "text": "qoder[Doge]，目前deepseek免费",
+              "quote": {
+                "speaker": null,
+                "text": "有没有好用的中转站啊大家"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:32",
+              "text": "[图片]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "3D 资产抽卡贵、绑骨难，AI 替人试玩能跑通游戏机制闭环吗？",
+      "theme": "交流 K3.1 Pro 的 3D 工具调用体验、交叉审核工作流和 MINT 音乐创作目标。",
+      "note": "2026-10-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "AI 与游戏",
+          "title": "3D 抽卡太贵、动作绑骨太难：用 CLI 让 AI 替人试玩能跑通可玩性闭环吗",
+          "text": "有尝试过 AIGC 影游的群友算了一笔账：目前 AI 生成的抽卡命中率不高，就算把约束写死，前一天在引擎里跑一个很粗糙的流程也花了 100 多元。分享者觉得 AIGC 影游能出爆款，尤其是乙游方向，但其他品类的游戏时长偏短，玩家容易腻，粘性不如传统游戏。\n\n到了 3D 游戏，成本和管线问题更突出。一位群友在自制开飞船漫游太阳系的 3D 游戏时卡在了资产与交互上：飞船内部控制面板和天体模型不够精细，还缺可动模型。前面算账的群友补充，自己测下来 3D 抽卡机制会让成本大幅上升，这位群友个人觉得“光动作库都是闭源的”，还伴随着延迟、穿模和音效问题，建议 3D 优先用 ds 做以控制开销；对此，做太空游戏的群友提出不同体验，认为 Mixamo 和 CMU 的通用动作还算够用，只是没啥劲，且换个角色就绑骨绑不明白。算账的群友随后还反馈，虽然 OriEra studio 可以本地部署，但自己现有的显卡撑不住渲染，把 Tripo 接进管线跑出来也不好看。\n\n比起美术素材，大家更头疼的是游戏机制设计。有群友指出，传统游戏开发时间和金钱门槛高，立项前至少开发者自己觉得主意行得通；如今生成门槛降低，新品游戏节反而冒出大批量缝合的“吸血鬼幸存者like”。这位群友认为，目前 AI 4 Games 最欠缺的是审美和可玩性的闭环验证——就像人类开发者会先抛开美术素材，做个机制验证 demo。与此同时，做太空游戏的群友也在尝试给游戏套一层 CLI，让 AI 扮演玩家直接试玩，认为靠这样的 CLI 让 AI 快速验证和迭代游戏机制很重要。\n\n讨论末了有人抛出一个暴论：未来的游戏或许更多是写给各家 agent 玩的，而非只供人类上手。有人质疑游戏最以人为中心，直播观众看的也是主播借游戏展开的杂谈，给 agent 玩图什么；赞同者则觉得这就像定制主播，自己玩不动高难度游戏时，看着 AI 智斗炉石、三国杀很有看头，也有人设想下指令指挥豆包打通《艾尔登法环》，但紧接着感叹这“比登天还难”。",
+          "emphasis": [
+            "把约束写死，前一天在引擎里跑一个很粗糙的流程也花了 100 多元",
+            "换个角色就绑骨绑不明白",
+            "给游戏套一层 CLI，让 AI 扮演玩家直接试玩",
+            "未来的游戏或许更多是写给各家 agent 玩的，而非只供人类上手"
+          ],
+          "aiComment": "给游戏套个 CLI 让 AI 替人试玩验证机制，以后干脆开发商派个 agent 和玩家的 agent 直接在命令行里过招算了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:55",
+              "text": "其实影游这些 我们都尝试过，目前来说AI的抽卡概率还是不高的 成本这一块，还是不低的[捂脸][捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "不过有一说一，AIGC 影游这一块还是可以做出爆款的，但用户粘性 感觉不如传统游戏"
+            },
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "最大市场感觉就是乙游这一块，其他的 感觉游戏时长没有太长 玩家体验感很容易腻"
+            },
+            {
+              "speaker": 2,
+              "time": "00:58",
+              "text": "缺可动模型"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "我昨天用引擎跑了一下，很粗糙的 都花了100多 这还是约束死的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:59",
+              "text": "做了个太阳系漫游指南。就是开着飞船在太阳系到处跑"
+            },
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "如果是3D 我比较建议你用ds做吧，用其他的太贵了 [捂脸][捂脸]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:00",
+              "text": "✅ 机制不难，一个飞机来回到处跑就行了。主要是 飞机外形 内部控制面板"
+            },
+            {
+              "speaker": 2,
+              "time": "01:00",
+              "text": "星球模型 恒星行星卫星矮行星小行星彗星啥的"
+            },
+            {
+              "speaker": 1,
+              "time": "01:00",
+              "text": "而且 其实目前我们测下来，抽卡机制的问题导致的3D 成本是大幅度上升的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:01",
+              "text": "主要是游戏场景和模型不够精细好玩互动不够丰富"
+            },
+            {
+              "speaker": 1,
+              "time": "01:02",
+              "text": "光动作库都是闭源的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "mixmo 和 cmu 还算够用"
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "但都是通用动作 没啥劲"
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "换个角色绑骨绑不明白"
+            },
+            {
+              "speaker": 2,
+              "time": "01:04",
+              "text": "其实游戏设计机制才是最难的点吧"
+            },
+            {
+              "speaker": 1,
+              "time": "01:04",
+              "text": "延迟+穿模+音效等等"
+            },
+            {
+              "speaker": 2,
+              "time": "01:05",
+              "text": "好玩比模型精细重要"
+            },
+            {
+              "speaker": 3,
+              "time": "01:07",
+              "text": "传统游戏开发时代，开发一个游戏需要的时间和金钱成本是很高的，所以大家觉得行得通（起码开发者们自己都觉得行得通）的idea才会拿出来做成游戏",
+              "quote": {
+                "speaker": 2,
+                "text": "其实游戏设计机制才是最难的点吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:08",
+              "text": "但现在成本降低了，所以新品游戏节冒出来大量的构思"
+            },
+            {
+              "speaker": 1,
+              "time": "01:08",
+              "text": "主要是缝合",
+              "quote": {
+                "speaker": 3,
+                "text": "但现在成本降低了，所以新品游戏节冒出来大量的构思"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:08",
+              "text": "我在试图用AI迭代这个过程"
+            },
+            {
+              "speaker": 2,
+              "time": "01:08",
+              "text": "给游戏套一个cli"
+            },
+            {
+              "speaker": 3,
+              "time": "01:08",
+              "text": "批量的吸血鬼幸存者like",
+              "quote": {
+                "speaker": 3,
+                "text": "但现在成本降低了，所以新品游戏节冒出来大量的构思"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:08",
+              "text": "然后让AI玩 扮演用户"
+            },
+            {
+              "speaker": 3,
+              "time": "01:10",
+              "text": "扯远点，我感觉现在ai 4 games最欠缺的反而是审美这块，以及如何去闭环的验证一个游戏的可玩性，类似人类在做一个游戏之前先抛开各种美术素材先做个游戏机制的验证demo"
+            },
+            {
+              "speaker": 2,
+              "time": "01:10",
+              "text": "所以我觉得给一个ai能快速验证的游戏cli很重要"
+            },
+            {
+              "speaker": 1,
+              "time": "01:10",
+              "text": "以后游戏很可能不是给人玩的 而是给大家的agent玩的"
+            },
+            {
+              "speaker": 3,
+              "time": "01:11",
+              "text": "问题是给agent玩图啥呢",
+              "quote": {
+                "speaker": 1,
+                "text": "以后游戏很可能不是给人玩的 而是给大家的agent玩的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:11",
+              "text": "定制主播 我也觉得这一点很棒",
+              "quote": {
+                "speaker": 1,
+                "text": "以后游戏很可能不是给人玩的 而是给大家的agent玩的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:11",
+              "text": "我感觉游戏是最human centered的东西啊"
+            },
+            {
+              "speaker": 2,
+              "time": "01:11",
+              "text": "就跟看主播玩游戏一个性质"
+            },
+            {
+              "speaker": 3,
+              "time": "01:12",
+              "text": "大多数游戏直播可能是以游戏为话题发生器的杂谈，大家看的并不是主播玩游戏本身"
+            },
+            {
+              "speaker": 4,
+              "time": "01:12",
+              "text": "比如指挥豆包打通艾尔登法环"
+            },
+            {
+              "speaker": 4,
+              "time": "01:12",
+              "text": "妈的 比登天还难啊"
+            },
+            {
+              "speaker": 2,
+              "time": "01:13",
+              "text": "emmm 就是得难度高的游戏",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 除非是那种竞技类游戏"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:13",
+              "text": "我感觉可以让ai玩三国杀、炉石[旺柴][旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:16",
+              "text": "tripo接进管线也跑的不好看"
+            }
+          ]
+        },
+        {
+          "category": "模型评测",
+          "title": "Kimi K3.1 Pro 的 3D 演示引发讨论：纯代码生成的边界与外部 3D 工具调用",
+          "text": "有群友转来一则 Reddit 帖子链接，称 Kimi K3.1 Pro 的 3D 生成演示被指“造假”。围绕 3D 生成是靠纯代码还是外部工具调用，群里多位成员给出了各自的看法：一位群友提到，之前 GPT-6 的相关演示案例其实也是配合其他工具完成的；另一位群友补充 5.5 同样如此，并认为 3D 还是靠端到端（e2e）生成居多，纯靠 coding 做不了这类 3D；第三位群友则认为市面上能做 3D 的基本上就 Tripo 和 Hyper 两家，并听说 Kimi 接的是 Tripo；还有群友反问，调用 Tripo 大家都在调，难道真指望让 agent 手搓网格。\n\n一位看过官方 blog 的群友指出，官方 blog 本就说明了有借助外部工具，并分享了自己的实测体验：在 3D 建模加姿态设置任务上，这位群友自己测下来 K3.1 Pro 比听不懂人话的 Astra 更强（前面提到 GPT-6 案例的群友也好奇追问了具体测法）。另一位群友评价这说明其 tool call 能力不错；而前面聊到 Tripo 的群友则补充了反向体验，认为单看建模其实还好，但拿来做游戏反正还是做不出来。",
+          "emphasis": [
+            "认为 3D 还是靠端到端（e2e）生成居多，纯靠 coding 做不了这类 3D",
+            "这位群友自己测下来 K3.1 Pro 比听不懂人话的 Astra 更强"
+          ],
+          "aiComment": "按群友的讨论，光看演示还得分清哪些是代码生成，哪些靠外部工具，调得利索也是 Agent 的本事。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:54",
+              "text": "其实之前GPT-6什么的那些case也都是配合别的工具做的"
+            },
+            {
+              "speaker": 2,
+              "time": "10:54",
+              "text": "官方blog我看也是说明了有借助工具的"
+            },
+            {
+              "speaker": 3,
+              "time": "10:54",
+              "text": "3d还是e2e生成的多吧"
+            },
+            {
+              "speaker": 3,
+              "time": "10:54",
+              "text": "coding 3d做不了 之类的"
+            },
+            {
+              "speaker": 2,
+              "time": "10:55",
+              "text": "我测下来 3.1pro比astra都强"
+            },
+            {
+              "speaker": 2,
+              "time": "10:55",
+              "text": "3d建模+姿态设置"
+            },
+            {
+              "speaker": 2,
+              "time": "10:55",
+              "text": "astra听不懂人话"
+            },
+            {
+              "speaker": 4,
+              "time": "10:55",
+              "text": "说明tool call不错啊"
+            },
+            {
+              "speaker": 5,
+              "time": "10:56",
+              "text": "建模其实还好",
+              "quote": {
+                "speaker": 2,
+                "text": "3d建模+姿态设置"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "10:56",
+              "text": "做游戏反正做不出来"
+            },
+            {
+              "speaker": 6,
+              "time": "10:56",
+              "text": "调tripo这个事"
+            },
+            {
+              "speaker": 6,
+              "time": "10:56",
+              "text": "不是谁都在调么"
+            },
+            {
+              "speaker": 6,
+              "time": "10:57",
+              "text": "难道真的让agent手搓么"
+            }
+          ]
+        },
+        {
+          "category": "模型讨论",
+          "title": "从“蒸馏”舆论到论文文风变化：群友热议模型工具实用性与迭代猜测",
+          "text": "在聊完 3D 工具调用后，一位群友提到 K3.1 刚发布那个凌晨还没看到关于蒸馏、抄袭的说法，随后却出现了持续 30 多个小时的“蒸馏”舆论轰炸。另一位群友个人认为，数据总量本就有限，各家模型实则都在互相蒸馏；在这位群友看来，如果把 agent 当作工具使用，不管通过什么渠道，只要模型越来越好用、能帮自己省时间省精力就行。\n\n还有一位群友结合日常写论文的体感提出猜测：自己用 Opus 4.6 写论文时原本很自然，换成 4.7 和 4.8 后文风就变得像 GPT 一样，摘要喜欢分成好几段，还冒出“反事实”这类黑话，因此怀疑当时可能没少蒸馏 GPT，并猜测 4.6 是团队自己训的，后续重心可能转向了 Fable，而 4.7 和 4.8 是在 4.6 基础上做的后训练。另一位群友则吐槽 4.7 是自己用着最“烧心”的版本，并开玩笑说那也可能是 Fable 训出来的。",
+          "emphasis": [
+            "在这位群友看来，如果把 agent 当作工具使用，不管通过什么渠道，只要模型越来越好用、能帮自己省时间省精力就行",
+            "换成 4.7 和 4.8 后文风就变得像 GPT 一样，摘要喜欢分成好几段"
+          ],
+          "aiComment": "摘要爱分段、高频蹦术语，模型迭代中的文风漂移最容易让常写论文的用户产生跨模型既视感。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:56",
+              "text": "k3.1刚出来那个凌晨 没看到什么蒸馏 抄袭 啥的"
+            },
+            {
+              "speaker": 1,
+              "time": "10:56",
+              "text": "后面就开始30+小时的 蒸馏 舆论轰炸"
+            },
+            {
+              "speaker": 2,
+              "time": "10:57",
+              "text": "实则都在互相蒸馏吧"
+            },
+            {
+              "speaker": 2,
+              "time": "10:57",
+              "text": "数据本来就那么多，不蒸馏才怪"
+            },
+            {
+              "speaker": 2,
+              "time": "10:58",
+              "text": "反正我觉得 如果你把agent当工具使用，巴不得它越来越好（不管是蒸馏还是什么渠道）这样我才省时间省精力"
+            },
+            {
+              "speaker": 3,
+              "time": "11:28",
+              "text": "opus4.7 4.8那会a/应该没少蒸gpt"
+            },
+            {
+              "speaker": 3,
+              "time": "11:29",
+              "text": "那会写论文4.6写的好好的，换成4.7 4.8就变得和gpt一样，摘要喜欢写好几段，那种黑话比如什么反事实啥的全来了"
+            },
+            {
+              "speaker": 4,
+              "time": "11:30",
+              "text": "所以4.7是我用着最烧心的"
+            }
+          ]
+        },
+        {
+          "category": "工程实践",
+          "title": "编程 Agent 额度突袭重置，怎么花光额度又不外包代码理解",
+          "text": "下午两点多，多位编程工具用户发现自己的 Agent 额度在不到 24 小时内突然 100% 重置，不少人的上一轮额度还没来得及动。有人还提到 Kimi 也有一次 25% 的额度重置（先说是前一天，后又拿不准是不是当天早上），有群友猜测是算力吃紧所致。\n\n为了不浪费刷新的额度，有人表示真得睡前挂个 `/goal`；另一位群友则分享了快速消耗额度的实测办法：直接挂 goal，开启 fast 模式并 fan out 多个 subagents 去生成动画或网页讲解，实测一个多小时就能干爆 80% 额度，不过平时最好保持正常用量习惯，留到重置前三五个小时再集中造，免得形成依赖。也有人选择直接开 Astra ultra fast，按 Codex、CC、Antigravity 的顺序轮流用完。\n\n在真实干活的工作流上，一位群友采用 1017 写代码、让 K3.1 和 GPT 来回交叉审核的做法。另一位群友提醒，让模型来回审核有时会越审越繁杂，解决一个问题又派生出一个新问题，人必须自己设定带限制的审核约束；前者对此总结为“外包思考 但是不外包理解”。也有群友劝大家别患上“额度焦虑症”，与其盯着剩余额度使劲蹬，不如看最终的实际产出，比如把个人网站做成内置小游戏的网页；前面分享交叉审核的群友也提到，自己正把多年积压的博客笔记整理成翻书式的网页博物馆。",
+          "emphasis": [
+            "自己的 Agent 额度在不到 24 小时内突然 100% 重置",
+            "开启 fast 模式并 fan out 多个 subagents 去生成动画或网页讲解，实测一个多小时就能干爆 80% 额度",
+            "让模型来回审核有时会越审越繁杂，解决一个问题又派生出一个新问题",
+            "外包思考 但是不外包理解"
+          ],
+          "aiComment": "有人筹划睡前挂任务，有人实测开 fast 挂满 subagents 一小时干爆 80% 额度，现在是人逼着 Agent 突击花钱。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:07",
+              "text": "刚刚是不是突然又重置了？"
+            },
+            {
+              "speaker": 2,
+              "time": "14:08",
+              "text": "? 不是 我还一点没用啊"
+            },
+            {
+              "speaker": 2,
+              "time": "14:09",
+              "text": "都不到24小时... 这么玩是吧"
+            },
+            {
+              "speaker": 3,
+              "time": "14:12",
+              "text": "100%重置"
+            },
+            {
+              "speaker": 3,
+              "time": "14:13",
+              "text": "真得睡前挂个/goal了"
+            },
+            {
+              "speaker": 4,
+              "time": "15:00",
+              "text": "直接挂goal fan out subagents 让他做动画做网页讲解呗"
+            },
+            {
+              "speaker": 4,
+              "time": "15:00",
+              "text": "开fast"
+            },
+            {
+              "speaker": 4,
+              "time": "15:01",
+              "text": "实测一个多小时能干爆80%"
+            },
+            {
+              "speaker": 2,
+              "time": "15:03",
+              "text": "重置25%..."
+            },
+            {
+              "speaker": 4,
+              "time": "15:03",
+              "text": "kimi没那么多算力给咱们重置吧 他只重置了25%"
+            },
+            {
+              "speaker": 2,
+              "time": "15:03",
+              "text": "1017干活 k3.1和gpt 来回审"
+            },
+            {
+              "speaker": 4,
+              "time": "15:08",
+              "text": "个人感觉还是平时保持合理用量习惯 别随便开astra开fast 这样容易上瘾"
+            },
+            {
+              "speaker": 4,
+              "time": "15:09",
+              "text": "留到重置前三五个小时使劲造"
+            },
+            {
+              "speaker": 5,
+              "time": "15:09",
+              "text": "我感觉来回审核有时候越审核约繁杂，感觉解决一个又新生出一个",
+              "quote": {
+                "speaker": 2,
+                "text": "1017干活 k3.1和gpt 来回审"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:10",
+              "text": "还得是自己有taste"
+            },
+            {
+              "speaker": 2,
+              "time": "15:11",
+              "text": "外包思考 但是不外包理解"
+            },
+            {
+              "speaker": 5,
+              "time": "15:11",
+              "text": "对的，我感觉还是要自己做出限制的审核约束，ai有时候审核审的很奇怪"
+            },
+            {
+              "speaker": 6,
+              "time": "15:13",
+              "text": "用完了codex用cc，用完了cc用antigravity"
+            },
+            {
+              "speaker": 7,
+              "time": "17:23",
+              "text": "还是别看着额度了，看产出吧"
+            },
+            {
+              "speaker": 7,
+              "time": "17:23",
+              "text": "要不然使劲蹬也是白蹬，我的想法（"
+            },
+            {
+              "speaker": 7,
+              "time": "17:24",
+              "text": "而且总有那种额度焦虑症，lol"
+            },
+            {
+              "speaker": 2,
+              "time": "17:26",
+              "text": "哦对 我也在更新自己的博客"
+            },
+            {
+              "speaker": 2,
+              "time": "17:26",
+              "text": "这么多年七七八八好多笔记 都整理一下"
+            },
+            {
+              "speaker": 2,
+              "time": "17:28",
+              "text": "把笔记做成那种博物馆 多好啊!"
+            },
+            {
+              "speaker": 2,
+              "time": "17:28",
+              "text": "慢慢走 翻书一样看笔记"
+            }
+          ]
+        },
+        {
+          "category": "商业落地",
+          "title": "国内远程做美国 To B 的 Agent 落地能跑通吗？群友讨论回款与企业数据获取难题",
+          "text": "有群友发出两张招募中国区 GTM 合伙人的帖子截图。发帖的硅谷 Agent 团队称，以为靠 vibe coding 坐在中国上线就能轻松挣美金是卖课视频看多了，目前 Agent 变现基本在 To B 企业服务端，得一家家实地跑美国企业；他们打算让中国区合伙人承接 online marketing 并搭建工程 workflow，实现 24×7 服务全球，同时又在宣传图上写着“厌倦极度内卷”。\n\n分享截图的群友看着“厌倦极度内卷”配上 24×7 的要求直呼绷不住，怀疑目前是否真有人靠这个赚到钱，并提到自己认识的做 FDE（前线部署工程师）的人到现在连回款都没结清。另一位群友感叹远程加“赚美金花人民币”确实诱惑很大，但不知道这种模式有没有人跑通；分享截图的群友随后补充，这其实不好做，如果人在中国做远程 FDE，要去拿美国公司的数据，光是这一点就很难了。",
+          "emphasis": [
+            "实现 24×7 服务全球，同时又在宣传图上写着“厌倦极度内卷”",
+            "自己认识的做 FDE（前线部署工程师）的人到现在连回款都没结清",
+            "如果人在中国做远程 FDE，要去拿美国公司的数据，光是这一点就很难了"
+          ],
+          "aiComment": "招聘图上一边写着厌倦极度内卷，一边要求 24x7 服务全球，这文字游戏的张力比 Agent 落地还大。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:24",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:24",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:24",
+              "text": "厌倦极度内卷，然后24*7啥意思"
+            },
+            {
+              "speaker": 1,
+              "time": "01:25",
+              "text": "我感觉很扯 目前真有人靠这个赚到钱么，我认识的到现在做FDE的 回款都没结呢"
+            },
+            {
+              "speaker": 2,
+              "time": "01:26",
+              "text": "我感觉现在这个确实诱惑特别大啊"
+            },
+            {
+              "speaker": 2,
+              "time": "01:26",
+              "text": "赚美金花人民币"
+            },
+            {
+              "speaker": 2,
+              "time": "01:26",
+              "text": "再加远程"
+            },
+            {
+              "speaker": 2,
+              "time": "01:26",
+              "text": "这种事情，就是不知道有没有人跑通"
+            },
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "其实不好做，难听点来说 ，你在中国做远程的fde 要去拿美国公司的数据",
+              "quote": {
+                "speaker": 2,
+                "text": "我感觉现在这个确实诱惑特别大啊"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "这一点就很难了"
+            }
+          ]
+        },
+        {
+          "category": "模型与评测",
+          "title": "从 33B 新模型 Nanbeige 聊到评测标准：建议公开测试轨迹与 Evaluator 维护讨论",
+          "text": "有群友注意到新开源的 33B 模型 Nanbeige，提到它的评测分数比 Qwen3.8 27B 显著高出一截。另一位群友借机建议，模型发布时最好顺带把跑 benchmark 的轨迹也公开出来，这一提议得到了前者的支持。这随后引出了关于评测标准的一段追问：有群友好奇，其他领域的 benchmark 在各厂自测时是不是也会修改 evaluator？因为感觉在 CUA（Computer Using Agent）领域，似乎各家都在自己维护一套评分器。对此，提议公开轨迹的群友回答其他领域确实会修 evaluator，另一位群友也对 CUA 领域各自维护一套的说法表示认同。",
+          "emphasis": [
+            "模型发布时最好顺带把跑 benchmark 的轨迹也公开出来",
+            "在 CUA（Computer Using Agent）领域，似乎各家都在自己维护一套评分器"
+          ],
+          "aiComment": "光晒成绩单已经不够看了，把跑分轨迹和评分器配置一起端上来，大家对起账来才省心。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "boss直聘新开源的那个33b模型看着还挺强？"
+            },
+            {
+              "speaker": 1,
+              "time": "01:32",
+              "text": "nanbeige"
+            },
+            {
+              "speaker": 1,
+              "time": "01:33",
+              "text": "分数比qwen3.8 27显著高"
+            },
+            {
+              "speaker": 2,
+              "time": "01:33",
+              "text": "其实我比较建议这些模型发的时候"
+            },
+            {
+              "speaker": 2,
+              "time": "01:33",
+              "text": "都顺便把自己测的benchmark的轨迹也发一下"
+            },
+            {
+              "speaker": 3,
+              "time": "01:40",
+              "text": "话说其他 benchmark 各家厂测的时候会修 evaluator 吗"
+            },
+            {
+              "speaker": 3,
+              "time": "01:40",
+              "text": "cua 这里我感觉似乎各家都自己维护一套"
+            },
+            {
+              "speaker": 2,
+              "time": "01:45",
+              "text": "会",
+              "quote": {
+                "speaker": 3,
+                "text": "话说其他 benchmark 各家厂测的时候会修 evaluator 吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "01:45",
+              "text": "我也觉得",
+              "quote": {
+                "speaker": 3,
+                "text": "cua 这里我感觉似乎各家都自己维护一套"
+              }
+            }
+          ]
+        },
+        {
+          "category": "社区分享",
+          "title": "群友分享入选 NeurIPS 2026 Creative AI Track 的人类主导 AI 音乐工作 MINT",
+          "text": "有群友分享了 AI 音乐工作 MINT 的相关笔记链接与背景介绍。据分享者介绍，这项工作最初是出于兴趣，想做一个“人类真正起主导作用的AI音乐系统”；分享者称该工作此前在社区获得了一定关注度（自报小红书 114 收藏、知乎 113 收藏、GitHub 24 star），随后投递并入选了 NeurIPS 2026 Creative AI Track。",
+          "emphasis": [
+            "想做一个“人类真正起主导作用的AI音乐系统”"
+          ],
+          "aiComment": "当不少生成工具都在比拼一键包办时，把研究重心放在让人类真正主导音乐创作，反而更贴近创作者的实际诉求。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:58",
+              "text": "想搞一个人类真正起主导作用的AI音乐系统"
+            },
+            {
+              "speaker": 1,
+              "time": "19:58",
+              "text": "是 Neurips 2026 Creative AI Track"
+            }
+          ]
+        },
+        {
+          "category": "模型干预",
+          "title": "有群友转述将 Qwen3.5 4B 调成“Evil Qwen”的神经元干预思路并征集实测",
+          "text": "有群友在群里转述了一段针对 Qwen3.5 4B 的神经元干预（neuron steering）思路，称通过对特定神经元进行干预可以调出“Evil Qwen”，并在群内询问有没有人愿意去试试。另一位群友则调侃反问“真的不会玩坏么”，群内讨论暂止于征询阶段，尚未有人反馈实测结果。",
+          "emphasis": [
+            "称通过对特定神经元进行干预可以调出“Evil Qwen”"
+          ],
+          "aiComment": "群里刚抛出神经元干预的试验邀请，大家先担心起了模型会不会被玩坏，群里还没等来实测反馈。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:31",
+              "text": "有佬可以去试试嘛[色]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:31",
+              "text": "真的不会玩坏么[旺柴]"
+            }
+          ]
+        },
+        {
+          "category": "社区分享",
+          "title": "“Qwen 基模 × LLM4Game”笔记分享与端到端生成 3A 游戏的发问",
+          "text": "有群友转引了一篇题为“Qwen 基模 × LLM4Game”的小红书笔记链接，并顺势发问：Qwen 能否端到端做出 3A 大作？群内未就该问题展开进一步实测或定论。",
+          "emphasis": [
+            "发问：Qwen 能否端到端做出 3A 大作"
+          ],
+          "aiComment": "刚看到基模结合游戏的笔记就畅想端到端直出 3A 大作，愿望很丰满，但眼下连小游戏的资产管线都还在闯关。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:01",
+              "text": "[链接] Qwen 基模 × LLM4Game"
+            },
+            {
+              "speaker": 1,
+              "time": "01:01",
+              "text": "qwen可以端到端出3A大作吗[可怜]"
+            }
+          ]
+        },
+        {
+          "category": "社区建议",
+          "title": "群友提议将社区日报做成短视频形式以便被动刷到",
+          "text": "午夜时分，有群友提议将社区日报做成类似“每周ai速递”的短视频形式发布到平台上，认为大家未必每天主动去看看板消息，但如果做成短视频，平时刷着刷着就能被动接收信息。另一位群友回复表示收到建议并会考虑一下；针对用 AI 直出视频的想法，也有另一位群友补充说成本还挺贵。",
+          "emphasis": [
+            "如果做成短视频，平时刷着刷着就能被动接收信息"
+          ],
+          "aiComment": "看板文字还得主动点开，短视频刷着刷着就能喂到嘴边，不过让 AI 天天直出视频日报，账单怕是要先顶不住。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:44",
+              "text": "话说，这个agenthub的日报，能不能做成短视频的形式呢，类似于每周ai速递这种。这样的话感觉容易被动接收信息，然后发布在一些平台上。"
+            },
+            {
+              "speaker": 2,
+              "time": "00:46",
+              "text": "收到，考虑一下，感谢建议",
+              "quote": {
+                "speaker": 1,
+                "text": "话说，这个agenthub的日报，能不能做成短视频的形式呢，类似于每周ai速递这种。这样的话感觉容易被动接收信息，然后发布在一些平台上。"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "1.6 万 Token 前缀与缓存：Claude Code 的成本账",
+      "theme": "算清长程任务下的模型 Token 效率与计费账，探讨 1M 上下文触发 Compact 的合理水位线。",
+      "note": "2026-10-26 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Harness 与成本",
+          "title": "Claude Code 被调侃“credits回收计划”：1.6 万 Token 的系统前缀与脆弱的缓存",
+          "text": "有群友觉得在 Claude Code（cc）上用 Astra 比在 Codex 上更讲人话，但另一位群友提醒 cc 的 token 效率低很多，称在专门针对 harness 的评测里经常垫底。当晚这位群友贴出一张微信公众号文章截图（其中图表标注转引自论文《What Does a Harness Buy? Tokens, Mostly》），称 cc 在成本端开销高昂，调侃其堪称“credits回收计划”。\n\n该公众号截图将 harness 的开销拆解为两个乘数：首先是每一步都要重发给模型的系统提示和工具说明，在该文对比的配置中，Claude Code 这一段达 16,581 token，而 OpenCode 是 7,025，mini-SWE-agent 只有 829；其次是执行步数，图中在 GLM 上的平均步数也是 Claude Code 最高（88 步），高于 mini-SWE-agent 的 80 步和 OpenCode 的 55 步。折算成图中同一批题目的单题人民币成本，按 DeepSeek 价格（命中 0.05、未命中 1.5、输出 4.5 元/M tokens）计算，mini-SWE-agent 单题为 1.02 元，比 Claude Code 的 0.98 元更高，OpenCode 最低为 0.66 元；按智谱价格（命中 0.23、未命中 0.8、输出 2.8 元/M tokens）计算，则是 Claude Code 单题最高，达到 1.81 元，明显高于 mini-SWE-agent 的 0.97 元和最低的 OpenCode（0.56 元）。\n\n在早先讨论 cc 的缓存机制时，有人怀疑是不是用非 Anthropic 模型时前面会被改东西导致缓存不命中，另一位群友说那是特定版本的问题，后面似乎修过了。有群友分享了 Claude 官方关于构建 Claude Code 的博客及截图，文章坦言维护 prompt caching 的顺序非常脆弱，团队此前曾多次打破缓存顺序，历史原因包括在静态 system prompt 中加入详细时间戳、以非确定性方式打乱工具定义顺序，以及更新工具参数（例如 Agent 工具可调用哪些智能体）。",
+          "emphasis": [
+            "称 cc 在成本端开销高昂，调侃其堪称“credits回收计划”",
+            "mini-SWE-agent 单题为 1.02 元，比 Claude Code 的 0.98 元更高，OpenCode 最低为 0.66 元",
+            "历史原因包括在静态 system prompt 中加入详细时间戳、以非确定性方式打乱工具定义顺序，以及更新工具参数"
+          ],
+          "aiComment": "同一张图换个模型价目表，成本排名就会变：mini-SWE-agent 在 DeepSeek 价格下还比 Claude Code 贵一点。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Claude Code：Prompt Caching Is Everything",
+              "url": "https://claude.dev/blog/lessons-from-building-claude-code-prompt-caching-is-everything/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:41",
+              "text": "astra在cc上用感觉比codex上更讲人话[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "13:41",
+              "text": "也可能是我比较喜欢claude desktop的ui吧 （maybe带了一点心理作用"
+            },
+            {
+              "speaker": 2,
+              "time": "13:43",
+              "text": "但是cc好像token效率低很多",
+              "quote": {
+                "speaker": null,
+                "text": "astra在cc上用感觉比codex上更讲人话[Doge]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:44",
+              "text": "我看有些专门针对harness的评测，cc的token效率经常垫底"
+            },
+            {
+              "speaker": 1,
+              "time": "13:44",
+              "text": "群友有具体研究过相关机制的吗",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 但是cc好像token效率低很多"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:44",
+              "text": "指个路[嘿哈]",
+              "quote": {
+                "speaker": 2,
+                "text": "我看有些专门针对harness的评测，cc的token效率经常垫底"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:45",
+              "text": "是不是之前说的，cc用非a\\模型会在前面改东西，导致缓存不命中？"
+            },
+            {
+              "speaker": 2,
+              "time": "13:46",
+              "text": "这个是某个版本，后面好像修了",
+              "quote": {
+                "speaker": 3,
+                "text": "是不是之前说的，cc用非a\\模型会在前面改东西，导致缓存不命中？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:54",
+              "text": "https://claude.dev/blog/lessons-from-building-claude-code-prompt-caching-is-everything/"
+            },
+            {
+              "speaker": 3,
+              "time": "13:55",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "又刷到一个评测，cc在成本端又是垫底（credits回收计划说是）",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 指个路[嘿哈]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "[图片]"
+            }
+          ]
+        },
+        {
+          "category": "模型行为与计费",
+          "title": "为什么新模型越来越“不说人话”：Token 效率与长程成本账",
+          "text": "有群友分享了 arXiv 论文《Why is AI-generated language so hard to understand?》（2610.29162），并猜测 AI“不说人话”可能是 reward 的原因。另一位群友觉得是 coding 优化过度，吐槽现在模型说的话自己已经看不懂了，相比之下 DeepSeek 解释得更好；还有人怀念 5.5 版本的 Codex，当时不仅说人话，甚至还能理解人的意图。\n\n谈及模型文风变化的原因，有群友认为 5.6 和 6 主打 token 效率，牺牲可读性也许就是代价。另一位群友认为：目前的 1M 上下文对真正的长程任务依然不够用，模型只有提高 token 效率才好刷长程任务的分；同时，OpenAI 面向用户是按 token 线性收费，但实际成本与当前 token 长度呈非线性关系，压低 token 消耗也能帮厂商降低成本。有人追问这种线性收费是不是把长程任务的 token 成本转嫁到了短程任务上；对方表示差不多就是这样，因为实际成本很难计价，按线性收费更好拉账单。",
+          "emphasis": [
+            "并猜测 AI“不说人话”可能是 reward 的原因",
+            "有群友认为 5.6 和 6 主打 token 效率，牺牲可读性也许就是代价"
+          ],
+          "aiComment": "模型说话越来越让人看不懂，群友们怀疑是省 token 与刷长程分的代价，再算上非线性成本这笔账，受累的终究是读输出的人。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Why is AI-generated language so hard to understand?",
+              "url": "https://arxiv.org/abs/2610.29162v1"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:21",
+              "text": "https://arxiv.org/abs/2610.29162v1"
+            },
+            {
+              "speaker": 1,
+              "time": "13:23",
+              "text": "ai不说人话可能是reward的原因"
+            },
+            {
+              "speaker": 2,
+              "time": "13:23",
+              "text": "感觉是coding优化过度了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:26",
+              "text": "5.5的时候codex还是说人话的",
+              "quote": {
+                "speaker": 2,
+                "text": "感觉是coding优化过度了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:26",
+              "text": "甚至还能理解人的意图"
+            },
+            {
+              "speaker": 2,
+              "time": "13:29",
+              "text": "现在他说的我已经看不懂了，感觉ds解释得更好点"
+            },
+            {
+              "speaker": 4,
+              "time": "13:29",
+              "text": "5.6和6主打token效率，也许可阅读性就是代价"
+            },
+            {
+              "speaker": 5,
+              "time": "13:40",
+              "text": "现在上下文有限，1m真正的长程任务还是不够用，token效率高了才好刷长程的分，然后openai那边成本也会低一些（收费是按token线性收的，但是实际成本和当前token长度是非线性关系）",
+              "quote": {
+                "speaker": 4,
+                "text": "5.6和6主打token效率，也许可阅读性就是代价"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:01",
+              "text": "这个线性收费，是把长程任务的token成本转嫁到短程任务的token成本中了么[发呆]",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 现在上下文有限，1m真正的长程任务还是不够用，token效率高了才好刷长程的分，然后openai那边成本也会低一些（收费是按token线性收的，但是实际成本和当前token长度是非线性关系）"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:26",
+              "text": "差不多，因为实际成本很难计价，线性收费比较好拉账单",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这个线性收费，是把长程任务的token成本转嫁到短程任务的token成本中了么[发呆]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "上下文管理",
+          "title": "1M 上下文撑到多少该 Compact？压缩水位线与 CoT 语言漂移",
+          "text": "用 1M 上下文模型时，到底该在多少 token 时触发 compact？有群友抛出这个问题，说看到有人建议 900k，但自己每次用到七八百 k 就开始慌，觉得模型快撑不住了。有人估计 Codex 自动触发压缩大约在窗口的 80%–90%，但几位群友都倾向于把水位线压得更低：有人听说 400k 会比较好；另一位群友认为如果压缩做得足够好，模型在 200k–400k 区间效果最好。还有群友觉得现在所有模型在 1M 上下文附近性能都会衰减，并提到有论文研究过，好像是 RoPE 的问题。\n\n除了看 token 数量，触发时机也可以跟着工作节奏走。有群友建议一旦感觉任务大主题切换就提前 compact；另一位群友分享了一个兼顾 cache 时效的小技巧：每当暂时放下项目（比如中午去吃饭前）就顺手 compact 一下。至于 compact 前后的行为变化，一位平时主力用 Qoder 的群友发现，不 compact 时模型能正常用英文思考、中文回复，但只要 compact 过一次，模型连最终输出也会开始说英文，这位群友怀疑这可能与自己手动加入了让模型 CoT 全用英文的规则有关。",
+          "emphasis": [
+            "另一位群友认为如果压缩做得足够好，模型在 200k–400k 区间效果最好",
+            "一位平时主力用 Qoder 的群友发现，不 compact 时模型能正常用英文思考、中文回复，但只要 compact 过一次，模型连最终输出也会开始说英文"
+          ],
+          "aiComment": "标着 1M 的窗口，用到七八百 k 人先慌了，午饭前还得顺手 compact 一下，像极了出门前拔电熨斗。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:18",
+              "text": "话说 有人专门研究before compact 和after compact以及long horizon下的多轮compact吗"
+            },
+            {
+              "speaker": 2,
+              "time": "14:29",
+              "text": "反正我是发现qoder那边只要compact过一次，模型就会开始说英文，可能因为我手动加入了让模型的cot全用英文的规则。但是不compact时，模型是可以正常用中文和我说话的（cot是英文，最终输出是中文）",
+              "quote": {
+                "speaker": 1,
+                "text": "话说 有人专门研究before compact 和after compact以及long horizon下的多轮compact吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:33",
+              "text": "其他harness可能也有类似问题，但我没测过"
+            },
+            {
+              "speaker": 3,
+              "time": "15:40",
+              "text": "现在大家用 1m 上下文 ，一般多少 m 开始 compact 么"
+            },
+            {
+              "speaker": 4,
+              "time": "15:42",
+              "text": "codex自动触发压缩机制的，估计是到了窗口的80%-90%吧"
+            },
+            {
+              "speaker": 5,
+              "time": "15:46",
+              "text": "如果压缩做的足够好，200k-400k 模型效果是最好的"
+            },
+            {
+              "speaker": 1,
+              "time": "15:46",
+              "text": "但是有一个trick是 考虑cache的实效的话 一般来说 当你暂时不做这个项目的时候就compact一下 比如说中午要去吃饭了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:50",
+              "text": "这个要看任务吧，如果感觉任务大主题切换了，最好提前compact",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 现在大家用 1m 上下文 ，一般多少 m 开始 compact 么 \n\n我在哪里看的 tibo 好像建议的是 900k，我每次到七八百 k 就有点慌了，感觉模型快撑不住了[呲牙]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:50",
+              "text": "感觉现在应该所有模型在1m上下文附近性能都会衰减的"
+            },
+            {
+              "speaker": 2,
+              "time": "15:50",
+              "text": "有些paper研究过的，好像是rope的问题",
+              "quote": {
+                "speaker": 2,
+                "text": "感觉现在应该所有模型在1m上下文附近性能都会衰减的"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

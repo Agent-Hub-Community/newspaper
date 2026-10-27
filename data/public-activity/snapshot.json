@@ -1,32 +1,32 @@
 {
-  "generatedAt": "2026-10-25T16:00:00.000Z",
+  "generatedAt": "2026-10-26T16:00:00.000Z",
   "windows": {
     "week": {
-      "from": "2026-10-19",
-      "through": "2026-10-25"
+      "from": "2026-10-26",
+      "through": "2026-10-26"
     },
     "month": {
       "from": "2026-10-01",
-      "through": "2026-10-25"
+      "through": "2026-10-26"
     },
     "all": {
       "from": null,
-      "through": "2026-10-25"
+      "through": "2026-10-26"
     }
   },
   "ranks": {
     "week": {
       "leaders": [
         {
-          "key": "member-560",
+          "key": "member-580",
           "rank": 1
         },
         {
-          "key": "member-561",
+          "key": "member-581",
           "rank": 2
         },
         {
-          "key": "member-562",
+          "key": "member-582",
           "rank": 3
         }
       ]
@@ -34,15 +34,15 @@
     "month": {
       "leaders": [
         {
-          "key": "member-560",
+          "key": "member-580",
           "rank": 1
         },
         {
-          "key": "member-561",
+          "key": "member-583",
           "rank": 2
         },
         {
-          "key": "member-563",
+          "key": "member-584",
           "rank": 3
         }
       ]
@@ -50,15 +50,15 @@
     "all": {
       "leaders": [
         {
-          "key": "member-560",
+          "key": "member-580",
           "rank": 1
         },
         {
-          "key": "member-563",
+          "key": "member-584",
           "rank": 2
         },
         {
-          "key": "member-561",
+          "key": "member-583",
           "rank": 3
         }
       ]
@@ -67,8 +67,8 @@
   "groups": [
     {
       "id": "group-1",
-      "first": "2026-03-22",
-      "last": "2026-10-24",
+      "first": "2026-09-22",
+      "last": "2026-10-26",
       "available": true,
       "daily": {
         "2026-08-24": {
@@ -833,21 +833,37 @@
         },
         "2026-10-25": {
           "leaders": []
+        },
+        "2026-10-26": {
+          "leaders": [
+            {
+              "key": "member-580",
+              "rank": 1
+            },
+            {
+              "key": "member-585",
+              "rank": 2
+            },
+            {
+              "key": "member-586",
+              "rank": 3
+            }
+          ]
         }
       },
       "ranks": {
         "week": {
           "leaders": [
             {
-              "key": "member-560",
+              "key": "member-580",
               "rank": 1
             },
             {
-              "key": "member-561",
+              "key": "member-585",
               "rank": 2
             },
             {
-              "key": "member-570",
+              "key": "member-586",
               "rank": 3
             }
           ]
@@ -855,15 +871,15 @@
         "month": {
           "leaders": [
             {
-              "key": "member-560",
+              "key": "member-580",
               "rank": 1
             },
             {
-              "key": "member-570",
+              "key": "member-594",
               "rank": 2
             },
             {
-              "key": "member-571",
+              "key": "member-595",
               "rank": 3
             }
           ]
@@ -871,15 +887,15 @@
         "all": {
           "leaders": [
             {
-              "key": "member-560",
+              "key": "member-580",
               "rank": 1
             },
             {
-              "key": "member-571",
+              "key": "member-595",
               "rank": 2
             },
             {
-              "key": "member-572",
+              "key": "member-596",
               "rank": 3
             }
           ]
@@ -889,7 +905,7 @@
     {
       "id": "group-2",
       "first": "2026-09-23",
-      "last": "2026-10-25",
+      "last": "2026-10-26",
       "available": true,
       "daily": {
         "2026-08-24": {
@@ -1472,21 +1488,37 @@
               "rank": 3
             }
           ]
+        },
+        "2026-10-26": {
+          "leaders": [
+            {
+              "key": "member-587",
+              "rank": 1
+            },
+            {
+              "key": "member-588",
+              "rank": 2
+            },
+            {
+              "key": "member-589",
+              "rank": 3
+            }
+          ]
         }
       },
       "ranks": {
         "week": {
           "leaders": [
             {
-              "key": "member-573",
+              "key": "member-587",
               "rank": 1
             },
             {
-              "key": "member-574",
+              "key": "member-588",
               "rank": 2
             },
             {
-              "key": "member-575",
+              "key": "member-589",
               "rank": 3
             }
           ]
@@ -1494,15 +1526,15 @@
         "month": {
           "leaders": [
             {
-              "key": "member-576",
+              "key": "member-597",
               "rank": 1
             },
             {
-              "key": "member-573",
+              "key": "member-598",
               "rank": 2
             },
             {
-              "key": "member-577",
+              "key": "member-599",
               "rank": 3
             }
           ]
@@ -1510,15 +1542,15 @@
         "all": {
           "leaders": [
             {
-              "key": "member-576",
+              "key": "member-597",
               "rank": 1
             },
             {
-              "key": "member-573",
+              "key": "member-598",
               "rank": 2
             },
             {
-              "key": "member-577",
+              "key": "member-599",
               "rank": 3
             }
           ]
@@ -1528,7 +1560,7 @@
     {
       "id": "group-3",
       "first": "2026-09-22",
-      "last": "2026-10-25",
+      "last": "2026-10-26",
       "available": true,
       "daily": {
         "2026-08-24": {
@@ -2132,21 +2164,37 @@
               "rank": 3
             }
           ]
+        },
+        "2026-10-26": {
+          "leaders": [
+            {
+              "key": "member-590",
+              "rank": 1
+            },
+            {
+              "key": "member-591",
+              "rank": 2
+            },
+            {
+              "key": "member-592",
+              "rank": 3
+            }
+          ]
         }
       },
       "ranks": {
         "week": {
           "leaders": [
             {
-              "key": "member-567",
+              "key": "member-590",
               "rank": 1
             },
             {
-              "key": "member-562",
+              "key": "member-591",
               "rank": 2
             },
             {
-              "key": "member-578",
+              "key": "member-592",
               "rank": 3
             }
           ]
@@ -2154,15 +2202,15 @@
         "month": {
           "leaders": [
             {
-              "key": "member-578",
+              "key": "member-600",
               "rank": 1
             },
             {
-              "key": "member-567",
+              "key": "member-601",
               "rank": 2
             },
             {
-              "key": "member-579",
+              "key": "member-588",
               "rank": 3
             }
           ]
@@ -2170,15 +2218,15 @@
         "all": {
           "leaders": [
             {
-              "key": "member-578",
+              "key": "member-600",
               "rank": 1
             },
             {
-              "key": "member-567",
+              "key": "member-601",
               "rank": 2
             },
             {
-              "key": "member-562",
+              "key": "member-602",
               "rank": 3
             }
           ]
@@ -2189,7 +2237,7 @@
       "id": "group-4",
       "available": true,
       "first": "2026-09-29",
-      "last": "2026-10-25",
+      "last": "2026-10-26",
       "daily": {
         "2026-09-30": {
           "leaders": [
@@ -2569,21 +2617,37 @@
               "rank": 3
             }
           ]
+        },
+        "2026-10-26": {
+          "leaders": [
+            {
+              "key": "member-581",
+              "rank": 1
+            },
+            {
+              "key": "member-580",
+              "rank": 2
+            },
+            {
+              "key": "member-586",
+              "rank": 3
+            }
+          ]
         }
       },
       "ranks": {
         "week": {
           "leaders": [
             {
-              "key": "member-560",
+              "key": "member-581",
               "rank": 1
             },
             {
-              "key": "member-561",
+              "key": "member-580",
               "rank": 2
             },
             {
-              "key": "member-562",
+              "key": "member-586",
               "rank": 3
             }
           ]
@@ -2591,15 +2655,15 @@
         "month": {
           "leaders": [
             {
-              "key": "member-560",
+              "key": "member-580",
               "rank": 1
             },
             {
-              "key": "member-563",
+              "key": "member-584",
               "rank": 2
             },
             {
-              "key": "member-561",
+              "key": "member-583",
               "rank": 3
             }
           ]
@@ -2607,15 +2671,15 @@
         "all": {
           "leaders": [
             {
-              "key": "member-560",
+              "key": "member-580",
               "rank": 1
             },
             {
-              "key": "member-563",
+              "key": "member-584",
               "rank": 2
             },
             {
-              "key": "member-561",
+              "key": "member-583",
               "rank": 3
             }
           ]
@@ -2626,7 +2690,7 @@
       "id": "group-5",
       "available": true,
       "first": "2026-10-15",
-      "last": "2026-10-25",
+      "last": "2026-10-26",
       "daily": {
         "2026-10-20": {
           "leaders": [
@@ -2723,21 +2787,37 @@
               "rank": 3
             }
           ]
+        },
+        "2026-10-26": {
+          "leaders": [
+            {
+              "key": "member-592",
+              "rank": 1
+            },
+            {
+              "key": "member-591",
+              "rank": 2
+            },
+            {
+              "key": "member-593",
+              "rank": 3
+            }
+          ]
         }
       },
       "ranks": {
         "week": {
           "leaders": [
             {
-              "key": "member-561",
+              "key": "member-592",
               "rank": 1
             },
             {
-              "key": "member-562",
+              "key": "member-591",
               "rank": 2
             },
             {
-              "key": "member-569",
+              "key": "member-593",
               "rank": 3
             }
           ]
@@ -2745,15 +2825,15 @@
         "month": {
           "leaders": [
             {
-              "key": "member-561",
+              "key": "member-583",
               "rank": 1
             },
             {
-              "key": "member-562",
+              "key": "member-592",
               "rank": 2
             },
             {
-              "key": "member-569",
+              "key": "member-602",
               "rank": 3
             }
           ]
@@ -2761,15 +2841,15 @@
         "all": {
           "leaders": [
             {
-              "key": "member-561",
+              "key": "member-583",
               "rank": 1
             },
             {
-              "key": "member-562",
+              "key": "member-592",
               "rank": 2
             },
             {
-              "key": "member-569",
+              "key": "member-602",
               "rank": 3
             }
           ]
@@ -3115,22 +3195,34 @@
     "member-560": "avatars/member-560.jpg",
     "member-561": "avatars/member-561.jpg",
     "member-562": "avatars/member-562.jpg",
-    "member-563": "avatars/member-563.jpg",
     "member-564": "avatars/member-564.jpg",
     "member-565": "avatars/member-565.jpg",
     "member-566": "avatars/member-566.jpg",
     "member-567": "avatars/member-567.jpg",
     "member-568": "avatars/member-568.jpg",
     "member-569": "avatars/member-569.jpg",
-    "member-570": "avatars/member-570.jpg",
-    "member-571": "avatars/member-571.jpg",
-    "member-572": "avatars/member-572.jpg",
-    "member-573": "avatars/member-573.jpg",
-    "member-574": "avatars/member-574.jpg",
-    "member-575": "avatars/member-575.jpg",
-    "member-576": "avatars/member-576.jpg",
-    "member-577": "avatars/member-577.jpg",
-    "member-578": "avatars/member-578.jpg",
-    "member-579": "avatars/member-579.jpg"
+    "member-580": "avatars/member-580.jpg",
+    "member-581": "avatars/member-581.jpg",
+    "member-582": "avatars/member-582.jpg",
+    "member-583": "avatars/member-583.jpg",
+    "member-584": "avatars/member-584.jpg",
+    "member-585": "avatars/member-585.jpg",
+    "member-586": "avatars/member-586.jpg",
+    "member-587": "avatars/member-587.jpg",
+    "member-588": "avatars/member-588.jpg",
+    "member-589": "avatars/member-589.jpg",
+    "member-590": "avatars/member-590.jpg",
+    "member-591": "avatars/member-591.jpg",
+    "member-592": "avatars/member-592.jpg",
+    "member-593": "avatars/member-593.jpg",
+    "member-594": "avatars/member-594.jpg",
+    "member-595": "avatars/member-595.jpg",
+    "member-596": "avatars/member-596.jpg",
+    "member-597": "avatars/member-597.jpg",
+    "member-598": "avatars/member-598.jpg",
+    "member-599": "avatars/member-599.jpg",
+    "member-600": "avatars/member-600.jpg",
+    "member-601": "avatars/member-601.jpg",
+    "member-602": "avatars/member-602.jpg"
   }
 }

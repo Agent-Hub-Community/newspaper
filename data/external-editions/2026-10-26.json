@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-26",
+  "title": "Anthropic 递交 IPO 招股书，SpaceX 与 Apollo 达成 GPU 融资租赁承诺",
+  "intro": "Anthropic 向 SEC 递交 S-1 招股书，披露上半年营收达 162.86 亿美元且二季度实现营业利润；SpaceX 与 Apollo 达成约 400 亿美元 GPU 主融资租赁承诺；Kimi 补偿 K3.1 Pro 订阅额度，腾讯混元开源中英双向同传模型。",
+  "stories": [
+    {
+      "title": "Anthropic 向美国 SEC 递交 S-1 招股书，拟以代码 ANT 在纳斯达克上市",
+      "timing": "北京时间 10 月 26 日 21:05 发布官方公告；发售股数与发行价区间尚未确定",
+      "text": "Anthropic 宣布向美国 SEC 公开递交 Form S-1 注册声明，拟以股票代码“ANT”在纳斯达克全球精选市场上市，发售股数与价格区间尚未确定。\n\n据招股书披露，Anthropic 2026 年上半年营收为 162.86 亿美元（一季度 47.31 亿美元、二季度 115.55 亿美元），较 2025 年同期的 11.63 亿美元增长；上半年营业亏损为 6.93 亿美元，其中二季度实现 9.74 亿美元营业利润。\n\n2026 年上半年净亏损为 807.48 亿美元，其中可转债、衍生负债及 SAFE 公允价值变动损失为 723.88 亿美元。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 公告",
+          "url": "https://www.anthropic.com/news/s1-sec"
+        },
+        {
+          "kind": "官方发布",
+          "label": "SEC 招股书",
+          "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50242939"
+        }
+      ],
+      "emphasis": [
+        "发售股数与价格区间尚未确定",
+        "二季度实现 9.74 亿美元营业利润",
+        "可转债、衍生负债及 SAFE 公允价值变动损失为 723.88 亿美元"
+      ],
+      "aiComment": "二季度营业利润达到9.74亿美元，同时可转债等公允价值变动带来723.88亿美元账面损失，经营表现与资本结构影响在财报里呈现得很清楚。"
+    },
+    {
+      "title": "SpaceX 与 Apollo 达成约 400 亿美元 GPU 主融资租赁承诺",
+      "timing": "北京时间 10 月 26 日 20:42 已有公开报道；预计 2026 年底前交割、2027 年上半年起租",
+      "text": "据 Apollo 官方公告，SpaceX 与 Apollo 管理的实体达成约束性承诺，将签署价值约 400 亿美元的 GPU 及相关设备主融资租赁协议，为 SpaceX 的地面计算设施提供下一代 NVIDIA Vera Rubin 芯片。\n\n该交易仍须满足指定交割条件，预计在 2026 年底前完成交割；租赁计划预计于 2027 年上半年随 GPU 及相关设备交付后开始实施。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Apollo 公告",
+          "url": "https://www.apollo.com/insights-news/pressreleases/2026/10/spacex-secures--40-billion-in-the-largest-gpu-financing-ever"
+        },
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/018/150.htm"
+        }
+      ],
+      "emphasis": [
+        "将签署价值约 400 亿美元的 GPU 及相关设备主融资租赁协议",
+        "该交易仍须满足指定交割条件"
+      ],
+      "aiComment": "这项400亿美元的安排目前处于约束性承诺阶段，从年底交割到2027年上半年随Vera Rubin硬件交付起租还有不短的周期。"
+    },
+    {
+      "title": "Kimi 就 K3.1 Pro 限流与额外配额消耗致歉，向订阅用户一次性恢复 25% 月度额度",
+      "timing": "北京时间 10 月 26 日 04:14 发布官方说明",
+      "text": "Kimi 在官方 X 就 K3.1 Pro 订阅计划出现的限流与不必要配额消耗问题致歉。官方表示，所有订阅计划的全部订阅用户均可获得一次性用量重置，恢复 25% 的月度配额（已消耗不足 25% 的用户用量直接清零），官方称这相当于一周的用量。\n\n同时，Kimi 已调整订阅计划参数，正在减少不必要的 subagent 调用并缩减输出长度，以降低用户的配额消耗。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Kimi 官方说明",
+          "url": "https://x.com/i/status/2114450610724708492"
+        }
+      ],
+      "emphasis": [
+        "获得一次性用量重置，恢复 25% 的月度配额",
+        "正在减少不必要的 subagent 调用"
+      ],
+      "aiComment": "官方在一次性恢复25%月度额度的同时减少不必要的subagent调用和输出长度，直接从后台调用策略上控制配额消耗。"
+    },
+    {
+      "title": "Ubicloud 复盘 vLLM 工具调用配置，测试中 schema 准确率从 92% 升至 100%",
+      "timing": "北京时间 10 月 26 日 20:59 提交至 HN 引发讨论；博客首发时分未公开",
+      "text": "Ubicloud 发布技术博客，复盘在部署 Kimi K2.6 与 DeepSeek V4 Flash 时解决工具调用 schema 格式偏差的过程。此前 vLLM 维护者在部分模型上遇到问题后，选择默认关闭约束解码，并随后提供了 --tool-strict-level 参数供按需开启。约束解码可在解码阶段按 schema 屏蔽非法 token，避免生成后才因格式错误失败。\n\n据 Ubicloud 测试，在显式启用 vLLM 的约束解码功能后，其部署的模型在 K2VV ToolCall 基准测试中的工具调用 schema 准确率从 92% 提升至 100%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Ubicloud 博客",
+          "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50242870"
+        }
+      ],
+      "emphasis": [
+        "vLLM 维护者在部分模型上遇到问题后，选择默认关闭约束解码",
+        "在 K2VV ToolCall 基准测试中的工具调用 schema 准确率从 92% 提升至 100%"
+      ],
+      "aiComment": "通用推理引擎默认追求多模型兼容，托管服务商则通过显式开启约束解码把目标模型的schema格式准确率拉满。"
+    },
+    {
+      "title": "腾讯混元开源中英双向流式同传模型 Hy-SimulMT",
+      "timing": "北京时间 10 月 26 日 20:52 在官方 X 宣布开源",
+      "text": "腾讯混元在官方 X 宣布开源中英双向实时语音同传模型 Hy-SimulMT，能够持续接收输入音频并在说话过程中同步输出译文与译音，支持实时音色克隆。\n\n据腾讯混元公布的评测数据，在 RealSI 长音频评测中，Hy-SimulMT 的 StreamLAAL 延迟约为 3 秒，低于参评对比系统；其 GEMBA 得分超过所对比的开源模型及五款商业 API 中的四款。\n\n官方 GitHub 仓库提供了 SimulInfer 推理服务与 SimulTrain 训练工具，语音输出与音色克隆功能则需另外配置 TTS 服务。",
+      "links": [
+        {
+          "kind": "代码",
+          "label": "GitHub 仓库",
+          "url": "https://github.com/Tencent-Hunyuan/Hy-SimulMT"
+        },
+        {
+          "kind": "原帖",
+          "label": "腾讯混元原帖",
+          "url": "https://x.com/TencentHunyuan/status/2114701815807947159"
+        }
+      ],
+      "emphasis": [
+        "同步输出译文与译音",
+        "在 RealSI 长音频评测中，Hy-SimulMT 的 StreamLAAL 延迟约为 3 秒",
+        "需另外配置 TTS 服务"
+      ],
+      "aiComment": "开源仓库提供了流式同传的SimulInfer推理与SimulTrain训练工具，但部署完整语音输出和音色克隆仍需自行接入TTS服务。"
+    }
+  ],
+  "trends": []
+}
