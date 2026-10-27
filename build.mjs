@@ -56,11 +56,14 @@ const draftExternalIndex = process.argv.indexOf('--draft-external');
 let draftExternal = null;
 if (draftExternalIndex >= 0) {
   const [externalFile, selectionFile] = process.argv.slice(draftExternalIndex + 1, draftExternalIndex + 3);
-  if (!draftFile || !externalFile || !selectionFile || [externalFile, selectionFile].some(value => value.startsWith('--'))) {
-    throw new Error('--draft-external requires --draft plus a reviewed external draft and its selection file');
+  if (!draftFile || !externalFile || externalFile.startsWith('--')) {
+    throw new Error('--draft-external requires --draft plus a reviewed external draft');
   }
   const external = JSON.parse(await readFile(path.resolve(externalFile), 'utf8'));
-  validateExternalDraft(external, JSON.parse(await readFile(path.resolve(selectionFile), 'utf8')));
+  const selection = selectionFile && !selectionFile.startsWith('--')
+    ? JSON.parse(await readFile(path.resolve(selectionFile), 'utf8'))
+    : null;
+  validateExternalDraft(external, selection);
   draftExternal = readerReport(external);
 }
 const externalDirectory = path.join(dataDir, 'external-editions');

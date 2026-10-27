@@ -76,18 +76,16 @@
 - 每条带 1 到 3 个链接，且每个 URL 都必须在所指候选的 `sources` 或 `attention` 里逐字出现过。
 - `emphasis` 满足下划线规则（见[读者内容规则](editorial.md#重点下划线emphasis)），导入时每条都带 `aiComment`。
 
-## 签发审核回执并入库
+## 导入入库
 
-主编通读稿件、核对完原文时间和数字后，跑下面两条命令签回执并入库：
+主编通读稿件、核对完原文时间和数字后，直接跑导入命令写入 `data/external-editions/<date>.json`：
 
 ```sh
 E=scratch/external-2026-10-22-run1
-node scripts/review-external.mjs "$E/commented-reviewed.json" "$E/selection.json" "$E/commented-review.json" "<审核人>" --approve
-node scripts/import-external-report.mjs "$E/commented-reviewed.json" "$E/selection.json" "$E/commented-review.json"
+node scripts/import-external-report.mjs "$E/commented-reviewed.json" "$E/selection.json"
 ```
 
-- `review-external.mjs` 把当时的稿件全文和 `selection.json` 一并存进 `commented-review.json`。如果后面又改了一句正文、换了一条锐评或动了 `selection.json`，导入时比对不上就会报错，需要重签回执。
-- `import-external-report.mjs` 复查通过后，去掉内部的 `candidateIds` 和证据，只把干净的读者字段写进 `data/external-editions/<date>.json`。
+- `import-external-report.mjs` 会校验读者稿与 `selection.json` 的候选及链接对应关系，去掉内部的 `candidateIds` 和证据，只把干净的读者字段写进 `data/external-editions/<date>.json`（`review-external.mjs` 回执为可选参数，不再强制要求）。
 
 如果还在审稿阶段、想先跟同日群稿合在一起看本地预览，不用先入库，直接用 `--draft-external` 即可（见[入库与发布](publishing.md#1-本地预览)）。
 

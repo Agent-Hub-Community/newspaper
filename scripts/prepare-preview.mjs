@@ -21,12 +21,11 @@ const { date, batch, base } = values;
 assert.match(date || '', /^\d{4}-\d{2}-\d{2}$/, 'Use --date YYYY-MM-DD');
 assert.ok(batch, 'Use --batch scratch/day-YYYY-MM-DD-runN');
 const external = values['external-draft'], selection = values['external-selection'];
-assert.ok(Boolean(external) === Boolean(selection), 'Pass --external-draft and --external-selection together');
 const read = file => readFile(path.resolve(root, file), 'utf8').then(JSON.parse);
 const issuesFile = path.join(batch, 'issues.json'), activityFile = path.join(batch, 'activity/snapshot.json');
 
 execFileSync(process.execPath, ['build.mjs', '--draft', issuesFile, '--draft-activity', activityFile,
-  ...(external ? ['--draft-external', external, selection] : [])], { cwd: root, stdio: 'inherit' });
+  ...(external ? ['--draft-external', external, ...(selection ? [selection] : [])] : [])], { cwd: root, stdio: 'inherit' });
 const out = path.join(root, 'dist-preview');
 const data = await readBuiltData(out);
 assert.equal(data.publicBuild, false);

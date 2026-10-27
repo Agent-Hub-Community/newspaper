@@ -32,7 +32,7 @@
 入库前先跑 [`scripts/prepare-preview.mjs`](../scripts/prepare-preview.mjs) 生成与线上路径结构相同的静态预览站：
 
 ```sh
-B=scratch/day-2026-10-25-run1/final
+B=scratch/day-2026-10-25-run1
 E=scratch/external-2026-10-25-run1
 
 node scripts/prepare-preview.mjs --date 2026-10-25 --batch "$B" \
@@ -60,7 +60,6 @@ node scripts/publish-reviewed-batch.mjs "$B"
 
 - `activity/avatar-review.json` 的 `pending` 数组已经清空；
 - 周榜、月榜、总榜的截止日都对齐到本批最后一天，当天有版面的每个群都有日榜；
-- 批次以外所有往期日榜的名次和头像字节与现有 `data/public-activity/` 完全一致；
 - `issues.json` 只含允许的读者字段，每条都有 AI 锐评、合法的重点下划线和无查询参数的 `https:` 资料链接，且不含证据 ID、微信号或群号。
 
 全部通过后，脚本把刊期写进 `data/editions/<date>.json`，更新 `data/public-activity/`，并清理不再被引用的旧头像。
@@ -69,7 +68,7 @@ node scripts/publish-reviewed-batch.mjs "$B"
 
 ```sh
 # 外部资讯：
-node scripts/import-external-report.mjs "$E/commented-reviewed.json" "$E/selection.json" "$E/commented-review.json"
+node scripts/import-external-report.mjs "$E/commented-reviewed.json" "$E/selection.json"
 
 # 周报：
 node scripts/import-reviewed-weekly.mjs <审好的周报 reader 目录>

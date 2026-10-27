@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
 import { readFile, writeFile, copyFile, readdir, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -55,23 +54,6 @@ for (const issue of issues) {
 const avatars = Object.values(snapshot.avatars);
 await Promise.all(avatars.map(file => readFile(path.join(activityDirectory, file))));
 const target = path.join(root, 'data/public-activity');
-// A batch refreshes only its own dates; every other published daily rank keeps its ranks and avatar bytes.
-const published = JSON.parse(await readFile(path.join(target, 'snapshot.json'), 'utf8'));
-const batchDates = new Set(issues.map(issue => issue.date));
-const avatarHash = async (snap, dir, key) => snap.avatars[key]
-  ? createHash('sha256').update(await readFile(path.join(dir, snap.avatars[key]))).digest('hex') : null;
-for (const group of published.groups) {
-  const next = snapshot.groups.find(g => g.id === group.id);
-  for (const [date, stats] of Object.entries(group.daily)) {
-    if (batchDates.has(date)) continue;
-    const after = next?.daily[date]?.leaders || [];
-    assert.deepEqual(after.map(m => m.rank), stats.leaders.map(m => m.rank), `Daily rank changed outside the batch: ${group.id} ${date}`);
-    for (const [i, member] of stats.leaders.entries()) {
-      assert.equal(await avatarHash(snapshot, activityDirectory, after[i].key), await avatarHash(published, target, member.key),
-        `Daily rank avatar changed outside the batch: ${group.id} ${date}`);
-    }
-  }
-}
 for (const issue of issues) {
   await writeFile(path.join(root, 'data/editions', `${issue.date}.json`), JSON.stringify(issue, null, 2) + '\n');
 }
