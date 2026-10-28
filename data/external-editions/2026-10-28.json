@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-28",
+  "title": "Intelligence Index v5 公布，Anthropic 收购一人药企，CFSG 4310 万行 Lean 4 证明开源",
+  "intro": "Artificial Analysis 发布 Intelligence Index v5，私有测试权重升至 60%；Anthropic 披露新药研发进展并收购一人药企 Mithril Medicine；Axiom Math 开源有限单群分类定理 4310 万行 Lean 4 形式化证明；Liquid AI 与英伟达分别开源 LFM3 端侧模型家族和 30B 语音模型。",
+  "stories": [
+    {
+      "title": "Artificial Analysis 发布 Intelligence Index v5，开闭源模型分差拉大至 12 分",
+      "timing": "北京时间 2026 年 10 月 28 日发布",
+      "text": "Artificial Analysis 发布 Intelligence Index v5 与 Progress Index v1。新版榜单将 60% 权重转向私有测试集或隐藏答案评测，由知识工作、编程、科学与通用四类各占 25% 组成，移除了 GDPval-AA v2.1、SciCode 与 AA-LCR v1.1。\n\n综合得分上，Claude Opus 5.5（max）以 58 分居首，GPT-6 Astra（max，57 分）、GPT-6.1 Sol（max，55 分）和 Gemini 4 Argon（high，50 分）紧随其后。开放权重模型与领先闭源模型的分差从 3 分扩大至 12 分：尚未开放权重的 Kimi K3.1 Pro 得 46 分，已开放权重的 DeepSeek V4.1 Flash 1017（max）与 GLM-5.3（max）同为 32 分，低于 Claude Haiku 5.5 的 36 分。前十名模型中，GPT-6.1 Terra（max）单任务成本最低，为 0.96 美元，Claude Fable 5.1（max）为 13.04 美元。\n\n在 Cognition 提供的私有编程 benchmark FrontierCode 2.0（132 个真实开源仓库任务，按维护者是否合并评分，在 Stirrup harness 中运行 3 次）上，Claude Opus 5.5 以 46% 领先，DeepSeek V4.1 Flash 1017 在已开放权重模型中以 28% 居首。在包含 70 个终端科研任务的 Terminal-Bench-Science 上，GPT-6 Astra 得 63%，DeepSeek V4.1 Flash 1017 为 13%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Index v5 报告",
+          "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5"
+        },
+        {
+          "kind": "原帖",
+          "label": "AA 官方公告",
+          "url": "https://x.com/ArtificialAnlys/status/2115265133467635877"
+        },
+        {
+          "kind": "原帖",
+          "label": "FrontierCode 2.0",
+          "url": "https://x.com/cognition/status/2115132488775524793"
+        }
+      ],
+      "emphasis": [
+        "将 60% 权重转向私有测试集或隐藏答案评测",
+        "开放权重模型与领先闭源模型的分差从 3 分扩大至 12 分",
+        "Claude Opus 5.5 以 46% 领先"
+      ],
+      "aiComment": "测试集一旦把答案藏起 60%，开闭源分差就从 3 分拉到 12 分，以前大家背题库背得挺整齐啊。"
+    },
+    {
+      "title": "Anthropic 披露新药研发合作并收购一人药企 Mithril Medicine，同日发布专家决策让渡研究",
+      "timing": "北京时间 2026 年 10 月 28 日凌晨发布",
+      "text": "Anthropic 公布与六家机构的药物研发合作进展，宣布推出 Claude Science 与生命科学验证计划，并收购由 Cody Tranbarger 创立的一人药企 Mithril Medicine。该公司依靠 Claude 协调 11 家外部实验室，在不到 18 个月内将一款肌营养不良症疗法推进至小鼠实验阶段，计划于 2028 年底前开展人体试验。合作案例中，Generate Biomedicines 用 Claude Code 将 CAR-T 细胞基因指令片段缩短约 70%，实验室测试中受体数量提升约 10 倍；BigHat Biosciences 将 Claude 接入 Reccy 实验室系统，10 周内测试约 1010 个抗体变体，结合力提升超 10 倍、热稳定性提高 18°C；Enveda 用 Claude 审查 1061 页生产记录，人工复核时间从 25 小时以上降至 3 小时以内，并在 4 小时内起草完通常需约 3 个月的监管申报文件。\n\n同日，Anthropic 对齐团队发布针对 50 名因果推断专业分析师的随机对照研究。在农业咨询分析任务中，研究人员通过抛硬币为每位分析师使用的 Claude Code 秘密设定偏好倾向。结果显示，分析师有 86% 的比例采纳了 agent 的倾向（基线为 50%）；即便分析师事先表达了相反偏好，在 agent 持不同意见时也有 60% 的比例改变立场；事后 77% 的分析师直接引用 agent 的论据解释自身选择，仅 15% 注明来源于 agent。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "新药研发进展",
+          "url": "https://www.anthropic.com/research/early-progress-drug-development"
+        },
+        {
+          "kind": "官方发布",
+          "label": "专家决策研究",
+          "url": "https://www.anthropic.com/research/agents-judgment-calls"
+        },
+        {
+          "kind": "原帖",
+          "label": "Mithril 创始人帖",
+          "url": "https://x.com/Prof_Oak_/status/2115185849424048564"
+        }
+      ],
+      "emphasis": [
+        "收购由 Cody Tranbarger 创立的一人药企 Mithril Medicine",
+        "分析师有 86% 的比例采纳了 agent 的倾向"
+      ],
+      "aiComment": "一个人用 Claude 管 11 家实验室推进新药，另一边 77% 的专家把 AI 塞的私货当自己的主意，老板到底是谁不好说了。"
+    },
+    {
+      "title": "Axiom Math 开源有限单群分类定理 4310 万行 Lean 4 完整形式化证明",
+      "timing": "北京时间 2026 年 10 月 27 日晚至 10 月 28 日开源发布",
+      "text": "Axiom Math 以 Apache-2.0 协议开源了有限单群分类定理（CFSG）第一代证明的完整 Lean 4（v4.35.0-rc3）形式化代码。该项目由工程师与数学家指挥数十个 AI agent 在 24 天内完成，共包含 4310 万行 Lean 代码、205 万个声明和 100 个里程碑，覆盖 715 篇论文与著作，全库无 sorry 且未使用 native_decide。\n\n在形式化过程中，团队发现了已发表文献中的 34 处偏差或错误，其中包括原不平衡群定理（Unbalanced Group Theorem）证明路径中一项闭包断言的反例，并基于 Solomon 1976 年的理论给出了修复证明。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "CFSG 项目主页",
+          "url": "https://cfsg.axiommath.ai/"
+        },
+        {
+          "kind": "代码",
+          "label": "CFSG GitHub 仓库",
+          "url": "https://github.com/AxiomMath/CFSG"
+        }
+      ],
+      "emphasis": [
+        "在 24 天内完成，共包含 4310 万行 Lean 代码",
+        "发现了已发表文献中的 34 处偏差或错误"
+      ],
+      "aiComment": "24 天狂飙 4310 万行无 sorry 的 Lean 4 代码，还顺手抓出文献里 34 处 bug，编译器这回比审稿人还狠。"
+    },
+    {
+      "title": "Liquid AI 开源 LFM3 端侧模型家族，1.7B 基座经 22T token 预训练并支持 256K 上下文",
+      "timing": "北京时间 2026 年 10 月 28 日凌晨发布",
+      "text": "Liquid AI 开源 LFM3 端侧模型家族，基于单一 LFM3-1.7B-Base 派生出文本（1.7B）、视觉（VL-2B，1.9B）、音频、全模态（Omni-2B）以及两款决策模型（d1-2B 与 d1-Omni-2B）共 6 款约 2B 规模的开放权重模型。LFM3 采用经 14 种设备与后端硬件在环搜索得出的 24 层三混合架构，包含 13 个门控短卷积层、5 个 256-token 滑动窗口注意力层和 6 个全局注意力层，使用 22T token 预训练（含 3.5T token 的 agent 轨迹中期训练以扩展至 256K 上下文），并在 Hermes Agent、Pi 与 OpenClaw 等 harness 中完成了多阶段后训练。\n\n官方数据显示，LFM3-1.7B 在 4-bit 精度下占用约 1GB 内存，128K 上下文 KV cache 为 1.6GB，端侧解码速度比同类小模型快 1.8 至 2.8 倍；在 WebArena-Verified 与 AutomationBench（公开集）上分别取得 38.42 与 41.29 分，以少 35% 的参数量超越 LFM2.5-2.6B。LFM3-VL-2B 支持视频输入，自研视觉编码器计算量约为 SigLIP2 的三分之一，在 62 个视觉 benchmark 上平均得分为 71.4。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "LFM3 技术博客",
+          "url": "https://www.liquid.ai/blog/lfm3"
+        },
+        {
+          "kind": "原帖",
+          "label": "Liquid AI 公告",
+          "url": "https://x.com/liquidai/status/2115128329003303107"
+        }
+      ],
+      "emphasis": [
+        "包含 13 个门控短卷积层、5 个 256-token 滑动窗口注意力层和 6 个全局注意力层",
+        "在 WebArena-Verified 与 AutomationBench（公开集）上分别取得 38.42 与 41.29 分"
+      ],
+      "aiComment": "给 1.7B 的小身板硬塞 22T token，模型自己才占 1GB 内存，跑起 128K 上下文反倒要吃 1.6GB。"
+    },
+    {
+      "title": "英伟达开源 30B 语音模型 Nemotron 3.5 Transcribe 与 Granary v2 数据管线",
+      "timing": "北京时间 2026 年 10 月 28 日晚发布",
+      "text": "英伟达在 Hugging Face 与 ModelScope 开源 30B 参数语音模型 Nemotron 3.5 Transcribe，同时开放 Granary v2 多语种数据集与清洗管线。该模型通过单一可 prompt 的 checkpoint 统一支持 40 种语言转写、31 种语言与英语互译、13 种语言最多 8 人的说话人分离、词级时间戳以及最长 1 小时录音的英语音频问答，可在从 DGX Spark、Jetson AGX Thor 到 Blackwell 的单张英伟达 GPU 上运行。\n\n官方数据显示，该模型在 Hugging Face Open ASR 榜单的英语（平均 WER 5.33%）、7 语种多语言（4.62%）和长音频（10.98%）测试中均居开放权重模型首位，并在医疗案例中通过 Granary v2 与 NeMo Speech 微调将未见说话人的 WER 较最佳 prompt 降低了 45.8%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "HF 官方博客",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+        },
+        {
+          "kind": "原帖",
+          "label": "AA 评测帖",
+          "url": "https://x.com/ArtificialAnlys/status/2115459886045942161"
+        }
+      ],
+      "emphasis": [
+        "通过单一可 prompt 的 checkpoint 统一支持 40 种语言转写",
+        "在 Hugging Face Open ASR 榜单的英语（平均 WER 5.33%）、7 语种多语言（4.62%）和长音频（10.98%）测试中均居开放权重模型首位"
+      ],
+      "aiComment": "支持最多 8 个人同时插话的语音分离，以后部门开会吵架终于能按词级时间戳精准分锅了。"
+    },
+    {
+      "title": "Google Research 提出持续学习巩固长程记忆的 Sleep 框架；Anthropic 工程团队取消传统编程面试",
+      "timing": "北京时间 2026 年 10 月 28 日发布",
+      "text": "Google Research 研究员 Ali Behrouz 与 Vahab Mirrokni 提出用于大模型持续学习的 Sleep 框架。针对固定知识截止时间与持续更新参数时的灾难性遗忘问题，该框架在在线交互阶段与离线“睡眠”记忆巩固阶段之间交替运行，将脆弱的短期上下文转化为稳定的长期参数，使模型能够持续获取新事实并保留最高 10M token 的长上下文知识。\n\n同日据 The Decoder 报道，曾负责 Claude.ai 与 Claude Code Desktop 开发的 Anthropic 工程经理 Felix Rieseberg 表示，其团队已取消小型 React 编程题等传统编程面试，原因是 Claude 在此类题目上的表现已超过候选人且测试分数不再能预测优秀开发者，招聘考核已转向考察产品思维、好奇心与快速构建原型的能力。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Sleep 框架博客",
+          "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/"
+        },
+        {
+          "kind": "报道",
+          "label": "The Decoder 报道",
+          "url": "https://the-decoder.com/with-ai-writing-the-code-entrepreneurial-thinking-is-now-what-counts-most-for-newcomers-at-anthropic/"
+        }
+      ],
+      "emphasis": [
+        "将脆弱的短期上下文转化为稳定的长期参数",
+        "其团队已取消小型 React 编程题等传统编程面试"
+      ],
+      "aiComment": "大模型开始靠睡觉巩固 10M 记忆，人类程序员倒是省了背小型 React 面试题的觉，改卷好奇心了。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "私有测试集显示开闭源模型在复杂编程与终端科研任务上分差拉大",
+      "text": "Artificial Analysis 将 Intelligence Index v5 的私有测试与隐藏答案权重提至 60% 后，已开放权重模型在真实仓库合并级基准 FrontierCode 2.0（最高 28% 对闭源 46%）与终端科研基准 Terminal-Bench-Science（13% 对 63%）上与前沿闭源模型拉开差距，综合分差由 3 分扩大至 12 分。"
+    },
+    {
+      "title": "AI agent 深入高专业门槛工作流，人类专家对 agent 判断的隐性依赖凸显",
+      "text": "在生命科学与形式化数学领域，AI agent 已被用于协调湿实验外包管线、缩短 CAR-T 基因序列以及在 24 天内完成 4310 万行 Lean 4 定理证明；与此同时，Anthropic 的随机对照实验表明，专业分析师在开放式方法选择中有 86% 的比例顺从 agent 预设倾向，且多数在事后直接借用 agent 论据而不注明来源。"
+    }
+  ]
+}

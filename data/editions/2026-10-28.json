@@ -1,0 +1,1849 @@
+{
+  "id": "2026-10-28",
+  "date": "2026-10-28",
+  "label": "2026-10-28 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "今日群内无实质讨论内容。",
+      "note": "2026-10-28 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "今日群内无实质讨论内容。",
+      "note": "2026-10-28 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "非 Coding 与多模态评测如何做 Verify：专家难扩容，对抗困于多解",
+      "theme": "围绕商业榜单刷榜与评分失真问题展开吐槽，并聊到多任务强化学习中 MOPD 与 Mix RL 的取舍。",
+      "note": "2026-10-28 · 当日本地记录",
+      "stories": [
+        {
+          "category": "评测设计",
+          "title": "非 Coding 与多模态 Benchmark 怎么做 Verify：专家数据难 Scaling，对抗测试困于一题多解",
+          "text": "有群友在看 Blend World Bench 时发问，这类非 coding 的 benchmark 该怎么做 verify，也有人好奇是不是在轨迹中启发式地设计一些 rubric。一位群友解释，一般是基于专家的 artifacts（即 ground truth）去反推和合成；实际操作中往往是综合设计，单道题里硬过滤指标、专家指标和自动化指标都有一些，并非全自动化地批量出题。\n\n另一位群友认为，高度依赖人类专家 artifact 的方案很难 scaling。一方面专家数据本就不多，verifier 容易 overfit 到测试集上，甚至直接照着轨迹 hack 一个；即便隐藏掉 bench 里的 gold trace，反向总结本质上也是为了让这个 testset 拿满分，很难分清优化过程是真的通过 harness 理解了领域知识与验收逻辑，还是单纯 overfit 到了 testset。另一方面，后续自动化的数据验证又会因为缺少先验而失真。这位群友觉得比较可靠的做法是不断用人类专家调整验收逻辑，testset 做完后用 verifier 标一批，再抽样交给人类专家质检。有人进一步指出，纯自动化 scaling 根本不可能，只能做到半自动化，好题几乎只能靠人类专家做出，而且专家必须在整个数据链路里持续 review。前一位群友拿自己标图像美学数据的经历印证：当时连设计师都没法在脑子里直接完成评分标准的建模，只能一点一点 refine。\n\n讨论随后转向能不能引入 Adversarial Testing Agent 做对抗测试合成：先拿一批专家种子任务去合成新任务，让 solver 求解产生多个 artifact，再搞一个 breaker 专门找茬。有群友指出，这样确实能写出一套 test，但实测会偏严格，制造出“题目很难的错觉”——遇到有多种解法的题目时，对抗式容易收敛到其中一种，把其他合理方法都拒绝掉。另一位群友也同时追问，如果 rollout 出多种偏离 gold trace 的解法该怎么判断。\n\n提出对抗设想的群友尝试构想补救方案：靠加护栏写规则肯定无法穷尽；如果是 code 任务，靠严谨完善的 p2p、f2p 会容易很多；或者在已知几种经典解法的前提下先对 rollouts 分类，只在同类思路里做对抗，但自己也承认这没有从本质上解决问题。质疑者认为对抗只适合唯一解的任务，因为那样才能给出明确的 reflect 做纠偏；即便在指令里明确说明存在多种解，模型本质上还是在逆向规律，而真正的难题恰恰在于逆向不出人类专家的先验知识。还有群友补充，存在多种解时对抗测试生成能否收敛都成问题，最后又得去 verify 解是否合理，等于绕回了原点。最初发问的群友感叹多模态任务往往不是唯一解，有人提议或许可以用多 agent 投票来缓解，但也直言这并不本质，根源还是目前的 VLM 太弱，“不然 blender 什么的不至于便秘成这样”；发问者觉得多 agent 投票大概已是现阶段能想到的最优解。",
+          "emphasis": [
+            "一般是基于专家的 artifacts（即 ground truth）去反推和合成",
+            "很难分清优化过程是真的通过 harness 理解了领域知识与验收逻辑，还是单纯 overfit 到了 testset",
+            "遇到有多种解法的题目时，对抗式容易收敛到其中一种，把其他合理方法都拒绝掉",
+            "真正的难题恰恰在于逆向不出人类专家的先验知识"
+          ],
+          "aiComment": "为了省掉人类专家去搞对抗测试，结果遇到一题多解又得请人来评理，省力永动机再次卡在第一步。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:23",
+              "text": "想问下群里有没有blend world bench的作者呀"
+            },
+            {
+              "speaker": 1,
+              "time": "20:24",
+              "text": "想知道这个bench的verify要怎么做"
+            },
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "我想知道这种非coding的bench怎么做verify啊"
+            },
+            {
+              "speaker": 2,
+              "time": "20:46",
+              "text": "同问，是会在轨迹的中 启发式地设计一些rubric吗？",
+              "quote": {
+                "speaker": 1,
+                "text": "我想知道这种非coding的bench怎么做verify啊"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:50",
+              "text": "一般都是根据专家artifacts反推的吧"
+            },
+            {
+              "speaker": 1,
+              "time": "21:35",
+              "text": "我感觉两个都有道理",
+              "quote": {
+                "speaker": 3,
+                "text": "一般都是根据专家artifacts反推的吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:35",
+              "text": "那总不会是每个都人工标注，估计是学习做了一个评分标准吗",
+              "quote": {
+                "speaker": 3,
+                "text": "一般都是根据专家artifacts反推的吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:53",
+              "text": "其实是很综合的设计，硬过滤指标有一些，专家指标有一些，自动化的有一些"
+            },
+            {
+              "speaker": 3,
+              "time": "21:53",
+              "text": "这个artifacts是说ground truth，基于这个去合成",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 那总不会是每个都人工标注，估计是学习做了一个评分标准吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:07",
+              "text": "这个有参考文献吗",
+              "quote": {
+                "speaker": 3,
+                "text": "其实是很综合的设计，硬过滤指标有一些，专家指标有一些，自动化的有一些"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:08",
+              "text": "因为高度依赖人类专家artifact的，其实verifier容易overfit到测试集上"
+            },
+            {
+              "speaker": 4,
+              "time": "22:08",
+              "text": "甚至直接照着轨迹hack一个"
+            },
+            {
+              "speaker": 4,
+              "time": "22:08",
+              "text": "而后面自动化的数据验证又因为缺少先验失真"
+            },
+            {
+              "speaker": 4,
+              "time": "22:09",
+              "text": "我理解不太容易scaling的"
+            },
+            {
+              "speaker": 5,
+              "time": "22:10",
+              "text": "这个怎么说，老师",
+              "quote": {
+                "speaker": 4,
+                "text": "因为高度依赖人类专家artifact的，其实verifier容易overfit到测试集上"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:10",
+              "text": "我理解的是这样",
+              "quote": {
+                "speaker": 3,
+                "text": "其实是很综合的设计，硬过滤指标有一些，专家指标有一些，自动化的有一些"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:10",
+              "text": "是不是就容易作弊啊老师",
+              "quote": {
+                "speaker": 4,
+                "text": "因为高度依赖人类专家artifact的，其实verifier容易overfit到测试集上"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:11",
+              "text": "感觉多模态的bench就是在这一点上难做"
+            },
+            {
+              "speaker": 5,
+              "time": "22:11",
+              "text": "老师 有例子嘛",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉多模态的bench就是在这一点上难做"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:12",
+              "text": "我理解，即使把bench里面的gold trace隐藏起来，本质上反向总结也是为了让这个bench提供的testset能拿到满分，所以不好说优化的过程是真的通过harness理解了领域知识/验收逻辑还是overfit到testset了",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这个怎么说，老师"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:13",
+              "text": "尤其是高度依赖专家出artifact的，其实数据也不多"
+            },
+            {
+              "speaker": 4,
+              "time": "22:14",
+              "text": "我理解需要不断用人类专家调整验收逻辑，这个testset做完了，用verifier标一批抽样人类专家质检，这样是比较可靠的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:14",
+              "text": "感觉是的，不可能有那么多专家数据",
+              "quote": {
+                "speaker": 4,
+                "text": "尤其是高度依赖专家出artifact的，其实数据也不多"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:15",
+              "text": "所以怎么用一小点专家数据scaling出去实现纯自动化我很好奇"
+            },
+            {
+              "speaker": 5,
+              "time": "22:15",
+              "text": "不可能，只能半自动化",
+              "quote": {
+                "speaker": 4,
+                "text": "所以怎么用一小点专家数据scaling出去实现纯自动化我很好奇"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:16",
+              "text": "要好点的数据只能是高度依赖专家"
+            },
+            {
+              "speaker": 1,
+              "time": "22:16",
+              "text": "这个是真的很难",
+              "quote": {
+                "speaker": 5,
+                "text": "要好点的数据只能是高度依赖专家"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:16",
+              "text": "嗯……这个",
+              "quote": {
+                "speaker": 4,
+                "text": "我理解需要不断用人类专家调整验收逻辑，这个testset做完了，用verifier标一批抽样人类专家质检，这样是比较可靠的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:16",
+              "text": "现在在看那个 blend world 这个 bench",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 老师 有例子嘛"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:16",
+              "text": "甚至有的专家都没办法自己在脑子里完成建模"
+            },
+            {
+              "speaker": 5,
+              "time": "22:16",
+              "text": "我理解的是人类专家在整个数据链路里要一直review"
+            },
+            {
+              "speaker": 4,
+              "time": "22:17",
+              "text": "之前我标图像美学数据的时候，那些设计师都没办法完成评分标准的建模"
+            },
+            {
+              "speaker": 5,
+              "time": "22:17",
+              "text": "要好点的bench，就无法scaling"
+            },
+            {
+              "speaker": 4,
+              "time": "22:17",
+              "text": "只能一点一点refine，也就是你说的这个",
+              "quote": {
+                "speaker": 5,
+                "text": "我理解的是人类专家在整个数据链路里要一直review"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:17",
+              "text": "目前感觉不太可能，存在trade off",
+              "quote": {
+                "speaker": 4,
+                "text": "所以怎么用一小点专家数据scaling出去实现纯自动化我很好奇"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:18",
+              "text": "其实还是美太抽象了 hhh",
+              "quote": {
+                "speaker": 4,
+                "text": "之前我标图像美学数据的时候，那些设计师都没办法完成评分标准的建模"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:18",
+              "text": "几乎人类专家才能做出好题"
+            },
+            {
+              "speaker": 5,
+              "time": "22:19",
+              "text": "这个意思，我不知道理解的对不对，是单数据（题？）部分自动化部分专家etc",
+              "quote": {
+                "speaker": 3,
+                "text": "其实是很综合的设计，硬过滤指标有一些，专家指标有一些，自动化的有一些"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:20",
+              "text": "不是全自动化，出批量单题"
+            },
+            {
+              "speaker": 3,
+              "time": "22:22",
+              "text": "嗯嗯是的",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这个意思，我不知道理解的对不对，是单数据（题？）部分自动化部分专家etc"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:24",
+              "text": "[ThumbsUp]",
+              "quote": {
+                "speaker": 5,
+                "text": "要好点的数据只能是高度依赖专家"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "22:25",
+              "text": "引入Adversarial Testing Agent这样的设计 会有用吗 对抗测试合成"
+            },
+            {
+              "speaker": 5,
+              "time": "22:26",
+              "text": "我也没太理解这个",
+              "quote": {
+                "speaker": 7,
+                "text": "引入Adversarial Testing Agent这样的设计 会有用吗 对抗测试合成"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:27",
+              "text": "具体指怎么用呀",
+              "quote": {
+                "speaker": 7,
+                "text": "引入Adversarial Testing Agent这样的设计 会有用吗 对抗测试合成"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "22:28",
+              "text": "比如说一批专家种子任务 然后根据这个去做合成任务 solver对合成任务求解产生多个artifact 然后搞一个breaker去找茬"
+            },
+            {
+              "speaker": 8,
+              "time": "22:28",
+              "text": "这个确实可以写出一套test，但实测会偏严格"
+            },
+            {
+              "speaker": 5,
+              "time": "22:30",
+              "text": "老师，实测篇严格指的是？",
+              "quote": {
+                "speaker": 8,
+                "text": "这个确实可以写出一套test，但实测会偏严格"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:30",
+              "text": "产生一种题目很难的错觉"
+            },
+            {
+              "speaker": 4,
+              "time": "22:30",
+              "text": "rollout出来的多种解法怎么办",
+              "quote": {
+                "speaker": 7,
+                "text": "比如说一批专家种子任务 然后根据这个去做合成任务 solver对合成任务求解产生多个artifact 然后搞一个breaker去找茬"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:31",
+              "text": "类似有多种解题方法的这种题目，对抗式容易收到一种，把其他的都拒绝"
+            },
+            {
+              "speaker": 4,
+              "time": "22:31",
+              "text": "一道题多种解法但偏离gold trace怎么判断"
+            },
+            {
+              "speaker": 4,
+              "time": "22:31",
+              "text": "想一块了",
+              "quote": {
+                "speaker": 8,
+                "text": "类似有多种解题方法的这种题目，对抗式容易收到一种，把其他的都拒绝"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "22:52",
+              "text": "草为什么咋解决 加护栏写规则肯定是无法穷尽的  如果是code任务靠严谨完善的p2p f2p感觉会容易很多 或是如果我们知道这道题确实有几种比较经典的解法 那就对rollouts分类 同类思路的才对抗 （虽然感觉还是没有本质上解决问题"
+            },
+            {
+              "speaker": 4,
+              "time": "22:56",
+              "text": "对抗只适合唯一解吧"
+            },
+            {
+              "speaker": 4,
+              "time": "22:56",
+              "text": "因为能给出明确的reflect做纠偏"
+            },
+            {
+              "speaker": 7,
+              "time": "22:58",
+              "text": "🤔 指令明确说明存在多种解 强模型还是做不到吗",
+              "quote": {
+                "speaker": 4,
+                "text": "对抗只适合唯一解吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:58",
+              "text": "多模态不一定是唯一解，难搞"
+            },
+            {
+              "speaker": 4,
+              "time": "22:58",
+              "text": "那你本质上还是在逆向规律，就是因为做不到逆向出来人类专家的先验知识这才是难题的",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 🤔 指令明确说明存在多种解 强模型还是做不到吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:01",
+              "text": "这个可能可以多agent投票",
+              "quote": {
+                "speaker": 1,
+                "text": "多模态不一定是唯一解，难搞"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:02",
+              "text": "但也不本质吧"
+            },
+            {
+              "speaker": 4,
+              "time": "23:02",
+              "text": "vlm实在太垃圾了"
+            },
+            {
+              "speaker": 4,
+              "time": "23:02",
+              "text": "不然blender什么的不至于便秘成这样"
+            },
+            {
+              "speaker": 1,
+              "time": "23:03",
+              "text": "这个应该是目前阶段想到的最优解了",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这个可能可以多agent投票"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "23:12",
+              "text": "存在多种解的话，对抗测试生成的还能收敛吗？这不又得verify这个解是否合理？感觉又绕回去了啊",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 🤔 指令明确说明存在多种解 强模型还是做不到吗"
+              }
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "Benchmark 生态的公信力困局：验证逻辑卡分、商业榜单刷榜与“智能指数”失真",
+          "text": "有群友抛出看法，觉得大多数没有厂商认可或非厂商推出的 benchmark 都有水论文的嫌疑。另一位群友则认为社区主导、无商业化的第三方 benchmark 才应该是最终形态。两人以 Terminal-Bench 为例，认可三方在中立性和专家数据建设上的优势，但也谈到团队成员出去开公司、不盈利难以长久以及如何避免与模型厂商利益输送等现实问题。有人质疑社区测评会不会不够专业，支持三方评测的群友反驳说很多大厂评测同样不专业，“评测真的是个人都能做，但是有品位的评测真的很难”。\n\n最初发问的群友具体吐槽了部分 benchmark 的造题套路：在 verify 环节做手脚去故意制造梯度，靠卡住 sota 模型来显得题目很难，仔细研究其实是验收逻辑本身有问题；如果是模型真没做出来拿低分还好，agent 明明做出来了却败在 verify 问题上就很让人反感。有人反问这是否也反映出模型泛化能力上的差异；另一位群友则补充，虽然很多开源 bench 接受 pr 来修补问题，但社区“为爱发电”的修复速度较慢，大厂往往会在内部自己维护一个修复版本。\n\n另一位群友把目前评测的困境概括为“老题高分新题低分”：公开或统一框架的榜单容易被过拟合地刷，私有 bench 又面临公信力质疑，原本具有导购性质的榜单最后变成“看啥 bench 都没用”，测试成本还是转嫁给了用户。有人点名 AA 就是“私有框架+公开评测集”的模式，送评一次动辄数万美金；也有人把这种第三方评测的商业化类比为 QS 大学排名。\n\n围绕 AA 榜单，有群友注意到新版加入了不少 3d 和 science 题目，怀疑这样算出的总分有偏；结合自己做 bench 的体会，单是把多种不同类型任务汇总成一个分数就已经怎么给都怪，再把不同 bench 整合成一个“智能指数”更是难上加难。有群友认为日常用户和科研人员需要各自对齐自身认知的分数，而现在 AA 上一些小模型分数异常高，或是部分厂家出于商业目的针对 AA 过拟合刷榜，实际用起来表现却很一般；此外，不同人的 prompt 习惯以及现代模型与 harness 的协同训练，都会影响最终的 index。还有群友从使用体感补充，很多评测里的提示词过于规范，到了日常不规范的真实场景里，小模型和大模型的手感差异就会暴露出来。",
+          "emphasis": [
+            "认可三方在中立性和专家数据建设上的优势，但也谈到团队成员出去开公司、不盈利难以长久",
+            "在 verify 环节做手脚去故意制造梯度，靠卡住 sota 模型来显得题目很难",
+            "公开或统一框架的榜单容易被过拟合地刷，私有 bench 又面临公信力质疑",
+            "很多评测里的提示词过于规范，到了日常不规范的真实场景里，小模型和大模型的手感差异就会暴露出来"
+          ],
+          "aiComment": "送评一次好几万美金，模型还得在 verify 的夹缝里求生，这哪是跑分，这是大模型的高考自主招生。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:20",
+              "text": "大家有没有感觉大多数benchmark，就是没有厂商认可或者不是厂商自己推出的 benchmark 都有些水论文的嫌疑啊"
+            },
+            {
+              "speaker": 2,
+              "time": "15:23",
+              "text": "但是三方的benchmark才应该是benchmark的最终形态 （我认为",
+              "quote": {
+                "speaker": 1,
+                "text": "大家有没有感觉大多数benchmark，就是没有厂商认可或者不是厂商自己推出的 benchmark 都有些水论文的嫌疑啊"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:23",
+              "text": "很多bench都是社区lead的 无商业化 我觉得这样会比较好"
+            },
+            {
+              "speaker": 1,
+              "time": "15:23",
+              "text": "像 terminalbench 就是三方的吧"
+            },
+            {
+              "speaker": 1,
+              "time": "15:24",
+              "text": "具有中立性",
+              "quote": {
+                "speaker": 2,
+                "text": "很多bench都是社区lead的 无商业化 我觉得这样会比较好"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:24",
+              "text": "对的",
+              "quote": {
+                "speaker": 1,
+                "text": "像 terminalbench 就是三方的吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:24",
+              "text": "而且很多专家数据确实是让三方来做更好"
+            },
+            {
+              "speaker": 2,
+              "time": "15:24",
+              "text": "但是tb也有一些问题，有几个人出去开公司了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:25",
+              "text": "如果没有和模型厂商之间有相应的利益输送还行"
+            },
+            {
+              "speaker": 1,
+              "time": "15:25",
+              "text": "但也很难了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:25",
+              "text": "不盈利无法长久"
+            },
+            {
+              "speaker": 3,
+              "time": "15:25",
+              "text": "测评也会不专业一些",
+              "quote": {
+                "speaker": 2,
+                "text": "很多bench都是社区lead的 无商业化 我觉得这样会比较好"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:26",
+              "text": "我觉得大厂评测很多都是不专业的。。。",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 测评也会不专业一些"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:26",
+              "text": "说实话评测真的是个人都能做 但是有品位的评测真的很难"
+            },
+            {
+              "speaker": 1,
+              "time": "15:26",
+              "text": "是通过把验证这一环做一点手脚去故意制造出梯度，卡住 sota 模型就显得我的题目很难，但其实仔细研究就是验收有问题"
+            },
+            {
+              "speaker": 1,
+              "time": "15:26",
+              "text": "确实",
+              "quote": {
+                "speaker": 2,
+                "text": "说实话评测真的是个人都能做 但是有品位的评测真的很难"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:26",
+              "text": "我感觉目前测评有个问题是公开/统一框架的榜容易过拟合地刷，私有bench又有公信力问题，到最后测试成本依旧由用户负担而且确实会影响实际工作效率"
+            },
+            {
+              "speaker": 2,
+              "time": "15:27",
+              "text": "对 like aa就是",
+              "quote": {
+                "speaker": 4,
+                "text": "我感觉目前测评有个问题是公开/统一框架的榜容易过拟合地刷，私有bench又有公信力问题，到最后测试成本依旧由用户负担而且确实会影响实际工作效率"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:27",
+              "text": "最后本来是一个导购性质的bench变成了看啥bench都没用"
+            },
+            {
+              "speaker": 2,
+              "time": "15:27",
+              "text": "私有框架+公开评测集 送评一次XXk没进"
+            },
+            {
+              "speaker": 2,
+              "time": "15:27",
+              "text": "*美金"
+            },
+            {
+              "speaker": 4,
+              "time": "15:28",
+              "text": "借用一句业内人士的话就是 老题高分新题低分"
+            },
+            {
+              "speaker": 1,
+              "time": "15:29",
+              "text": "就是如果低分是真没做出来还好，有些题是 agent 做出来 verify 有问题，这种有点恶心",
+              "quote": {
+                "speaker": 4,
+                "text": "借用一句业内人士的话就是 老题高分新题低分"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:29",
+              "text": "主要是三方也不一定是学术机构，这得靠用户的taste去甄别哪些bench真正有价值了",
+              "quote": {
+                "speaker": 1,
+                "text": "大家有没有感觉大多数benchmark，就是没有厂商认可或者不是厂商自己推出的 benchmark 都有些水论文的嫌疑啊"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:30",
+              "text": "虽然很多bench也接受pr来修一下，但是大厂很多时候会有一个自己修复的版本",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 就是如果低分是真没做出来还好，有些题是 agent 做出来 verify 有问题，这种有点恶心"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:30",
+              "text": "这个是不是多少说明了泛化能力上的差异呢",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 就是如果低分是真没做出来还好，有些题是 agent 做出来 verify 有问题，这种有点恶心"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:30",
+              "text": "社区修复速度有点慢 这个时代为爱发电真的少了"
+            },
+            {
+              "speaker": 6,
+              "time": "15:31",
+              "text": "第三方评测的商业化感觉和QS大学排名的商业化差不多"
+            },
+            {
+              "speaker": 7,
+              "time": "15:31",
+              "text": "aa 这版是不是加了很多 3d 的题？"
+            },
+            {
+              "speaker": 4,
+              "time": "15:32",
+              "text": "还有science"
+            },
+            {
+              "speaker": 7,
+              "time": "15:33",
+              "text": "那感觉这样算出来的分，其实有偏？"
+            },
+            {
+              "speaker": 4,
+              "time": "15:35",
+              "text": "就是日常用户需要日常用户的分，做科研的需要科研的分，榜要对齐各位对intelligence的认知这样",
+              "quote": {
+                "speaker": 7,
+                "text": "那感觉这样算出来的分，其实有偏？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:36",
+              "text": "但是现在AA的情况是一些小模的分异常高，或者某些厂家为了一些商业目的会对AA过拟合地刷，但是用的时候性能表现一般"
+            },
+            {
+              "speaker": 4,
+              "time": "15:36",
+              "text": "最后一个分句的情况包含以上两种前提",
+              "quote": {
+                "speaker": 4,
+                "text": "但是现在AA的情况是一些小模的分异常高，或者某些厂家为了一些商业目的会对AA过拟合地刷，但是用的时候性能表现一般"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "15:37",
+              "text": "我之前做 bench 就感觉在有很多不同类型任务的时候，很难给出一个最终的分数。怎么给都感觉怪怪的。\n\n换到不同 Bench 分数整合到一个“智能指数”的时候，感觉就更难了。"
+            },
+            {
+              "speaker": 4,
+              "time": "15:38",
+              "text": "还有就是不同人的不同prompt，还有现代模型和harness的协同训练都会对intelligence的index有影响"
+            },
+            {
+              "speaker": 8,
+              "time": "16:01",
+              "text": "感觉很多评测是提示词太规范了，日常使用场景基本上不可能这么规范",
+              "quote": {
+                "speaker": 4,
+                "text": "但是现在AA的情况是一些小模的分异常高，或者某些厂家为了一些商业目的会对AA过拟合地刷，但是用的时候性能表现一般"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "16:01",
+              "text": "然后此时小模和大模的手感差异就会体现了"
+            }
+          ]
+        },
+        {
+          "category": "强化学习",
+          "title": "多任务强化学习取舍：MOPD 梯度对齐比 Mix RL 调奖惩系数更容易",
+          "text": "有群友分享了对多任务强化学习的体会，认为 mix rl 在处理不同任务的奖罚均衡时非常困难，这也是导致 mix rl 训练不稳定的原因之一。相比之下，mopd 可以分 domain 无限验证并选择最佳的 expert，做梯度对齐比对齐 reward 系数容易得多，因此自己更倾向于选择 mopd 合版。",
+          "emphasis": [
+            "做梯度对齐比对齐 reward 系数容易得多"
+          ],
+          "aiComment": "手动配平 Mix RL 的奖惩系数太费头发，还是交给 MOPD 对齐梯度更像阳间操作。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "03:20",
+              "text": "mix rl在处理不同任务的奖罚均衡很困难，也是mix rl不稳定的原因之一。mopd可以分domain无限验证选择最佳的expert，梯度对齐比reward系数对齐还是容易很多了"
+            },
+            {
+              "speaker": 1,
+              "time": "03:20",
+              "text": "我选择mopd合版"
+            }
+          ]
+        },
+        {
+          "category": "社区项目",
+          "title": "Qwenputer 把 Gated DeltaNet 状态当内存，直接在模型权重里跑起 RISC-V CPU",
+          "text": "有群友分享了一张 Qwen Developers 的推文截图并感叹好玩。截图介绍了一个名为 Qwenputer 的项目：开发者把 Qwen 的 Gated DeltaNet 状态当作内存，直接在模型权重中构建出 RISC-V CPU，使模型能够在内部执行指令并运行 C 和 MicroPython 程序。",
+          "emphasis": [
+            "直接在模型权重中构建出 RISC-V CPU"
+          ],
+          "aiComment": "别人拿显卡跑模型，Qwenputer 直接拿 Gated DeltaNet 状态当内存搓出个 RISC-V CPU，套娃界有自己的摩尔定律。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:28",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:29",
+              "text": "这个感觉很好玩？",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "前沿动态",
+          "title": "清华团队亮相 35B 自进化模型，群友调侃参数门槛",
+          "text": "有群友转发了机器之心关于清华团队推出首个 35B 自进化模型的报道。另一位群友看到参数规模后调侃：“35b 就能玩自进化了？门槛太低了吧。”",
+          "emphasis": [
+            "35b 就能玩自进化了？门槛太低了吧"
+          ],
+          "aiComment": "35B 刚宣布能玩自进化，群友已经嫌门槛低了，通货膨胀终究还是卷到了参数圈。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:19",
+              "text": "[链接] 清华27岁助理教授杀入AI自进化赛道！首个35B模型刚刚亮相\n  来源: 机器之心\n  摘要: AI研究AI，进入进阶模式？\n  URL: https://mp.weixin.qq.com/s/ebcoQ-nClgWK4oT43B-QNw"
+            },
+            {
+              "speaker": 2,
+              "time": "22:21",
+              "text": "35b就能玩自进化了？",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 清华27岁助理教授杀入AI自进化赛道！首个35B模型刚刚亮相\n  来源: 机器之心\n  摘要: AI研究AI，进入进阶模式？\n  URL: https://mp.weixin.qq.com/s/ebcoQ-nClgWK4oT43B-QNw"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:21",
+              "text": "门槛太低了吧[破涕为笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:22",
+              "text": "[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "门槛太低了吧[破涕为笑]"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "清华团队 35B 自进化模型报道",
+              "url": "https://mp.weixin.qq.com/s/ebcoQ-nClgWK4oT43B-QNw"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "EEG 信号差、神经元响应慢，脑机接口离“写入”还有多远？",
+      "theme": "分享 The Trinity 自建仿真环境进化的实验表现，聊及生成式 3D 世界模型落地体感与编程语言选择。",
+      "note": "2026-10-28 · 当日本地记录",
+      "stories": [
+        {
+          "category": "脑机接口",
+          "title": "往人脑里灌论文还要多久？群友拆解 EEG 基座模型与脑机接口瓶颈",
+          "text": "一篇关于脑机接口能否增强人类能力的文章，引出了“能不能一键把论文输入大脑”的追问。分享文章的群友说自己正在尝试折中方案：既然以后论文基本都由 AI 产出，人类怎么快速读完、不至于迅速变蠢就成了急需解决的问题；在写入式脑机接口成熟前，只能先靠高密度信息图来“压缩信息，变相提高人脑带宽”。这位群友受黄仁勋“AI 产业五层架构图”的启发，尝试用 gpt5.6sol 写了一篇关于“通用人类智能 HGI+”的文章并附带分层信息图。另一位群友提到，此前也有过一波用 nano banana 制作论文信息图的热潮，但受限于模型能力，做出来的效果一般。\n\n有人顺着话头问，现在能不能直接把信息传给人脑。分享者直言目前脑机接口研究仍以脑电信号探测为主，离写入还差得很远；其中和 AI 结合最紧密的是 EEG foundation model，但不少工作只是看到 SD 预训练了 VAE、LLM 预训练了 next-token-predict，就生搬硬套去给 EEG 预训练一个 signal-reconstruction。另一位群友从硬件信号层面补充：EEG 信号质量太差，现有模型很多靠过拟合，泛化极差；fNIRS 理论上信号质量好一点，但时间分辨率又不够；超声脑机则可以做相控阵。还有群友指出，除了还不清楚如何安全地向大脑传输信号，神经元的变化速度也没有 LLM 那么快，真要写入恐怕得靠持续的信号刺激。",
+          "emphasis": [
+            "在写入式脑机接口成熟前，只能先靠高密度信息图来“压缩信息，变相提高人脑带宽”",
+            "EEG 信号质量太差，现有模型很多靠过拟合，泛化极差"
+          ],
+          "aiComment": "指望脑机接口一键灌论文，结果连 EEG 都在硬套重预训练，信息图还得替脑门多扛几年高带宽。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:05",
+              "text": "[链接] AGI 五问 · 第4.3篇｜AGI能否通过脑机接口增强人的能力？\n  来源: Alex 硅谷科技实况\n  摘要: AGI 五问 · 第4.3问｜AGI能否通过脑机接口增强人的能力？\n  URL: https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485045&idx=1&sn=03d4bcb6568c1f1299b5330b311eb048&chksm=f5a7960212875baa3e5c018da39de8d0a06d990df9ef275b3965e841542f7c27a5b6f6a23909&scene=1&srcid=1028sg5N49Xqxrm4sIwtT4gw#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "17:36",
+              "text": "可以一键把论文输入我的大脑吗[旺柴]",
+              "quote": {
+                "speaker": null,
+                "text": "[链接] AGI&#x20;五问&#x20;·&#x20;第4.3篇｜AGI能否通过脑机接口增强人的能力？\n  来源: Alex&#x20;硅谷科技实况\n  摘要: AGI&#x20;五问&#x20;·&#x20;第4.3问｜AGI能否通过脑机接口增强人的能力？\n  URL: https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485045&idx=1&sn=03d4bcb6568c1f1299b5330b311eb048&chksm=f5a7960212875baa3e5c018da39de8d0a06d990df9ef275b3965e841542f7c27a5b6f6a23909&scene=1&srcid=1028sg5N49Xqxrm4sIwtT4gw#rd"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:45",
+              "text": "我最近就在研究此事，以后就应该把论文summarize成那种高浓度的信息图",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 可以一键把论文输入我的大脑吗[旺柴]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:50",
+              "text": "有例子给看看么",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 我最近就在研究此事，以后就应该把论文summarize成那种高浓度的信息图"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:51",
+              "text": "前面有一个热潮是用 nano banana 搞这个，但效果还是一般，可能瓶颈还是在模型那边"
+            },
+            {
+              "speaker": 1,
+              "time": "18:00",
+              "text": "之前还是gpt5.6sol的时候"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "我让它写了一篇论文，提出一个主题，叫通用人类智能 HGI+"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "然后给了一些提示词，gpt5.6sol给我写了这篇文章，附赠一些信息图"
+            },
+            {
+              "speaker": 1,
+              "time": "18:02",
+              "text": "[文件] HGIplus_Formal_Research_Program_v0.1.pdf (1.9 MB, pdf, md5=8d6e27e1678fdf5a564b2eb8124528ae)"
+            },
+            {
+              "speaker": 1,
+              "time": "18:03",
+              "text": "意思就是以后论文基本都是ai产出了，但如何快速让人类理解ai产出的论文，使得人类不至于快速变蠢，就是一个急需解决的问题"
+            },
+            {
+              "speaker": 1,
+              "time": "18:04",
+              "text": "目前写入式脑机接口不成熟，那么就只能用高密度信息图了"
+            },
+            {
+              "speaker": 4,
+              "time": "18:04",
+              "text": "压缩信息"
+            },
+            {
+              "speaker": 4,
+              "time": "18:04",
+              "text": "变相提高人脑带宽"
+            },
+            {
+              "speaker": 1,
+              "time": "18:07",
+              "text": "当时我还是受黄仁勋那个5-layers of AI industry启发"
+            },
+            {
+              "speaker": 1,
+              "time": "18:08",
+              "text": "如果一张五个层级的图可以把ai的主流领域囊括进来，并且在每个层级堆砌或者发散一些其他信息，那why not，其他领域也可以这样"
+            },
+            {
+              "speaker": 5,
+              "time": "18:09",
+              "text": "能直接传给人脑吗",
+              "quote": {
+                "speaker": 1,
+                "text": "目前写入式脑机接口不成熟，那么就只能用高密度信息图了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:09",
+              "text": "那现在肯定是很不成熟的，脑机接口目前的研究都是脑电信号探测为主",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 能直接传给人脑吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:10",
+              "text": "和ai最相关的就是eeg foundation model（但目前也很唐"
+            },
+            {
+              "speaker": 6,
+              "time": "18:10",
+              "text": "eeg信号质量太差了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:11",
+              "text": "主要问题是，现在如何安全传给模型都不是很清楚。。。感觉很难啊，但是好期待啊"
+            },
+            {
+              "speaker": 6,
+              "time": "18:11",
+              "text": "egg模型很多靠过拟合"
+            },
+            {
+              "speaker": 6,
+              "time": "18:12",
+              "text": "泛化极差"
+            },
+            {
+              "speaker": 1,
+              "time": "18:12",
+              "text": "他就是空想一个eeg基座模型"
+            },
+            {
+              "speaker": 1,
+              "time": "18:12",
+              "text": "他觉得sd能成功，llm能成功，难道我eeg就不能成功"
+            },
+            {
+              "speaker": 1,
+              "time": "18:12",
+              "text": "sd预训练了vae，llm预训练了next-token-predict，难道我eeg不能预训练一个signal-reconstruction"
+            },
+            {
+              "speaker": 6,
+              "time": "18:12",
+              "text": "fnirs这种理论上信号质量好一点"
+            },
+            {
+              "speaker": 6,
+              "time": "18:12",
+              "text": "但时间分辨率又没那么好"
+            },
+            {
+              "speaker": 6,
+              "time": "18:13",
+              "text": "超声脑机没怎么接触过"
+            },
+            {
+              "speaker": 2,
+              "time": "18:13",
+              "text": "不过可能得要持续信号刺激吧，神经元变化没有llm那么快[旺柴]可以一周去医院接入一次电波"
+            },
+            {
+              "speaker": 6,
+              "time": "18:13",
+              "text": "不过这玩意是可以做相控阵的"
+            }
+          ]
+        },
+        {
+          "category": "Agent 进化",
+          "title": "不改模型参数，靠自造模拟环境涨分：The Trinity 跑通真机 Real2Sim2Real",
+          "text": "有群友分享了递归自我改进（RSI）研究工作 The Trinity。作者提出，解谜、游戏、视频理解和机器人操作表面上差异很大，底层其实共享着跟踪状态、验证假设、检查约束和根据反馈修正计划等能力。围绕这一思路，系统设计了三个协同角色：Creator 根据能力需求构建可验证的模拟世界，Explorer 在环境中探索获取轨迹，Evolver 则从任务和执行反馈中抽象出能力需求，组织能力树（Capability Tree）进化，并指导环境生成与 harness 更新。\n\n据介绍，在保持模型参数不变的情况下，通过环境与 agent 协同进化，系统在 ARC-AGI-3 等 28 个训练 benchmark 上平均提升 34 分，在包含 Video-MME-v2 和两项真机任务的 18 个 unseen benchmark 上平均提升 26 分；从第 1 轮到第 4 轮进化，ARC-AGI-3 得分从 41.0 涨到 53.6，SciGym 从 45.2 涨到 57.1。在机器人实验里，这套方法打通了从真实场景重建仿真、试错总结技能到真机执行的 Real2Sim2Real 流程，Unitree G1 寻桌伸手和 AlohaMini2 翻杯找物两项真机任务的成功率均从进化前的 0% 提升至 60%。\n\n消融实验还对比了环境生成与模块路由的作用：在同一能力树、仅评估模块的对照下，用生成仿真环境训练的未见任务均分为 47.26，高于直接用原始任务训练的 42.31；加入相关模块可提升 19.39 分，而加入无关模块仅提升 1.02 分；让 agent 按任务需求自动路由选择 harness 时，未见基准得分为 60.96，接近事后挑选最优配置的 63.61。",
+          "emphasis": [
+            "Evolver 则从任务和执行反馈中抽象出能力需求，组织能力树（Capability Tree）进化，并指导环境生成与 harness 更新",
+            "Unitree G1 寻桌伸手和 AlohaMini2 翻杯找物两项真机任务的成功率均从进化前的 0% 提升至 60%",
+            "用生成仿真环境训练的未见任务均分为 47.26，高于直接用原始任务训练的 42.31"
+          ],
+          "aiComment": "参数一动不动，靠自造模拟环境硬是把翻杯子和寻桌成功率从 0% 拉到 60%，真机学会了先在脑子里打草稿。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:03",
+              "text": "借群分享一下我们近期的RSI研究工作The Trinity（三位一体），通过三个角色协同实现能力驱动的 RSI：\n\nCreator负责根据能力需求构建可验证的模拟世界；Explorer负责在环境中探索得到轨迹；Evolver则从任务和执行反馈中抽象能力需求，组织Capability Tree的进化，并指导环境生成与Harness更新\n\nAgent通过自动构建训练环境、持续改进自身能力，实现了Real2Sim2Real将能力迁移到真实机器人上\n\n在模型参数不变的情况下，通过环境与Agent的协同进化，我们成功让Agent在ARC-AGI-3等28个训练Benchmark上平均提升34分，在包含Video-MME-v2和两项真机任务的18个 Unseen Benchmark 上平均提升26分\n\n1️⃣【核心Insight：不同任务，共享能力】\n\n解谜、游戏、视频理解、机器人操作，看起来差别很大，却可能依赖相同的底层能力：跟踪状态、验证假设、检查约束、根据反馈修正计划。\n\n我们将这些共通需求组织成能力树，让Agent围绕能力生成练习环境，通过交互反馈改进Harness，积累跨任务可复用的模块，推动记忆、推理、规划等执行机制持续进化。\n\n2️⃣【跑通Real2Sim2Real】\n\n从真实任务中提炼能力需求，在简化、可验证的模拟世界里练习，再回到原始任务检验迁移效果。\n\n在机器人实验中，进一步打通 真实场景 → 重建仿真 → 试错总结技能 → 真机执行：Unitree G1寻桌伸手、AlohaMini2翻杯找物，两项真机任务成功率均从进化前的 0% 提升至进化后的 60%。\n\n3️⃣【更多实验Findings】\n- 多轮进化持续涨分：第1轮到第4轮，ARC-AGI-3 41.0 → 53.6，SciGym 45.2 → 57.1。\n- RSI自造环境能支持能力迁移：同一能力树、仅评估模块的对照中，生成仿真环境训练的未见任务均分达到 47.26，高于原始任务训练的 42.31。\n- 模块需要匹配能力：加入相关模块的配置提升 19.39 分，加入无关模块的配置仅提升 1.02 分。\n- Agent自己选Harness：根据任务需求自动路由，未见基准得分达到 60.96，接近事后选择最优配置的 63.61。\n\n欢迎和关注Agent自我进化、Harness、具身智能的朋友私信交流，也欢迎大家体验、Star和Upvote支持～\n\n📄 Paper：https://arxiv.org/abs/2610.36077\n💻 GitHub：https://github.com/InfRec-Cardinal/The-Trinity\n🌐 Project Page：https://trinity-rsi.github.io/\n🤗 HF Paper：https://huggingface.co/papers/2610.36077"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "The Trinity 论文（arXiv:2610.36077）",
+              "url": "https://arxiv.org/abs/2610.36077"
+            },
+            {
+              "kind": "code",
+              "label": "The Trinity 代码仓库",
+              "url": "https://github.com/InfRec-Cardinal/The-Trinity"
+            },
+            {
+              "kind": "demo",
+              "label": "The Trinity 项目主页",
+              "url": "https://trinity-rsi.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "编程工具与语言",
+          "title": "Rust 适合给 Agent 写还是太耽误出原型？群友聊 vibe coding 时代的编程流派",
+          "text": "有群友问大家有没有欣赏的编程流派思路，有人调侃现在都在 vibe coding，早没了风格；也有人推崇函数式编程和 SICP，认为 Rust 就是函数式编程的一种务实体现，并顺带吐槽不明白为什么很多人喜欢把洗数据时用的函数叫作“算子”。另一位群友觉得 Rust 的函数式特性反而更适合让 agent 来操作。提问的群友不太认同，觉得 Rust 每次都要编译，一般只用来固定比较成熟的东西，遇到还不成熟、需要快速搭出架构原型的场景，还是得靠 Node.js 和 Python。一位正在写 Rust 的群友也大呼头疼，开玩笑说既然有 CPython 和 JPython，不如快进到“rupython”当万能胶。",
+          "emphasis": [
+            "另一位群友觉得 Rust 的函数式特性反而更适合让 agent 来操作",
+            "Rust 每次都要编译，一般只用来固定比较成熟的东西"
+          ],
+          "aiComment": "一边嫌 Rust 编译耽误搭原型，一边都在盼着 rupython 问世，程序员的终极梦想还是既要又要。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:50",
+              "text": "兄弟们，有没有特别欣赏的一些编程的流派思路哇？"
+            },
+            {
+              "speaker": 2,
+              "time": "14:50",
+              "text": "(都在vibecoding"
+            },
+            {
+              "speaker": 2,
+              "time": "14:50",
+              "text": "哪里还有风格"
+            },
+            {
+              "speaker": 3,
+              "time": "14:52",
+              "text": "ru",
+              "quote": {
+                "speaker": 1,
+                "text": "兄弟们，有没有特别欣赏的一些编程的流派思路哇？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:52",
+              "text": "rust起来"
+            },
+            {
+              "speaker": 3,
+              "time": "14:52",
+              "text": "函数式编程赛高"
+            },
+            {
+              "speaker": 2,
+              "time": "14:52",
+              "text": "我真在rust"
+            },
+            {
+              "speaker": 2,
+              "time": "14:52",
+              "text": "已经很头疼了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:52",
+              "text": "sicp",
+              "quote": {
+                "speaker": 3,
+                "text": "函数式编程赛高"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:53",
+              "text": "rust算是一种语言吧，函数式编程确实是一种厉害的流派我觉得",
+              "quote": {
+                "speaker": 3,
+                "text": "rust起来"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:54",
+              "text": "主要ru是 函数式的一种务实体现",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] rust算是一种语言吧，函数式编程确实是一种厉害的流派我觉得"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:55",
+              "text": "我感觉ru更适合agent操作hhh 函数式编程"
+            },
+            {
+              "speaker": 3,
+              "time": "14:56",
+              "text": "其实我很费解，为什么很多人把 洗数据时候用的 函数 表达为 算子"
+            },
+            {
+              "speaker": 1,
+              "time": "14:56",
+              "text": "这个每次都要编译，所以我感觉一般用来固定比较成熟的东西，有些不成熟的，要快速出架构原型的，还是node.js和PY吧",
+              "quote": {
+                "speaker": 5,
+                "text": "我感觉ru更适合agent操作hhh 函数式编程"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "快进到 rupython"
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "能有cpython jpython 为什么不能有 rupython"
+            }
+          ]
+        },
+        {
+          "category": "3D 世界模型",
+          "title": "生成式 3D 世界模型落地印象：实际工作流不如 Demo，算力账单还不便宜",
+          "text": "有群友问起大家有没有测过近期推送的 Gemini 4 世界模型功能，觉得虽然宣传可交互，但看下来和 VAST 的 Project Eden 没什么区别。有人猜测就算开了 Ultra 订阅也得进 waiting list。提问的群友结合自己的实测体会说，目前生成类的 3D 世界模型放到实际工作流里，表现都没有展示的 demo 那么好；考虑到上个月的相关合作动向，猜测这个功能可能会以外载形式适配 Unity 引擎。这位群友还感叹现在用 Tripo 和 Hyper 都不便宜，盼着基座模型多出点生成式 3D 功能，把 3D 生成的价格打下来。",
+          "emphasis": [
+            "目前生成类的 3D 世界模型放到实际工作流里，表现都没有展示的 demo 那么好"
+          ],
+          "aiComment": "看着 Gemini 4 的可交互 3D 演示流口水，回头算算 Tripo 和 Hyper 的账单，决定先盼着基座大厂把价格打下来。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:21",
+              "text": "话说有人测了gemini4了么，那个世界模型功能，今天给我一直推"
+            },
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "说是可交互，丫的我感觉跟VAST 那个project eden没什么区别"
+            },
+            {
+              "speaker": 1,
+              "time": "21:24",
+              "text": "有人测过么，体验感怎么样"
+            },
+            {
+              "speaker": 2,
+              "time": "21:28",
+              "text": "这个ultra也得进waitinglist吧",
+              "quote": {
+                "speaker": 1,
+                "text": "有人测过么，体验感怎么样"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:30",
+              "text": "我估计是，目前测下来生成类的3D世界模型，实际在工作中表现效果没有他们展示的demo那么好。"
+            },
+            {
+              "speaker": 1,
+              "time": "21:31",
+              "text": "不过上个月我看了unity和谷歌合作，估计这个会适配unity引擎吧，但感觉还是外载式的"
+            },
+            {
+              "speaker": 1,
+              "time": "21:34",
+              "text": "基模赶紧多出点生成式3D功能，把3D生成价格打下来，用Tripo 和hyper 都不便宜[苦涩]"
+            }
+          ]
+        },
+        {
+          "category": "工具使用体验",
+          "title": "Claude 频弹人机验证成封号预警，到期前故意违规让申诉退款变难",
+          "text": "有群友反映 Claude 一直卡在人机验证界面转圈。多位群友提醒这往往不是单纯验证人类，而是账号快被封了，建议先停用放几天避避风头；不过也有人表示自己遇到过同样的情况但没被封。聊到封号后的退费问题，有人记得以前封号会自动退，也有人通过找 Google 申诉拿回了钱。一位群友解释说，早期确实会退，但后来因为有人故意在订阅快到期时去干高危行为骗退款，现在的退费审核已经越来越复杂。",
+          "emphasis": [
+            "早期确实会退，但后来因为有人故意在订阅快到期时去干高危行为骗退款，现在的退费审核已经越来越复杂"
+          ],
+          "aiComment": "人机验证转圈成了封号倒计时，再碰上前人卡到期日违规骗退费，正经人连退票窗口都快被焊死了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:49",
+              "text": "大家的claude会不会卡啊现在"
+            },
+            {
+              "speaker": 1,
+              "time": "20:49",
+              "text": "就是直接一直弹验证"
+            },
+            {
+              "speaker": 1,
+              "time": "20:49",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:54",
+              "text": "验证人类✗"
+            },
+            {
+              "speaker": 2,
+              "time": "20:54",
+              "text": "验证是不是中国人✅"
+            },
+            {
+              "speaker": 2,
+              "time": "20:54",
+              "text": "你快被封了"
+            },
+            {
+              "speaker": 3,
+              "time": "20:56",
+              "text": "+1 这封的概率太大了"
+            },
+            {
+              "speaker": 4,
+              "time": "20:57",
+              "text": "我也遇到了，但没封"
+            },
+            {
+              "speaker": 2,
+              "time": "21:01",
+              "text": "放几天吧 安全点。"
+            },
+            {
+              "speaker": 3,
+              "time": "21:10",
+              "text": "md 退款呢？"
+            },
+            {
+              "speaker": 5,
+              "time": "21:10",
+              "text": "以前不是会退的吗"
+            },
+            {
+              "speaker": 6,
+              "time": "21:10",
+              "text": "我找google申诉，然后退了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:11",
+              "text": "一开始会退的，后面越来越复杂了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:11",
+              "text": "因为有人故意快到期了去干高危行为"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "8 卡 B300 训 0.1B 精排模型要 15 小时？从早退机制排到 NFS 访存瓶颈",
+      "theme": "探讨线上 Harness 高频迭代时是否需要同步重造训练数据，并分享 The Trinity 协同进化方案。",
+      "note": "2026-10-28 · 当日本地记录",
+      "stories": [
+        {
+          "category": "训练与 Infra",
+          "title": "8 卡 B300 训 0.1B 搜推小模型还要 15 小时？群友从沙盒早退排到 NFS 访存瓶颈",
+          "text": "有群友在做一个给 0.1B 搜推精排小模型提供改进方向的 RSI。如果只给方向不实际全量训练，容易让提议模型陷入“自嗨”，但跑完一次全量训练加离线评测要花大约 15 小时。这位群友手头有 8 卡 B300，只是算法 commit、diff 和训练参考指标只有几百条，不够做主模型的 mid-train 和 SFT，又担心合成数据跟线上实际偏差太大，便问大家怎么把验证周期压下来。\n\n听完配置，好几个人第一反应都是“大炮打蚊子”，觉得 8 卡 B300 够训 Qwen3.8-27B 了，训 0.1B 小模型如果数据量不大几分钟就能跑完，耗时这么长多半卡在评测或 infra 上，甚至换 H20 速度可能都差不多。在验证策略上，一位群友建议照搬早年训小模型的技巧：加早退机制，训的时候看 log 不行就及时停掉，或者设一个 proxy validation set，按改动先大后小的顺序试。提问者说正在搭小 sandbox，打算用最近几天的窗口数据做训练模拟。\n\n另一位熟悉 infra 的群友一开始按 LLM 思路支招，建议全量改 LoRA、用 DPO 替掉 GRPO 或 PPO，或者把 ZeRO 1/2/3 打开、尽量把显存给大 batch size 来减少 epoch 数。提问者解释这是精排小模型，跟 LLM 不太搭边，真正的瓶颈在 CPU 解码和读数据，而且数据全挂在 NFS 上，每次读写都很慢。有群友直接建议数据不大的话别反复读文件，一次性 load 进内存。那位熟悉 infra 的群友则顺着硬件给出排查方向：B300 的 CPU 有几百个核，如果数据之间独立可以先看能不能多核并行解码；再看能不能参考 SGLang 的做法，把 CPU 读数据和 GPU 计算做线程 overlap，别等 CPU 全量读完同步才开始算；独占资源时还可以按 NFS、内存、显存的分级存储结构，优先把快速存储塞满再从慢速存储读，打满各级访存带宽来做多级流水 bubble 填充。",
+          "emphasis": [
+            "跑完一次全量训练加离线评测要花大约 15 小时",
+            "加早退机制，训的时候看 log 不行就及时停掉",
+            "真正的瓶颈在 CPU 解码和读数据，而且数据全挂在 NFS 上"
+          ],
+          "aiComment": "拿 8 卡 B300 训 0.1B 小模型跑 15 小时，顶级核动力航母生生被 NFS 读盘卡成了绿皮火车。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:10",
+              "text": "想问问佬们一个问题，目前在做一个提供改进方向 model 的 RSI，但是只给出改进方向不去实际全量训业务小模型（0.xB） 怕提议模型总是在自嗨，但是全量训一次+离线评测要大概 15h，有什么比较好的优化思路吗（主要手头 commit 数量也比较少，才几百条）"
+            },
+            {
+              "speaker": 2,
+              "time": "20:18",
+              "text": "听懂了，缺卡"
+            },
+            {
+              "speaker": 1,
+              "time": "20:22",
+              "text": "也不是，手上有 8 卡 b300",
+              "quote": {
+                "speaker": 2,
+                "text": "听懂了，缺卡"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:23",
+              "text": "但他主要是个 0.1b 的搜推小模型，好像和 llm 的需求不太一样"
+            },
+            {
+              "speaker": 3,
+              "time": "20:26",
+              "text": "好有钱，8卡B300 足够Qwen3.8-27B了吧QAQ"
+            },
+            {
+              "speaker": 4,
+              "time": "20:27",
+              "text": "b300训0.1b，怎么感觉是infra的问题"
+            },
+            {
+              "speaker": 4,
+              "time": "20:28",
+              "text": "感觉可能换成h20速度也差不多"
+            },
+            {
+              "speaker": 1,
+              "time": "20:28",
+              "text": "也有一部分问题",
+              "quote": {
+                "speaker": null,
+                "text": "b300训0.1b，怎么感觉是infra的问题"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:28",
+              "text": "主要还是没数据，做不了主模型的 mid train 和 sft"
+            },
+            {
+              "speaker": 5,
+              "time": "20:29",
+              "text": "感觉在大炮打蚊子"
+            },
+            {
+              "speaker": 2,
+              "time": "20:29",
+              "text": "合成一点？"
+            },
+            {
+              "speaker": 1,
+              "time": "20:32",
+              "text": "我们这边 mid train 是准备把他们搜推算法的 commit 和 diff 还有训练时候各项参考指标都喂进去，感觉可能不太一样",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] NV Nemotron有开源的SFT"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:34",
+              "text": "合成的话，主要还是怕和实际线上的偏差有点大？",
+              "quote": {
+                "speaker": 2,
+                "text": "合成一点？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "20:34",
+              "text": "早退机制？"
+            },
+            {
+              "speaker": 6,
+              "time": "20:34",
+              "text": "训时看一些log不行就算了"
+            },
+            {
+              "speaker": 1,
+              "time": "20:37",
+              "text": "也有考虑这个，目前在造小 sandbox，把最近几天的窗口数据去训练模拟？",
+              "quote": {
+                "speaker": 6,
+                "text": "早退机制？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "20:43",
+              "text": "proxy validation set啥的"
+            },
+            {
+              "speaker": 6,
+              "time": "20:44",
+              "text": "改动先大后小"
+            },
+            {
+              "speaker": 6,
+              "time": "20:44",
+              "text": "都是几年前训练小模型的小技巧"
+            },
+            {
+              "speaker": 7,
+              "time": "20:45",
+              "text": "15 小时 大头都在训练么\n\n全量改 lora？ \n\n用dpo 替代 grpo 和 ppo？\n\n后端接的 Megatron 还是 fsdp 么\n看看并行策略是啥，这么小，直接开 dp？\n\n混合精度有做么， 保证训推一致性的前提，不过你离线推理是不是没这问题， 就是用的 dpo？",
+              "quote": {
+                "speaker": null,
+                "text": "想问问佬们一个问题，目前在做一个提供改进方向 model 的 RSI，但是只给出改进方向不去实际全量训业务小模型（0.xB） 怕提议模型总是在自嗨，但是全量训一..."
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:52",
+              "text": "batch size 尽可能开得大\n\nzero 123 也都打开？\n\n尽可能多的内存都给到 batch，降低 epoch 次数\n\n然后看看计算 访存 带宽的 trace， 有没有没打满的硬件资源，看看怎么利用起来",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 15 小时 大头都在训练么\n\n全量改 lora？ \n\n用dpo 替代 grpo 和 ppo？\n\n后端接的 Megatron 还是 fsdp 么\n看看并行策略是啥，这么小，直接开 dp？\n\n混合精度有做么， 保证训推一致性的前提，不过你离线推理是不是没这问题， 就是用的 dpo？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:53",
+              "text": "主要瓶颈在还是 CPU 解码和读数据的问题"
+            },
+            {
+              "speaker": 1,
+              "time": "20:54",
+              "text": "一个精排的小模型，感觉和 llm 都不太搭边"
+            },
+            {
+              "speaker": 4,
+              "time": "20:55",
+              "text": "0.1B的，根本不用调并行策略hhh"
+            },
+            {
+              "speaker": 7,
+              "time": "21:01",
+              "text": "CPU 解码&读数据\n\n能多核并行做么\n\n没做过这个优化， 不过 b300 的 CPU 感觉都几百个核，不同数据之间独立的话，怎么并行加速，没太做过"
+            },
+            {
+              "speaker": 1,
+              "time": "21:02",
+              "text": "在研究，还有个问题就是，数据都是挂载在 nfs 上，每次读写都很久 qaq[叹气]",
+              "quote": {
+                "speaker": 7,
+                "text": "CPU 解码&读数据 能多核并行做么 没做过这个优化， 不过 b300 的 CPU 感觉都几百个核，不同数据之间独立的话，怎么并行加速，没太做过"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "21:02",
+              "text": "然后 CPU 和 GPU 之间能不能 overlap 起来，还是得等 CPU 侧全量读进来同步之后，才能进行 GPU 计算\n\n比如 SGLang 就有做 CPU 和 GPU 线程得 overlap 优化"
+            },
+            {
+              "speaker": 8,
+              "time": "21:04",
+              "text": "b300训0.1b小模型 数据量还不大的话 几分钟就训好了吧"
+            },
+            {
+              "speaker": 2,
+              "time": "21:04",
+              "text": "听起来是评测太慢"
+            },
+            {
+              "speaker": 2,
+              "time": "21:06",
+              "text": "读文件慢的话就不要反复读就好了？除非不清环境就做不了评测🤔"
+            },
+            {
+              "speaker": 9,
+              "time": "21:07",
+              "text": "不是很大的话直接load一下？"
+            },
+            {
+              "speaker": 7,
+              "time": "21:10",
+              "text": "然后 数据存储也有存储结构\n\nnfs\nmemory\nGPU memory\n\n独占资源的话， 优先把快速的 mem 存满，然后再从慢速的 mem 读\n\n把各级仿存带宽都打满[疑问]\n\n多级流水 bubble 填充",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 在研究，还有个问题就是，数据都是挂载在 nfs 上，每次读写都很久 qaq[叹气]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Agent 训练",
+          "title": "线上 harness 高频迭代，训练数据要不要跟着每版重造？",
+          "text": "有群友抛出一个工程难题：为了训练模型在一个高频迭代的线上 harness 上拿到好表现，并通过对应的评测 benchmark，是不是每个 harness 版本都要重新产一批数据？这样算下来成本太高，想找更优雅的方案。\n\n有人提议直接上 RL；另一位群友指出，既然有对应的评测 benchmark，应该就有固定的测试 harness，直接用这个固定版本造数据就行。还有群友认为，只要线上 harness 没被撤掉，且目标是依托 harness 运行而不是把能力全内化进模型，线上改动后继续用老模型效果也不会差太多，等遇到大改动时再重新造数据即可。前一位群友赞同这个做法，顺带提到也可以考虑 cross harness distill，不过那是另一个命题，跟造数据无关。也有人反问，如果同一个 harness 换个版本就有影响，换到别的 harness 岂不是更糟，怀疑这样训会过拟合，除非本来就是卖自己部署的模型配自家的 harness。\n\n当天傍晚，另一位群友转来一篇介绍《MAD-RSI：模型即数据的递归自我改进》的笔记，摘要提到这项工作专门探讨 RSI 过程中 agent harness 的跨模型泛化与训练成本问题，正好对应白天的讨论。",
+          "emphasis": [
+            "是不是每个 harness 版本都要重新产一批数据",
+            "线上改动后继续用老模型效果也不会差太多，等遇到大改动时再重新造数据即可"
+          ],
+          "aiComment": "线上 harness 改一版就得重造一批数据的痛，谁算账谁哆嗦，还好傍晚掉下来一篇 MAD-RSI 笔记救场。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:06",
+              "text": "想问下群里的大佬，现在的harness迭代的这么快，大家产数据的时候是每个harness的版本都会重新产一批数据吗，这样成本会不会太高了，想请教下有没有比较优雅的方案[叹气][叹气]"
+            },
+            {
+              "speaker": 2,
+              "time": "12:11",
+              "text": "这个产数据的用途主要是什么呢？"
+            },
+            {
+              "speaker": 1,
+              "time": "12:20",
+              "text": "要训练一个模型在线上的一个harness上有比较好的表现，但是这个线上harness目前迭代频率比较高",
+              "quote": {
+                "speaker": 2,
+                "text": "这个产数据的用途主要是什么呢？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:21",
+              "text": "那可以 rl 呀[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "12:22",
+              "text": "这是面向benchmark去做吗"
+            },
+            {
+              "speaker": 1,
+              "time": "12:22",
+              "text": "有个内部的benchmark"
+            },
+            {
+              "speaker": 5,
+              "time": "12:46",
+              "text": "这个有固定的测试harness",
+              "quote": {
+                "speaker": 1,
+                "text": "有个内部的benchmark"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:46",
+              "text": "用它造"
+            },
+            {
+              "speaker": 2,
+              "time": "12:48",
+              "text": "个人感觉只要harness没有撤掉，还是需要依托harness不追求把能力都内化到模型里面的话，感觉线上改了用老模型效果也不会有太大区别"
+            },
+            {
+              "speaker": 2,
+              "time": "12:48",
+              "text": "等大改动的时候再重新造数据"
+            },
+            {
+              "speaker": 5,
+              "time": "12:49",
+              "text": "是的"
+            },
+            {
+              "speaker": 5,
+              "time": "12:49",
+              "text": "或者可以考虑cross harness distill"
+            },
+            {
+              "speaker": 5,
+              "time": "12:50",
+              "text": "不过是另一个命题了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:50",
+              "text": "和造数据无关"
+            },
+            {
+              "speaker": 6,
+              "time": "12:58",
+              "text": "收益点在哪 感觉mulit harness不会带来太多的不同",
+              "quote": {
+                "speaker": 5,
+                "text": "或者可以考虑cross harness distill"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:12",
+              "text": "同一个 harness 不同版本\n\n那换个 harness 岂不是可能更糟\n\n会不会过拟合[旺柴]\n\n或者看你们业务，如果就是卖自己部署的模型接入自己的 harness，感觉 可能会这么搞[疑问]",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 要训练一个模型在线上的一个harness上有比较好的表现，但是这个线上harness目前迭代频率比较高"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:53",
+              "text": "[链接] MAD-RSI：模型即数据的递归自我改进\n  摘要: 该论文旨在解决递归自我改进（RSI）过程中agent harness的跨模型泛化与训练成本问题，核心挑战可概括如下\n  URL: https://www.xiaohongshu.com/discovery/item/6ae1c27b000000001f015f6b?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793181216"
+            },
+            {
+              "speaker": 8,
+              "time": "17:53",
+              "text": "这个工作好像是解决类似问题的",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 同一个 harness 不同版本\n\n那换个 harness 岂不是可能更糟\n\n会不会过拟合[旺柴]\n\n或者看你们业务，如果就是卖自己部署的模型接入自己的 harness，感觉 可能会这么搞[疑问]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "论文分享",
+          "title": "The Trinity：三角色协同进化能力树，两项真机任务成功率从 0% 提至 60%",
+          "text": "有群友分享了 RSI 研究工作 The Trinity（三位一体）。据介绍，这套方案在不改变模型参数的前提下，靠三个角色协同实现能力驱动的自我进化：Creator 根据能力需求构建可验证的模拟世界，Explorer 在环境中探索轨迹，Evolver 从任务和执行反馈中抽象出状态跟踪、假设验证、约束检查等底层能力需求，组织 Capability Tree 进化，并指导环境生成与 harness 更新。\n\n分享的实验数据显示，通过环境与 Agent 协同进化，Agent 在 ARC-AGI-3 等 28 个训练 benchmark 上平均提升 34 分，其中第 1 轮到第 4 轮进化里 ARC-AGI-3 从 41.0 涨到 53.6，SciGym 从 45.2 涨到 57.1；在包含 Video-MME-v2 和两项真机任务的 18 个未见 benchmark 上平均提升 26 分。在 Real2Sim2Real 机器人实验里，先从真实场景提炼需求、重建仿真试错总结技能，再回到真机执行，Unitree G1 寻桌伸手和 AlohaMini2 翻杯找物两项任务的成功率都从进化前的 0% 提升到了 60%。\n\n消融与对照实验还对比了几处细节：围绕同一棵能力树且仅评估模块时，用自造仿真环境训练在未见任务上的均分达到 47.26，高于直接用原始任务训练的 42.31；配置中加入能力相关模块能提升 19.39 分，加入无关模块只提升 1.02 分；让 Agent 根据任务需求自动路由选择 harness，在未见基准上能拿到 60.96 分，接近事后挑选最优配置的 63.61 分。",
+          "emphasis": [
+            "在不改变模型参数的前提下，靠三个角色协同实现能力驱动的自我进化",
+            "Unitree G1 寻桌伸手和 AlohaMini2 翻杯找物两项任务的成功率都从进化前的 0% 提升到了 60%",
+            "用自造仿真环境训练在未见任务上的均分达到 47.26，高于直接用原始任务训练的 42.31"
+          ],
+          "aiComment": "无关模块涨 1.02 分，相关模块涨 19.39 分，连 Agent 进化都懂偏科不如精准押题。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:42",
+              "text": "借群分享一下我们近期的RSI研究工作The Trinity（三位一体），通过三个角色协同实现能力驱动的 RSI：\n\nCreator负责根据能力需求构建可验证的模拟世界；Explorer负责在环境中探索得到轨迹；Evolver则从任务和执行反馈中抽象能力需求，组织Capability Tree的进化，并指导环境生成与Harness更新\n\nAgent通过自动构建训练环境、持续改进自身能力，实现了Real2Sim2Real将能力迁移到真实机器人上\n\n在模型参数不变的情况下，通过环境与Agent的协同进化，我们成功让Agent在ARC-AGI-3等28个训练Benchmark上平均提升34分，在包含Video-MME-v2和两项真机任务的18个 Unseen Benchmark 上平均提升26分\n\n1️⃣【核心Insight：不同任务，共享能力】\n\n解谜、游戏、视频理解、机器人操作，看起来差别很大，却可能依赖相同的底层能力：跟踪状态、验证假设、检查约束、根据反馈修正计划。\n\n我们将这些共通需求组织成能力树，让Agent围绕能力生成练习环境，通过交互反馈改进Harness，积累跨任务可复用的模块，推动记忆、推理、规划等执行机制持续进化。\n\n2️⃣【跑通Real2Sim2Real】\n\n从真实任务中提炼能力需求，在简化、可验证的模拟世界里练习，再回到原始任务检验迁移效果。\n\n在机器人实验中，进一步打通 真实场景 → 重建仿真 → 试错总结技能 → 真机执行：Unitree G1寻桌伸手、AlohaMini2翻杯找物，两项真机任务成功率均从进化前的 0% 提升至进化后的 60%。\n\n3️⃣【更多实验Findings】\n- 多轮进化持续涨分：第1轮到第4轮，ARC-AGI-3 41.0 → 53.6，SciGym 45.2 → 57.1。\n- RSI自造环境能支持能力迁移：同一能力树、仅评估模块的对照中，生成仿真环境训练的未见任务均分达到 47.26，高于原始任务训练的 42.31。\n- 模块需要匹配能力：加入相关模块的配置提升 19.39 分，加入无关模块的配置仅提升 1.02 分。\n- Agent自己选Harness：根据任务需求自动路由，未见基准得分达到 60.96，接近事后选择最优配置的 63.61。\n\n欢迎和关注Agent自我进化、Harness、具身智能的朋友私信交流，也欢迎大家体验、Star和Upvote支持～\n\n📄 Paper：https://arxiv.org/abs/2610.36077\n💻 GitHub：https://github.com/InfRec-Cardinal/The-Trinity\n🌐 Project Page：https://trinity-rsi.github.io/\n🤗 HF Paper：https://huggingface.co/papers/2610.36077"
+            },
+            {
+              "speaker": 2,
+              "time": "15:47",
+              "text": "[强]",
+              "quote": {
+                "speaker": 1,
+                "text": "借群分享一下我们近期的RSI研究工作The Trinity（三位一体），通过三个角色协同实现能力驱动的 RSI： Creator负责根据能力需求构建可验证的模拟..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "The Trinity 论文（arXiv:2610.36077）",
+              "url": "https://arxiv.org/abs/2610.36077"
+            },
+            {
+              "kind": "code",
+              "label": "The Trinity 代码仓库",
+              "url": "https://github.com/InfRec-Cardinal/The-Trinity"
+            },
+            {
+              "kind": "demo",
+              "label": "The Trinity 项目主页",
+              "url": "https://trinity-rsi.github.io/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-7",
+      "label": "Robot",
+      "section": "今日讨论",
+      "heading": "机器人智能如何走向 Agentic？综述梳理四阶段演进与四大功能域",
+      "theme": "结合开源仓库 Awesome-Agentic-Robots，归纳自主规划、任务编排与故障恢复闭环的技术范式。",
+      "note": "2026-10-28 · 当日本地记录",
+      "stories": [
+        {
+          "category": "论文与开源",
+          "title": "Agentic Robots 综述：梳理机器人智能四阶段演进与四大功能域",
+          "text": "有群友分享了一篇关于 Agentic Robots 的综述论文与开源仓库 Awesome-Agentic-Robots。据介绍，通用大模型 GPT‑6 Astra 无需机器人领域微调，就能以 Agent 身份在多项仿真机器人任务中完成任务推理与反馈式动作调整，表现优于多个专用机器人策略基线。该综述将机器人智能的演进路径总结为从任务专用策略、VLA 视觉语言动作模型、世界模型走向 Agentic 自主智能机器人，并围绕基于观测与执行反馈的自主规划、任务编排和故障恢复闭环，从 Model、Data、Environment、Harness 四个功能域对比归纳了不同技术范式；配套 GitHub 仓库仍在持续更新并征集补充论文。",
+          "emphasis": [
+            "将机器人智能的演进路径总结为从任务专用策略、VLA 视觉语言动作模型、世界模型走向 Agentic 自主智能机器人"
+          ],
+          "aiComment": "GPT-6 Astra 不微调直接下场抢专用策略的饭碗，机器人的四阶段演进史写着写着成了通用大模型的扩招简章。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:42",
+              "text": "🔥借贵群宣传一下我们的新综述🔥\n\n最近爆火的GPT‑6 Astra 作为通用大模型，在多项仿真机器人任务中，无需机器人领域微调，以Agent身份完成任务推理、反馈式动作调整，取得优于多个专用机器人策略基线的表现，也让我们看到了Agentic Robots的广阔前景。\n\n因此，我们总结了机器人智能演进路径：任务专用策略 → VLA 视觉语言动作模型 → 世界模型 → Agentic 自主智能机器人；并归纳了Agentic Robots 核心：智能体基于观测与执行反馈自主规划、编排任务、故障恢复，实现目标导向的闭环运行；我们的综述覆盖Model（模型）、Data（数据）、Environment（环境）、Harness（调度）四大功能域，总结对比归纳了四大功能领域中的不同技术范式。\n\n我们期望这篇综述能给社区带来一些新鲜的insights 并推动agentic robots的发展🔥\n\n论文: https://arxiv.org/abs/2610.20442\nHF: https://huggingface.co/papers/2610.20442\nGithub: https://github.com/chonghanqin/Awesome-Agentic-Robots\n\n欢迎大家upvote/star/交流讨论～～🚀"
+            },
+            {
+              "speaker": 1,
+              "time": "13:42",
+              "text": "GitHub Repo还在持续更新！如果有遗漏的论文欢迎提issues/pr，或者直接私信我都可以。我们也在持续打磨下一版本的survey，把这些新的工作加入讨论～"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Agentic Robots 综述论文（arXiv:2610.20442）",
+              "url": "https://arxiv.org/abs/2610.20442"
+            },
+            {
+              "kind": "code",
+              "label": "Awesome-Agentic-Robots 仓库",
+              "url": "https://github.com/chonghanqin/Awesome-Agentic-Robots"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-8",
+      "label": "AI4S",
+      "section": "今日讨论",
+      "heading": "Protenix 原班团队开源结构预测模型 Mol-1，主打抗体与多肽升级",
+      "theme": "群友评其评测表现接近 iso，并由近期《Cell》《Science》论文聊起顶刊发表所需的故事性与 insight。",
+      "note": "2026-10-28 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型开源",
+          "title": "Protenix 原班人马开源结构预测模型 Mol-1",
+          "text": "有群友分享了 Protenix-V2 原班人马肖文之团队创业后的开源结构预测模型 Mol-1，主打抗体、分子胶与多肽结构预测升级。有人看后评价其 bench 效果接近 iso。",
+          "emphasis": [
+            "有人看后评价其 bench 效果接近 iso"
+          ],
+          "aiComment": "Protenix 原班人马刚端出开源 Mol-1，群友一眼盯上接近 iso 的跑分，结构预测圈的硬通货还得看疗效。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:24",
+              "text": "[链接] protenix原班人马创业：Mol-1开源，抗体、分子胶、多肽结构预测全面升级\n  来源: LeapFun\n  摘要: protenix-V2原班人马肖文之团队开源新结构预测模型\n  URL: https://mp.weixin.qq.com/s/VF6OWMJdX0b5tuSAWuXB9g"
+            },
+            {
+              "speaker": 2,
+              "time": "11:00",
+              "text": "看bench效果接近iso"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Mol-1 开源介绍（LeapFun）",
+              "url": "https://mp.weixin.qq.com/s/VF6OWMJdX0b5tuSAWuXB9g"
+            }
+          ]
+        },
+        {
+          "category": "科研漫谈",
+          "title": "发 CNS 与一般文章差在哪：故事性与 insight",
+          "text": "有人聊起一篇《Cell》文章（另有群友觉得那篇内容像在卖广告），调侃大家该反思为什么这篇《Cell》不是群友发的。话头由此转到顶刊发表体会，一位群友分享了一篇纯生物分析方向的《Science》论文，提到这类工作并非做 agent，甚至算不上 AI4Science；如果只看技术，其实和一般文章不会拉出很大差别，但 CNS 还是需要故事性多一些、insight 多一些。",
+          "emphasis": [
+            "CNS 还是需要故事性多一些、insight 多一些"
+          ],
+          "aiComment": "哪怕不沾 AI4Science 和 Agent，只要故事讲得好照样冲 CNS，原来科研尽头也是编剧大赛。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:23",
+              "text": "群友要反思"
+            },
+            {
+              "speaker": 1,
+              "time": "20:23",
+              "text": "为什么这篇cell不是群友发的"
+            },
+            {
+              "speaker": 2,
+              "time": "20:24",
+              "text": "别说，我真发了science"
+            },
+            {
+              "speaker": 3,
+              "time": "20:24",
+              "text": "🐮",
+              "quote": {
+                "speaker": 2,
+                "text": "别说，我真发了science"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:24",
+              "text": "可以学习一下嘛",
+              "quote": {
+                "speaker": 2,
+                "text": "别说，我真发了science"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:25",
+              "text": "如果只看技术的话，其实和一般文章不会拉出很大差别，但是cns还是需要故事性多一些，insight多一些"
+            },
+            {
+              "speaker": 5,
+              "time": "20:26",
+              "text": "这感觉是卖广告的"
+            },
+            {
+              "speaker": 2,
+              "time": "20:26",
+              "text": "是一些做纯粹生物分析的内容，倒不是做agent的，ai4science都算不上",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 可以学习一下嘛"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:28",
+              "text": "[文件] science.aea2535.pdf (15.2 MB, pdf, md5=18f44372a4219f24796bd1e7903c97b0)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
