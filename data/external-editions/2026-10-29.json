@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-29",
+  "title": "Gemini 4 Carbon 登顶 AA v5 榜单，Mistral 开源 1T 参数 Large 4 权重",
+  "intro": "Google DeepMind 发布前沿模型 Gemini 4 Carbon 并领跑网络安全评测；Mistral 开放 1T 参数多模态模型 Mistral Large 4 权重；GitHub 推出 Copilot Fusion 并披露超 40% PR 由 agent 发起；微软与 Alphabet 公布云业务财报。",
+  "stories": [
+    {
+      "title": "Google DeepMind 发布 Gemini 4 Carbon，登顶 AA Intelligence Index v5 并领跑安全评测",
+      "timing": "北京时间 2026 年 10 月 29 日凌晨发布",
+      "text": "Google DeepMind 在 Gemini 4 Argon 发布两周后推出前沿模型 Gemini 4 Carbon，支持 1M 上下文与文本、图像、视频和语音输入。Artificial Analysis 数据显示，Carbon 在 Intelligence Index v5.0 上以 59 分位列第一；在 Coding Agent Index 上同样得 59 分，仅次于得 62 分的 Claude Opus 5.5。官方数据显示，该模型在 SEC-bench Pro 漏洞发现（88.2%）、ExploitGym 利用验证（54.8%）和 Collinear CWE-bench 根因补丁修复（71.0%）三项网络安全评测中居首，在 Gray Swan 间接 prompt 注入基准上的攻击成功率降至 0.0%。该模型先通过 Fairwind 项目向网络安全防守方和受信任合作伙伴开放。其标准定价为每 1M 输入/输出 token 4 美元和 20 美元（缓存输入享 5% 折扣价），首发五折优惠期为 2 美元和 10 美元。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "DeepMind 博客",
+          "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/"
+        },
+        {
+          "kind": "报道",
+          "label": "AA 评测报告",
+          "url": "https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1"
+        },
+        {
+          "kind": "原帖",
+          "label": "Pichai 帖文",
+          "url": "https://x.com/sundarpichai/status/2115489219804352921"
+        }
+      ],
+      "emphasis": [
+        "在 Intelligence Index v5.0 上以 59 分位列第一",
+        "在 SEC-bench Pro 漏洞发现（88.2%）、ExploitGym 利用验证（54.8%）和 Collinear CWE-bench 根因补丁修复（71.0%）三项网络安全评测中居首"
+      ],
+      "aiComment": "Argon 才发了两周 Carbon 就来了，谷歌这是打算把元素周期表当版本号用，好在首发五折能让钱包缓口气。"
+    },
+    {
+      "title": "Mistral 开源 1T 参数多模态模型 Mistral Large 4 权重，vLLM 等同步支持",
+      "timing": "北京时间 2026 年 10 月 29 日发布",
+      "text": "Mistral AI 开放多模态模型 Mistral Large 4（代号 Le Chonk）的开源权重，采用 Mistral Ecosystem Open-Weight 许可证提供 FP8 与 NVFP4 格式。该模型为 72 层 MoE 架构，总参数量 1T、单 token 激活参数 49B（含词表嵌入为 52B），配备 1.6B Pixtral 视觉编码器、1M 上下文窗口及内置 3 层 DSpark 投机解码器，在 8 卡张量并行下可将输出吞吐量提升约 2 倍。官方数据显示，经过额外三周强化学习后，该模型在 FrontierCode 2.0 上以 19.7% 领先 DeepSeek V4.1 Flash（19.3%）和 GLM-5.3（17.8%），在 Terminal-Bench 4.0 上达到 41%，并在 Artificial Analysis Coding Agent Index 上取得 48%（单任务 token 消耗比同分的 GLM-5.3 少 47%）。Transformers、vLLM、llama.cpp 和 Unsloth 已同步提供首日支持。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Mistral 公告",
+          "url": "https://mistral.ai/news/mistral-large-4-oss/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "vLLM 技术博客",
+          "url": "https://vllm.ai/blog/2026-10-29-mistral-large-4"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50289418"
+        }
+      ],
+      "emphasis": [
+        "总参数量 1T、单 token 激活参数 49B（含词表嵌入为 52B）",
+        "在 FrontierCode 2.0 上以 19.7% 领先 DeepSeek V4.1 Flash（19.3%）和 GLM-5.3（17.8%）"
+      ],
+      "aiComment": "总参数 1T，代号直接叫 Le Chonk（大胖墩），起名团队对自家模型的体型有着相当清醒的认识。"
+    },
+    {
+      "title": "GitHub 发布多模型编排引擎 Copilot Fusion，Octoverse 披露超 40% PR 由 agent 发起",
+      "timing": "北京时间 2026 年 10 月 29 日凌晨发布",
+      "text": "GitHub 在 Universe 2026 大会上推出独立工作区 GitHub Copilot 应用与多模型编排引擎 Copilot Fusion。官方数据显示，Copilot Fusion 可在 Anthropic 与 OpenAI 模型间动态路由推理、编码、调试和工具调用，在 Artificial Analysis Coding Agent Index 上得分距 Claude Opus 5.5 Max 在 2 分以内，单任务成本降低一半、耗时减少 40%。GitHub 同时为企业客户提供免单独席位订阅、按 AI 额度消耗付费的模式，并在 2026 年扩容 400 万个 CPU 核心。同日发布的 2026 Octoverse 报告显示，过去 12 个月全平台代码推送达 179 亿次；到 2026 年 9 月，开发者使用 agent 发起的 PR 占比已超过 40%（3 月为 17%），61% 的 Copilot 用户使用多模型，含 agent 配置文件的新仓库平均提交量是无该文件仓库的 8 倍。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Universe 公告",
+          "url": "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Octoverse 报告",
+          "url": "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Nadella 帖文",
+          "url": "https://x.com/satyanadella/status/2115490856685990244"
+        }
+      ],
+      "emphasis": [
+        "到 2026 年 9 月，开发者使用 agent 发起的 PR 占比已超过 40%（3 月为 17%）"
+      ],
+      "aiComment": "超 40% 的 PR 已经是 agent 提的了，以后代码评审骂人之前得先看眼提交者，免得跟硅基同事置气。"
+    },
+    {
+      "title": "微软首披 Azure 单季营收 332 亿美元，Google Cloud 翻倍至 307 亿美元，OpenAI 向订户赠 API 额度",
+      "timing": "北京时间 2026 年 10 月 29 日发布",
+      "text": "据 TechCrunch 报道，微软在最新财报中公布单季总营收 923 亿美元，并首次单独披露 Azure 季度营收为 332 亿美元（同比增长 48%）；当季来自 OpenAI 的营收达 100 亿美元，A365 agent 数量超过 5000 万个。Alphabet 第三季度营收同比增长 25%，其中 Google Cloud 营收同比暴涨 103% 至 307 亿美元；但由于高额 AI 资本支出导致自由现金流转负，加上高管坦言 AI 搜索变现能力目前落后于传统搜索、Google 搜索占总营收比重首次降至 50% 以下，Alphabet 盘后股价下跌约 10% 至 12%。同日 OpenAI 宣布，符合条件的 ChatGPT Pro 与 ChatGPT Business 订阅用户每月可申领最高 500 美元 API 额度用于构建应用和 agent，并向美国 Pro 用户开放通过短信发送文本、图片和语音访问个人“dots”的功能。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 公告",
+          "url": "https://x.com/OpenAIDevs/status/2115583698074755078"
+        }
+      ],
+      "emphasis": [
+        "首次单独披露 Azure 季度营收为 332 亿美元（同比增长 48%）；当季来自 OpenAI 的营收达 100 亿美元",
+        "Google Cloud 营收同比暴涨 103% 至 307 亿美元"
+      ],
+      "aiComment": "云业务暴涨 103% 到 307 亿美元，结果因为烧钱太猛自由现金流转负，华尔街看财报比大模型还挑剔。"
+    },
+    {
+      "title": "Replit 联合 Fireworks 发布长程全栈开发基准 ViBench 2.0，GPT-6.1 Sol 居首",
+      "timing": "北京时间 2026 年 10 月 29 日发布",
+      "text": "Replit 与 Fireworks 联合发布长程软件开发 benchmark ViBench 2.0，评测 agent 从空项目起步、按序逐个实现功能构建完整产品的能力。该基准包含 17 款产品（8 款基于 OpenHands harness 公开、9 款保留）、241 项连续功能需求（单个产品最多 18 项），并由 Claude Opus 5.5 评分 agent 在真实浏览器中执行 544 项测试计划。官方测试数据显示，在对每款产品进行的 4 次构建中，GPT-6.1 Sol 以 65% 的整套构建全部通过率（pass@1）位居第一，单次构建成本约 12 美元；GPT-6 Astra 以 60% 排第二（单次约 90 美元），Claude Opus 5.5 为 49%（单次耗时约 70 分钟，速度为 Sol 的 2.5 倍）。开放权重模型中 DeepSeek V4.1 Flash 的单项测试通过率达 77%（单次构建约 2.50 美元），但整套构建全部通过率为 0%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Replit 博客",
+          "url": "https://replit.com/blog/vibench-2-long-horizon-software-benchmark"
+        }
+      ],
+      "emphasis": [
+        "GPT-6.1 Sol 以 65% 的整套构建全部通过率（pass@1）位居第一，单次构建成本约 12 美元",
+        "开放权重模型中 DeepSeek V4.1 Flash 的单项测试通过率达 77%（单次构建约 2.50 美元），但整套构建全部通过率为 0%"
+      ],
+      "aiComment": "Claude Opus 5.5 一边以 49% 的成绩参赛，一边还要在浏览器里当裁判跑 544 项测试，打工人看着都心酸。"
+    },
+    {
+      "title": "Meta 全面部署合入前即时测试管线使严重隐私漏洞降 20%，PyTorch 2.15 正式发布",
+      "timing": "北京时间 2026 年 10 月 29 日发布",
+      "text": "Meta 工程团队宣布在生产环境全面部署 Catching Just-in-Time Tests（JiTTests）五阶段测试管线，在代码合入前利用风险评分筛选高危变更，通过变异引导与意图感知双工作流生成测试，并结合 LLM 评审集成与确定性规则过滤误报。官方数据显示，已有 589 名工程师（占触达人数的 64%）参与处理，真实阳性率达 60%；2026 年上半年该系统在代码提交阶段拦截了 74 个严重（SEV）隐私漏洞，使整体严重隐私事故减少 20%。同日 PyTorch 2.15 发布，将重写版 NCCL 后端（nccl2）设为默认，支持挂起状态飞行记录器导出与 NCCL 2.29+ 快速容错扩缩容，并新增基于 NIXL 的单边分布式通信、NVIDIA Blackwell NVFP4 解码加速以及 Apple Silicon FP8 与 MoE 解码优化（吞吐提升 1.32 至 1.34 倍）。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Meta 工程博客",
+          "url": "https://engineering.fb.com/2026/10/29/security/catching-bugs-before-they-land-jittestings-human-on-the-loop-approach-at-full-scale/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "PyTorch 2.15 公告",
+          "url": "https://pytorch.org/blog/pytorch-2-15-release-blog/"
+        }
+      ],
+      "emphasis": [
+        "2026 年上半年该系统在代码提交阶段拦截了 74 个严重（SEV）隐私漏洞，使整体严重隐私事故减少 20%",
+        "PyTorch 2.15 发布，将重写版 NCCL 后端（nccl2）设为默认"
+      ],
+      "aiComment": "半年在提交阶段拦下 74 个严重隐私漏洞，那 589 个被管线找上门的工程师，大概体验了什么叫合入前社死。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "编码与网络安全能力评测绑定单任务 Token 成本",
+      "text": "本期发布的 Gemini 4 Carbon、Mistral Large 4、GitHub Copilot Fusion 与 ViBench 2.0 均将单任务成本或 token 消耗与基准得分并列披露：Artificial Analysis 对比了 Carbon 与 Opus 5.5 的单任务开销（7.76 美元对 10.04 美元），Mistral 强调同分下减少 47% token 消耗，Replit 则直接按每次完整产品构建的美元成本与耗时对比各模型。"
+    }
+  ]
+}

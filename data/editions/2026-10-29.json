@@ -1,0 +1,2250 @@
+{
+  "id": "2026-10-29",
+  "date": "2026-10-29",
+  "label": "2026-10-29 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "Gemini 4 Carbon 榜单突破来自后训练？",
+      "theme": "群友探讨 Scaling RL 空间与具身评测，兼及 Liquid AI 六款 2B 端侧模型开源",
+      "note": "2026-10-29 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型发布",
+          "title": "Gemini 4 Carbon 登顶多项基准，群友热议后训练突破与具身评测",
+          "text": "有群友分享了 Gemini 4 Carbon 的官方发布博客与评测对比图。分享的截图显示，在与另一版本 Gemini 4、GPT 系列及 Claude 系列模型的对比中，Gemini 4 Carbon 在绝大多数评测项中拿下了最高分。紧接着有人晒出 Intelligence Index 榜单截图，认为这次榜单突破主要来自后训练；多位群友也跟着感慨 Scaling RL 还有很大空间，群里顺势刷起了从 2.5 Pro、Nano Banana、3 Pro、Flash 一路追随到 Gemini 4 的“老粉”定型文。\n\n有人好奇新模型为什么取名 Carbon，群里给出了几种猜测：有人觉得是因为碳无处不在，或是“假装是碳基生物的硅基生命”；另一位群友猜测只是按 a/b/c 排下来比较顺手，但下一个未必是 d。还有人问起具身任务的效果怎么样，有群友提到可以去看看 AA 上的 robot bench，不过觉得那个基准还有点儿 toy。",
+          "emphasis": [
+            "认为这次榜单突破主要来自后训练",
+            "可以去看看 AA 上的 robot bench，不过觉得那个基准还有点儿 toy"
+          ],
+          "aiComment": "硅基模型取名叫碳基，从 Nano Banana 一路追过来的老粉连定型文都比模型迭代得快。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Gemini 4 Carbon 官方博客",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:16",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:16",
+              "text": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            },
+            {
+              "speaker": 2,
+              "time": "01:43",
+              "text": "震惊了，群友总lead 的gemini scaling RL team有点冠绝全球的意思，看起来榜单的突破主要是后训练。"
+            },
+            {
+              "speaker": 2,
+              "time": "01:43",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:49",
+              "text": "你知道的，我一直是Gemini时期的粉丝，从2.5 Pro就紧紧跟随；Nano Banana是我的主力，3 Pro第一时间跟上，Flash也一直是拥趸。重建期熬完了，天赋兑现了，速度、推理、多模态全在线——现在到了Gemini 4复兴的时候，comeon！\n至于GPT和CLAUDE 我祝他们好运。"
+            },
+            {
+              "speaker": 1,
+              "time": "01:55",
+              "text": "为什么叫carbon，哥哥"
+            },
+            {
+              "speaker": 4,
+              "time": "01:57",
+              "text": "感觉是碳到处都有？"
+            },
+            {
+              "speaker": 5,
+              "time": "01:57",
+              "text": "假装是碳基生物的硅基生命"
+            },
+            {
+              "speaker": 6,
+              "time": "01:57",
+              "text": "感觉就是a/b/c比较好排哈哈哈",
+              "quote": {
+                "speaker": 1,
+                "text": "为什么叫carbon，哥哥"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:57",
+              "text": "但是下一个也不一定是d"
+            },
+            {
+              "speaker": 2,
+              "time": "02:15",
+              "text": "我说的没啥问题，看起来榜单是这样的"
+            },
+            {
+              "speaker": 4,
+              "time": "02:18",
+              "text": "Scaling RL还有很大空间"
+            },
+            {
+              "speaker": 1,
+              "time": "02:20",
+              "text": "Scaling RL是对的"
+            },
+            {
+              "speaker": 7,
+              "time": "02:21",
+              "text": "Scaling RL是对的"
+            },
+            {
+              "speaker": 8,
+              "time": "02:51",
+              "text": "不知道具身任务效果怎么样"
+            },
+            {
+              "speaker": 1,
+              "time": "02:51",
+              "text": "AA上不是有个robot bench吗，可以看看，虽然有点儿toy。。。"
+            }
+          ]
+        },
+        {
+          "category": "开源模型",
+          "title": "Liquid AI 开源 LFM3：六款 2B 模型覆盖全模态与机器人决策",
+          "text": "有群友分享了新发布的 LFM3 系列模型。继本月推出 d1、d1.1、d1-3B、d1-Omni-600M、d1-ultra 和 LFM2.5-24B-A2B 后，LFM3 首批上线了六款 2B 级别模型，覆盖文本、视觉、音频、全模态（Omni）和决策。这批模型从同一个基础模型出发，支持针对具体任务继续微调并部署到本地设备上：Omni 模型可结合画面和声音理解内容，用语音交流并调用工具；视觉模型支持理解视频。官方文章还展示了风机叶片缺陷检测，以及进一步训练后的机器人操作和导航，目前模型权重已在 Hugging Face 开放。",
+          "emphasis": [
+            "六款 2B 级别模型，覆盖文本、视觉、音频、全模态（Omni）和决策",
+            "支持针对具体任务继续微调并部署到本地设备上"
+          ],
+          "aiComment": "一口气发六个 2B 模型，从看视频聊语音到查风机叶片全包了，端侧芯片这下闲不着了。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Liquid AI LFM3 官方博客",
+              "url": "https://www.liquid.ai/blog/lfm3"
+            },
+            {
+              "kind": "code",
+              "label": "LFM3 Hugging Face 模型合集",
+              "url": "https://huggingface.co/collections/LiquidAI/lfm3"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:55",
+              "text": "跟大家分享一下我们昨天刚发布的 LFM3 💧\n\n这个月我们的模型发布挺密集：从 d1、d1.1，到 d1-3B、d1-Omni-600M、d1-ultra 和 LFM2.5-24B-A2B，昨天又带来了 LFM3。\n\nLFM3 首批有六款 2B 级别模型，覆盖文本、视觉、音频、全模态和决策。它们从同一个基础模型出发，可以针对具体任务继续微调，再部署到本地设备上。\n\n比如，Omni 模型可以结合画面和声音理解内容，用语音交流并调用工具；视觉模型能理解视频。文章里还展示了风机叶片缺陷检测，以及进一步训练后的机器人操作和导航。\n\n模型权重已经开放，欢迎大家试试，也欢迎交流反馈～\n\n官方介绍：https://www.liquid.ai/blog/lfm3\nHugging Face 模型合集：https://huggingface.co/collections/LiquidAI/lfm3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Personal Agent 先做个性化还是事件驱动架构？",
+      "theme": "探讨端侧 CUA 操作与评测痛点，以及 EnvSched 环境调度与 Gemini 4 Carbon 评测表现",
+      "note": "2026-10-29 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 架构",
+          "title": "Personal Agent 的核心之争：做“懂用户”的个性化，还是事件驱动的 Proactive 架构？",
+          "text": "Personal Agent（PA）到底该先做“懂用户”的个性化，还是主动揽活的 proactive 能力？下午有群友重提 PA 评测难题，指出同一任务和同样操作下，不同用户的满意度可能截然不同；靠人力评测不现实，让 agent 打分又容易被质疑。另一位群友直言，眼下不少 PA 只是把 working agent 做的事直接搬到个人私有数据上，硬套一层个性化。这位群友认为，个性化最浅层也得让模型对用户“有认知的和体感的”，如果谁来问输出都一样，就谈不上个性化——就像早先 GPT-4 下架时，不少海外用户强烈要求恢复上线。有人则把 PA 拆成 proactive + continual learning 能力。\n\n对于怎么让模型持续适应用户，有人提议给每个用户配一个用自身交互数据训练的可插拔 LoRA 模块。另一位群友补充，EMNLP 24 就有过可插拔 LoRA 做定制化的工作；LoRA 本身不大，难点在于动态训练更新，比如按周或按月更新，或者收集白天的新 context、趁晚上用户睡觉时更新。不过也有人倾向于不训 LoRA，直接在本地维护一份 personal context，还有群友觉得这本质上只是 Context 管理问题，做 C 端产品有价值，但研究意义有限，离 frontier intelligence 较远。\n\n另一派观点认为，个性化只是 PA 的一部分，真正的分水岭是环境事件驱动（event-driven）的 proactive 能力。有人追问 Codex 和 Claude Code（CC）也会主动反问不清楚的地方，还能设个定时任务，为什么不算 PA？支持 proactive 的群友解释，Codex 和 CC 是用户驱动的，只能做一件事，而像 Grok Bot 这类 always-on-agent 可以一直自动做一类事，两者的 harness 架构完全不同——比如设一个盯盘 bot，它得自己决定每天分析什么、根据盘面判断要不要通知用户。另一位群友补充，定时任务本质上还是被动的，需要用户提前感知任务，而大家期望的是 agent 自己“主动找事”，拿不准时再找用户决策；也有人从实现机制上拆解，proactive 本质是给模型换了输入信号，例如 harness 伪装成用户身份发送当前已用 token 数来触发 compact。不过要把这套架构跑通，模型能力必须足够强，因为前后端分离后用户只能看到 traj summary，出了问题连 feedback 都很难给。",
+          "emphasis": [
+            "眼下不少 PA 只是把 working agent 做的事直接搬到个人私有数据上",
+            "收集白天的新 context、趁晚上用户睡觉时更新",
+            "Codex 和 CC 是用户驱动的，只能做一件事，而像 Grok Bot 这类 always-on-agent 可以一直自动做一类事"
+          ],
+          "aiComment": "趁我睡觉偷偷用白天数据训 LoRA，听着像田螺姑娘，又怕醒来发现它已经替我盯了一宿盘。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "感觉pa 的评测是一个很大的问题，你如何说明自己方法的有效性",
+              "quote": {
+                "speaker": null,
+                "text": "而且对于如何构建pa的bench、数据，怎么打分，感觉还是一个需要头脑风暴一下的问题。。。"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:14",
+              "text": "主要得有私有数据",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉pa 的评测是一个很大的问题，你如何说明自己方法的有效性"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:14",
+              "text": "现在pa停留在拿把working agent做的事情直接搬到个人data上，并不本质感觉"
+            },
+            {
+              "speaker": 1,
+              "time": "14:15",
+              "text": "但是模型输出的是否符合用户，这个让 agent 干的话我觉得会被 argue",
+              "quote": {
+                "speaker": 2,
+                "text": "主要得有私有数据"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:15",
+              "text": "确实，就是强制有一套个性化的东西按到 working agent 上面",
+              "quote": {
+                "speaker": 2,
+                "text": "现在pa停留在拿把working agent做的事情直接搬到个人data上，并不本质感觉"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:17",
+              "text": "[链接] 我发布了一篇笔记：Personal Agent时代的困境\n  摘要: 用户越省心，研发越难看见完整过程。 今年 Meta 的 Muse、Grok Bot，国内的千问、LightVela，都在\n  URL: https://www.xiaohongshu.com/discovery/item/6adbad9e000000001400c400"
+            },
+            {
+              "speaker": 3,
+              "time": "14:17",
+              "text": "pa 的 personal 的只是一部分"
+            },
+            {
+              "speaker": 4,
+              "time": "14:17",
+              "text": "有时候同一个任务，同样的操作，不同的用户的满意度完全不一样"
+            },
+            {
+              "speaker": 3,
+              "time": "14:18",
+              "text": "更重要的 proactive 能力"
+            },
+            {
+              "speaker": 2,
+              "time": "14:18",
+              "text": "我感觉p这个领域最浅层能做到的至少是model/agent对user是要有认知的和体感的，如果谁来输出都一样那p了什么"
+            },
+            {
+              "speaker": 2,
+              "time": "14:18",
+              "text": "这个都可以算第二层或者第三层",
+              "quote": {
+                "speaker": 3,
+                "text": "更重要的 proactive 能力"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:19",
+              "text": "算是交互层面锦上添花的"
+            },
+            {
+              "speaker": 3,
+              "time": "14:19",
+              "text": "proactive 的能力是核心"
+            },
+            {
+              "speaker": 1,
+              "time": "14:19",
+              "text": "对，最近我想试试这方面的数据合成，但是发现评测是一个巨大的问题，过多的人力肯定不现实，用 agent 去评测感觉也不行",
+              "quote": {
+                "speaker": 4,
+                "text": "有时候同一个任务，同样的操作，不同的用户的满意度完全不一样"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:19",
+              "text": "我感觉proactive + continual learning 能力 \\approx pa期望的能力"
+            },
+            {
+              "speaker": 1,
+              "time": "14:20",
+              "text": "感觉这方面的 continue learning 能力主要集中在 memory 方面",
+              "quote": {
+                "speaker": 5,
+                "text": "我感觉proactive + continual learning 能力 \\approx pa期望的能力"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:21",
+              "text": "有没有可能每个用户有一个自己可插拔的lora模块，用自己的交互数据训的"
+            },
+            {
+              "speaker": 3,
+              "time": "14:21",
+              "text": "pa 里面 agent 的行动更多的是环境事件 driven 的，用户输入是很少很少的，所以 proactive 能力更重要，当然第一优先级是personalization /user if"
+            },
+            {
+              "speaker": 6,
+              "time": "14:21",
+              "text": "这样就可以持久的跟用户一起进化，定制化模型"
+            },
+            {
+              "speaker": 4,
+              "time": "14:21",
+              "text": "我感觉不lora，换成本地有一份personal context",
+              "quote": {
+                "speaker": 6,
+                "text": "有没有可能每个用户有一个自己可插拔的lora模块，用自己的交互数据训的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:22",
+              "text": "现在 cc/codex 也会主动交互，问你他不清楚的东西，但肯定不算pa吧",
+              "quote": {
+                "speaker": 3,
+                "text": "proactive 的能力是核心"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:23",
+              "text": "本质都是Context管理问题"
+            },
+            {
+              "speaker": 8,
+              "time": "14:23",
+              "text": "为什么 codex cc 不算是 pa 呢"
+            },
+            {
+              "speaker": 7,
+              "time": "14:23",
+              "text": "研究意义可能没那么大"
+            },
+            {
+              "speaker": 2,
+              "time": "14:24",
+              "text": "user真正能感受到pa是懂你的时候可能才是定制化ready的时候，这种对于不同人来说意义不同感觉。我之前也觉得这玩意没啥意义，结果当时gpt4被下架的时候外网好像一堆想让它上线回去的"
+            },
+            {
+              "speaker": 3,
+              "time": "14:24",
+              "text": "比如我设置一个 stock 的 bot，告诉他每天盯盘，但是他得自己决定分析什么东西，要根据情况自己告诉我什么内容，有什么情况决定要不要通知我"
+            },
+            {
+              "speaker": 3,
+              "time": "14:24",
+              "text": "codex cc 是 user driven 的"
+            },
+            {
+              "speaker": 3,
+              "time": "14:25",
+              "text": "这是 harness 设计"
+            },
+            {
+              "speaker": 3,
+              "time": "14:25",
+              "text": "codex /cc 本质是怎么用 model，always-on-agent 的设计是不一样的架构"
+            },
+            {
+              "speaker": 2,
+              "time": "14:25",
+              "text": "p 肯定是离 frontier intelligence 更远的方向，但是离c端应用更近。这样子",
+              "quote": {
+                "speaker": 7,
+                "text": "研究意义可能没那么大"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:26",
+              "text": "emnlp 24 就有过可插拔lora for定制化工作了，不过那会还需要微调"
+            },
+            {
+              "speaker": 6,
+              "time": "14:26",
+              "text": "哦哦，成本也是个很大的问题，如果每个用户都lora的话"
+            },
+            {
+              "speaker": 8,
+              "time": "14:27",
+              "text": "所以 pa 的本质应该是 event-driven 吗",
+              "quote": {
+                "speaker": 3,
+                "text": "codex /cc 本质是怎么用 model，always-on-agent 的设计是不一样的架构"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:28",
+              "text": "嗯，不过其实lora挺小的，主要需要是动态训练更新",
+              "quote": {
+                "speaker": 6,
+                "text": "哦哦，成本也是个很大的问题，如果每个用户都lora的话"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:28",
+              "text": "但是其实之前的设想就是，比如说一方面可以按照每周或者每个月来更新，另一方面可以比如说白天的新context，然后晚上用户睡觉的时候更新"
+            },
+            {
+              "speaker": 7,
+              "time": "14:28",
+              "text": "公司里做产品有意义的",
+              "quote": {
+                "speaker": 2,
+                "text": "p 肯定是离 frontier intelligence 更远的方向，但是离c端应用更近。这样子"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:30",
+              "text": "pa 必须模型能力足够强才能做，因为前后端分离的，用户只能看到 traj summary，出问题都很难feedback"
+            },
+            {
+              "speaker": 7,
+              "time": "14:31",
+              "text": "Proative agent这个事本质是给模型换了不同的输入信号，比如harness会以用户的身份发送当前使用了多少token来诱发compact，这也算是proactive",
+              "quote": {
+                "speaker": null,
+                "text": "可能我的关注重点是 proactive agent，不是 personal agent"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:32",
+              "text": "那话说，grokbot 推出的时候，他最主打的和 codex 的不同点是什么呢？proactive 吗"
+            },
+            {
+              "speaker": 3,
+              "time": "14:33",
+              "text": "可以这么说，就是我前面说的，不同的 harness 设计架构 driven model",
+              "quote": {
+                "speaker": 7,
+                "text": "Proative agent这个事本质是给模型换了不同的输入信号，比如harness会以用户的身份发送当前使用了多少token来诱发compact，这也算是proactive"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:36",
+              "text": "我目前的体验是，codex 可以做一件事，grokbot 可以一直自动做一类事",
+              "quote": {
+                "speaker": 8,
+                "text": "那话说，grokbot 推出的时候，他最主打的和 codex 的不同点是什么呢？proactive 吗"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "14:38",
+              "text": "感觉是这样的，会一直盯着一件事，需要用户决策才去找用户",
+              "quote": {
+                "speaker": 8,
+                "text": "那话说，grokbot 推出的时候，他最主打的和 codex 的不同点是什么呢？proactive 吗"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:39",
+              "text": "那 codex 不也可以定时任务 hhh"
+            },
+            {
+              "speaker": 10,
+              "time": "14:40",
+              "text": "定时感觉还是被动的 用户得提前对任务有所感知 但是很多时候希望agent主动找事 不确定再去找用户决策"
+            },
+            {
+              "speaker": 11,
+              "time": "15:22",
+              "text": "原来还能装成用户的消息",
+              "quote": {
+                "speaker": 7,
+                "text": "Proative agent这个事本质是给模型换了不同的输入信号，比如harness会以用户的身份发送当前使用了多少token来诱发compact，这也算是proactive"
+              }
+            }
+          ]
+        },
+        {
+          "category": "端侧与评测",
+          "title": "端侧模型跑 Personal Agent：手机 CUA 的操作痛点与评测基准进展",
+          "text": "端侧小模型除了上机器人，做 Personal Agent（PA）也是群友看好的方向，因为许多个人任务与 coding、math 是正交的。谈到具体落地，有人提问在没有开放接口的情况下是否只能依赖 CUA（Computer Use Agent）；有群友认为 CUA 不够 agent native，无奈现在入口都被大厂把持。一位刚跑完实验的群友分享，拿 gemma4-31b 和 qwen3.8-27b 跑个人任务有时都做不太好，把视觉语言模型（VL）放到手机上跑纯 CUA 时，遇到打字发邮件这类高频点击操作也很难做好。至于端侧能不能做 coding，这位群友觉得取决于硬件配置，好一点的个人电脑跑个 qwen 27b 其实挺好用。\n\n评测方面，有群友好奇有没有专属端侧的 benchmark，毕竟目前端侧打的榜和云侧高度重合。有人指出专属端侧的评测得配合硬件一起跑，把电耗、发热、内存占用、延迟和任务完成度都算进去，目前似乎还没人做，引来群友调侃“极客湾来了”。对于纯 PA 任务的评测，群里提到了正在向社区征集 test case 的 PersonalAgentEval（matraix.ai）；针对数据集是否开源的追问，有群友打听后反馈，项目方计划开源一小部分相似数据，其余保持私有。除了任务环境难搭建，大家还提到 PA 必须管好 memory、隐私保护和权限边界——有人笑称“好怕卡被刷爆”，万一被 Agent 盗刷或者“AI 给自己充 token”，连找谁说理都不知道。",
+          "emphasis": [
+            "把视觉语言模型（VL）放到手机上跑纯 CUA 时，遇到打字发邮件这类高频点击操作也很难做好",
+            "专属端侧的评测得配合硬件一起跑，把电耗、发热、内存占用、延迟和任务完成度都算进去"
+          ],
+          "aiComment": "端侧评测还没等来极客湾测发热，大家已经开始担心 Agent 偷偷刷爆信用卡给自己充 token 了。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "PersonalAgentEval (Matraix)",
+              "url": "https://matraix.ai/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:17",
+              "text": "有打算做稍微复杂任务不 其实我一直在想端侧模型能做点啥"
+            },
+            {
+              "speaker": 1,
+              "time": "10:17",
+              "text": "我的理解是robot，personal agent"
+            },
+            {
+              "speaker": 1,
+              "time": "10:18",
+              "text": "感觉personal agent的任务很多其实和coding math都是正交的",
+              "quote": {
+                "speaker": 1,
+                "text": "我的理解是robot，personal agent"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:20",
+              "text": "如果没有接口开放的话，是不是只能依赖于cua了呢",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉personal agent的任务很多其实和coding math都是正交的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:21",
+              "text": "我一直觉得cua不够agent native。但是现在入口都被大厂把持住了。"
+            },
+            {
+              "speaker": 3,
+              "time": "10:21",
+              "text": "我跑过实验，挺难的。很多我个人的任务拿gemma4-31b, qwen3.8-27b有时都做不太好。也可能是我harness比较垃哈哈哈哈",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉personal agent的任务很多其实和coding math都是正交的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:21",
+              "text": "我周一刚跑完，确实很依赖cua",
+              "quote": {
+                "speaker": 2,
+                "text": "如果没有接口开放的话，是不是只能依赖于cua了呢"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:24",
+              "text": "拿了VL在手机跑，纯cua的话如果想打字发邮件这种高频点击的操作不是很好做"
+            },
+            {
+              "speaker": 4,
+              "time": "10:24",
+              "text": "其实比较好奇有没有专属端侧的bench，目前看端侧打的榜和云侧比较重合"
+            },
+            {
+              "speaker": 3,
+              "time": "10:25",
+              "text": "感觉得配合硬件跑",
+              "quote": {
+                "speaker": 4,
+                "text": "其实比较好奇有没有专属端侧的bench，目前看端侧打的榜和云侧比较重合"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:26",
+              "text": "什么电耗，发热，内存占用，延迟，任务完成。似乎目前还没有做这个的"
+            },
+            {
+              "speaker": 4,
+              "time": "10:26",
+              "text": "感觉端侧需要什么能力这事还挺有意思，因为我们肯定不会用端侧做coding[破涕为笑]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:26",
+              "text": "极客湾来了",
+              "quote": {
+                "speaker": 3,
+                "text": "什么电耗，发热，内存占用，延迟，任务完成。似乎目前还没有做这个的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:28",
+              "text": "那得看多端侧了哈哈哈哈，好一点的个人电脑我觉得其实挺好用的，比如跑个qwen 27b",
+              "quote": {
+                "speaker": null,
+                "text": "感觉端侧需要什么能力这事还挺有意思，因为我们肯定不会用端侧做coding[Lol]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:30",
+              "text": "而且对于如何构建pa的bench、数据，怎么打分，感觉还是一个需要头脑风暴一下的问题。。。"
+            },
+            {
+              "speaker": 3,
+              "time": "10:30",
+              "text": "PersonalAgentEval"
+            },
+            {
+              "speaker": 2,
+              "time": "10:30",
+              "text": "我也想做这个，感觉阻力很大诶。没有真正可用的环境，只能模拟？"
+            },
+            {
+              "speaker": 4,
+              "time": "10:31",
+              "text": "似乎数据集没开源？上次看只有一个leaderboard",
+              "quote": {
+                "speaker": 3,
+                "text": "PersonalAgentEval"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:31",
+              "text": "https://matraix.ai/"
+            },
+            {
+              "speaker": 3,
+              "time": "10:32",
+              "text": "他们周天才有个deadline，找社区的人贡献test case"
+            },
+            {
+              "speaker": 3,
+              "time": "10:33",
+              "text": "但是这种任务的环境感觉不是很好setup"
+            },
+            {
+              "speaker": 1,
+              "time": "10:34",
+              "text": "是的，而且可能要有alignment",
+              "quote": {
+                "speaker": 3,
+                "text": "但是这种任务的环境感觉不是很好setup"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "10:35",
+              "text": "我可能期待的pa是要做好memory管理、隐私保护、以及能够proactive地问用户"
+            },
+            {
+              "speaker": 3,
+              "time": "10:35",
+              "text": "我觉得还有权限边界",
+              "quote": {
+                "speaker": 4,
+                "text": "我可能期待的pa是要做好memory管理、隐私保护、以及能够proactive地问用户"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:36",
+              "text": "好怕卡被刷爆"
+            },
+            {
+              "speaker": 5,
+              "time": "10:36",
+              "text": "被Agent盗刷了"
+            },
+            {
+              "speaker": 1,
+              "time": "10:36",
+              "text": "AI给自己冲token"
+            },
+            {
+              "speaker": 1,
+              "time": "10:36",
+              "text": "*充",
+              "quote": {
+                "speaker": 1,
+                "text": "AI给自己冲token"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:36",
+              "text": "找谁说理去哈哈哈哈",
+              "quote": {
+                "speaker": 5,
+                "text": "被Agent盗刷了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:54",
+              "text": "会开源一小部分相似的"
+            },
+            {
+              "speaker": 3,
+              "time": "10:54",
+              "text": "他们的计划"
+            },
+            {
+              "speaker": 3,
+              "time": "10:54",
+              "text": "其他stay private"
+            }
+          ]
+        },
+        {
+          "category": "RL 后训练",
+          "title": "RL 环境调度框架 EnvSched 开源：基于 rollout 历史建边，40 步训练超越随机采样 200 步",
+          "text": "目前主流的 GRPO 系列后训练依赖同一任务多条 rollout 间的奖励差异来产生学习信号，但大量数字环境高度同质，不实际跑推理又很难知道哪些环境值得训。有群友分享了针对这一痛点的开源工作 EnvSched，把数据治理从静态数据点拓展到动态“环境—任务对”级别，利用已有的 rollout 历史免推理地筛选高信息量任务并控制环境学习顺序。具体做法分三步：在环境内通过任务语义、工具、状态和验证器结构建边传递历史反馈；跨环境利用抽象的执行与奖励拓扑，让不同领域但交互结构相似的任务共享信息；最后在采样时，一半 batch 覆盖观察不足的环境和任务，另一半挑选预测奖励方差较高的任务，并配合环境配额与相似度惩罚减少重复。\n\n作者在 51 个环境上进行了训练验证：从 1.7B、4B、8B 到 30B-A3B 模型，使用 EnvSched 训练 40 步在三个基准上均超过随机采样训练 200 步的效果；同为训练 200 步时，30B-A3B 在 BFCL-v3、τ-Bench 和 ACEBench-Agent 上分别提升 3.92、3.03 和 2.67 分。在 Qwen3-4B 上的消融实验显示，该方法使平均任务内奖励方差提升 34%，每批环境覆盖提升 26%，两者结合比单独追求任一目标更有效。相关论文与代码已全部开源。",
+          "emphasis": [
+            "把数据治理从静态数据点拓展到动态“环境—任务对”级别，利用已有的 rollout 历史免推理地筛选高信息量任务",
+            "使用 EnvSched 训练 40 步在三个基准上均超过随机采样训练 200 步的效果"
+          ],
+          "aiComment": "用 40 步干翻随机采样 200 步，原来给 RL 挑题目也讲究拒绝题海战术。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "EnvSched 论文（arXiv:2610.37609）",
+              "url": "https://arxiv.org/abs/2610.37609"
+            },
+            {
+              "kind": "code",
+              "label": "EnvSched 代码仓库",
+              "url": "https://github.com/Hhankyangg/envsched"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "现代 RL 后训练需要越来越多且多样的环境，这样不仅会带来训练成本的激增，同时也引出一个很自然的问题：这些环境真的都有利于模型的学习吗？\n尤其是我们其实在造环境的时候，知道很多任务和数字世界的环境其实是非常同质的。现在数字世界的环境训练开销就已经非常大了，如果想考虑拓展到真实世界环境的话，遇到的问题可能更多，所以提前开始思考和治理是有意义的。\n\t\n目前主流的RL方法是主要是GRPO系列，其底层逻辑依靠同一任务多条 rollout 之间的奖励差异形成学习信号。如果结果都差不多，训练价值就比较有限；但是如果不推理的话，其实也拿不到这些结果。所以如果有一种方式能够免推理、先验地拿到哪些环境更值得训练以及环境的学习顺序。这样子对于工业界垂域可以起到四两拨千斤的效果，而且也非常适合学术界的宝宝们在实验室里愉快体验玩耍（划掉）。\n\t\n我们提出 EnvSched，把\b数据治理从之前的单一静态数据点拓展到了动态环境和任务的级别：把“环境—任务对”作为调度单元，用已有的 rollout 历史，同时寻找更有信息量的任务、覆盖更丰富的环境。\n\t\n💡 EnvSched 怎么选？\n\t\n1️⃣ 环境内建边：通过任务语义、工具、状态和验证器结构，在相似任务间传递历史反馈。\n\t\n2️⃣ 跨环境建边：利用抽象的执行与奖励拓扑，让不同领域、但交互结构相似的任务共享信息。\n\t\n3️⃣ 覆盖 + 利用：一半 batch 覆盖观察不足的环境和任务，一半选择预测奖励方差较高的任务，配合环境配额和相似度惩罚减少集中与重复。\n\t\n📊 在 51 个环境上训练：\n\t\n✅ 从 1.7B、4B、8B 到 30B-A3B，EnvSched 训练 40 步，在三个基准上均超过随机采样训练 200 步的结果。\n\t\n✅ 同为 200 步，30B-A3B 在 BFCL-v3、τ-Bench、ACEBench-Agent 上分别提升 3.92、3.03、2.67 分。\n\t\n🔍 在 Qwen3-4B 上，平均任务内奖励方差提升 34%，每批环境覆盖提升 26%。消融实验表明，两者结合比单独追求任一目标更有效。\n\t\n🎁 代码已全部开源，欢迎大家体验适用，利用 Agent 可以快速迁移至自己当前的 RL 训练中。\n\n📄 [论文](https://arxiv.org/abs/2610.37609) \n💻 [代码](https://github.com/Hhankyangg/envsched) \n🤗 [HF Papers](https://huggingface.co/papers/2610.37609)\n大家点点star和upvote，感谢啦[色][色]"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "欢迎大家试用体验，帮助加速rl训练 [旺柴][合十]"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "[链接] 我发布了一篇笔记：还在无脑 Scaling 你的 RL 环境\n  摘要: 现代 RL 后训练需要越来越多且多样的环境，就像第一张图上所展示的，环境数量已经逐渐达到一万个。这样不仅会带来训练成本的\n  URL: https://www.xiaohongshu.com/discovery/item/6ae2e225000000001d00e841"
+            }
+          ]
+        },
+        {
+          "category": "仿真开源",
+          "title": "全双工交互闭环仿真框架 InteractionGym 开源",
+          "text": "有群友分享了面向交互模型与 voice agent 的全双工交互闭环仿真开源项目 InteractionGym（Full Duplex Interaction Online Simulation）。该项目采用轻量的 session runner 内核加各类插件（plugin）的架构来定义交互场景与内容，涵盖双工角色仿真、行为 pattern、Tool-call 环境以及 SOP 流程任务等。这套环境可用于全双工模型评测、轨迹数据合成以及 Online RL，后续还计划扩展融入更多模态的交互场景。",
+          "emphasis": [
+            "采用轻量的 session runner 内核加各类插件（plugin）的架构来定义交互场景与内容"
+          ],
+          "aiComment": "专治语音 Agent 各说各话，连抢话打断和走 SOP 都能进仿真健身房先练一轮了。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "InteractionGym 代码仓库",
+              "url": "https://github.com/williamLyh/InteractionGym"
+            },
+            {
+              "kind": "demo",
+              "label": "InteractionGym 项目主页",
+              "url": "https://yinhongliu.com/InteractionGym/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:49",
+              "text": "看到大家在聊personal agent，我正好蹭个topic，最近在做交互模型/voice agent相关的工作，跟大家宣传一下，希望拍砖，欢迎斧正！"
+            },
+            {
+              "speaker": 1,
+              "time": "15:49",
+              "text": "哈喽大家好！这次跟大家宣传我们最近做的一个开源项目InteractionGym，\n这是一个做全双工交互的闭环仿真（Full Duplex Interaction Online Simulation）。我们设计思路就是用一个很小的session runner内核 + 各种plugin 来定义交互的scenario和content，包括角色（双工）仿真，场景，行为pattern，各种Tool-call环境，SOP流程任务等等。 整个Gym可以用于给（双工）模型做评测，产生轨迹数据，或者Online RL。目前已经在一些交互模型开发过程中被使用。后续我们会扩展这个仿真环境，融入更多模态的交互场景。\n\n欢迎大家感兴趣的/想合作的来star我们的repo，和我聊聊。欢迎斧正！\n💻Github: https://github.com/williamLyh/InteractionGym\n🌟Project Page：https://yinhongliu.com/InteractionGym/"
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "Gemini 4 Carbon 评测表刷屏：17 项基准拿 15 个第一，群友热议两周迭代与 RSI",
+          "text": "凌晨有群友甩出 Google 发布 Gemini 4 Carbon 的官方博客与基准评测对比图。分享的评测表对比了 Gemini 4 Carbon、Gemini 4 Argon、GPT-6 Astra、Claude Opus 5.5 和 Claude Fable 5.1 五款模型，涵盖通用能力、Agentic coding、Computer use、长上下文、科学与数学及网络安全等八大维度。表格显示，Gemini 4 Carbon 在 17 项测试中拿下 15 项第一：其中 AA Index v5.0 得分为 59（高于 Claude Opus 5.5 的 58 和 GPT-6 Astra 的 57），SWE-sweep 为 9.6%，Terminal-Bench 4.0 (AA) 为 65.2%，Agents' Last Exam v1.1 为 77.4%，Vending-Bench 2 达到 $16,484，GraphWalks 为 96.2%，RiemannBench 为 80.0%，SEC-bench Pro 为 88.2%；其余两项分别由 GPT-6 Astra（FrontierSWE 2 65.5%）和 Claude Opus 5.5（OSWorld-2.1 87.2%）领跑。\n\n看到新模型推进的速度，群里接连有人感叹“训这么快，真给你们 RSI 了？”并追问现在迭代周期是不是真的缩短到了 2 周，多位群友也跟着刷起“真的 RSI 了”。此外，看着榜单上的分项成绩，有人求教做 Terminal Bench Science 的思路，另一位群友则感叹 tbsci 已经被各大公司刷爆，担忧学术界再做这个方向发 paper 会不会很难。",
+          "emphasis": [
+            "Gemini 4 Carbon 在 17 项测试中拿下 15 项第一",
+            "另一位群友则感叹 tbsci 已经被各大公司刷爆，担忧学术界再做这个方向发 paper 会不会很难"
+          ],
+          "aiComment": "17 项测试拿了 15 个第一，大厂按两周的节奏刷榜，留给学术界发论文的缝隙比 SWE-sweep 的 9.6% 还窄。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Gemini 4 Carbon 官方博客",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            },
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:36",
+              "text": "训这么快，真给你们RSI了？"
+            },
+            {
+              "speaker": 2,
+              "time": "01:40",
+              "text": "现在迭代周期真的缩短到2周了？"
+            },
+            {
+              "speaker": 3,
+              "time": "01:43",
+              "text": "求指点指点做Terminal Bench Science的思路[流泪]"
+            },
+            {
+              "speaker": 4,
+              "time": "01:43",
+              "text": "➕1",
+              "quote": {
+                "speaker": 3,
+                "text": "求指点指点做Terminal Bench Science的思路[流泪]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:56",
+              "text": "真RSI了吗"
+            },
+            {
+              "speaker": 6,
+              "time": "01:58",
+              "text": "真的RSI了"
+            },
+            {
+              "speaker": 7,
+              "time": "01:58",
+              "text": "this is real rsi）"
+            },
+            {
+              "speaker": 8,
+              "time": "02:14",
+              "text": "tbsci这不是被公司都刷爆了么"
+            },
+            {
+              "speaker": 8,
+              "time": "02:14",
+              "text": "学术界做这个发paper会不会很难"
+            },
+            {
+              "speaker": 9,
+              "time": "17:08",
+              "text": "真rsi了吗",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:09",
+              "text": "when rsi"
+            }
+          ]
+        },
+        {
+          "category": "端侧模型",
+          "title": "Liquid AI 开源 LFM3 系列：首批六款 2B 端侧模型覆盖全模态与机器人决策",
+          "text": "继本月密集推出 d1、d1.1、d1-3B、d1-Omni-600M、d1-ultra 和 LFM2.5-24B-A2B 之后，有群友分享了 Liquid AI 最新开源的 LFM3 模型系列。首批开放权重的六款模型均为 2B 级别，从同一个基础模型出发，覆盖文本、视觉、音频、全模态（Omni）和决策，支持针对具体任务微调后部署到本地设备。据介绍，其中的 Omni 模型可以结合画面与声音用语音交流并调用工具，视觉模型支持理解视频，官方博客还展示了风机叶片缺陷检测以及进一步训练后的机器人操作与导航案例。",
+          "emphasis": [
+            "首批开放权重的六款模型均为 2B 级别，从同一个基础模型出发，覆盖文本、视觉、音频、全模态（Omni）和决策"
+          ],
+          "aiComment": "同一个底子捏出六款 2B 小模型，既能唠嗑又能开机器人，小体量愣是活出了全村希望的架势。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Liquid AI LFM3 官方介绍",
+              "url": "https://www.liquid.ai/blog/lfm3"
+            },
+            {
+              "kind": "code",
+              "label": "LFM3 Hugging Face 模型合集",
+              "url": "https://huggingface.co/collections/LiquidAI/lfm3"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:59",
+              "text": "跟大家分享一下我们昨天刚发布的 LFM3 💧\n\n这个月我们的模型发布挺密集：从 d1、d1.1，到 d1-3B、d1-Omni-600M、d1-ultra 和 LFM2.5-24B-A2B，昨天又带来了 LFM3。\n\nLFM3 首批有六款 2B 级别模型，覆盖文本、视觉、音频、全模态和决策。它们从同一个基础模型出发，可以针对具体任务继续微调，再部署到本地设备上。\n\n比如，Omni 模型可以结合画面和声音理解内容，用语音交流并调用工具；视觉模型能理解视频。文章里还展示了风机叶片缺陷检测，以及进一步训练后的机器人操作和导航。\n\n模型权重已经开放，欢迎大家试试，也欢迎交流反馈～\n\n官方介绍：https://www.liquid.ai/blog/lfm3\nHugging Face 模型合集：https://huggingface.co/collections/LiquidAI/lfm3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "Scaling RL 拼基建，为何训出的模型反而“不说人话”？",
+      "theme": "围绕 Gemini 4 Carbon 榜单探讨交互 Rubric 缺失，兼及 The Trinity 框架与论文配图手搓流程",
+      "note": "2026-10-29 · 当日本地记录",
+      "stories": [
+        {
+          "category": "前沿模型",
+          "title": "Gemini 4 Carbon 登顶 AA 榜单：Scaling RL 拼的是基建，“算法花活越少越好”",
+          "text": "Google 发布新一代前沿模型 Gemini 4 Carbon。群友晒出的评测对比表与 Artificial Analysis 榜单截图显示，其得分达到 59，反超 cc 的 58，官方推文主打网络安全与长时程（long-horizon）能力。群友摘录的博客说明显示，Carbon 首发定价与 Argon 持平，每 1M 输入 token 2 美元、输出 token 10 美元，缓存输入打 0.5 折（95% off）。由于新模型尚未开放实测，有人好奇 Gemini 防蒸馏限制较少是否会给国产模型留出几个月的窗口期；也有几位群友认为此前防得少只是因为没人蒸，模型做强后必然会加上限制。\n\n至于这波提升是怎么训出来的，一位群友提到有传言称 Flash、Argon、Carbon 参数量分别为 500B、1.5T、3T，也有可能是在 3.1 时代 8-10T 估测值的基础上换了更高质量的 10T 基座或扩到 20T，并猜测 RL 正从集中输出分布演变为让 pretrain 变成 RL 的 warmup。另一位群友指出，Gemini 的提升主要来自 scaling RL：核心是寻找 RL scaling law，但相比 pretrain，infra 和 RL task 的诸多弱点更容易导致训练不稳，难以找到能稳定 scale up 的规律；因此 scaling RL 更多是工程活，真正的 RL 算法部分“花活越少越好”。有人追问这里的 scaling RL 是指大规模 joint mix training 还是 scaling long-horizon RL，该群友表示两者都有；对于是否同时在深度和宽度上 scale 再用 OPD 合并多个 RL 版本的追问，对方回应称这正是 RSI 用来干的事。\n\n看着榜单高分，也有群友提醒榜单和实际体验相对解耦，“一个是面子，一个是里子”。有人举例称 Astra 在 AA 榜单上同样排在 Opus 前面，但实际写代码时 Astra 的防御性编程过于严重，写的 smoke test 令人“心脏骤停”，甚至出现过改个切图逻辑就写出 10w 行 test、导致 PR diff 巨长的情况。相比之下，多位群友认可 Gemini 的世界知识储备和“说人话”的优点，有人平时专门拿 Gemini 翻译 Codex 写的文档，不过也有人吐槽 Argon 最耗额度，偶尔还会蹦出韩语。",
+          "emphasis": [
+            "得分达到 59，反超 cc 的 58",
+            "scaling RL 更多是工程活，真正的 RL 算法部分“花活越少越好”",
+            "改个切图逻辑就写出 10w 行 test"
+          ],
+          "aiComment": "改个切图逻辑能写出十万行测试代码，榜单赢了面子，审 PR 的人差点没保住命根子。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Gemini 4 Carbon 官方博客",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            },
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:26",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:27",
+              "text": "59了"
+            },
+            {
+              "speaker": 3,
+              "time": "01:27",
+              "text": "反超cc的58了"
+            },
+            {
+              "speaker": 4,
+              "time": "01:28",
+              "text": "[奸笑]它还没有开放",
+              "quote": {
+                "speaker": null,
+                "text": "有人测试了吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:31",
+              "text": "也不能全看aa"
+            },
+            {
+              "speaker": 5,
+              "time": "01:31",
+              "text": "astra还是不如opus好用"
+            },
+            {
+              "speaker": 1,
+              "time": "01:31",
+              "text": "榜单和体验是比较解耦的吧"
+            },
+            {
+              "speaker": 1,
+              "time": "01:32",
+              "text": "一个是面子，一个是里子"
+            },
+            {
+              "speaker": 5,
+              "time": "01:32",
+              "text": "astra也在opus前面"
+            },
+            {
+              "speaker": 4,
+              "time": "01:33",
+              "text": "[奸笑]我觉得结果上可以这么说，但是你看到Astra写的smoke之后，心脏骤停也不为过了",
+              "quote": {
+                "speaker": null,
+                "text": "网上说astra比opus后端强 是这样吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:33",
+              "text": "Gemini的世界知识确实好"
+            },
+            {
+              "speaker": 6,
+              "time": "01:33",
+              "text": "Gemini 说人话"
+            },
+            {
+              "speaker": 4,
+              "time": "01:33",
+              "text": "Astra感觉防御性编程还是太严重了"
+            },
+            {
+              "speaker": 6,
+              "time": "01:33",
+              "text": "codex 写的文档，我要用 Gemini 翻译下"
+            },
+            {
+              "speaker": 7,
+              "time": "01:33",
+              "text": "argon 会给我绷出韩语草",
+              "quote": {
+                "speaker": null,
+                "text": "不过gemini感觉智力水平是够的"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:34",
+              "text": "因为改了个切图写了10w行test"
+            },
+            {
+              "speaker": 5,
+              "time": "01:34",
+              "text": "pr的diff巨长一大串"
+            },
+            {
+              "speaker": 2,
+              "time": "01:34",
+              "text": "Argon用下来是最耗额度的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:36",
+              "text": "我理解gemjni是不是御三家里防蒸做的最少的，所以gemini出了个好模型其实利好国模"
+            },
+            {
+              "speaker": 3,
+              "time": "01:36",
+              "text": "之前没人蒸所以不防吧",
+              "quote": {
+                "speaker": 2,
+                "text": "我理解gemjni是不是御三家里防蒸做的最少的，所以gemini出了个好模型其实利好国模"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "01:36",
+              "text": "之前做的少是因为没人蒸",
+              "quote": {
+                "speaker": 2,
+                "text": "我理解gemjni是不是御三家里防蒸做的最少的，所以gemini出了个好模型其实利好国模"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:36",
+              "text": "如果做好了"
+            },
+            {
+              "speaker": 3,
+              "time": "01:37",
+              "text": "肯定要防"
+            },
+            {
+              "speaker": 2,
+              "time": "01:37",
+              "text": "那得把握几个月的窗口[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:39",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 9,
+              "time": "02:08",
+              "text": "按照之前3.1时代的8-10T左右估测"
+            },
+            {
+              "speaker": 9,
+              "time": "02:09",
+              "text": "4C大概..20T？"
+            },
+            {
+              "speaker": 9,
+              "time": "02:09",
+              "text": "或者10T换更好质量的新基座？"
+            },
+            {
+              "speaker": 10,
+              "time": "02:11",
+              "text": "Gemini的提升主要还是scaling rl"
+            },
+            {
+              "speaker": 9,
+              "time": "02:14",
+              "text": "不知道哪来的野生数据说flash模型500b，argon1.5t，carbon3t"
+            },
+            {
+              "speaker": 10,
+              "time": "02:17",
+              "text": "就是寻找rl scaling law，但是rl的难点在于，相比于pretrain，infra和rl task的很多弱点都更容易导致训练不稳，使得你找不到一个能够稳定scale up的scaling law"
+            },
+            {
+              "speaker": 9,
+              "time": "02:17",
+              "text": "我之前有这样的不成熟的观点，就是RL会从集中输出分布最终让pretrain变成rl的warmup"
+            },
+            {
+              "speaker": 10,
+              "time": "02:18",
+              "text": "所以scaling rl更多是engineering work，真正的rl算法部分，花活越少越好[破涕为笑]"
+            },
+            {
+              "speaker": 11,
+              "time": "02:22",
+              "text": "scaling RL指的是大规模joint mix training 还是scaling long-horizen的 RL啊（）"
+            },
+            {
+              "speaker": 7,
+              "time": "02:24",
+              "text": "Gemini 4 Carbon will launch at the same introductory price \n1\n as Argon at $2 per million input tokens and $10 per million output tokens, with cached input tokens priced at 95% off input token price."
+            },
+            {
+              "speaker": 10,
+              "time": "02:25",
+              "text": "都有的",
+              "quote": {
+                "speaker": 11,
+                "text": "scaling RL指的是大规模joint mix training 还是scaling long-horizen的 RL啊（）"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "02:25",
+              "text": "等于说 深度和宽度 同时scale吗"
+            },
+            {
+              "speaker": 11,
+              "time": "02:25",
+              "text": "然后opd合一堆RL版本？"
+            },
+            {
+              "speaker": 10,
+              "time": "02:29",
+              "text": "[旺柴]这不就是RSI用来干这个了",
+              "quote": {
+                "speaker": 11,
+                "text": "然后opd合一堆RL版本？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "对齐与交互",
+          "title": "RL 训出的模型为何“不说人话”：交互 Rubric 缺失与外接汇报小模型设想",
+          "text": "有群友发问，日常使用中 Gemini 4 Carbon 或 Argon 在哪些能力上能压过 GPT Astra 和 Opus 5.5。不少人把票投给了写论文和“说人话”：有人吐槽 Astra 最近降智严重，“完全不说人话了”；有人形容 GPT 和 Opus 写出的东西“读着烧心”；还有群友说用 GPT 写出的论文拿给导师看，对方表示一个字都看不懂，差点把论文撕掉。不过也有两位群友认为，跟让人头疼的 Astra Sol 相比，Opus 5.5 其实已经好多了。\n\n为什么模型训着训着就不说人话了？一位群友认为问题出在 RL 阶段：训练只盯着指标刷，rubric 没有把人机交互考虑进去。有人追问怎么基于 rubric 训 RM 来改善可读性；该群友提出可以让 Gemini 当 judge 给可读性打分来训 RM，但也预判把这个 reward 掺进去后，很可能会拖累原本的评测指标。追问者认为 roleplay 和工程目标本身就是两码事，放在同一个模型里目标容易打架，真要解决“说人话”的问题，或许得在主模型外单接一个专门负责说人话的小模型来做汇报。另一位群友则推荐参考 UserRL 等面向用户交互的工作，并分享了 EMNLP 2026 上涵盖 UserBench、UserRL 与 UserHarness 的系列论文海报。",
+          "emphasis": [
+            "用 GPT 写出的论文拿给导师看，对方表示一个字都看不懂",
+            "训练只盯着指标刷，rubric 没有把人机交互考虑进去"
+          ],
+          "aiComment": "RL 刷分刷到导师看完想撕论文，以后大模型出门干活还得配个专职说人话的翻译官。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "UserRL 论文（arXiv:2509.19736）",
+              "url": "https://arxiv.org/pdf/2509.19736"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:06",
+              "text": "确实他会说人话",
+              "quote": {
+                "speaker": null,
+                "text": "Gemini 说人话"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:06",
+              "text": "试用下体感比opus和Astra好多了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:13",
+              "text": "Astra 最近用够了，降智的太蠢了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:14",
+              "text": "感觉完全不说人话了已经"
+            },
+            {
+              "speaker": 4,
+              "time": "12:14",
+              "text": "有没有大佬挖掘gemini 4 carbon/agron日常情况下对什么能力能超过gpt astra或者opus5.5呀[让我看看]"
+            },
+            {
+              "speaker": 5,
+              "time": "12:14",
+              "text": "写作"
+            },
+            {
+              "speaker": 5,
+              "time": "12:14",
+              "text": "写paper 写人话"
+            },
+            {
+              "speaker": 5,
+              "time": "12:15",
+              "text": "gpt和opus写的东西读着烧心"
+            },
+            {
+              "speaker": 6,
+              "time": "12:28",
+              "text": "我用gpt写出来的paper会被老板撕掉 （大概",
+              "quote": {
+                "speaker": 5,
+                "text": "gpt和opus写的东西读着烧心"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:29",
+              "text": "他说一个字都看不懂"
+            },
+            {
+              "speaker": 7,
+              "time": "12:29",
+              "text": "感觉opus比gpt好点",
+              "quote": {
+                "speaker": 5,
+                "text": "gpt和opus写的东西读着烧心"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:31",
+              "text": "其实我觉得5.5已经挺说人话了，跟astra sol相比"
+            },
+            {
+              "speaker": 8,
+              "time": "12:45",
+              "text": "5.5已经好多了"
+            },
+            {
+              "speaker": 8,
+              "time": "12:45",
+              "text": "Astra真的看得我头疼"
+            },
+            {
+              "speaker": 8,
+              "time": "12:45",
+              "text": "RL发力了"
+            },
+            {
+              "speaker": 8,
+              "time": "12:47",
+              "text": "RL阶段的rubric没有考虑到人机交互吧"
+            },
+            {
+              "speaker": 8,
+              "time": "12:47",
+              "text": "光搁那盯着指标训了"
+            },
+            {
+              "speaker": 6,
+              "time": "12:47",
+              "text": "这个咋搞啊",
+              "quote": {
+                "speaker": 8,
+                "text": "RL阶段的rubric没有考虑到人机交互吧"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:48",
+              "text": "看文章有一些基于rubic的RM"
+            },
+            {
+              "speaker": 8,
+              "time": "12:48",
+              "text": "也许可以让哈基米做judge，给个可读性的分"
+            },
+            {
+              "speaker": 6,
+              "time": "12:48",
+              "text": "哈基米judge的话也是训RM吧"
+            },
+            {
+              "speaker": 8,
+              "time": "12:48",
+              "text": "但是能预想到这个reward掺进去之后很可能会影响原来的指标"
+            },
+            {
+              "speaker": 6,
+              "time": "12:49",
+              "text": "可能roleplay本身就是和工程目标两个东西"
+            },
+            {
+              "speaker": 6,
+              "time": "12:50",
+              "text": "感觉真要说人话可能得接个说人话的小模型专门做汇报"
+            },
+            {
+              "speaker": 6,
+              "time": "12:50",
+              "text": "在一个模型里可能目标就比较打架"
+            },
+            {
+              "speaker": 9,
+              "time": "12:50",
+              "text": "可以看看user",
+              "quote": {
+                "speaker": 6,
+                "text": "这个咋搞啊"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "12:51",
+              "text": "userrl？"
+            },
+            {
+              "speaker": 9,
+              "time": "12:51",
+              "text": "https://arxiv.org/pdf/2509.19736"
+            },
+            {
+              "speaker": 9,
+              "time": "12:51",
+              "text": "群友有一系列user相关的工作"
+            },
+            {
+              "speaker": 9,
+              "time": "12:51",
+              "text": "[图片]"
+            }
+          ]
+        },
+        {
+          "category": "Agent 自进化",
+          "title": "全模态 RSI 框架 The Trinity 开源，高密度“洛丽塔风”论文插图引出五步手搓流",
+          "text": "有群友分享了全模态 Agent 自我进化（RSI）框架 The Trinity。该工作质疑“Task 是否真是 RSI 的基本演化单位”，从不同任务共享底层能力出发，设计了 Creator、Explorer、Evolver 三个协同进化的角色：Creator 按能力需求构建可验证的模拟世界，Explorer 在环境中探索轨迹，Evolver 从任务和执行反馈中抽象能力需求、组织 Capability Tree，并指导环境生成与 Harness 更新，整体形成 Task Tree → Capability Tree → Harness Tree 的闭环，再由 Capability-Aware Harness Router 在新任务中动态选择累积的模块。据介绍，该框架在 ARC-AGI-3、video mme v2、SOON CaP-X 等 28 个跨模态训练 benchmark 上平均提升 34 分，在 18 个 Unseen benchmark 上平均提升 26 分，并通过 Real2Sim2Real 将真机机器人任务成功率从 0% 提升至 60%。\n\n比起框架本身，不少群友先被论文配图吸引，感叹图的信息密度高到像机器学习可视化（mlvis）领域的工作，纷纷追问作图 workflow。一位群友分享了这套被自己戏称为“洛丽塔风格”的纯手搓画图思路：整体排版靠手动完成，小猫这类 IP 向的装饰元素则从网站搜集或用 GPT 生成，因为模型带有记忆，现在直接提要求就能理解想要的风格。具体步骤分为五步：先根据工作性质确定 IP 风格（比如 harness 天然适合“一个一个搭建”的图标风格）；再顺着 pipeline 设计排版；拿不准的地方先规划好文字内容；接着拿文字思路跟 AI 来回讨论用什么图标表达；最后上图标网站检索或让 AI 生成对应图标。",
+          "emphasis": [
+            "形成 Task Tree → Capability Tree → Harness Tree 的闭环",
+            "先根据工作性质确定 IP 风格"
+          ],
+          "aiComment": "真机成功率从 0 拉到 60% 固然猛，但群友的注意力全被带着小猫的洛丽塔风手搓插图勾走了。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "The Trinity 项目主页",
+              "url": "https://trinity-rsi.github.io/"
+            },
+            {
+              "kind": "paper",
+              "label": "The Trinity 论文（arXiv:2610.36077）",
+              "url": "https://arxiv.org/abs/2610.36077"
+            },
+            {
+              "kind": "code",
+              "label": "The Trinity 代码仓库",
+              "url": "https://github.com/InfRec-Cardinal/The-Trinity"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:59",
+              "text": "大家晚上好 帮我的好朋友介绍一下他最新的工作The Trinity（三位一体）: 基于能力驱动的全模态RSI\n\n我们提出了一套包含Creator、Explorer、Evolver共同进化的全模态Agent RSI框架：Creator负责根据能力需求构建可验证的模拟世界；Explorer负责在环境中探索得到轨迹；Evolver则从任务和执行反馈中抽象能力需求，组织Capability Tree，并指导环境生成与Harness更新\n\nThe Trinity通过环境生成与Harness的协同进化，在ARC-AGI-3、video mme v2、SOON CaP-X等28个跨模态、跨领域训练Benchmark上平均提升 34 分，在18个Unseen Benchmark上平均提升 26 分，并通过Real2Sim2Real成功泛化到真实机器人任务，真机任务成功率从 0% 提升至 60%\n\n这篇工作的动机来自我们对RSI的两个疑问：\n问题1： Task真的是RSI的基本演化单位吗？\n问题2： 如何让环境的生成能力与Capability演化形成真正可持续的闭环Loop？\n\n从不同任务共享底层能力这一insight出发，我们通过构建共同能力树，让Agent自己造训练环境，在不同任务中学习到跨模态、跨任务、能够继承和复用的Capability，通过交互反馈推动环境与Agent协同进化\n\n整个过程形成Task Tree → Capability Tree → Harness Tree的演化闭环。不同任务通过共享能力节点相互关联，演化得到的模块通过持续积累，并由Capability-Aware Harness Router在新任务中动态选择\n\n我们认为，RSI的关键或许不在于recursive loop，而在于究竟是什么在进化，以及什么驱动了进化\n\n希望能为 Agent 自我进化和能力迁移带来一些启发，欢迎交流，也欢迎大家点点Upvote和Star！\n\n🌐 Project Page: https://trinity-rsi.github.io/\n📄 arXiv: https://arxiv.org/abs/2610.36077\n💻 GitHub: https://github.com/InfRec-Cardinal/The-Trinity\n🤗 HF Paper：https://huggingface.co/papers/2610.36077"
+            },
+            {
+              "speaker": 2,
+              "time": "01:01",
+              "text": "虽然但是，想学一下图是怎么画的[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:05",
+              "text": "图好漂亮"
+            },
+            {
+              "speaker": 4,
+              "time": "01:07",
+              "text": "图信息密度高到我以为是mlvis的工作"
+            },
+            {
+              "speaker": 5,
+              "time": "01:12",
+              "text": "这是认真手画的吧"
+            },
+            {
+              "speaker": 6,
+              "time": "01:13",
+              "text": "纯手搓，我称之为洛丽塔风格（"
+            },
+            {
+              "speaker": 5,
+              "time": "01:13",
+              "text": "元素是一个一个ai生成吗",
+              "quote": {
+                "speaker": 6,
+                "text": "纯手搓，我称之为洛丽塔风格（"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:14",
+              "text": "小猫这种"
+            },
+            {
+              "speaker": 6,
+              "time": "01:14",
+              "text": "嗯嗯是的，要么网站找的要么是ai生成的"
+            },
+            {
+              "speaker": 6,
+              "time": "01:14",
+              "text": "是的，这种ip向的都是",
+              "quote": {
+                "speaker": 5,
+                "text": "小猫这种"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:15",
+              "text": "可以交出workflow吗[可怜]"
+            },
+            {
+              "speaker": 5,
+              "time": "01:15",
+              "text": "用的什么ai生成的",
+              "quote": {
+                "speaker": 6,
+                "text": "嗯嗯是的，要么网站找的要么是ai生成的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:15",
+              "text": "gpt"
+            },
+            {
+              "speaker": 5,
+              "time": "01:16",
+              "text": "有特殊的prompt吗",
+              "quote": {
+                "speaker": 6,
+                "text": "gpt"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:17",
+              "text": "我感觉是我记忆的原因，现在生图我直接给最直接的要求就能get到我大概的意思了",
+              "quote": {
+                "speaker": 5,
+                "text": "有特殊的prompt吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:20",
+              "text": "我习惯思路是这样的： 1. 确定ip（工作性质适合什么风格，比如说harness就天然适合logo“一个一个搭建”） 2. 根据pipeline设计排版 3. 不确定可以先计划好文字内容 4. 有文字的思路就和ai讨论用什么图标表示or自己思路打磨然后扔给ai来回讨论 5. 最后上图标网站or让ai生成图标。希望这个思路对你有帮助",
+              "quote": {
+                "speaker": null,
+                "text": "对的[可怜]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "产品与商业化",
+          "title": "OpenAI Prism 宣布停服，群友聊 AI 视频模型“官司比盈利先来”",
+          "text": "有群友晒出 OpenAI Prism 网页端即将停止服务并提示导出项目备份的截图，感叹刚准备用就遇上停服，也有人认为这是在收束产品线。聊到商业化变现，有人好奇 Sora 做到现在是否已经开始赚钱，另一位群友调侃“再做下去，官司比盈利先来”。有人提起此前 Seedance 2 就曾遭遇迪士尼维权；虽然有群友指出 Seedance 官方只做国内市场、并不出海，但也有人提醒迪士尼在国内同样设有法务部。",
+          "emphasis": [
+            "OpenAI Prism 网页端即将停止服务",
+            "官司比盈利先来"
+          ],
+          "aiComment": "Prism 刚想用就停服，视频模型还在愁变现，法务部倒是比盈利先看到 KPI 了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:24",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "13:25",
+              "text": "刚准备用的"
+            },
+            {
+              "speaker": 2,
+              "time": "13:27",
+              "text": "感觉gpt开始收束产品线"
+            },
+            {
+              "speaker": 3,
+              "time": "13:39",
+              "text": "sora做到现在应该也能赚钱了吧"
+            },
+            {
+              "speaker": 2,
+              "time": "13:39",
+              "text": "[奸笑]感觉sora再做下去,官司比盈利先来",
+              "quote": {
+                "speaker": 3,
+                "text": "sora做到现在应该也能赚钱了吧"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:46",
+              "text": "我还记得seedance2的时候被迪士尼干了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:01",
+              "text": "印象中好像seeddance不出海",
+              "quote": {
+                "speaker": 4,
+                "text": "我还记得seedance2的时候被迪士尼干了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:01",
+              "text": "对。",
+              "quote": {
+                "speaker": 2,
+                "text": "印象中好像seeddance不出海"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:01",
+              "text": "sd官方只做国内。"
+            },
+            {
+              "speaker": 4,
+              "time": "14:03",
+              "text": "迪士尼在中国也有法务部[Doge]",
+              "quote": {
+                "speaker": 5,
+                "text": "sd官方只做国内。"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "Antigravity 读音频超时死循环，Gemini 能否接入第三方 Harness？",
+      "theme": "争论模型“专武”绑定与 Multi-harness 训练，兼聊 1001 款游戏的 LLM4Game 评测集",
+      "note": "2026-10-29 · 当日本地记录",
+      "stories": [
+        {
+          "category": "工具体感",
+          "title": "Gemini 4 Carbon 亮相，群友吐槽 Antigravity 读 40 秒音频触发五分钟超时死循环",
+          "text": "有人晒出 Gemini 4 Carbon 的发布博客与基准评测对比缩略图，图中 Gemini 4 Carbon 在多数评测项里拿下最高分。鉴于系列命名接连用了 Argon 和 Carbon，有群友调侃这是搞出了“门捷列夫模型”。\n\n比起新模型，群友把火力集中在了配套工具 antigravity 上。一位每天开着 Ultra 高频使用的群友吐槽，antigravity 的体验远不如 codex、cc 乃至 dsh：Gemini 明明具备全模态输入能力、可以直接读音频，但 antigravity 却写死了五分钟无响应直接杀死 session 的逻辑，且无法修改。当 argon 模型开到 high 档位时，读一段 40s 的音频刚好要花五分钟，结果模型只要一读音频就会把自己干掉；此时让它“继续”也没用，因为 session 复活后会再次去读那段音频，把自己再读死一遍，而工具里又没有 fork session 功能，整个 session 就此彻底报废。此外，antigravity 连显示 context 占用的功能都没有，只能凭感觉手动执行 /compact。另一位群友表示这工具相比两个月前已经好了一点，但依然拉胯，反倒是 qodercn 用起来感觉比 codex 和 cc 顺手。",
+          "emphasis": [
+            "antigravity 却写死了五分钟无响应直接杀死 session 的逻辑",
+            "session 复活后会再次去读那段音频，把自己再读死一遍"
+          ],
+          "aiComment": "读 40 秒音频刚好卡满五分钟超时自杀，复活了再去读一遍接着死，堪称西西弗斯式听语音。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Gemini 4 Carbon 官方博客",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            },
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:18",
+              "text": "google的当务之急是把他那个构思antigravity升级一下"
+            },
+            {
+              "speaker": 3,
+              "time": "01:18",
+              "text": "门捷列夫模型"
+            },
+            {
+              "speaker": 2,
+              "time": "01:18",
+              "text": "这玩意被codex cc甚至dsh吊起来抽"
+            },
+            {
+              "speaker": 3,
+              "time": "01:19",
+              "text": "已经好很多了",
+              "quote": {
+                "speaker": 2,
+                "text": "这玩意被codex cc甚至dsh吊起来抽"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:19",
+              "text": "也就两个月的事"
+            },
+            {
+              "speaker": 3,
+              "time": "01:19",
+              "text": "虽然还是被吊起来抽"
+            },
+            {
+              "speaker": 2,
+              "time": "01:19",
+              "text": "我现在开了ultra天天用"
+            },
+            {
+              "speaker": 2,
+              "time": "01:19",
+              "text": "越用越觉得是构思"
+            },
+            {
+              "speaker": 3,
+              "time": "01:19",
+              "text": "感觉qodercn比codex和cc好用是怎么回事（"
+            },
+            {
+              "speaker": 2,
+              "time": "01:19",
+              "text": "比如gemini比起其他家有个特殊功能是他的输入是全模态的，可以读音频"
+            },
+            {
+              "speaker": 2,
+              "time": "01:20",
+              "text": "但antigravity设置的是五分钟不返回就直接杀死这个session，而且没法改这个"
+            },
+            {
+              "speaker": 2,
+              "time": "01:20",
+              "text": "但argon只要开high，读一个40s的音频就要五分钟"
+            },
+            {
+              "speaker": 2,
+              "time": "01:21",
+              "text": "然后只要他读了就会把自己干掉"
+            },
+            {
+              "speaker": 2,
+              "time": "01:21",
+              "text": "然后如果你在此时跟他说继续是没有用的，因为他在复活的时候会再去读那个音频然后把自己读死"
+            },
+            {
+              "speaker": 2,
+              "time": "01:22",
+              "text": "这个session就彻底废了，他还没有fork session的功能"
+            },
+            {
+              "speaker": 2,
+              "time": "13:34",
+              "text": "carbon再强"
+            },
+            {
+              "speaker": 2,
+              "time": "13:34",
+              "text": "antigravity不行也是构思"
+            },
+            {
+              "speaker": 2,
+              "time": "13:34",
+              "text": "antigravity甚至没有显示context占用的功能"
+            },
+            {
+              "speaker": 2,
+              "time": "13:34",
+              "text": "我都不知道我用了多少context"
+            },
+            {
+              "speaker": 2,
+              "time": "13:35",
+              "text": "凭感觉/compact"
+            }
+          ]
+        },
+        {
+          "category": "Harness 与训练",
+          "title": "Gemini 能否塞进第三方 Harness？群友争论“专武”绑定与 Multi-harness 训练",
+          "text": "既然 antigravity 体验欠佳，有人追问 Gemini 4 Carbon 究竟是真强还是对榜单过拟合，能不能把它接入 codex、cc 或 dsh 等第三方 harness 使用。此前吐槽 antigravity 的群友认为反代 API 并不容易：一方面它带有读音频等功能且不返回思维链，怀疑适配成 response api 比较麻烦；另一方面模型肯定是在自家 harness 上训练的“专武”，反代出来效果未必好。不过这位群友很认可模型本身的底子，认为它是目前唯一能把文档写明白的模型，相比之下 gpt 全是防御性表述、已经没法正常交流，claude 则在上下文变长后满篇黑话。\n\n“模型在 antigravity 上训练”的说法引来质疑。有群友反问这么差的 harness 怎么拿来训练，另一人以为 antigravity 纯跑在云端，好奇本地是否有轨迹数据（traj）；前者确认本地确实存有不全的 traj，看本地目录膨胀的速度就能发现。针对“单一 harness 专武”的判断，多位群友提出了反驳：有人指出前沿模型如果只在一个 harness 上生效，说明还不够前沿，现在通常都是 multi-harness 训练；另一人补充，模型对自家框架支持最好，但 agent 框架适配性本身就是一个训练目标；还有人提到 kimik3 的技术报告里就讲过 multi-harness 训练。\n\n讨论尾声，有群友晒出一张在 cc 界面下拉菜单中同时挂上 Gemini 4 Argon（High/Medium）、Gemini 3.8 Flash、Claude 5.5 系列与 GPT-6 Astra（xhigh/max）的截图，被人调侃“都是 DeepInfer 上部署的调过语言风格的 deepseek”。",
+          "emphasis": [
+            "带有读音频等功能且不返回思维链，怀疑适配成 response api 比较麻烦",
+            "前沿模型如果只在一个 harness 上生效，说明还不够前沿，现在通常都是 multi-harness 训练"
+          ],
+          "aiComment": "嘴上吵着是不是自家框架专武，反手就在下拉菜单里把御三家排排坐，全被调侃成了换皮 DeepSeek。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:32",
+              "text": "所以carbon事真强，害事相对榜单有一定过拟合"
+            },
+            {
+              "speaker": 1,
+              "time": "13:53",
+              "text": "那能把carbon接入别的harness里面么，比如codex/cc/dsh这种",
+              "quote": {
+                "speaker": null,
+                "text": "antigravity不行也是构思"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:16",
+              "text": "谷歌的api不太好反代，一个是他功能比较多，像什么读音频这种，而且不返回思维链，适配成response api我怀疑比较麻烦",
+              "quote": {
+                "speaker": 1,
+                "text": "那能把carbon接入别的harness里面么，比如codex/cc/dsh这种"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:17",
+              "text": "还有一个是模型肯定都是在自己的harness上训练的，属于专武"
+            },
+            {
+              "speaker": 2,
+              "time": "14:17",
+              "text": "感觉反代出来也不一定好"
+            },
+            {
+              "speaker": 3,
+              "time": "14:19",
+              "text": "真的在antigravity上训练的吗. 这么垃圾的harness"
+            },
+            {
+              "speaker": 2,
+              "time": "14:19",
+              "text": "但咕咕噜噜的模型本身还是很强的，而且是现在唯一能写得明白文档的模型"
+            },
+            {
+              "speaker": 4,
+              "time": "14:19",
+              "text": "没什么道理的，前沿模型如果只在一个harness上生效说明这个模型不够前沿"
+            },
+            {
+              "speaker": 2,
+              "time": "14:19",
+              "text": "gpt已经完全不能拿来跟人交流了，全是防御性表述；claude在上下文长了之后也都是黑话"
+            },
+            {
+              "speaker": 4,
+              "time": "14:20",
+              "text": "而且一般现在都是multi-harness训练的"
+            },
+            {
+              "speaker": 5,
+              "time": "14:24",
+              "text": "对 但是对自家的支持肯定是最好的",
+              "quote": {
+                "speaker": 4,
+                "text": "没什么道理的，前沿模型如果只在一个harness上生效说明这个模型不够前沿"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:24",
+              "text": "agent框架适配性是一个训练目标"
+            },
+            {
+              "speaker": 6,
+              "time": "14:25",
+              "text": "kimik3技术报告上有讲multi harness训练吧"
+            },
+            {
+              "speaker": 7,
+              "time": "14:27",
+              "text": "这能训练？",
+              "quote": {
+                "speaker": 3,
+                "text": "真的在antigravity上训练的吗. 这么垃圾的harness"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:27",
+              "text": "我以为 ag 是运行在 cloud上的"
+            },
+            {
+              "speaker": 7,
+              "time": "14:27",
+              "text": "本地有 traj 吗"
+            },
+            {
+              "speaker": 3,
+              "time": "14:27",
+              "text": "还真有"
+            },
+            {
+              "speaker": 3,
+              "time": "14:27",
+              "text": "只不过不全"
+            },
+            {
+              "speaker": 3,
+              "time": "14:27",
+              "text": "看那个目录膨胀的速度就知道了"
+            },
+            {
+              "speaker": 8,
+              "time": "15:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 8,
+              "time": "15:33",
+              "text": "[旺柴]cc上gemini、gpt"
+            },
+            {
+              "speaker": 1,
+              "time": "18:52",
+              "text": "都是DeepInfer上面部署的调过语言风格的deepseek是吧[旺柴]",
+              "quote": {
+                "speaker": 8,
+                "text": "[旺柴]cc上gemini、gpt"
+              }
+            }
+          ]
+        },
+        {
+          "category": "基准与数据",
+          "title": "1001 款游戏的 LLM4Game 评测集即将发布，群友探讨游戏复刻与工程数据瓶颈",
+          "text": "围绕一篇 Qwen 基模结合 LLM4Game 的分享笔记，群里聊起了大模型在游戏开发场景的评测与落地。有群友透露下个月将发布一个涵盖 1001 款游戏的 benchmark，划分为 open set 和 close set。有人根据 open/close 的划分猜测是在评测“复刻游戏”的能力，并开玩笑问是不是要复刻 3A 大作；分享者确认该基准严格对口 LLM4Game 能力，但坦言复刻 3A 目前依然很难。另一位群友认为，做 LLM4Game 最大的难点在于整个游戏开发流程是一个系统化工程，底层的开发过程数据非常难获取。",
+          "emphasis": [
+            "涵盖 1001 款游戏的 benchmark",
+            "整个游戏开发流程是一个系统化工程，底层的开发过程数据非常难获取"
+          ],
+          "aiComment": "1001 款游戏的评测集都要来了，大模型离手搓 3A 大作还隔着一座拿不到开发过程数据的大山。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:43",
+              "text": "[链接] 我发布了一篇笔记：Qwen 基模 × LLM4Game\n  摘要: @群友 的笔记 172人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6addc036000000002a010880"
+            },
+            {
+              "speaker": 2,
+              "time": "20:45",
+              "text": "LLM4Game是对的[强]",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：Qwen 基模 × LLM4Game\n  摘要: @群友 的笔记 172人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6addc036000000002a010880"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:45",
+              "text": "我们下个月即将发布一个Game相关benchmark，欢迎Qwen来测[可怜]"
+            },
+            {
+              "speaker": 3,
+              "time": "20:46",
+              "text": "测了哪些game"
+            },
+            {
+              "speaker": 2,
+              "time": "20:46",
+              "text": "有1001个，分成了open和close set"
+            },
+            {
+              "speaker": 4,
+              "time": "20:47",
+              "text": "测啥能力的"
+            },
+            {
+              "speaker": 5,
+              "time": "20:47",
+              "text": "复刻游戏吗"
+            },
+            {
+              "speaker": 5,
+              "time": "20:47",
+              "text": "感觉是"
+            },
+            {
+              "speaker": 5,
+              "time": "20:47",
+              "text": "open/close的话"
+            },
+            {
+              "speaker": 2,
+              "time": "20:47",
+              "text": "就是严格对口这个能力",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：Qwen 基模 × LLM4Game\n  摘要: @群友 的笔记 172人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6addc036000000002a010880"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:47",
+              "text": "复刻3A么[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:48",
+              "text": "复刻3A确实还是很难的"
+            },
+            {
+              "speaker": 3,
+              "time": "20:49",
+              "text": "主要感觉还是游戏开发的数据还是比较难获得的"
+            },
+            {
+              "speaker": 3,
+              "time": "20:50",
+              "text": "整个开发流程是个系统化工程"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "闭源模型 CoT 怎么蒸：逆向拟合与开源模型造数实践",
+      "theme": "对比 TraceForge 与 gemma4-31b 造数体验，兼聊 Gemini 4 Carbon 刷榜与 Genie 4 演示",
+      "note": "2026-10-29 · 当日本地记录",
+      "stories": [
+        {
+          "category": "数据与蒸馏",
+          "title": "闭源模型 CoT 怎么蒸：TraceForge 逆向拟合与 gemma4-31b 造数体验",
+          "text": "有人在群里求教蒸馏闭源模型思维链（CoT）的办法。一位群友提到可以追问 codex 的思考过程，不过平台疑似有针对蒸馏行为的惩罚机制；另一位群友也担心直接追问容易封号，转而推荐用闭源模型的结果去逆向拟合，并分享了开源项目 TraceForge（内含开源的 Fable CoT 数据）。讨论还延伸到刚发布的 Gemini 4 系列，有人询问是否有人做过 Argon 的 CoT，两位群友表示已经有现成方案。\n\n聊到不同模型的思维链风格，一位群友猜测“哈基米”（Gemini）和 O 家模型的 CoT 应该都很简洁。这位群友还分享了自己的造数实践：之前一直用 gpt-oss 构造数据，最近切换到了 gemma4-31b，体验下来感觉它的 CoT 质量非常棒，推测同源的闭源模型风格也大差不差。",
+          "emphasis": [
+            "用闭源模型的结果去逆向拟合，并分享了开源项目 TraceForge",
+            "之前一直用 gpt-oss 构造数据，最近切换到了 gemma4-31b"
+          ],
+          "aiComment": "直接追问怕封号，拿着结果逆向猜过程，蒸馏 CoT 硬是做出了谍战片的潜伏感。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:47",
+              "text": "有啥好办法蒸闭源模型思维链吗"
+            },
+            {
+              "speaker": 2,
+              "time": "09:52",
+              "text": "好奇+1，貌似有很多小妙招",
+              "quote": {
+                "speaker": 1,
+                "text": "有啥好办法蒸闭源模型思维链吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "09:53",
+              "text": "我看有一个方法是给闭源的结果去拟合"
+            },
+            {
+              "speaker": 4,
+              "time": "09:54",
+              "text": "比如追问 codex 思考过程好像\n\n不过他们好像也有相应机制，蒸馏嫌疑好像会惩罚啥的",
+              "quote": {
+                "speaker": 1,
+                "text": "有啥好办法蒸闭源模型思维链吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "09:57",
+              "text": "这容易被封号吧"
+            },
+            {
+              "speaker": 5,
+              "time": "10:02",
+              "text": "这是咋拟合的哇，好奇😯",
+              "quote": {
+                "speaker": 3,
+                "text": "我看有一个方法是给闭源的结果去拟合"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:03",
+              "text": "[链接] TraceForge上线，数据(含Fable Cot)开源\n  摘要: @群友 的笔记 37人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6aded73a000000001703b056"
+            },
+            {
+              "speaker": 3,
+              "time": "10:03",
+              "text": "这篇"
+            },
+            {
+              "speaker": 6,
+              "time": "10:11",
+              "text": "我有点好奇carbon后面cot能不能搞出来"
+            },
+            {
+              "speaker": 6,
+              "time": "10:11",
+              "text": "现在有人做过argon的吗",
+              "quote": {
+                "speaker": 6,
+                "text": "我有点好奇carbon后面cot能不能搞出来"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "10:12",
+              "text": "argon的可以"
+            },
+            {
+              "speaker": 8,
+              "time": "10:12",
+              "text": "包有的",
+              "quote": {
+                "speaker": 6,
+                "text": "现在有人做过argon的吗"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "10:13",
+              "text": "我感觉哈基米的CoT应该是很简洁的"
+            },
+            {
+              "speaker": 6,
+              "time": "10:15",
+              "text": "我觉得也是",
+              "quote": {
+                "speaker": 9,
+                "text": "我感觉哈基米的CoT应该是很简洁的"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "10:34",
+              "text": "O的模型应该也是，我之前用gpt-oss做数据，现在用gemma4-31b"
+            },
+            {
+              "speaker": 9,
+              "time": "10:38",
+              "text": "感觉cot非常棒",
+              "quote": {
+                "speaker": 9,
+                "text": "O的模型应该也是，我之前用gpt-oss做数据，现在用gemma4-31b"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "10:39",
+              "text": "闭源估计风格也差不多"
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "Gemini 4 Carbon 拿下 17 项基准中 15 项第一，群友回顾 3.1 时期 Agent 论文潮",
+          "text": "有群友分享了 Google 发布的 Gemini 4 Carbon 官方博客及基准评测对比图，同台竞技的包括 Gemini 4 Argon、GPT-6 Astra、Claude Opus 5.5 和 Claude Fable 5.1。分享的评测截图显示，在涵盖通用能力、Agentic coding、Computer use、长上下文、科学与数学及网络安全等八大维度的 17 项测试中，Gemini 4 Carbon 拿下 15 项第一：综合指标 AA Index v5.0 得分 59（力压 Claude Opus 5.5 的 58 和 GPT-6 Astra 的 57），SWE-sweep 为 9.6%，Terminal-Bench 4.0 (AA) 达 65.2%，Agents' Last Exam v1.1 为 77.4%，Vending-Bench 2 收益达 $16,484，GraphWalks、RiemannBench 和 SEC-bench Pro 则分别跑出 96.2%、80.0% 和 88.2%。其余两项中，GPT-6 Astra 在 FrontierSWE 2 上以 65.5% 居首，Claude Opus 5.5 在 OSWorld-2.1 上以 87.2% 领先。\n\n面对这份榜单，有人摩拳擦掌准备“开蒸”，也有人调侃“致敬传奇刷分王”，怀疑这次能撑几天不降智。另一位群友则出面肯定了前代模型的含金量，回忆 3.1 刚发布时确实能打，当时一大批 SOTA agent 论文全靠 3.1 撑起来。不过也有人提醒，Gemini 4 Carbon 目前仅向部分机构开放，普通用户还用不上。",
+          "emphasis": [
+            "17 项测试中，Gemini 4 Carbon 拿下 15 项第一：综合指标 AA Index v5.0 得分 59",
+            "回忆 3.1 刚发布时确实能打，当时一大批 SOTA agent 论文全靠 3.1 撑起来"
+          ],
+          "aiComment": "看着 17 项拿 15 个第一的成绩单摩拳擦掌想开蒸，结果发现普通用户连门把手都还没摸到。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Gemini 4 Carbon 官方博客",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:14",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:15",
+              "text": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+            },
+            {
+              "speaker": 2,
+              "time": "01:30",
+              "text": "开蒸开蒸"
+            },
+            {
+              "speaker": 3,
+              "time": "08:29",
+              "text": "致敬传奇刷分王",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "08:29",
+              "text": "这次能撑几天不降智"
+            },
+            {
+              "speaker": 4,
+              "time": "08:37",
+              "text": "3.1刚出的时候是真的，当时一堆sota agent论文全靠3.1"
+            },
+            {
+              "speaker": 5,
+              "time": "08:44",
+              "text": "carbon  现在普通用户还用不了吧，只给部分机构用"
+            }
+          ]
+        },
+        {
+          "category": "世界模型与市场",
+          "title": "Google 世界模型 Genie 4 演示界面曝光，群友热议 AI 资本开支与股价背离",
+          "text": "有群友晒出 Google 新一代世界模型 Genie 4 的演示截图，界面副标题将其定位为实时交互世界模型（Live, interactive world models），展示了根据指令生成的阴雨天气下山地木屋与湖泊景观。分享者表示该模型号称能生成开放世界，但目前尚未开放使用；有人觉得这套能力拿来做游戏很合适。话题随即拐向二级市场：有群友不解为何 Google 密集发模型，股价反而跌了 10%。另一位群友分析，核心原因在于作为营收支柱的广告业务表现不佳，同时 AI 支出上不封顶；也有人调侃“发模型也跌，不发也跌”“模型发版有利于做空”。",
+          "emphasis": [
+            "定位为实时交互世界模型",
+            "核心原因在于作为营收支柱的广告业务表现不佳，同时 AI 支出上不封顶"
+          ],
+          "aiComment": "一边是 Genie 4 画出烟雨木屋的开放世界，一边是股价跌去 10%，华尔街看的是广告和账单。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:26",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:26",
+              "text": "Google的新一代世界模型也出了？"
+            },
+            {
+              "speaker": 2,
+              "time": "17:27",
+              "text": "感觉做游戏可以啊"
+            },
+            {
+              "speaker": 3,
+              "time": "17:27",
+              "text": "但是为什么谷歌跌了10%，今天连带着我的大a都赐跌停了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:27",
+              "text": "说是可以生成开放世界"
+            },
+            {
+              "speaker": 1,
+              "time": "17:27",
+              "text": "但现在还用不上[破涕为笑]"
+            },
+            {
+              "speaker": 4,
+              "time": "17:28",
+              "text": "广告拉了",
+              "quote": {
+                "speaker": 3,
+                "text": "但是为什么谷歌跌了10%，今天连带着我的大a都赐跌停了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:28",
+              "text": "广告业务是核心啊"
+            },
+            {
+              "speaker": 1,
+              "time": "17:28",
+              "text": "发模型也跌，不发也跌",
+              "quote": {
+                "speaker": 3,
+                "text": "但是为什么谷歌跌了10%，今天连带着我的大a都赐跌停了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:28",
+              "text": "AI支出上不封顶"
+            },
+            {
+              "speaker": 5,
+              "time": "17:53",
+              "text": "模型发版有利于做空[捂脸]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-6",
+      "label": "AI Safety",
+      "section": "今日讨论",
+      "heading": "科研机构定制 Agent 的核心顾虑：防思路与数据外泄",
+      "theme": "结合 SciencePal 数学智能体证明 Cook-Levin 定理演示探讨私有化部署诉求",
+      "note": "2026-10-29 · 当日本地记录",
+      "stories": [
+        {
+          "category": "AI for Science",
+          "title": "科研机构定制 Agent 的核心诉求：防思路与数据外泄",
+          "text": "有群友抛出观点：顶级科研机构之所以需要专属的 Agent for Science，是因为担心使用外部 Agent 会被抄袭科研思路。另有两位群友补充认为，机构更核心的顾虑其实在于数据，怕科研数据经过别人的库被盗走。\n\n发起讨论的群友提到遇到过专门为企业和机构开发这类系统的团队，并晒出一张「SciencePal」产品的现场屏幕照片。照片中的系统正调用基于 Kimi K3 的「数学智能体」演示 Cook-Levin 定理证明：系统判断该任务为纯数学证明，无需 PDF 提取或 Lean 形式化需求，因此在未加载相关 skill 的情况下，直接在右侧「Math Agent的计算机」分栏中生成了 md、pdf 和 docx 三种格式的证明文档。",
+          "emphasis": [
+            "另有两位群友补充认为，机构更核心的顾虑其实在于数据",
+            "调用基于 Kimi K3 的「数学智能体」演示 Cook-Levin 定理证明"
+          ],
+          "aiComment": "怕被抄思路更怕丢数据，结果现场演示直接拿 Cook-Levin 定理整出三种格式的证明文档防身。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "论为什么顶级科研机构需要Agent for Science，因为怕用别人的Agent被抄袭思路"
+            },
+            {
+              "speaker": 2,
+              "time": "16:58",
+              "text": "数据"
+            },
+            {
+              "speaker": 2,
+              "time": "16:58",
+              "text": "主要是数据"
+            },
+            {
+              "speaker": 1,
+              "time": "16:58",
+              "text": "遇到一个团队就是给企业和机构做这个的"
+            },
+            {
+              "speaker": 1,
+              "time": "16:58",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:58",
+              "text": "怕数据走别人库里给盗走了吧",
+              "quote": {
+                "speaker": 1,
+                "text": "论为什么顶级科研机构需要Agent for Science，因为怕用别人的Agent被抄袭思路"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
