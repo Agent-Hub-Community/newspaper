@@ -36,6 +36,9 @@ const server = http.createServer(async (request, response) => {
   }
 }).listen(0);
 const site = `http://127.0.0.1:${server.address().port}${basePath}`;
+// The heart checks below assume a local build: a --public build points hearts at the live feedback worker.
+assert.doesNotMatch(await readFile(path.join(dist, 'library/index.html'), 'utf8'), /name="agenthub-feedback"/,
+  'dist/ is a public build; run npm run build without --public first');
 const library = JSON.parse(await readFile(path.join(dist, 'library/resources.json'), 'utf8'));
 const total = library.items.length;
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' });
@@ -74,7 +77,9 @@ try {
 
     // Choosing a value again lifts it; two values in one filter widen the list; the applied tags name each condition and remove it.
     await page.locator('.chips [data-filter="type"][data-value="benchmark"]').click();
-    assert.equal(await page.locator('.chips [data-filter="type"][aria-pressed="true"]').count(), 0);
+    // With no type chosen, the "全部资料" chip (empty value) is the pressed one.
+    assert.equal(await page.locator('.chips [data-filter="type"]:not([data-value=""])[aria-pressed="true"]').count(), 0);
+    assert.equal(await page.locator('.chips [data-filter="type"][data-value=""]').getAttribute('aria-pressed'), 'true');
     assert.equal(await visible(page).count(), topicCount);
     await page.locator('.chips [data-filter="topic"][data-value="memory"]').click();
     const either = await visible(page).count();
