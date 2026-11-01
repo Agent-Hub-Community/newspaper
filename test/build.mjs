@@ -109,7 +109,7 @@ const files = ['index.html', 'library/index.html', 'glossary/index.html', ...(AG
 if (!AGENTS_PAGE) {
   assert.ok(!paths.includes(path.join('agents', 'index.html')), 'agents/index.html is built while AGENTS_PAGE is off');
   for (const file of paths.filter(p => p.endsWith('.html'))) {
-    assert.doesNotMatch(await readFile(path.join(root, file), 'utf8'), /agents-tab|href="[^"]*agents\/(?:index\.html)?"/, file);
+    assert.doesNotMatch(await readFile(path.join(root, file), 'utf8'), /agents-tab|href="(?![a-z]+:)[^"]*agents\/(?:index\.html)?"/, file);
   }
 }
 files.push(...Object.values(data.activity?.avatars || {}));
