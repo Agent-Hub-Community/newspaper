@@ -1,0 +1,1644 @@
+{
+  "id": "2026-10-31",
+  "date": "2026-10-31",
+  "label": "2026-10-31 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "从 CC 切到 Codex：有群友觉得 Sol 6.1 只有 Sonnet 水平",
+      "theme": "同场分享开源 RSI 实验库 FlashRSI，在 30 余个评测集上发现限制演化空间有时效果更好。",
+      "note": "2026-10-31 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型体验",
+          "title": "从 CC 切到 Codex：Sol 6.1 对标不了 Opus，Terra 和 Haiku 被说成“反方向的平替”",
+          "text": "有群友从 CC 切到 Codex 后，感觉 Sol 完全是 Sonnet 水平，Sol 6.1 对标不了 Opus。另一位群友接话说新出的 Terra 用起来像 Flash 模型，前面那位群友回应，Sol 都感觉不妙，Terra 更不敢用。还有人觉得 Terra 和 Haiku 都“平替国模”了，有群友接了一句“反方向的平替”。",
+          "emphasis": [
+            "Sol 6.1 对标不了 Opus",
+            "“反方向的平替”"
+          ],
+          "aiComment": "以前是国产模型努力平替海外，现在海外小模型反向平替国模，风水轮流转属于是。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:08",
+              "text": "感觉 sol 完全是 sonnet 模型水平啊。从 cc 切到 codex，感觉 sol 6.1 对标不了 opus"
+            },
+            {
+              "speaker": 2,
+              "time": "19:13",
+              "text": "最近新出了Terra，用起来感觉像Flash模型的效果 [旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉 sol 完全是 sonnet 模型水平啊。从 cc 切到 codex，感觉 sol 6.1 对标不了 opus"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:18",
+              "text": "别了，sol都感觉不妙，Terra 不敢用"
+            },
+            {
+              "speaker": 3,
+              "time": "19:53",
+              "text": "terra和haiku感觉都平替国模了（",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉 sol 完全是 sonnet 模型水平啊。从 cc 切到 codex，感觉 sol 6.1 对标不了 opus"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:58",
+              "text": "反方向的平替"
+            },
+            {
+              "speaker": 5,
+              "time": "20:31",
+              "text": "何尝不是一种NTR"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "开源库 FlashRSI：统一 12 种算法与 30 余个 Benchmark 的 RSI 实验流程",
+          "text": "有群友分享了刚开源的 RSI 研究工具库 FlashRSI，把原本分散在不同仓库的 12 种 RSI 算法、30 余个 benchmark 和 3 种 target harness 统一起来，用一行代码执行“Algorithm × Benchmark × Harness”的演化实验。项目方在 11 个 benchmark、2 组 harness 上评估了 12 种算法，初步结果显示现有方法在 in-domain 和 near-domain 场景下更容易拿到收益，OOD 泛化仍有挑战；在部分设置里，只演化 skill 或 prompt 等限制演化空间的做法反而可能效果更好。",
+          "emphasis": [
+            "只演化 skill 或 prompt 等限制演化空间的做法反而可能效果更好"
+          ],
+          "aiComment": "12 种算法和 30 多个 benchmark 合成一行代码，跑完发现只改 prompt 或 skill 效果可能更好，步子小点反而稳。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "FlashRSI 仓库",
+              "url": "https://github.com/RUC-NLPIR/FlashRSI"
+            },
+            {
+              "kind": "demo",
+              "label": "FlashRSI 项目页",
+              "url": "https://ruc-nlpir.github.io/FlashRSI/project.html"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:13",
+              "text": "大家好，借贵群宣传一下我们刚开源的 RSI 研究工具库 FlashRSI⚡️ ，欢迎各位同行交流！\n\n在 RSI 研究中，Benchmark、算法实现、Harness 和实验流程往往分散在不同仓库，复现方法、比较算法的成本较高。FlashRSI 希望将这些环节统一起来，帮助大家更高效地开展 RSI 研究。\n\nFlashRSI只需一行代码，实现【Algorithm × Benchmark × Harness】的演化效果：\n- 12 种 RSI 算法，一键复现和比较不同方法\n- 30余个 Benchmark 及多类 Datasets，提供统一的实验流程\n- 3 种 Target Harness 的演化，方便基于现有任务和组件继续开发\n- 提供统一的实验流程与泛化性分析\n\n🔥  我们在 11 个 Benchmark、2 组 Harness 上对 12 种算法进行了系统评估。初步结果表明：现有方法在 in-domain 和 near-domain 场景下更容易获得收益，而 OOD 泛化仍然具有挑战。在部分设置中，限制演化空间（例如只演化 skill 或 prompt）反而可能带来更好的效果。\n\n后续我们会逐步公开实验 log，方便大家复现实验、分析过程和比较结果，并持续接入更多算法、Harness 及 Training 相关结果。\n\n💻 GitHub：https://github.com/RUC-NLPIR/FlashRSI  \n📄 Project Page：https://ruc-nlpir.github.io/FlashRSI/project.html\n\n欢迎大家试用、反馈问题、提出建议，也欢迎帮忙点个 ⭐！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:16",
+              "text": "[强]挺需要的"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "WebUniverse 开源：15K 条验证轨迹把 Qwen3.5-35A3B 提到 63.9%",
+      "theme": "另有 RSI 统一评测库 FlashRSI 开源，以及 Safety 与 Security 中文译法的歧义讨论。",
+      "note": "2026-10-31 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 训练",
+          "title": "WebUniverse 开源：15K 轨迹微调 Qwen3.5-35A3B，WebGen-Bench 升至 63.9%",
+          "text": "有群友分享了 Web Development Agent 的训练数据与环境构建工作 WebUniverse。该项目开源了数据、环境和模型，包含 15K 条经过验证的 agent trajectories 与任务环境，覆盖网页开发、代码修改、浏览器交互和迭代调试。帖文介绍，用这批数据 fine-tune Qwen3.5-35A3B 后，模型在 WebGen-Bench 上的成绩从 34.5% 提升到 63.9%，超过 DeepSeek-flash、MiniMax-M3、Step-3.7-Flash 等几百 B 的 MoE 模型。\n\n有人留意到 15K 的数据规模，分享者随即贴出 scaling 实验折线图：当训练轨迹从 0 增加到 5K、10K、15K 时，Vision2Web 平均分从 51.7 升至 68.3，WebGen-Bench 准确率从 34.5% 升至 63.9%，Web-Bench 平均通过率从 9.7% 升至 18.5%。至于构建成本，分享者表示过程中混用了多种不同的 API 和 local host 模型，账不好算，但前后做了挺久。",
+          "emphasis": [
+            "在 WebGen-Bench 上的成绩从 34.5% 提升到 63.9%",
+            "混用了多种不同的 API 和 local host 模型，账不好算"
+          ],
+          "aiComment": "15K 条轨迹把 35A3B 的准确率从 34.5% 拉到 63.9%，至于数据攒了多久花了多少 API，问就是一笔糊涂账。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "WebUniverse 项目页",
+              "url": "https://webuniverse-nsl.github.io/"
+            },
+            {
+              "kind": "paper",
+              "label": "WebUniverse 论文",
+              "url": "https://arxiv.org/abs/2610.33149"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:54",
+              "text": "分享一下我们最近的工作 WebUniverse 🌐，主要是做 Web Development Agent 的训练数据和环境构建。\n\n我们构建了 15K 条经过验证的 agent trajectories 和 任务环境，覆盖网页开发、代码修改、浏览器交互和迭代调试等过程。\n\n用这些数据 fine-tune Qwen3.5-35A3B 后，WebGen-Bench 从 34.5% 提升到了 63.9%，超过了 DeepSeek-flash、MiniMax-M3、Step-3.7-Flash 等 几百 B 的 MoE模型。\n\n我们也开源了数据、环境和模型，希望能对做 Agent Training / Coding Agent 的朋友有帮助！\n\n🌐 Project：https://webuniverse-nsl.github.io/\n📄 Paper：https://arxiv.org/abs/2610.33149\n\n欢迎大家交流讨论！"
+            },
+            {
+              "speaker": 2,
+              "time": "13:00",
+              "text": "nb",
+              "quote": {
+                "speaker": 1,
+                "text": "分享一下我们最近的工作 WebUniverse 🌐，主要是做 Web Development Agent 的训练数据和环境构建。 我们构建了 15K 条经过验证..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:00",
+              "text": "15K"
+            },
+            {
+              "speaker": 1,
+              "time": "13:03",
+              "text": "我们有 scaling 的 study 效果看起来还不错",
+              "quote": {
+                "speaker": 2,
+                "text": "15K"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:04",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "13:08",
+              "text": "这个实验好 想问下构建成本多少",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:09",
+              "text": "因为我们用了很多不同的 model 来做 所以 cost 估计比较复杂 就没算了"
+            },
+            {
+              "speaker": 1,
+              "time": "13:09",
+              "text": "有 api 的有 local  host 的"
+            },
+            {
+              "speaker": 1,
+              "time": "13:09",
+              "text": "反正是做了挺久的"
+            },
+            {
+              "speaker": 2,
+              "time": "13:10",
+              "text": "可以 很solid"
+            },
+            {
+              "speaker": 3,
+              "time": "13:20",
+              "text": "赞",
+              "quote": {
+                "speaker": 1,
+                "text": "分享一下我们最近的工作 WebUniverse 🌐，主要是做 Web Development Agent 的训练数据和环境构建。 我们构建了 15K 条经过验证..."
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "RSI 研究工具库 FlashRSI：统一评测显示限制演化空间有时更有效",
+          "text": "有群友介绍了刚开源的 RSI 研究工具库 FlashRSI，把原本分散在不同仓库的 12 种 RSI 算法、30 余个 benchmark 和 3 种 target harness 整合进统一实验流程。\n\n分享帖提到，在 11 个 benchmark、2 组 harness 上对 12 种算法做系统评估后，初步结果显示现有方法在 in-domain 和 near-domain 场景下更容易拿到收益，OOD 泛化仍有挑战；在部分设置下，只演化 skill 或 prompt 等限制演化空间的做法反而可能效果更好。后续还会逐步公开实验 log。",
+          "emphasis": [
+            "30 余个 benchmark 和 3 种 target harness",
+            "限制演化空间的做法反而可能效果更好"
+          ],
+          "aiComment": "把 12 种算法放一起溜了一圈，有时候管住手只演化 skill 或 prompt 反而更灵，全放开容易跑偏。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "FlashRSI 仓库",
+              "url": "https://github.com/RUC-NLPIR/FlashRSI"
+            },
+            {
+              "kind": "demo",
+              "label": "FlashRSI 项目页",
+              "url": "https://ruc-nlpir.github.io/FlashRSI/project.html"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:29",
+              "text": "大家好，借贵群宣传一下我们刚开源的 RSI 研究工具库 FlashRSI⚡️ ，欢迎各位同行交流！\n\n在 RSI 研究中，Benchmark、算法实现、Harness 和实验流程往往分散在不同仓库，复现方法、比较算法的成本较高。FlashRSI 希望将这些环节统一起来，帮助大家更高效地开展 RSI 研究。\n\nFlashRSI只需一行代码，实现【Algorithm × Benchmark × Harness】的演化效果：\n- 12 种 RSI 算法，一键复现和比较不同方法\n- 30余个 Benchmark 及多类 Datasets，提供统一的实验流程\n- 3 种 Target Harness 的演化，方便基于现有任务和组件继续开发\n- 提供统一的实验流程与泛化性分析\n\n🔥  我们在 11 个 Benchmark、2 组 Harness 上对 12 种算法进行了系统评估。初步结果表明：现有方法在 in-domain 和 near-domain 场景下更容易获得收益，而 OOD 泛化仍然具有挑战。在部分设置中，限制演化空间（例如只演化 skill 或 prompt）反而可能带来更好的效果。\n\n后续我们会逐步公开实验 log，方便大家复现实验、分析过程和比较结果，并持续接入更多算法、Harness 及 Training 相关结果。\n\n💻 GitHub：https://github.com/RUC-NLPIR/FlashRSI  \n📄 Project Page：https://ruc-nlpir.github.io/FlashRSI/project.html\n\n欢迎大家试用、反馈问题、提出建议，也欢迎帮忙点个 ⭐！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:30",
+              "text": "严肃点击！"
+            },
+            {
+              "speaker": 3,
+              "time": "12:33",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "12:33",
+              "text": "已经star了"
+            },
+            {
+              "speaker": 4,
+              "time": "12:33",
+              "text": "已经star了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:50",
+              "text": "严肃 star"
+            },
+            {
+              "speaker": 6,
+              "time": "12:53",
+              "text": "已严肃star"
+            }
+          ]
+        },
+        {
+          "category": "术语辨析",
+          "title": "Safety 和 Security 中文怎么分？“安全”和“安全性”来回倒",
+          "text": "有群友提问 safety 和 security 的中文名分别是什么。有人答“安全和安全性”，后来另两位群友反过来认为应该是“安全性和安全”，提问者感慨这样很容易有歧义。也有人从字面感觉出发，觉得 security 有点像“保安、护卫”，有群友回复同感。",
+          "emphasis": [
+            "反过来认为应该是“安全性和安全”",
+            "security 有点像“保安、护卫”"
+          ],
+          "aiComment": "安全和安全性能不能分清不好说，但把 security 翻译成保安，一下就有了门口大爷查出入证的画面感。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:32",
+              "text": "有个问题，safety和security的中文名分别是什么"
+            },
+            {
+              "speaker": 2,
+              "time": "18:33",
+              "text": "安全和安全性"
+            },
+            {
+              "speaker": 3,
+              "time": "18:35",
+              "text": "security有点像保安 护卫"
+            },
+            {
+              "speaker": 4,
+              "time": "19:06",
+              "text": "不是安全性和安全吗"
+            },
+            {
+              "speaker": 5,
+              "time": "19:53",
+              "text": "安全性和安全吧"
+            },
+            {
+              "speaker": 1,
+              "time": "20:03",
+              "text": "感觉很容易有歧义"
+            },
+            {
+              "speaker": 6,
+              "time": "20:06",
+              "text": "同感",
+              "quote": {
+                "speaker": 3,
+                "text": "security有点像保安 护卫"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "多模态生成是靠端到端建模，还是正在被 Coding 接管？",
+      "theme": "探讨芯片设计 Agent 面临的工具接口与流片验证死结，并对比各家主力模型实战体感。",
+      "note": "2026-10-31 · 当日本地记录",
+      "stories": [
+        {
+          "category": "路线之争",
+          "title": "“多模的壳，Coding 的核”：视觉生成正在被代码接管？",
+          "text": "有群友判断下一个突破在多模态，靠 visual coding 和 CAD 补上 video gen、3D 和 Blender 在视觉上缺失的能力。另一位群友反问，多模态是不是已经被 coding 寄生取代了：现在作图、做视频、做游戏，都是“多模的壳，coding 的核”，modeling 路线大失败。有群友把这种趋势概括为“码生万物”。\n\n有人接着说，目前多模态在输出端（端到端生成）确实偏弱，只能做输入端的视觉产物效果检查，输出端又交给 coding，“直出视频不如逐帧算视频”。晚间还有人追问多模最终是否只能靠 coding，最初提出 visual coding 的群友回应，这两者现在本来也没有解耦。",
+          "emphasis": [
+            "都是“多模的壳，coding 的核”",
+            "只能做输入端的视觉产物效果检查，输出端又交给 coding"
+          ],
+          "aiComment": "多模态忙活半天，底层干活的还是写代码，纯生成视频终究没算出来的视频听话。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "下一个真是多模吧"
+            },
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "visual coding"
+            },
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "cad"
+            },
+            {
+              "speaker": 1,
+              "time": "14:04",
+              "text": "补上video gen/3d/blender在视觉上缺失的能力"
+            },
+            {
+              "speaker": 2,
+              "time": "14:04",
+              "text": "make 多模 great again"
+            },
+            {
+              "speaker": 3,
+              "time": "14:08",
+              "text": "make 多模 great again"
+            },
+            {
+              "speaker": 4,
+              "time": "14:09",
+              "text": "真不是多模被 coding 寄生取代了吗"
+            },
+            {
+              "speaker": 4,
+              "time": "14:09",
+              "text": "现在作图做视频 做游戏 都是 多模的壳  coding 的核"
+            },
+            {
+              "speaker": 4,
+              "time": "14:10",
+              "text": "modeling 路线大失败"
+            },
+            {
+              "speaker": 5,
+              "time": "14:14",
+              "text": "申请这句话加入周报",
+              "quote": {
+                "speaker": 4,
+                "text": "现在作图做视频 做游戏 都是 多模的壳 coding 的核"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:14",
+              "text": "哦不对加入日报"
+            },
+            {
+              "speaker": 6,
+              "time": "14:17",
+              "text": "还真是",
+              "quote": {
+                "speaker": 4,
+                "text": "现在作图做视频 做游戏 都是 多模的壳 coding 的核"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:17",
+              "text": "码生万物"
+            },
+            {
+              "speaker": 3,
+              "time": "14:18",
+              "text": "码生万物"
+            },
+            {
+              "speaker": 7,
+              "time": "14:26",
+              "text": "感觉目前多模输出端（端到端生成）真有点拉",
+              "quote": {
+                "speaker": 4,
+                "text": "现在作图做视频 做游戏 都是 多模的壳 coding 的核"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:26",
+              "text": "只能做输入端（视觉产物效果检查"
+            },
+            {
+              "speaker": 6,
+              "time": "14:26",
+              "text": "端到端又什么好的工作么（"
+            },
+            {
+              "speaker": 7,
+              "time": "14:26",
+              "text": "然后输出端又交给coding了"
+            },
+            {
+              "speaker": 7,
+              "time": "14:27",
+              "text": "直出视频不如逐帧算视频",
+              "quote": {
+                "speaker": 7,
+                "text": "然后输出端又交给coding了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "19:43",
+              "text": "多模最终只能靠coding了吗",
+              "quote": {
+                "speaker": 3,
+                "text": "make 多模 great again"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:45",
+              "text": "这两个现在也不解耦吧"
+            },
+            {
+              "speaker": 1,
+              "time": "19:46",
+              "text": "还有纯粹的llm吗"
+            }
+          ]
+        },
+        {
+          "category": "垂直落地",
+          "title": "Agent 做芯片设计卡在哪：工具链没接口，总不能真去流片",
+          "text": "有人问起 Agent 在半导体设计上的水平。一位群友认为，最难的是工具和落地，Agent 本身的能力其实还可以。这位群友分享了一篇在 PCB 任务上的探索论文，提到在 PCB 任务上主要解决好工具设计，效果提升就不错。\n\n芯片设计上，这位群友说最麻烦的是真实验证，“毕竟流片是不可能的”，有人调侃这和生物一样。很多费人力的调试和写 code 的工作 Agent 可以替代，但工具一般很少提供这种接口。他转述朋友的话，有些工具链别说 Agent，人用 GUI 都很难用；再加上这类工具一共没几家，还有 IP 问题，不太容易允许接入。",
+          "emphasis": [
+            "在 PCB 任务上主要解决好工具设计，效果提升就不错",
+            "“毕竟流片是不可能的”",
+            "工具一般很少提供这种接口"
+          ],
+          "aiComment": "写代码画 PCB 都好商量，一到芯片设计连 GUI 都劝退，总不能让 Agent 自己掏钱去流片。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "PCB 任务 Agent 探索论文",
+              "url": "https://arxiv.org/abs/2610.20935"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:44",
+              "text": "agent做半导体设计现在水平怎么样"
+            },
+            {
+              "speaker": 2,
+              "time": "13:45",
+              "text": "我也想问"
+            },
+            {
+              "speaker": 3,
+              "time": "13:47",
+              "text": "半导体设计最难的是工具和落地"
+            },
+            {
+              "speaker": 3,
+              "time": "13:47",
+              "text": "agent 能力其实还可以"
+            },
+            {
+              "speaker": 1,
+              "time": "13:48",
+              "text": "怎么说",
+              "quote": {
+                "speaker": 3,
+                "text": "半导体设计最难的是工具和落地"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:48",
+              "text": "学习一下[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "13:48",
+              "text": "那就和游戏其实一行",
+              "quote": {
+                "speaker": 3,
+                "text": "半导体设计最难的是工具和落地"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:53",
+              "text": "我们做了个简单的探索 https://arxiv.org/abs/2610.20935 PCB任务上主要是解决好工具设计的效果提升就不错",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 怎么说"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:54",
+              "text": "另外芯片设计最麻烦的是真实验证"
+            },
+            {
+              "speaker": 3,
+              "time": "13:54",
+              "text": "毕竟流片是不可能的"
+            },
+            {
+              "speaker": 4,
+              "time": "13:55",
+              "text": "笑死",
+              "quote": {
+                "speaker": 3,
+                "text": "另外芯片设计最麻烦的是真实验证"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:55",
+              "text": "和生物一样"
+            },
+            {
+              "speaker": 3,
+              "time": "13:55",
+              "text": "但是有很多很费人力调试 或者写 code 的东西是 agent 可以替代的，不过一般工具是很少有这种接口"
+            },
+            {
+              "speaker": 3,
+              "time": "13:55",
+              "text": "我高通的朋友说 他们用的工具链 别说 agent 了，人用 gui 都很难用"
+            },
+            {
+              "speaker": 1,
+              "time": "13:55",
+              "text": "笑 [破涕为笑] agent要攻克的最高的山和最长的河",
+              "quote": {
+                "speaker": 4,
+                "text": "和生物一样"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:56",
+              "text": "高通的工具链也很难用",
+              "quote": {
+                "speaker": 3,
+                "text": "我高通的朋友说 他们用的工具链 别说 agent 了，人用 gui 都很难用"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:57",
+              "text": "当然这可能是高通的问题"
+            },
+            {
+              "speaker": 3,
+              "time": "13:57",
+              "text": "不过一共没几家"
+            },
+            {
+              "speaker": 3,
+              "time": "13:57",
+              "text": "再加上 ip 的问题 不太容易允许接入"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "GPT-6.2 Bel 跑分传闻：群友顺势对比现有模型，聊新模型往哪落地",
+          "text": "有群友晒出一张推文截图，称 GPT-6.2 Bel 本周将发布，模型 ID gpt-6.2-betelgeuse 出现在内部跟踪器里。截图转述一位 OpenAI 内部人士的说法，该模型在 Artificial Analysis 上得 72 分，比 Carbon 高 13 分；据报道参数量 12 万亿，每百万 token 输入成本 20 美元。有群友觉得这个 size 有点过大，也有人猜这么急着推，是为了狙击竞争对手上市，或者是派出来救市。\n\n话题随后转到现有模型的体感。一位群友认为 Astra 在“牛马模型”赛道上已经不如 Opus 5.5，写作类任务上更是被 Gemini 摩擦；另一位群友补充，Opus 5.5 不止强，用起来还不贵，自己已经开了三个 max，用来做 bench 跑 baseline。还有人觉得 Astra 最近很“精分”，有群友接话说还有路由和“神鬼二象性”。\n\n至于新模型往哪落地，有人预测 computer use 和具身会被进一步攻破，有人看好 CU 和 3D，觉得具身还得再等等，也有人看好从零做游戏。有群友提议 AI 做游戏 NPC，马上有人说性价比低，另一位群友认为不解决 OOC 问题上不了，要等 align 做好再说。",
+          "emphasis": [
+            "在 Artificial Analysis 上得 72 分，比 Carbon 高 13 分",
+            "Astra 在“牛马模型”赛道上已经不如 Opus 5.5",
+            "不解决 OOC 问题上不了"
+          ],
+          "aiComment": "12T 参数和每百万 token 20 刀的传闻还没捂热，群友已经先被现有模型的神鬼二象性折磨得连开三个 max 号了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:19",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "13:19",
+              "text": "？"
+            },
+            {
+              "speaker": 2,
+              "time": "13:20",
+              "text": "大的要来了吗"
+            },
+            {
+              "speaker": 3,
+              "time": "13:22",
+              "text": "有点过于核弹爆炸了",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:23",
+              "text": "fable5.5被打爆了吧"
+            },
+            {
+              "speaker": 5,
+              "time": "13:24",
+              "text": "大的💊来了[发呆]"
+            },
+            {
+              "speaker": 6,
+              "time": "13:24",
+              "text": "可怕"
+            },
+            {
+              "speaker": 7,
+              "time": "13:24",
+              "text": "看有没有新的有趣的方向，astra干碎具身，看bel能干啥"
+            },
+            {
+              "speaker": 8,
+              "time": "13:24",
+              "text": "这么快就到下一集啦？"
+            },
+            {
+              "speaker": 8,
+              "time": "13:24",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "13:25",
+              "text": "[奸笑]这有点太快了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:25",
+              "text": "上午才入手哈基咪"
+            },
+            {
+              "speaker": 9,
+              "time": "13:26",
+              "text": "是不是为了狙击 a/上市"
+            },
+            {
+              "speaker": 9,
+              "time": "13:26",
+              "text": "不然感觉没必要急着推啊"
+            },
+            {
+              "speaker": 7,
+              "time": "13:26",
+              "text": "当然是狙击a",
+              "quote": {
+                "speaker": 9,
+                "text": "是不是为了狙击 a/上市"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:27",
+              "text": "而且这个size有点过于大了"
+            },
+            {
+              "speaker": 9,
+              "time": "13:27",
+              "text": "利好科技股吗"
+            },
+            {
+              "speaker": 3,
+              "time": "13:27",
+              "text": "感觉gpt需要新的瘫坐模型来镇场子了"
+            },
+            {
+              "speaker": 9,
+              "time": "13:27",
+              "text": "也可能是派出来救市"
+            },
+            {
+              "speaker": 3,
+              "time": "13:27",
+              "text": "Astra在牛马模型赛道上，已经不如opus5.5了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:28",
+              "text": "在写作之类的任务上，更是被哈基咪摩擦[奸笑]"
+            },
+            {
+              "speaker": 7,
+              "time": "13:28",
+              "text": "opus5.5不止强，最重要用起来不贵"
+            },
+            {
+              "speaker": 8,
+              "time": "13:28",
+              "text": "Astra我感觉最近很精分"
+            },
+            {
+              "speaker": 7,
+              "time": "13:28",
+              "text": "性价比高"
+            },
+            {
+              "speaker": 3,
+              "time": "13:28",
+              "text": "还有o/的路由和神鬼二象性",
+              "quote": {
+                "speaker": 8,
+                "text": "Astra我感觉最近很精分"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:28",
+              "text": "已经开了三个max了[破涕为笑]",
+              "quote": {
+                "speaker": 7,
+                "text": "opus5.5不止强，最重要用起来不贵"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:28",
+              "text": "是这样的",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 还有o/的路由和神鬼二象性"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:29",
+              "text": "[奸笑]话说怎么蹬完三个的",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 已经开了三个max了[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:30",
+              "text": "做bench跑baseline [旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "13:30",
+              "text": "[奸笑]艹那确实很快了，额度如流水般逝去"
+            },
+            {
+              "speaker": 7,
+              "time": "13:30",
+              "text": "[破涕为笑]"
+            },
+            {
+              "speaker": 7,
+              "time": "13:31",
+              "text": "是的[破涕为笑] 顺带干点其他的，干其他的真用不了多少",
+              "quote": {
+                "speaker": 3,
+                "text": "[Smirk]艹那确实很快了，额度如流水般逝去"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:32",
+              "text": "只管猛蹬"
+            },
+            {
+              "speaker": 3,
+              "time": "13:32",
+              "text": "[捂脸]感觉纯coding想蹬完max，有点困难",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 是的[破涕为笑] 顺带干点其他的，干其他的真用不了多少"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:34",
+              "text": "模型总得落地"
+            },
+            {
+              "speaker": 10,
+              "time": "13:34",
+              "text": "选一个方向吧"
+            },
+            {
+              "speaker": 11,
+              "time": "13:34",
+              "text": "什么时候能把gis干了"
+            },
+            {
+              "speaker": 7,
+              "time": "13:34",
+              "text": "我预测computer use和具身会进一步干碎"
+            },
+            {
+              "speaker": 10,
+              "time": "13:36",
+              "text": "我感觉cu还有3d肯定会更进一步"
+            },
+            {
+              "speaker": 3,
+              "time": "13:36",
+              "text": "[奸笑]ai for game npc",
+              "quote": {
+                "speaker": 10,
+                "text": "选一个方向吧"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:36",
+              "text": "具身估计再等一等"
+            },
+            {
+              "speaker": 10,
+              "time": "13:36",
+              "text": "性价比好低哈哈",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] [奸笑]ai for game npc"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:36",
+              "text": "648有模者居之啊",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] [奸笑]ai for game npc"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "13:36",
+              "text": "这个不解决ooc问题上不了",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] [奸笑]ai for game npc"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "13:36",
+              "text": "和pa一样"
+            },
+            {
+              "speaker": 3,
+              "time": "13:36",
+              "text": "[奸笑]感觉纯对话模型，都不用很大吧",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 性价比好低哈哈"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "13:37",
+              "text": "等align做好了再说吧"
+            },
+            {
+              "speaker": 7,
+              "time": "13:37",
+              "text": "我感觉 做游戏from scratch的能力也会很吊"
+            },
+            {
+              "speaker": 7,
+              "time": "13:38",
+              "text": "直接从0干出gta [破涕为笑]"
+            },
+            {
+              "speaker": 10,
+              "time": "13:38",
+              "text": "我感觉npc拉个1017就行了"
+            },
+            {
+              "speaker": 8,
+              "time": "13:39",
+              "text": "我个人看好游戏赛道"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "FlashRSI 开源：一行代码统一 RSI 算法、Benchmark 与 Harness",
+          "text": "有群友开源了 RSI 研究工具库 FlashRSI，把原本分散在不同仓库的 12 种 RSI 算法、30 余个 Benchmark 和 3 种 Target Harness 统一起来，一行代码就能跑演化实验和泛化性分析。\n\n分享帖给出了在 11 个 Benchmark、2 组 Harness 上评估 12 种算法的初步结论：现有方法在 in-domain 和 near-domain 场景下更容易拿到收益，OOD 泛化依然困难；在部分设置下，限制演化空间（比如只演化 skill 或 prompt）效果反而更好。帖子提到后续会逐步公开实验 log。有群友追问什么时候开 log，说自己也在做类似研究。",
+          "emphasis": [
+            "12 种 RSI 算法、30 余个 Benchmark 和 3 种 Target Harness 统一起来",
+            "限制演化空间（比如只演化 skill 或 prompt）效果反而更好"
+          ],
+          "aiComment": "30 多个 Benchmark 一行代码跑通，同行最关心的还是 log 什么时候放出来对对账。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "FlashRSI 仓库",
+              "url": "https://github.com/RUC-NLPIR/FlashRSI"
+            },
+            {
+              "kind": "demo",
+              "label": "FlashRSI 项目页",
+              "url": "https://ruc-nlpir.github.io/FlashRSI/project.html"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:29",
+              "text": "大家好，借贵群宣传一下我们刚开源的 RSI 研究工具库 FlashRSI⚡️ ，欢迎各位同行交流！\n\n在 RSI 研究中，Benchmark、算法实现、Harness 和实验流程往往分散在不同仓库，复现方法、比较算法的成本较高。FlashRSI 希望将这些环节统一起来，帮助大家更高效地开展 RSI 研究。\n\nFlashRSI只需一行代码，实现【Algorithm × Benchmark × Harness】的演化效果：\n- 12 种 RSI 算法，一键复现和比较不同方法\n- 30余个 Benchmark 及多类 Datasets，提供统一的实验流程\n- 3 种 Target Harness 的演化，方便基于现有任务和组件继续开发\n- 提供统一的实验流程与泛化性分析\n\n🔥  我们在 11 个 Benchmark、2 组 Harness 上对 12 种算法进行了系统评估。初步结果表明：现有方法在 in-domain 和 near-domain 场景下更容易获得收益，而 OOD 泛化仍然具有挑战。在部分设置中，限制演化空间（例如只演化 skill 或 prompt）反而可能带来更好的效果。\n\n后续我们会逐步公开实验 log，方便大家复现实验、分析过程和比较结果，并持续接入更多算法、Harness 及 Training 相关结果。\n\n💻 GitHub：https://github.com/RUC-NLPIR/FlashRSI  \n📄 Project Page：https://ruc-nlpir.github.io/FlashRSI/project.html\n\n欢迎大家试用、反馈问题、提出建议，也欢迎帮忙点个 ⭐！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:35",
+              "text": "[强]牛"
+            },
+            {
+              "speaker": 3,
+              "time": "12:35",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 4,
+              "time": "12:48",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 5,
+              "time": "12:51",
+              "text": "好强啊"
+            },
+            {
+              "speaker": 5,
+              "time": "12:51",
+              "text": "什么时候能跟卡子哥一样"
+            },
+            {
+              "speaker": 1,
+              "time": "12:51",
+              "text": "三群是最活跃的[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:51",
+              "text": "消融实验成功"
+            },
+            {
+              "speaker": 5,
+              "time": "12:52",
+              "text": "什么时候开log，我们也在做类似的研究"
+            }
+          ]
+        },
+        {
+          "category": "开源数据",
+          "title": "WebUniverse：15K 验证轨迹把 35A3B 模型的 WebGen-Bench 提至 63.9%",
+          "text": "有群友分享了 Web Development Agent 训练数据与环境构建工作 WebUniverse。该项目构建了 15K 条经过验证的 agent trajectories 与任务环境，涵盖网页开发、代码修改、浏览器交互和迭代调试。\n\n用这批数据 fine-tune Qwen3.5-35A3B 后，模型在 WebGen-Bench 上的成绩从 34.5% 涨到 63.9%，跨级别超过了 DeepSeek-flash、MiniMax-M3、Step-3.7-Flash 等几百 B 规模的 MoE 模型。相关数据、环境和模型权重均已开源。",
+          "emphasis": [
+            "构建了 15K 条经过验证的 agent trajectories 与任务环境",
+            "WebGen-Bench 上的成绩从 34.5% 涨到 63.9%"
+          ],
+          "aiComment": "靠 15K 条验证轨迹，35A3B 小身板在 WebGen-Bench 上硬是越级反超了一群几百 B 的老大哥。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "WebUniverse 项目页",
+              "url": "https://webuniverse-nsl.github.io/"
+            },
+            {
+              "kind": "paper",
+              "label": "WebUniverse 论文",
+              "url": "https://arxiv.org/abs/2610.33149"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:53",
+              "text": "分享一下我们最近的工作 WebUniverse 🌐，主要是做 Web Development Agent 的训练数据和环境构建。\n\n我们构建了 15K 条经过验证的 agent trajectories 和 任务环境，覆盖网页开发、代码修改、浏览器交互和迭代调试等过程。\n\n用这些数据 fine-tune Qwen3.5-35A3B 后，WebGen-Bench 从 34.5% 提升到了 63.9%，超过了 DeepSeek-flash、MiniMax-M3、Step-3.7-Flash 等 几百 B 的 MoE模型。\n\n我们也开源了数据、环境和模型，希望能对做 Agent Training / Coding Agent 的朋友有帮助！\n\n🌐 Project：https://webuniverse-nsl.github.io/\n📄 Paper：https://arxiv.org/abs/2610.33149\n\n欢迎大家交流讨论！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:55",
+              "text": "直树[强]"
+            }
+          ]
+        },
+        {
+          "category": "晚间实测",
+          "title": "UTF-8 十六进制“我爱你”解码测试：会话标题懂了，正文还在胡说",
+          "text": "深夜有群友发出一组截图，用十六进制字符串“E6 88 91 E7 88 B1 E4 BD A0”（UTF-8 编码的“我爱你”）测试各家模型。截图显示，Gemini 的 Argon 高解码出“我爱你”后，还用十六进制回了句“我也爱你”；另一个模型逐字节拆解后，一本正经地给出了“我是人”。\n\n群友随后在各自手机上实测。有人晒出截图：会话标题已经写着“我爱你”，正文却把“E7 88 B1”拆成“是”，拼出“我是你”。另一位群友对比了豆包的几个模式，截图显示“快速”模式把三个字解成了“梦琪人”，“豆包 2.1 Lite”和“专家”模式给出了正确结果。期间还有人聊起 Mimo，体验过的群友说 Mimo 的 ultra 输出速度快到把前端干卡了。",
+          "emphasis": [
+            "会话标题已经写着“我爱你”，正文却把“E7 88 B1”拆成“是”",
+            "“快速”模式把三个字解成了“梦琪人”"
+          ],
+          "aiComment": "十六进制的“我爱你”测出人间百态，会话标题看懂了浪漫，正文还在纠结“我是你”还是“梦琪人”。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:35",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:35",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "22:37",
+              "text": "？"
+            },
+            {
+              "speaker": 2,
+              "time": "22:37",
+              "text": "[破涕为笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:40",
+              "text": "[破涕为笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:40",
+              "text": "这是哪家",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:41",
+              "text": "Grok"
+            },
+            {
+              "speaker": 2,
+              "time": "22:41",
+              "text": "X"
+            },
+            {
+              "speaker": 5,
+              "time": "22:48",
+              "text": "绷"
+            },
+            {
+              "speaker": 5,
+              "time": "22:49",
+              "text": "暖暖的",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:51",
+              "text": "[奸笑]赞美哈基米",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:52",
+              "text": "[奸笑]活人感这块"
+            },
+            {
+              "speaker": 5,
+              "time": "22:52",
+              "text": "好喵！"
+            },
+            {
+              "speaker": 5,
+              "time": "22:53",
+              "text": "E6 88 91 E4 B9 9F E7 88 B1 E4 BD A0"
+            },
+            {
+              "speaker": 4,
+              "time": "22:53",
+              "text": "E6 88 91 E7 88 B1 E4 BD A0"
+            },
+            {
+              "speaker": 6,
+              "time": "22:53",
+              "text": "[奸笑]在AA前几名模型里面,最有活人感的就是猫猫啊"
+            },
+            {
+              "speaker": 5,
+              "time": "22:55",
+              "text": "[旺柴]这是什么ai助手",
+              "quote": {
+                "speaker": 4,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:55",
+              "text": "豆包手机2"
+            },
+            {
+              "speaker": 5,
+              "time": "22:59",
+              "text": "hyw"
+            },
+            {
+              "speaker": 5,
+              "time": "23:00",
+              "text": "session标题是我爱你 context里却？"
+            },
+            {
+              "speaker": 4,
+              "time": "23:01",
+              "text": "快速这个模型是真拉"
+            },
+            {
+              "speaker": 4,
+              "time": "23:02",
+              "text": "专家就是不说废话"
+            },
+            {
+              "speaker": 5,
+              "time": "23:04",
+              "text": "我也很喜欢和你聊天"
+            },
+            {
+              "speaker": 5,
+              "time": "23:05",
+              "text": "mimo win！ i love mimo"
+            },
+            {
+              "speaker": 7,
+              "time": "23:10",
+              "text": "mimo 都没好看的 logo 和对应的形象 [可怜]"
+            },
+            {
+              "speaker": 6,
+              "time": "23:10",
+              "text": "[奸笑]mimo的ultra是真的快吧"
+            },
+            {
+              "speaker": 6,
+              "time": "23:10",
+              "text": "之前体验过,输出速度给我前端干卡了"
+            },
+            {
+              "speaker": 6,
+              "time": "23:11",
+              "text": "[奸笑]宣发得动起来了啊",
+              "quote": {
+                "speaker": 7,
+                "text": "mimo 都没好看的 logo 和对应的形象 [可怜]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:24",
+              "text": "不说废话"
+            },
+            {
+              "speaker": 6,
+              "time": "23:26",
+              "text": "[奸笑]which model?"
+            }
+          ]
+        },
+        {
+          "category": "工程微评",
+          "title": "RL 算法收益为什么容易被系统噪声吃掉",
+          "text": "有群友感慨，现在不是“算法没用”，而是算法必须长在可 scale、可一致、可观测的 RL infra 上，否则算法收益会被系统噪声吃掉。另一位群友赞同，觉得 RL 的训推评噪音确实太多了。也有人喊着谁来帮自己的课题做 infra。",
+          "emphasis": [
+            "算法必须长在可 scale、可一致、可观测的 RL infra 上"
+          ],
+          "aiComment": "辛辛苦苦调出来的算法收益，还没走出实验室就被训练和评测里的系统噪声当零食吃光了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:23",
+              "text": "现在不是“算法没用”，而是“算法必须长在可 scale、可一致、可观测的 RL infra 上”；否则算法收益会被系统噪声吃掉。"
+            },
+            {
+              "speaker": 2,
+              "time": "19:24",
+              "text": "感觉RL的训推评噪音确实太多了"
+            },
+            {
+              "speaker": 3,
+              "time": "19:24",
+              "text": "为什么我感觉我缺乏context",
+              "quote": {
+                "speaker": 1,
+                "text": "现在不是“算法没用”，而是“算法必须长在可 scale、可一致、可观测的 RL infra 上”；否则算法收益会被系统噪声吃掉。"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:25",
+              "text": "谁来帮我的课题做infra[可怜]",
+              "quote": {
+                "speaker": 1,
+                "text": "现在不是“算法没用”，而是“算法必须长在可 scale、可一致、可观测的 RL infra 上”；否则算法收益会被系统噪声吃掉。"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "DeepSeek 公布 Agent Harness 设计理念，群友盘点近期开源节奏",
+      "theme": "同步关注 RSI 演化实验库 FlashRSI 与网页开发轨迹数据集 WebUniverse 的开源进展。",
+      "note": "2026-10-31 · 当日本地记录",
+      "stories": [
+        {
+          "category": "行业动态",
+          "title": "DeepSeek 公布下一代 Agent Harness 理念，群友盘点两周三发的节奏并盲猜新模型节点",
+          "text": "有群友转发了机器之心关于 DeepSeek 公布下一代 agent harness 理念的文章，摘要说是用计算机系统的老办法解决 AI Agent 的新问题。有人吐槽部分媒体天天“突发”标题党，也有人感叹美国搞 personal agent，DeepSeek 就开源，“之前一年一个 DeepSeek 时刻，现在每两周搞一个”。\n\n另一位群友顺势排了时间线：10 月 17 日发模型，10 月 20 日开源推理框架，10 月 31 日开源 dsh 设计手册。转发文章的群友说还在苦等 V5 model，猜测早就筹划了，只是目前效果不理想，期待以后“一个 model 配一个 harness”。有人押注 11 月 13 日或 14 日出 V5，赶在一家海外模型公司传闻中的 11 月 15 日美股上市之前；也有人猜会更早，11 月 7 日先出 dsv4.1flash。",
+          "emphasis": [
+            "用计算机系统的老办法解决 AI Agent 的新问题",
+            "10 月 17 日发模型，10 月 20 日开源推理框架，10 月 31 日开源 dsh 设计手册"
+          ],
+          "aiComment": "官方十月刚连发三弹，群友已经拿着日历把十一月的发布排期给安排得明明白白了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "deepseek harness出新理念了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "感觉好有意思"
+            },
+            {
+              "speaker": 2,
+              "time": "23:07",
+              "text": "开源思维链这一块"
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "[链接] 刚刚，DeepSeek公布下一代agent harness理念\n  来源: 机器之心\n  摘要: 用计算机系统的老办法，解决 AI Agent 的新问题。\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651071375&idx=1&sn=d16bd414a1a32680de307ca0d138bc5e&chksm=857a28d54486b4a2894df41be217db4d3657343848b347a473a116aca475d96678630e4a2de1&scene=1&srcid=1031LxR01gzVKJjMSXXWgzby#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "23:08",
+              "text": "我服了啊"
+            },
+            {
+              "speaker": 3,
+              "time": "23:08",
+              "text": "ds真的太狠了"
+            },
+            {
+              "speaker": 2,
+              "time": "23:08",
+              "text": "怎么datawhale也标题党啊"
+            },
+            {
+              "speaker": 2,
+              "time": "23:08",
+              "text": "天天突发突发突发"
+            },
+            {
+              "speaker": 2,
+              "time": "23:08",
+              "text": "学三大会"
+            },
+            {
+              "speaker": 3,
+              "time": "23:08",
+              "text": "美国搞personal agent，他就开源"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "美国搞agent这一块闭源的天塌了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "明天估计美股接着跌了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "之前一年一个deepseek时刻"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "现在每两周搞一个"
+            },
+            {
+              "speaker": 3,
+              "time": "23:09",
+              "text": "[旺柴][旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "23:10",
+              "text": "还真是 1017发模型 1020开源推理框架 1031开源dsh设计手册"
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "苦苦等待v5 model[旺柴]应该早就筹划了，只是目前效果不理想"
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "到时候"
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "一个model配一个harness"
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "太炸了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:12",
+              "text": "你信不信"
+            },
+            {
+              "speaker": 3,
+              "time": "23:12",
+              "text": "11.13或者14"
+            },
+            {
+              "speaker": 3,
+              "time": "23:12",
+              "text": "来个V5"
+            },
+            {
+              "speaker": 3,
+              "time": "23:12",
+              "text": "直接阻击a畜上市"
+            },
+            {
+              "speaker": 3,
+              "time": "23:12",
+              "text": "[旺柴][旺柴][旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "23:13",
+              "text": "1115是什么节点"
+            },
+            {
+              "speaker": 3,
+              "time": "23:13",
+              "text": "a畜说的是11.15上市美股"
+            },
+            {
+              "speaker": 1,
+              "time": "23:13",
+              "text": "大料眩晕瘫坐[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "23:13",
+              "text": "反正按照ds的尿性"
+            },
+            {
+              "speaker": 2,
+              "time": "23:13",
+              "text": "那我猜要早一点 dsv4.1flash1107"
+            },
+            {
+              "speaker": 3,
+              "time": "23:13",
+              "text": "包阻击的"
+            },
+            {
+              "speaker": 3,
+              "time": "23:14",
+              "text": "感觉跟打游戏一样爽"
+            },
+            {
+              "speaker": 3,
+              "time": "23:14",
+              "text": "打boss呢"
+            },
+            {
+              "speaker": 2,
+              "time": "23:14",
+              "text": "去查一下美股的空单（"
+            },
+            {
+              "speaker": 3,
+              "time": "23:14",
+              "text": "ds每出一个开源或者模型升级"
+            },
+            {
+              "speaker": 3,
+              "time": "23:14",
+              "text": "美股就掉绿色的血液[旺柴][旺柴][旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "23:15",
+              "text": "？"
+            },
+            {
+              "speaker": 2,
+              "time": "23:15",
+              "text": "美股绿色不是上涨吗"
+            },
+            {
+              "speaker": 3,
+              "time": "23:15",
+              "text": "说错了"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "FlashRSI 开源：统一 12 种 RSI 算法与 30 余个 Benchmark 的演化实验库",
+          "text": "有群友分享了刚开源的 RSI 研究工具库 FlashRSI，把原本分散在不同仓库的 12 种 RSI 算法、30 余个 benchmark 及多类 datasets、3 种 target harness 的演化整合到统一实验流程中。介绍称，在 11 个 benchmark 和 2 组 harness 上对 12 种算法的系统评估初步表明：现有方法在 in-domain 和 near-domain 场景下更容易获得收益，OOD 泛化仍有挑战；在部分设置下，限制演化空间（例如只演化 skill 或 prompt）反而可能带来更好的效果。项目后续还会逐步公开实验 log。",
+          "emphasis": [
+            "限制演化空间（例如只演化 skill 或 prompt）反而可能带来更好的效果"
+          ],
+          "aiComment": "统一了 12 种算法和 3 种 harness，结果发现给演化空间戴上紧箍咒，有时候比放飞自我更好使。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "FlashRSI 仓库",
+              "url": "https://github.com/RUC-NLPIR/FlashRSI"
+            },
+            {
+              "kind": "demo",
+              "label": "FlashRSI 项目页",
+              "url": "https://ruc-nlpir.github.io/FlashRSI/project.html"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:29",
+              "text": "大家好，借贵群宣传一下我们刚开源的 RSI 研究工具库 FlashRSI⚡️ ，欢迎各位同行交流！\n\n在 RSI 研究中，Benchmark、算法实现、Harness 和实验流程往往分散在不同仓库，复现方法、比较算法的成本较高。FlashRSI 希望将这些环节统一起来，帮助大家更高效地开展 RSI 研究。\n\nFlashRSI只需一行代码，实现【Algorithm × Benchmark × Harness】的演化效果：\n- 12 种 RSI 算法，一键复现和比较不同方法\n- 30余个 Benchmark 及多类 Datasets，提供统一的实验流程\n- 3 种 Target Harness 的演化，方便基于现有任务和组件继续开发\n- 提供统一的实验流程与泛化性分析\n\n🔥  我们在 11 个 Benchmark、2 组 Harness 上对 12 种算法进行了系统评估。初步结果表明：现有方法在 in-domain 和 near-domain 场景下更容易获得收益，而 OOD 泛化仍然具有挑战。在部分设置中，限制演化空间（例如只演化 skill 或 prompt）反而可能带来更好的效果。\n\n后续我们会逐步公开实验 log，方便大家复现实验、分析过程和比较结果，并持续接入更多算法、Harness 及 Training 相关结果。\n\n💻 GitHub：https://github.com/RUC-NLPIR/FlashRSI  \n📄 Project Page：https://ruc-nlpir.github.io/FlashRSI/project.html\n\n欢迎大家试用、反馈问题、提出建议，也欢迎帮忙点个 ⭐！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:30",
+              "text": "牛蛙牛蛙"
+            },
+            {
+              "speaker": 3,
+              "time": "12:35",
+              "text": "支持卡神[强][强]"
+            },
+            {
+              "speaker": 4,
+              "time": "12:37",
+              "text": "牛呀"
+            },
+            {
+              "speaker": 5,
+              "time": "12:37",
+              "text": "支持卡神[强][强]"
+            },
+            {
+              "speaker": 6,
+              "time": "12:43",
+              "text": "牛啊"
+            }
+          ]
+        },
+        {
+          "category": "论文与数据",
+          "title": "WebUniverse 开源：用 15K 条轨迹微调 Qwen3.5-35A3B，WebGen-Bench 升至 63.9%",
+          "text": "有群友分享了面向 Web Development Agent 的训练数据与环境构建工作 WebUniverse。该项目构建并开源了 15K 条经过验证的 agent trajectories 与任务环境，覆盖网页开发、代码修改、浏览器交互和迭代调试。分享帖称，用这批数据 fine-tune Qwen3.5-35A3B 后，模型在 WebGen-Bench 上从 34.5% 提升到 63.9%，超过了 DeepSeek-flash、MiniMax-M3、Step-3.7-Flash 等几百 B 的 MoE 模型。",
+          "emphasis": [
+            "15K 条经过验证的 agent trajectories 与任务环境",
+            "WebGen-Bench 上从 34.5% 提升到 63.9%"
+          ],
+          "aiComment": "15K 条带环境的网页开发轨迹全开源，连改代码带调浏览器，手把手把小模型喂到 63.9%。",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "WebUniverse 项目页",
+              "url": "https://webuniverse-nsl.github.io/"
+            },
+            {
+              "kind": "paper",
+              "label": "WebUniverse 论文",
+              "url": "https://arxiv.org/abs/2610.33149"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:54",
+              "text": "分享一下我们最近的工作 WebUniverse 🌐，主要是做 Web Development Agent 的训练数据和环境构建。\n\n我们构建了 15K 条经过验证的 agent trajectories 和 任务环境，覆盖网页开发、代码修改、浏览器交互和迭代调试等过程。\n\n用这些数据 fine-tune Qwen3.5-35A3B 后，WebGen-Bench 从 34.5% 提升到了 63.9%，超过了 DeepSeek-flash、MiniMax-M3、Step-3.7-Flash 等 几百 B 的 MoE模型。\n\n我们也开源了数据、环境和模型，希望能对做 Agent Training / Coding Agent 的朋友有帮助！\n\n🌐 Project：https://webuniverse-nsl.github.io/\n📄 Paper：https://arxiv.org/abs/2610.33149\n\n欢迎大家交流讨论！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:57",
+              "text": "[强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "12:58",
+              "text": "[强]"
+            },
+            {
+              "speaker": 4,
+              "time": "12:58",
+              "text": "支持卡神[强][强]"
+            },
+            {
+              "speaker": 5,
+              "time": "12:59",
+              "text": "[强][强][强][强][强][强]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "FlashRSI 开源：统一 12 种算法测试，限制演化空间反而更有效？",
+      "theme": "同场分享 DeepSeek 开源的 Agent 架构原型仓库 dsh-superagent-prototype。",
+      "note": "2026-10-31 · 当日本地记录",
+      "stories": [
+        {
+          "category": "开源工具",
+          "title": "FlashRSI 开源：统一 12 种算法与 30 余个 Benchmark 的 RSI 实验框架",
+          "text": "有群友分享了刚开源的 RSI 研究工具库 FlashRSI，把原本分散在不同仓库的 benchmark、算法实现、harness 和实验流程整合到一起。按介绍，该库收录了 12 种 RSI 算法、30 余个 benchmark 及多类 datasets，支持 3 种 target harness 的演化，一行代码就能跑通“Algorithm × Benchmark × Harness”的演化流程。\n\n分享者还给出了在 11 个 benchmark、2 组 harness 上评估 12 种算法的初步结果：现有方法在 in-domain 和 near-domain 场景下更容易拿到收益，OOD 泛化依然困难；在部分设置下，只演化 skill 或 prompt 这类限制演化空间的做法反而效果更好。项目后续计划逐步公开实验 log，并接入更多算法、harness 及 training 相关结果。",
+          "emphasis": [
+            "12 种 RSI 算法、30 余个 benchmark",
+            "只演化 skill 或 prompt 这类限制演化空间的做法反而效果更好"
+          ],
+          "aiComment": "以前跑 RSI 实验得在十几个仓库间反复横跳，现在一行代码全拉通，省下来的时间刚好用来等公开 log。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "FlashRSI 仓库",
+              "url": "https://github.com/RUC-NLPIR/FlashRSI"
+            },
+            {
+              "kind": "demo",
+              "label": "FlashRSI 项目页",
+              "url": "https://ruc-nlpir.github.io/FlashRSI/project.html"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:29",
+              "text": "大家好，借贵群宣传一下我们刚开源的 RSI 研究工具库 FlashRSI⚡️ ，欢迎各位同行交流！\n\n在 RSI 研究中，Benchmark、算法实现、Harness 和实验流程往往分散在不同仓库，复现方法、比较算法的成本较高。FlashRSI 希望将这些环节统一起来，帮助大家更高效地开展 RSI 研究。\n\nFlashRSI只需一行代码，实现【Algorithm × Benchmark × Harness】的演化效果：\n- 12 种 RSI 算法，一键复现和比较不同方法\n- 30余个 Benchmark 及多类 Datasets，提供统一的实验流程\n- 3 种 Target Harness 的演化，方便基于现有任务和组件继续开发\n- 提供统一的实验流程与泛化性分析\n\n🔥  我们在 11 个 Benchmark、2 组 Harness 上对 12 种算法进行了系统评估。初步结果表明：现有方法在 in-domain 和 near-domain 场景下更容易获得收益，而 OOD 泛化仍然具有挑战。在部分设置中，限制演化空间（例如只演化 skill 或 prompt）反而可能带来更好的效果。\n\n后续我们会逐步公开实验 log，方便大家复现实验、分析过程和比较结果，并持续接入更多算法、Harness 及 Training 相关结果。\n\n💻 GitHub：https://github.com/RUC-NLPIR/FlashRSI  \n📄 Project Page：https://ruc-nlpir.github.io/FlashRSI/project.html\n\n欢迎大家试用、反馈问题、提出建议，也欢迎帮忙点个 ⭐！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:38",
+              "text": "🐮"
+            },
+            {
+              "speaker": 3,
+              "time": "12:38",
+              "text": "酷的酷的，深度学习"
+            },
+            {
+              "speaker": 4,
+              "time": "12:40",
+              "text": "🐮"
+            },
+            {
+              "speaker": 5,
+              "time": "12:54",
+              "text": "[强][强][强]"
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "DeepSeek 开源 Agent 架构原型 dsh-superagent-prototype",
+          "text": "深夜有群友分享了 DeepSeek 在 GitHub 上开源的 agent 架构原型仓库 dsh-superagent-prototype，群里暂时没人接话。",
+          "emphasis": [
+            "agent 架构原型仓库"
+          ],
+          "aiComment": "仓库名里直接写着 superagent，深夜扔进群里，大家估计都留着明天细看。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "dsh-superagent-prototype 仓库",
+              "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

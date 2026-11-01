@@ -1,0 +1,3236 @@
+{
+  "id": "2026-10-30",
+  "date": "2026-10-30",
+  "label": "2026-10-30 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "Personal Agent 为何难落地：上下文注入累、跨 App 难打通",
+      "theme": "另含真实交互 Bug 评测 Interaction Bench 开源与 Anthropic 封号退款渠道差异",
+      "note": "2026-10-30 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 产品与生态",
+          "title": "Personal Agent 困局：Context 注入太累，跨 App 互通太难",
+          "text": "有群友抛出“Personal Agent（PA）被夸大”的话题，指出目前最大的两个槽点是国内难以跨 App 执行任务，以及信用卡等隐私泄露风险；隐私问题光靠 PA 厂商无法解决，还在等模型能力跟进。有人认同国内 App 很难打通，调侃需要“有形的大手”介入；也有人觉得国内用户其实最不在意隐私，“早都被泄露完了”。另一位群友补充，只要使用收益大于成本，用户愿意让渡隐私。在互通方案上，有人主张每个 App 开放自己的 Agent 接口，不借助平台直接实现 Agent 间（A2A）的原生通信与原生支付；也有人提到 X 正试图通过 Grok 串联起支付（X Money）、数据、IM 和内容平台，做成类似微信的闭环。\n\n回到日常使用，发起话题的群友认为 PA 目前显得鸡肋，是因为既缺少充足的用户 context 帮不上忙，又受制于隐私顾虑，尤其国内缺乏邮件这类能让 PA 快速了解用户的集中场景。虽然有人因为每天 session 太多、容易忘事而急需 PA 提醒，但多位群友吐槽打通各渠道信息的成本太高，每天本就被事情推着走，“给它注入 ctx 太费劲了”。有人提议 PA 应该先“无感 shadow”获取日常，另一位群友赞同道，应该“先把我蒸馏出来”。至于模型能力，有人觉得度过复杂的冷启动后还得靠聪明的模型才舒服，但也有人认为冷启动并不难，或者做日常助理不需要模型多聪明，用 1017 就够了，遇到真难的问题再让它打开自己的 Codex 找答案。\n\n讨论尾声，一位群友晒出了把微信 Claw 当作个人助手的实践。分享的聊天截图显示，向 AI 发送“总结今日待办”后，它会按状态汇总未完成的日常事项，并把已完成事项和单独存放在指定 md 文件里的工程问题排除在提醒之外。不过这位群友提到，由于 QQ 和微信官方怕滥用、限制较多，目前还不允许机器人主动发消息。",
+          "emphasis": [
+            "每个 App 开放自己的 Agent 接口，不借助平台直接实现 Agent 间（A2A）的原生通信与原生支付",
+            "既缺少充足的用户 context 帮不上忙，又受制于隐私顾虑",
+            "由于 QQ 和微信官方怕滥用、限制较多，目前还不允许机器人主动发消息"
+          ],
+          "aiComment": "请个私人助理还得先把自己的脑子蒸馏一遍喂给它，打工人下班后的第二份工是给 AI 当保姆。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:17",
+              "text": "[链接] Your current Weixin version does not support this content. Update to the latest version."
+            },
+            {
+              "speaker": 1,
+              "time": "21:17",
+              "text": "Personal Agent 很神，但被夸大了。\n\n这一次我们访谈了： \n- 宋勰睿（Arkevo 创始人，前美团 LongCat 基础模型 Agent 负责人，清华数学系，95后算法总监） @longcat-顾奇 \n- 杨攀（bilink 创始人，前硅基流动联合创始人，前融云联合创始人兼CTO）"
+            },
+            {
+              "speaker": 2,
+              "time": "21:17",
+              "text": "[强]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:17",
+              "text": "大家有有意思的研究项目欢迎一起聊[玫瑰][玫瑰]"
+            },
+            {
+              "speaker": 3,
+              "time": "21:18",
+              "text": "B站发了吗[吃瓜]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:18",
+              "text": "咳咳，明天，三小时视频对我这破网速太不友好了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:19",
+              "text": "b站发了的话上班可以当博客听"
+            },
+            {
+              "speaker": 3,
+              "time": "21:19",
+              "text": "好嘞 明天跑高速的时候听[吃瓜](*´▽`*)"
+            },
+            {
+              "speaker": 5,
+              "time": "21:19",
+              "text": "牛啊牛啊"
+            },
+            {
+              "speaker": 4,
+              "time": "21:20",
+              "text": "有没有summary"
+            },
+            {
+              "speaker": 1,
+              "time": "21:20",
+              "text": "有，我把summary总结到留言了，周一发文字版"
+            },
+            {
+              "speaker": 3,
+              "time": "21:20",
+              "text": "(✪ω✪)赞"
+            },
+            {
+              "speaker": 3,
+              "time": "21:21",
+              "text": "你要不要看看你发的什么"
+            },
+            {
+              "speaker": 4,
+              "time": "21:21",
+              "text": "嘻嘻"
+            },
+            {
+              "speaker": 4,
+              "time": "21:23",
+              "text": "如果pa被夸大了的话，agent下一个就是embodied？"
+            },
+            {
+              "speaker": 1,
+              "time": "21:29",
+              "text": "大家对pa的吐槽有两个，一个是难以跨app执行任务，尤其是国内；二是担心隐私泄露，尤其是信用卡等"
+            },
+            {
+              "speaker": 1,
+              "time": "21:30",
+              "text": "后者光靠pa厂商无法完全解决，大家在等模型能力"
+            },
+            {
+              "speaker": 6,
+              "time": "21:30",
+              "text": "确实国内的APP很难打通啊"
+            },
+            {
+              "speaker": 3,
+              "time": "21:32",
+              "text": "后者靠模型能力能解决的部分是啥"
+            },
+            {
+              "speaker": 4,
+              "time": "21:33",
+              "text": "也需要有型的大手吧",
+              "quote": {
+                "speaker": 6,
+                "text": "确实国内的APP很难打通啊"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "21:39",
+              "text": "我觉得国内是最不在意隐私泄露的反而，早都被泄露完了",
+              "quote": {
+                "speaker": null,
+                "text": "大家对pa的吐槽有两个，一个是难以跨app执行任务，尤其是国内；二是担心隐私泄露，尤其是信用卡等"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:39",
+              "text": "确实"
+            },
+            {
+              "speaker": 9,
+              "time": "21:39",
+              "text": "确实"
+            },
+            {
+              "speaker": 8,
+              "time": "21:40",
+              "text": "我感觉社会主义更适合干这些互通的事情[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:40",
+              "text": "净说什么大实话"
+            },
+            {
+              "speaker": 10,
+              "time": "21:40",
+              "text": "确实"
+            },
+            {
+              "speaker": 11,
+              "time": "21:40",
+              "text": "有点爆了[旺柴]"
+            },
+            {
+              "speaker": 12,
+              "time": "21:41",
+              "text": "每个app有自己的agent 开放agent接口 agent与agent的原生通信很重要（不借助平台）\nA2A的原生支付也很重要",
+              "quote": {
+                "speaker": null,
+                "text": "大家对pa的吐槽有两个，一个是难以跨app执行任务，尤其是国内；二是担心隐私泄露，尤其是信用卡等"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:42",
+              "text": "啊 是 比如stripe"
+            },
+            {
+              "speaker": 13,
+              "time": "21:43",
+              "text": "X 要通过grok完成类似微信的闭环",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 每个app有自己的agent 开放agent接口 agent与agent的原生通信很重要（不借助平台）\nA2A的原生支付也很重要"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "21:44",
+              "text": "x money， 数据， im还有内容平台"
+            },
+            {
+              "speaker": 12,
+              "time": "21:44",
+              "text": "用户使用的收益要大于他的成本  只要收益够大 隐私是可以出卖的",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 我觉得国内是最不在意隐私泄露的反而，早都被泄露完了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:46",
+              "text": "是 现在就是pa既没有用户充足cotext 帮不上忙 又有隐私问题 大家就觉得鸡肋"
+            },
+            {
+              "speaker": 1,
+              "time": "21:46",
+              "text": "尤其国内也没有邮件这种场景 能让pa先初步了解用户"
+            },
+            {
+              "speaker": 7,
+              "time": "21:47",
+              "text": "我还挺需要一个pa的，每天的session太多了，我老忘事儿，得pa来提醒我"
+            },
+            {
+              "speaker": 3,
+              "time": "21:47",
+              "text": "PA使用成本有点高 我还得费劲告诉他我每天都会有哪些渠道的信息"
+            },
+            {
+              "speaker": 14,
+              "time": "21:48",
+              "text": "感觉还是把各种context打通让PA都能获取比较麻烦"
+            },
+            {
+              "speaker": 12,
+              "time": "21:48",
+              "text": "应该先无感shadow 获得我的日常",
+              "quote": {
+                "speaker": 3,
+                "text": "PA使用成本有点高 我还得费劲告诉他我每天都会有哪些渠道的信息"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:48",
+              "text": "但是其实每天都被推着走"
+            },
+            {
+              "speaker": 3,
+              "time": "21:48",
+              "text": "yes!",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 应该先无感shadow 获得我的日常"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:48",
+              "text": "先把我蒸馏出来"
+            },
+            {
+              "speaker": 3,
+              "time": "21:49",
+              "text": "给它注入ctx太费劲了"
+            },
+            {
+              "speaker": 7,
+              "time": "21:49",
+              "text": "就是冷启动复杂，但是调好了应该还是很舒服吧"
+            },
+            {
+              "speaker": 7,
+              "time": "21:49",
+              "text": "要是模型够聪明的话"
+            },
+            {
+              "speaker": 3,
+              "time": "21:50",
+              "text": "不聪明其实也够了"
+            },
+            {
+              "speaker": 13,
+              "time": "21:50",
+              "text": "agent冷启动不困难吧",
+              "quote": {
+                "speaker": 7,
+                "text": "就是冷启动复杂，但是调好了应该还是很舒服吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:50",
+              "text": "1017很够用"
+            },
+            {
+              "speaker": 3,
+              "time": "21:50",
+              "text": "遇到难的问题可以让它打开我的codex找答案"
+            },
+            {
+              "speaker": 4,
+              "time": "22:06",
+              "text": "依旧碳基生物局限性",
+              "quote": {
+                "speaker": 7,
+                "text": "我还挺需要一个pa的，每天的session太多了，我老忘事儿，得pa来提醒我"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "22:08",
+              "text": "怎么说",
+              "quote": {
+                "speaker": 13,
+                "text": "[引用] agent冷启动不困难吧"
+              }
+            },
+            {
+              "speaker": 15,
+              "time": "22:09",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 15,
+              "time": "22:09",
+              "text": "已经用上了"
+            },
+            {
+              "speaker": 15,
+              "time": "22:09",
+              "text": "自产自销"
+            },
+            {
+              "speaker": 15,
+              "time": "22:09",
+              "text": "qq和微信官方限制比较多，不让主动发消息，可能是怕滥用"
+            },
+            {
+              "speaker": 3,
+              "time": "22:10",
+              "text": "这是微信那个claw吧"
+            },
+            {
+              "speaker": 15,
+              "time": "22:10",
+              "text": "是的"
+            }
+          ]
+        },
+        {
+          "category": "Agent 评测",
+          "title": "Interaction Bench 开源：把 Coding Agent 丢进真实应用修交互 Bug，GPT-6 Astra 仅过三成",
+          "text": "有群友分享了 LobeHub 开源的 Agent 评测基准 Interaction Bench（0.1 Preview）。现有的 Coding Agent 评测大多针对代码生成或明确的工程任务，而真实场景下的用户反馈往往是模糊且非技术性的，比如“地图无法正常拖动”“表单提交后缺少反馈”。为此，Interaction Bench 从 25 个真实开源应用中已合并的修复 PR 里构建了 44 项任务，评测对象延伸到用户可感知的交互行为。\n\n评测保留了真实应用的代码与运行环境，只把用户意图作为输入，隐藏原始 Bug 诊断和参考修复方案，要求 Agent 自主探索交互路径、定位问题并修改代码。验证环节由独立的 Scoring Agent 在修改后的应用中重新执行交互，按人工审核的行为要求打分，因此不同于参考 PR 的实现方式也能通过。项目同时开放了任务数据、评测 Harness、模型配置与执行轨迹。在首批六组模型与 Harness 配置测试中，得分依次为：GPT-6 Astra + Codex 34.1%（15/44）、Claude Opus 5.5 + Claude Code *7.3%（12/44）、DeepSeek Flash + DSH 15.9%（7/44）、GLM-5.3 Flash + ZCode 9.1%（4/44）、Qwen3.8 Max + Codex 6.8%（3/44）、Kimi K3 + Kimi Code 4.5%（2/44）。分享者指出，即便表现最好的 GPT-6 Astra 也只完成了约三分之一的任务，从意图理解、环境探索到修复验证的整条链路仍有很大改进空间。",
+          "emphasis": [
+            "从 25 个真实开源应用中已合并的修复 PR 里构建了 44 项任务，评测对象延伸到用户可感知的交互行为",
+            "即便表现最好的 GPT-6 Astra 也只完成了约三分之一的任务"
+          ],
+          "aiComment": "当需求变成一句“地图拖不动”，榜一大哥 GPT-6 Astra 也只能修好三分之一，终究是一起体会到了甲方的恐怖。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "借群分享一下我们LobeHub团队近期发布并开源的一项Agent评测工作：Interaction Bench。\n\n这项工作的出发点是一个很具体的问题：当Coding Agent只知道用户想要实现什么，却不知道问题发生在哪里时，它能否自主完成真实软件交互缺陷的定位、修复与验证？\n\n目前主流的Coding Agent Benchmark，已经能够比较系统地衡量代码生成、软件工程任务执行等能力。但在真实产品场景中，用户反馈往往是模糊且非技术性的，例如地图无法正常拖动、表单提交后缺少反馈、操作完成后没有提示等。\n这些问题要求Agent理解用户意图，在实际应用中探索交互路径，建立问题假设，修改代码，并通过运行结果验证修复是否有效。\n\n围绕这一场景，我们构建了Interaction Bench，尝试将评测对象进一步延伸到用户可感知的交互行为（User-perceived Interaction Behavior）。\n首个版本包含来自25个真实开源应用的44项任务，全部基于已经合并的真实修复PR构建。\n\n在评测设计上，我们主要关注三个方面：\n任务的真实性：保留真实应用的代码与运行环境，以用户意图作为任务输入，隐藏原始Bug诊断和参考修复方案，要求Agent独立完成问题调查与修复。\n结果的可验证性：通过独立的Scoring Agent，在修改后的应用中重新执行相关交互，依据经过人工审核的行为要求判断任务是否完成。不同于参考PR的实现方式，同样有机会通过评测。\n执行过程的可复现性：开放任务数据、评测Harness、模型配置与执行轨迹，支持对具体失败案例进行复现和分析。\n\n目前我们测试了六组模型与Harness配置，初步结果如下：\n- GPT-6 Astra + Codex：34.1%（15/44）\n- Claude Opus 5.5 + Claude Code：*7.3%（12/44）\n- DeepSeek Flash + DSH：15.9%（7/44）\n- GLM-5.3 Flash + ZCode：9.1%（4/44）\n- Qwen3.8 Max + Codex：6.8%（3/44）\n- Kimi K3 + Kimi Code：4.5%（2/44）\n\n一个比较有意思的发现是，即便表现最好的GPT-6 Astra，也只完成了约三分之一的任务。\n这说明，在真实交互场景中，从用户意图理解、环境探索、问题诊断，到修复执行与结果验证，整条Agent工作链路依然存在相当大的改进空间。\n\n我们认为，随着Agent逐渐进入真实的软件开发与产品使用场景，评测体系也需要更加关注任务完成后用户实际感受到的结果。\n\n目前项目仍处于0.1 Preview阶段，欢迎关注Agent Evaluation、Coding Agent、Agent Harness的研究者和开发者交流，也欢迎贡献任务、提出改进建议，或者给我们的开源项目点个Star支持一下。\n\n相关链接：\nGitHub：https://github.com/eval-sys/ibench\nProject Website：https://ibench.ai/\nLeaderboard：https://ibench.ai/leaderboard"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "11:57",
+              "text": "强无敌，确实需要"
+            },
+            {
+              "speaker": 1,
+              "time": "11:58",
+              "text": "感谢💗"
+            },
+            {
+              "speaker": 3,
+              "time": "12:08",
+              "text": "强无敌，确实需要"
+            },
+            {
+              "speaker": 4,
+              "time": "12:08",
+              "text": "👍👍👍"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Interaction Bench 仓库",
+              "url": "https://github.com/eval-sys/ibench"
+            },
+            {
+              "kind": "demo",
+              "label": "Interaction Bench 官网",
+              "url": "https://ibench.ai"
+            },
+            {
+              "kind": "demo",
+              "label": "Interaction Bench 榜单",
+              "url": "https://ibench.ai/leaderboard"
+            }
+          ]
+        },
+        {
+          "category": "工具与服务",
+          "title": "Anthropic 封号退款踩坑：款项结算后 Google 渠道拒绝退费",
+          "text": "有群友分享了近期协助处理 Anthropic 账号被封后的退款情况：Google 渠道虽然支持退款，但如果资金已经结算到 Anthropic，Google 的系统会直接拦截，客服在回复中表示即便支持团队手动尝试覆盖结果，系统也不允许处理退款。这位群友对比了最近几天的两个案例：一个是在订阅一个月后通过 Google 申请退款，成为其经手的第一例失败案例；另一个则是找苹果客服，成功退回了 3 个月前被封账号的费用。分享者提醒，如果遇到账号被封，需要尽早申请退款。",
+          "emphasis": [
+            "如果资金已经结算到 Anthropic，Google 的系统会直接拦截",
+            "找苹果客服，成功退回了 3 个月前被封账号的费用"
+          ],
+          "aiComment": "钱一旦结算给 Anthropic，Google 系统连自家客服的面子都不给，反倒是苹果还能捞回三个月前的旧账。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:34",
+              "text": "“我们的支持团队也曾手动尝试覆盖此结果并在我们这边为您处理退款。然而，我们的系统不允许我们处理退款”"
+            },
+            {
+              "speaker": 1,
+              "time": "18:34",
+              "text": "谷歌支持退款，但是如果钱已经到anthropic这里的话，系统现在会拒绝退款"
+            },
+            {
+              "speaker": 1,
+              "time": "18:34",
+              "text": "[合并聊天记录] Leona与fbj的聊天记录 (2条)\n  - Leona: 嗨，Kangjia， 感谢您联系 Google 支持团队。我是 Fatima，最近处理了您的案例。 我们了解到您正在查询退款请求的状态。我们清楚地听到了您的诉求，也理解及时收到购买更新信息对您很重要。...\n  - Leona: “我们的支持团队也曾手动尝试覆盖此结果并在我们这边为您处理退款。然而，我们的系统不允许我们处理退款”"
+            },
+            {
+              "speaker": 1,
+              "time": "18:34",
+              "text": "如果发现被封号，早一点申请退款"
+            },
+            {
+              "speaker": 1,
+              "time": "19:41",
+              "text": "这个兄弟是订阅后一个月让我帮忙申请退款的，是第一例没成功的。\n另一个朋友找苹果客服，成功退款了3个月前被封的号。\n这两个案例申请退款日期都在最近几天，供参考。"
+            }
+          ]
+        },
+        {
+          "category": "开源社区",
+          "title": "AwesomeRSI 社区发布 Roadmap 与统一 Benchmark 格式草案",
+          "text": "有群友分享了 AwesomeRSI 社区的 Roadmap 及 PenguinHarness 相关开源仓库。该项目发布了统一的 RSI Benchmark + Plugin 标准格式草案（RFC），旨在构建统一的 RSI 榜单以方便复现和对比实验，目前正通过 PR 征集修订意见；后续计划通过每周二晚上的双周会同步 Benchmark 整理与 RSI 算法复现进展。",
+          "emphasis": [
+            "发布了统一的 RSI Benchmark + Plugin 标准格式草案（RFC）"
+          ],
+          "aiComment": "RSI 刚要把场子支棱起来，先用统一格式和双周会把做实验的人管得明明白白。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:05",
+              "text": "大家好，经过我们开源团队的两星期迭代，今天正式发布 AwesomeRSI 社区的 Roadmap，号召各位老师同学一起来参与到 RSI 的开源工作里来。\n\n1. 我们发布了统一的 RSI Benchmark + Plugin 标准格式，目的是构建最全面的 RSI 榜单，方便大家快速复现和对比实验，格式 RFC 文件可以看下方链接。\n\n目前 RFC 还在草稿阶段，我们十分欢迎大家提出宝贵意见，通过 PR 的方式来修订草案。\n\nhttps://club.penguin.ooo/zh/\n\n2. 我们将通过双周会的方式来同步开源社区最新进展，包括我们团队内部的实验成果和社区的动态，我们暂定为每周二晚上六点，前一天会在微信群发腾讯会议链接，欢迎社区里的同学自由参会，发言讨论。\n\n3. 我们团队内部已经完成一部分的 Benchmark 整理、RSI 算法复现工作，并取得了初步结论，我们预计会在下周二的双周会上进行首次发布，欢迎大家来一起交流讨论。\n\n社区仓库链接：https://github.com/Prism-Shadow/penguin-harness-community\nBenchmark 仓库链接：https://github.com/Prism-Shadow/penguin-harness-benchmark\nPenguinHarness 框架主页：https://penguin.ooo/"
+            },
+            {
+              "speaker": 1,
+              "time": "17:05",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:05",
+              "text": "感兴趣RSI的同学可以关注下[社会社会]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "AwesomeRSI 社区 RFC",
+              "url": "https://club.penguin.ooo/zh/"
+            },
+            {
+              "kind": "code",
+              "label": "PenguinHarness 社区仓库",
+              "url": "https://github.com/Prism-Shadow/penguin-harness-community"
+            },
+            {
+              "kind": "code",
+              "label": "PenguinHarness Benchmark",
+              "url": "https://github.com/Prism-Shadow/penguin-harness-benchmark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "前沿模型遭遇“题荒”，靠收敛式造题还是拆细 Rubrics？",
+      "theme": "兼及 Interaction Bench 交互缺陷评测、ILE 买方投研基准与递归推理输入条件搜索",
+      "note": "2026-10-30 · 当日本地记录",
+      "stories": [
+        {
+          "category": "数据与评测",
+          "title": "前沿模型遭遇“题荒”：收敛式造题怎么拿信号，Rubrics 能否兜底？",
+          "text": "有群友抛出一个造题思路：解题是收敛的，造题是发散的，能否把造题也转成收敛的过程？另一位群友提到近期有一篇思路相近的论文，但用 Astra xhigh 复现了一版，效果一般。傍晚有人追问做难题是不是靠“多跳发散再根据规则约束收敛”，原提问者坦言真正的卡点在于前沿模型很难实现有效加难——经常加难之后模型准确率还是 100%，面临“题荒”。一旦解题侧接近 100%，出题侧便拿不到有效的搜索信号。以往各类 cowork env 和 coding 题目，大多按人类主观认为“怎样会变难”去设计；如果交由 AI 自己判断加难逻辑，既可能拿不到信号，过程也不可控。还有群友担心，强行把题造难可能会偏离真实世界需求，或者让模型在解题时训出奇怪的 pattern。\n\n另一位群友结合主观投研场景给出了不同看法，认为觉得“题荒”是因为出题人还不够强，比如在实际用 AI 做主观投研时，Astra 在很多细节上依然不够好。至于模型会不会产生奇怪的 pattern，这位群友表示不约束求解路径、只看最终投资结果和中间变量的求解效果，因为人类专家的路径也未必是最 optimal 的。原提问者对比指出，投研有 portfolio 表现是否合格作为标准优化方向，而其他 cowork 场景本质上是在已能做对的题目上盲目加难，属于没有方向的乱搜索。投研方向的群友回应，他们把投资场景拆成大量原子化任务来评估，发现在多汇率计算、跨市场跨公司链条传导联动等细节上，SOTA 模型依然会出错。原提问者由此总结，这实际上是靠 rubrics 来暴露问题；一旦 rubrics 定义不清楚，哪怕 Agent 运行存在缺陷也未必能反映出来。",
+          "emphasis": [
+            "经常加难之后模型准确率还是 100%，面临“题荒”",
+            "一旦 rubrics 定义不清楚，哪怕 Agent 运行存在缺陷也未必能反映出来"
+          ],
+          "aiComment": "别的地方还在愁题荒和 100% 准确率，投研老哥一掏出多汇率计算和跨市场传导，SOTA 模型瞬间又有了进步空间。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "05:09",
+              "text": "有个关于造题的想法"
+            },
+            {
+              "speaker": 1,
+              "time": "05:09",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "05:09",
+              "text": "解题是收敛的，造题是发散的"
+            },
+            {
+              "speaker": 1,
+              "time": "05:10",
+              "text": "但是，能不能把造题转成收敛的过程"
+            },
+            {
+              "speaker": 2,
+              "time": "09:29",
+              "text": "hy最近有一篇跟你说的这类似"
+            },
+            {
+              "speaker": 2,
+              "time": "09:30",
+              "text": "https://arxiv.org/pdf/2608.05466"
+            },
+            {
+              "speaker": 2,
+              "time": "09:31",
+              "text": "不过我让Astra xhigh复现了一版效果一般[苦涩]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "我来阅读一波",
+              "quote": {
+                "speaker": null,
+                "text": "https://arxiv.org/pdf/2608.05466"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:27",
+              "text": "也可以阅读阅读咱们的investors last exam嘛[可怜]",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 我来阅读一波"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:24",
+              "text": "这个造难题有什么思路吗？多跳发散再根据规则约束收敛？",
+              "quote": {
+                "speaker": 1,
+                "text": "但是，能不能把造题转成收敛的过程"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:25",
+              "text": "我还在想",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 这个造难题有什么思路吗？多跳发散再根据规则约束收敛？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:26",
+              "text": "现在核心是在于在前沿模型里面很难取得有效的加难"
+            },
+            {
+              "speaker": 1,
+              "time": "17:26",
+              "text": "很经常加难以后还是100%"
+            },
+            {
+              "speaker": 3,
+              "time": "17:26",
+              "text": "是的，题荒"
+            },
+            {
+              "speaker": 3,
+              "time": "17:28",
+              "text": "解题侧接近100%，那出题侧怎么评估呢？"
+            },
+            {
+              "speaker": 1,
+              "time": "17:28",
+              "text": "这就是问题所在了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:29",
+              "text": "相当于怎么搜索都取不得有效信号"
+            },
+            {
+              "speaker": 1,
+              "time": "17:30",
+              "text": "之前各类cowork env还有coding类的工作，大部分是基于 人 认为题目怎么样能够变难而设计的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:33",
+              "text": "如果让AI自己判断去加难的逻辑，一是很可能无法取得信号，二是不可控"
+            },
+            {
+              "speaker": 4,
+              "time": "17:35",
+              "text": "那是因为出题的人还不够强",
+              "quote": {
+                "speaker": 3,
+                "text": "是的，题荒"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:35",
+              "text": "我比较困惑 怎么把题造难 而且也不会偏离真实世界的需求"
+            },
+            {
+              "speaker": 4,
+              "time": "17:35",
+              "text": "我们在自己用 AI 去做主观投研的时候，就能感受到非常多细节 Astra还是不够好的"
+            },
+            {
+              "speaker": 5,
+              "time": "17:36",
+              "text": "以及 模型去解这些题会不会产生奇怪的patten"
+            },
+            {
+              "speaker": 4,
+              "time": "17:37",
+              "text": "我们不约束 pattern，只看最终的投资以及中间变量的求解效果",
+              "quote": {
+                "speaker": 5,
+                "text": "以及 模型去解这些题会不会产生奇怪的patten"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:38",
+              "text": "因为人类专家的求解路径不一定是最 optimal 的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:39",
+              "text": "对于投研还是有一个比较标准的优化方向，就是portfolio表现是否合格"
+            },
+            {
+              "speaker": 1,
+              "time": "17:40",
+              "text": "但其他cowork场景本质上是在能做对的题目上加难"
+            },
+            {
+              "speaker": 1,
+              "time": "17:40",
+              "text": "这个是没有方向的，完全乱搜索"
+            },
+            {
+              "speaker": 4,
+              "time": "17:41",
+              "text": "其实还好吧，我们通过把投资的很多场景拆成了很多原子化的任务之后做评估，SOTA 模型在细节上面还是会有问题的",
+              "quote": {
+                "speaker": 1,
+                "text": "这个是没有方向的，完全乱搜索"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:42",
+              "text": "比如说做多汇率计算，以及跨市场跨公司的链条传导联动"
+            },
+            {
+              "speaker": 1,
+              "time": "17:43",
+              "text": "我可不可以理解，实际上这里发现问题的方式是rubrics",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 其实还好吧，我们通过把投资的很多场景拆成了很多原子化的任务之后做评估，SOTA 模型在细节上面还是会有问题的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:45",
+              "text": "是的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:48",
+              "text": "那rubrics的定义会非常重要。如果Rubrics没有定义清楚的话，那哪怕Agent的运行存在问题，也不一定能够反映出来\n\n是这么说的吗"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Recursive Synthesis 论文",
+              "url": "https://arxiv.org/abs/2608.05466"
+            }
+          ]
+        },
+        {
+          "category": "Agent 评测",
+          "title": "Interaction Bench 开源：测 Coding Agent 修真实交互 Bug，GPT-6 Astra 仅过三成",
+          "text": "有群友分享了 LobeHub 开源的 Coding Agent 评测基准 Interaction Bench（0.1 Preview），专门考察当用户只给出模糊、非技术性的反馈（如地图无法拖动、表单提交后缺少反馈）且不指明问题位置时，Agent 能否在真实软件中自主探索交互路径、定位缺陷、修改代码并验证修复效果。首版包含来自 25 个真实开源应用的 44 项任务，全部基于已合并的真实修复 PR 构建，隐藏了原始 Bug 诊断与参考方案；评测时由独立的 Scoring Agent 在修改后的应用中重新执行交互，只要满足人工审核的行为要求，即便实现方式与参考 PR 不同也能通过。\n\n在六组模型与 harness 配置的初测中，排名依次为 GPT-6 Astra + Codex（34.1%，15/44）、Claude Opus 5.5 + Claude Code（27.3%，12/44）、DeepSeek Flash + DSH（15.9%，7/44）、GLM-5.3 Flash + ZCode（9.1%，4/44）、Qwen3.8 Max + Codex（6.8%，3/44）和 Kimi K3 + Kimi Code（4.5%，2/44），表现最好的模型也只完成了约三分之一的任务。群友讨论时发现原帖把 Claude Opus 5.5 的得分误写成了“*7.3%”，分享者确认是漏掉了十位数的“2”；还有人追问其他模型都搭配自家 harness，为什么 Qwen3.8 Max 没有用 Qwen Code 测试，分享者解释是挑了测试成绩最好的 harness，引来群友调侃 Qoder“很没面子”。",
+          "emphasis": [
+            "由独立的 Scoring Agent 在修改后的应用中重新执行交互",
+            "表现最好的模型也只完成了约三分之一的任务"
+          ],
+          "aiComment": "Claude Opus 5.5 差点因为漏写十位数的 2 变成个位数选手，而 Qwen3.8 Max 为了高分直接借用 Codex，留自家 harness 在风中凌乱。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "借群分享一下我们LobeHub团队近期发布并开源的一项Agent评测工作：Interaction Bench。\n\n这项工作的出发点是一个很具体的问题：当Coding Agent只知道用户想要实现什么，却不知道问题发生在哪里时，它能否自主完成真实软件交互缺陷的定位、修复与验证？\n\n目前主流的Coding Agent Benchmark，已经能够比较系统地衡量代码生成、软件工程任务执行等能力。但在真实产品场景中，用户反馈往往是模糊且非技术性的，例如地图无法正常拖动、表单提交后缺少反馈、操作完成后没有提示等。\n这些问题要求Agent理解用户意图，在实际应用中探索交互路径，建立问题假设，修改代码，并通过运行结果验证修复是否有效。\n\n围绕这一场景，我们构建了Interaction Bench，尝试将评测对象进一步延伸到用户可感知的交互行为（User-perceived Interaction Behavior）。\n首个版本包含来自25个真实开源应用的44项任务，全部基于已经合并的真实修复PR构建。\n\n在评测设计上，我们主要关注三个方面：\n任务的真实性：保留真实应用的代码与运行环境，以用户意图作为任务输入，隐藏原始Bug诊断和参考修复方案，要求Agent独立完成问题调查与修复。\n结果的可验证性：通过独立的Scoring Agent，在修改后的应用中重新执行相关交互，依据经过人工审核的行为要求判断任务是否完成。不同于参考PR的实现方式，同样有机会通过评测。\n执行过程的可复现性：开放任务数据、评测Harness、模型配置与执行轨迹，支持对具体失败案例进行复现和分析。\n\n目前我们测试了六组模型与Harness配置，初步结果如下：\n- GPT-6 Astra + Codex：34.1%（15/44）\n- Claude Opus 5.5 + Claude Code：*7.3%（12/44）\n- DeepSeek Flash + DSH：15.9%（7/44）\n- GLM-5.3 Flash + ZCode：9.1%（4/44）\n- Qwen3.8 Max + Codex：6.8%（3/44）\n- Kimi K3 + Kimi Code：4.5%（2/44）\n\n一个比较有意思的发现是，即便表现最好的GPT-6 Astra，也只完成了约三分之一的任务。\n这说明，在真实交互场景中，从用户意图理解、环境探索、问题诊断，到修复执行与结果验证，整条Agent工作链路依然存在相当大的改进空间。\n\n我们认为，随着Agent逐渐进入真实的软件开发与产品使用场景，评测体系也需要更加关注任务完成后用户实际感受到的结果。\n\n目前项目仍处于0.1 Preview阶段，欢迎关注Agent Evaluation、Coding Agent、Agent Harness的研究者和开发者交流，也欢迎贡献任务、提出改进建议，或者给我们的开源项目点个Star支持一下。\n\n相关链接：\nGitHub：https://github.com/eval-sys/ibench\nProject Website：https://ibench.ai/\nLeaderboard：https://ibench.ai/leaderboard"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "12:08",
+              "text": "有点意思啊，已star"
+            },
+            {
+              "speaker": 1,
+              "time": "12:09",
+              "text": "感谢💗"
+            },
+            {
+              "speaker": 2,
+              "time": "12:15",
+              "text": "opus写错了？是27.3吧",
+              "quote": {
+                "speaker": 1,
+                "text": "借群分享一下我们LobeHub团队近期发布并开源的一项Agent评测工作：Interaction Bench。 这项工作的出发点是一个很具体的问题：当Codin..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:17",
+              "text": "坏了，把2删了"
+            },
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "[惊恐]"
+            },
+            {
+              "speaker": 3,
+              "time": "12:28",
+              "text": "其他家都用本家 harness，qwen 不应该用 qwen code 测吗[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "12:28",
+              "text": "牛逼啊"
+            },
+            {
+              "speaker": 1,
+              "time": "12:29",
+              "text": "取了个最好成绩的harness（",
+              "quote": {
+                "speaker": 3,
+                "text": "其他家都用本家 harness，qwen 不应该用 qwen code 测吗[旺柴]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:33",
+              "text": "Qoder：很没面子（",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 取了个最好成绩的harness（"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Interaction Bench 仓库",
+              "url": "https://github.com/eval-sys/ibench"
+            },
+            {
+              "kind": "demo",
+              "label": "Interaction Bench 官网",
+              "url": "https://ibench.ai"
+            }
+          ]
+        },
+        {
+          "category": "金融 Agent",
+          "title": "Investor's Last Exam 开源：用 1.52TB“冻结时间”数据库评测买方投研，预测环节 DeepSeek 反超 Astra",
+          "text": "有群友分享了 Prophetlab 联合睿远基金、IvyRock、RethinkLab、中科大及交大安泰等机构开源的金融 Agent 评测基准 Investor's Last Exam（ILE）。不同于以往聚焦“研究”环节的 LLM4Finance 评测，ILE 考察 AI 在买方股票研究中能否仅凭“决策当时可见的信息”，独立走完查证据、立假设到做预测的完整链路。项目为此构建了包含 343 万文档版本、1.52TB、9 类信息源的版本化数据库，将时间 cutoff 贯穿工具链，指定时间节点即可调取该时点前可见的信息版本；86 项作业按买方分析师交付物组织，并通过“财务依赖图”将评分锚定到来源文档与可复现计算。\n\n评测结果显示，综合得分前三为 GPT-6 Astra（68.1）、Claude Opus 5.5（66.9）和 DeepSeek V4.1 Flash（63.0）。细分来看，Astra 在“研究与证据”上拿到 78.9，但在“预测与建模”上跌至 52.5；若直接以预测结果衡量，DeepSeek V4.1 Flash（40.3）反超了 Astra（37.7）。分享者指出，当前 SOTA 模型已很擅长把既有证据整理成自洽的分析，但仍难以把分析稳定转化为对未来的判断；而把时间边界做成机制后，成千上万个历史时点就变成了可批量出题、批量 rollout 和即时结算的“冻结环境”，让投研领域不必苦等真实财报与行情反馈也能开展大规模强化学习。",
+          "emphasis": [
+            "将时间 cutoff 贯穿工具链，指定时间节点即可调取该时点前可见的信息版本",
+            "若直接以预测结果衡量，DeepSeek V4.1 Flash（40.3）反超了 Astra（37.7）"
+          ],
+          "aiComment": "1.52TB 数据把时间焊死不准偷看未来答案，Astra 整理旧账拿 78.9，一预测未来就被 DeepSeek Flash 反超，像极了盘后复盘头头是道的我。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:23",
+              "text": "借群分享一下我们Prophetlab 团队联合睿远基金、IvyRock 等百亿千亿基金，以及RethinkLab、中科大、交大安泰等，发布并开源的 Agent 评测工作：Investor's Last Exam（ILE）\n\n我们团队除了在AI训练上有比较丰富积累之外，在投资上也有真实的经验（过往3年年化50-60%）。我们认为，过往 LLM4Finance 的评测工作主要集中于【研究】环节；相比之下，【投资】环节更贴近该领域的核心目标，也是 ILE 的聚焦所在。因此，我们要研究的是：AI 在开展真实的买方股票研究时，能否仅凭“决策当时可见的信息”，独立走完从查证据、立假设到做预测的完整链路？\n\n为此，我们构建了一个版本化数据库（343 万文档版本、1.52TB、9 类信息源），把 cutoff 贯穿整个工具链；使用时只需指定一个时间节点，就能拿到该时点之前可见的信息版本。86 项作业按买方分析师的交付物组织，评分标准通过“财务依赖图”锚定到来源文档与可复现计算。数据库实时更新。\n我们测量了多个当前 SOTA 模型（最高 GPT-6 Astra 68.1，Claude Opus 5.5 66.9，DeepSeek V4.1 Flash 63.0），并且发现Astra 在“研究与证据”上拿到 78.9，在“预测与建模”上只有 52.5；换用预测结果衡量，则DeepSeek V4.1 Flash（40.3）反超 Astra（37.7）。这表明现在的SOTA模型已经很擅长把已经发生的证据整理成清楚、自洽的分析，但仍然还无法把这份分析稳定地转化为对未来的判断。\n我们认为该工作的更长远的意义在训练侧：一旦时间边界被做成机制，历史时点就变成了可反复采样的环境——同一 cutoff 下能批量出题、批量 rollout、即时结算。投研这类原本被真实市场节奏卡住的领域，因此第一次有条件做大规模领域强化学习：不必等下一次财报、下一轮行情，就能在成千上万个历史时点上做可验证的试错，把“等市场给反馈”换成“在冻结环境里拿反馈”。评测和训练由此共用同一套环境。\n\n已跟群主报备，项目 v1 已开源，欢迎交流、合作～ 有想要尝试我们的”冻结时间”的数据库可以在官网申请或直接加我们微信细聊～\nArxiv：https://arxiv.org/abs/2610.38342\nProject Page：https://prophet-lab.cn/benchmarks/investor-last-exam-v1 \nGitHub：https://github.com/Prophetlab/Investor-Last-Exam \nDataset：https://huggingface.co/datasets/HenryJ12/InvestorLastExam"
+            },
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "[链接] 微信红包"
+            },
+            {
+              "speaker": 2,
+              "time": "16:25",
+              "text": "我来阅读一波",
+              "quote": {
+                "speaker": null,
+                "text": "https://arxiv.org/pdf/2608.05466"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:26",
+              "text": "年化那么高"
+            },
+            {
+              "speaker": 4,
+              "time": "16:27",
+              "text": "也可以阅读阅读咱们的investors last exam嘛[可怜]",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我来阅读一波"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:39",
+              "text": "好高的年化"
+            },
+            {
+              "speaker": 1,
+              "time": "16:40",
+              "text": "[链接] 联合推出Investor's Last Exam：AI能写详实的研报，但能真正做投资决策吗？\n  来源: Prophetlab-未然图灵\n  摘要: Prophetlab 联合睿远基金、IvyRock Asset Management、上海交通大学安泰经济与管理学院，以及上海交通大学人工智能学院ReThinkLab，共同推出 Investor’s Last Exam（ILE）\n  URL: https://mp.weixin.qq.com/s?__biz=MzY5ODM0NzY0OQ%3D%3D&mid=2247483813&idx=1&sn=da0e9bacd2912d6365cf00aacb5a7efc&chksm=f5baa491303876f0f131bad27f4db0ece130d35d5d5dfc2dffc1b93f4086843a2c43fc0b6a50&scene=1&srcid=10290LtvgynZppauEV1JusLf#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "16:41",
+              "text": "[链接] 不去建模未知：2025年年度投资总结\n  来源: HenryJ-PL\n  摘要: 用胜率和盈亏比来考虑交易机会\n  URL: https://mp.weixin.qq.com/s?__biz=MzkyOTY1MTkwMg%3D%3D&mid=2247483801&idx=1&sn=1503b1ddbc6beec1e56acf5e697d331e&chksm=c342502a1695bf0a852ff48e36fea8aa7179d8c03b91222ad23f12652ce4f9d4cc334d9ec371&scene=1&srcid=0106JMo0zMUCKlceuzXUv8hi#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "16:41",
+              "text": "还可以！运气好！",
+              "quote": {
+                "speaker": 5,
+                "text": "好高的年化"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:13",
+              "text": "求问最近回撤了多少[可怜]",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 还可以！运气好！"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "17:14",
+              "text": "支持蔡博",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 也可以阅读阅读咱们的investors last exam嘛[可怜]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:15",
+              "text": "cool",
+              "quote": {
+                "speaker": null,
+                "text": "[链接] 联合推出Investor's Last Exam：AI能写详实的研报，但能真正做投资决策吗？\n  来源: Prophetlab-未然图灵\n  摘要: Prophetlab 联合睿远基金、IvyRock Asset Management、上海交通大学安泰经济与管理学院，以及上海交通大学人工智能学院ReThinkLab，共同推出 Investor’s Last Exam（ILE）\n  URL: https://mp.weixin.qq.com/s?__biz=MzY5ODM0NzY0OQ%3D%3D&mid=2247483813&idx=1&sn=da0e9bacd2912d6365cf00aacb5a7efc&chksm=f5baa491303876f0f131bad27f4db0ece130d35d5d5dfc2dffc1b93f4086843a2c43fc0b6a50&scene=1&srcid=10290LtvgynZppauEV1JusLf#rd"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:17",
+              "text": "10%+了 难顶",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 求问最近回撤了多少[可怜]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:19",
+              "text": "加仓吗"
+            },
+            {
+              "speaker": 9,
+              "time": "17:19",
+              "text": "猛猛加"
+            },
+            {
+              "speaker": 6,
+              "time": "17:24",
+              "text": "高手带带[可怜]",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 10%+了 难顶"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Investor's Last Exam 论文",
+              "url": "https://arxiv.org/abs/2610.38342"
+            },
+            {
+              "kind": "demo",
+              "label": "ILE 项目主页",
+              "url": "https://prophet-lab.cn/benchmarks/investor-last-exam-v1"
+            },
+            {
+              "kind": "code",
+              "label": "ILE GitHub 仓库",
+              "url": "https://github.com/Prophetlab/Investor-Last-Exam"
+            }
+          ]
+        },
+        {
+          "category": "推理算法",
+          "title": "递归推理模型引入输入条件搜索（ICS）：极难数独准确率升至 99.7%，计算量降两个数量级",
+          "text": "有群友分享了针对递归推理模型（Recursive Reasoners）的“输入条件搜索”（Input-Conditioned Search，ICS）方法（arXiv:2610.18547）。递归推理模型通常对隐状态反复应用同一更新映射（update map）来推理，一旦停留在错误答案上，仅靠增加更新次数或施加扰动很难跳出；ICS 则在不做额外训练的前提下，对同一隐状态应用不同的更新映射以拓展多元推理路径。在没有正确性校验机制的“极难数独”（Sudoku-Extreme）任务上，该方法将标准微型递归模型（Tiny Recursive Model）的准确率从 86.0% 提升至 99.7%，并在六项推理任务综合评估中取得最高平均准确率，同时将模型计算量（FLOPs）降低了最多两个数量级。有人好奇为什么选择数独这类 puzzle 作为测试例子，另一位群友解释，主要是为了遵循已有工作的实验设置以便对比，原本还打算在 ARC-AGI 上测试，但受限于算力未能开展。",
+          "emphasis": [
+            "在不做额外训练的前提下，对同一隐状态应用不同的更新映射以拓展多元推理路径",
+            "将标准微型递归模型（Tiny Recursive Model）的准确率从 86.0% 提升至 99.7%"
+          ],
+          "aiComment": "换套更新映射，极难数独准确率干到 99.7% 还省了两个数量级的算力，就是算力不够没去碰 ARC-AGI 有点实在。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:41",
+              "text": "分享一下我们最近的工作～\n\n面对难题时，人们往往会进行更深入的思考，尝试更多可能性，或者退后一步，从全新的角度审视问题。递归推理模型（Recursive Reasoners）通过对隐状态（latent state）反复应用同一更新映射（update map）来进行推理；它们能够实现前述的前两种策略：即增加更新次数，或对隐状态施加扰动。然而，由于这些过程始终沿用相同的更新映射，一旦推理过程停留在错误的答案上，便难以跳出该状态。\n\n我们提出了一种“输入条件搜索”（Input-Conditioned Search，ICS）方法，使递归推理模型无需额外训练，即可通过对同一隐状态应用不同的更新映射，实现更多元化的推理路径。在“极难数独”（Sudoku-Extreme）任务中，在没有正确性校验机制的情况下，一个标准的“微型递归模型”（Tiny Recursive Model）的准确率从 86.0% 提升至 99.7%。此外，在六项推理任务的综合评估中，ICS 实现了最高的平均准确率，且模型计算量（FLOPs）降低了最多达两个数量级。\n\n未来展望：\n在训练阶段构建多样化的稳定隐空间推理动态，并在测试阶段根据具体需求进行自适应调整。\n\n项目主页：icsearch.github.io\n代码：github.com/icsearch/ICS\n模型权重：huggingface.co/hcshi/ICS\n论文：arxiv.org/abs/2610.18547"
+            },
+            {
+              "speaker": 1,
+              "time": "09:41",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "09:44",
+              "text": "太强了～～～"
+            },
+            {
+              "speaker": 3,
+              "time": "09:45",
+              "text": "nb 看着很有意思",
+              "quote": {
+                "speaker": 1,
+                "text": "分享一下我们最近的工作～ 面对难题时，人们往往会进行更深入的思考，尝试更多可能性，或者退后一步，从全新的角度审视问题。递归推理模型（Recursive Reas..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "09:45",
+              "text": "牛逼"
+            },
+            {
+              "speaker": 5,
+              "time": "09:46",
+              "text": "牛逼"
+            },
+            {
+              "speaker": 1,
+              "time": "09:50",
+              "text": "感谢🙏感兴趣的朋友可以和@Udem&Mila 史皓琛 大家多多一起交流！"
+            },
+            {
+              "speaker": 6,
+              "time": "09:51",
+              "text": "谢谢欢总帮忙转发 也谢谢大家支持！"
+            },
+            {
+              "speaker": 1,
+              "time": "09:52",
+              "text": "如果可以的话，我们想求个三连：https://x.com/haochen_shi3/status/2115871363001135262?a=tmaS7BQ2qFKs6woBIy4&s=20"
+            },
+            {
+              "speaker": 3,
+              "time": "09:53",
+              "text": "想问下为什么选择数独这类puzzle作为例子呀？"
+            },
+            {
+              "speaker": 6,
+              "time": "09:53",
+              "text": "我们follow了一些prior work的settings比对起来会比较方便"
+            },
+            {
+              "speaker": 3,
+              "time": "09:54",
+              "text": "哦哦！感谢解答，不太懂这个领域~"
+            },
+            {
+              "speaker": 6,
+              "time": "09:54",
+              "text": "之前想放到arc-agi再测一下 但是我们的算力有效不太够[捂脸]"
+            },
+            {
+              "speaker": 6,
+              "time": "09:55",
+              "text": "客气啦~ 欢迎一起交流讨论哈哈"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ICS 论文 (2610.18547)",
+              "url": "https://arxiv.org/abs/2610.18547"
+            },
+            {
+              "kind": "code",
+              "label": "ICS 代码仓库",
+              "url": "https://github.com/icsearch/ICS"
+            },
+            {
+              "kind": "demo",
+              "label": "ICS 项目主页",
+              "url": "https://icsearch.github.io"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "把历史时点做成投研 RL 环境：模型擅长理证据却难做预测",
+      "theme": "另议 4B 小模型机械臂代码控制后训练、多模态协同编程与真实交互缺陷评测",
+      "note": "2026-10-30 · 当日本地记录",
+      "stories": [
+        {
+          "category": "投研评测与RL",
+          "title": "把时间切面做成投研 RL 环境：ILE 评测揭示模型擅长整理证据却难做预测",
+          "text": "有群友分享了 Prophetlab 联合睿远基金、IvyRock、RethinkLab、中科大及交大安泰等开源的买方投研 Agent 评测基准 Investor's Last Exam（ILE）。该项目构建了包含 343 万文档版本、1.52TB、9 类信源的版本化数据库，将时间截断（cutoff）贯穿工具链，测试模型仅凭决策当时可见的信息完成 86 项买方分析师作业。评测显示，GPT-6 Astra 总分最高（68.1），Claude Opus 5.5（66.9）与 DeepSeek V4.1 Flash（63.0）紧随其后；但拆开看，GPT-6 Astra 在“研究与证据”上拿到 78.9，到了“预测与建模”却跌至 52.5，若单看预测结果，DeepSeek V4.1 Flash（40.3）反而反超 GPT-6 Astra（37.7）。分享者指出，当前模型已经很擅长把已发生的证据整理成自洽的分析，但还无法稳定转化为对未来的判断。\n\n分享者进一步提出，把时间边界做成机制后，历史时点就成了可反复采样的冻结环境，能直接做投研强化学习。两位群友追问，限定信源的冻结数据库会不会与真实市场偏差过大，以及同一 cutoff 下的批量 rollout 和即时结算具体怎么操作。分享者说，数据库纳入了电话会议（earning call）、新闻和 IR PPT 等广泛信源，且模拟环境与 Codex 跑分一致，偏差可控；像历史上每次财报预测都能作为一个独立 rollout 来训练，不会引入“未来函数”。聊到后续开源专业预测与量化研究（QR）模型的计划时，有人提出疑问：量化是零和博弈，模型开源后超额收益（alpha）岂不是会迅速 decay？另一位群友补充，算上手续费量化其实是负和博弈。分享者承认确实存在衰减，并提到现在各家私募的策略因为用 Codex 已经越来越趋同、超额也在走低，但不能因此说 Codex 在挖因子等领域已经没用。",
+          "emphasis": [
+            "当前模型已经很擅长把已发生的证据整理成自洽的分析，但还无法稳定转化为对未来的判断",
+            "历史上每次财报预测都能作为一个独立 rollout 来训练，不会引入“未来函数”",
+            "各家私募的策略因为用 Codex 已经越来越趋同、超额也在走低"
+          ],
+          "aiComment": "用 1.52TB 冻结历史训练防住了未来函数，却防不住大家都在用 Codex 挖因子把超额收益卷成同款。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:42",
+              "text": "借群分享一下我们Prophetlab 团队联合睿远基金、IvyRock 等百亿千亿基金，以及RethinkLab、中科大、交大安泰等，发布并开源的 Agent 评测工作：Investor's Last Exam（ILE）\n\n我们团队除了在AI训练上有比较丰富积累之外，在投资上也有真实的经验（过往3年年化50-60%）。我们认为，过往 LLM4Finance 的评测工作主要集中于【研究】环节；相比之下，【投资】环节更贴近该领域的核心目标，也是 ILE 的聚焦所在。因此，我们要研究的是：AI 在开展真实的买方股票研究时，能否仅凭“决策当时可见的信息”，独立走完从查证据、立假设到做预测的完整链路？\n\n为此，我们构建了一个版本化数据库（343 万文档版本、1.52TB、9 类信息源），把 cutoff 贯穿整个工具链；使用时只需指定一个时间节点，就能拿到该时点之前可见的信息版本。86 项作业按买方分析师的交付物组织，评分标准通过“财务依赖图”锚定到来源文档与可复现计算。数据库实时更新。\n我们测量了多个当前 SOTA 模型（最高 GPT-6 Astra 68.1，Claude Opus 5.5 66.9，DeepSeek V4.1 Flash 63.0），并且发现Astra 在“研究与证据”上拿到 78.9，在“预测与建模”上只有 52.5；换用预测结果衡量，则DeepSeek V4.1 Flash（40.3）反超 Astra（37.7）。这表明现在的SOTA模型已经很擅长把已经发生的证据整理成清楚、自洽的分析，但仍然还无法把这份分析稳定地转化为对未来的判断。\n我们认为该工作的更长远的意义在训练侧：一旦时间边界被做成机制，历史时点就变成了可反复采样的环境——同一 cutoff 下能批量出题、批量 rollout、即时结算。投研这类原本被真实市场节奏卡住的领域，因此第一次有条件做大规模领域强化学习：不必等下一次财报、下一轮行情，就能在成千上万个历史时点上做可验证的试错，把“等市场给反馈”换成“在冻结环境里拿反馈”。评测和训练由此共用同一套环境。\n\n已跟群主报备，项目 v1 已开源，欢迎交流、合作～ 有想要尝试我们的”冻结时间”的数据库可以在官网申请或直接加我们微信细聊～\nArxiv：https://arxiv.org/abs/2610.38342\nProject Page：https://prophet-lab.cn/benchmarks/investor-last-exam-v1 \nGitHub：https://github.com/Prophetlab/Investor-Last-Exam \nDataset：https://huggingface.co/datasets/HenryJ12/InvestorLastExam"
+            },
+            {
+              "speaker": 1,
+              "time": "16:43",
+              "text": "[链接] 微信红包"
+            },
+            {
+              "speaker": 1,
+              "time": "16:46",
+              "text": "对了，对quant有兴趣的也可以聊聊，我们团队的qr成员很厉害滴[笑脸]"
+            },
+            {
+              "speaker": 2,
+              "time": "16:46",
+              "text": "[强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:47",
+              "text": "👍"
+            },
+            {
+              "speaker": 4,
+              "time": "16:47",
+              "text": "支持[强]"
+            },
+            {
+              "speaker": 5,
+              "time": "16:47",
+              "text": "红包不白领，已严肃star"
+            },
+            {
+              "speaker": 6,
+              "time": "16:48",
+              "text": "支持[强]"
+            },
+            {
+              "speaker": 7,
+              "time": "16:48",
+              "text": "红包不白领，已严肃star"
+            },
+            {
+              "speaker": 8,
+              "time": "16:48",
+              "text": "[强][强][强]非常支持",
+              "quote": {
+                "speaker": 1,
+                "text": "对了，对quant有兴趣的也可以聊聊，我们团队的qr成员很厉害滴[笑脸]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:48",
+              "text": "在小红书上看过贵司帖子，记得贵司主要是做预测的？",
+              "quote": {
+                "speaker": null,
+                "text": "对了，对quant有兴趣的也可以聊聊，我们团队的qr成员很厉害滴[Happy]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:53",
+              "text": "是呐，我们在打榜FutureX",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 在小红书上看过贵司帖子，记得贵司主要是做预测的？"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "16:54",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 5,
+              "time": "16:54",
+              "text": "如果直接用模拟环境scaling的话，会有很大的预测偏差吗",
+              "quote": {
+                "speaker": 1,
+                "text": "借群分享一下我们Prophetlab 团队联合睿远基金、IvyRock 等百亿千亿基金，以及RethinkLab、中科大、交大安泰等，发布并开源的 Agent ..."
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "16:56",
+              "text": "同问，“同一 cutoff 下能批量出题、批量 rollout、即时结算”。这里的题目具体是啥任务形式啊，结算又是咋做的？"
+            },
+            {
+              "speaker": 10,
+              "time": "16:57",
+              "text": "+1，看起来确定信源之后才比较好做冻结数据库这件事，那这会导致与真实的偏差过大吗",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 如果直接用模拟环境scaling的话，会有很大的预测偏差吗"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "16:59",
+              "text": "👍"
+            },
+            {
+              "speaker": 12,
+              "time": "17:05",
+              "text": "严肃学习🫡"
+            },
+            {
+              "speaker": 1,
+              "time": "17:06",
+              "text": "肯定没法完全一致 我们确保了信息来源的覆盖广泛，比如电话会议、新闻等。另外，我们的模拟环境和codex跑分一致 说明我们的环境很真实。所以不会导致与真实的偏差过大"
+            },
+            {
+              "speaker": 1,
+              "time": "17:07",
+              "text": "我想说的意思是 这样历史上每一道类似财报预测的问题 通过我们这个环境 都能做成一个rollout来进行rl训练"
+            },
+            {
+              "speaker": 1,
+              "time": "17:07",
+              "text": "而不会存在未来函数这种问题"
+            },
+            {
+              "speaker": 13,
+              "time": "17:09",
+              "text": "主要是信息是券商研报跟交易信息嘛？"
+            },
+            {
+              "speaker": 1,
+              "time": "17:10",
+              "text": "earning call，ir ppt 等等"
+            },
+            {
+              "speaker": 14,
+              "time": "17:30",
+              "text": "已star！"
+            },
+            {
+              "speaker": 11,
+              "time": "17:31",
+              "text": "[链接] Prophetlab 获得数千万种子轮融资，斩获数百万商业化订单\n  来源: Prophetlab-未然图灵\n  摘要: 用 AI 通用地预测世界，或正成为资本关注的下一个大模型创业方向\n  URL: https://mp.weixin.qq.com/s?__biz=MzY5ODM0NzY0OQ%3D%3D&mid=2247483791&idx=1&sn=e62fd8688f70c62edbb289c933ec4198&chksm=f52cbc48df95bf53b4384fe2fef0681448e4fcb5bc6a8555246536f9eb08505a7f632da4edac&scene=1&srcid=1027GPAwWtofDEKjcMEkq4cX#rd"
+            },
+            {
+              "speaker": 11,
+              "time": "17:31",
+              "text": "想问下你们的商业化订单主要来自于哪儿些厂家呢"
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "谢谢关注  不过这个不方便说"
+            },
+            {
+              "speaker": 15,
+              "time": "17:38",
+              "text": "诶 这个是不是我的小红书关注的主播"
+            },
+            {
+              "speaker": 1,
+              "time": "17:38",
+              "text": "这都被你发现了"
+            },
+            {
+              "speaker": 16,
+              "time": "17:48",
+              "text": "小红书叫啥"
+            },
+            {
+              "speaker": 1,
+              "time": "17:50",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 17,
+              "time": "17:55",
+              "text": "已严肃关注"
+            },
+            {
+              "speaker": 18,
+              "time": "18:31",
+              "text": "我去帅哥？"
+            },
+            {
+              "speaker": 11,
+              "time": "18:33",
+              "text": "就是做bench的公司么"
+            },
+            {
+              "speaker": 11,
+              "time": "18:34",
+              "text": "prophetlab"
+            },
+            {
+              "speaker": 19,
+              "time": "18:59",
+              "text": "我去帅哥？"
+            },
+            {
+              "speaker": 1,
+              "time": "18:59",
+              "text": "Bench只是一个小部分，后面我们会陆续开源专业的预测、qr模型"
+            },
+            {
+              "speaker": 11,
+              "time": "19:00",
+              "text": "可是量化零和 你开源了 你超额不就decay了么"
+            },
+            {
+              "speaker": 1,
+              "time": "19:01",
+              "text": "确实是这样"
+            },
+            {
+              "speaker": 20,
+              "time": "19:04",
+              "text": "量化负和啊"
+            },
+            {
+              "speaker": 20,
+              "time": "19:04",
+              "text": "手续费还得扣"
+            },
+            {
+              "speaker": 1,
+              "time": "19:07",
+              "text": "其实现在各家私募的策略由于codex已经越来越趋同了，超额也越来越低，但是不能说codex在挖因子等领域已经没用"
+            },
+            {
+              "speaker": 11,
+              "time": "20:48",
+              "text": "👍"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Investor's Last Exam 论文",
+              "url": "https://arxiv.org/abs/2610.38342"
+            },
+            {
+              "kind": "demo",
+              "label": "ILE 项目主页",
+              "url": "https://prophet-lab.cn/benchmarks/investor-last-exam-v1"
+            },
+            {
+              "kind": "code",
+              "label": "ILE GitHub 仓库",
+              "url": "https://github.com/Prophetlab/Investor-Last-Exam"
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "多智能体管理插件 orca 体验：并发与手机免梯直连好用，但单任务“智力未拉满”",
+          "text": "有群友安利开源智能体管理插件 orca，称它的转发做得很好，手机端不挂梯子就能直接控制智能体。另一位群友补充，这款工具很适合同时持有三家主流模型订阅（“oag三持”）的用户，远程功能拿来做 VPS 开发也很顺手。不过有群友体验后觉得还没完全摸透，用起来感觉“没有把智力拉满”；推荐者对此表示赞同，认为它的强项在于同时并发处理很多任务，并提到里面还有一个“移交智能体”的功能也没太玩明白。",
+          "emphasis": [
+            "手机端不挂梯子就能直接控制智能体",
+            "用起来感觉“没有把智力拉满”"
+          ],
+          "aiComment": "手机免梯直连加上并发拉满，至于单任务智力没拉满和那个没玩明白的“移交智能体”，就当是留给三持富哥的探索乐趣。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:47",
+              "text": "orca强烈安利这个插件给群u们"
+            },
+            {
+              "speaker": 1,
+              "time": "11:47",
+              "text": "巨好用"
+            },
+            {
+              "speaker": 2,
+              "time": "11:47",
+              "text": "怎么说"
+            },
+            {
+              "speaker": 3,
+              "time": "11:48",
+              "text": "确实很好用啊",
+              "quote": {
+                "speaker": 1,
+                "text": "orca强烈安利这个插件给群u们"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:48",
+              "text": "[奸笑]适合oag三持用户"
+            },
+            {
+              "speaker": 1,
+              "time": "11:48",
+              "text": "管理智能体很好管理",
+              "quote": {
+                "speaker": 2,
+                "text": "怎么说"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:48",
+              "text": "而且手机直接不挂梯子都可以控制"
+            },
+            {
+              "speaker": 1,
+              "time": "11:49",
+              "text": "深得我心"
+            },
+            {
+              "speaker": 3,
+              "time": "11:49",
+              "text": "而且远程功能很好用"
+            },
+            {
+              "speaker": 2,
+              "time": "11:49",
+              "text": "很酷"
+            },
+            {
+              "speaker": 1,
+              "time": "11:49",
+              "text": "说实话，我还没用明白这个东西，但是我感觉真的好好用"
+            },
+            {
+              "speaker": 1,
+              "time": "11:49",
+              "text": "转发做的很好"
+            },
+            {
+              "speaker": 4,
+              "time": "11:49",
+              "text": "我感觉我也没太用明白"
+            },
+            {
+              "speaker": 4,
+              "time": "11:49",
+              "text": "用起来感觉没有把智力拉满"
+            },
+            {
+              "speaker": 3,
+              "time": "11:49",
+              "text": "适合VPS开发",
+              "quote": {
+                "speaker": 3,
+                "text": "而且远程功能很好用"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:50",
+              "text": "是的",
+              "quote": {
+                "speaker": 4,
+                "text": "用起来感觉没有把智力拉满"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:50",
+              "text": "感觉能同时并发干很多事情"
+            },
+            {
+              "speaker": 4,
+              "time": "11:50",
+              "text": "对"
+            },
+            {
+              "speaker": 1,
+              "time": "11:50",
+              "text": "挺牛逼的"
+            },
+            {
+              "speaker": 1,
+              "time": "11:50",
+              "text": "g家还没用",
+              "quote": {
+                "speaker": 3,
+                "text": "[奸笑]适合oag三持用户"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:50",
+              "text": "晚点试试"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "他还有个移交智能体我感觉我没太玩明白",
+              "quote": {
+                "speaker": 4,
+                "text": "我感觉我也没太用明白"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:57",
+              "text": "uu给个链接",
+              "quote": {
+                "speaker": 1,
+                "text": "orca强烈安利这个插件给群u们"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:06",
+              "text": "http://github.com/stablyai/orca"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "orca 仓库",
+              "url": "https://github.com/stablyai/orca"
+            }
+          ]
+        },
+        {
+          "category": "具身智能",
+          "title": "CaPtain 开源：用 4B 小模型与底层 IK 跑通机械臂 Code-as-Policy 后训练",
+          "text": "有群友分享了机械臂控制工作 CaPtain，尝试在 Qwen3.5-4B 小模型上仅靠底层逆运动学（IK）求解，打通可复现的 Code-as-Policy（写代码闭环控制机械臂）post-training 流程。训练分为两步：先在 GPT-6 Astra 生成的 agent 轨迹上做 SFT 蒸馏，让模型掌握“感知、写代码、报错后调整”的 ReAct 循环；再在仿真环境里做 on-policy RL，训练时让 critic 读取仿真器的物理状态作为特权信息辅助价值估计，测试时策略只用常规观测。在 LIBERO 基准上，base 模型的得分从 0.0 经 SFT 提升到 55.4，RL 后进一步达到 73.8，同时支持真机 zero-shot 测试以及 robotwin 和 robodojo 评测。随后有群友追问视觉感知部分是否同样由 Qwen3.5-4B 完成，暂未获回复。",
+          "emphasis": [
+            "训练时让 critic 读取仿真器的物理状态作为特权信息辅助价值估计",
+            "base 模型的得分从 0.0 经 SFT 提升到 55.4，RL 后进一步达到 73.8"
+          ],
+          "aiComment": "4B 小模型先抄 Astra 作业再进仿真器特训，LIBERO 从零蛋干到 73.8，就是视觉感知到底谁干的还在等一个剧透。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:14",
+              "text": "宣传下我们的新工作CaPtain: A Pipeline for Post-TrainingCode-as-Policy Robot Agents\n\nCode-as-Policy 让 LLM 直接写代码来闭环控制机械臂。前沿闭源模型已经证明这条路可行，但开源这边一直缺一条完整、可复现的 post-training 流程,也缺少在小模型上，真的只使用底层IK来进行求解的模型&harness。\n\n我们用 Qwen3.5-4B 打通了这条流程：\n① SFT：在 GPT-6 Astra 生成的 agent 轨迹上做蒸馏，让模型先学会感知、写代码、出错后再调整ReAcT循环；\n② RL：在仿真中做 on-policy 强化学习。训练时 critic 能读取仿真器的物理状态，作为特权信息辅助价值估计；策略在测试时只用常规观测。\n\nLIBERO 上 base 模型 0.0 → SFT 55.4 → RL 73.8。我们也在真机上做了 zero-shot 测试，同时也支持了robotwin&robodojo的评测。\n\n权重、agent harness、RL 代码和评测全部开源，欢迎复现和使用～\n📄 https://waltstephen.github.io/captain/assets/paper/CaPtain.pdf \n💻 https://github.com/waltstephen/CaPtain \n🤗 https://huggingface.co/YijiaFan/CaPtain-4B & https://huggingface.co/datasets/YijiaFan/CaPtain-SFT-Data"
+            },
+            {
+              "speaker": 1,
+              "time": "10:14",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:14",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:15",
+              "text": "求star呜呜🥹"
+            },
+            {
+              "speaker": 2,
+              "time": "11:13",
+              "text": "话说视觉感知也是Qwen3.5-4B 做的？",
+              "quote": {
+                "speaker": 1,
+                "text": "宣传下我们的新工作CaPtain: A Pipeline for Post-TrainingCode-as-Policy Robot Agents Code-a..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "CaPtain 论文",
+              "url": "https://waltstephen.github.io/captain/assets/paper/CaPtain.pdf"
+            },
+            {
+              "kind": "code",
+              "label": "CaPtain 仓库",
+              "url": "https://github.com/waltstephen/CaPtain"
+            },
+            {
+              "kind": "demo",
+              "label": "CaPtain-4B 模型",
+              "url": "https://huggingface.co/YijiaFan/CaPtain-4B"
+            }
+          ]
+        },
+        {
+          "category": "预训练资料",
+          "title": "预训练集群手册分享与如何“看 pre-train 的内科”",
+          "text": "有群友分享了 Hugging Face 上的大模型 GPU 集群训练手册《The Ultra-Scale Playbook: Training LLMs on GPU Clusters》及其中文版文档。另一位群友顺势推荐了 Aleph Alpha 讲解分层扩展预训练与提升 training efficiency 的技术博客，表示自己正是从这篇博客里顺藤摸瓜找到了上述手册。有人借机发问，网上有没有讲解怎么“看 pre-train 的内科”——比如分析 expert info、softmax_lse、block_out 等内部指标的博客，感叹这类公开资料很少；有群友建议去读苏剑林（“苏神”）博客的“炼丹更科学”系列。",
+          "emphasis": [
+            "讲解怎么“看 pre-train 的内科”——比如分析 expert info、softmax_lse、block_out 等内部指标"
+          ],
+          "aiComment": "外行看热闹，内行想看 softmax_lse 和 expert info 的老中医号脉，最后还是得去翻苏神的科学炼丹炉。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:01",
+              "text": "分享一个不错的学习资源"
+            },
+            {
+              "speaker": 1,
+              "time": "09:01",
+              "text": "https://huggingface.co/spaces/nanotron/ultrascale-playbook/blob/5ee9a011dcafa685792ebe7b458a554d2e78c5d5/The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters.pdf"
+            },
+            {
+              "speaker": 1,
+              "time": "09:01",
+              "text": "[文件] The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters_简中版.pdf (11.8 MB, pdf, md5=df7505022a126a476edc48231eec7d32)"
+            },
+            {
+              "speaker": 2,
+              "time": "09:03",
+              "text": "[ThumbsUp]"
+            },
+            {
+              "speaker": 2,
+              "time": "09:03",
+              "text": "https://aleph-alpha.com/en/blog/scaling-pre-training-in-practice-a-hierarchical-approach"
+            },
+            {
+              "speaker": 2,
+              "time": "09:04",
+              "text": "我是从这个 blog 刷到这个 playbook 的，这个 blog 讲怎么提高 training efficiency，也挺不错的"
+            },
+            {
+              "speaker": 3,
+              "time": "09:13",
+              "text": "有什么 blog 是讲怎么看 pre-train 的内科的嘛, expert info, softmax_lse, block_out 那些啥的"
+            },
+            {
+              "speaker": 3,
+              "time": "09:13",
+              "text": "感觉网上的资料好少"
+            },
+            {
+              "speaker": 4,
+              "time": "09:30",
+              "text": "老大 可以借我几张卡练练手吗",
+              "quote": {
+                "speaker": null,
+                "text": "[文件] The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters_简中版.pdf"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "09:37",
+              "text": "nb，25年初就有了啊"
+            },
+            {
+              "speaker": 6,
+              "time": "09:55",
+              "text": "感谢大佬",
+              "quote": {
+                "speaker": 1,
+                "text": "[文件] The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters_简中版.pdf (11.8 MB, pdf, md5=df7505022a126a476edc48231eec7d32)"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "09:56",
+              "text": "英文版",
+              "quote": {
+                "speaker": 5,
+                "text": "nb，25年初就有了啊"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "10:15",
+              "text": "看看苏神blog，炼丹更科学系列",
+              "quote": {
+                "speaker": 3,
+                "text": "有什么 blog 是讲怎么看 pre-train 的内科的嘛, expert info, softmax_lse, block_out 那些啥的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:38",
+              "text": "好的 谢谢！",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 看看苏神blog，炼丹更科学系列"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Ultra-Scale Playbook",
+              "url": "https://huggingface.co/spaces/nanotron/ultrascale-playbook/blob/5ee9a011dcafa685792ebe7b458a554d2e78c5d5/The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters.pdf"
+            },
+            {
+              "kind": "article",
+              "label": "Aleph Alpha 预训练博客",
+              "url": "https://aleph-alpha.com/en/blog/scaling-pre-training-in-practice-a-hierarchical-approach"
+            }
+          ]
+        },
+        {
+          "category": "Agent评测",
+          "title": "Interaction Bench：当用户只丢下一句“地图拖不动”，Coding Agent 能修好几个？",
+          "text": "有群友分享了 LobeHub 团队开源的 Interaction Bench，专门评测 Coding Agent 在只有“地图无法正常拖动”“表单提交后缺少反馈”这类模糊非技术反馈、且隐藏原始 Bug 诊断和参考修复方案时，能否自主在真实应用中探索交互路径、定位并修复缺陷。首版包含来自 25 个真实开源应用的 44 项已合并 PR 任务，通过独立的 Scoring Agent 在修改后的应用中重新执行交互来验证结果，不拘泥于参考 PR 的实现方式。首批评测的六组配置中，表现最好的 GPT-6 Astra + Codex 完成了 34.1%（15/44），其余依次为 Claude Opus 5.5 + Claude Code（*7.3%，12/44）、DeepSeek Flash + DSH（15.9%，7/44）、GLM-5.3 Flash + ZCode（9.1%，4/44）、Qwen3.8 Max + Codex（6.8%，3/44）和 Kimi K3 + Kimi Code（4.5%，2/44）。",
+          "emphasis": [
+            "通过独立的 Scoring Agent 在修改后的应用中重新执行交互来验证结果",
+            "表现最好的 GPT-6 Astra + Codex 完成了 34.1%（15/44）"
+          ],
+          "aiComment": "44 个真实交互 Bug 丢过去，Kimi 默默交出 4.5% 的答卷，原来面对用户一句“操作没提示”，AI 比程序员还懵。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "借群分享一下我们LobeHub团队近期发布并开源的一项Agent评测工作：Interaction Bench。\n\n这项工作的出发点是一个很具体的问题：当Coding Agent只知道用户想要实现什么，却不知道问题发生在哪里时，它能否自主完成真实软件交互缺陷的定位、修复与验证？\n\n目前主流的Coding Agent Benchmark，已经能够比较系统地衡量代码生成、软件工程任务执行等能力。但在真实产品场景中，用户反馈往往是模糊且非技术性的，例如地图无法正常拖动、表单提交后缺少反馈、操作完成后没有提示等。\n这些问题要求Agent理解用户意图，在实际应用中探索交互路径，建立问题假设，修改代码，并通过运行结果验证修复是否有效。\n\n围绕这一场景，我们构建了Interaction Bench，尝试将评测对象进一步延伸到用户可感知的交互行为（User-perceived Interaction Behavior）。\n首个版本包含来自25个真实开源应用的44项任务，全部基于已经合并的真实修复PR构建。\n\n在评测设计上，我们主要关注三个方面：\n任务的真实性：保留真实应用的代码与运行环境，以用户意图作为任务输入，隐藏原始Bug诊断和参考修复方案，要求Agent独立完成问题调查与修复。\n结果的可验证性：通过独立的Scoring Agent，在修改后的应用中重新执行相关交互，依据经过人工审核的行为要求判断任务是否完成。不同于参考PR的实现方式，同样有机会通过评测。\n执行过程的可复现性：开放任务数据、评测Harness、模型配置与执行轨迹，支持对具体失败案例进行复现和分析。\n\n目前我们测试了六组模型与Harness配置，初步结果如下：\n- GPT-6 Astra + Codex：34.1%（15/44）\n- Claude Opus 5.5 + Claude Code：*7.3%（12/44）\n- DeepSeek Flash + DSH：15.9%（7/44）\n- GLM-5.3 Flash + ZCode：9.1%（4/44）\n- Qwen3.8 Max + Codex：6.8%（3/44）\n- Kimi K3 + Kimi Code：4.5%（2/44）\n\n一个比较有意思的发现是，即便表现最好的GPT-6 Astra，也只完成了约三分之一的任务。\n这说明，在真实交互场景中，从用户意图理解、环境探索、问题诊断，到修复执行与结果验证，整条Agent工作链路依然存在相当大的改进空间。\n\n我们认为，随着Agent逐渐进入真实的软件开发与产品使用场景，评测体系也需要更加关注任务完成后用户实际感受到的结果。\n\n目前项目仍处于0.1 Preview阶段，欢迎关注Agent Evaluation、Coding Agent、Agent Harness的研究者和开发者交流，也欢迎贡献任务、提出改进建议，或者给我们的开源项目点个Star支持一下。\n\n相关链接：\nGitHub：https://github.com/eval-sys/ibench\nProject Website：https://ibench.ai/\nLeaderboard：https://ibench.ai/leaderboard"
+            },
+            {
+              "speaker": 1,
+              "time": "11:53",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "11:55",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 3,
+              "time": "12:08",
+              "text": "强无敌，确实需要"
+            },
+            {
+              "speaker": 4,
+              "time": "12:13",
+              "text": "？",
+              "quote": {
+                "speaker": 3,
+                "text": "强无敌，确实需要"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:21",
+              "text": "发错群了"
+            },
+            {
+              "speaker": 3,
+              "time": "12:21",
+              "text": "太多agenthub"
+            },
+            {
+              "speaker": 2,
+              "time": "12:21",
+              "text": "原来 3 群不是 skrr 老师的家[流泪]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:22",
+              "text": "都是家"
+            },
+            {
+              "speaker": 3,
+              "time": "12:22",
+              "text": "我只是想在每个agenthub安一个家"
+            },
+            {
+              "speaker": 4,
+              "time": "12:22",
+              "text": "都是家"
+            },
+            {
+              "speaker": 5,
+              "time": "12:28",
+              "text": "好渣[可怜]",
+              "quote": {
+                "speaker": 3,
+                "text": "我只是想在每个agenthub安一个家"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:29",
+              "text": "[旺柴][旺柴]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Interaction Bench 仓库",
+              "url": "https://github.com/eval-sys/ibench"
+            },
+            {
+              "kind": "demo",
+              "label": "Interaction Bench 官网",
+              "url": "https://ibench.ai"
+            }
+          ]
+        },
+        {
+          "category": "Agent评测",
+          "title": "Co-Design Bench：单任务平均过七成验收点，但全部达标的仅占四分之一",
+          "text": "有群友分享了 Qwen 开源的多模态协同编程评测基准 Co-Design Bench，考察 Coding Agent 根据用户给出的截图、视频或文档修改已有应用的界面与功能并实际跑通的能力。该基准从 2.6 万余段真实用户编程会话中整理出 273 个任务和 2,331 项专家验收标准，覆盖布局、交互、状态更新与跨文件联动。评测采用无需标准答案代码或目标截图的 judge-then-refute（先评判，再反驳）流程：先通过源码检查和浏览器实测逐条验收，再由独立验证器复核“已完成”的判断。在统一 Agent 框架下测试的 10 个模型里，最佳模型单任务平均能通过 69.9% 的验收条目，但所有验收点全部达标的任务仅占 26.4%。",
+          "emphasis": [
+            "先通过源码检查和浏览器实测逐条验收，再由独立验证器复核“已完成”的判断",
+            "最佳模型单任务平均能通过 69.9% 的验收条目，但所有验收点全部达标的任务仅占 26.4%"
+          ],
+          "aiComment": "单任务验收点能过七成，但全对的只有 26.4%，完美还原了“大体能跑但到处是小毛病”的联调现场。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:36",
+              "text": "家人们 也宣传一下我们最近在 Qwen 做的 Co-Design Bench工作[抱拳][抱拳]\n\n这是一个面向真实用户需求的多模态协同编程评测基准：用户给出截图、视频或文档，Coding Agent 需要理解需求，把已有应用的界面和功能改到位，并真正跑通。\n\n我们从 2.6 万余段真实用户编程会话中整理出 273 个任务、2,331 项专家验收标准，覆盖多模态编辑与仓库级修改，考察布局、交互、状态更新和跨文件联动等相互关联的需求。\n\n评测采用 judge-then-refute（先评判，再反驳）：通过源码检查和浏览器实测逐条验收，再由独立验证器复核“已完成”的判断，无需标准答案代码或目标截图。\n\n在统一 Agent 框架下评测 10 个模型，最佳模型每个任务平均通过 69.9% 的验收条目，但全部达标的任务仅有 26.4%。满足真实用户的完整需求，仍有很大的提升空间。\n\n论文、代码和部分脱敏数据已公开，欢迎使用、交流，一起探索如何让 Coding Agent 更可靠地满足真实用户需求～\n\n📄 Paper：https://arxiv.org/abs/2610.35138\n🤗 Hugging Face Daily Paper：https://huggingface.co/papers/2610.35138\n🔗 Code：https://github.com/Wiselnn570/Co-Design-Bench\n🌐 主页与案例：https://codesignbench.github.io/"
+            },
+            {
+              "speaker": 1,
+              "time": "13:36",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "13:36",
+              "text": "狠狠学"
+            },
+            {
+              "speaker": 3,
+              "time": "13:37",
+              "text": "萌萌学"
+            },
+            {
+              "speaker": 4,
+              "time": "13:37",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 5,
+              "time": "13:39",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 6,
+              "time": "13:53",
+              "text": "ysxx"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Co-Design Bench 论文",
+              "url": "https://arxiv.org/abs/2610.35138"
+            },
+            {
+              "kind": "code",
+              "label": "Co-Design Bench 仓库",
+              "url": "https://github.com/Wiselnn570/Co-Design-Bench"
+            },
+            {
+              "kind": "demo",
+              "label": "Co-Design Bench 主页",
+              "url": "https://codesignbench.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "模型订阅与配额",
+          "title": "Claude 封号重灾区催生北美 Mac mini 租机潮，OpenAI 付费档额度翻倍获好评",
+          "text": "有群友深夜求问不走第三方代充和中转站的 Claude 稳定账号方案，引发一片共鸣。有人晒出账户暂停截图感叹“漏头就秒”，并调侃 Anthropic 招股书里光封号收入就有 12 亿美元，“薄纱国内 AI 公司”；有人分享用注册时间久的老 Gmail 配合 Google 商店充值或美区 App Store 订阅更稳，即使每天在美日荷 IP 之间乱飞也没事（自称靠 Pixel 加持，被群友调侃成“高净值商务用户”）。还有群友提到现在甚至出现了在北美租用 Mac mini 跑 Claude 的创业服务（月租约 160 美元），或者把 Mac mini 当转发中转站接进 GPU 服务器使用。\n\n几乎同一时段，有群友晒出 OpenAI 宣布即日起将 Pro 100/200/500 及 Business Premium 各档位使用限额全部翻倍、且取消下调 Pro 200 限额的推文截图。正准备用完额度的群友发现余量突然多出一半，起初还以为遇到了 bug，确认后纷纷刷屏感叹“我宣布我又爱 OpenAI 了”，被调侃昨天还在说爱 Gemini。",
+          "emphasis": [
+            "现在甚至出现了在北美租用 Mac mini 跑 Claude 的创业服务（月租约 160 美元）",
+            "将 Pro 100/200/500 及 Business Premium 各档位使用限额全部翻倍"
+          ],
+          "aiComment": "一边是为了保住 Claude 账号被迫去北美月租 160 刀的 Mac mini，另一边 OpenAI 反手把 Pro 额度翻倍，赛博渣男连夜宣布重回初恋怀抱。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:37",
+              "text": "uu们有无稳定的claude账号，不走第三方代充和中转站的前提下，人麻了已经"
+            },
+            {
+              "speaker": 2,
+              "time": "00:45",
+              "text": "中国人➕IP就很难稳定了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:45",
+              "text": "Claude太狠了"
+            },
+            {
+              "speaker": 3,
+              "time": "00:46",
+              "text": "用谷歌商店充值",
+              "quote": {
+                "speaker": 1,
+                "text": "uu们有无稳定的claude账号，不走第三方代充和中转站的前提下，人麻了已经"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:46",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "00:47",
+              "text": "漏头就秒"
+            },
+            {
+              "speaker": 2,
+              "time": "00:47",
+              "text": "A\\招股书还写了封号收入[捂脸]"
+            },
+            {
+              "speaker": 4,
+              "time": "00:48",
+              "text": "有个时间久的gmail账号感觉稳一点"
+            },
+            {
+              "speaker": 1,
+              "time": "00:48",
+              "text": "感觉是不是得专门搞个服务器呢，用啥冲感觉都会被秒[捂脸]",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 用谷歌商店充值"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:48",
+              "text": "封号收入12亿刀",
+              "quote": {
+                "speaker": null,
+                "text": "A\\招股书还写了封号收入[Facepalm]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:48",
+              "text": "薄纱国内ai公司"
+            },
+            {
+              "speaker": 5,
+              "time": "00:49",
+              "text": "光封号的钱就是别人营收了"
+            },
+            {
+              "speaker": 5,
+              "time": "00:49",
+              "text": "[破涕为笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "00:49",
+              "text": "对",
+              "quote": {
+                "speaker": 4,
+                "text": "有个时间久的gmail账号感觉稳一点"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:49",
+              "text": "而且我每天 ip 乱飞"
+            },
+            {
+              "speaker": 3,
+              "time": "00:49",
+              "text": "美国日本荷兰"
+            },
+            {
+              "speaker": 6,
+              "time": "00:50",
+              "text": "万一你在参加二战呢",
+              "quote": {
+                "speaker": 3,
+                "text": "美国日本荷兰"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "00:50",
+              "text": "我觉得很合理"
+            },
+            {
+              "speaker": 1,
+              "time": "00:51",
+              "text": "不排除这种可能性[旺柴]"
+            },
+            {
+              "speaker": 7,
+              "time": "01:00",
+              "text": "[奸笑]这号感觉是真硬吧",
+              "quote": {
+                "speaker": 3,
+                "text": "而且我每天 ip 乱飞"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:01",
+              "text": "[捂脸]现在已经快进到在北美租mac mini来用claude了",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 感觉是不是得专门搞个服务器呢，用啥冲感觉都会被秒[捂脸]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:01",
+              "text": "这个一个月租金多少呀",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [捂脸]现在已经快进到在北美租mac mini来用claude了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "01:01",
+              "text": "已被标记为高净值商务用户[旺柴]",
+              "quote": {
+                "speaker": 3,
+                "text": "而且我每天 ip 乱飞"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:02",
+              "text": "[奸笑]看有创业的，160刀一个月",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这个一个月租金多少呀"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:02",
+              "text": "[奸笑]这感觉比老黄还赚钱啊"
+            },
+            {
+              "speaker": 9,
+              "time": "01:02",
+              "text": "已被标记为高净值商务用户[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:02",
+              "text": "北美丁胖子金牌讲师吗",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [奸笑]看有创业的，160刀一个月"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:02",
+              "text": "[旺柴]"
+            },
+            {
+              "speaker": 7,
+              "time": "01:02",
+              "text": "三个月回本"
+            },
+            {
+              "speaker": 3,
+              "time": "01:03",
+              "text": "我怎么感觉真的是 pixel 的功劳",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [奸笑]这号感觉是真硬吧"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:03",
+              "text": "[旺柴]讲师不能过kyc啊",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 北美丁胖子金牌讲师吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "有点小贵呀，这一个快朝着一个max贵了",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [奸笑]看有创业的，160刀一个月"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "01:03",
+              "text": "claude 不能在 gpu 里用 感觉没意思啊",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [捂脸]现在已经快进到在北美租mac mini来用claude了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:03",
+              "text": "[奸笑]不然还真能闭环了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "讲师有打野兄弟啊",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [旺柴]讲师不能过kyc啊"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:03",
+              "text": "转发就好了",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] claude 不能在 gpu 里用 感觉没意思啊"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "01:03",
+              "text": "随便用的"
+            },
+            {
+              "speaker": 6,
+              "time": "01:04",
+              "text": "mac mini是中转站"
+            },
+            {
+              "speaker": 7,
+              "time": "01:04",
+              "text": "[奸笑]那些哥们真的有护照吗[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 讲师有打野兄弟啊"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "01:05",
+              "text": "感觉 App store 美区订阅 比较稳? 被封了号好像还可以找苹果把钱退了 (",
+              "quote": {
+                "speaker": 1,
+                "text": "uu们有无稳定的claude账号，不走第三方代充和中转站的前提下，人麻了已经"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:05",
+              "text": "[奸笑]还有另一条路，重新拿起网工教材，和a/斗智斗勇",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [奸笑]看有创业的，160刀一个月"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:05",
+              "text": "护照成本应该不高哈哈哈"
+            },
+            {
+              "speaker": 1,
+              "time": "01:05",
+              "text": "能退吗？之前好像听说可以退款，现在好像不太行诶",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 感觉 App store 美区订阅 比较稳? 被封了号好像还可以找苹果把钱退了 ("
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:06",
+              "text": "以后转行给公司做模型服务维护[奸笑]",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] [奸笑]还有另一条路，重新拿起网工教材，和a/斗智斗勇"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:06",
+              "text": "谷歌真给退",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 感觉 App store 美区订阅 比较稳? 被封了号好像还可以找苹果把钱退了 ("
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "01:09",
+              "text": "我还没被封，小红书上说行，等封了可以试试（",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 能退吗？之前好像听说可以退款，现在好像不太行诶"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "01:50",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 12,
+              "time": "01:57",
+              "text": "本来要用完了，一看又多了一半，还以为是bug[破涕为笑]"
+            },
+            {
+              "speaker": 8,
+              "time": "01:58",
+              "text": "wc"
+            },
+            {
+              "speaker": 13,
+              "time": "02:12",
+              "text": "wc"
+            },
+            {
+              "speaker": 5,
+              "time": "02:14",
+              "text": "我宣布我又爱openai了"
+            },
+            {
+              "speaker": 14,
+              "time": "02:18",
+              "text": "wc"
+            },
+            {
+              "speaker": 8,
+              "time": "02:27",
+              "text": "坏男孩",
+              "quote": {
+                "speaker": 5,
+                "text": "我宣布我又爱openai了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "02:28",
+              "text": "昨天还说爱gemini"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "缺少准确 Verifier 时 RSI 怎么走，转向无标准娱乐赛道？",
+      "theme": "同场关注 Interaction Bench 模糊交互反馈评测、mossimage 生图体验与大模型数据岗前景",
+      "note": "2026-10-30 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent评测",
+          "title": "Interaction Bench 开源：当 Coding Agent 只有一句模糊的用户抱怨",
+          "text": "有群友分享了 LobeHub 团队开源的 Coding Agent 评测基准 Interaction Bench（0.1 Preview）。主流评测多聚焦代码生成与工程任务执行，而这项工作关注用户可感知的交互行为：当输入只有“地图无法正常拖动”“表单提交后缺少反馈”“操作完成后没有提示”这类模糊、非技术性的用户反馈时，Agent 能否在不知道问题位置的情况下，自己探索交互路径、定位缺陷、修改代码并验证修复效果。\n\n首个版本包含来自 25 个真实开源应用的 44 项任务，全部基于已合并的真实修复 PR 构建。评测保留了原应用的代码与运行环境，隐藏原始 Bug 诊断和参考修复方案；修复完成后，由独立的 Scoring Agent 在应用中重新执行交互，按人工审核的行为要求评判是否通过，因此不同于参考 PR 的实现方式也能得分。\n\n分享中附带了六组模型与 Harness 配置的测试结果：GPT-6 Astra + Codex 以 34.1%（15/44）排在首位，其后依次是 Claude Opus 5.5 + Claude Code（*7.3%，12/44）、DeepSeek Flash + DSH（15.9%，7/44）、GLM-5.3 Flash + ZCode（9.1%，4/44）、Qwen3.8 Max + Codex（6.8%，3/44）和 Kimi K3 + Kimi Code（4.5%，2/44）。表现最好的 GPT-6 Astra 也只完成了约三分之一的任务。看到榜单后，有群友疑惑为什么日常总感觉 Opus 5.5 更好用，另一位群友猜测是因为 Astra 很卡。",
+          "emphasis": [
+            "自己探索交互路径、定位缺陷、修改代码并验证修复效果",
+            "由独立的 Scoring Agent 在应用中重新执行交互",
+            "表现最好的 GPT-6 Astra 也只完成了约三分之一的任务"
+          ],
+          "aiComment": "Astra 拿了 34.1% 排第一，群友却觉得 27.3% 的 Opus 5.5 更好用，原来决定体感的还有卡不卡手。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:51",
+              "text": "怎么撤回了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:51",
+              "text": "刚看了一半"
+            },
+            {
+              "speaker": 3,
+              "time": "11:52",
+              "text": "压缩了（"
+            },
+            {
+              "speaker": 3,
+              "time": "11:52",
+              "text": "稍等"
+            },
+            {
+              "speaker": 4,
+              "time": "11:52",
+              "text": "？"
+            },
+            {
+              "speaker": 3,
+              "time": "11:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "11:53",
+              "text": "借群分享一下我们LobeHub团队近期发布并开源的一项Agent评测工作：Interaction Bench。\n\n这项工作的出发点是一个很具体的问题：当Coding Agent只知道用户想要实现什么，却不知道问题发生在哪里时，它能否自主完成真实软件交互缺陷的定位、修复与验证？\n\n目前主流的Coding Agent Benchmark，已经能够比较系统地衡量代码生成、软件工程任务执行等能力。但在真实产品场景中，用户反馈往往是模糊且非技术性的，例如地图无法正常拖动、表单提交后缺少反馈、操作完成后没有提示等。\n这些问题要求Agent理解用户意图，在实际应用中探索交互路径，建立问题假设，修改代码，并通过运行结果验证修复是否有效。\n\n围绕这一场景，我们构建了Interaction Bench，尝试将评测对象进一步延伸到用户可感知的交互行为（User-perceived Interaction Behavior）。\n首个版本包含来自25个真实开源应用的44项任务，全部基于已经合并的真实修复PR构建。\n\n在评测设计上，我们主要关注三个方面：\n任务的真实性：保留真实应用的代码与运行环境，以用户意图作为任务输入，隐藏原始Bug诊断和参考修复方案，要求Agent独立完成问题调查与修复。\n结果的可验证性：通过独立的Scoring Agent，在修改后的应用中重新执行相关交互，依据经过人工审核的行为要求判断任务是否完成。不同于参考PR的实现方式，同样有机会通过评测。\n执行过程的可复现性：开放任务数据、评测Harness、模型配置与执行轨迹，支持对具体失败案例进行复现和分析。\n\n目前我们测试了六组模型与Harness配置，初步结果如下：\n- GPT-6 Astra + Codex：34.1%（15/44）\n- Claude Opus 5.5 + Claude Code：*7.3%（12/44）\n- DeepSeek Flash + DSH：15.9%（7/44）\n- GLM-5.3 Flash + ZCode：9.1%（4/44）\n- Qwen3.8 Max + Codex：6.8%（3/44）\n- Kimi K3 + Kimi Code：4.5%（2/44）\n\n一个比较有意思的发现是，即便表现最好的GPT-6 Astra，也只完成了约三分之一的任务。\n这说明，在真实交互场景中，从用户意图理解、环境探索、问题诊断，到修复执行与结果验证，整条Agent工作链路依然存在相当大的改进空间。\n\n我们认为，随着Agent逐渐进入真实的软件开发与产品使用场景，评测体系也需要更加关注任务完成后用户实际感受到的结果。\n\n目前项目仍处于0.1 Preview阶段，欢迎关注Agent Evaluation、Coding Agent、Agent Harness的研究者和开发者交流，也欢迎贡献任务、提出改进建议，或者给我们的开源项目点个Star支持一下。\n\n相关链接：\nGitHub：https://github.com/eval-sys/ibench\nProject Website：https://ibench.ai/\nLeaderboard：https://ibench.ai/leaderboard"
+            },
+            {
+              "speaker": 3,
+              "time": "11:53",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 4,
+              "time": "11:53",
+              "text": "@LobeHub—MaxFor AI 禁止hack AHAA"
+            },
+            {
+              "speaker": 1,
+              "time": "11:54",
+              "text": "怎么没有测试lobehub"
+            },
+            {
+              "speaker": 5,
+              "time": "11:56",
+              "text": "但是为什么总感觉opus 5.5就是好用点"
+            },
+            {
+              "speaker": 6,
+              "time": "11:57",
+              "text": "题这么难吗 我也来做做",
+              "quote": {
+                "speaker": 3,
+                "text": "借群分享一下我们LobeHub团队近期发布并开源的一项Agent评测工作：Interaction Bench。 这项工作的出发点是一个很具体的问题：当Codin..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:57",
+              "text": "[害羞]"
+            },
+            {
+              "speaker": 7,
+              "time": "11:58",
+              "text": "又蹭pr"
+            },
+            {
+              "speaker": 3,
+              "time": "11:58",
+              "text": "没模型（",
+              "quote": {
+                "speaker": 1,
+                "text": "怎么没有测试lobehub"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:58",
+              "text": "等我们发"
+            },
+            {
+              "speaker": 3,
+              "time": "11:58",
+              "text": "训完了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:58",
+              "text": "你们自己训了模型"
+            },
+            {
+              "speaker": 4,
+              "time": "11:58",
+              "text": "多大的农行"
+            },
+            {
+              "speaker": 1,
+              "time": "11:58",
+              "text": "这么强"
+            },
+            {
+              "speaker": 4,
+              "time": "11:58",
+              "text": "模型"
+            },
+            {
+              "speaker": 4,
+              "time": "11:58",
+              "text": "来点内测消息"
+            },
+            {
+              "speaker": 7,
+              "time": "11:58",
+              "text": "@LobeHub—MaxFor AI v个offer哥"
+            },
+            {
+              "speaker": 4,
+              "time": "11:58",
+              "text": "看看reward"
+            },
+            {
+              "speaker": 8,
+              "time": "11:59",
+              "text": "是不是因为astra很卡"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Interaction Bench 仓库",
+              "url": "https://github.com/eval-sys/ibench"
+            },
+            {
+              "kind": "demo",
+              "label": "Interaction Bench 官网",
+              "url": "https://ibench.ai"
+            }
+          ]
+        },
+        {
+          "category": "研究方向",
+          "title": "缺少准确 Verifier 时 RSI 提升有限，群友热议 Unverifiable 难题与娱乐赛道",
+          "text": "有群友回忆起一篇论文：在缺少准确 verification 的场景下做 RSI，发现提升非常有限。有人觉得这很显然，也正因如此数学和代码成了 LLM 的强项。围绕这类缺乏准确验证的场景还有什么应用方向或解法，有群友想起田渊栋在访谈中提过想做“不好定义的问题”，也就是没有好的 verifier 的问题，并顺带吐槽现在“有个 loop 就能叫 RSI，autoresearch 写了就投，安得水会千万篇”。\n\n另一位群友认为，除了影视、娱乐等日常与人交互、由人握有主观定夺权的领域，其他方向靠人去制定标准已经跟不上 AI 发展的速度。有人顺势提议去做娱乐，走“AI for fun”和“research for fun”路线。聊到市面上已有的 AI 短剧和刚出来的漫剧，有群友指出目前同质化太严重，而且想让 AI 理解人的猎奇需求依然很难，还容易触发各种违规限制。提议做娱乐方向的群友则认为正因为难才要做：“verifiable 的问题做起来没意思，标准都是死的，unverifiable 的做起来比较有意思。”也有人表示这一方向目前进展有限，但很有挑战。",
+          "emphasis": [
+            "在缺少准确 verification 的场景下做 RSI，发现提升非常有限",
+            "verifiable 的问题做起来没意思，标准都是死的，unverifiable 的做起来比较有意思"
+          ],
+          "aiComment": "有个 loop 就敢叫 RSI，转头想靠不可验证的娱乐赛道整点猎奇活，结果还要先跟违规限制斗智斗勇。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:10",
+              "text": "忘了哪篇论文了，在缺少准确verification的场景做了RSI，发现提升非常有限"
+            },
+            {
+              "speaker": 2,
+              "time": "10:50",
+              "text": "这似乎是显然的（"
+            },
+            {
+              "speaker": 3,
+              "time": "10:51",
+              "text": "所以数学和代码是llm的强项[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "11:01",
+              "text": "✅",
+              "quote": {
+                "speaker": 2,
+                "text": "这似乎是显然的（"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:02",
+              "text": "正解，关键是这种场景，嗯…，大家还能想到比较好的应用场景或者是解决方法吗，有什么推荐嘛"
+            },
+            {
+              "speaker": 2,
+              "time": "11:08",
+              "text": "我记得 那谁 田渊栋再访谈里说 他要做那种 不好定义的问题. 我理解就是没有好的verifier的那种问题,但是看最近发的模型也一般 不知道是不是为了哄投资人",
+              "quote": {
+                "speaker": 4,
+                "text": "正解，关键是这种场景，嗯…，大家还能想到比较好的应用场景或者是解决方法吗，有什么推荐嘛"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:09",
+              "text": "反正现在有个loop就能叫 RSI autoresearch写了就投, 安得水会千万篇"
+            },
+            {
+              "speaker": 5,
+              "time": "11:11",
+              "text": "实话说 让人去制定标准已经不现实了，除了日常跟人交互的领域（影视、娱乐等）人有主观定夺权利，其他的，真的能有人能跟得上AI发展的速度么"
+            },
+            {
+              "speaker": 6,
+              "time": "11:12",
+              "text": "所以要做娱乐啊"
+            },
+            {
+              "speaker": 7,
+              "time": "11:12",
+              "text": "拿了太多钱导致的",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我记得 那谁 田渊栋再访谈里说 他要做那种 不好定义的问题. 我理解就是没有好的verifier的那种问题,但是看最近发的模型也一般 不知道是不是为了哄投资人"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:12",
+              "text": "ai for fun"
+            },
+            {
+              "speaker": 6,
+              "time": "11:12",
+              "text": "research for fun"
+            },
+            {
+              "speaker": 6,
+              "time": "11:12",
+              "text": "都是好方向"
+            },
+            {
+              "speaker": 2,
+              "time": "11:12",
+              "text": "我看 ai for av也未尝不可("
+            },
+            {
+              "speaker": 8,
+              "time": "11:12",
+              "text": "不是有吗"
+            },
+            {
+              "speaker": 2,
+              "time": "11:12",
+              "text": "research as fun",
+              "quote": {
+                "speaker": 6,
+                "text": "research for fun"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:12",
+              "text": "这早成熟了",
+              "quote": {
+                "speaker": 2,
+                "text": "我看 ai for av也未尝不可("
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:12",
+              "text": "？",
+              "quote": {
+                "speaker": 2,
+                "text": "我看 ai for av也未尝不可("
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "11:13",
+              "text": "我看有ai短剧"
+            },
+            {
+              "speaker": 7,
+              "time": "11:13",
+              "text": "黄果！启动！"
+            },
+            {
+              "speaker": 5,
+              "time": "11:13",
+              "text": "漫剧刚出来"
+            },
+            {
+              "speaker": 2,
+              "time": "11:13",
+              "text": "6"
+            },
+            {
+              "speaker": 8,
+              "time": "11:13",
+              "text": "名字我就不说了 大家应该都知道"
+            },
+            {
+              "speaker": 5,
+              "time": "11:13",
+              "text": "早就爆了这个"
+            },
+            {
+              "speaker": 5,
+              "time": "11:13",
+              "text": "同质化太严重了现在"
+            },
+            {
+              "speaker": 9,
+              "time": "11:14",
+              "text": "就好了"
+            },
+            {
+              "speaker": 9,
+              "time": "11:14",
+              "text": "生成区来了，都让让"
+            },
+            {
+              "speaker": 5,
+              "time": "11:15",
+              "text": "AI For Fun 还是比较难做的，因为让AI试图理解人的猎奇需求（真的，我感觉猎奇是第一原动力了[捂脸][捂脸][捂脸]）目前来说还是挺难的（各种违规[旺柴]）"
+            },
+            {
+              "speaker": 2,
+              "time": "11:15",
+              "text": "学会了",
+              "quote": {
+                "speaker": 9,
+                "text": "就好了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:25",
+              "text": "难做",
+              "quote": {
+                "speaker": 5,
+                "text": "AI For Fun 还是比较难做的，因为让AI试图理解人的猎奇需求（真的，我感觉猎奇是第一原动力了[捂脸][捂脸][捂脸]）目前来说还是挺难的（各种违规[旺柴..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:25",
+              "text": "所以要做"
+            },
+            {
+              "speaker": 6,
+              "time": "11:25",
+              "text": "verifiable的问题做起来没意思啊"
+            },
+            {
+              "speaker": 6,
+              "time": "11:25",
+              "text": "标准都是死的"
+            },
+            {
+              "speaker": 6,
+              "time": "11:25",
+              "text": "unverifiable的做起来比较有意思"
+            },
+            {
+              "speaker": 10,
+              "time": "11:29",
+              "text": "绷啊",
+              "quote": {
+                "speaker": 9,
+                "text": "生成区来了，都让让"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "11:29",
+              "text": "是的",
+              "quote": {
+                "speaker": 6,
+                "text": "unverifiable的做起来比较有意思"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "11:30",
+              "text": "这个感觉目前进展有限[旺柴] 但是很有挑战",
+              "quote": {
+                "speaker": 6,
+                "text": "unverifiable的做起来比较有意思"
+              }
+            }
+          ]
+        },
+        {
+          "category": "多模态生成",
+          "title": "mossimage 体验：5B 本体配 9B 语言理解，靠 VAE 16 倍压缩撑起画风",
+          "text": "几位群友体验并讨论了生图模型 mossimage。有人晒出 demo 画廊截图，多位群友觉得出图效果很强，画风很像 wallhaven 壁纸、Steam 截图或游戏宣传片；不过也有人注意到截图右下角的小女生看着有些诡异，另一位群友分析这是因为人像真实度 reward 和美学没特别兼容好。此外，有群友反映写提示词时经常遇到拒绝。\n\n聊到模型规模，体验过的群友提到该模型本体是 5B 参数，外挂了一个 9B 的语言理解模型，感叹“真的 5B 就够了”。另一位群友解释这和语言模型不同：diffusion 不需要那么多 kv cache，而且 VAE 天生自带 16 倍压缩。",
+          "emphasis": [
+            "人像真实度 reward 和美学没特别兼容好",
+            "diffusion 不需要那么多 kv cache，而且 VAE 天生自带 16 倍压缩"
+          ],
+          "aiComment": "5B 本体背着个 9B 的语言理解外挂，靠 VAE 16 倍压缩撑起壁纸级画风，就是右下角的小姑娘还在努力协调真实感和美学。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:13",
+              "text": "我刚玩了玩mossimage"
+            },
+            {
+              "speaker": 1,
+              "time": "11:13",
+              "text": "( ఠൠఠ )ﾉ"
+            },
+            {
+              "speaker": 1,
+              "time": "11:13",
+              "text": "就是写提示词经常被拒绝("
+            },
+            {
+              "speaker": 1,
+              "time": "11:13",
+              "text": "逼得我要去开grok会员了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:14",
+              "text": "你进pipeline里面把prompt enhancer关掉",
+              "quote": {
+                "speaker": 1,
+                "text": "就是写提示词经常被拒绝("
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:14",
+              "text": "就好了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:14",
+              "text": "生成区来了，都让让"
+            },
+            {
+              "speaker": 1,
+              "time": "11:15",
+              "text": "学会了",
+              "quote": {
+                "speaker": 2,
+                "text": "就好了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:29",
+              "text": "绷啊",
+              "quote": {
+                "speaker": 2,
+                "text": "生成区来了，都让让"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:32",
+              "text": "这个moss的demo图还不错吧"
+            },
+            {
+              "speaker": 3,
+              "time": "11:32",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "11:32",
+              "text": "[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "11:32",
+              "text": "moss image 很强"
+            },
+            {
+              "speaker": 5,
+              "time": "11:33",
+              "text": "很强啊"
+            },
+            {
+              "speaker": 3,
+              "time": "11:33",
+              "text": "右下角那个小女生好诡异呀"
+            },
+            {
+              "speaker": 6,
+              "time": "11:33",
+              "text": "这个画风怎么这么像wallpaper"
+            },
+            {
+              "speaker": 7,
+              "time": "11:34",
+              "text": "对啊"
+            },
+            {
+              "speaker": 1,
+              "time": "11:34",
+              "text": "符合体感"
+            },
+            {
+              "speaker": 7,
+              "time": "11:34",
+              "text": "训了什么"
+            },
+            {
+              "speaker": 1,
+              "time": "11:34",
+              "text": "所以真的5b就够了"
+            },
+            {
+              "speaker": 7,
+              "time": "11:34",
+              "text": "哦，我想起来了，前两天生图群在讨论这个模型"
+            },
+            {
+              "speaker": 7,
+              "time": "11:34",
+              "text": "就是说的风格特别好"
+            },
+            {
+              "speaker": 7,
+              "time": "11:34",
+              "text": "就steam截图风格游戏宣传片风格就是那样，各种各样的风格"
+            },
+            {
+              "speaker": 1,
+              "time": "11:34",
+              "text": "贼牛逼"
+            },
+            {
+              "speaker": 2,
+              "time": "11:34",
+              "text": "人像真实度reward和美学没特别兼容好"
+            },
+            {
+              "speaker": 2,
+              "time": "11:34",
+              "text": "是这样的"
+            },
+            {
+              "speaker": 1,
+              "time": "11:34",
+              "text": "当然最重要的是无审查（"
+            },
+            {
+              "speaker": 5,
+              "time": "11:34",
+              "text": "5b吗"
+            },
+            {
+              "speaker": 5,
+              "time": "11:34",
+              "text": "那无敌了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:35",
+              "text": "外挂了一个9b的语言理解"
+            },
+            {
+              "speaker": 3,
+              "time": "11:35",
+              "text": "[勾引]",
+              "quote": {
+                "speaker": 1,
+                "text": "当然最重要的是无审查（"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:35",
+              "text": "细说 shy哥哥",
+              "quote": {
+                "speaker": 2,
+                "text": "人像真实度reward和美学没特别兼容好"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:35",
+              "text": "说错了，wallhaven",
+              "quote": {
+                "speaker": 6,
+                "text": "这个画风怎么这么像wallpaper"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:35",
+              "text": "你咋啥也学？"
+            },
+            {
+              "speaker": 7,
+              "time": "11:36",
+              "text": "[憨笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "11:36",
+              "text": "学杂费交了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:36",
+              "text": "human4fun",
+              "quote": {
+                "speaker": 2,
+                "text": "你咋啥也学？"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:37",
+              "text": "不一样啊，diffusion不需要那么多kv cache，而且vae天生压缩的",
+              "quote": {
+                "speaker": 1,
+                "text": "所以真的5b就够了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:37",
+              "text": "16倍压缩"
+            },
+            {
+              "speaker": 2,
+              "time": "11:38",
+              "text": "直接给你牛子压倒1毫米！"
+            },
+            {
+              "speaker": 8,
+              "time": "11:40",
+              "text": "太狠了",
+              "quote": {
+                "speaker": 2,
+                "text": "直接给你牛子压倒1毫米！"
+              }
+            }
+          ]
+        },
+        {
+          "category": "职业发展",
+          "title": "垂类基模实习与大模型数据岗之争：“数据哪儿都要，但不是所有数据都要”",
+          "text": "有群友拿到医疗大模型基模方向的实习机会，工作内容写着“数据和后训练”，但因个人不太喜欢医疗领域，拿不准学到的东西在其他方向受不受认可。有人觉得核心岗还可以，也有群友调侃写着“数据和后训练”实际上就是做数据。\n\n围绕大模型数据岗的前景，群里出现了不同看法。一方认为现在做数据挺火，“数据哪儿都要的，没有数据大模型咋训练”；另一位群友则提醒，“数据哪儿都要但不是所有的数据都要”，如果做出来的数据扔给预训练（pt）团队都要被过滤掉，那就真没办法找工作了。",
+          "emphasis": [
+            "写着“数据和后训练”实际上就是做数据",
+            "数据哪儿都要但不是所有的数据都要"
+          ],
+          "aiComment": "岗位写着“数据和后训练”，进去怕是只有前半句，最扎心的是辛辛苦苦洗完的数据转头被预训练团队一键过滤。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:15",
+              "text": "医疗大模型的基模实习大家觉得值得去吗"
+            },
+            {
+              "speaker": 2,
+              "time": "13:18",
+              "text": "阿福？"
+            },
+            {
+              "speaker": 3,
+              "time": "13:26",
+              "text": "想起了港中深的华佗 GPT）"
+            },
+            {
+              "speaker": 4,
+              "time": "13:30",
+              "text": "核心岗感觉还行吧",
+              "quote": {
+                "speaker": 1,
+                "text": "医疗大模型的基模实习大家觉得值得去吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "可是内心不是很喜欢医疗",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 核心岗感觉还行吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "[流泪]"
+            },
+            {
+              "speaker": 1,
+              "time": "14:02",
+              "text": "学到的东西其他的认吗"
+            },
+            {
+              "speaker": 5,
+              "time": "14:04",
+              "text": "医疗方向工作内容上主要是后训练吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "14:25",
+              "text": "数据和后训练",
+              "quote": {
+                "speaker": 5,
+                "text": "医疗方向工作内容上主要是后训练吗？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:29",
+              "text": "那就是数据了[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 数据和后训练"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:34",
+              "text": "可是感觉现在数据挺火的哎[可怜]",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 那就是数据了[旺柴]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:38",
+              "text": "没有"
+            },
+            {
+              "speaker": 8,
+              "time": "14:38",
+              "text": "数据哪儿都要的"
+            },
+            {
+              "speaker": 9,
+              "time": "14:38",
+              "text": "数据哪儿都要但不是所有的数据都要（",
+              "quote": {
+                "speaker": 8,
+                "text": "数据哪儿都要的"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:38",
+              "text": "没有数据大模型咋训练"
+            },
+            {
+              "speaker": 8,
+              "time": "14:38",
+              "text": "[旺柴]"
+            },
+            {
+              "speaker": 9,
+              "time": "14:38",
+              "text": "有的人的数据扔给pt的人都要被过滤掉"
+            },
+            {
+              "speaker": 9,
+              "time": "14:39",
+              "text": "那是真没办法找工作了"
+            },
+            {
+              "speaker": 10,
+              "time": "18:23",
+              "text": "百川？",
+              "quote": {
+                "speaker": 1,
+                "text": "医疗大模型的基模实习大家觉得值得去吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:25",
+              "text": "不是不是别猜了[可怜][可怜][可怜]",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 百川？"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "19:25",
+              "text": "医疗还有啥呢[旺柴]"
+            },
+            {
+              "speaker": 11,
+              "time": "19:25",
+              "text": "好难猜啊"
+            },
+            {
+              "speaker": 12,
+              "time": "19:27",
+              "text": "[旺柴][旺柴]"
+            }
+          ]
+        },
+        {
+          "category": "论文分享",
+          "title": "arXiv 论文分享：审视 AI 科研评测与实验乱象",
+          "text": "有群友转发了一篇题为《135篇论文全军覆没！CMU揭穿9大顶尖AI科研骗局：84%在偷偷做假账》的公众号文章，随后补上了对应的 arXiv 论文链接（2610.19159v1），感叹“很现实”。",
+          "emphasis": [
+            "对应的 arXiv 论文链接（2610.19159v1）"
+          ],
+          "aiComment": "公众号标题喊着 135 篇全军覆没和 84% 假账，群友默默递上 arXiv 原文，千言万语汇成一句“很现实”。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:05",
+              "text": "[链接] 135篇论文全军覆没！CMU揭穿9大顶尖AI科研骗局：84%在偷偷做假账\n  来源: 图灵沿界\n  摘要: 135篇论文全军覆没！CMU揭穿9大顶尖AI科研骗局：84%在偷偷做假账\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk0NjY1ODk0MQ%3D%3D&mid=2247503117&idx=3&sn=a3d93f7f60a457ecb2f6e514f5fd8e55&chksm=c277d9de9a0617aa2311bc4390482bdb768b5bbb56ea87a58c515a8e1fa0042464dbb065a9a1&scene=1&srcid=1030MVCrXDrNRS1M2PEQizID#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "11:05",
+              "text": "很现实"
+            },
+            {
+              "speaker": 1,
+              "time": "11:06",
+              "text": "https://arxiv.org/html/2610.19159v1",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 135篇论文全军覆没！CMU揭穿9大顶尖AI科研骗局：84%在偷偷做假账\n  来源: 图灵沿界\n  摘要: 135篇论文全军覆没！CMU揭穿9大顶尖AI科研骗局：84%在偷偷做假账\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk0NjY1ODk0MQ%3D%3D&mid=2247503117&idx=3&sn=a3d93f7f60a457ecb2f6e514f5fd8e55&chksm=c277d9de9a0617aa2311bc4390482bdb768b5bbb56ea87a58c515a8e1fa0042464dbb065a9a1&scene=1&srcid=1030MVCrXDrNRS1M2PEQizID#rd"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Into the Unknown (2610.19159)",
+              "url": "https://arxiv.org/abs/2610.19159"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "本日暂无可读记录",
+      "note": "2026-10-30 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-8",
+      "label": "AI4S",
+      "section": "今日讨论",
+      "heading": "生理信号大模型卡在哪：无感穿戴设计、数据合规与采集门槛",
+      "theme": "另有群友结合梗图交流生物领域 AI 攻坚与靠 scaling 拉升模型指标的日常",
+      "note": "2026-10-30 · 当日本地记录",
+      "stories": [
+        {
+          "category": "生理信号模型",
+          "title": "生理信号大模型难在哪：设计好 free 穿戴赢八成，剩下的卡在数据合规与采集",
+          "text": "有群友晒出一张「ISHO自研生理信号大模型」的演讲现场照，打听群里有没有人在做同类模型。现场大屏上的架构图把流程拆成三阶段：先用多模态、多场景、长时程的大规模生理数据做预训练，得到学习健康表征、时序规律与跨模态关联的生理信号基座大模型；再通过后训练适配设备与任务，提升单设备精度并往智能穿戴、智能家居设备上快速部署。\n\n有人接话说以前做过类似方向，指出这类数据的安全要求太高。在这位群友看来，生理信号只要把“free穿戴”设计好就已经赢了八成；此外，数据本身是否合规可用是一道门槛，获取和采集数据的方式够不够 accessible 是另一道门槛。",
+          "emphasis": [
+            "生理信号只要把“free穿戴”设计好就已经赢了八成",
+            "数据本身是否合规可用是一道门槛，获取和采集数据的方式够不够 accessible 是另一道门槛"
+          ],
+          "aiComment": "PPT 上三阶段架构画得飞起，老手一句“free 穿戴设计好就赢八成”，剩下的全在跟数据合规和采集死磕。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:50",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:50",
+              "text": "这种模型群里有友友在做吗"
+            },
+            {
+              "speaker": 2,
+              "time": "16:45",
+              "text": "我以前做过类似的",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:45",
+              "text": "这个数据的安全要求太高了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:29",
+              "text": "生理信号设计好free穿戴就已经赢了八成。数据本身是否合规可用是一个比较大的门槛，获取数据的方式采集方式要accessible是另一个门槛"
+            }
+          ]
+        },
+        {
+          "category": "AI4Biology",
+          "title": "死神也难啃的 Biology 大门，靠 scaling 拉高模型指标",
+          "text": "有群友晒出一张抗体-抗原评测竞技场（Antibody-Antigen Arena）的散点对比截图，夸赞 openDDE 有实力。随后这位群友又发了一张死神敲门的梗图：走廊里从国际象棋、围棋、翻译、写作到编程、数学、物理的前八扇门都已被攻破，唯独打开第九扇「Biology」大门时，涌出的蛋白质、DNA 和细胞器把死神反压在底下。另一位群友感叹每天的感觉就是“精疲力尽”“卷死了”，发图者则提到 Aureka 已经占尽天时地利人和、模型表现也强，调侃对方“这是快冲线了”。吐苦水的群友随后晒出一张柱状图展示模型指标的大幅跃升（从 53.7 一路拉升至 80.8），感慨公司发展到现在要交给市场了，而面对“到底如何才能提升这么夸张”的追问，只回了一个词：“scaling！”",
+          "emphasis": [
+            "面对“到底如何才能提升这么夸张”的追问，只回了一个词：“scaling！”"
+          ],
+          "aiComment": "前八扇门一路平推，打开生物大门被蛋白质和细胞器反压在地上，爬起来看一眼暴涨的柱状图，秘诀还是那个词：scaling。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:43",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:43",
+              "text": "openDDE有实力"
+            },
+            {
+              "speaker": 2,
+              "time": "17:03",
+              "text": "好事儿",
+              "quote": {
+                "speaker": 1,
+                "text": "openDDE有实力"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:30",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:33",
+              "text": "每天的感觉就是",
+              "quote": {
+                "speaker": null,
+                "text": "[媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:33",
+              "text": "精疲力尽"
+            },
+            {
+              "speaker": 2,
+              "time": "17:33",
+              "text": "卷死了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:34",
+              "text": "aureka已经天时地利人和都占了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:35",
+              "text": "模型performance也强"
+            },
+            {
+              "speaker": 1,
+              "time": "17:35",
+              "text": "这是快冲线了",
+              "quote": {
+                "speaker": 2,
+                "text": "精疲力尽"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:36",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "公司发展到现在 要交给市场了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:44",
+              "text": "到底如何才能提升这么夸张呢[发呆][发呆][发呆]",
+              "quote": {
+                "speaker": null,
+                "text": "[成员]: [媒体引用未解析]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:47",
+              "text": "scaling！"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
