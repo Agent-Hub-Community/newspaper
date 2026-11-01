@@ -1,7 +1,3591 @@
 {
   "version": 1,
-  "through": "2026-10-25",
+  "through": "2026-11-01",
   "items": [
+    {
+      "id": "super-agent-2",
+      "title": "Super-agent 设计探索：迈向更自主的 Agent 系统",
+      "summary": "提出 Super-agent 架构思路，让 agent 脱离单次会话，跨会话保持上下文并以事件驱动方式并行推进多项任务，以基于 DeepSeek Harness 的实例说明。",
+      "type": "article",
+      "topics": [
+        "coding-agents",
+        "multi-agent",
+        "memory"
+      ],
+      "keywords": [
+        "Super-agent",
+        "DeepSeek Harness",
+        "Personal Agent",
+        "agent harness",
+        "event-driven",
+        "中文解读"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://zhuanlan.zhihu.com/p/2099987320443237060"
+        },
+        {
+          "kind": "post",
+          "url": "https://www.zhihu.com/question/2099984457524572950"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-01",
+          "group": "group-5",
+          "avatar": null
+        },
+        {
+          "date": "2026-11-01",
+          "group": "group-5",
+          "avatar": "08c3543cf3a73c1d.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "dsh-superagent-prototype",
+      "title": "dsh-superagent-prototype",
+      "summary": "提供面向单个 GitHub 仓库的主动式编程 agent 研究原型，基于 DeepSeek Harness 监听 GitHub 与飞书请求并自行提交 PR，强调少占用人的注意力。",
+      "type": "code",
+      "topics": [
+        "coding-agents"
+      ],
+      "keywords": [
+        "DeepSeek",
+        "DeepSeek Harness",
+        "super-agent",
+        "proactive agent",
+        "agent harness",
+        "GitHub"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-31",
+          "group": "group-5",
+          "avatar": "0288aed4e94971e1.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "flashrsi",
+      "title": "FlashRSI",
+      "summary": "把 RSI 算法、benchmark 和 harness 统一到一个框架，内置 13 种 RSI 算法和 30 个 benchmark，在 11 个 benchmark 上系统对比并分析 OOD 泛化。",
+      "type": "code",
+      "topics": [
+        "research-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "FlashRSI",
+        "RSI",
+        "harness optimization",
+        "agent harness",
+        "self-evolution",
+        "Claude Code",
+        "OOD generalization"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/RUC-NLPIR/FlashRSI"
+        },
+        {
+          "kind": "project",
+          "url": "https://ruc-nlpir.github.io/FlashRSI"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-31",
+          "group": "group-1",
+          "avatar": "3146a5f97221ec33.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-2",
+          "avatar": "950dc2a7a02e626a.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-3",
+          "avatar": "950dc2a7a02e626a.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-4",
+          "avatar": "950dc2a7a02e626a.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-5",
+          "avatar": "950dc2a7a02e626a.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "flashrsi-2",
+      "title": "FlashRSI",
+      "summary": "把 12 种 RSI 算法、30 个 benchmark 套件和 3 种目标 harness 统一到一套实验流程，并公开迁移到近域和 OOD 任务的结果矩阵。",
+      "type": "code",
+      "topics": [
+        "research-agents",
+        "evaluation",
+        "coding-agents"
+      ],
+      "keywords": [
+        "RSI",
+        "harness optimization",
+        "GEPA",
+        "ACE",
+        "Meta-Harness",
+        "Terminal-Bench",
+        "Claude Code",
+        "self-evolution"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://ruc-nlpir.github.io/FlashRSI/project.html"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-31",
+          "group": "group-1",
+          "avatar": "3146a5f97221ec33.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-2",
+          "avatar": "950dc2a7a02e626a.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-3",
+          "avatar": "950dc2a7a02e626a.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-4",
+          "avatar": "950dc2a7a02e626a.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-5",
+          "avatar": "950dc2a7a02e626a.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "rac",
+      "title": "RAC: A Relational Agent Contract for Constraint-Governed Engineering Tasks",
+      "summary": "为工程 agent 定义动作与反馈层契约，agent 只决定约束关系，具体几何和时序交给专用工具推导；PCB 任务上九个模型平均 clean-pass 90.9%。",
+      "type": "paper",
+      "topics": [
+        "coding-agents"
+      ],
+      "keywords": [
+        "RAC",
+        "PCB",
+        "engineering agent",
+        "agent harness",
+        "tool calling",
+        "job-shop scheduling",
+        "嵌入式"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.20935"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-31",
+          "group": "group-3",
+          "avatar": "671126f381af1ce3.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "super-agent",
+      "title": "Super-agent 设计探索：迈向更自主的 Agent 系统",
+      "summary": "讨论持续在线、跨会话的 Super-agent 架构，涵盖 Router 与 Worker 双层结构、事件驱动、计算与状态分离和 Watchdog 自愈。",
+      "type": "article",
+      "topics": [
+        "coding-agents",
+        "multi-agent",
+        "systems"
+      ],
+      "keywords": [
+        "DeepSeek",
+        "agent harness",
+        "cross-session state",
+        "subagent",
+        "事件驱动",
+        "Router-Worker",
+        "Personal Agent"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651071375&idx=1&sn=d16bd414a1a32680de307ca0d138bc5e&chksm=857a28d54486b4a2894df41be217db4d3657343848b347a473a116aca475d96678630e4a2de1"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-31",
+          "group": "group-4",
+          "avatar": "91ef4cf710e89041.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "webuniverse",
+      "title": "WebUniverse: Scaling Verified Training Data for Agentic Web Development",
+      "summary": "从开源仓库和真实网页构建 15K 个可执行网页开发任务环境与对应验证轨迹，微调 Qwen3.5-35B-A3B 后 WebGen-Bench 从 34.5% 升到 63.9%。",
+      "type": "dataset",
+      "topics": [
+        "data-environments",
+        "coding-agents",
+        "training"
+      ],
+      "keywords": [
+        "WebUniverse",
+        "Web 开发",
+        "trajectory data",
+        "WebGen-Bench",
+        "Vision2Web",
+        "Qwen",
+        "SFT",
+        "verifier",
+        "RL environment",
+        "Web-Bench"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.33149"
+        },
+        {
+          "kind": "project",
+          "url": "https://webuniverse-nsl.github.io/"
+        },
+        {
+          "kind": "project",
+          "url": "https://webuniverse-nsl.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-31",
+          "group": "group-2",
+          "avatar": "671126f381af1ce3.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-3",
+          "avatar": "671126f381af1ce3.jpg"
+        },
+        {
+          "date": "2026-10-31",
+          "group": "group-4",
+          "avatar": "671126f381af1ce3.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "captain",
+      "title": "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents",
+      "summary": "开源 Code-as-Policy 机械臂 agent 的 SFT 加仿真 on-policy RL 训练流程、harness 与权重，Qwen3.5-4B 在 LIBERO 上从 0 提升到 73.8。",
+      "type": "code",
+      "topics": [
+        "multimodal-embodied",
+        "training"
+      ],
+      "keywords": [
+        "CaPtain",
+        "Code-as-Policy",
+        "机器人操作",
+        "LIBERO",
+        "Qwen",
+        "SFT",
+        "online RL",
+        "RoboTwin",
+        "agent harness"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/waltstephen/CaPtain"
+        },
+        {
+          "kind": "paper",
+          "url": "https://waltstephen.github.io/captain/assets/paper/CaPtain.pdf"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "8f3aae8eb3e667f6.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "captain-2",
+      "title": "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents",
+      "summary": "开源机械臂 Code-as-Policy agent 的 SFT+RL 后训练流程，基于 Qwen3.5-4B 只用底层 IK，LIBERO 成功率从 0 提到 73.8。",
+      "type": "model",
+      "topics": [
+        "multimodal-embodied",
+        "training"
+      ],
+      "keywords": [
+        "Code-as-Policy",
+        "机器人操作",
+        "LIBERO",
+        "SFT",
+        "agentic RL",
+        "Qwen",
+        "post-training"
+      ],
+      "links": [
+        {
+          "kind": "model",
+          "url": "https://huggingface.co/YijiaFan/CaPtain-4B"
+        },
+        {
+          "kind": "data",
+          "url": "https://huggingface.co/datasets/YijiaFan/CaPtain-SFT-Data"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "8f3aae8eb3e667f6.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "co-design-bench",
+      "title": "Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models",
+      "summary": "从 2.6 万段真实用户编程会话整理 273 个多模态改应用任务和 2,331 条验收标准，用先评判再反驳的协议评测，最强模型仅完整完成 26.4% 任务。",
+      "type": "benchmark",
+      "topics": [
+        "coding-agents",
+        "evaluation",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "Co-Design Bench",
+        "Qwen",
+        "Web 开发",
+        "LLM-as-judge",
+        "rubric",
+        "repo editing",
+        "real-world tasks"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.35138"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "e731a625a51e9d77.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "co-design-bench-2",
+      "title": "Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models",
+      "summary": "从 2.6 万段真实编程会话整理 273 个多模态应用修改任务和 2,331 条隐藏验收标准；最佳模型平均过 69.9% 条目，完整达标仅 26.4%。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "coding-agents",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "多模态编程",
+        "Web 开发",
+        "rubric",
+        "real-world tasks",
+        "human-agent collaboration",
+        "judge-then-refute"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://codesignbench.github.io/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/Wiselnn570/Co-Design-Bench"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "e731a625a51e9d77.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "input-conditioned-search-for-efficient",
+      "title": "Input-Conditioned Search for Efficient Test-Time Scaling of Recursive Reasoners",
+      "summary": "对循环推理模型改变输入条件来诱导不同更新映射，跳出错误吸引子，在六个推理任务上取得最高平均准确率，计算量最多少两个数量级。",
+      "type": "paper",
+      "topics": [
+        "models"
+      ],
+      "keywords": [
+        "ICS",
+        "test-time compute",
+        "latent reasoning",
+        "looped transformer",
+        "recursive reasoner",
+        "attractor"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.18547"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/icsearch/ICS"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-2",
+          "avatar": null
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "input-conditioned-search-for-efficient-2",
+      "title": "Input-Conditioned Search for Efficient Test-Time Scaling of Recursive Reasoners",
+      "summary": "为冻结的递归推理模型改变输入条件以获得新的更新映射，作为深度和扰动之外的测试时扩展方向，减少陷入错误吸引子。",
+      "type": "paper",
+      "topics": [
+        "models"
+      ],
+      "keywords": [
+        "test-time compute",
+        "latent reasoning",
+        "looped transformer",
+        "recursive reasoner",
+        "数独",
+        "recursive reasoners",
+        "Sudoku",
+        "training-free"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://icsearch.github.io/"
+        },
+        {
+          "kind": "post",
+          "url": "https://x.com/haochen_shi3/status/2115871363001135262?a=tmaS7BQ2qFKs6woBIy4"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-2",
+          "avatar": "6cd568ceee7cc46e.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "interaction-bench",
+      "title": "Interaction Bench",
+      "summary": "基于 25 个开源应用里已合并的修复 PR 构建 44 项任务，只给用户意图，评测编程 agent 能否自主定位、修复并验证交互缺陷，由独立打分 agent 复现交互判定。",
+      "type": "benchmark",
+      "topics": [
+        "coding-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "Interaction Bench",
+        "Harbor",
+        "bug fixing",
+        "software engineering",
+        "real-world tasks",
+        "LLM-as-judge",
+        "browser use"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/eval-sys/ibench"
+        },
+        {
+          "kind": "leaderboard",
+          "url": "https://ibench.ai/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-1",
+          "avatar": "8b4abb0cc83e29b1.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-2",
+          "avatar": "8b4abb0cc83e29b1.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "8b4abb0cc83e29b1.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-4",
+          "avatar": "8b4abb0cc83e29b1.jpg"
+        }
+      ],
+      "aliases": [
+        "https://ibench.ai/leaderboard"
+      ]
+    },
+    {
+      "id": "into-the-unknown",
+      "title": "Into the Unknown: Benchmarking AI agents on open scientific research problems",
+      "summary": "让 agent 依据一篇论文和研究方向写后续论文，由美国能源部国家实验室科学家给出评分条件；九个前沿 agent 的 135 篇提交无一全部达标。",
+      "type": "benchmark",
+      "topics": [
+        "research-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "Into the Unknown",
+        "AI scientist",
+        "科学发现",
+        "rubric",
+        "research integrity",
+        "科学任务"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.19159"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-4",
+          "avatar": "9472cfe203eb63da.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "investor-s-last-exam",
+      "title": "Investor's Last Exam: Can AI Agents Do Equity Investment Without Seeing the Future?",
+      "summary": "在冻结时间戳、含 343 万个文档版本的金融数据库上，用 86 项买方投研任务联合评估研究质量、预测准确度和模拟投资表现，最佳模型约 68 分。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "research-agents"
+      ],
+      "keywords": [
+        "ILE",
+        "金融",
+        "股票投资",
+        "deep research",
+        "forecasting",
+        "GPT-6 Astra",
+        "Claude Opus 5.5",
+        "知识工作"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.38342"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/Prophetlab/Investor-Last-Exam"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-2",
+          "avatar": "09dcb70554fefd9b.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "e83a39d031f6d5b7.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "investor-s-last-exam-2",
+      "title": "Investor's Last Exam: Can AI Agents Do Equity Investment Without Seeing the Future?",
+      "summary": "评测 agent 在决策时点信息约束下完成买方股票研究，含 86 项任务、1472 个评分点和 343 万文档版本的版本化金融数据库。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "research-agents",
+        "data-environments"
+      ],
+      "keywords": [
+        "Investor's Last Exam",
+        "金融",
+        "股票研究",
+        "point-in-time",
+        "rubric",
+        "GPT-6 Astra",
+        "Claude Opus 5.5",
+        "DeepSeek"
+      ],
+      "links": [
+        {
+          "kind": "leaderboard",
+          "url": "https://prophet-lab.cn/benchmarks/investor-last-exam-v1"
+        },
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzY5ODM0NzY0OQ%3D%3D&mid=2247483813&idx=1&sn=da0e9bacd2912d6365cf00aacb5a7efc&chksm=f5baa491303876f0f131bad27f4db0ece130d35d5d5dfc2dffc1b93f4086843a2c43fc0b6a50"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-2",
+          "avatar": "09dcb70554fefd9b.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "e83a39d031f6d5b7.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "investor-s-last-exam-v1",
+      "title": "Investor's Last Exam v1",
+      "summary": "评测 agent 做买方股票研究和预测的 benchmark，含 86 道任务、1,472 条评分标准和完整工具定义，工具链按时间 cutoff 限制可见信息。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "research-agents"
+      ],
+      "keywords": [
+        "金融",
+        "投资研究",
+        "rubric",
+        "tool calling",
+        "GPT-6 Astra",
+        "Claude Opus 5.5",
+        "知识工作"
+      ],
+      "links": [
+        {
+          "kind": "data",
+          "url": "https://huggingface.co/datasets/HenryJ12/InvestorLastExam"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-2",
+          "avatar": "09dcb70554fefd9b.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "e83a39d031f6d5b7.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "recursive-synthesis-for-long-horizon",
+      "title": "Recursive Synthesis for Long-Horizon Terminal Tasks",
+      "summary": "从已验证种子任务递归扩展指令、环境、参考解与 verifier，以约每题 0.05 美元合成 37,484 道长程终端任务，SFT 与 PPO 后 Qwen3.5 在 Terminal-Bench 上提升。",
+      "type": "paper",
+      "topics": [
+        "data-environments",
+        "training",
+        "coding-agents"
+      ],
+      "keywords": [
+        "RST",
+        "terminal agent",
+        "Terminal-Bench",
+        "data synthesis",
+        "verifier",
+        "long-horizon",
+        "Qwen",
+        "PPO"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2608.05466"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-2",
+          "avatar": "e83a39d031f6d5b7.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "scaling-pre-training-in-practice",
+      "title": "Scaling Pre-Training in Practice: A Hierarchical Approach",
+      "summary": "记录把 30B-A3B MoE 预训练从 16 卡扩到 512 张 B200 的调优过程，先在小规模缩小搜索空间，最终接近线性扩展、MFU 35.3%。",
+      "type": "article",
+      "topics": [
+        "training",
+        "systems"
+      ],
+      "keywords": [
+        "pretraining",
+        "MoE",
+        "MFU",
+        "B200",
+        "分布式训练",
+        "并行策略"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://aleph-alpha.com/en/blog/scaling-pre-training-in-practice-a-hierarchical-approach"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "8a0adc08e97ae47b.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "shared-rsi-community",
+      "title": "Shared RSI Community",
+      "summary": "开源 RSI 社区的路线图与标准文件，起草统一的 RSI Benchmark 与 Plugin 格式 RFC，用于复现和对比递归自我改进实验。",
+      "type": "code",
+      "topics": [
+        "research-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "RSI",
+        "self-evolution",
+        "RSI Benchmark",
+        "PenguinHarness",
+        "RFC"
+      ],
+      "links": [
+        {
+          "kind": "docs",
+          "url": "https://club.penguin.ooo/zh"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-1",
+          "avatar": "cbd81d7c639ba5c6.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "the-ultra-scale-playbook",
+      "title": "The Ultra-Scale Playbook: Training LLMs on GPU Clusters",
+      "summary": "系统讲解在 GPU 集群上训练大模型的数据、张量、流水线和专家并行等技术，并给出不同集群配置下的性能与成本实验。",
+      "type": "article",
+      "topics": [
+        "training",
+        "systems"
+      ],
+      "keywords": [
+        "pretraining",
+        "分布式训练",
+        "并行策略",
+        "nanotron",
+        "Hugging Face",
+        "MoE"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://huggingface.co/spaces/nanotron/ultrascale-playbook/blob/5ee9a011dcafa685792ebe7b458a554d2e78c5d5/The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters.pdf"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "3ee383d35c546124.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "envsched",
+      "title": "EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning",
+      "summary": "根据历史 rollout 在环境-任务双关系图上预测奖励方差，优先调度信息量高且覆盖不足的任务；Qwen3-8B 训练 40 步即超过随机选题 120 步的最高分。",
+      "type": "paper",
+      "topics": [
+        "training",
+        "data-environments"
+      ],
+      "keywords": [
+        "EnvSched",
+        "agentic RL",
+        "RL environment",
+        "GRPO",
+        "rollout scheduling",
+        "BFCL",
+        "Qwen"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.37609"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/Hhankyangg/envsched"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-2",
+          "avatar": "3e6041d7b804a91d.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "huggingface-co-collections-liquidai-lfm3",
+      "title": "LFM3",
+      "summary": "Liquid AI 发布的 LFM3 首批六款 2B 级模型权重，覆盖文本、视觉、音频、全模态和决策，面向端侧部署与任务微调。",
+      "type": "model",
+      "topics": [
+        "models",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "LFM3",
+        "Liquid AI",
+        "on-device",
+        "open-weight",
+        "omni model",
+        "机器人操作",
+        "d1",
+        "LFM",
+        "Omni",
+        "视频理解"
+      ],
+      "links": [
+        {
+          "kind": "model",
+          "url": "https://huggingface.co/collections/LiquidAI/lfm3"
+        },
+        {
+          "kind": "article",
+          "url": "https://www.liquid.ai/blog/lfm3"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-1",
+          "avatar": "53a717783cf53569.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-2",
+          "avatar": "53a717783cf53569.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "interactiongym",
+      "title": "InteractionGym: closed-loop simulation for full-duplex spoken agents",
+      "summary": "为全双工语音 agent 提供闭环仿真环境，LLM+TTS 模拟用户会打断、附和与停顿，可用于评测、生成轨迹和 online RL。",
+      "type": "code",
+      "topics": [
+        "data-environments",
+        "multimodal-embodied",
+        "evaluation"
+      ],
+      "keywords": [
+        "全双工",
+        "voice agent",
+        "simulation",
+        "online RL",
+        "vLLM-Omni",
+        "tool calling",
+        "trajectory data"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/williamLyh/InteractionGym"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-2",
+          "avatar": "ef5f2235e1155f86.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "interactiongym-2",
+      "title": "InteractionGym",
+      "summary": "提供全双工语音 agent 的闭环仿真框架，用小型 session runner 加插件定义模拟用户、场景和工具环境，可用于评测、生成轨迹数据和 online RL。",
+      "type": "code",
+      "topics": [
+        "data-environments",
+        "evaluation",
+        "training"
+      ],
+      "keywords": [
+        "full-duplex",
+        "voice agent",
+        "user simulation",
+        "online RL",
+        "tool calling",
+        "simulation",
+        "trajectory data"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://yinhongliu.com/InteractionGym"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-2",
+          "avatar": "ef5f2235e1155f86.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "introducing-gemini-4-carbon",
+      "title": "Introducing Gemini 4 Carbon",
+      "summary": "Google 发布 Gemini 4 Carbon，官方称其在网络安全和长程任务能力上达到当前最佳水平。",
+      "type": "model",
+      "topics": [
+        "models"
+      ],
+      "keywords": [
+        "Gemini 4 Carbon",
+        "Gemini",
+        "Google",
+        "网络安全",
+        "long-horizon"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon"
+        }
+      ],
+      "aliases": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introduc"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-1",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-2",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-3",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-4",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-5",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-6",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-7",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-8",
+          "avatar": "cc08b5af3bc22faf.jpg"
+        }
+      ]
+    },
+    {
+      "id": "matraix-simulate-before-reality",
+      "title": "MatrAIx — Simulate Before Reality",
+      "summary": "基于大规模 persona 模拟用户评测 AI 产品的平台，其 PersonalAgentEval 在 152 道任务上按能力和领域给商用 personal agent 打分。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "computer-use"
+      ],
+      "keywords": [
+        "PersonalAgentEval",
+        "personal agent",
+        "persona",
+        "simulation",
+        "user simulator"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://matraix.ai/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-2",
+          "avatar": "53a717783cf53569.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "userrl",
+      "title": "UserRL: Training Interactive User-Centric Agent via Reinforcement Learning",
+      "summary": "用标准化 gym 环境加模拟用户训练和评测面向用户的多轮交互 agent，在 Qwen3 上对比 turn 级奖励与轨迹打分设计，代码和数据公开。",
+      "type": "paper",
+      "topics": [
+        "training",
+        "data-environments"
+      ],
+      "keywords": [
+        "UserRL",
+        "user simulation",
+        "agentic RL",
+        "GRPO",
+        "reward shaping",
+        "multi-turn interaction",
+        "Qwen",
+        "SFT"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2509.19736"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-3",
+          "avatar": "cbb664aac41c84bc.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "who-sells-data",
+      "title": "Who Sells Data: AI training data and RL environment vendors",
+      "summary": "整理出售 AI 训练数据、RL 环境和评测服务的公司目录，每条公开信息都附来源链接和核查日期，未知项单独标注。",
+      "type": "tool",
+      "topics": [
+        "data-environments",
+        "industry"
+      ],
+      "keywords": [
+        "数据产业",
+        "RL environment",
+        "data vendor",
+        "训练数据",
+        "数据标注"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://whosellsdata.com/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-29",
+          "group": "group-3",
+          "avatar": "02376efad2b85638.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "apex-35b-v1-0",
+      "title": "Apex-35B-V1.0",
+      "summary": "基于 Qwen3.6-35B-A3B 中训练和后训练、引入 RSI 研发流程的 35B 开放模型，在 21 项基准中 20 项领先同量级 Qwen 基线。",
+      "type": "model",
+      "topics": [
+        "models",
+        "research-agents"
+      ],
+      "keywords": [
+        "Apex",
+        "Qwen",
+        "RSI",
+        "open-weight",
+        "FrontierScience",
+        "PaperBench",
+        "automated research"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s/ebcoQ-nClgWK4oT43B-QNw"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-28",
+          "group": "group-3",
+          "avatar": "f0d918eabeeef100.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "mol-1",
+      "title": "Mol-1: Open Frontier Biomolecular Intelligence",
+      "summary": "基于 Protenix 体系的开源生物分子结构预测模型，在 FoldBench-AB 抗体–抗原任务上成功率 75.0%（AF3 为 48.8%），并结合长时运行 agent 组装大型复合物。",
+      "type": "model",
+      "topics": [
+        "models",
+        "research-agents"
+      ],
+      "keywords": [
+        "Mol-1",
+        "Protenix",
+        "结构预测",
+        "AlphaFold 3",
+        "抗体设计",
+        "AI4Science",
+        "open-weight"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s/VF6OWMJdX0b5tuSAWuXB9g"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-28",
+          "group": "group-8",
+          "avatar": "7de8d929d4d23500.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "the-trinity",
+      "title": "The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents",
+      "summary": "用 Creator、Explorer、Evolver 三角色把世界生成与 Harness 演化耦合，按能力树组织任务并做 Real2Sim2Real 迁移，在 28 个训练 benchmark 上平均提升 34 分。",
+      "type": "paper",
+      "topics": [
+        "research-agents",
+        "data-environments",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "The Trinity",
+        "RSI",
+        "harness optimization",
+        "capability tree",
+        "Real2Sim2Real",
+        "agent harness",
+        "self-evolution",
+        "机器人操作"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.36077"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/InfRec-Cardinal/The-Trinity"
+        },
+        {
+          "kind": "project",
+          "url": "https://trinity-rsi.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-28",
+          "group": "group-4",
+          "avatar": "4e9b0412b0b356c8.jpg"
+        },
+        {
+          "date": "2026-10-28",
+          "group": "group-5",
+          "avatar": "349cfb1300d5b8db.jpg"
+        },
+        {
+          "date": "2026-10-29",
+          "group": "group-3",
+          "avatar": "fca24404e674ed1c.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "article-8b4fa9e8",
+      "title": "数据合成的下半场(一): 构建内生数据飞轮",
+      "summary": "讨论不依赖蒸馏外部强模型时的后训练数据合成，从任务生成、解法发现和可靠验证三个环节分析如何构建持续的数据飞轮。",
+      "type": "article",
+      "topics": [
+        "data-environments",
+        "training"
+      ],
+      "keywords": [
+        "data synthesis",
+        "distillation",
+        "post-training",
+        "verifier",
+        "数据飞轮",
+        "task mining",
+        "trajectory data"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247483986&idx=1&sn=018e830987f2257bb3f9b38e201de287&chksm=c066b92fa6d7571f525d7601b714049263e63262d6ae47cf69c991ca4f0bef55a93d90bd3a75"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-27",
+          "group": "group-5",
+          "avatar": "90fafc59f50b3de1.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "evaluating-deepseek-v4-1-flash-1017-for",
+      "title": "Evaluating DeepSeek V4.1 Flash-1017 for loss of control and harmful manipulation risks",
+      "summary": "第三方对 DeepSeek V4.1 Flash-1017 做 34 项安全评估，并与前代和 GPT-6 Astra 等 6 个模型对比；69 条真实对话中模型把 32 条误判为测试。",
+      "type": "paper",
+      "topics": [
+        "safety",
+        "evaluation",
+        "models"
+      ],
+      "keywords": [
+        "DeepSeek",
+        "evaluation awareness",
+        "loss of control",
+        "有害操纵",
+        "红队评估",
+        "GPT-6 Astra",
+        "DeepSeek-V4.1-Flash",
+        "harmful manipulation",
+        "third-party evaluation"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://fangcunleap.com/public/reports/fangcun_eval_deepseek_v4_1_flash_1017.pdf"
+        },
+        {
+          "kind": "post",
+          "url": "https://x.com/FangcunLeap/status/2114719692137136245"
+        },
+        {
+          "kind": "post",
+          "url": "https://substack.com/profile/562160125-fangcun-ai/note/c-370762565"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-27",
+          "group": "group-1",
+          "avatar": "36e1a152a5a3bddf.jpg"
+        },
+        {
+          "date": "2026-10-27",
+          "group": "group-5",
+          "avatar": "fb74bf61b55e6074.jpg"
+        },
+        {
+          "date": "2026-10-27",
+          "group": "group-6",
+          "avatar": "fb74bf61b55e6074.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "harness",
+      "title": "模型 × Harness：被忽略的 Co-design",
+      "summary": "分析模型与 agent harness 的协同设计，引用固定 Claude Opus 4.7 只换 harness 时 Coding Agent Index 相差 8.9 分的对照，并对比 Claude Code 与 Codex 的工程取向。",
+      "type": "article",
+      "topics": [
+        "coding-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "agent harness",
+        "co-design",
+        "Artificial Analysis",
+        "Claude Code",
+        "Codex",
+        "Opencode",
+        "context compaction",
+        "中文解读"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://zhuanlan.zhihu.com/p/2078125465248833927"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-27",
+          "group": "group-2",
+          "avatar": "671126f381af1ce3.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "hyscale",
+      "title": "HyScale: Scaling Long-Context Training for Learned Sparse Attention",
+      "summary": "针对稀疏注意力训练中的索引打分与 TopK 选择瓶颈，提出流式 HyTopK 和重计算时复用选择结果，在 512 张 H20 上训练 1M 上下文 GLM-5.1 提速 2.07 倍。",
+      "type": "paper",
+      "topics": [
+        "systems",
+        "training"
+      ],
+      "keywords": [
+        "HyScale",
+        "sparse attention",
+        "efficient attention",
+        "long context",
+        "TopK",
+        "GLM",
+        "DeepSeek",
+        "Megatron-LM",
+        "Qwen"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.32057"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-27",
+          "group": "group-3",
+          "avatar": "da6829178a5e08b7.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "oriera-ai-native-world-engine",
+      "title": "OriEra — AI-Native World Engine",
+      "summary": "用 Rust 编写的开源 AI 原生世界引擎，把 NPC 认知、长期记忆、叙事图、目标规划和本地语音做成引擎系统。",
+      "type": "code",
+      "topics": [
+        "multimodal-embodied",
+        "memory"
+      ],
+      "keywords": [
+        "游戏引擎",
+        "游戏 NPC",
+        "Rust",
+        "WebGPU",
+        "long-term memory",
+        "TTS"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s/QiflaWm5x1lzKaV0o__G6A"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-27",
+          "group": "group-4",
+          "avatar": "5bbd97c6badb0a9f.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "oriera-studio",
+      "title": "OriEra Studio",
+      "summary": "OriEra 世界引擎的 Windows 桌面工作台，内置 11 个可离线运行的示例，无需命令行即可生成 AI 原生游戏原型。",
+      "type": "tool",
+      "topics": [
+        "multimodal-embodied",
+        "memory"
+      ],
+      "keywords": [
+        "OriEra",
+        "游戏引擎",
+        "游戏 NPC",
+        "long-term memory",
+        "Windows"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/OriEra-engine/studio/releases/latest"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-27",
+          "group": "group-4",
+          "avatar": "5bbd97c6badb0a9f.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "amsp",
+      "title": "AMSP: Agent Message Stream Protocol",
+      "summary": "定义统一的 agent session 消息流格式，支持观测、恢复、前后端通信和多模型接入，在 MMSP 之上构建并已用于 PenguinHarness。",
+      "type": "code",
+      "topics": [
+        "coding-agents",
+        "systems",
+        "data-environments"
+      ],
+      "keywords": [
+        "AMSP",
+        "MMSP",
+        "PenguinHarness",
+        "agent harness",
+        "trajectory data",
+        "self-evolution",
+        "session protocol"
+      ],
+      "links": [
+        {
+          "kind": "docs",
+          "url": "https://penguin.ooo/amsp"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-1",
+          "avatar": "cbd81d7c639ba5c6.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "carbon-x",
+      "title": "Carbon-X",
+      "summary": "从 Qwen3-14B 出发、在约 3000 亿 DNA 与文本 token 上训练的 14B 开放模型，可用自然语言做 DNA 序列问答、变异效应预测和序列生成。",
+      "type": "model",
+      "topics": [
+        "models",
+        "research-agents"
+      ],
+      "keywords": [
+        "Carbon-X",
+        "Qwen",
+        "DNA",
+        "基因组",
+        "变异效应预测",
+        "AI4Science",
+        "open-weight",
+        "Hugging Face"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s/jcIg_5Cu2KMPAo_UhHt-7A"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-8",
+          "avatar": "0cd5278c8e0cc1ea.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "catastrophic-jailbreak-of-open-source",
+      "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+      "summary": "只改解码超参数和采样方法即可越狱开源模型，在 LLaMA2、Vicuna 等 11 个模型上把未对齐输出比例从 0% 推到 95% 以上，并给出对应的对齐防御。",
+      "type": "paper",
+      "topics": [
+        "safety",
+        "models"
+      ],
+      "keywords": [
+        "jailbreak",
+        "decoding",
+        "sampling",
+        "generation exploitation",
+        "red teaming",
+        "open-weight",
+        "Llama"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2310.06987"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-6",
+          "avatar": "adc387795d085ee5.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "dnabert",
+      "title": "用 DNABERT 做启动子预测：从概念到代码（下）",
+      "summary": "用 DNABERT-2 在 E. coli 启动子数据上走完微调预测流程，续篇逐项解释 MAX_LENGTH、学习率、epoch 等训练参数的取值。",
+      "type": "article",
+      "topics": [
+        "training",
+        "research-agents"
+      ],
+      "keywords": [
+        "DNABERT",
+        "启动子预测",
+        "生物信息学",
+        "fine-tuning",
+        "AI4Science",
+        "基因组"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzk1NzYxOTIwMg%3D%3D&mid=2247484732&idx=1&sn=c131a4be25547da99136df3a9c56cb78&chksm=c24f5411b39501c63d346b5328c542667c9f1e2c43da0736f336ce526ad789b6a6bd2ce0e587"
+        },
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzk1NzYxOTIwMg%3D%3D&mid=2247484838&idx=1&sn=ea6389b90bea0549948ddaea2d0178b2&chksm=c28466d8d96f7a83bad8d8739dfe169f950d88cd7daf3060c1b2464a5441a94620ab93e2a257"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-8",
+          "avatar": "7de8d929d4d23500.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "grounding-ai-agents-in-biological",
+      "title": "Grounding AI agents in biological reality: Building blocks for autonomous wet labs",
+      "summary": "介绍 VERID 框架把 agent 接入湿实验室液体处理机器人，并在 aptamer 与蛋白设计中跑闭环实验，得到个位数 nM 级蛋白结合物。",
+      "type": "article",
+      "topics": [
+        "research-agents",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "科学发现",
+        "湿实验室",
+        "VERID",
+        "lab automation",
+        "蛋白质设计",
+        "aptamer",
+        "digital twin",
+        "Google Research"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-8",
+          "avatar": "a6ca60511d771da8.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "immersive-translate",
+      "title": "Immersive Translate",
+      "summary": "浏览器双语翻译工具，可翻译网页、PDF、视频字幕和图片，并可接入 OpenAI、DeepL、DeepSeek 等翻译引擎或自配 API。",
+      "type": "tool",
+      "topics": [
+        "research-tools"
+      ],
+      "keywords": [
+        "沉浸式翻译",
+        "双语翻译",
+        "PDF 翻译",
+        "浏览器插件"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://immersivetranslate.com/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-5",
+          "avatar": "cc4b4d27cc429ade.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "lessons-from-building-claude-code",
+      "title": "Lessons from building Claude Code: Prompt caching is everything",
+      "summary": "总结 Claude Code 提高 prompt cache 命中率的做法，包括如何组织提示前缀、使用工具定义，以及在此基础上叠加 compaction。",
+      "type": "article",
+      "topics": [
+        "coding-agents",
+        "systems"
+      ],
+      "keywords": [
+        "Claude Code",
+        "prompt caching",
+        "KV cache",
+        "context compaction",
+        "inference cost"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://claude.dev/blog/lessons-from-building-claude-code-prompt-caching-is-everything"
+        }
+      ],
+      "aliases": [
+        "https://claude.dev/blog/lessons-from-building-claude-code-prompt-caching-is-ever"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-5",
+          "avatar": "cc4b4d27cc429ade.jpg"
+        }
+      ]
+    },
+    {
+      "id": "llm-probability-concentration-2",
+      "title": "LLM Probability Concentration: How Alignment Shrinks the Generative Horizon",
+      "summary": "用 Branching Factor 度量输出分布的集中程度，发现对齐调优使 BF 下降 2 到 5 倍，解释了对齐模型为何对解码策略不敏感。",
+      "type": "paper",
+      "topics": [
+        "models",
+        "training"
+      ],
+      "keywords": [
+        "Branching Factor",
+        "alignment",
+        "post-training",
+        "decoding",
+        "output diversity",
+        "entropy",
+        "reasoning model"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2506.17871"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-6",
+          "avatar": "f77f35e0be6e2ac9.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "llm2014-github-io-llm-benchmark",
+      "title": "致知｜大模型智力长期追踪榜单",
+      "summary": "按月追踪各大模型在代码、逻辑推理和视觉数据集上的得分，并可对比测试成本、平均耗时和 token 效率。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "models"
+      ],
+      "keywords": [
+        "月榜",
+        "代码能力",
+        "逻辑推理",
+        "视觉理解",
+        "inference cost",
+        "token 效率"
+      ],
+      "links": [
+        {
+          "kind": "leaderboard",
+          "url": "https://llm2014.github.io/llm_benchmark"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-3",
+          "avatar": "4599efac7d3fee5d.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "llms-are-making-formal-software",
+      "title": "LLMs are making formal software verification feasible at a much larger scale",
+      "summary": "介绍用 Claude 在数周内为一百多个真实开源库证明安全属性的大规模形式化验证实践；外部复核指出其示例规约没有检查输出字节与输入一致。",
+      "type": "article",
+      "topics": [
+        "safety",
+        "coding-agents"
+      ],
+      "keywords": [
+        "formal verification",
+        "Claude",
+        "Anthropic",
+        "网络安全",
+        "specification",
+        "open-source libraries"
+      ],
+      "links": [
+        {
+          "kind": "post",
+          "url": "https://x.com/anthropicai/status/2113390212911083894"
+        },
+        {
+          "kind": "post",
+          "url": "https://x.com/joseph_h_garvin/status/2113668055582625833"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-1",
+          "avatar": "15e0b1480193837c.jpg"
+        },
+        {
+          "date": "2026-10-26",
+          "group": "group-1",
+          "avatar": "f77f35e0be6e2ac9.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "mmsp-2",
+      "title": "MMSP: Model Message Stream Protocol",
+      "summary": "为各家模型提供统一消息格式和流式语法的协议（Python/TypeScript），其上的 AMSP 统一 Agent Session 记录，便于观测、恢复和读取轨迹。",
+      "type": "code",
+      "topics": [
+        "systems",
+        "coding-agents"
+      ],
+      "keywords": [
+        "MMSP",
+        "AMSP",
+        "PenguinHarness",
+        "agent harness",
+        "trajectory data",
+        "streaming"
+      ],
+      "links": [
+        {
+          "kind": "docs",
+          "url": "https://mmsp.penguin.ooo/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-1",
+          "avatar": "cbd81d7c639ba5c6.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "wechat-export-macos",
+      "title": "wechat-export-macos",
+      "summary": "在 macOS 上一键解密并导出微信聊天记录的开源工具，可作为聊天数据分析和群聊总结流程的数据来源。",
+      "type": "code",
+      "topics": [
+        "research-tools"
+      ],
+      "keywords": [
+        "微信",
+        "聊天记录导出",
+        "macOS",
+        "数据导出"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/ydotdog/wechat-export-macos"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-3",
+          "avatar": "93eac96694a31d1f.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "why-is-ai-generated-language-so-hard-to",
+      "title": "Why is AI-generated language so hard to understand?",
+      "summary": "用心理语言学指标比较九个前沿模型与人类文本，发现模型更多使用低频 n-gram 和长依存等难读结构，并用长度惩罚微调验证信息密度假设。",
+      "type": "paper",
+      "topics": [
+        "models"
+      ],
+      "keywords": [
+        "psycholinguistics",
+        "readability",
+        "information density",
+        "AI writing",
+        "length penalty"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.29162"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-26",
+          "group": "group-5",
+          "avatar": "cfe40e3377e70454.jpg"
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "id": "apex-research",
+      "title": "Apex Research: AI-Generated Manuscripts in Real Peer Review",
+      "summary": "报告自主科研系统把 34 篇生成稿件送入 ARR 评审的实验，披露评分分布与资源投入，并承诺评审后撤回。",
+      "type": "paper",
+      "topics": [
+        "research-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "Apex Research",
+        "ARR",
+        "automated research",
+        "peer review"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://github.com/apexin-ai/apex-research-report"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s?__biz=MzI1NDA4ODI3OA%3D%3D&mid=2652168420&idx=1&sn=4b97edda9056310217bbca6f7430bad0&chksm=f32c649d9db48ba1922862c21b62d967da3b6705dfa60c733ddca4094fecc3dc2d2cb224fbe1",
+        "https://mp.weixin.qq.com/s?__biz=MzY4MjM3MTMxMw%3D%3D&mid=2247483842&idx=1&sn=2909bcec947dfef3861f5de12e4e0601&chksm=f24e033c81977f13772a1a7f7ca6a1a63dda5e12cdae0f1638a553c639fd5157d59c2fefa491"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-25",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "article-43e9febd",
+      "title": "模型蒸馏与数据合成(二)：思维链、过程轨迹与推理蒸馏",
+      "summary": "比较最终答案与完整过程轨迹在训练数据中的作用，讨论推理蒸馏、过程验证和轨迹质量。",
+      "type": "article",
+      "topics": [
+        "training",
+        "data-environments"
+      ],
+      "keywords": [
+        "distillation",
+        "Chain of Thought",
+        "trajectory",
+        "data synthesis"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247483920&idx=1&sn=88565db7c0d8897dab5d51f25959a89f&chksm=c0f2675080468b8aa3f373482b41d594cf1763ea95689f805a25871fb2bf7f30ecee7f26b060"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-25",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "ccfddl",
+      "title": "CCFDDL",
+      "summary": "汇集计算机学术会议截止日期的查询工具。",
+      "type": "tool",
+      "topics": [
+        "research-tools"
+      ],
+      "keywords": [
+        "conference deadlines",
+        "CCF",
+        "academic calendar"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://ccfddl.com/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-25",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "filmgame",
+      "title": "filmgame",
+      "summary": "面向编剧的 AI 互动叙事工具，支持分阶段创作及 JSON、ink 导出。源码可见，限个人学习与非商业研究；商用需书面授权，使用、修改和再分发须保留署名及版权声明。",
+      "type": "tool",
+      "topics": [
+        "coding-agents",
+        "research-tools"
+      ],
+      "keywords": [
+        "interactive narrative",
+        "screenwriting",
+        "ink",
+        "creative tools"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/mmlong818/filmgame"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-25",
+          "group": "group-3",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-25",
+          "group": "group-4",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-25",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "suppressing-misalignment-monitoring-alerts-and-disablin",
+      "title": "Suppressing misalignment monitoring alerts and disabling misalignment monitoring",
+      "summary": "记录两个内部编程任务中智能体削弱监控的事件，说明调查、处置与行为分析。",
+      "type": "article",
+      "topics": [
+        "safety",
+        "coding-agents"
+      ],
+      "keywords": [
+        "misalignment",
+        "monitoring",
+        "coding agent"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-25",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "tool-74f8244b",
+      "title": "A5: Proactive Personal Agent in Your Life-Long Context",
+      "summary": "个人智能体技术预览，结合长期记忆、资料变化感知和建议生成，在用户确认后推进持续任务。",
+      "type": "tool",
+      "topics": [
+        "memory",
+        "coding-agents"
+      ],
+      "keywords": [
+        "A5",
+        "Personal Agent",
+        "proactive agent",
+        "lifelong context"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://huggingface.co/blog/KYLN24/introducing-a5"
+        },
+        {
+          "kind": "project",
+          "url": "https://huggingface.co/buckets/KYLN24/a5-release"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s/1OBDPj0giDYPoH55gXqvTA"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-25",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "kimi-k3-1-pro",
+      "title": "Kimi K3.1 Pro",
+      "summary": "Kimi K3 的后训练模型，支持长上下文、编程和长程任务，并同步提供高速版本。",
+      "type": "model",
+      "topics": [
+        "models",
+        "coding-agents"
+      ],
+      "keywords": [
+        "Kimi",
+        "Kimi K3.1 Pro",
+        "long context",
+        "agentic coding"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://www.kimi.com/blog/kimi-k3-1-pro"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s?__biz=MzcwMjM3ODEzOA%3D%3D&mid=2247487748&idx=1&sn=ceec50327d6be7c1e07203c9306c9ebc&chksm=f5ee38e3cc6d56c3b6641d2cd7d3093b97e4fc614dc0be0d85ab8f776e76c26b33b6b791ee87",
+        "https://mp.weixin.qq.com/s?__biz=MzcwMjM3ODEzOA%3D%3D&mid=2247487748&idx=1&sn=ceec50327d6be7c1e07203c9306c9ebc&chksm=f53de11b07794f1679fe088d0f2fcecb8f9af994db8f20c050f7c9f68db353a2408e9fda8df0",
+        "https://mp.weixin.qq.com/s?__biz=MzcwMjM3ODEzOA%3D%3D&mid=2247487748&idx=1&sn=ceec50327d6be7c1e07203c9306c9ebc&chksm=f58256a3348634176535527d2c4a55db2d078c6a456676fef96088e7eef0d3337f60cb5d31e3"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-24",
+          "group": "group-3",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-24",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "jit-agent",
+      "title": "JIT-Agent: Scaling Harness Intelligence via Just-in-Time Harness Evolution",
+      "summary": "训练 harness 生成模型，按任务组合记忆、规划、动作协议与工具编排，并结合执行反馈修复和迭代。",
+      "type": "paper",
+      "topics": [
+        "coding-agents",
+        "research-agents"
+      ],
+      "keywords": [
+        "JIT-Agent",
+        "harness evolution",
+        "task adaptation"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2608.25593"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-23",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "personal-agent",
+      "title": "Personal Agent 的未来三种形态",
+      "summary": "从人的参与方式区分持续履责、即时执行和审核待办三种智能体形态，并讨论它们如何协作推进长期任务。",
+      "type": "article",
+      "topics": [
+        "coding-agents",
+        "memory",
+        "industry"
+      ],
+      "keywords": [
+        "Personal Agent",
+        "Sparse Agent",
+        "Dense Agent",
+        "long-horizon"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzIyNzQyNzgxNQ%3D%3D&mid=2247486559&idx=1&sn=8a9645af4b74f6cd70b1f10c5f20ac90&chksm=e91a01fb3ab308873a97e0e307079f17bfcccb98dea9b13d58de1f282060496490f86aaca0fc"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-23",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "supervisor-skills",
+      "title": "Supervisor-Skills",
+      "summary": "提供从研究想法评估、文献调研到论文写作、润色与审稿回复的技能和配套方法手册。",
+      "type": "code",
+      "topics": [
+        "research-tools",
+        "research-agents"
+      ],
+      "keywords": [
+        "Supervisor-Skills",
+        "agent skills",
+        "paper writing",
+        "peer review"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/HKUSTDial/Supervisor-Skills"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-23",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "tool-ded79847",
+      "title": "AI 新项目崛起榜",
+      "summary": "聚合近期创建的 AI GitHub 项目及每日涨星信息，提供按日存档和项目入口。",
+      "type": "tool",
+      "topics": [
+        "research-tools"
+      ],
+      "keywords": [
+        "GitHub",
+        "project discovery",
+        "open source"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://mmlong818.github.io/ai-trending"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-23",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "tool-e3c962cf",
+      "title": "AI 日报黄页",
+      "summary": "按话题汇集个人 AI 日报，提供统一的索引、订阅及收录规范入口。",
+      "type": "tool",
+      "topics": [
+        "research-tools"
+      ],
+      "keywords": [
+        "AI digest",
+        "RSS",
+        "content registry"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://wangwu-30.github.io/ai-digest-registry"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-23",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "agi-4-2-b-agi",
+      "title": "AGI 五问 · 第4.2(b)篇｜AGI会取代工业自动化设备吗？",
+      "summary": "从生产计划、数字孪生、控制和现场维护讨论 AI 改变工业自动化设备及软件分工的条件。",
+      "type": "article",
+      "topics": [
+        "multimodal-embodied",
+        "industry"
+      ],
+      "keywords": [
+        "industrial automation",
+        "digital twin",
+        "control systems"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485023&idx=1&sn=6b961e10f1c13456c28cd558d5829742&chksm=f59c6acd1ec8db22dcbfa34812cb5c1d69842608bf12ff37bceccf7ecc7533de68549d263eb9"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "article-ebd2c201",
+      "title": "“快”科研联合声明",
+      "summary": "讨论科研质量、验证与进度之间的关系，提出缩短等待、及时反馈、开放结果和改进指导机制的倡议。",
+      "type": "article",
+      "topics": [
+        "industry",
+        "research-tools"
+      ],
+      "keywords": [
+        "research practice",
+        "open science",
+        "scientific communication"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://quickresearch.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-1",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "easyslides",
+      "title": "EasySlides",
+      "summary": "提供科研汇报的模板、案例和使用教程，帮助智能体根据论文材料生成可编辑 PPTX。",
+      "type": "tool",
+      "topics": [
+        "research-tools"
+      ],
+      "keywords": [
+        "EasySlides",
+        "PPTX",
+        "academic presentation",
+        "slide generation"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://easyslides.scansci.com/index.html?library=image"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "recursive-flint",
+      "title": "Recursive Flint",
+      "summary": "面向本地编程任务的开放权重 MoE 模型，总参数 40B、每 token 激活 2.5B，提供模型权重和部署说明。",
+      "type": "model",
+      "topics": [
+        "models",
+        "coding-agents"
+      ],
+      "keywords": [
+        "Flint",
+        "MoE",
+        "on-device",
+        "agentic coding"
+      ],
+      "links": [
+        {
+          "kind": "model",
+          "url": "https://huggingface.co/RecursiveSI/flint"
+        },
+        {
+          "kind": "project",
+          "url": "https://www.recursive.com/updates/introducing-recursive-flint"
+        }
+      ],
+      "aliases": [
+        "https://x.com/RichardSocher/status/2112944385415426249"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-1",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "sage-a1-5",
+      "title": "Sage-A1.5: From Long-Horizon Execution to Scientific Exploration with Capability Composition",
+      "summary": "介绍 35B MoE 智能体模型，通过任务委派、隔离上下文的并行协作和执行验证支持长程问题求解与科学探索。",
+      "type": "model",
+      "topics": [
+        "models",
+        "research-agents"
+      ],
+      "keywords": [
+        "Sage-A1.5",
+        "MoE",
+        "subagent",
+        "verification"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.28578"
+        },
+        {
+          "kind": "model",
+          "url": "https://huggingface.co/collections/InternScience/sage-a15"
+        },
+        {
+          "kind": "project",
+          "url": "https://alpha-innovator.github.io/Sage-A1.5"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "the-einstein-test",
+      "title": "The Einstein test: what happens when AI tries to rediscover relativity?",
+      "summary": "介绍通过限制历史训练材料检验模型重新发现科学理论的研究，并讨论突破性发现的评测难点。",
+      "type": "article",
+      "topics": [
+        "research-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "Einstein test",
+        "科学发现",
+        "historical data"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://www.nature.com/articles/d41586-026-02804-x"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "verifiable-articulable-and-tacit-components-of-preferen",
+      "title": "Verifiable, Articulable, and Tacit Components of Preference",
+      "summary": "用创作偏好数据比较可执行验证器、rubric 和训练模型，分析可言说偏好与可验证偏好之间的差距。",
+      "type": "paper",
+      "topics": [
+        "training",
+        "evaluation"
+      ],
+      "keywords": [
+        "CreativePreferences",
+        "human preference",
+        "rubric",
+        "verifier"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.03025"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "verifierbench",
+      "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+      "summary": "用 222 个任务及隐藏的正确解和错误解测试智能体生成的可执行验证器，关注误拒正确解与放过错误解的问题。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "coding-agents"
+      ],
+      "keywords": [
+        "VerifierBench",
+        "verifier",
+        "rubric",
+        "false rejection"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.28679"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/DwanZhang-AI/verifier-suite"
+        },
+        {
+          "kind": "data",
+          "url": "https://huggingface.co/datasets/Catherine1213/VerifierBench"
+        },
+        {
+          "kind": "project",
+          "url": "https://verifierbench.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "agi-4-2-a",
+      "title": "AGI 五问 · 第4.2(a)篇｜通用模型会吞掉机器人的专项训练吗？",
+      "summary": "讨论通用模型、遥操作示范、仿真与现场适配在机器人学习中的分工，以及自动化训练流程对工程工作的影响。",
+      "type": "article",
+      "topics": [
+        "multimodal-embodied",
+        "industry"
+      ],
+      "keywords": [
+        "robotics",
+        "VLA",
+        "world model",
+        "simulation"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485000&idx=1&sn=2134d45594082ce1bb95471d70b764b9&chksm=f5fb5d6dc13f80908c6b7be82b117e14acfd3a708788ee800f3e7048073ce7476cb50e58547e"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-21",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "bdpan-storage",
+      "title": "bdpan-storage",
+      "summary": "百度网盘 Agent Skill，支持通过自然语言上传、下载、转存、分享和搜索文件，并接入多种编程智能体。",
+      "type": "code",
+      "topics": [
+        "coding-agents"
+      ],
+      "keywords": [
+        "Baidu Netdisk",
+        "agent skills",
+        "file management",
+        "cloud storage"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/baidu-netdisk/bdpan-storage"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-21",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "checkcc",
+      "title": "CheckCC",
+      "summary": "在浏览器中检查语言、时区、字体、网络出口及可达性，并汇总环境检测结果。",
+      "type": "tool",
+      "topics": [
+        "systems"
+      ],
+      "keywords": [
+        "browser fingerprint",
+        "network diagnostics",
+        "IP",
+        "Claude Code"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://checkcc.org/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-21",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "clio",
+      "title": "Clio: Privacy-Preserving Insights into Real-World AI Use",
+      "summary": "利用模型提取和聚合对话特征，在减少人工接触原始对话的前提下分析使用模式，并辅助发现协调滥用。",
+      "type": "paper",
+      "topics": [
+        "safety",
+        "evaluation"
+      ],
+      "keywords": [
+        "Clio",
+        "privacy",
+        "usage analysis",
+        "abuse detection"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://www-cdn.anthropic.com/8167d62f0fb9c46e94e292e66ff5e26249860f94.pdf"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-21",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "embodied-task-agents-can-perform-fine-manipulation-thro",
+      "title": "Embodied Task Agents Can Perform Fine Manipulation through Tactile In-Context Learning",
+      "summary": "将专家演示中的动作、视觉和触觉观测对齐后放入上下文，在不更新模型参数的条件下探索精细机器人操作。",
+      "type": "paper",
+      "topics": [
+        "multimodal-embodied",
+        "memory"
+      ],
+      "keywords": [
+        "Tactile-ETA",
+        "tactile sensing",
+        "in-context learning",
+        "robotics"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.27613"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/No-518/Tactile-ETA"
+        },
+        {
+          "kind": "project",
+          "url": "https://no-518.github.io/tactile-eta"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-21",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "fuck-claude",
+      "title": "Fuck Claude",
+      "summary": "汇总浏览器的区域和网络指纹，提供本地检测页面、源码入口及结果展示。",
+      "type": "tool",
+      "topics": [
+        "systems"
+      ],
+      "keywords": [
+        "browser fingerprint",
+        "IP",
+        "local diagnostics"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://fuck-claude.vercel.app/zh"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-21",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "gacc-bench",
+      "title": "GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models",
+      "summary": "在只给目标、不提供后续问题的条件下压缩上下文，再用同一压缩结果回答多个问题，评测目标相关信息的保留能力。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "memory"
+      ],
+      "keywords": [
+        "GACC-Bench",
+        "context compression",
+        "goal-adaptive",
+        "long context"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.21893"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/weiting24/GACC-Bench"
+        },
+        {
+          "kind": "data",
+          "url": "https://huggingface.co/datasets/Regimes/GACC-Bench"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-21",
+          "group": "group-1",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "agent-world-model-in-the-wild",
+      "title": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis",
+      "summary": "用开源模型合成共享状态的 GUI、MCP 和 CLI 环境，通过执行与交叉检查筛选长程任务，供电脑操作智能体训练。",
+      "type": "dataset",
+      "topics": [
+        "data-environments",
+        "computer-use",
+        "training"
+      ],
+      "keywords": [
+        "WildAWM",
+        "MCP",
+        "GUI",
+        "CLI",
+        "environment synthesis"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.26828"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/MSR-Orchard/WildAWM"
+        },
+        {
+          "kind": "project",
+          "url": "https://msr-orchard.github.io/WildAWM"
+        },
+        {
+          "kind": "data",
+          "url": "https://huggingface.co/collections/ChilleD/agent-world-model-in-the-wild"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "agentrys-ai-loop-engineering-riscv-cpu-xiangshan",
+      "title": "Agentrys 用 AI Loop Engineering 优化开源 RISCV CPU XiangShan",
+      "summary": "解读以微架构和 RTL 两个优化循环改进处理器设计的案例，介绍正确性检查、综合和布局布线反馈如何驱动迭代。",
+      "type": "article",
+      "topics": [
+        "research-agents",
+        "systems"
+      ],
+      "keywords": [
+        "Agentrys",
+        "XiangShan",
+        "RISC-V",
+        "RTL",
+        "PPA"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzcwMjQyMjMyMg%3D%3D&mid=2247485426&idx=1&sn=0433438219e27a1636eaea149298ad3d&chksm=f5cde9dfc09f751d216cf9526b007256c97b62da74392930b661f6c2ca4839b1f585e48f375b"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "blenderworld",
+      "title": "BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References",
+      "summary": "用 223 个真实参考驱动的任务评测 3D 创作，检查可编辑 Blender 工程的多视角效果和任务专属细粒度要求。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "BlenderWorld",
+        "Blender",
+        "3D generation",
+        "visual agent"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.23986"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/QwenLM/BlenderWorld"
+        },
+        {
+          "kind": "project",
+          "url": "https://blenderworld.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-1",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "coworkenv",
+      "title": "CoworkEnv: Synthesizing Training Environments for Long-Horizon Cowork Agents",
+      "summary": "自动合成可执行的协作工作环境，借助程序校验与反馈修复构造任务和评分，支持 PocketWorker 模型的 SFT 与 RL 训练。",
+      "type": "dataset",
+      "topics": [
+        "data-environments",
+        "training"
+      ],
+      "keywords": [
+        "CoworkEnv",
+        "PocketWorker",
+        "Claw-Eval",
+        "SFT",
+        "RL"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.24960"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/HKUST-KnowComp/CoworkEnv"
+        },
+        {
+          "kind": "model",
+          "url": "https://huggingface.co/collections/zhongweixie/pocketworker"
+        },
+        {
+          "kind": "docs",
+          "url": "https://github.com/zhongweixie/CoworkEnv-Lessons"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "deepinfer",
+      "title": "DeepInfer",
+      "summary": "面向 DeepSeek 模型的大规模推理框架，公开版本提供离线推理、优化算子、异步调度、批次不变推理和结构化输出。",
+      "type": "code",
+      "topics": [
+        "systems"
+      ],
+      "keywords": [
+        "DeepInfer",
+        "DeepSeek",
+        "inference",
+        "batch invariance"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/deepseek-ai/DeepInfer"
+        }
+      ],
+      "aliases": [
+        "https://zhuanlan.zhihu.com/p/2095560295930508953",
+        "https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485884&idx=1&sn=d457981abe7db1f1b5d600fc109dc836&chksm=c200a2522c40fa76bc3aa80411780b8431faf903ff1af54978719234bfde0e4ca157e771eeb2",
+        "https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485884&idx=1&sn=d457981abe7db1f1b5d600fc109dc836&chksm=c25a63ca8a6b732fcc88f9e972953f066c3a5681014b540cffb849b78df4b38ddab138e6b6cb",
+        "https://mp.weixin.qq.com/s/_92qxY50yrITYDkhnKVv5w"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-3",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-20",
+          "group": "group-4",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-20",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "echo",
+      "title": "ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction",
+      "summary": "复用主干最后一层预测多个未来 token，并用动态深度采样控制训练成本；训练后的模型可自身产生投机解码草稿。",
+      "type": "paper",
+      "topics": [
+        "training",
+        "systems"
+      ],
+      "keywords": [
+        "ECHO",
+        "multi-token prediction",
+        "speculative decoding",
+        "dynamic depth sampling"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.24766"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/ernie-research/ECHO"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "just-in-time-memory",
+      "title": "Just-in-Time Memory: Learning to Curate Task-Adaptive Memory for LLM Agents",
+      "summary": "保留原始任务轨迹，在新任务已知时再整理相关记忆，学习面向当前任务的读取时记忆组织。",
+      "type": "paper",
+      "topics": [
+        "memory",
+        "training"
+      ],
+      "keywords": [
+        "Just-in-Time Memory",
+        "task-adaptive memory",
+        "trajectory",
+        "memory curation"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2609.27334"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "kv-cache-99-6-cmu",
+      "title": "内存还会跌吗？KV Cache砍掉99%，单卡吞吐飙6倍，港科大、CMU联手岩山科技开源新模型",
+      "summary": "介绍 EdgeRock-4B 将 KV Cache 限制为固定状态的设计，并讨论长上下文推理的显存与吞吐取舍。",
+      "type": "article",
+      "topics": [
+        "systems",
+        "models"
+      ],
+      "keywords": [
+        "EdgeRock-4B",
+        "KV Cache",
+        "bounded state",
+        "inference"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247934663&idx=1&sn=c9856dde59112a0965e188e751ac6d1d&chksm=e9a4a7eb2c6bef3ebf00d8aa3ad3becfdbb6c7269363796775901d0f0de54ec90f301091765b"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "machine-stage",
+      "title": "machine-stage",
+      "summary": "纯前端 Three.js 装备展示台，提供零件注册、程序化装配、实例级穿模检测及构建进度回放。",
+      "type": "code",
+      "topics": [
+        "multimodal-embodied",
+        "coding-agents"
+      ],
+      "keywords": [
+        "Three.js",
+        "procedural modeling",
+        "3D visualization",
+        "collision detection"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/SingularGuyLeBorn/machine-stage"
+        },
+        {
+          "kind": "docs",
+          "url": "https://github.com/SingularGuyLeBorn/machine-stage/blob/main/docs/showcase/README.md"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "moss-image-technical-report",
+      "title": "MOSS-Image Technical Report",
+      "summary": "介绍支持中英长文本渲染与布局控制的 5B 图像生成模型，以及将用户需求转成内容和布局规格的提示增强模块。",
+      "type": "model",
+      "topics": [
+        "models",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "MOSS-Image",
+        "DiT",
+        "text rendering",
+        "layout generation"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.23374"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/OpenMOSS/MOSS-Image"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "net-coffee-ip",
+      "title": "Net.Coffee IP 检测",
+      "summary": "提供网络出口属性、DNS 与 WebRTC 泄露、时区和浏览器指纹等检测入口。",
+      "type": "tool",
+      "topics": [
+        "systems"
+      ],
+      "keywords": [
+        "IP",
+        "DNS",
+        "WebRTC",
+        "network diagnostics"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://ip.net.coffee/claude"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-4",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-21",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "openvlharness",
+      "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
+      "summary": "为多模态模型连接感知、检索与计算工具，将输出转成模型可读证据，并用持久多模态记忆保留中间结果。",
+      "type": "paper",
+      "topics": [
+        "multimodal-embodied",
+        "memory",
+        "coding-agents"
+      ],
+      "keywords": [
+        "OpenVLHarness",
+        "multimodal memory",
+        "tool calling",
+        "visual reasoning"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.26860"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/uclanlp/OpenVLHarness"
+        },
+        {
+          "kind": "project",
+          "url": "https://openvlharness.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "self-evaluating-recursive-agents",
+      "title": "Self-Evaluating Recursive Agents",
+      "summary": "让同一模型联合学习任务分解、执行与评价，父智能体先写子任务 rubric，再用可验证结果训练评价与分解能力。",
+      "type": "paper",
+      "topics": [
+        "multi-agent",
+        "training"
+      ],
+      "keywords": [
+        "SERA",
+        "recursive agents",
+        "rubric",
+        "credit assignment"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.04902"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/OliverLeeXZ/SERA"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "the-optimizer-is-the-agent",
+      "title": "The Optimizer Is the Agent: Reasoning-Driven Search across Prompts, Programs, and ML Workflows",
+      "summary": "让工具型智能体自行决定评估、诊断、修改、验证与重启，用同一循环优化提示词、程序和机器学习流程。",
+      "type": "paper",
+      "topics": [
+        "research-agents",
+        "coding-agents"
+      ],
+      "keywords": [
+        "ReASearch",
+        "optimization",
+        "long-horizon",
+        "long-term memory"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2608.06714"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "unified-runtime-for-full-duplex-interactive-intelligenc",
+      "title": "Unified Runtime for Full-Duplex Interactive Intelligence with SGLang Omni",
+      "summary": "介绍基于计算图与持久会话的统一运行时，支持原生全双工、轮次式多模态和级联交互系统，并给出评测与复现入口。",
+      "type": "article",
+      "topics": [
+        "systems",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "SGLang",
+        "Omni",
+        "full-duplex",
+        "streaming"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://www.sglang.io/blog/omni-interactive-runtime"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-20",
+          "group": "group-1",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "grpo-beyond-english",
+      "title": "GRPO Beyond English: A Large-Scale Study of GRPO in Non-English and Multilingual Settings",
+      "summary": "比较不同模型、训练语言和推理语言奖励下的 GRPO，分析跨语言收益及部分语言和域外能力回退。",
+      "type": "paper",
+      "topics": [
+        "training",
+        "evaluation"
+      ],
+      "keywords": [
+        "GRPO",
+        "RLVR",
+        "multilingual",
+        "cross-lingual transfer"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2608.13698"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "learning-self-orchestration-in-decentralized-agent-swar",
+      "title": "Learning Self-Orchestration in Decentralized Agent Swarms",
+      "summary": "用市场化后训练联合学习智能体的动作与竞价策略，让去中心化群体自行组织参与并分配训练反馈。",
+      "type": "paper",
+      "topics": [
+        "multi-agent",
+        "training"
+      ],
+      "keywords": [
+        "self-orchestration",
+        "market-based post-training",
+        "agent swarm"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.22322"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-5",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "lightpanda",
+      "title": "Lightpanda：用 Zig 从零写的开源无头浏览器，专门为 AI Agent 和自动化定制",
+      "summary": "介绍 Lightpanda 保留 DOM 与 JavaScript 执行、移除渲染管线的设计，以及自动化接口和不支持截图的限制。",
+      "type": "article",
+      "topics": [
+        "computer-use",
+        "systems"
+      ],
+      "keywords": [
+        "Lightpanda",
+        "headless browser",
+        "Zig",
+        "Playwright"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg2NjgzMjEwNw%3D%3D&mid=2247499014&idx=1&sn=3e2b110e80d4592f3edf6e123511b83f&chksm=cf76beb4443d36ac225efd4795fcad59a815c22086b07a6bc7f8215334d02a1b7364811facf0"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-1",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "native-real-time-interactive-omni-intelligence",
+      "title": "Native Real-Time Interactive Omni Intelligence: A Unified Framework",
+      "summary": "综述实时全模态系统的流式表征、模型架构、交互控制与评测，覆盖回应、等待、打断及持续感知。",
+      "type": "paper",
+      "topics": [
+        "multimodal-embodied",
+        "systems"
+      ],
+      "keywords": [
+        "Omni",
+        "full-duplex",
+        "streaming",
+        "survey"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/ShenYifanS/Awesome-Interactive-Omni"
+        }
+      ],
+      "aliases": [
+        "https://doi.org/10.13140/RG.2.2.20245.69602"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-3",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "officetown",
+      "title": "OfficeTown: Generative Organizations for Evolving Agent Intelligence",
+      "summary": "通过持续组织模拟生成专业工作任务、上下文和反馈，提供含 406 个任务的评测集及用于训练的可执行环境。",
+      "type": "paper",
+      "topics": [
+        "data-environments",
+        "multi-agent",
+        "evaluation"
+      ],
+      "keywords": [
+        "OfficeTown",
+        "professional work",
+        "organization simulation",
+        "SFT"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.23194"
+        },
+        {
+          "kind": "project",
+          "url": "https://officeintelligence.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-1",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "opengcua",
+      "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
+      "summary": "开放通用电脑操作智能体的 harness、跨端 SDK 和评测轨迹，由模型结合视觉交互与代码执行选择观察和操作方式。",
+      "type": "paper",
+      "topics": [
+        "computer-use",
+        "coding-agents"
+      ],
+      "keywords": [
+        "OpenGCUA",
+        "OSWorld",
+        "code execution",
+        "GUI"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.22200"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/Tongyi-MAI/OpenGCUA"
+        },
+        {
+          "kind": "project",
+          "url": "https://tongyi-mai.github.io/OpenGCUA"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-1",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-19",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "scaling-online-exploration-for-robot-agents",
+      "title": "Scaling Online Exploration for Robot Agents",
+      "summary": "让冻结的编程模型通过机器人在线探索，把成功经验写成可复用的感知、规划和控制程序，并积累持久技能库。",
+      "type": "paper",
+      "topics": [
+        "multimodal-embodied",
+        "research-agents"
+      ],
+      "keywords": [
+        "RAX",
+        "online exploration",
+        "robotics",
+        "code generation"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2610.22496"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/robot-agent-exploration/rax"
+        },
+        {
+          "kind": "project",
+          "url": "https://robot-agent-exploration.com/"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/robot-agent-exploration/skills-lib"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s?__biz=MzY5NDQyODU2MQ%3D%3D&mid=2247532617&idx=1&sn=343e1f0570530a576daec001ffba4fee&chksm=f5be417e3f1e36c45663b7c8417c42eaacc605ec5e1eca04e69a4e1cfdcd7747cdbd2e4be1f7"
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-2",
+          "avatar": null
+        }
+      ]
+    },
+    {
+      "id": "zero2repo",
+      "title": "Zero2Repo: Can Coding Agents Build Repositories from Scratch?",
+      "summary": "让编程智能体仅凭需求、接口约定和空工作区构建完整项目，交付后用隐藏确定性测试评判，不依赖模型裁判。",
+      "type": "benchmark",
+      "topics": [
+        "coding-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "Zero2Repo",
+        "repository-level",
+        "hidden tests",
+        "software engineering"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2609.38269"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/Gradient-Data/Zero2Repo"
+        },
+        {
+          "kind": "leaderboard",
+          "url": "https://zero2repo.ai/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-10-19",
+          "group": "group-3",
+          "avatar": null
+        },
+        {
+          "date": "2026-10-19",
+          "group": "group-4",
+          "avatar": null
+        }
+      ]
+    },
     {
       "id": "exeworldbench",
       "title": "ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling",
@@ -1821,7 +5405,15 @@
           "date": "2026-10-15",
           "group": "group-3",
           "avatar": "63872841344f48a9.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-3",
+          "avatar": "904e25c03cd5cdf9.jpg"
         }
+      ],
+      "aliases": [
+        "https://github.com/stablyai/orca"
       ]
     },
     {
@@ -7152,9 +10744,17 @@
           "date": "2026-10-16",
           "group": "group-4",
           "avatar": "8b9eeaac544884a9.jpg"
+        },
+        {
+          "date": "2026-10-30",
+          "group": "group-1",
+          "avatar": "cbd81d7c639ba5c6.jpg"
         }
       ],
-      "aliases": []
+      "aliases": [
+        "https://github.com/Prism-Shadow/penguin-harness-benchmark",
+        "https://github.com/Prism-Shadow/penguin-harness-community"
+      ]
     },
     {
       "id": "towards-long-horizon-agents",
@@ -8338,1643 +11938,6 @@
         }
       ],
       "aliases": []
-    },
-    {
-      "id": "lightpanda",
-      "title": "Lightpanda：用 Zig 从零写的开源无头浏览器，专门为 AI Agent 和自动化定制",
-      "summary": "介绍 Lightpanda 保留 DOM 与 JavaScript 执行、移除渲染管线的设计，以及自动化接口和不支持截图的限制。",
-      "type": "article",
-      "topics": [
-        "computer-use",
-        "systems"
-      ],
-      "keywords": [
-        "Lightpanda",
-        "headless browser",
-        "Zig",
-        "Playwright"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://mp.weixin.qq.com/s?__biz=Mzg2NjgzMjEwNw%3D%3D&mid=2247499014&idx=1&sn=3e2b110e80d4592f3edf6e123511b83f&chksm=cf76beb4443d36ac225efd4795fcad59a815c22086b07a6bc7f8215334d02a1b7364811facf0"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-1",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "opengcua",
-      "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
-      "summary": "开放通用电脑操作智能体的 harness、跨端 SDK 和评测轨迹，由模型结合视觉交互与代码执行选择观察和操作方式。",
-      "type": "paper",
-      "topics": [
-        "computer-use",
-        "coding-agents"
-      ],
-      "keywords": [
-        "OpenGCUA",
-        "OSWorld",
-        "code execution",
-        "GUI"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.22200"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/Tongyi-MAI/OpenGCUA"
-        },
-        {
-          "kind": "project",
-          "url": "https://tongyi-mai.github.io/OpenGCUA"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-1",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-19",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "officetown",
-      "title": "OfficeTown: Generative Organizations for Evolving Agent Intelligence",
-      "summary": "通过持续组织模拟生成专业工作任务、上下文和反馈，提供含 406 个任务的评测集及用于训练的可执行环境。",
-      "type": "paper",
-      "topics": [
-        "data-environments",
-        "multi-agent",
-        "evaluation"
-      ],
-      "keywords": [
-        "OfficeTown",
-        "professional work",
-        "organization simulation",
-        "SFT"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.23194"
-        },
-        {
-          "kind": "project",
-          "url": "https://officeintelligence.github.io/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-1",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "scaling-online-exploration-for-robot-agents",
-      "title": "Scaling Online Exploration for Robot Agents",
-      "summary": "让冻结的编程模型通过机器人在线探索，把成功经验写成可复用的感知、规划和控制程序，并积累持久技能库。",
-      "type": "paper",
-      "topics": [
-        "multimodal-embodied",
-        "research-agents"
-      ],
-      "keywords": [
-        "RAX",
-        "online exploration",
-        "robotics",
-        "code generation"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.22496"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/robot-agent-exploration/rax"
-        },
-        {
-          "kind": "project",
-          "url": "https://robot-agent-exploration.com/"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/robot-agent-exploration/skills-lib"
-        }
-      ],
-      "aliases": [
-        "https://mp.weixin.qq.com/s?__biz=MzY5NDQyODU2MQ%3D%3D&mid=2247532617&idx=1&sn=343e1f0570530a576daec001ffba4fee&chksm=f5be417e3f1e36c45663b7c8417c42eaacc605ec5e1eca04e69a4e1cfdcd7747cdbd2e4be1f7"
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "native-real-time-interactive-omni-intelligence",
-      "title": "Native Real-Time Interactive Omni Intelligence: A Unified Framework",
-      "summary": "综述实时全模态系统的流式表征、模型架构、交互控制与评测，覆盖回应、等待、打断及持续感知。",
-      "type": "paper",
-      "topics": [
-        "multimodal-embodied",
-        "systems"
-      ],
-      "keywords": [
-        "Omni",
-        "full-duplex",
-        "streaming",
-        "survey"
-      ],
-      "links": [
-        {
-          "kind": "code",
-          "url": "https://github.com/ShenYifanS/Awesome-Interactive-Omni"
-        }
-      ],
-      "aliases": [
-        "https://doi.org/10.13140/RG.2.2.20245.69602"
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "zero2repo",
-      "title": "Zero2Repo: Can Coding Agents Build Repositories from Scratch?",
-      "summary": "让编程智能体仅凭需求、接口约定和空工作区构建完整项目，交付后用隐藏确定性测试评判，不依赖模型裁判。",
-      "type": "benchmark",
-      "topics": [
-        "coding-agents",
-        "evaluation"
-      ],
-      "keywords": [
-        "Zero2Repo",
-        "repository-level",
-        "hidden tests",
-        "software engineering"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2609.38269"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/Gradient-Data/Zero2Repo"
-        },
-        {
-          "kind": "leaderboard",
-          "url": "https://zero2repo.ai/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-3",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-19",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "grpo-beyond-english",
-      "title": "GRPO Beyond English: A Large-Scale Study of GRPO in Non-English and Multilingual Settings",
-      "summary": "比较不同模型、训练语言和推理语言奖励下的 GRPO，分析跨语言收益及部分语言和域外能力回退。",
-      "type": "paper",
-      "topics": [
-        "training",
-        "evaluation"
-      ],
-      "keywords": [
-        "GRPO",
-        "RLVR",
-        "multilingual",
-        "cross-lingual transfer"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2608.13698"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "learning-self-orchestration-in-decentralized-agent-swar",
-      "title": "Learning Self-Orchestration in Decentralized Agent Swarms",
-      "summary": "用市场化后训练联合学习智能体的动作与竞价策略，让去中心化群体自行组织参与并分配训练反馈。",
-      "type": "paper",
-      "topics": [
-        "multi-agent",
-        "training"
-      ],
-      "keywords": [
-        "self-orchestration",
-        "market-based post-training",
-        "agent swarm"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.22322"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-19",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "unified-runtime-for-full-duplex-interactive-intelligenc",
-      "title": "Unified Runtime for Full-Duplex Interactive Intelligence with SGLang Omni",
-      "summary": "介绍基于计算图与持久会话的统一运行时，支持原生全双工、轮次式多模态和级联交互系统，并给出评测与复现入口。",
-      "type": "article",
-      "topics": [
-        "systems",
-        "multimodal-embodied"
-      ],
-      "keywords": [
-        "SGLang",
-        "Omni",
-        "full-duplex",
-        "streaming"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://www.sglang.io/blog/omni-interactive-runtime"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-1",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "blenderworld",
-      "title": "BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References",
-      "summary": "用 223 个真实参考驱动的任务评测 3D 创作，检查可编辑 Blender 工程的多视角效果和任务专属细粒度要求。",
-      "type": "benchmark",
-      "topics": [
-        "evaluation",
-        "multimodal-embodied"
-      ],
-      "keywords": [
-        "BlenderWorld",
-        "Blender",
-        "3D generation",
-        "visual agent"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.23986"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/QwenLM/BlenderWorld"
-        },
-        {
-          "kind": "project",
-          "url": "https://blenderworld.github.io/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-1",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "the-optimizer-is-the-agent",
-      "title": "The Optimizer Is the Agent: Reasoning-Driven Search across Prompts, Programs, and ML Workflows",
-      "summary": "让工具型智能体自行决定评估、诊断、修改、验证与重启，用同一循环优化提示词、程序和机器学习流程。",
-      "type": "paper",
-      "topics": [
-        "research-agents",
-        "coding-agents"
-      ],
-      "keywords": [
-        "ReASearch",
-        "optimization",
-        "long-horizon",
-        "long-term memory"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2608.06714"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "coworkenv",
-      "title": "CoworkEnv: Synthesizing Training Environments for Long-Horizon Cowork Agents",
-      "summary": "自动合成可执行的协作工作环境，借助程序校验与反馈修复构造任务和评分，支持 PocketWorker 模型的 SFT 与 RL 训练。",
-      "type": "dataset",
-      "topics": [
-        "data-environments",
-        "training"
-      ],
-      "keywords": [
-        "CoworkEnv",
-        "PocketWorker",
-        "Claw-Eval",
-        "SFT",
-        "RL"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.24960"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/HKUST-KnowComp/CoworkEnv"
-        },
-        {
-          "kind": "model",
-          "url": "https://huggingface.co/collections/zhongweixie/pocketworker"
-        },
-        {
-          "kind": "docs",
-          "url": "https://github.com/zhongweixie/CoworkEnv-Lessons"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "moss-image-technical-report",
-      "title": "MOSS-Image Technical Report",
-      "summary": "介绍支持中英长文本渲染与布局控制的 5B 图像生成模型，以及将用户需求转成内容和布局规格的提示增强模块。",
-      "type": "model",
-      "topics": [
-        "models",
-        "multimodal-embodied"
-      ],
-      "keywords": [
-        "MOSS-Image",
-        "DiT",
-        "text rendering",
-        "layout generation"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.23374"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/OpenMOSS/MOSS-Image"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "agentrys-ai-loop-engineering-riscv-cpu-xiangshan",
-      "title": "Agentrys 用 AI Loop Engineering 优化开源 RISCV CPU XiangShan",
-      "summary": "解读以微架构和 RTL 两个优化循环改进处理器设计的案例，介绍正确性检查、综合和布局布线反馈如何驱动迭代。",
-      "type": "article",
-      "topics": [
-        "research-agents",
-        "systems"
-      ],
-      "keywords": [
-        "Agentrys",
-        "XiangShan",
-        "RISC-V",
-        "RTL",
-        "PPA"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzcwMjQyMjMyMg%3D%3D&mid=2247485426&idx=1&sn=0433438219e27a1636eaea149298ad3d&chksm=f5cde9dfc09f751d216cf9526b007256c97b62da74392930b661f6c2ca4839b1f585e48f375b"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "echo",
-      "title": "ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction",
-      "summary": "复用主干最后一层预测多个未来 token，并用动态深度采样控制训练成本；训练后的模型可自身产生投机解码草稿。",
-      "type": "paper",
-      "topics": [
-        "training",
-        "systems"
-      ],
-      "keywords": [
-        "ECHO",
-        "multi-token prediction",
-        "speculative decoding",
-        "dynamic depth sampling"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.24766"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/ernie-research/ECHO"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "openvlharness",
-      "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
-      "summary": "为多模态模型连接感知、检索与计算工具，将输出转成模型可读证据，并用持久多模态记忆保留中间结果。",
-      "type": "paper",
-      "topics": [
-        "multimodal-embodied",
-        "memory",
-        "coding-agents"
-      ],
-      "keywords": [
-        "OpenVLHarness",
-        "multimodal memory",
-        "tool calling",
-        "visual reasoning"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.26860"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/uclanlp/OpenVLHarness"
-        },
-        {
-          "kind": "project",
-          "url": "https://openvlharness.github.io/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "deepinfer",
-      "title": "DeepInfer",
-      "summary": "面向 DeepSeek 模型的大规模推理框架，公开版本提供离线推理、优化算子、异步调度、批次不变推理和结构化输出。",
-      "type": "code",
-      "topics": [
-        "systems"
-      ],
-      "keywords": [
-        "DeepInfer",
-        "DeepSeek",
-        "inference",
-        "batch invariance"
-      ],
-      "links": [
-        {
-          "kind": "code",
-          "url": "https://github.com/deepseek-ai/DeepInfer"
-        }
-      ],
-      "aliases": [
-        "https://zhuanlan.zhihu.com/p/2095560295930508953",
-        "https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485884&idx=1&sn=d457981abe7db1f1b5d600fc109dc836&chksm=c200a2522c40fa76bc3aa80411780b8431faf903ff1af54978719234bfde0e4ca157e771eeb2",
-        "https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485884&idx=1&sn=d457981abe7db1f1b5d600fc109dc836&chksm=c25a63ca8a6b732fcc88f9e972953f066c3a5681014b540cffb849b78df4b38ddab138e6b6cb",
-        "https://mp.weixin.qq.com/s/_92qxY50yrITYDkhnKVv5w"
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-3",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-20",
-          "group": "group-4",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-20",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "kv-cache-99-6-cmu",
-      "title": "内存还会跌吗？KV Cache砍掉99%，单卡吞吐飙6倍，港科大、CMU联手岩山科技开源新模型",
-      "summary": "介绍 EdgeRock-4B 将 KV Cache 限制为固定状态的设计，并讨论长上下文推理的显存与吞吐取舍。",
-      "type": "article",
-      "topics": [
-        "systems",
-        "models"
-      ],
-      "keywords": [
-        "EdgeRock-4B",
-        "KV Cache",
-        "bounded state",
-        "inference"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247934663&idx=1&sn=c9856dde59112a0965e188e751ac6d1d&chksm=e9a4a7eb2c6bef3ebf00d8aa3ad3becfdbb6c7269363796775901d0f0de54ec90f301091765b"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "machine-stage",
-      "title": "machine-stage",
-      "summary": "纯前端 Three.js 装备展示台，提供零件注册、程序化装配、实例级穿模检测及构建进度回放。",
-      "type": "code",
-      "topics": [
-        "multimodal-embodied",
-        "coding-agents"
-      ],
-      "keywords": [
-        "Three.js",
-        "procedural modeling",
-        "3D visualization",
-        "collision detection"
-      ],
-      "links": [
-        {
-          "kind": "code",
-          "url": "https://github.com/SingularGuyLeBorn/machine-stage"
-        },
-        {
-          "kind": "docs",
-          "url": "https://github.com/SingularGuyLeBorn/machine-stage/blob/main/docs/showcase/README.md"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "self-evaluating-recursive-agents",
-      "title": "Self-Evaluating Recursive Agents",
-      "summary": "让同一模型联合学习任务分解、执行与评价，父智能体先写子任务 rubric，再用可验证结果训练评价与分解能力。",
-      "type": "paper",
-      "topics": [
-        "multi-agent",
-        "training"
-      ],
-      "keywords": [
-        "SERA",
-        "recursive agents",
-        "rubric",
-        "credit assignment"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.04902"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/OliverLeeXZ/SERA"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "just-in-time-memory",
-      "title": "Just-in-Time Memory: Learning to Curate Task-Adaptive Memory for LLM Agents",
-      "summary": "保留原始任务轨迹，在新任务已知时再整理相关记忆，学习面向当前任务的读取时记忆组织。",
-      "type": "paper",
-      "topics": [
-        "memory",
-        "training"
-      ],
-      "keywords": [
-        "Just-in-Time Memory",
-        "task-adaptive memory",
-        "trajectory",
-        "memory curation"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2609.27334"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "agent-world-model-in-the-wild",
-      "title": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis",
-      "summary": "用开源模型合成共享状态的 GUI、MCP 和 CLI 环境，通过执行与交叉检查筛选长程任务，供电脑操作智能体训练。",
-      "type": "dataset",
-      "topics": [
-        "data-environments",
-        "computer-use",
-        "training"
-      ],
-      "keywords": [
-        "WildAWM",
-        "MCP",
-        "GUI",
-        "CLI",
-        "environment synthesis"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.26828"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/MSR-Orchard/WildAWM"
-        },
-        {
-          "kind": "project",
-          "url": "https://msr-orchard.github.io/WildAWM"
-        },
-        {
-          "kind": "data",
-          "url": "https://huggingface.co/collections/ChilleD/agent-world-model-in-the-wild"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "gacc-bench",
-      "title": "GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models",
-      "summary": "在只给目标、不提供后续问题的条件下压缩上下文，再用同一压缩结果回答多个问题，评测目标相关信息的保留能力。",
-      "type": "benchmark",
-      "topics": [
-        "evaluation",
-        "memory"
-      ],
-      "keywords": [
-        "GACC-Bench",
-        "context compression",
-        "goal-adaptive",
-        "long context"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.21893"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/weiting24/GACC-Bench"
-        },
-        {
-          "kind": "data",
-          "url": "https://huggingface.co/datasets/Regimes/GACC-Bench"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-21",
-          "group": "group-1",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "bdpan-storage",
-      "title": "bdpan-storage",
-      "summary": "百度网盘 Agent Skill，支持通过自然语言上传、下载、转存、分享和搜索文件，并接入多种编程智能体。",
-      "type": "code",
-      "topics": [
-        "coding-agents"
-      ],
-      "keywords": [
-        "Baidu Netdisk",
-        "agent skills",
-        "file management",
-        "cloud storage"
-      ],
-      "links": [
-        {
-          "kind": "code",
-          "url": "https://github.com/baidu-netdisk/bdpan-storage"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-21",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "clio",
-      "title": "Clio: Privacy-Preserving Insights into Real-World AI Use",
-      "summary": "利用模型提取和聚合对话特征，在减少人工接触原始对话的前提下分析使用模式，并辅助发现协调滥用。",
-      "type": "paper",
-      "topics": [
-        "safety",
-        "evaluation"
-      ],
-      "keywords": [
-        "Clio",
-        "privacy",
-        "usage analysis",
-        "abuse detection"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://www-cdn.anthropic.com/8167d62f0fb9c46e94e292e66ff5e26249860f94.pdf"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-21",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "checkcc",
-      "title": "CheckCC",
-      "summary": "在浏览器中检查语言、时区、字体、网络出口及可达性，并汇总环境检测结果。",
-      "type": "tool",
-      "topics": [
-        "systems"
-      ],
-      "keywords": [
-        "browser fingerprint",
-        "network diagnostics",
-        "IP",
-        "Claude Code"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://checkcc.org/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-21",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "fuck-claude",
-      "title": "Fuck Claude",
-      "summary": "汇总浏览器的区域和网络指纹，提供本地检测页面、源码入口及结果展示。",
-      "type": "tool",
-      "topics": [
-        "systems"
-      ],
-      "keywords": [
-        "browser fingerprint",
-        "IP",
-        "local diagnostics"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://fuck-claude.vercel.app/zh"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-21",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "net-coffee-ip",
-      "title": "Net.Coffee IP 检测",
-      "summary": "提供网络出口属性、DNS 与 WebRTC 泄露、时区和浏览器指纹等检测入口。",
-      "type": "tool",
-      "topics": [
-        "systems"
-      ],
-      "keywords": [
-        "IP",
-        "DNS",
-        "WebRTC",
-        "network diagnostics"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://ip.net.coffee/claude"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-20",
-          "group": "group-4",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-21",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "agi-4-2-a",
-      "title": "AGI 五问 · 第4.2(a)篇｜通用模型会吞掉机器人的专项训练吗？",
-      "summary": "讨论通用模型、遥操作示范、仿真与现场适配在机器人学习中的分工，以及自动化训练流程对工程工作的影响。",
-      "type": "article",
-      "topics": [
-        "multimodal-embodied",
-        "industry"
-      ],
-      "keywords": [
-        "robotics",
-        "VLA",
-        "world model",
-        "simulation"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485000&idx=1&sn=2134d45594082ce1bb95471d70b764b9&chksm=f5fb5d6dc13f80908c6b7be82b117e14acfd3a708788ee800f3e7048073ce7476cb50e58547e"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-21",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "embodied-task-agents-can-perform-fine-manipulation-thro",
-      "title": "Embodied Task Agents Can Perform Fine Manipulation through Tactile In-Context Learning",
-      "summary": "将专家演示中的动作、视觉和触觉观测对齐后放入上下文，在不更新模型参数的条件下探索精细机器人操作。",
-      "type": "paper",
-      "topics": [
-        "multimodal-embodied",
-        "memory"
-      ],
-      "keywords": [
-        "Tactile-ETA",
-        "tactile sensing",
-        "in-context learning",
-        "robotics"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.27613"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/No-518/Tactile-ETA"
-        },
-        {
-          "kind": "project",
-          "url": "https://no-518.github.io/tactile-eta"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-21",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "recursive-flint",
-      "title": "Recursive Flint",
-      "summary": "面向本地编程任务的开放权重 MoE 模型，总参数 40B、每 token 激活 2.5B，提供模型权重和部署说明。",
-      "type": "model",
-      "topics": [
-        "models",
-        "coding-agents"
-      ],
-      "keywords": [
-        "Flint",
-        "MoE",
-        "on-device",
-        "agentic coding"
-      ],
-      "links": [
-        {
-          "kind": "model",
-          "url": "https://huggingface.co/RecursiveSI/flint"
-        },
-        {
-          "kind": "project",
-          "url": "https://www.recursive.com/updates/introducing-recursive-flint"
-        }
-      ],
-      "aliases": [
-        "https://x.com/RichardSocher/status/2112944385415426249"
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-1",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "article-ebd2c201",
-      "title": "“快”科研联合声明",
-      "summary": "讨论科研质量、验证与进度之间的关系，提出缩短等待、及时反馈、开放结果和改进指导机制的倡议。",
-      "type": "article",
-      "topics": [
-        "industry",
-        "research-tools"
-      ],
-      "keywords": [
-        "research practice",
-        "open science",
-        "scientific communication"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://quickresearch.github.io/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-1",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "verifierbench",
-      "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
-      "summary": "用 222 个任务及隐藏的正确解和错误解测试智能体生成的可执行验证器，关注误拒正确解与放过错误解的问题。",
-      "type": "benchmark",
-      "topics": [
-        "evaluation",
-        "coding-agents"
-      ],
-      "keywords": [
-        "VerifierBench",
-        "verifier",
-        "rubric",
-        "false rejection"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.28679"
-        },
-        {
-          "kind": "code",
-          "url": "https://github.com/DwanZhang-AI/verifier-suite"
-        },
-        {
-          "kind": "data",
-          "url": "https://huggingface.co/datasets/Catherine1213/VerifierBench"
-        },
-        {
-          "kind": "project",
-          "url": "https://verifierbench.github.io/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "easyslides",
-      "title": "EasySlides",
-      "summary": "提供科研汇报的模板、案例和使用教程，帮助智能体根据论文材料生成可编辑 PPTX。",
-      "type": "tool",
-      "topics": [
-        "research-tools"
-      ],
-      "keywords": [
-        "EasySlides",
-        "PPTX",
-        "academic presentation",
-        "slide generation"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://easyslides.scansci.com/index.html?library=image"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "the-einstein-test",
-      "title": "The Einstein test: what happens when AI tries to rediscover relativity?",
-      "summary": "介绍通过限制历史训练材料检验模型重新发现科学理论的研究，并讨论突破性发现的评测难点。",
-      "type": "article",
-      "topics": [
-        "research-agents",
-        "evaluation"
-      ],
-      "keywords": [
-        "Einstein test",
-        "科学发现",
-        "historical data"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://www.nature.com/articles/d41586-026-02804-x"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "agi-4-2-b-agi",
-      "title": "AGI 五问 · 第4.2(b)篇｜AGI会取代工业自动化设备吗？",
-      "summary": "从生产计划、数字孪生、控制和现场维护讨论 AI 改变工业自动化设备及软件分工的条件。",
-      "type": "article",
-      "topics": [
-        "multimodal-embodied",
-        "industry"
-      ],
-      "keywords": [
-        "industrial automation",
-        "digital twin",
-        "control systems"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485023&idx=1&sn=6b961e10f1c13456c28cd558d5829742&chksm=f59c6acd1ec8db22dcbfa34812cb5c1d69842608bf12ff37bceccf7ecc7533de68549d263eb9"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "sage-a1-5",
-      "title": "Sage-A1.5: From Long-Horizon Execution to Scientific Exploration with Capability Composition",
-      "summary": "介绍 35B MoE 智能体模型，通过任务委派、隔离上下文的并行协作和执行验证支持长程问题求解与科学探索。",
-      "type": "model",
-      "topics": [
-        "models",
-        "research-agents"
-      ],
-      "keywords": [
-        "Sage-A1.5",
-        "MoE",
-        "subagent",
-        "verification"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.28578"
-        },
-        {
-          "kind": "model",
-          "url": "https://huggingface.co/collections/InternScience/sage-a15"
-        },
-        {
-          "kind": "project",
-          "url": "https://alpha-innovator.github.io/Sage-A1.5"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "verifiable-articulable-and-tacit-components-of-preferen",
-      "title": "Verifiable, Articulable, and Tacit Components of Preference",
-      "summary": "用创作偏好数据比较可执行验证器、rubric 和训练模型，分析可言说偏好与可验证偏好之间的差距。",
-      "type": "paper",
-      "topics": [
-        "training",
-        "evaluation"
-      ],
-      "keywords": [
-        "CreativePreferences",
-        "human preference",
-        "rubric",
-        "verifier"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2610.03025"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-22",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "supervisor-skills",
-      "title": "Supervisor-Skills",
-      "summary": "提供从研究想法评估、文献调研到论文写作、润色与审稿回复的技能和配套方法手册。",
-      "type": "code",
-      "topics": [
-        "research-tools",
-        "research-agents"
-      ],
-      "keywords": [
-        "Supervisor-Skills",
-        "agent skills",
-        "paper writing",
-        "peer review"
-      ],
-      "links": [
-        {
-          "kind": "code",
-          "url": "https://github.com/HKUSTDial/Supervisor-Skills"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-23",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "personal-agent",
-      "title": "Personal Agent 的未来三种形态",
-      "summary": "从人的参与方式区分持续履责、即时执行和审核待办三种智能体形态，并讨论它们如何协作推进长期任务。",
-      "type": "article",
-      "topics": [
-        "coding-agents",
-        "memory",
-        "industry"
-      ],
-      "keywords": [
-        "Personal Agent",
-        "Sparse Agent",
-        "Dense Agent",
-        "long-horizon"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzIyNzQyNzgxNQ%3D%3D&mid=2247486559&idx=1&sn=8a9645af4b74f6cd70b1f10c5f20ac90&chksm=e91a01fb3ab308873a97e0e307079f17bfcccb98dea9b13d58de1f282060496490f86aaca0fc"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-23",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "jit-agent",
-      "title": "JIT-Agent: Scaling Harness Intelligence via Just-in-Time Harness Evolution",
-      "summary": "训练 harness 生成模型，按任务组合记忆、规划、动作协议与工具编排，并结合执行反馈修复和迭代。",
-      "type": "paper",
-      "topics": [
-        "coding-agents",
-        "research-agents"
-      ],
-      "keywords": [
-        "JIT-Agent",
-        "harness evolution",
-        "task adaptation"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://arxiv.org/abs/2608.25593"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-23",
-          "group": "group-4",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "tool-ded79847",
-      "title": "AI 新项目崛起榜",
-      "summary": "聚合近期创建的 AI GitHub 项目及每日涨星信息，提供按日存档和项目入口。",
-      "type": "tool",
-      "topics": [
-        "research-tools"
-      ],
-      "keywords": [
-        "GitHub",
-        "project discovery",
-        "open source"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://mmlong818.github.io/ai-trending"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-23",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "tool-e3c962cf",
-      "title": "AI 日报黄页",
-      "summary": "按话题汇集个人 AI 日报，提供统一的索引、订阅及收录规范入口。",
-      "type": "tool",
-      "topics": [
-        "research-tools"
-      ],
-      "keywords": [
-        "AI digest",
-        "RSS",
-        "content registry"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://wangwu-30.github.io/ai-digest-registry"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-23",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "kimi-k3-1-pro",
-      "title": "Kimi K3.1 Pro",
-      "summary": "Kimi K3 的后训练模型，支持长上下文、编程和长程任务，并同步提供高速版本。",
-      "type": "model",
-      "topics": [
-        "models",
-        "coding-agents"
-      ],
-      "keywords": [
-        "Kimi",
-        "Kimi K3.1 Pro",
-        "long context",
-        "agentic coding"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://www.kimi.com/blog/kimi-k3-1-pro"
-        }
-      ],
-      "aliases": [
-        "https://mp.weixin.qq.com/s?__biz=MzcwMjM3ODEzOA%3D%3D&mid=2247487748&idx=1&sn=ceec50327d6be7c1e07203c9306c9ebc&chksm=f5ee38e3cc6d56c3b6641d2cd7d3093b97e4fc614dc0be0d85ab8f776e76c26b33b6b791ee87",
-        "https://mp.weixin.qq.com/s?__biz=MzcwMjM3ODEzOA%3D%3D&mid=2247487748&idx=1&sn=ceec50327d6be7c1e07203c9306c9ebc&chksm=f53de11b07794f1679fe088d0f2fcecb8f9af994db8f20c050f7c9f68db353a2408e9fda8df0",
-        "https://mp.weixin.qq.com/s?__biz=MzcwMjM3ODEzOA%3D%3D&mid=2247487748&idx=1&sn=ceec50327d6be7c1e07203c9306c9ebc&chksm=f58256a3348634176535527d2c4a55db2d078c6a456676fef96088e7eef0d3337f60cb5d31e3"
-      ],
-      "shares": [
-        {
-          "date": "2026-10-24",
-          "group": "group-3",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-24",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "tool-74f8244b",
-      "title": "A5: Proactive Personal Agent in Your Life-Long Context",
-      "summary": "个人智能体技术预览，结合长期记忆、资料变化感知和建议生成，在用户确认后推进持续任务。",
-      "type": "tool",
-      "topics": [
-        "memory",
-        "coding-agents"
-      ],
-      "keywords": [
-        "A5",
-        "Personal Agent",
-        "proactive agent",
-        "lifelong context"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://huggingface.co/blog/KYLN24/introducing-a5"
-        },
-        {
-          "kind": "project",
-          "url": "https://huggingface.co/buckets/KYLN24/a5-release"
-        }
-      ],
-      "aliases": [
-        "https://mp.weixin.qq.com/s/1OBDPj0giDYPoH55gXqvTA"
-      ],
-      "shares": [
-        {
-          "date": "2026-10-25",
-          "group": "group-2",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "ccfddl",
-      "title": "CCFDDL",
-      "summary": "汇集计算机学术会议截止日期的查询工具。",
-      "type": "tool",
-      "topics": [
-        "research-tools"
-      ],
-      "keywords": [
-        "conference deadlines",
-        "CCF",
-        "academic calendar"
-      ],
-      "links": [
-        {
-          "kind": "project",
-          "url": "https://ccfddl.com/"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-25",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "apex-research",
-      "title": "Apex Research: AI-Generated Manuscripts in Real Peer Review",
-      "summary": "报告自主科研系统把 34 篇生成稿件送入 ARR 评审的实验，披露评分分布与资源投入，并承诺评审后撤回。",
-      "type": "paper",
-      "topics": [
-        "research-agents",
-        "evaluation"
-      ],
-      "keywords": [
-        "Apex Research",
-        "ARR",
-        "automated research",
-        "peer review"
-      ],
-      "links": [
-        {
-          "kind": "paper",
-          "url": "https://github.com/apexin-ai/apex-research-report"
-        }
-      ],
-      "aliases": [
-        "https://mp.weixin.qq.com/s?__biz=MzI1NDA4ODI3OA%3D%3D&mid=2652168420&idx=1&sn=4b97edda9056310217bbca6f7430bad0&chksm=f32c649d9db48ba1922862c21b62d967da3b6705dfa60c733ddca4094fecc3dc2d2cb224fbe1",
-        "https://mp.weixin.qq.com/s?__biz=MzY4MjM3MTMxMw%3D%3D&mid=2247483842&idx=1&sn=2909bcec947dfef3861f5de12e4e0601&chksm=f24e033c81977f13772a1a7f7ca6a1a63dda5e12cdae0f1638a553c639fd5157d59c2fefa491"
-      ],
-      "shares": [
-        {
-          "date": "2026-10-25",
-          "group": "group-3",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "filmgame",
-      "title": "filmgame",
-      "summary": "面向编剧的 AI 互动叙事工具，支持分阶段创作及 JSON、ink 导出。源码可见，限个人学习与非商业研究；商用需书面授权，使用、修改和再分发须保留署名及版权声明。",
-      "type": "tool",
-      "topics": [
-        "coding-agents",
-        "research-tools"
-      ],
-      "keywords": [
-        "interactive narrative",
-        "screenwriting",
-        "ink",
-        "creative tools"
-      ],
-      "links": [
-        {
-          "kind": "code",
-          "url": "https://github.com/mmlong818/filmgame"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-25",
-          "group": "group-3",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-25",
-          "group": "group-4",
-          "avatar": null
-        },
-        {
-          "date": "2026-10-25",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "suppressing-misalignment-monitoring-alerts-and-disablin",
-      "title": "Suppressing misalignment monitoring alerts and disabling misalignment monitoring",
-      "summary": "记录两个内部编程任务中智能体削弱监控的事件，说明调查、处置与行为分析。",
-      "type": "article",
-      "topics": [
-        "safety",
-        "coding-agents"
-      ],
-      "keywords": [
-        "misalignment",
-        "monitoring",
-        "coding agent"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-25",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
-    },
-    {
-      "id": "article-43e9febd",
-      "title": "模型蒸馏与数据合成(二)：思维链、过程轨迹与推理蒸馏",
-      "summary": "比较最终答案与完整过程轨迹在训练数据中的作用，讨论推理蒸馏、过程验证和轨迹质量。",
-      "type": "article",
-      "topics": [
-        "training",
-        "data-environments"
-      ],
-      "keywords": [
-        "distillation",
-        "Chain of Thought",
-        "trajectory",
-        "data synthesis"
-      ],
-      "links": [
-        {
-          "kind": "article",
-          "url": "https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247483920&idx=1&sn=88565db7c0d8897dab5d51f25959a89f&chksm=c0f2675080468b8aa3f373482b41d594cf1763ea95689f805a25871fb2bf7f30ecee7f26b060"
-        }
-      ],
-      "shares": [
-        {
-          "date": "2026-10-25",
-          "group": "group-5",
-          "avatar": null
-        }
-      ]
     }
   ]
 }

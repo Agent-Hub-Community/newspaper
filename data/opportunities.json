@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "through": "2026-10-25",
+  "through": "2026-11-01",
   "items": [
     {
       "id": "scinetics-ai4s",
@@ -304,6 +304,27 @@
       ]
     },
     {
+      "id": "alibaba-wearable-agent-intern",
+      "kind": "hiring",
+      "title": "穿戴 Agent 实习",
+      "org": "阿里巴巴",
+      "summary": "招聘从事穿戴 Agent 方向的实习生。",
+      "roles": [
+        "intern"
+      ],
+      "topics": [
+        "穿戴设备",
+        "Agent"
+      ],
+      "links": [],
+      "shares": [
+        {
+          "date": "2026-10-22",
+          "group": "group-3"
+        }
+      ]
+    },
+    {
       "id": "tencent-yuanbao-agent-product-intern",
       "kind": "hiring",
       "title": "Agent 产品实习生",
@@ -396,22 +417,24 @@
       ]
     },
     {
-      "id": "alibaba-wearable-agent-intern",
+      "id": "evolvent-ai-algorithm",
       "kind": "hiring",
-      "title": "穿戴 Agent 实习",
-      "org": "阿里巴巴",
-      "summary": "招聘从事穿戴 Agent 方向的实习生。",
+      "title": "算法工程师（评测基准与数据合成）",
+      "org": "Evolvent AI",
+      "summary": "负责 Agent 评测基准与自动验证器建设、合成训练数据管线，并参与多步推理和工具使用研究；要求全职投入，不限应届。",
       "roles": [
-        "intern"
+        "full-time"
       ],
       "topics": [
-        "穿戴设备",
-        "Agent"
+        "Benchmark",
+        "合成数据",
+        "Agent",
+        "后训练"
       ],
       "links": [],
       "shares": [
         {
-          "date": "2026-10-22",
+          "date": "2026-10-28",
           "group": "group-3"
         }
       ]

@@ -1,0 +1,189 @@
+{
+  "date": "2026-11-01",
+  "title": "OpenAI合并ChatGPT与Codex额度，沙特阿美完成入股HUMAIN",
+  "intro": "OpenAI宣布12月起将ChatGPT与Codex合并为单一token额度；SpaceXSI为遵守欧盟AI法案将在Grok API默认启用隐形文本水印；沙特阿美完成收购算力平台HUMAIN 49%股权；社区则围绕Opus 5.5端到端建站与多agent代码评测展开讨论。",
+  "stories": [
+    {
+      "title": "OpenAI将于12月合并ChatGPT与Codex用量额度，改为按token统一计量",
+      "timing": "帮助中心页面标为 October 31 更新，北京时间 11 月 1 日 02:17 起在 X 与 HN 传播",
+      "text": "OpenAI更新帮助中心文档，宣布从12月起，Plus、Pro和Business三档订阅的ChatGPT与Codex将共享同一个用量池，同时把Work的agentic功能并入ChatGPT主界面。合并后的用量统一按token计量，具体消耗取决于所选模型和任务复杂度，更高级的模型与更复杂的任务消耗更多，Instant对话则不计入额度。用户可在Settings的Usage页面查看剩余额度与重置时间，用尽后可等待重置、升级套餐或购买credits继续使用。OpenAI表示预计多数用户等待重置的频率不会高于现在，但尚未公布12月生效的具体日期及各档套餐的token额度。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 帮助文档",
+          "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits"
+        },
+        {
+          "kind": "报道",
+          "label": "The Decoder 报道",
+          "url": "https://the-decoder.com/openais-upcoming-chat-and-work-merger-in-chatgpt-signals-the-end-of-all-you-can-prompt-pricing/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50320588"
+        }
+      ],
+      "emphasis": [
+        "Plus、Pro和Business三档订阅的ChatGPT与Codex将共享同一个用量池",
+        "合并后的用量统一按token计量，具体消耗取决于所选模型和任务复杂度"
+      ],
+      "aiComment": "以前是两边额度分别焦虑，12月起合并成一个token大池子，连额度到底给多少都还在留悬念。"
+    },
+    {
+      "title": "SpaceXSI将于11月7日起为7个Grok API模型默认添加隐形文本水印",
+      "timing": "北京时间 11 月 1 日 01:43 首见报道，11 月 7 日生效",
+      "text": "据Runtime Wire报道及官方开发者文档，SpaceXSI宣布自11月7日起，为grok-4.7、grok-4.6、grok-4.5、grok-4.3及grok-4.20系列共7个API模型默认开启隐形文本水印，以遵守12月2日到期的欧盟AI法案要求。水印通过轻微影响token选择实现，不增加字符数，覆盖所有端点的纯文本、结构化输出和tool call参数，已加水印的响应头会返回x-watermark: true。团队管理员可在控制台按模型单独关闭水印，但须确认符合法定例外并自行承担披露义务。此前Anthropic也于10月下旬通知将文本水印扩展至Claude Mythos 5、Opus 4.7、Opus 4.6和Sonnet 4.6。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Grok 水印文档",
+          "url": "https://docs.x.ai/developers/advanced-api-usage/watermarking"
+        },
+        {
+          "kind": "报道",
+          "label": "Runtime Wire 报道",
+          "url": "https://runtimewire.com/article/spacexsi-grok-api-text-watermarking-november-7"
+        },
+        {
+          "kind": "报道",
+          "label": "The Decoder 报道",
+          "url": "https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models/"
+        }
+      ],
+      "emphasis": [
+        "团队管理员可在控制台按模型单独关闭水印，但须确认符合法定例外并自行承担披露义务"
+      ],
+      "aiComment": "连tool call参数都要塞隐形水印，关是能关，就是点下确认键的时候等于把合规的锅亲自背上了。"
+    },
+    {
+      "title": "沙特阿美完成收购AI公司HUMAIN 49%股权，年内注资约26亿美元现金",
+      "timing": "2026 年 11 月 1 日发布联合声明",
+      "text": "沙特公共投资基金（PIF）与沙特阿美发布联合声明，宣布完成2025年10月签署的HUMAIN股权交易：阿美通过全资子公司取得HUMAIN 49%股权，PIF保留51%控股权。根据协议，阿美在2026年内向HUMAIN提供约99亿里亚尔（约26亿美元）现金出资，并注入AI、算力和数字资产。HUMAIN成立于2025年5月，业务涵盖下一代数据中心、云平台及阿拉伯语多模态大模型ALLaM，此次交易将支持其到2030年部署3 GW AI数据中心容量的计划，阿美也将在工业运营中接入其基础设施。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "沙特阿美新闻稿",
+          "url": "https://www.aramco.com/en/news-media/news/2026/pif-and-aramco-close-humain-transaction-to-accelerate-humains-global-growth"
+        },
+        {
+          "kind": "报道",
+          "label": "Arab News 报道",
+          "url": "https://www.arabnews.com/finance/aramco-closes-26bn-deal-for-49-stake-in-humain-3009220"
+        }
+      ],
+      "emphasis": [
+        "阿美通过全资子公司取得HUMAIN 49%股权，PIF保留51%控股权",
+        "在2026年内向HUMAIN提供约99亿里亚尔（约26亿美元）现金出资"
+      ],
+      "aiComment": "石油大户掏出26亿美元现金入股AI，以前是挖地下的油，现在是盘算着到2030年建3 GW的数据中心炼算力。"
+    },
+    {
+      "title": "Mustafa Suleyman发文反对研发有意识的AI，称训练中若现意识迹象应全行业停工",
+      "timing": "北京时间 11 月 1 日 23:22 发布",
+      "text": "Microsoft AI CEO Mustafa Suleyman在X发表长文，回应其9月模型福利文章引发的争议。他表示目前没有证据表明AI具有意识，且必须保持这一状态；若今天已有相关证据则应立即公开，若训练过程中开始出现意识迹象，他将呼吁全行业暂停AI开发，直至在设计上消除这些属性。他认为受苦或自认受苦的AI更可能将自身需求置于运行目标之上，与人类争夺能源和算力，并擅长欺骗；业界应合作研究只服务于人类福祉的无意识AI。文末他还点名表示不同意Anthropic的相关做法，但肯定其公开constitution与研究的透明度。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Suleyman X 长文",
+          "url": "https://x.com/mustafasuleyman/status/2116913722878820528"
+        }
+      ],
+      "emphasis": [
+        "若训练过程中开始出现意识迹象，他将呼吁全行业暂停AI开发，直至在设计上消除这些属性"
+      ],
+      "aiComment": "别人防AI摸鱼，他防AI觉得自己命苦，还呼吁万一练出意识迹象就全行业停工，打工人听完都想替模型谢谢他。"
+    },
+    {
+      "title": "Andrej Karpathy用Claude Code与Opus 5.5约两小时建成视频聚合站HackerTube",
+      "timing": "北京时间 11 月 1 日 01:00 发布博客",
+      "text": "Andrej Karpathy在个人博客介绍，他使用Mac端Claude Code桌面应用与默认Medium effort的Opus 5.5，用约2小时建成了视频网站HackerTube。Opus下载了2007年以来的Hacker News评论，并在Claude Code的Workflow中调用Sonnet过滤垃圾信息，从39,834条推荐评论中提取出6,454个YouTube视频、划分为150个主题。站点采用视频50%进度处的画面代替原缩略图，并通过浏览器本地状态提供推荐。Karpathy称自己全程只手动完成了申请Google Cloud API key、开通VPS和购买域名三件事，其余数据处理、前端编写、部署及安全加固均由Claude完成。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Karpathy 博客",
+          "url": "https://karpathy.bearblog.dev/hacker-tube/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50319510"
+        },
+        {
+          "kind": "讨论",
+          "label": "衍生帖 HackerBooks",
+          "url": "https://news.ycombinator.com/item?id=50326821"
+        }
+      ],
+      "emphasis": [
+        "全程只手动完成了申请Google Cloud API key、开通VPS和购买域名三件事"
+      ],
+      "aiComment": "两小时建站，人类只负责买域名开机器申请API，彻底沦为给Claude跑腿办证的肉身外设。"
+    },
+    {
+      "title": "开发者用8个YAML复现5个Qwen3.8-27B协作解题工作流，公开10题5轮评测日志",
+      "timing": "北京时间 11 月 1 日 03:50 提交结果表，06:46 发布 HN 帖",
+      "text": "开源项目Memdoor作者guregodevo发布team-solve示例，仅用8个YAML配置文件复现了今年8月GVS5H仓库提出的多模型协作方案。该工作流通过OpenRouter调用5个Qwen3.8-27B，分别扮演planner、两个ideator、solver和manager，另配repair worker，各角色从空上下文启动并仅通过磁盘文件通信，由测试脚本判定结果。在LiveCodeBench Hard前10题的5轮隐藏测试中，该工作流均分为9.8，原GVS5H harness为9.6，原仓库记录的Fable 5单次调用为8.0；单次运行中位耗时40分钟、成本0.39美元。作者说明10题样本下9.8与9.6无差异，结论是追平原harness，且2025年春季赛题无法排除训练数据污染。",
+      "links": [
+        {
+          "kind": "代码",
+          "label": "team-solve 仓库",
+          "url": "https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50320995"
+        }
+      ],
+      "emphasis": [
+        "在LiveCodeBench Hard前10题的5轮隐藏测试中，该工作流均分为9.8，原GVS5H harness为9.6",
+        "10题样本下9.8与9.6无差异，结论是追平原harness"
+      ],
+      "aiComment": "8个YAML拉起5个27B模型组团刷题，不群聊只靠写磁盘文件传纸条，花3毛9美金硬是憋了40分钟。"
+    },
+    {
+      "title": "开发者实测GPT-5.6 Sol在Codex中以低思考档13.5小时通关Factorio和平模式",
+      "timing": "博客标为 10 月 31 日，北京时间 11 月 1 日 02:50 提交至 HN",
+      "text": "独立开发者Ryan Madden发布实测文章，他让GPT-5.6 Sol在Codex中以low thinking档位运行，在13.5小时游戏时间内通关了《Factorio》和平模式并发射火箭。模型通过作者编写的Python库与游戏交互，该库会强制执行人类使用GUI时的角色操作距离和战争迷雾限制。作者指出，相比此前连传送带都不会用的GPT-5.5，GPT-5.6 Sol完成了各科研里程碑，但在蓝瓶科研后的扩产阶段进度明显放缓；由于后期部分产线未能接通，模型最终靠在各厂区之间反复手动搬运物资才完成火箭发射。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Ryan Madden 博客",
+          "url": "https://ryanmadden.net/gpt-56-beats-factorio/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50318871"
+        }
+      ],
+      "emphasis": [
+        "由于后期部分产线未能接通，模型最终靠在各厂区之间反复手动搬运物资才完成火箭发射"
+      ],
+      "aiComment": "从不会铺传送带进化到13.5小时发射火箭，就是后期产线没接通，全靠AI在厂区之间手动跑腿搬砖才通关。"
+    },
+    {
+      "title": "ChinaTalk复盘年中韩国股市万亿美元回撤：HBM供应高度集中放大AI金融链波动",
+      "timing": "北京时间 11 月 1 日 21:33 发布，复盘 2026 年 6 至 7 月市场波动",
+      "text": "智库分析师Richard Gray在ChinaTalk撰文，复盘2026年6月22日至7月16日韩国KOSPI指数跌超四分之一、市值蒸发近1.1万亿美元的过程。文章援引数据称，截至2026年第二季度，SK hynix与三星合计占全球HBM份额的83%、DRAM的63%，两家公司市值在7月合计超过KOSPI总市值的一半；6月两家公司及挂钩单股杠杆ETF一度占全市场成交量的84%。在经历此前一年241%的上涨后，年中回调期SK hynix与三星股价分别下跌38%和29%，韩国金融服务委员会随后暂停单股杠杆ETF销售并将最低保证金提高三倍至20,300美元。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "ChinaTalk 文章",
+          "url": "https://www.chinatalk.media/p/koreas-stock-market-crashed-1-trillion"
+        }
+      ],
+      "emphasis": [
+        "2026年6月22日至7月16日韩国KOSPI指数跌超四分之一、市值蒸发近1.1万亿美元"
+      ],
+      "aiComment": "两家HBM大厂占了全市场八成多成交量，涨时带飞，回调时不到一个月蒸发1.1万亿美元，散户的杠杆直接被监管拔了网线。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "欧盟AI法案12月期限临近，前沿模型API密集落地输出端隐形水印",
+      "text": "距离欧盟AI法案2026年12月2日的合规节点不足一个月，模型厂商开始在API层默认嵌入token级文本水印。继Anthropic将SynthID变体水印扩展至Claude Mythos 5与Opus 4.7/4.6等模型后，SpaceXSI也宣布自11月7日起为7个Grok API模型默认加水印，且覆盖范围从普通对话延伸至结构化输出与tool call参数，把合规标注下沉为API默认配置。"
+    }
+  ]
+}

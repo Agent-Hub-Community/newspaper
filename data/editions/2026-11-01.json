@@ -1,0 +1,1320 @@
+{
+  "id": "2026-11-01",
+  "date": "2026-11-01",
+  "label": "2026-11-01 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当日本地记录中无可用内容。",
+      "note": "2026-11-01 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无技术精华",
+      "theme": "当日本地记录中暂无可摘录的实质讨论。",
+      "note": "2026-11-01 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "为什么 GPT 能证数学猜想，却找不出替代 Transformer 的架构？",
+      "theme": "讨论模型架构的实验成本与生态壁垒，质疑单阶段统一训练中 MaxRL 的上限，附 DeepSeek 新参数传闻。",
+      "note": "2026-11-01 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型架构",
+          "title": "为什么 GPT 能证数学猜想，却找不出比 Transformer 更高效的架构？",
+          "text": "有群友抛出一个问题：GPT 已经能证明不少数学定理和猜想，为什么却没发现比 Transformer 更高效的模型架构？多位群友指出问题出在验证方式和实验成本上。数学命题有大量资料可学，且能用 Lean 做形式化验证；而模型架构和 bio、science 一样必须靠实验说话。有人设想，让 GPT 随手拍出 100 个新结构，里面也许真有更高效的，但 scaling 的验证成本和追赶现有 infra 优化的工程债都太高；另一位群友补了一笔账，scale 一次几百万美元就没了。\n\n还有群友认为 Transformer 已经很难被替代，哪怕新架构在局部更优，也不会再有适配它大规模训练的基础设施了，比如 2024 年起挺有说法的液态神经网络后来也没了声息。就算找得到新结构，也得有人愿意这么玩，技术还得向商业让步，有人感叹整个行业像是陷入了 local minimum。",
+          "emphasis": [
+            "scaling 的验证成本和追赶现有 infra 优化的工程债都太高",
+            "不会再有适配它大规模训练的基础设施了"
+          ],
+          "aiComment": "证数学有 Lean 兜底，试新架构每次得拿几百万美元真金白银去赌，连模型自己都困在局部最优里了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:10",
+              "text": "gpt证明了那么多数学定理猜想，却没有发现比transformer更高效的模型架构"
+            },
+            {
+              "speaker": 2,
+              "time": "19:12",
+              "text": "gpt 拍 100 个新结构应该能有更高效的？scaling 的验证成本、工程债（追赶 infra 优化）的成本，太高了吧",
+              "quote": {
+                "speaker": 1,
+                "text": "gpt证明了那么多数学定理猜想，却没有发现比transformer更高效的模型架构"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:12",
+              "text": "这个需要用实验证明吧，scaling怎么办"
+            },
+            {
+              "speaker": 3,
+              "time": "19:12",
+              "text": "+1",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] gpt 拍 100 个新结构应该能有更高效的？scaling 的验证成本、工程债（追赶 infra 优化）的成本，太高了吧"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:24",
+              "text": "主要是实验成本高吧。数学难题能不断被攻克，很多都能形式化验证",
+              "quote": {
+                "speaker": 1,
+                "text": "gpt证明了那么多数学定理猜想，却没有发现比transformer更高效的模型架构"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:25",
+              "text": "数学可以形式化lean"
+            },
+            {
+              "speaker": 5,
+              "time": "19:25",
+              "text": "数学可学习资料也很多"
+            },
+            {
+              "speaker": 5,
+              "time": "19:25",
+              "text": "你落到bio或者science上"
+            },
+            {
+              "speaker": 5,
+              "time": "19:25",
+              "text": "就很难崩了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:41",
+              "text": "这个主要是成本",
+              "quote": {
+                "speaker": 1,
+                "text": "gpt证明了那么多数学定理猜想，却没有发现比transformer更高效的模型架构"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "21:41",
+              "text": "scale一次几百万美元就没了"
+            },
+            {
+              "speaker": 7,
+              "time": "21:43",
+              "text": "我觉得transformer不会被替代了 就算真的有在某些方面比他更优的架构 也不会再有能够在大规模训练下适配这些架构的基础设施"
+            },
+            {
+              "speaker": 7,
+              "time": "21:43",
+              "text": "从24年开始有种叫液态神经网络的就挺有说法的 后来也是没消息了"
+            },
+            {
+              "speaker": 8,
+              "time": "21:44",
+              "text": "找到了的同时要有人愿意这么玩"
+            },
+            {
+              "speaker": 9,
+              "time": "21:58",
+              "text": "同感"
+            },
+            {
+              "speaker": 10,
+              "time": "22:05",
+              "text": "还要让步于商业"
+            },
+            {
+              "speaker": 10,
+              "time": "22:05",
+              "text": "还是有点悲哀的"
+            },
+            {
+              "speaker": 10,
+              "time": "22:05",
+              "text": "陷入local minimum了"
+            }
+          ]
+        },
+        {
+          "category": "训练方法",
+          "title": "CMU 与 JHU 提出“一阶段统一训练”，群友质疑 MaxRL 难超 RFT 上限",
+          "text": "有群友分享了 CMU 和 JHU 的论文《Training Foundation Models with a Single Algorithm》截图（顺带应群友追问安利了看论文用的 alphaXiv 应用）。论文摘要称，作者将合适的 RL 目标推导为对模型生成目标分布的最大似然拟合，从而把 pretraining、midtraining、SFT 和 RL 纳入单一的基于似然的训练算法，在同一个训练器里混合静态数据与 RL 生成数据。有人看后好奇这是不是意味着只要有算力就能自己训模型，也有人期待真能在训练前直接定好 mix 配比和 schedule。\n\n不过另一位群友对这套框架并不买账，指出 PT、MT 和 SFT 本来就是统一的，而 RL 在他们这个框架下并没有做到通用的 unified。这位群友认为，论文提出的 MaxRL 性能应该不会超过 RFT，如果按这种方式强行统一，基本就没有任何 advanced RL 了；也许纯 RFT 可以把模型上限做高，但目前还看不到 scale 的潜力。",
+          "emphasis": [
+            "把 pretraining、midtraining、SFT 和 RL 纳入单一的基于似然的训练算法",
+            "论文提出的 MaxRL 性能应该不会超过 RFT"
+          ],
+          "aiComment": "四个阶段大一统还没捂热，群友已经开启除魅模式，连带看论文用的 alphaXiv 倒成了全场最稳的收获。",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Training Foundation Models with a Single Algorithm",
+              "url": "https://arxiv.org/abs/2610.40564"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:37",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "13:38",
+              "text": "这篇各位觉得怎么样？ 一阶段统一训练"
+            },
+            {
+              "speaker": 2,
+              "time": "13:39",
+              "text": "是不是这样很多都能自己做训练了啊"
+            },
+            {
+              "speaker": 2,
+              "time": "13:40",
+              "text": "只要有算力资源都有自己的模型了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:41",
+              "text": "这是什么app🤨",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:41",
+              "text": "同问"
+            },
+            {
+              "speaker": 2,
+              "time": "13:44",
+              "text": "同问"
+            },
+            {
+              "speaker": 1,
+              "time": "13:54",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "13:54",
+              "text": "[强]"
+            },
+            {
+              "speaker": 4,
+              "time": "13:54",
+              "text": "哦哦哦用过这个的网页版"
+            },
+            {
+              "speaker": 5,
+              "time": "13:57",
+              "text": "感觉蛮有意思的",
+              "quote": {
+                "speaker": 1,
+                "text": "这篇各位觉得怎么样？ 一阶段统一训练"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:59",
+              "text": "如果真可以在训练前决定mix配比和schedule那就好了"
+            },
+            {
+              "speaker": 6,
+              "time": "14:09",
+              "text": "我不理解"
+            },
+            {
+              "speaker": 6,
+              "time": "14:10",
+              "text": "原本的 pt mt sft 不是本来就是统一的吗"
+            },
+            {
+              "speaker": 6,
+              "time": "14:10",
+              "text": "rl 在他们这个框架底下也没有通用 unified"
+            },
+            {
+              "speaker": 6,
+              "time": "14:19",
+              "text": "他们提出的 MaxRL 应该是性能 <= RFT 的，如果按这个统一的话，基本就没有任何 advanced RL"
+            },
+            {
+              "speaker": 6,
+              "time": "14:19",
+              "text": "也许纯 RFT 可以把 model 上限做高，只不过目前看不到 scale 的潜力"
+            },
+            {
+              "speaker": 3,
+              "time": "14:40",
+              "text": "make sense",
+              "quote": {
+                "speaker": 6,
+                "text": "rl 在他们这个框架底下也没有通用 unified"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型传闻",
+          "title": "人大 NLPIR 团队项目代码出现 deepseek-v4.1-pro 参数引发猜测",
+          "text": "有群友转了一张推文截图，称在中国人民大学 NLPIR 团队的 FlashRSI 项目里发现了未公开的 DeepSeek 模型名称。截图所附的命令行代码中，flashrsi run 的参数直接写着 --model deepseek-v4.1-pro 和 --worker-model deepseek-v4.1-flash。有人玩梗期待新模型能让人再次“正鲸瘫坐”，也有群友怀疑这到底是命令参数写错了，还是真有这两个模型。",
+          "emphasis": [
+            "发现了未公开的 DeepSeek 模型名称"
+          ],
+          "aiComment": "代码里两行 v4.1-pro 和 flash，到底是手滑打错还是剧透，反正群友的椅子已经准备好再次正鲸瘫坐了。",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "FlashRSI 仓库",
+              "url": "https://github.com/RUC-NLPIR/FlashRSI"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:28",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "23:29",
+              "text": "[奸笑]希望能再次震惊瘫坐",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:29",
+              "text": "不对，正鲸瘫坐[奸笑]",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] [奸笑]希望能再次震惊瘫坐"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:29",
+              "text": "鲸正恩发力了"
+            },
+            {
+              "speaker": 4,
+              "time": "23:30",
+              "text": "6",
+              "quote": {
+                "speaker": 3,
+                "text": "鲸正恩发力了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:30",
+              "text": "王鲸伟"
+            },
+            {
+              "speaker": 5,
+              "time": "23:31",
+              "text": "这是写错了，还是真的有啊",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:31",
+              "text": "…？",
+              "quote": {
+                "speaker": 3,
+                "text": "鲸正恩发力了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:33",
+              "text": "都太会器皿了"
+            }
+          ]
+        },
+        {
+          "category": "产品追踪",
+          "title": "民间追踪表盘点 Codex / Work 28天更新与 12 次额度重置",
+          "text": "有群友分享了一张民间追踪站整理的「Codex / Work」28 天（10/05 至 11/01）更新与额度重置记录图。图表统计，这期间官方共向付费账户提供了 12 次全量重置与多次重置卡，并密集迭代了多项性能与额度配置：GPT-6 Astra 和 GPT-6.1 Sol 默认速度提升约 50%，GPT-6.1 Sol 在 Codex / Work 的默认上下文从 272k 扩至 500k，桌面端磁盘状态存储优化省下约 60% 磁盘空间，Pro 100 / 200 / 500 与 Business Premium 的用量上限也翻了一倍。",
+          "emphasis": [
+            "提供了 12 次全量重置与多次重置卡",
+            "默认上下文从 272k 扩至 500k"
+          ],
+          "aiComment": "28 天重置 12 次额度，上下文拉到 500k，这更新频率比打工人的周报还密，生怕付费用户的显卡闲着。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:44",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "02:45",
+              "text": "吾日三省吾身 ~虔诚"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "Gemini argon 写作与洗数据获赞，编程短板为何被归咎于 antigravity？",
+      "theme": "对比各家模型的合成数据痕迹与执行力差异，兼议论文 AI 防御式写作、强制审稿连坐和 Gemini 改名史。",
+      "note": "2026-11-01 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型体验",
+          "title": "argon 写作与洗数据获赞，编程短板被归咎于 antigravity",
+          "text": "有人请教辅助写作选 Claude 还是 Gemini，一位群友提名 4.6，另一位群友力推 Gemini 的 argon，评价它是准人类级别的写作，“claude是伪人，至于gpt完全不是人”。不少群友附和，有人吐槽已经没法和 GPT 沟通，也有人纳闷 GPT 为什么那么爱“收紧”。推荐 argon 的群友补充，argon 也有自己的 slop，主要是爱起很 fancy 的名字，但只要约束它尽量平铺直叙就会照做。另一位用过的群友认可它的写作输出，不过提到额度消耗很快。有人顺势问起 carbon，几位群友都说现在哪有 carbon 可用，有人调侃“Google DeepMind”能用，问起 carbon 的群友这才发现原来还没发布。\n\n这位重度使用 argon 的群友开的是 100 刀档位，这周还剩三天就已经把额度用空，手头 200 刀的 GPT 却一点也不想用，平时主要拿 argon 洗数据和玩 rp。据这位群友介绍，argon 可以开大量 subagent 去洗音频和视频数据，效果比搭一大堆工作流打标好很多：有 gt 的任务或没那么主观的 open ended 任务基本能达到人类水平，非常主观的任务纠正几轮也差不多。最早提名 4.6 的群友接着问，说人话和写代码是不是不能共存，该群友猜测是因为 Gemini 不蒸馏其他模型：别家互相吃太多 synthetic data，coding 越吃越强，但每家在某个阶段产生的 slop 也会越积越多，而 Gemini 更像闭门造车。\n\n这位提名 4.6 的群友又追问，argon 起码也有 Opus 4.6 的代码水平，为什么说它不能写代码。分享者认同它有这个水平，但解释它是一个没有“许愿式编程”能力的模型：让它具体改某个点还可以，从头做任务时有规划能力，执行起来却相当糟糕。分享者把很大一部分原因归咎于配套的 antigravity 太烂，认为如果 carbon 能优先适配 deepseek harness 而不是 antigravity，Gemini 的编程能力能上一个档次，否则一直抱着 antigravity 这辈子打不过 o 和 a。",
+          "emphasis": [
+            "“claude是伪人，至于gpt完全不是人”",
+            "该群友猜测是因为 Gemini 不蒸馏其他模型",
+            "如果 carbon 能优先适配 deepseek harness 而不是 antigravity"
+          ],
+          "aiComment": "100 刀的 argon 提前三天刷空，200 刀的 GPT 放在旁边吃灰，为了听句人话也是相当舍得下本。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:32",
+              "text": "uu们辅助写作claude和gemini哪个好一点"
+            },
+            {
+              "speaker": 2,
+              "time": "21:38",
+              "text": "gemini秒全",
+              "quote": {
+                "speaker": 1,
+                "text": "uu们辅助写作claude和gemini哪个好一点"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:39",
+              "text": "argon的写作是准人类级别的，起码他真的知道一篇文章该怎么正确的表达自己的内容"
+            },
+            {
+              "speaker": 3,
+              "time": "21:39",
+              "text": "这确实"
+            },
+            {
+              "speaker": 2,
+              "time": "21:39",
+              "text": "claude是伪人"
+            },
+            {
+              "speaker": 2,
+              "time": "21:39",
+              "text": "至于gpt完全不是人"
+            },
+            {
+              "speaker": 4,
+              "time": "21:39",
+              "text": "好准确..."
+            },
+            {
+              "speaker": 4,
+              "time": "21:40",
+              "text": "梅一个诗人"
+            },
+            {
+              "speaker": 5,
+              "time": "21:40",
+              "text": "支持"
+            },
+            {
+              "speaker": 5,
+              "time": "21:40",
+              "text": "和gpt已经无法沟通了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:40",
+              "text": "虽然他有一套自己的slop，但那套比较好改，就是他会尝试去给内容起一些很fancy的名字，但你约束他尽量平铺直叙他就会照做",
+              "quote": {
+                "speaker": 2,
+                "text": "argon的写作是准人类级别的，起码他真的知道一篇文章该怎么正确的表达自己的内容"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "21:40",
+              "text": "不知道为什么那么爱收紧",
+              "quote": {
+                "speaker": 2,
+                "text": "至于gpt完全不是人"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:40",
+              "text": "起码gemini写的文字我是愿意读的，剩下俩一个比一个难看"
+            },
+            {
+              "speaker": 7,
+              "time": "21:41",
+              "text": "carbon呢",
+              "quote": {
+                "speaker": 2,
+                "text": "argon的写作是准人类级别的，起码他真的知道一篇文章该怎么正确的表达自己的内容"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:41",
+              "text": "argon确实写作输出不错"
+            },
+            {
+              "speaker": 4,
+              "time": "21:41",
+              "text": "哪儿能用carbon"
+            },
+            {
+              "speaker": 8,
+              "time": "21:41",
+              "text": "但是额度消耗蛮快"
+            },
+            {
+              "speaker": 4,
+              "time": "21:41",
+              "text": "AA无敌 但是谁也用不上"
+            },
+            {
+              "speaker": 8,
+              "time": "21:42",
+              "text": "现在哪有carbon可以用啊",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] carbon呢"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:42",
+              "text": "我知道"
+            },
+            {
+              "speaker": 3,
+              "time": "21:42",
+              "text": "Google DeepMind"
+            },
+            {
+              "speaker": 9,
+              "time": "21:43",
+              "text": "谢谢你啊",
+              "quote": {
+                "speaker": 3,
+                "text": "Google DeepMind"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "21:43",
+              "text": "不然我们都不知道呢"
+            },
+            {
+              "speaker": 9,
+              "time": "21:43",
+              "text": "蒙古人"
+            },
+            {
+              "speaker": 2,
+              "time": "21:44",
+              "text": "没用过啊",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] carbon呢"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "21:44",
+              "text": "原来还没发啊。。。吹那么nb我以为好多人都用上了[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:44",
+              "text": "gemini能不能给我发个使用权限"
+            },
+            {
+              "speaker": 2,
+              "time": "21:44",
+              "text": "我是gemini超级考子"
+            },
+            {
+              "speaker": 4,
+              "time": "21:45",
+              "text": "那很会做题了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:45",
+              "text": "gemini能不能给我发个使用权限"
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "已经把这周的用完了，这周还有三天"
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "我都不知道剩下的日子怎么过"
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "gpt 200刀一点也不想用"
+            },
+            {
+              "speaker": 4,
+              "time": "21:45",
+              "text": "再开个号（"
+            },
+            {
+              "speaker": 4,
+              "time": "21:45",
+              "text": "money is all you need"
+            },
+            {
+              "speaker": 6,
+              "time": "21:45",
+              "text": "我从没发表嫌弃它的话[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "其实该",
+              "quote": {
+                "speaker": 4,
+                "text": "再开个号（"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:45",
+              "text": "你知道的，我一直是gemini的粉丝"
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "升级200刀"
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "现在是100刀"
+            },
+            {
+              "speaker": 4,
+              "time": "21:45",
+              "text": "升！"
+            },
+            {
+              "speaker": 2,
+              "time": "21:45",
+              "text": "但200刀也太多了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "这怎么用的完的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "主要这个模型不能写代码"
+            },
+            {
+              "speaker": 4,
+              "time": "21:46",
+              "text": "反代出去（"
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "你让他写代码他就是构思（"
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "我都是拿他洗数据和玩rp的"
+            },
+            {
+              "speaker": 4,
+              "time": "21:46",
+              "text": "所以说人话和写代码是不能共存的吗"
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "他可以开很多很多subagent去洗音频视频数据"
+            },
+            {
+              "speaker": 2,
+              "time": "21:47",
+              "text": "而且因为是argon洗，所以比用一大堆工作流标的好很多，基本对于一些有gt的任务或者一些没那么主观的open ended任务都能达到人类水平"
+            },
+            {
+              "speaker": 4,
+              "time": "21:48",
+              "text": "好的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:48",
+              "text": "当然非常主观的还是差点意思，但那种纠正几轮也差不多"
+            },
+            {
+              "speaker": 4,
+              "time": "21:48",
+              "text": "这就写进采购申请理由里"
+            },
+            {
+              "speaker": 2,
+              "time": "21:48",
+              "text": "我感觉是他家不蒸馏其他人的原因",
+              "quote": {
+                "speaker": 4,
+                "text": "所以说人话和写代码是不能共存的吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:49",
+              "text": "其他模型互相吃synthetic data太多了，然后每家都会在某个阶段产生一些slop，然后越积累越多，但coding上吃synthetic data也越吃越强"
+            },
+            {
+              "speaker": 2,
+              "time": "21:49",
+              "text": "gemini比较闭门造车吧可能，匠人精神这一块"
+            },
+            {
+              "speaker": 4,
+              "time": "21:49",
+              "text": "那argon也起码是opus4.6的代码水平吧"
+            },
+            {
+              "speaker": 4,
+              "time": "21:49",
+              "text": "为啥说不能写代码呢 啥场景"
+            },
+            {
+              "speaker": 2,
+              "time": "21:49",
+              "text": "我觉得是有的",
+              "quote": {
+                "speaker": 4,
+                "text": "那argon也起码是opus4.6的代码水平吧"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "就是他是一个没有许愿式编程能力的模型"
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "你让他具体改某个点还可以"
+            },
+            {
+              "speaker": 4,
+              "time": "21:50",
+              "text": "牛马 但是是很贵的牛马"
+            },
+            {
+              "speaker": 4,
+              "time": "21:50",
+              "text": "（打工人的梦"
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "从头开始做某个任务，他自己有规划能力，但执行能力感觉相当糟糕"
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "而且很大一个原因是"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "antigravity太他妈烂了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:51",
+              "text": "antigravity太他妈烂了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "要是carbon能优先适配deepseek harness而不是antigravity"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "我觉得gemini的编程能力能上一个档次"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "一直抱着他那个antigravity，这辈子打不过o和a"
+            },
+            {
+              "speaker": 4,
+              "time": "21:51",
+              "text": "有道理"
+            }
+          ]
+        },
+        {
+          "category": "论文审稿",
+          "title": "论文 intro 满篇“do not claim”，审稿人吐槽 AI 防御式写作",
+          "text": "有群友审稿时遇到一篇通篇“防御写作”的论文，intro 里全是“test xxx but not claim the mechanism”，忍不住发问能不能直接给低分。有人说全是这种句子的话 AI 味太重了，这位审稿人接着吐槽，intro 本来应该给出强 claim，结果全在写 do not claim，感觉作者自己都没通读过一遍。另一位群友判断大概率是 GPT 写的，“gpt 就爱写这些”。\n\n还有群友态度更干脆：如果在 abstract 里看到这种话会直接给 1 分，“你天天do not claim，那你这文章到底在讲什么”。有群友觉得 intro 还得人工来写，另一位补了句 discussion 更是。这位群友自己也用 AI auto 写作，直接生成英文的稿子自己都懒得完整看，先写中文再转英文的才会看，现在已经不审稿了；这位群友说不反对 auto，但得有作者本人的理解和工作，拿公共数据库让 AI 直接 auto 出来的稿子不行。\n\n晚些时候有群友说核对过时间线，这不是 ICLR 的稿子；审稿人推测是没赶上 ICLR、转投十月 ARR 的稿件，代码里还留着不少 iclr-xxx。",
+          "emphasis": [
+            "intro 里全是“test xxx but not claim the mechanism”",
+            "如果在 abstract 里看到这种话会直接给 1 分"
+          ],
+          "aiComment": "代码里留着 ICLR 的旧账，正文里写满 do not claim 的免责声明，AI 替作者把求生欲直接拉满。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "问一下群友防御写作的paper可以直接给低分吗[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "看了个intro全是test xxx but not claim the mechanism"
+            },
+            {
+              "speaker": 2,
+              "time": "16:27",
+              "text": "全是的话也太ai味了"
+            },
+            {
+              "speaker": 3,
+              "time": "16:31",
+              "text": "能不能拉黑啊"
+            },
+            {
+              "speaker": 1,
+              "time": "16:37",
+              "text": "感觉author自己都没看过一遍，我还要人工看，力竭了",
+              "quote": {
+                "speaker": 2,
+                "text": "全是的话也太ai味了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:37",
+              "text": "intro不应该给出自己的强claim吗[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:37",
+              "text": "为什么全是do not claim啊[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "16:38",
+              "text": "大概率用 gpt 写的"
+            },
+            {
+              "speaker": 4,
+              "time": "16:38",
+              "text": "gpt 就爱写这些"
+            },
+            {
+              "speaker": 5,
+              "time": "16:53",
+              "text": "感觉intro还得是人工来写"
+            },
+            {
+              "speaker": 6,
+              "time": "17:01",
+              "text": "discussion更是"
+            },
+            {
+              "speaker": 7,
+              "time": "17:02",
+              "text": "我如果看到abstract里面有这种话就直接给1分",
+              "quote": {
+                "speaker": 1,
+                "text": "问一下群友防御写作的paper可以直接给低分吗[捂脸]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:02",
+              "text": "我也是auto的，说真的，如果是直接英文我都懒得完整看一遍。如果是先写中文再写英文的话才会看",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 感觉author自己都没看过一遍，我还要人工看，力竭了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:03",
+              "text": "现在也不审稿了，我不看就知道全是auto的狗屎"
+            },
+            {
+              "speaker": 7,
+              "time": "17:03",
+              "text": "你天天do not claim，那你这文章到底在讲什么"
+            },
+            {
+              "speaker": 6,
+              "time": "17:04",
+              "text": "我不反对auto，只是得有作者本人的理解和工作，不能搞点公共数据库让ai直接auto，那都是狗屎"
+            },
+            {
+              "speaker": 8,
+              "time": "21:19",
+              "text": "确认过timeline，不是iclr[可怜]",
+              "quote": {
+                "speaker": 1,
+                "text": "问一下群友防御写作的paper可以直接给低分吗[捂脸]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "应该是没赶上iclr投的arr"
+            },
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "代码里面还有很多iclr-xxx"
+            },
+            {
+              "speaker": 1,
+              "time": "21:22",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 8,
+              "time": "21:27",
+              "text": "oct是不"
+            },
+            {
+              "speaker": 8,
+              "time": "21:28",
+              "text": "好像最近在review的会就剩arr[捂脸]"
+            },
+            {
+              "speaker": 8,
+              "time": "21:28",
+              "text": "ai会"
+            },
+            {
+              "speaker": 1,
+              "time": "21:30",
+              "text": "yep",
+              "quote": {
+                "speaker": 8,
+                "text": "oct是不"
+              }
+            }
+          ]
+        },
+        {
+          "category": "顶会机制",
+          "title": "ICLR 与 ARR 强制审稿的“跨层连坐”：合作者的合作者漏审也可能牵连 dr",
+          "text": "聊起 ARR 审稿，有群友希望自己的合作者能按时审稿，生怕稿件被 dr，并吐槽作者在自己的面板里根本看不到进度，往往是直接收到邮件被通知稿件 dr。另一位群友在 ICLR 碰上了牵连更广的“连坐”：这次投稿超过 3 篇就会强制审稿，自己合作者的合作者还没有审稿，这人并没有出现在自己论文的署名里，却会通过影响合作者的论文，间接影响到自己的投稿。据这位群友介绍，未按时交审稿意见会先延迟两天出意见，再不提交就会直接 dr，而作者同样看不到对方到底审没审。\n\n这位群友还感慨审稿人太多，总会有不负责的；另一位群友反讽“我还以为都是呢”，并举例 AAAI phase2 有不少人恶意审稿，自己的稿子被拒了就给别人打低分。",
+          "emphasis": [
+            "这人并没有出现在自己论文的署名里",
+            "未按时交审稿意见会先延迟两天出意见，再不提交就会直接 dr"
+          ],
+          "aiComment": "合作者的合作者漏审也能跨层牵连，学术圈靠强制审稿硬生生跑通了自己的六度分隔理论。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:31",
+              "text": "提到arr就希望我的contributor按时审稿、、"
+            },
+            {
+              "speaker": 1,
+              "time": "21:31",
+              "text": "害怕dr"
+            },
+            {
+              "speaker": 2,
+              "time": "21:32",
+              "text": "iclr，我合作者的合作者没有审稿",
+              "quote": {
+                "speaker": 1,
+                "text": "提到arr就希望我的contributor按时审稿、、"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:32",
+              "text": "也会影响我的投稿"
+            },
+            {
+              "speaker": 2,
+              "time": "21:33",
+              "text": "连坐[衰]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "是的🙂‍↕️我们自己的penal还根本看不到进度"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "收到email就直接“遗憾通知你你的稿件被dr”"
+            },
+            {
+              "speaker": 2,
+              "time": "21:34",
+              "text": "如果没有按时交，会延迟两天出意见"
+            },
+            {
+              "speaker": 2,
+              "time": "21:34",
+              "text": "如果再没有提及，就dr了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:34",
+              "text": "希望我合作者的合作者能够审稿"
+            },
+            {
+              "speaker": 1,
+              "time": "21:34",
+              "text": "111",
+              "quote": {
+                "speaker": 2,
+                "text": "希望我合作者的合作者能够审稿"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:34",
+              "text": "也看不到他们是否有没有审稿"
+            },
+            {
+              "speaker": 1,
+              "time": "21:34",
+              "text": "（其实是通讯作者hh"
+            },
+            {
+              "speaker": 2,
+              "time": "21:35",
+              "text": "这次投超过3篇就强制审稿"
+            },
+            {
+              "speaker": 2,
+              "time": "21:35",
+              "text": "审稿人太多了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:36",
+              "text": "总会有不负责的"
+            },
+            {
+              "speaker": 3,
+              "time": "21:36",
+              "text": "会有吗，我还以为都是呢"
+            },
+            {
+              "speaker": 2,
+              "time": "21:36",
+              "text": "也不算是，我合作者的合作者，并没有出现在我论文的名字里面",
+              "quote": {
+                "speaker": 1,
+                "text": "（其实是通讯作者hh"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:36",
+              "text": "但是会影响我的论文"
+            },
+            {
+              "speaker": 3,
+              "time": "21:37",
+              "text": "aaai phase2有多少人恶意审稿，自己的稿子被rej了就给低分"
+            },
+            {
+              "speaker": 2,
+              "time": "21:37",
+              "text": "他通过影响我合作者的论文，间接影响我的论文"
+            },
+            {
+              "speaker": 1,
+              "time": "21:37",
+              "text": "那你这更连坐了"
+            }
+          ]
+        },
+        {
+          "category": "行业回忆",
+          "title": "从 Bard 到 Gemini：群友翻出 Google 改名史，怀念 AI Studio 免费额度",
+          "aiComment": "Bard 改名 Gemini 又改出一串版本号，群友记得最牢的还是 AI Studio 那波免费额度。",
+          "text": "晚间有群友庆祝自己的 Claude 原生号一个月没被封，另一位群友说自己从 Claude 还只能在 Slack 里用时就开的老号也被封了，几位古早用户一起感慨。话题随后转到同时期的 Google：有人记得当年叫 Bard，“特别特别特别难用”；另一位群友补充底层好像是 PaLM，发布会当天直接翻车，股价大跳水。\n\n这位群友接着排了时间线：第二年 Google I/O 宣布研究 Gemini，主打长上下文，1.0、1.5 时期还是“路边一条”，2.0 开始（差不多 2025 年初）逐渐上正轨，好了一年不到又开始拉了；另一位群友也认为改名后的 2.5 时期厉害过一阵。有人感叹在保持名字这一块 GPT 和 Claude 做得好，Google 改了太多次。大家还怀念起 AI Studio 免费额度给得多，被称作“真正的白月光”，也吐槽过一个逆天机制：2.5 Pro 次数用完，连 2.5 Flash 也用不了。",
+          "emphasis": [
+            "1.0、1.5 时期还是“路边一条”，2.0 开始（差不多 2025 年初）逐渐上正轨",
+            "2.5 Pro 次数用完，连 2.5 Flash 也用不了"
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:52",
+              "text": "Claude没封我原生号的一个月纪念日"
+            },
+            {
+              "speaker": 1,
+              "time": "21:52",
+              "text": "希望长长久久"
+            },
+            {
+              "speaker": 2,
+              "time": "21:55",
+              "text": "我从一个从claude还只能在slack时期用的号也被封了!!!!!!!!!!!!!"
+            },
+            {
+              "speaker": 1,
+              "time": "21:55",
+              "text": "我也是这个时期的古早用户！！",
+              "quote": {
+                "speaker": 2,
+                "text": "我从一个从claude还只能在slack时期用的号也被封了!!!!!!!!!!!!!"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:55",
+              "text": "那时候小小的Claude谁认识它[叹气]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:00",
+              "text": "我是claude 3时期用户"
+            },
+            {
+              "speaker": 3,
+              "time": "22:00",
+              "text": "但是我之前创建就给我封号"
+            },
+            {
+              "speaker": 1,
+              "time": "22:00",
+              "text": "同时期的gemini是不是叫bard"
+            },
+            {
+              "speaker": 1,
+              "time": "22:01",
+              "text": "我记得Google有一个叫bart还是bard的模型"
+            },
+            {
+              "speaker": 1,
+              "time": "22:01",
+              "text": "特别特别特别难用"
+            },
+            {
+              "speaker": 1,
+              "time": "22:01",
+              "text": "gemini啥时候出来的我不记得了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:01",
+              "text": "bard"
+            },
+            {
+              "speaker": 2,
+              "time": "22:01",
+              "text": "底层叫Palm模型? 好像"
+            },
+            {
+              "speaker": 2,
+              "time": "22:02",
+              "text": "发布会当天直接翻车 股价大跳水"
+            },
+            {
+              "speaker": 1,
+              "time": "22:02",
+              "text": "✅就是这个"
+            },
+            {
+              "speaker": 1,
+              "time": "22:02",
+              "text": "回忆涌现了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:02",
+              "text": "不知道哪一天起"
+            },
+            {
+              "speaker": 3,
+              "time": "22:02",
+              "text": "gemini改完名厉害了一段时间"
+            },
+            {
+              "speaker": 3,
+              "time": "22:02",
+              "text": "2.5的时候"
+            },
+            {
+              "speaker": 1,
+              "time": "22:02",
+              "text": "ai studio出现，gemini出现"
+            },
+            {
+              "speaker": 3,
+              "time": "22:02",
+              "text": "然后后面又拉了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:03",
+              "text": "第二年googleio宣布正在研究gemini模型 主打长上下文 1.0 1.5 时期还是路边一条 2.0开始(差不多2025年初) 逐渐上正规"
+            },
+            {
+              "speaker": 1,
+              "time": "22:03",
+              "text": "可能是它多模态尤其视频能力强的那段时间"
+            },
+            {
+              "speaker": 2,
+              "time": "22:03",
+              "text": "好了一年不到 又开始拉了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:04",
+              "text": "那很好了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:05",
+              "text": "ai studio我好长一段时间特别依赖他"
+            },
+            {
+              "speaker": 1,
+              "time": "22:05",
+              "text": "突然发现在保持名字这一块gpt和Claude做的好"
+            },
+            {
+              "speaker": 1,
+              "time": "22:05",
+              "text": "google咋变了那么多次"
+            },
+            {
+              "speaker": 2,
+              "time": "22:06",
+              "text": "但是那时候一个逆天的机制是 2.5pro的额次数用完了 然后 2.5flash也是用不了的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:06",
+              "text": "ai studio给免费的额度也贼多"
+            },
+            {
+              "speaker": 1,
+              "time": "22:06",
+              "text": "我好像知道这个时期[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "但是那时候一个逆天的机制是 2.5pro的额次数用完了 然后 2.5flash也是用不了的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:07",
+              "text": "真正的白月光",
+              "quote": {
+                "speaker": 1,
+                "text": "ai studio给免费的额度也贼多"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:07",
+              "text": "chatbot最后的荣光"
+            },
+            {
+              "speaker": 1,
+              "time": "22:08",
+              "text": "确实[苦涩]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:08",
+              "text": "对大学生很友好了"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "知乎专栏《Super-agent 设计探索》文章分享",
+      "theme": "群友转发探讨更自主 Agent 系统设计的知乎文章链接。",
+      "note": "2026-11-01 · 当日本地记录",
+      "stories": [
+        {
+          "category": "文章分享",
+          "title": "知乎文章《Super-agent 设计探索：迈向更自主的 Agent 系统》分享",
+          "text": "有群友分享了知乎专栏文章《Super-agent 设计探索：迈向更自主的 Agent 系统》，提示在知乎页面阅读更方便。",
+          "emphasis": [
+            "迈向更自主的 Agent 系统"
+          ],
+          "aiComment": "标题在畅想更自主的 Super-agent，正文却还得群友手动提醒切回知乎页面看才方便。",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Super-agent 设计探索：迈向更自主的 Agent 系统",
+              "url": "https://zhuanlan.zhihu.com/p/2099987320443237060"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:56",
+              "text": "这里看更方便"
+            },
+            {
+              "speaker": 1,
+              "time": "00:56",
+              "text": "[链接] Super-agent 设计探索：迈向更自主的 Agent 系统\n  摘要: 我在知乎发现了一篇值得思考的文章，一起来看看吧。\n  URL: https://zhuanlan.zhihu.com/p/2099987320443237060"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "through": "2026-10-25",
+  "through": "2026-11-01",
   "terms": [
     {
       "term": "A社",
@@ -60,7 +60,8 @@
         "鲸鱼",
         "dsv4.1f",
         "dpsk4.1",
-        "大肥鱼"
+        "大肥鱼",
+        "迪普西克"
       ],
       "meaning": "DeepSeek 的缩写，常连版本号写，如 dsv4.1；“鲸鱼”“大肥鱼”取自它的标志。",
       "category": "缩写",
@@ -132,7 +133,9 @@
       "term": "sol",
       "variants": [
         "5.6sol",
-        "6.1sol"
+        "6.1sol",
+        "6sol",
+        "gpt5.6sol"
       ],
       "meaning": "OpenAI GPT-5.6 Sol 或 GPT-6.1 Sol 模型的简称，比 Astra 便宜。",
       "category": "代号",
@@ -150,7 +153,8 @@
     {
       "term": "terra",
       "variants": [
-        "5.6terra"
+        "5.6terra",
+        "6.1terra"
       ],
       "meaning": "OpenAI GPT-5.6 Terra 模型的简称。",
       "category": "代号",
@@ -200,7 +204,9 @@
     },
     {
       "term": "鹅厂",
-      "variants": [],
+      "variants": [
+        "藤子"
+      ],
       "meaning": "腾讯的俗称。",
       "category": "代号",
       "refersTo": "腾讯"
@@ -294,7 +300,8 @@
       "term": "tb",
       "variants": [
         "TB-Science",
-        "tb4"
+        "tb4",
+        "terminalbench"
       ],
       "meaning": "Terminal-Bench 的缩写，终端任务 agent 评测集。",
       "category": "缩写",
@@ -333,7 +340,9 @@
     },
     {
       "term": "pro200",
-      "variants": [],
+      "variants": [
+        "gptpro"
+      ],
       "meaning": "OpenAI 每月 200 美元的 ChatGPT Pro 订阅档。",
       "category": "缩写",
       "refersTo": "ChatGPT Pro"
@@ -375,7 +384,8 @@
     {
       "term": "自进化",
       "variants": [
-        "自我进化"
+        "自我进化",
+        "self-evolving"
       ],
       "meaning": "agent 依据评测和轨迹，自动改写自己的 prompt、skill 或 harness。",
       "category": "行话",
@@ -426,7 +436,9 @@
     },
     {
       "term": "rubric",
-      "variants": [],
+      "variants": [
+        "rubrics"
+      ],
       "meaning": "评测用的逐项评分标准，常配合 LLM 裁判打分。",
       "category": "行话"
     },
@@ -471,7 +483,8 @@
       "term": "middle train",
       "variants": [
         "mid-train",
-        "midtrain"
+        "midtrain",
+        "mid training"
       ],
       "meaning": "预训练和后训练之间的中期训练阶段。",
       "category": "行话",
@@ -678,7 +691,9 @@
       "term": "ai4s",
       "variants": [
         "AI4Sci",
-        "AI4Science"
+        "AI4Science",
+        "4sci",
+        "4science"
       ],
       "meaning": "AI for Science，用 AI 做科学研究。",
       "category": "缩写",
@@ -866,7 +881,9 @@
       "term": "瘫坐",
       "variants": [
         "每日瘫坐",
-        "严肃瘫坐"
+        "严肃瘫坐",
+        "震惊瘫坐",
+        "眩晕瘫坐"
       ],
       "meaning": "看到很强的工作或新模型时，表示极度震撼的夸张说法。",
       "category": "梗"
@@ -912,7 +929,8 @@
       "variants": [
         "严肃关注",
         "严肃品鉴",
-        "严肃star"
+        "严肃star",
+        "严肃支持"
       ],
       "meaning": "群里对别人分享的论文或项目的固定捧场回复。",
       "category": "梗"
@@ -928,7 +946,10 @@
     {
       "term": "防御性写作",
       "variants": [
-        "防御性话语"
+        "防御性话语",
+        "防御性输出",
+        "防御性表述",
+        "防御写作"
       ],
       "meaning": "模型写作时堆砌限定、免责和正反套话。",
       "category": "梗"
@@ -947,7 +968,8 @@
       "term": "说人话",
       "variants": [
         "不说人话",
-        "讲人话"
+        "讲人话",
+        "写人话"
       ],
       "meaning": "形容模型输出通俗好懂；“不说人话”指满篇术语、难读。",
       "category": "网络用语"
@@ -1016,7 +1038,10 @@
     },
     {
       "term": "z➗",
-      "variants": [],
+      "variants": [
+        "zp",
+        "zhipu"
+      ],
       "meaning": "对智谱 AI 的戏谑写法，仿照“a÷”。",
       "category": "代号",
       "refersTo": "智谱 AI"
@@ -1327,7 +1352,9 @@
     },
     {
       "term": "反蒸馏",
-      "variants": [],
+      "variants": [
+        "防蒸"
+      ],
       "meaning": "模型厂商阻止别人用自家模型的输出做蒸馏的措施。",
       "category": "行话"
     },
@@ -1513,6 +1540,116 @@
       "meaning": "华为昇腾 950 加速器的简称。",
       "category": "代号",
       "refersTo": "Huawei Ascend 950"
+    },
+    {
+      "term": "mopd",
+      "variants": [
+        "multi-teacher OPD"
+      ],
+      "meaning": "多教师在线策略蒸馏：各领域分别训专家，再蒸馏合回一个模型。",
+      "category": "行话",
+      "refersTo": "Multi-teacher On-Policy Distillation"
+    },
+    {
+      "term": "mix rl",
+      "variants": [
+        "混合 RL"
+      ],
+      "meaning": "把多个领域的任务混在一起做一次强化学习。",
+      "category": "行话",
+      "refersTo": "Mixed-domain RL"
+    },
+    {
+      "term": "抽卡",
+      "variants": [],
+      "meaning": "让生成式模型多次生成、从中挑出满意结果，结果带随机性。",
+      "category": "行话",
+      "refersTo": "多次采样挑选（cherry-pick）"
+    },
+    {
+      "term": "黑灯实验室",
+      "variants": [],
+      "meaning": "无人值守、由机器自动运行实验的全自动实验室。",
+      "category": "行话",
+      "refersTo": "lights-out lab / self-driving lab"
+    },
+    {
+      "term": "本子",
+      "variants": [
+        "写本子"
+      ],
+      "meaning": "科研基金申请书，常指国家自然科学基金等项目申请书。",
+      "category": "行话",
+      "refersTo": "科研项目申请书"
+    },
+    {
+      "term": "南北阁",
+      "variants": [
+        "nanbeige"
+      ],
+      "meaning": "BOSS 直聘开源的 Nanbeige 大模型系列。",
+      "category": "代号",
+      "refersTo": "Nanbeige"
+    },
+    {
+      "term": "gold trace",
+      "variants": [
+        "gold trajectory"
+      ],
+      "meaning": "评测或训练中作为标准答案的参考解题轨迹。",
+      "category": "行话",
+      "refersTo": "gold trajectory"
+    },
+    {
+      "term": "carbon",
+      "variants": [
+        "Gemini 4 Carbon",
+        "gemini4 carbon"
+      ],
+      "meaning": "Google Gemini 4 Carbon 模型的简称。",
+      "category": "代号",
+      "refersTo": "Gemini 4 Carbon"
+    },
+    {
+      "term": "scaling rl",
+      "variants": [
+        "rl scaling"
+      ],
+      "meaning": "持续扩大强化学习训练规模来提升模型能力的做法，偏重基建工程。",
+      "category": "行话",
+      "refersTo": "Scaling Reinforcement Learning"
+    },
+    {
+      "term": "mimo",
+      "variants": [],
+      "meaning": "小米的 MiMo 系列大模型。",
+      "category": "代号",
+      "refersTo": "Xiaomi MiMo"
+    },
+    {
+      "term": "gdm",
+      "variants": [],
+      "meaning": "Google DeepMind 的缩写。",
+      "category": "缩写",
+      "refersTo": "Google DeepMind"
+    },
+    {
+      "term": "dr",
+      "variants": [
+        "desk reject"
+      ],
+      "meaning": "投稿未经评审被直接拒稿。",
+      "category": "缩写",
+      "refersTo": "desk reject"
+    },
+    {
+      "term": "slop",
+      "variants": [
+        "AI slop"
+      ],
+      "meaning": "模型输出里套路化、低质量的惯用表达。",
+      "category": "行话",
+      "refersTo": "AI slop"
     }
   ]
 }
