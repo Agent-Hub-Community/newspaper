@@ -115,6 +115,31 @@ node scripts/import-reviewed-weekly.mjs <审好的周报 reader 目录>
 
 全部通过后，提交 `data/` 下的改动并推送到 `main`。
 
+### 用 `release.mjs` 一条命令跑完
+
+[`scripts/release.mjs`](../scripts/release.mjs) 把第 2 节的入库和上面四步串成一条命令，顺序与手动执行相同：
+
+```text
+入库（日报+榜单 → 外部资讯 → 周报） → 公开构建 → 语义向量 → 再次公开构建
+  → npm test → test/build.mjs --public → 生成 D1 SQL → 检查 SQL → 登记 D1
+```
+
+```sh
+FEEDBACK_API_URL=<反馈 Worker 地址> CLOUDFLARE_ACCOUNT_ID=<账号 ID> WRANGLER_BIN=<wrangler 路径> \
+node scripts/release.mjs --daily-batch "$B" \
+  --external-draft "$E/commented-reviewed.json" --external-selection "$E/selection.json" \
+  [--weekly-reader <审好的周报 reader 目录>] [--sql-out <SQL 路径>] [--skip-d1] [--dry-run]
+```
+
+- 三个入库参数都可省略，省略的栏目不入库。`--external-selection` 要与 `--external-draft` 一起给。
+- `--sql-out` 默认写到 `<daily-batch>/feedback-catalog.sql`；没给日报批次时写到 `scratch/feedback-catalog.sql`。
+- 开始前脚本检查环境变量和输入路径：缺 `FEEDBACK_API_URL`、`CLOUDFLARE_ACCOUNT_ID`，或在未加 `--skip-d1` 时缺 `WRANGLER_BIN`，直接报错退出，一步都不执行。
+- 任何一步失败，脚本立即停止，并打印失败的步骤序号和名称。
+- 登记 D1 前，脚本检查 SQL 文件每行都以 `INSERT OR IGNORE INTO` 开头，否则拒绝执行。
+- `--skip-d1` 照常生成并检查 SQL，只跳过 `wrangler d1 execute`。
+- `--dry-run` 只打印步骤列表，不执行任何命令。
+- 跑完后，脚本按目录汇总 `git status --short` 的改动条数。脚本不提交也不推送；核对汇总里只有本期授权的 `data/` 目录后，再手动提交推送。
+
 ### 如果只改了脚本、测试或文档
 
 只改代码或 Markdown 文档同样会触发线上部署，但按理不应改变构建出的网页。推送前可以在改动前后的 commit 上各跑一次 `FEEDBACK_API_URL=... npm run build -- --public`，用 `diff -qr` 确认两份 `dist/` 完全相同。
