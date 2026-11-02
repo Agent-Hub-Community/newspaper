@@ -3,13 +3,15 @@
 // Inputs under --dir: candidates.json (written by the private pipeline's chat collector), curated/*.json
 // (reviewed batches, see GUIDE.md) and avatar-review.json ({ "approved": [file], "rejected": [file] }).
 // Only approved avatars are copied into data/library-avatars/; new ones wait in <dir>/avatars-pending/ and their
-// shares show the group without an avatar until a later run. Items already in library.json keep their id and
-// wording, so edit published wording in library.json; curated batches only add new items.
+// shares show the group without an avatar until a later run. WeChat's "暂时无法查看" placeholder counts as rejected
+// without review. Items already in library.json keep their id and wording, so edit published wording in
+// library.json; curated batches only add new items.
 import { copyFile, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { canonicalUrl, normalizeLibrary, resourceKey } from '../lib/library.mjs';
+import { isPlaceholderAvatar } from '../lib/avatar-placeholders.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const index = process.argv.indexOf('--dir');
@@ -32,14 +34,16 @@ await mkdir(pendingDir, { recursive: true, mode: 0o700 });
 await mkdir(path.join(root, 'data/library-avatars'), { recursive: true });
 const cached = new Set(await readdir(cacheDir));
 const pending = new Set();
+let placeholders = 0;
 const avatars = new Map();
 async function avatar(sender) {
   if (!sender) return null;
   if (avatars.has(sender)) return avatars.get(sender);
   let file = null;
   try {
-    let name = [...cached].find(entry => entry.startsWith(`${sender}.`));
-    if (!name) {
+    let name = [...cached].find(entry => entry.startsWith(`${sender}.`)), bytes;
+    if (name) bytes = await readFile(path.join(cacheDir, name));
+    else {
       const source = members[sender]?.avatarUrl;
       if (!source) throw new Error('No avatar');
       const url = new URL(source);
@@ -47,22 +51,29 @@ async function avatar(sender) {
       url.protocol = 'https:';
       const response = await fetch(url, { signal: AbortSignal.timeout(12000), redirect: 'error' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const bytes = Buffer.from(await response.arrayBuffer());
+      bytes = Buffer.from(await response.arrayBuffer());
       const ext = bytes.subarray(0, 3).equals(Buffer.from([255, 216, 255])) ? 'jpg'
         : bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])) ? 'png' : null;
       if (!ext || bytes.length > 2_000_000) throw new Error('Invalid image');
       name = `${sender}.${ext}`;
-      await writeFile(path.join(cacheDir, name), bytes, { mode: 0o600 });
-      cached.add(name);
     }
-    const bytes = await readFile(path.join(cacheDir, name));
-    const candidate = `${createHash('sha256').update(bytes).digest('hex').slice(0, 16)}${path.extname(name)}`;
-    if (review.approved.includes(candidate)) {
-      await copyFile(path.join(cacheDir, name), path.join(root, 'data/library-avatars', candidate));
-      file = candidate;
-    } else if (!review.rejected.includes(candidate)) {
-      await copyFile(path.join(cacheDir, name), path.join(pendingDir, candidate));
-      pending.add(candidate);
+    if (isPlaceholderAvatar(bytes)) {
+      // Rejected without review; also drop it from the cache (older runs cached it) so a later run refetches.
+      if (cached.delete(name)) await rm(path.join(cacheDir, name));
+      placeholders++;
+    } else {
+      if (!cached.has(name)) {
+        await writeFile(path.join(cacheDir, name), bytes, { mode: 0o600 });
+        cached.add(name);
+      }
+      const candidate = `${createHash('sha256').update(bytes).digest('hex').slice(0, 16)}${path.extname(name)}`;
+      if (review.approved.includes(candidate)) {
+        await copyFile(path.join(cacheDir, name), path.join(root, 'data/library-avatars', candidate));
+        file = candidate;
+      } else if (!review.rejected.includes(candidate)) {
+        await copyFile(path.join(cacheDir, name), path.join(pendingDir, candidate));
+        pending.add(candidate);
+      }
     }
   } catch (error) {
     console.warn(`avatar unavailable for one sharer: ${error.message}`);
@@ -158,5 +169,5 @@ await writeFile(path.join(root, 'data/library.json'), `${JSON.stringify(library,
 const used = new Set(items.flatMap(item => item.shares.map(share => share.avatar)).filter(Boolean));
 for (const name of await readdir(path.join(root, 'data/library-avatars'))) if (!used.has(name)) await rm(path.join(root, 'data/library-avatars', name));
 await writeFile(path.join(dir, 'avatar-pending.json'), `${JSON.stringify([...pending].sort(), null, 2)}\n`);
-console.log(JSON.stringify({ items: items.length, added, merged, through, avatars: used.size, pendingAvatars: pending.size }, null, 2));
+console.log(JSON.stringify({ items: items.length, added, merged, through, avatars: used.size, pendingAvatars: pending.size, placeholderAvatars: placeholders }, null, 2));
 if (pending.size) console.log(`Review ${path.relative(root, pendingDir)}/ and list each file in avatar-review.json, then run again.`);

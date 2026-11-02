@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateEmphasis } from '../lib/emphasis.mjs';
+import { trimEmphasis, validateEmphasis } from '../lib/emphasis.mjs';
 
 test('allows one exact highlight per natural paragraph without a count or fragment-length cap', () => {
   const phrases = ['保留原文的完整判断以及它成立的前提条件', '第二段呈现机制', '第三段说明限制'];
@@ -34,4 +34,21 @@ test('accepts exactly 30 percent and rejects even one extra highlighted characte
   assert.doesNotThrow(() => validateEmphasis(text, [unique.slice(0, 10), unique.slice(10, 20), unique.slice(20, 30)]));
   assert.doesNotThrow(() => validateEmphasis(text, [unique.slice(0, 30)]));
   assert.throws(() => validateEmphasis(text, [unique.slice(0, 31)]), /Invalid emphasis/);
+});
+
+test('trimEmphasis keeps the valid spans in order and names why each other span was dropped', () => {
+  const text = `alpha beta gamma delta alpha\n\nepsilon zeta ${'.'.repeat(100)}`;
+  const { kept, dropped } = trimEmphasis(text, ['gamma', 'missing', 'alpha', 'beta gamma', 'delta\n\nepsilon', ' zeta', 'gamma', 'zeta']);
+  assert.deepEqual(kept, ['gamma', 'zeta']);
+  assert.deepEqual(dropped.map(d => d.reason), ['not-in-text', 'ambiguous', 'overlap', 'crosses-paragraph', 'malformed', 'duplicate']);
+  assert.doesNotThrow(() => validateEmphasis(text, kept));
+});
+
+test('trimEmphasis drops spans from the end until the 30 percent budget holds', () => {
+  const text = `${'a'.repeat(20)} ${'b'.repeat(20)} ${'c'.repeat(20)} ${'.'.repeat(39)}`;
+  const { kept, dropped } = trimEmphasis(text, ['a'.repeat(20), 'b'.repeat(20), 'c'.repeat(20)]);
+  assert.deepEqual(kept, ['a'.repeat(20)]);
+  assert.deepEqual(dropped.map(d => d.reason), ['over-budget', 'over-budget']);
+  assert.doesNotThrow(() => validateEmphasis(text, kept));
+  assert.deepEqual(trimEmphasis(text, null), { kept: [], dropped: [] });
 });
