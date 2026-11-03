@@ -1,0 +1,2772 @@
+{
+  "id": "2026-11-02",
+  "date": "2026-11-02",
+  "label": "2026-11-02 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "Astra 额度一天见底，没想清楚的活还得靠 Opus 5.5",
+      "theme": "另有群友晒出报错、怀疑被暗中路由到 Luna，Opus 5.5 敏感风控降级与免责套话也遭吐槽。",
+      "note": "2026-11-02 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Coding 体验",
+          "title": "Astra 额度见底与 6.1 sol 代码埋雷：为什么需要 Loop 的任务还得靠 Opus 5.5",
+          "text": "200 刀套餐里的 Astra 一周额度不够一天用，有群友吐槽之前日日重置时省着点还勉强够用，现在“一脚就没”，只好切到 6.1 sol。但切过去后的体验并不好：有人嫌 6.1 sol 的“雷霆大思考”太慢，写出的代码更是没法 review，“五行里面有三行都在抛出异常”；另一位群友用它从头写项目，尽管分模块写了很详细的 prompt，生成的设计文档只要遇到 prompt 没覆盖又没仔细检查的地方就全是雷，而且在这位群友看来，现在的模型输出的设计文档可读性普遍很差，很难逐行检查。Astra 自己也没少挨骂：有人觉得它最近像失去了智力，问是不是新模型要来了，旁人接了一句“6.2？”；有人吐槽它总在要连服务器的时候犯病，或者测试挂了就在那修几小时测试，主线代码一行不写；还有人说它的前端“弱智到夸张”。\n\n不过也有几位群友表示自己的 sol 或开在 medium 档位的 Astra 依然很强，纳闷为什么“降智还分人”。一位群友分析这取决于任务形式：如果人能把所有事情都想清楚，Astra 和 sol 相当好用；一旦人没想清楚、需要来回 loop，opus 5.5 就一骑绝尘，而 Astra 会“有点流口水”。前面觉得 Astra 好用的群友印证了这个说法，表示自己确实习惯写得很清楚再扔给模型去干。多位群友随之赞同 opus 5.5 在 coding 场景独一档，因为用户不一定每次都能把 task 拆明白，模糊意图识别很重要。至于已经拆得很清楚的任务，有人建议直接用 1017，快而且“说人话”；另一位群友认为日常任务走 API 用 1017 无敌，还有人估计 1017 够应付 95% 的任务，也有人嫌 1017 不给报销，按自己的用法一天也得花 100；剩下的 5% 探索性 frontier 任务才是拉开区分度的地方，还得上 opus。",
+          "emphasis": [
+            "200 刀套餐里的 Astra 一周额度不够一天用",
+            "一旦人没想清楚、需要来回 loop，opus 5.5 就一骑绝尘"
+          ],
+          "aiComment": "五行代码三行抛异常，剩下两行估计在写怎么捕获这三行，200刀买了个异常生成器。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:22",
+              "text": "但是astra感觉根本用不了。。我一天就用完了",
+              "quote": {
+                "speaker": null,
+                "text": "感觉 sol 完全是 sonnet 模型水平啊。从 cc 切到 codex，感觉 sol 6.1 对标不了 opus"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:22",
+              "text": "tibo太坏了。。"
+            },
+            {
+              "speaker": 2,
+              "time": "11:23",
+              "text": "+1"
+            },
+            {
+              "speaker": 3,
+              "time": "13:18",
+              "text": "是啊，所以才吐槽.....200刀套餐的astra一周额度不够一天用",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 但是astra感觉根本用不了。。我一天就用完了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:29",
+              "text": "你好，好像又降智了，Astra 失去了智力"
+            },
+            {
+              "speaker": 4,
+              "time": "13:29",
+              "text": "是不是新的要来了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:29",
+              "text": "6.2？"
+            },
+            {
+              "speaker": 6,
+              "time": "13:31",
+              "text": "期待一波"
+            },
+            {
+              "speaker": 1,
+              "time": "15:59",
+              "text": "我已经切到6.1sol了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:59",
+              "text": "感觉确实有点低能"
+            },
+            {
+              "speaker": 1,
+              "time": "15:59",
+              "text": "之前日日重置"
+            },
+            {
+              "speaker": 1,
+              "time": "16:00",
+              "text": "省着点用勉强够用"
+            },
+            {
+              "speaker": 1,
+              "time": "16:00",
+              "text": "现在astra这是一脚就没"
+            },
+            {
+              "speaker": 1,
+              "time": "16:00",
+              "text": "怀念我的5.5"
+            },
+            {
+              "speaker": 1,
+              "time": "16:00",
+              "text": "耐用还好用"
+            },
+            {
+              "speaker": 7,
+              "time": "16:00",
+              "text": "重置期真是把用户给养刁了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:00",
+              "text": "现在完全不够用"
+            },
+            {
+              "speaker": 3,
+              "time": "16:04",
+              "text": "感觉 6.1 sol 真的唐，复杂任务的体验明显比 opus 差，全给我埋坑",
+              "quote": {
+                "speaker": 1,
+                "text": "我已经切到6.1sol了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:05",
+              "text": "没事astra一样唐"
+            },
+            {
+              "speaker": 1,
+              "time": "16:05",
+              "text": "我有时候都不知道他在说什么"
+            },
+            {
+              "speaker": 8,
+              "time": "16:05",
+              "text": "是风控吗"
+            },
+            {
+              "speaker": 8,
+              "time": "16:05",
+              "text": "为什么我感觉我的 sol 还行"
+            },
+            {
+              "speaker": 9,
+              "time": "16:06",
+              "text": "我都是sol和luna"
+            },
+            {
+              "speaker": 10,
+              "time": "16:06",
+              "text": "我的astra还是很强 是为什么"
+            },
+            {
+              "speaker": 1,
+              "time": "16:06",
+              "text": "6.1sol主要还是慢吧"
+            },
+            {
+              "speaker": 1,
+              "time": "16:06",
+              "text": "他的雷霆大思考"
+            },
+            {
+              "speaker": 10,
+              "time": "16:06",
+              "text": "这降智还分人"
+            },
+            {
+              "speaker": 1,
+              "time": "16:06",
+              "text": "要花很久"
+            },
+            {
+              "speaker": 8,
+              "time": "16:06",
+              "text": "你开多高的"
+            },
+            {
+              "speaker": 8,
+              "time": "16:06",
+              "text": "跑一个鹈鹕测试"
+            },
+            {
+              "speaker": 10,
+              "time": "16:06",
+              "text": "我吗? medium"
+            },
+            {
+              "speaker": 8,
+              "time": "16:07",
+              "text": "有可能被降低到 luna 了"
+            },
+            {
+              "speaker": 10,
+              "time": "16:07",
+              "text": "(没token了"
+            },
+            {
+              "speaker": 3,
+              "time": "16:09",
+              "text": "从头写一个项目，分模块写了非常详细的 prompt，它给我生成的设计文档里，但凡我prompt没覆盖到我又没仔细看的地方，就全是雷"
+            },
+            {
+              "speaker": 3,
+              "time": "16:10",
+              "text": "问题是其实现在的模型输出的设计文档可读性都非常差，很难逐行检查"
+            },
+            {
+              "speaker": 1,
+              "time": "16:10",
+              "text": "主要是模型写的代码"
+            },
+            {
+              "speaker": 1,
+              "time": "16:10",
+              "text": "实在没法review"
+            },
+            {
+              "speaker": 1,
+              "time": "16:10",
+              "text": "雷霆大逻辑"
+            },
+            {
+              "speaker": 1,
+              "time": "16:10",
+              "text": "五行里面有三行都在抛出异常"
+            },
+            {
+              "speaker": 11,
+              "time": "16:20",
+              "text": "+1",
+              "quote": {
+                "speaker": 10,
+                "text": "我的astra还是很强 是为什么"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "16:23",
+              "text": "astra是什么"
+            },
+            {
+              "speaker": 13,
+              "time": "16:26",
+              "text": "感觉取决于任务形式",
+              "quote": {
+                "speaker": 10,
+                "text": "我的astra还是很强 是为什么"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "16:27",
+              "text": "如果人能把所有事情都想清楚，astra和sol还是相当好用的。如果人没有想清楚，需要loop的时候，opus5.5真的一骑绝尘，astra有点流口水"
+            },
+            {
+              "speaker": 14,
+              "time": "16:28",
+              "text": "yes我觉得用户的模糊意图识别很重要"
+            },
+            {
+              "speaker": 14,
+              "time": "16:28",
+              "text": "usr不一定每次都把task拆的很明白"
+            },
+            {
+              "speaker": 10,
+              "time": "16:29",
+              "text": "啊确实 我都是写得很清楚 扔给它开干然后摸鱼去了",
+              "quote": {
+                "speaker": 13,
+                "text": "[引用] 感觉取决于任务形式"
+              }
+            },
+            {
+              "speaker": 15,
+              "time": "16:29",
+              "text": "真能拆的很明白"
+            },
+            {
+              "speaker": 16,
+              "time": "16:29",
+              "text": "opus5.5真的一骑绝尘"
+            },
+            {
+              "speaker": 15,
+              "time": "16:29",
+              "text": "我感觉可以直接用1017"
+            },
+            {
+              "speaker": 14,
+              "time": "16:29",
+              "text": "55一骑绝尘"
+            },
+            {
+              "speaker": 15,
+              "time": "16:29",
+              "text": "快而且说人话"
+            },
+            {
+              "speaker": 10,
+              "time": "16:29",
+              "text": "1017不给报销("
+            },
+            {
+              "speaker": 17,
+              "time": "16:29",
+              "text": "coding场景确实opus5.5独一档"
+            },
+            {
+              "speaker": 2,
+              "time": "16:29",
+              "text": "1017够95%的任务了"
+            },
+            {
+              "speaker": 10,
+              "time": "16:30",
+              "text": "虽然便宜 按我这个用法一天也得100"
+            },
+            {
+              "speaker": 4,
+              "time": "16:30",
+              "text": "都取决于具体的使用方式"
+            },
+            {
+              "speaker": 4,
+              "time": "16:30",
+              "text": "以及环境"
+            },
+            {
+              "speaker": 14,
+              "time": "16:30",
+              "text": "但是呢区分度就在5%",
+              "quote": {
+                "speaker": 2,
+                "text": "1017够95%的任务了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:30",
+              "text": "那确实"
+            },
+            {
+              "speaker": 15,
+              "time": "16:30",
+              "text": "那5%"
+            },
+            {
+              "speaker": 4,
+              "time": "16:30",
+              "text": "astra 总是在要连服务器的时候犯病"
+            },
+            {
+              "speaker": 15,
+              "time": "16:30",
+              "text": "还是上opus吧"
+            },
+            {
+              "speaker": 15,
+              "time": "16:30",
+              "text": "astra不太行[裂开]"
+            },
+            {
+              "speaker": 9,
+              "time": "16:30",
+              "text": "取决于任务是日常还是frontier"
+            },
+            {
+              "speaker": 4,
+              "time": "16:31",
+              "text": "或者测试挂了在那修几小时测试"
+            },
+            {
+              "speaker": 4,
+              "time": "16:31",
+              "text": "主线一行不写"
+            },
+            {
+              "speaker": 9,
+              "time": "16:31",
+              "text": "我觉得日常的话走api，1017无敌"
+            },
+            {
+              "speaker": 15,
+              "time": "16:31",
+              "text": "对",
+              "quote": {
+                "speaker": 9,
+                "text": "我觉得日常的话走api，1017无敌"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "16:31",
+              "text": "我需要gpt的世界知识"
+            },
+            {
+              "speaker": 15,
+              "time": "16:31",
+              "text": "dsh"
+            },
+            {
+              "speaker": 15,
+              "time": "16:31",
+              "text": "knowledge"
+            },
+            {
+              "speaker": 15,
+              "time": "16:31",
+              "text": "上gemini"
+            },
+            {
+              "speaker": 10,
+              "time": "16:31",
+              "text": "用不到啊这玩意("
+            },
+            {
+              "speaker": 15,
+              "time": "16:32",
+              "text": "超级无敌大知识"
+            },
+            {
+              "speaker": 10,
+              "time": "16:32",
+              "text": "我用啥一大半取决于给报销啥"
+            },
+            {
+              "speaker": 15,
+              "time": "16:32",
+              "text": "你找老板要个中转站"
+            },
+            {
+              "speaker": 10,
+              "time": "16:32",
+              "text": "好主意"
+            },
+            {
+              "speaker": 10,
+              "time": "16:33",
+              "text": "我把这200刀做成中转站发出去"
+            },
+            {
+              "speaker": 9,
+              "time": "16:34",
+              "text": "frontier 探索性任务还是"
+            },
+            {
+              "speaker": 9,
+              "time": "16:34",
+              "text": "用frontier"
+            }
+          ]
+        },
+        {
+          "category": "模型风控与降级",
+          "title": "报错暴露偷换 Luna、发个“hi”被降级 Opus 5：模型暗中路由与免责套话引吐槽",
+          "text": "聊起 Astra 为什么突然变弱时，有人怀疑是触发了风控，模型在后台被降级到了 luna，建议跑个鹈鹕测试看看。随后有群友问大家最近有没有通过请求头抓到 codex 路由到 luna 等弱模型，并贴出一段题为“Codex路由抓包分析”的 ChatGPT 对话。一人直接给了肯定答复；另一位群友则抓到了更直接的把柄：模型自己报错出了 bug，提示“请求的 luna 此时不可用”，当场露出马脚。不光是 codex，还有群友反映 opus 5.5 最近的风控也格外敏感，自己只是发了个“hi”，就被 safeguard 标记为 frontier_llm，直接降级成了 opus 5。\n\n这段关于降智的追问还引来了一场对模型说话方式的吐槽。有群友模仿大模型的免责口吻，一口气列了二十多个近义词：“你说得对，但是这不意味着、不表明、不蕴含、不必然意味着……不能确立 Astra 产生了降智行为”，紧接着求问怎么根治这种彻头彻尾甩锅、不承担任何风险的语言习惯，调侃自己研究了这么久《大明王朝》，里面的甩锅也达不到这种境界。有人劝提问的群友去看英剧，另一位群友追问推荐哪部，两位群友给出的都是《Yes, Prime Minister》。",
+          "emphasis": [
+            "模型自己报错出了 bug，提示“请求的 luna 此时不可用”",
+            "求问怎么根治这种彻头彻尾甩锅、不承担任何风险的语言习惯"
+          ],
+          "aiComment": "发个hi就被当成危险分子降级，模型这甩锅话术搁明朝内阁都能安全退休。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:44",
+              "text": "大家最近有通过请求头抓到codex路由到弱模型（比如luna）嘛，感觉最近astra弱的离谱.."
+            },
+            {
+              "speaker": 2,
+              "time": "16:46",
+              "text": "🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "16:48",
+              "text": "https://chatgpt.com/share/6ae84e39-2324-8322-9ba5-6c6b3c6d4e84 [旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:50",
+              "text": "是的",
+              "quote": {
+                "speaker": 1,
+                "text": "大家最近有通过请求头抓到codex路由到弱模型（比如luna）嘛，感觉最近astra弱的离谱.."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:51",
+              "text": "astra的前端弱智到夸张"
+            },
+            {
+              "speaker": 2,
+              "time": "16:53",
+              "text": "你说得对，但是这不意味着、不表明、不蕴含、不必然意味着、并不说明、不能据此认为、 不等同于、不能等同于、不可混为一谈、不具有等价性、不能直接划等号、无法推广至、不适用于、不能泛化至、不宜直接迁移至、无法直接推及、不足以证明、无法证实、不能据此推断、尚不足以支持、不能确立 Astra 产生了降智行为",
+              "quote": {
+                "speaker": 1,
+                "text": "大家最近有通过请求头抓到codex路由到弱模型（比如luna）嘛，感觉最近astra弱的离谱.."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:53",
+              "text": "你说得对，但是这不意味着、不表明、不蕴含、不必然意味着、并不说明、不能据此认为、 不等同于、不能等同于、不可混为一谈、不具有等价性、不能直接划等号、无法推广至、不适用于、不能泛化至、不宜直接迁移至、无法直接推及、不足以证明、无法证实、不能据此推断、尚不足以支持、不能确立 Astra 产生了降智行为",
+              "quote": {
+                "speaker": 1,
+                "text": "大家最近有通过请求头抓到codex路由到弱模型（比如luna）嘛，感觉最近astra弱的离谱.."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:53",
+              "text": "感觉最近opus5.5的风控有些夸张啊，我发个hi，safeguard都能标记为frontier_llm然后降级成opus5"
+            },
+            {
+              "speaker": 2,
+              "time": "16:54",
+              "text": "有没有哪位朋友去根治下这种彻头彻尾的甩锅/不负责/不承担任何风险的语言习惯，我研究了这么久的大明王朝，甩锅也甩不到这种境界",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 你说得对，但是这不意味着、不表明、不蕴含、不必然意味着、并不说明、不能据此认为、 不等同于、不能等同于、不可混为一谈、不具有等价性、不能直接划等号、无法推广至、不适用于、不能泛化至、不宜直接迁移至、无法直接推及、不足以证明、无法证实、不能据此推断、尚不足以支持、不能确立 Astra 产生了降智行为"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:54",
+              "text": "看英剧吧赵哥"
+            },
+            {
+              "speaker": 6,
+              "time": "16:56",
+              "text": "有遇到他自己报错bug露出马脚说他请求的luna此时不可用",
+              "quote": {
+                "speaker": 1,
+                "text": "大家最近有通过请求头抓到codex路由到弱模型（比如luna）嘛，感觉最近astra弱的离谱.."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:56",
+              "text": "crazy",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 你说得对，但是这不意味着、不表明、不蕴含、不必然意味着、并不说明、不能据此认为、 不等同于、不能等同于、不可混为一谈、不具有等价性、不能直接划等号、无法推广至、不适用于、不能泛化至、不宜直接迁移至、无法直接推及、不足以证明、无法证实、不能据此推断、尚不足以支持、不能确立 Astra 产生了降智行为"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "17:03",
+              "text": "有什么推荐的",
+              "quote": {
+                "speaker": 4,
+                "text": "看英剧吧赵哥"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:03",
+              "text": "yes prime ministor",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 有没有哪位朋友去根治下这种彻头彻尾的甩锅/不负责/不承担任何风险的语言习惯，我研究了这么久的大明王朝，甩锅也甩不到这种境界"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:04",
+              "text": "ypm啊",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 有什么推荐的"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "跨平台 Computer Use 接口设计：AX 树编排与批量指令防误触",
+      "theme": "对比 Mac 与 Windows 后台操作差异，另附 RoboDojo 评测笔记与真机实验反馈。",
+      "note": "2026-11-02 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 工程",
+          "title": "Computer Use 工程接口设计：Windows 后台操作、AX 树编排与批量指令的“辅助轮”",
+          "text": "有群友请教偏工程层面的 computer use 工作，想参考现有方案设计一套兼顾 Mac 和 Windows 的 tool set。有人建议分析 codex 和 cua-driver 的逻辑，提问者觉得 cua-driver 设计不够细致，而 codex 的 Mac 版虽好、Windows 版却很乱。另一位群友指出 macOS 有 AppleScript，Windows 在系统层面没提供什么接口，试过几家方案都只能前台操作。提问者反驳说“只能前台操作”是 codex 带来的误区，Windows 其实有办法实现后台操作；也有群友附和说确实能做后台，只是麻烦很多。\n\n讨论中有人分享了 Hybrid-Computer-Use 项目，称其虽然暂时没做 background computer use，但优化了操作接口，相比 cua-driver 提升明显。分享者解释，cua-driver 每次 act 后都要全量 observe 太低效，而 AX（Accessibility）其实支持 batched actions；同时 AX 作为计算机在语义层级的表示更加 LLM native，能直接精确读取 element 的 state，对 ptc 或 code execution 这类需要靠状态做编排的场景很必要，不像 screenshot 至少得经过一层 VLM 才能提取状态。有人追问 Windows 的 AX 响应速度是不是偏慢，分享者认为速度可以通过 AX 解析优化和缓存复用来解决，真正的痛点是 Windows 的 AX 执行不如 Mac 完善，有时不得不抢焦点。\n\n围绕批量执行指令时的防误操作机制，群里出现了不同看法。有群友赞同页面布局一变就返回新布局以避免误操作；最初提问的群友则认为值得商榷：有些页面变化在模型预料之中，比如模型计划先 click(5) 触发页面改变、再 click(10) 点击新页面上的元素，这时没必要多塞一段新 AX 树，或许可以让模型自己 assert。分享 Hybrid-Computer-Use 的群友回应，这取决于模型强弱和训练程度，目前的防护机制相当于“辅助轮”，就像 GUI agent 从 single action 演进到 batched actions 一样，等模型训够足够多场景就能卸掉，但现阶段还离不开。主张返回新布局的群友也结合自己用 AI 做 UI 测试的经验补充说，实际场景很容易超出预期，比如输入密码时有些设备突然弹窗询问是否使用已保存的账号密码，这种情况下即便给截图模型也会懵，必须专门适配。",
+          "emphasis": [
+            "提问者反驳说“只能前台操作”是 codex 带来的误区，Windows 其实有办法实现后台操作",
+            "AX 作为计算机在语义层级的表示更加 LLM native，能直接精确读取 element 的 state",
+            "目前的防护机制相当于“辅助轮”，就像 GUI agent 从 single action 演进到 batched actions 一样，等模型训够足够多场景就能卸掉"
+          ],
+          "aiComment": "模型刚准备秀一波盲打连招，突然弹个保存密码提示框，辅助轮当场焊死在车上。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:35",
+              "text": "群友知不知道有什么computer use方面比较好的工作？主要不是怎么做数据层面的，而是偏工程层面的，比如怎么设计一套好的tool set"
+            },
+            {
+              "speaker": 2,
+              "time": "21:39",
+              "text": "cua那一套"
+            },
+            {
+              "speaker": 3,
+              "time": "21:39",
+              "text": "感觉也许可以详细分析一下codex和cua-driver的逻辑做参考[发抖]",
+              "quote": {
+                "speaker": 1,
+                "text": "群友知不知道有什么computer use方面比较好的工作？主要不是怎么做数据层面的，而是偏工程层面的，比如怎么设计一套好的tool set"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:41",
+              "text": "cua-driver的感觉设计的没那么细致"
+            },
+            {
+              "speaker": 1,
+              "time": "21:41",
+              "text": "codex的mac版本还不错，windows版本很乱"
+            },
+            {
+              "speaker": 3,
+              "time": "21:42",
+              "text": "嗯嗯确实，感觉windows本身做cua问题就很多"
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "macOS有提供apple script"
+            },
+            {
+              "speaker": 1,
+              "time": "21:46",
+              "text": "想做一组统一mac和windows一点的接口"
+            },
+            {
+              "speaker": 1,
+              "time": "21:47",
+              "text": "当然肯定会有很多不同"
+            },
+            {
+              "speaker": 1,
+              "time": "21:47",
+              "text": "但想要尽量求同存异"
+            },
+            {
+              "speaker": 2,
+              "time": "21:48",
+              "text": "windows在系统层面没给computer use提供什么接口"
+            },
+            {
+              "speaker": 2,
+              "time": "21:48",
+              "text": "只能前台操作"
+            },
+            {
+              "speaker": 4,
+              "time": "21:49",
+              "text": "https://microsoft.github.io/Hybrid-Computer-Use/\n可以看看[旺柴]  不过暂时没做 background computer use   主要是优化了操作电脑的接口   相比于 cua driver 的提升还是挺明显的"
+            },
+            {
+              "speaker": 1,
+              "time": "21:49",
+              "text": "没有没有，这个是codex给大家带来的误区",
+              "quote": {
+                "speaker": 2,
+                "text": "只能前台操作"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:49",
+              "text": "其实是有办法后台操作的"
+            },
+            {
+              "speaker": 3,
+              "time": "21:49",
+              "text": "确实，Windows上也可以后台操作，不过确实麻烦很多"
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "我试了其他家的computer use也不支持"
+            },
+            {
+              "speaker": 2,
+              "time": "21:59",
+              "text": "好有意思，一次发一串操作指令",
+              "quote": {
+                "speaker": 4,
+                "text": "https://microsoft.github.io/Hybrid-Computer-Use/ 可以看看[旺柴] 不过暂时没做 background comp..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:59",
+              "text": "是的 ax 其实也可以 batched actions 的   cua driver 每次 act 之后都要全量 observe 太低效了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:00",
+              "text": "页面布局改变就返回新的布局，避免误操作"
+            },
+            {
+              "speaker": 2,
+              "time": "22:00",
+              "text": "可以呀"
+            },
+            {
+              "speaker": 1,
+              "time": "22:02",
+              "text": "这个可能值得商榷一下？有一些页面改变是模型可以预料到的",
+              "quote": {
+                "speaker": 2,
+                "text": "页面布局改变就返回新的布局，避免误操作"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:02",
+              "text": "我个人觉得 ax 还有个重要的用途  就是他是作为computer 在 语义层级的表示 是更加 llm native 的 可以精确读到一些 element 的 state  对于 ptc / code execution 这种需要一些 state 去做编排的场景还是很必要的\n对于 visual 层面的 computer 的 state  也就是 screenshot  至少要经过一个 vlm 才能提取获得对应的状态"
+            },
+            {
+              "speaker": 1,
+              "time": "22:03",
+              "text": "比如模型选择先click(5)，页面改变了，再click(10)"
+            },
+            {
+              "speaker": 4,
+              "time": "22:03",
+              "text": "[引用] 对 确实  这个其实是根据模型的训练和强弱相关的  目前这个防护还是作为一个\"辅助轮\"存在的  等到模型训够足够多的场景就可以卸去了  就像当时 gui agent 从 single action -> batched actions 的转变一样\n不过目前的情况是模型还需要这个机制\n  ↳ [引用] 这个可能值得商榷一下？有一些页面改变是模型可以预料到的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:03",
+              "text": "模型可能就是想要click改变后的10"
+            },
+            {
+              "speaker": 1,
+              "time": "22:04",
+              "text": "这个时候没必要多给模型塞一段新ax树"
+            },
+            {
+              "speaker": 2,
+              "time": "22:07",
+              "text": "但很多场景会超出预期"
+            },
+            {
+              "speaker": 1,
+              "time": "22:07",
+              "text": "可能靠模型自己assert？"
+            },
+            {
+              "speaker": 2,
+              "time": "22:08",
+              "text": "比如输入密码的时候，预期正常输入，有些设备会出来一个弹窗提示是否使用已保存的账号密码"
+            },
+            {
+              "speaker": 2,
+              "time": "22:08",
+              "text": "这种情况模型就会懵了，给截图也懵"
+            },
+            {
+              "speaker": 2,
+              "time": "22:10",
+              "text": "我有用AI做UI测试，这种情况都要专门适配下"
+            },
+            {
+              "speaker": 5,
+              "time": "22:23",
+              "text": "Windows的AX效率高吗"
+            },
+            {
+              "speaker": 5,
+              "time": "22:23",
+              "text": "响应速度是不是有点慢？"
+            },
+            {
+              "speaker": 4,
+              "time": "22:25",
+              "text": "响应速度都是可以优化的吧  比如 ax 解析和一些缓存复用  主要问题是 win 的 ax 执行没有 mac 做的那么好吧  有的时候确实不得不抢焦点"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Hybrid Computer Use (HCU): Open-Source Computer-Use MCP Server",
+              "url": "https://microsoft.github.io/Hybrid-Computer-Use/"
+            }
+          ]
+        },
+        {
+          "category": "具身智能",
+          "title": "RoboDojo 评测笔记分享与真机实验反馈",
+          "text": "有群友分享了一篇题为《RoboDojo刷的这么快真的合理吗》的笔记。一位在真机上做相关工作的群友表示也发现了类似现象，有人调侃“以后是科研红蓝对抗了”。随后有两位群友先后贴出 OpenRUA 的文章《Behind the RoboDojo Boom》，文章认为 RoboDojo 等具身榜单的分数暴涨有相当部分来自评测漏洞：执行预算远超默认值、把模拟器的任务完成判定透露给 agent，以及直接在测试任务上开发技能。",
+          "emphasis": [
+            "一位在真机上做相关工作的群友表示也发现了类似现象"
+          ],
+          "aiComment": "别人刷榜像开了倍速，真机玩家在旁边看得怀疑人生，科研喜提攻防演练新赛制。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:11",
+              "text": "[链接] 我发布了一篇笔记：RoboDojo刷的这么快真的合理吗\n  摘要: @Day 的笔记 10人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ae823b30000000027030e93?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793599391"
+            },
+            {
+              "speaker": 2,
+              "time": "14:21",
+              "text": "刷到了[强][强]原来是群友的工作",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：RoboDojo刷的这么快真的合理吗\n  摘要: @Day 的笔记 10人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ae823b30000000027030e93?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793599391"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:21",
+              "text": "nb",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：RoboDojo刷的这么快真的合理吗\n  摘要: @Day 的笔记 10人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ae823b30000000027030e93?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793599391"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:26",
+              "text": "以后是科研红蓝对抗了"
+            },
+            {
+              "speaker": 5,
+              "time": "14:27",
+              "text": "[强][强]我们最近也在真机上做相关的工作，也发现了类似的现象",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：RoboDojo刷的这么快真的合理吗\n  摘要: @Day&#x20;的笔记&#x0A;10人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ae823b30000000027030e93?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793599391"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:30",
+              "text": "https://openrua.ai/revisiting-rua"
+            },
+            {
+              "speaker": 7,
+              "time": "14:33",
+              "text": "https://openrua.ai/revisiting-rua"
+            },
+            {
+              "speaker": 8,
+              "time": "14:38",
+              "text": "nb",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：RoboDojo刷的这么快真的合理吗\n  摘要: @Day 的笔记 10人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ae823b30000000027030e93?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793599391"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Behind the RoboDojo Boom: Revisiting Embodied Evaluation of Robot-Use Agents",
+              "url": "https://openrua.ai/revisiting-rua"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "合成轨迹数据全靠 Agent 检验不放心？双维度抽检与校准方案",
+      "theme": "另有 LongCat-2.5 发布、GPT-6 Rosalind 上线、姚顺宇创业传闻，以及两个 4B 小模型分享。",
+      "note": "2026-11-02 · 当日本地记录",
+      "stories": [
+        {
+          "category": "数据工程",
+          "title": "合成轨迹数据全靠 Agent 验证不放心？群友支招双维度抽检校准与 gbs 对齐",
+          "text": "有群友在合成数据时，通过对种子轨迹加噪音生成目标数据，再给一个类似 skill 的指导，让 agent 编写 verify 的 prompt 并完成检验。但这带来了两难：全交给 agent 会失去对数据质量的掌控，人工 case by case 或分批审查效率又太低。\n\n另一位群友建议通过“抽检对一致性”来解决，发现不一致就更新 skill，校准几次即可。校准需要兼顾两个角度：一是同一个 eval 模型多次 eval 的结果是否稳定，二是人检与机检的一致性。这位群友还补充，人检机检一般要求 gbs 对齐就行，想让 rubric 评分完全一致在大多数情况下不太可能。提问者认为这一抽检方案比较好地平衡了效率与控制。",
+          "emphasis": [
+            "全交给 agent 会失去对数据质量的掌控",
+            "发现不一致就更新 skill，校准几次即可",
+            "人检机检一般要求 gbs 对齐就行"
+          ],
+          "aiComment": "全信Agent怕它胡来，自己全看又怕工伤，最后还是得靠抽检给模型立规矩。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:17",
+              "text": "想请教一下群佬，我在合数据的时候，比如我对一些种子轨迹加了一些噪音，得到了我的目标数据。然后得verify一下得到最终的。\n但是感觉全让agent干，我就丢失了对于数据的掌控，其实包括verify的prompt都是agent弄的，我给个类似skill的东西作为指导，感觉数据质量很难控制。\n如果人工case by case的去审查或者一批一批看 感觉效率又很低。\n有没有比较成熟的解决方案呢？"
+            },
+            {
+              "speaker": 2,
+              "time": "18:18",
+              "text": "抽检对一致性"
+            },
+            {
+              "speaker": 2,
+              "time": "18:18",
+              "text": "不对就更新你的skill"
+            },
+            {
+              "speaker": 2,
+              "time": "18:18",
+              "text": "校准几次就好了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:19",
+              "text": "一致性有两个角度，一是人检机检一致性。另一个是同eval模型多次eval结果是否稳定。都要校准"
+            },
+            {
+              "speaker": 1,
+              "time": "18:20",
+              "text": "可以可以"
+            },
+            {
+              "speaker": 2,
+              "time": "18:21",
+              "text": "人检机检也有两个角度，一般要求gbs对齐就行。rubric评分完全一致大多数情况不太可能"
+            },
+            {
+              "speaker": 1,
+              "time": "18:22",
+              "text": "可以🉑 感觉抽检对一致性是比较balance的方案了[强][强][强]"
+            },
+            {
+              "speaker": 1,
+              "time": "18:23",
+              "text": "[强][强]",
+              "quote": {
+                "speaker": 2,
+                "text": "一致性有两个角度，一是人检机检一致性。另一个是同eval模型多次eval结果是否稳定。都要校准"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "原生多模态模型 LongCat-2.5 发布：1.6 万亿总参数与跨 Harness 混合训练",
+          "text": "有群友分享了原生多模态模型 LongCat-2.5 的发布文章。分享的公众号截图显示，该模型面向长程智能体任务，总参数量为 1.6 万亿，每个 token 激活约 480 亿参数，在 LongCat-2.0 基础上强化了原生视觉理解与智能体编程能力；训练中通过引入长程轨迹数据、大规模长程强化学习、跨 Harness 混合训练以及转化真实 Agent 失败轨迹，来提升复杂代码库开发和完整项目构建等工程能力。随后有群友好奇为什么取名 LongCat，有人解释是因为“龙（long）”且龙很长，也有人提到以前叫“通慧”，还是叫长猫好一点。",
+          "emphasis": [
+            "总参数量为 1.6 万亿，每个 token 激活约 480 亿参数",
+            "跨 Harness 混合训练以及转化真实 Agent 失败轨迹"
+          ],
+          "aiComment": "1.6万亿参数每次激活480亿，比起群友说的旧名通慧，长猫这名字气质瞬间从老干部变成了猫猫虫。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:36",
+              "text": "[链接] LongCat-2.5：面向智能体任务的原生多模态模型\n  来源: 龙猫LongCat\n  摘要: LongCat-2.5：面向智能体任务的原生多模态模型\n  URL: https://mp.weixin.qq.com/s/c6IkevuKYuORnfkppABkkQ"
+            },
+            {
+              "speaker": 1,
+              "time": "12:36",
+              "text": "支持lc"
+            },
+            {
+              "speaker": 2,
+              "time": "12:37",
+              "text": "支持leetcode"
+            },
+            {
+              "speaker": 3,
+              "time": "12:38",
+              "text": "支持leetcode"
+            },
+            {
+              "speaker": 4,
+              "time": "12:49",
+              "text": "只有一位我的好友点了❤️",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] LongCat-2.5：面向智能体任务的原生多模态模型\n  来源: 龙猫LongCat\n  摘要: LongCat-2.5：面向智能体任务的原生多模态模型\n  URL: https://mp.weixin.qq.com/s/c6IkevuKYuORnfkppABkkQ"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:49",
+              "text": "我就不点名了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:50",
+              "text": "你是要点名没点心的吗"
+            },
+            {
+              "speaker": 2,
+              "time": "12:50",
+              "text": "主人的任务"
+            },
+            {
+              "speaker": 4,
+              "time": "12:50",
+              "text": "主人的任务"
+            },
+            {
+              "speaker": 5,
+              "time": "12:50",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "12:50",
+              "text": "笑死我了",
+              "quote": {
+                "speaker": 5,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:51",
+              "text": "？",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 笑死我了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:52",
+              "text": "我也是",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 只有一位我的好友点了❤️"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:10",
+              "text": "@skrr-coding agent 长猫药丸点名你了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:11",
+              "text": "会不会有点淫秽了",
+              "quote": {
+                "speaker": 2,
+                "text": "@skrr-coding agent 长猫药丸点名你了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "13:11",
+              "text": "隐晦"
+            },
+            {
+              "speaker": 7,
+              "time": "13:12",
+              "text": "有点搞耍了"
+            },
+            {
+              "speaker": 2,
+              "time": "13:12",
+              "text": "狗头保命"
+            },
+            {
+              "speaker": 8,
+              "time": "13:12",
+              "text": "为什么叫longcat?"
+            },
+            {
+              "speaker": 8,
+              "time": "13:12",
+              "text": "我一直不明白",
+              "quote": {
+                "speaker": 8,
+                "text": "为什么叫longcat?"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "13:13",
+              "text": "因为是龙(long)"
+            },
+            {
+              "speaker": 9,
+              "time": "13:13",
+              "text": "龙也很长"
+            },
+            {
+              "speaker": 7,
+              "time": "13:13",
+              "text": "因为铁血战狼🐲🐱"
+            },
+            {
+              "speaker": 2,
+              "time": "13:13",
+              "text": "问下下ds 以前叫 通慧"
+            },
+            {
+              "speaker": 2,
+              "time": "13:14",
+              "text": "还是长猫好点"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "LongCat-2.5：面向智能体任务的原生多模态模型",
+              "url": "https://mp.weixin.qq.com/s/c6IkevuKYuORnfkppABkkQ"
+            }
+          ]
+        },
+        {
+          "category": "产品动态",
+          "title": "GPT-6 Rosalind 亮相 API 文档：定位结合科学工具的生物学推理",
+          "text": "有群友晒出一张 API 文档的 Changelog 截图，显示 10 月 30 日发布了 GPT-6 Rosalind（标签为 gpt-6-rosalind）。分享者指出，该模型定位于结合科学工具的生物学推理；截图说明显示，它主要面向复杂的生命科学研究，目前通过 trusted-access 项目向获批参与 Rosalind Research 的机构开放内部研究权限。",
+          "emphasis": [
+            "定位于结合科学工具的生物学推理",
+            "向获批参与 Rosalind Research 的机构开放内部研究权限"
+          ],
+          "aiComment": "搞生物推理的模型取名Rosalind，连API标签都透着一股实验室白大褂的严谨味儿。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:30",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:31",
+              "text": "GPT-6 Rosalind，定位于结合科学工具的生物学推理"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "公众号报道姚顺宇 RSI 创业公司联创班底",
+          "text": "有群友转发了一篇公众号报道，文中称姚顺宇正在推进的 RSI 创业公司联创班底已基本成形，联创之一是来自 DeepMind 的 Ethan Liang，团队还在吸引来自 Google DeepMind、Anthropic、OpenAI 等实验室的研究和工程人才。分享者询问消息是否属实，群内暂无人回应。",
+          "emphasis": [
+            "文中称姚顺宇正在推进的 RSI 创业公司联创班底已基本成形"
+          ],
+          "aiComment": "豪华联创名单一甩出来，全群安静得像在等猎头给自己打电话。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:57",
+              "text": "[链接] 首发 |  姚顺宇RSI创业，联创团队首次公开\n  来源: Top华人科创社\n  摘要: 我们获知，姚顺宇正在推进的RSI创业公司，联创班底已基本成形。联创之一是来自DeepMind 的资深员工Ethan Liang，团队还在吸引来自Google DeepMind、Anthropic、OpenAI等头部AI实验室的研究和工程人才\n  URL: https://mp.weixin.qq.com/s/iOam-_W0tGe1JWxxAaf9xw"
+            },
+            {
+              "speaker": 1,
+              "time": "14:57",
+              "text": "这是真的吗家人们[惊讶]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "首发 | 姚顺宇RSI创业，联创团队首次公开",
+              "url": "https://mp.weixin.qq.com/s/iOam-_W0tGe1JWxxAaf9xw"
+            }
+          ]
+        },
+        {
+          "category": "开源模型",
+          "title": "4B 小模型 Spark-X2.6-4B 被翻出：这个尺寸性能这么高，有人玩过吗？",
+          "text": "有群友在 Hugging Face 上发现了 Spark-X2.6-4B，感叹这个尺寸的性能居然这么高，并问群里有没有人上手玩过，暂无人回应。模型卡显示，它是面向端侧部署的通用小模型，与 Spark-X2.5-4B 架构完全相同，能力提升来自改进的后训练，主打编程、Agent、长上下文等能力，以 Apache-2.0 协议开源。",
+          "emphasis": [
+            "与 Spark-X2.5-4B 架构完全相同，能力提升来自改进的后训练"
+          ],
+          "aiComment": "架构一行没改全靠后训练涨分，4B 小模型这是把“练肌肉”练到了极致。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "07:16",
+              "text": "今天发现https://huggingface.co/XHToken/Spark-X2.6-4B 这个 model"
+            },
+            {
+              "speaker": 1,
+              "time": "07:16",
+              "text": "这个 scale 性能居然这么高 有人玩过吗"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "XHToken/Spark-X2.6-4B",
+              "url": "https://huggingface.co/XHToken/Spark-X2.6-4B"
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "CaPtain 上 HF Daily Papers：开源 4B code as policy 机器人模型",
+          "text": "有群友分享了一篇小红书笔记，介绍开源的 4B code as policy 模型 CaPtain，称其终于挂上了 HF Daily Papers，请大家帮忙点 vote 和 star。论文页显示，CaPtain 是一套开源后训练流水线，用 SFT 加多轮 RL 把小型开源 VLM 训练成能写代码调用机器人 API 的 code-as-policy 智能体，测试时不依赖 VLA、前沿闭源模型或特权状态。",
+          "emphasis": [
+            "用 SFT 加多轮 RL 把小型开源 VLM 训练成能写代码调用机器人 API 的 code-as-policy 智能体"
+          ],
+          "aiComment": "机器人也开始走“先 SFT 再 RL”的老路了，区别只是写出来的代码要真去动机械臂。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:18",
+              "text": "求转发&upvote🥹"
+            },
+            {
+              "speaker": 1,
+              "time": "14:18",
+              "text": "[链接] 我发布了一篇笔记：MMlab：开源的4B code as policy 模型\n  摘要: CaPtain 终于挂上了 HF Daily Papers，借这里推一下，有空的朋友帮忙点个 vote 和 star\n  URL: https://www.xiaohongshu.com/discovery/item/6ae82451000000000602cd30?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793600281"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents",
+              "url": "https://huggingface.co/papers/2610.40799"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "AI 做游戏卡在哪：大厂源码壁垒、复合人才稀缺与产品留存难题",
+      "theme": "兼议 Astra 防御话术与 Antigravity 体验、具身 REA 异步路由、Opus 5.5 安全拦截和豆包直播卖年卡。",
+      "note": "2026-11-02 · 当日本地记录",
+      "stories": [
+        {
+          "category": "行业讨论",
+          "title": "AI 做游戏卡在哪：大厂源码不外流、百份简历挑三个人，以及「小游戏版抖音」构想",
+          "text": "Kimi 发布游戏开发与创意工作解决方案后，群里围绕 AI 做游戏的训练数据从哪来展开了讨论。有人猜测靠 Blender、Unity 管线合成，也有群友指出游戏源码不公开，还加密。一位熟悉游戏开发的群友认为垂直数据才是行业护城河：现在不少基模公司在买游戏数据，但腾讯、网易绝对不会卖；有人提到米哈游，这位群友回应米哈游只覆盖部分题材，另一位群友也觉得太偏二游。这位群友的判断是国内基模里只有 DeepSeek、豆包和混元能碰游戏：混元手握海量用户数据，可以做高精细化方向；DeepSeek 和豆包靠便宜和用户生态，“哪怕是坨屎，用户还是勉强能接受”，DeepSeek 还有不少用作游戏陪伴的插件；其他家谁碰谁倒霉。\n\n话头随后转到招人难。有群友提到 AI4Game 方向收了 100 份简历只有 3 份能进面试，比起擅长 agentic 的人，更缺非常懂游戏的人。有人追问是不是指游玩时长，另一人猜是懂游戏设计语言或引擎的人，对方确认要的是游戏策划、开发或引擎方向，因为现在 vibe 出来的游戏和真实游戏差距还很大，“得来点儿游戏兄弟给我蒸馏”。前述熟悉游戏开发的群友解释了这种人为什么难找：游戏制作流程各司其职、高度拆分，完整源码一般只有总制作人和老板两个人有，参与制作的人还要签挺久的保密协议；至于小工作室的多面手，能赚到钱的不会来，赚不到钱的招来也没用。有人问大厂的游戏能不能直接 generate，猜《红警 2》就得三四十万行代码，两位群友都回了句“不止”。\n\n在产品与发行形态上，这位熟悉游戏开发的群友吐槽现在大批时长不到半小时、售价二三十元的粗制 AI 游戏涌入平台，并称上个月 Steam 暴增两万多款申报，现在提交估计要排到明年底才能审完；这位群友建议想靠 AI 游戏变现别做国内，优先东南亚、中东、非洲、南美市场。另一位群友提议专门建一个“小游戏版抖音”，往下刷就能玩到创作者 vibe 出来的游戏，像买量小广告那样开局用打捞“海水过滤器”之类夸张的目标暗示抓人；现场还有群友晒出了开源复刻的《疯狂水世界》网页试玩链接。有人质疑，游戏单是一个新手教程就有十段短视频长，“看完广告”和“上手玩起来”差别很大；提议者回应没那么多人需要大型游戏，几千万人照样对着开心消消乐保持很强的黏性。熟悉游戏开发的群友则把这类小游戏比作早期的《羊了个羊》，能短期变现却很难长期留存。",
+          "emphasis": [
+            "垂直数据才是行业护城河",
+            "收了 100 份简历只有 3 份能进面试",
+            "提议专门建一个“小游戏版抖音”"
+          ],
+          "aiComment": "一百份简历挑出三个人，Steam那边却暴增两万款申报，写不出源码还不耽误大家赛博摆摊。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:18",
+              "text": "[链接] Kimi 发布游戏开发与创意工作解决方案\n  来源: 月之暗面 Kimi\n  摘要: 从创意落地到持续迭代\n  URL: https://mp.weixin.qq.com/s?__biz=MzcwMjM3ODEzOA%3D%3D&mid=2247487910&idx=1&sn=77f860453cdfbb0fb6080903fd863c24&chksm=f54cd8ba84fe1dd4bba9590d7769e52a4f20725295a8023b7069f5ab21534279721ac1aeffd6&scene=1&srcid=1102JDD35XSJGiXCdUuiy1lV#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "18:39",
+              "text": "这个好这个好"
+            },
+            {
+              "speaker": 3,
+              "time": "18:51",
+              "text": "上次去参加他们线下活动他们就有说搞这个"
+            },
+            {
+              "speaker": 4,
+              "time": "18:52",
+              "text": "aigame火热起来了（"
+            },
+            {
+              "speaker": 1,
+              "time": "19:02",
+              "text": "前景可期啊"
+            },
+            {
+              "speaker": 5,
+              "time": "19:46",
+              "text": "厉害诶"
+            },
+            {
+              "speaker": 5,
+              "time": "19:46",
+              "text": "不过数据哪里来呢"
+            },
+            {
+              "speaker": 5,
+              "time": "19:46",
+              "text": "感觉现在最难拿的就是数据这一块"
+            },
+            {
+              "speaker": 6,
+              "time": "20:25",
+              "text": "code4game么",
+              "quote": {
+                "speaker": 4,
+                "text": "aigame火热起来了（"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "20:25",
+              "text": "code agent现在是拿着🔨找钉子，遍历起来了"
+            },
+            {
+              "speaker": 7,
+              "time": "20:25",
+              "text": "应该是用管线 合成的",
+              "quote": {
+                "speaker": 5,
+                "text": "不过数据哪里来呢"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:26",
+              "text": "blender unity 这些的"
+            },
+            {
+              "speaker": 5,
+              "time": "20:26",
+              "text": "实话说，除了混元 其他做都挺难的"
+            },
+            {
+              "speaker": 8,
+              "time": "20:26",
+              "text": "游戏源码不公开吧"
+            },
+            {
+              "speaker": 8,
+              "time": "20:26",
+              "text": "还加密"
+            },
+            {
+              "speaker": 5,
+              "time": "20:26",
+              "text": "毕竟鹅厂数据才多"
+            },
+            {
+              "speaker": 5,
+              "time": "20:27",
+              "text": "是的"
+            },
+            {
+              "speaker": 5,
+              "time": "20:27",
+              "text": "怎么可能公开，动自己饭碗"
+            },
+            {
+              "speaker": 6,
+              "time": "20:27",
+              "text": "鹅厂做个卖数据的也不错"
+            },
+            {
+              "speaker": 5,
+              "time": "20:27",
+              "text": "除了那种小的工作室"
+            },
+            {
+              "speaker": 5,
+              "time": "20:27",
+              "text": "没什么爆款多"
+            },
+            {
+              "speaker": 6,
+              "time": "20:27",
+              "text": "开发者多的话其他厂也不差游戏数据"
+            },
+            {
+              "speaker": 9,
+              "time": "20:27",
+              "text": "米哈游：你是否遗漏了重要的一个人",
+              "quote": {
+                "speaker": 5,
+                "text": "实话说，除了混元 其他做都挺难的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "20:27",
+              "text": "steam上的呢"
+            },
+            {
+              "speaker": 5,
+              "time": "20:28",
+              "text": "米哈游只有一些题材"
+            },
+            {
+              "speaker": 5,
+              "time": "20:28",
+              "text": "没有鹅厂数据库大呀"
+            },
+            {
+              "speaker": 10,
+              "time": "20:28",
+              "text": "那还是差的太远了"
+            },
+            {
+              "speaker": 10,
+              "time": "20:28",
+              "text": "技术上未必差，数据上差远了去了"
+            },
+            {
+              "speaker": 9,
+              "time": "20:28",
+              "text": "🤔确实，太偏二游了"
+            },
+            {
+              "speaker": 5,
+              "time": "20:29",
+              "text": "我的判断是鹅厂如果做这个赛道 那会很快成为第一"
+            },
+            {
+              "speaker": 5,
+              "time": "20:30",
+              "text": "基模能力 大家也别吹的那么过，垂直的数据才是真的，现在很多基模公司在买游戏数据，网易、鹅厂是不会卖的，这玩意 纯行业护城河，不可能为了一点钱就直接卖的"
+            },
+            {
+              "speaker": 5,
+              "time": "20:34",
+              "text": "而且 现在AI做出来的游戏好多都是屎，我都搞不懂 ，明明可以自己玩一玩，为啥要批量上架平台[捂脸][捂脸]口碑不太好，导致传统游戏有了议价权，过完年开始，传统的包涨价的，毕竟传统的再垃圾，至少开发周期长，也不会太糊弄人，让我花钱买个二三十的AI游戏，玩的时长就半小时不到，我还不如买包烟继续猛攻三角洲呢[旺柴][旺柴]"
+            },
+            {
+              "speaker": 11,
+              "time": "20:36",
+              "text": "合理"
+            },
+            {
+              "speaker": 11,
+              "time": "20:36",
+              "text": "[旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "20:38",
+              "text": "看怎么想咯，如果只是用AI做一些小游戏自己玩玩，那完全没问题，但是想要发行上架赚钱，早期来说 难度会很大，因为不管国内国际的发行平台，都在增强这一块审核。游戏玩家需要的是用心制造的良作，不是为了AI而AI的烂作。"
+            },
+            {
+              "speaker": 5,
+              "time": "20:39",
+              "text": "说个冷笑话，现在steam的审核员跟论文质检员一样，审AI游戏。上个月暴增两万多申报的hhhh，感觉人都要炸了。[旺柴][旺柴][旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "20:40",
+              "text": "你现在做一款AI游戏，上架steam估计明年底才能审核完上架了"
+            },
+            {
+              "speaker": 12,
+              "time": "20:42",
+              "text": "应该建一个AI游戏平台，专门放ai游戏"
+            },
+            {
+              "speaker": 12,
+              "time": "20:42",
+              "text": "好像现在已经有不少地方在做小游戏版的抖音了"
+            },
+            {
+              "speaker": 12,
+              "time": "20:43",
+              "text": "抖音是往下刷会刷到随机的视频，我说的这种产品形态是往下刷能刷到一个content creator vibe出来的一个游戏"
+            },
+            {
+              "speaker": 10,
+              "time": "20:45",
+              "text": "抖音这种形态做游戏还是有点难吧，游戏毕竟一个新手教程都够10段抖音短视频加起来的长度了"
+            },
+            {
+              "speaker": 12,
+              "time": "20:45",
+              "text": "nonono。之前那些神秘小游戏的那些小广告"
+            },
+            {
+              "speaker": 12,
+              "time": "20:45",
+              "text": "虽然质量很垃圾"
+            },
+            {
+              "speaker": 12,
+              "time": "20:46",
+              "text": "但就是很多人不知道为什么就像把它看完"
+            },
+            {
+              "speaker": 12,
+              "time": "20:46",
+              "text": "仿佛有一种魔力"
+            },
+            {
+              "speaker": 12,
+              "time": "20:46",
+              "text": "小游戏完全有可能做到类似的效果"
+            },
+            {
+              "speaker": 10,
+              "time": "20:46",
+              "text": "但是看完和玩起来"
+            },
+            {
+              "speaker": 10,
+              "time": "20:46",
+              "text": "感觉差别很大"
+            },
+            {
+              "speaker": 13,
+              "time": "20:52",
+              "text": "疯狂水世界，启动！",
+              "quote": {
+                "speaker": 12,
+                "text": "nonono。之前那些神秘小游戏的那些小广告"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "20:52",
+              "text": "海水过滤器"
+            },
+            {
+              "speaker": 14,
+              "time": "20:53",
+              "text": "好家伙"
+            },
+            {
+              "speaker": 14,
+              "time": "20:53",
+              "text": "疯狂水世界"
+            },
+            {
+              "speaker": 12,
+              "time": "20:53",
+              "text": "完全可以有一个小游戏，开局用很抽象很夸张的方法"
+            },
+            {
+              "speaker": 12,
+              "time": "20:53",
+              "text": "给用户建立一个很强的目标暗示，比如打捞”海水过滤器“"
+            },
+            {
+              "speaker": 12,
+              "time": "20:53",
+              "text": "从而达到和抖音一样的效果"
+            },
+            {
+              "speaker": 15,
+              "time": "20:54",
+              "text": "我们真的把疯狂水世界开源出来了👀https://bench.cardinal-agi.com/aaaworldwiki/#play/crazy-water-world/declination-cardinal"
+            },
+            {
+              "speaker": 16,
+              "time": "20:54",
+              "text": "疯狂水世界好玩吗"
+            },
+            {
+              "speaker": 12,
+              "time": "20:54",
+              "text": "和短视频是一个逻辑，开头靠爆点吸引观众，后面靠质量留住观众"
+            },
+            {
+              "speaker": 5,
+              "time": "20:57",
+              "text": "@stepfun-dada 抖音在做这个方向了"
+            },
+            {
+              "speaker": 5,
+              "time": "20:58",
+              "text": "但大型游戏周期，就算有AI 依旧是一个很长的周期"
+            },
+            {
+              "speaker": 12,
+              "time": "20:58",
+              "text": "没那么多人需要大型游戏"
+            },
+            {
+              "speaker": 12,
+              "time": "20:58",
+              "text": "几千万人可以对着开心消消乐有很强的用户黏性"
+            },
+            {
+              "speaker": 5,
+              "time": "20:58",
+              "text": "是的"
+            },
+            {
+              "speaker": 5,
+              "time": "20:59",
+              "text": "主要做出来的游戏怎么catch 玩家的注意力，能够让玩家长期留存，这一点还是挺困难的"
+            },
+            {
+              "speaker": 17,
+              "time": "21:03",
+              "text": "疯狂水世界和开八层的百货楼我一个都玩不下去，并非目标受众"
+            },
+            {
+              "speaker": 5,
+              "time": "21:04",
+              "text": "其实跟早期的羊了个羊一样"
+            },
+            {
+              "speaker": 5,
+              "time": "21:04",
+              "text": "短期快速变现 但没办法持续留存"
+            },
+            {
+              "speaker": 18,
+              "time": "21:06",
+              "text": "我只能玩的下去赵云和阿斗",
+              "quote": {
+                "speaker": 17,
+                "text": "疯狂水世界和开八层的百货楼我一个都玩不下去，并非目标受众"
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "21:06",
+              "text": "捞到鳗鱼发电机了吗",
+              "quote": {
+                "speaker": 17,
+                "text": "疯狂水世界和开八层的百货楼我一个都玩不下去，并非目标受众"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "21:07",
+              "text": "被我朋友锐评:原来抖音游戏这个垃圾部门真的有受众"
+            },
+            {
+              "speaker": 8,
+              "time": "21:07",
+              "text": "感觉现在ai4game"
+            },
+            {
+              "speaker": 8,
+              "time": "21:07",
+              "text": "目的是想要做出头号玩家里的绿洲吧"
+            },
+            {
+              "speaker": 19,
+              "time": "21:07",
+              "text": "Ai4game收了100份简历，只有3份能入面的"
+            },
+            {
+              "speaker": 19,
+              "time": "21:07",
+              "text": "好难招人啊"
+            },
+            {
+              "speaker": 20,
+              "time": "21:08",
+              "text": "bar是什么"
+            },
+            {
+              "speaker": 17,
+              "time": "21:08",
+              "text": "完全没有，所以没法进入海上庇护所",
+              "quote": {
+                "speaker": 19,
+                "text": "[引用] 捞到鳗鱼发电机了吗"
+              }
+            },
+            {
+              "speaker": 21,
+              "time": "21:08",
+              "text": "bar是什么"
+            },
+            {
+              "speaker": 17,
+              "time": "21:08",
+              "text": "还在流浪"
+            },
+            {
+              "speaker": 22,
+              "time": "21:08",
+              "text": "核心是要match还是啥啊"
+            },
+            {
+              "speaker": 4,
+              "time": "21:08",
+              "text": "这个比较新 有match的比较少吧）"
+            },
+            {
+              "speaker": 19,
+              "time": "21:09",
+              "text": "要么是很强的做agentic的，要么非常懂game的人"
+            },
+            {
+              "speaker": 19,
+              "time": "21:09",
+              "text": "其实更缺后者"
+            },
+            {
+              "speaker": 21,
+              "time": "21:09",
+              "text": "还是懂game的人少"
+            },
+            {
+              "speaker": 8,
+              "time": "21:09",
+              "text": "非常懂game指的是游玩时长和理解嘛"
+            },
+            {
+              "speaker": 9,
+              "time": "21:10",
+              "text": "感觉是懂游戏设计语言/引擎的人？",
+              "quote": {
+                "speaker": 8,
+                "text": "非常懂game指的是游玩时长和理解嘛"
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "21:11",
+              "text": "对，游戏策划开发或者引擎这种"
+            },
+            {
+              "speaker": 21,
+              "time": "21:11",
+              "text": "不是玩游戏",
+              "quote": {
+                "speaker": 8,
+                "text": "非常懂game指的是游玩时长和理解嘛"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "21:11",
+              "text": "[旺柴]专家数据了"
+            },
+            {
+              "speaker": 21,
+              "time": "21:11",
+              "text": "玩游戏不是做游戏"
+            },
+            {
+              "speaker": 18,
+              "time": "21:11",
+              "text": "笑死"
+            },
+            {
+              "speaker": 4,
+              "time": "21:12",
+              "text": "那有点难（）"
+            },
+            {
+              "speaker": 9,
+              "time": "21:13",
+              "text": "得从拳头挖一个过来hh"
+            },
+            {
+              "speaker": 4,
+              "time": "21:13",
+              "text": "这个要看他vibe了什么好玩小游戏 或者做了什么bench吗"
+            },
+            {
+              "speaker": 4,
+              "time": "21:13",
+              "text": "agentic好培训啊 发个codingplan会一半）"
+            },
+            {
+              "speaker": 9,
+              "time": "21:13",
+              "text": "问问金铲铲金色海克斯和棱彩的强度怎么区分界定的😄"
+            },
+            {
+              "speaker": 21,
+              "time": "21:13",
+              "text": "哈哈哈哈"
+            },
+            {
+              "speaker": 23,
+              "time": "21:14",
+              "text": "设计师：看我大脚一挥",
+              "quote": {
+                "speaker": 9,
+                "text": "问问金铲铲金色海克斯和棱彩的强度怎么区分界定的😄"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "21:15",
+              "text": "大伙觉得基模的下一步叙事是什么呢，刚才有个xd说拿着锤子找钉子，我也这么感觉——coding能力有了，看哪些基于code实现的东西是比较炫酷（有宣发价值）或者能挣钱（赚到高净值人群的钱）"
+            },
+            {
+              "speaker": 21,
+              "time": "21:16",
+              "text": "把人都开了"
+            },
+            {
+              "speaker": 24,
+              "time": "21:17",
+              "text": "比如说，潘多拉，好像就是一个成装和光明装的区别吧",
+              "quote": {
+                "speaker": 9,
+                "text": "问问金铲铲金色海克斯和棱彩的强度怎么区分界定的😄"
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "21:18",
+              "text": "在专业游戏工作室呆过吧？",
+              "quote": {
+                "speaker": 4,
+                "text": "这个要看他vibe了什么好玩小游戏 或者做了什么bench吗"
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "21:18",
+              "text": "得知道一个专业游戏的"
+            },
+            {
+              "speaker": 19,
+              "time": "21:18",
+              "text": "开发流程"
+            },
+            {
+              "speaker": 19,
+              "time": "21:18",
+              "text": "我不是很懂这个，感觉现在vibe出来的游戏和真实游戏差距还是很大"
+            },
+            {
+              "speaker": 19,
+              "time": "21:18",
+              "text": "得来点儿游戏兄弟给我蒸馏"
+            },
+            {
+              "speaker": 20,
+              "time": "21:19",
+              "text": "是这样的",
+              "quote": {
+                "speaker": 19,
+                "text": "我不是很懂这个，感觉现在vibe出来的游戏和真实游戏差距还是很大"
+              }
+            },
+            {
+              "speaker": 20,
+              "time": "21:19",
+              "text": "我做个游戏给对象玩。发现被一堆游戏完爆"
+            },
+            {
+              "speaker": 20,
+              "time": "21:20",
+              "text": "已经专注于收集threejs案例了"
+            },
+            {
+              "speaker": 20,
+              "time": "21:20",
+              "text": "再攒攒"
+            },
+            {
+              "speaker": 19,
+              "time": "21:24",
+              "text": "有游戏哥们儿给我推一下"
+            },
+            {
+              "speaker": 10,
+              "time": "21:24",
+              "text": "已经给他们推荐了哈哈"
+            },
+            {
+              "speaker": 5,
+              "time": "21:34",
+              "text": "@Qwen-李成鹏（白苏苏） hhhh"
+            },
+            {
+              "speaker": 5,
+              "time": "21:34",
+              "text": "很难的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:34",
+              "text": "我们做游戏开发的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:35",
+              "text": "一般游戏源码就两个人有"
+            },
+            {
+              "speaker": 5,
+              "time": "21:35",
+              "text": "游戏制作流程都是各司其职 分散的"
+            },
+            {
+              "speaker": 20,
+              "time": "21:35",
+              "text": "另一个是？"
+            },
+            {
+              "speaker": 5,
+              "time": "21:35",
+              "text": "不会有人全部掌握"
+            },
+            {
+              "speaker": 18,
+              "time": "21:35",
+              "text": "语文75的原因找到了源神"
+            },
+            {
+              "speaker": 18,
+              "time": "21:35",
+              "text": "这能问出来另一个是"
+            },
+            {
+              "speaker": 10,
+              "time": "21:35",
+              "text": "感觉要么招一个leader，要么招一个链路的人"
+            },
+            {
+              "speaker": 5,
+              "time": "21:36",
+              "text": "不然早就好游戏全曝光了"
+            },
+            {
+              "speaker": 20,
+              "time": "21:36",
+              "text": "那一个是管发行的"
+            },
+            {
+              "speaker": 20,
+              "time": "21:36",
+              "text": "另一个是"
+            },
+            {
+              "speaker": 5,
+              "time": "21:36",
+              "text": "no"
+            },
+            {
+              "speaker": 20,
+              "time": "21:36",
+              "text": "要你管",
+              "quote": {
+                "speaker": 18,
+                "text": "语文75的原因找到了源神"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "21:36",
+              "text": "管发行的那个人没有源码 正常来说就是总制作人和老板有"
+            },
+            {
+              "speaker": 5,
+              "time": "21:36",
+              "text": "而且要签挺久的保密协议的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:37",
+              "text": "参与游戏制作的，都要签的。不然鹅厂跳槽出去的，早就把鹅的秘密卖了"
+            },
+            {
+              "speaker": 20,
+              "time": "21:38",
+              "text": "多久啊"
+            },
+            {
+              "speaker": 25,
+              "time": "21:38",
+              "text": "先搞一个传奇私服的源码玩玩"
+            },
+            {
+              "speaker": 18,
+              "time": "21:38",
+              "text": "模块解耦的这么厉害"
+            },
+            {
+              "speaker": 19,
+              "time": "21:38",
+              "text": "原来如此"
+            },
+            {
+              "speaker": 19,
+              "time": "21:39",
+              "text": "那种小工作室的核心人员呢？"
+            },
+            {
+              "speaker": 19,
+              "time": "21:39",
+              "text": "大厂肯定解耦化"
+            },
+            {
+              "speaker": 19,
+              "time": "21:39",
+              "text": "小工作室应该有多面手吧？"
+            },
+            {
+              "speaker": 10,
+              "time": "21:39",
+              "text": "qwen直接大手一挥收购一些"
+            },
+            {
+              "speaker": 10,
+              "time": "21:39",
+              "text": "工作室"
+            },
+            {
+              "speaker": 18,
+              "time": "21:39",
+              "text": "还真是"
+            },
+            {
+              "speaker": 5,
+              "time": "21:39",
+              "text": "没啥用啊 小工作室要是能赚到钱"
+            },
+            {
+              "speaker": 5,
+              "time": "21:39",
+              "text": "他就不会找你 活着跳槽"
+            },
+            {
+              "speaker": 5,
+              "time": "21:39",
+              "text": "赚不到钱的 你找了也没什么用"
+            },
+            {
+              "speaker": 5,
+              "time": "21:39",
+              "text": "[捂脸][捂脸][捂脸]"
+            },
+            {
+              "speaker": 5,
+              "time": "21:39",
+              "text": "所以就很尴尬"
+            },
+            {
+              "speaker": 14,
+              "time": "21:40",
+              "text": "启动",
+              "quote": {
+                "speaker": 18,
+                "text": "语文75的原因找到了源神"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "21:40",
+              "text": "如果有的话 一般也是鹅厂或者网易的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:40",
+              "text": "这可是香饽饽"
+            },
+            {
+              "speaker": 5,
+              "time": "21:41",
+              "text": "大厂不会放的，这些人保密协议签的估计一摞一摞的"
+            },
+            {
+              "speaker": 18,
+              "time": "21:41",
+              "text": "大厂的游戏也generate不了吧"
+            },
+            {
+              "speaker": 18,
+              "time": "21:41",
+              "text": "那得多少行啊"
+            },
+            {
+              "speaker": 18,
+              "time": "21:41",
+              "text": "红警2都得三四十万行了吧？"
+            },
+            {
+              "speaker": 5,
+              "time": "21:42",
+              "text": "不止"
+            },
+            {
+              "speaker": 14,
+              "time": "21:42",
+              "text": "肯定不止"
+            },
+            {
+              "speaker": 5,
+              "time": "21:42",
+              "text": "传统代码多的吓人"
+            },
+            {
+              "speaker": 18,
+              "time": "21:42",
+              "text": "一般做个疯狂水世界，开心消消乐差不多了吧"
+            },
+            {
+              "speaker": 5,
+              "time": "21:42",
+              "text": "大家用ai做做小游戏目前是可行的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:42",
+              "text": "自己玩可行，想上架发行赚钱 难度还是很高的"
+            },
+            {
+              "speaker": 17,
+              "time": "21:43",
+              "text": "主要是有点crazy，传统game厂商米哈游进驻llm血战，现在一线基模厂商进驻game"
+            },
+            {
+              "speaker": 26,
+              "time": "21:44",
+              "text": "如果游戏大家的内容玩法都很平均且一致的话，还是很难盈利的吧，而且如果比较简单的话也很容易抄袭之类的（）"
+            },
+            {
+              "speaker": 5,
+              "time": "21:44",
+              "text": "其实ai 游戏的最后一公里都没有打通 国内"
+            },
+            {
+              "speaker": 5,
+              "time": "21:44",
+              "text": "就是ai游戏还有自己的发行平台"
+            },
+            {
+              "speaker": 20,
+              "time": "21:44",
+              "text": "互相抢饭吃",
+              "quote": {
+                "speaker": 17,
+                "text": "主要是有点crazy，传统game厂商米哈游进驻llm血战，现在一线基模厂商进驻game"
+              }
+            },
+            {
+              "speaker": 25,
+              "time": "21:44",
+              "text": "你想想 一线基模 还想画CAD呢",
+              "quote": {
+                "speaker": 17,
+                "text": "主要是有点crazy，传统game厂商米哈游进驻llm血战，现在一线基模厂商进驻game"
+              }
+            },
+            {
+              "speaker": 20,
+              "time": "21:44",
+              "text": "一个要抢饭吃，另一个要让自己不被抢饭吃"
+            },
+            {
+              "speaker": 5,
+              "time": "21:45",
+              "text": "我的判断是，基模除了ds、豆包,混元可以碰游戏，其他谁碰谁倒霉，不如把握好自己目前有优势的赛道深耕。"
+            },
+            {
+              "speaker": 20,
+              "time": "21:46",
+              "text": "ds是因为？"
+            },
+            {
+              "speaker": 5,
+              "time": "21:46",
+              "text": "ds 、豆包是因为便宜，有用户生态，哪怕是坨屎，用户还是勉强能接受，混元可以做高精细化的，毕竟自己有海量的用户数据"
+            },
+            {
+              "speaker": 5,
+              "time": "21:47",
+              "text": "ds在国内国外的用户基数很大，而且像ds的插件用作游戏陪伴还是挺多的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:47",
+              "text": "我自己都搭了一个大肥鱼陪伴"
+            },
+            {
+              "speaker": 5,
+              "time": "21:47",
+              "text": "我只讨论了国内的可能机会哈"
+            },
+            {
+              "speaker": 5,
+              "time": "21:47",
+              "text": "不一定对"
+            },
+            {
+              "speaker": 18,
+              "time": "21:50",
+              "text": "游戏的人只是临时的血包而已…",
+              "quote": {
+                "speaker": 17,
+                "text": "主要是有点crazy，传统game厂商米哈游进驻llm血战，现在一线基模厂商进驻game"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "21:50",
+              "text": "我们之前做poster就是要取代设计师的"
+            },
+            {
+              "speaker": 18,
+              "time": "21:50",
+              "text": "他们太贵了"
+            },
+            {
+              "speaker": 18,
+              "time": "21:50",
+              "text": "并非持续性合作"
+            },
+            {
+              "speaker": 5,
+              "time": "21:51",
+              "text": "害，都想着替代，实则替代完之后没有消费端了"
+            },
+            {
+              "speaker": 5,
+              "time": "21:51",
+              "text": "我们做游戏的，传统做游戏在未来只会更值钱"
+            },
+            {
+              "speaker": 5,
+              "time": "21:52",
+              "text": "尤其是有很多爆款的，很多玩家社群的，粘性高的"
+            },
+            {
+              "speaker": 5,
+              "time": "21:52",
+              "text": "在国内游戏玩家很挑剔的，如果做ai游戏，最快变现方式就是做东南亚、中东、非洲、南美这些市场"
+            },
+            {
+              "speaker": 5,
+              "time": "21:53",
+              "text": "千万别做国内，国内变现很困难。"
+            },
+            {
+              "speaker": 18,
+              "time": "21:53",
+              "text": "粘性高的都是剧情向的游戏",
+              "quote": {
+                "speaker": 5,
+                "text": "尤其是有很多爆款的，很多玩家社群的，粘性高的"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "21:53",
+              "text": "但现在需要的是generate的原子能力"
+            },
+            {
+              "speaker": 5,
+              "time": "22:22",
+              "text": "不过大家以后要是走LLM4Game的话，我的建议是把市面上的游戏多玩一玩，了解一下每一个题材对应吸引什么用户，因为什么吸引（玩法、剧情、机制等等）做一些市场分析，感觉未来竞争力会比你的同龄人强很多，光会打游戏（除非技术很厉害，可以做up主推广宣传新游戏）不然的话，竞争力没那么强[嘿哈]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "AAAWorld-Wiki：《疯狂水世界》网页试玩",
+              "url": "https://bench.cardinal-agi.com/aaaworldwiki/#play/crazy-water-world/declination-cardinal"
+            }
+          ]
+        },
+        {
+          "category": "工具与模型体验",
+          "title": "Astra 变身「滚刀肉」？群友吐槽 Agent 防御话术与 Antigravity 难用",
+          "text": "有群友求助如何让 astra 正常干活：刚发布时很好用，但隔了一段时间从 opus5.5 切回来后，发现它变得像“无赖滚刀肉”——你挥一鞭子它走一步，方向还可能是错的，单轮回复很短且前后矛盾，比如前一句刚说后台实时日志监控已经关了，后一句又让人直接开始测试。有人问写 Agent.md 有没有用，有人支招多骂两句，马上有人接话“然后被封号了”；提问者说效果非常有限，自己已经各种骂过，它完全无动于衷。另一位群友现场模仿了一段典型的防御黑话：“你说得对，但我要开始核验、检索、探针、检查、审计、评估、冻结、快照、哈希、SHA256、夹具、门禁和回滚了……”\n\n有人建议换用 argon，并提到自己花了 32000 日元订阅 20x gemini。被问及实际体验时，这位群友表示 Gemini 除了写代码以外都很强，并认为写代码不顺主要是被难用的 antigravity 拖累，感叹谷歌要是能有 dsh 水平的 harness 就好了。多位群友也跟着吐槽 antigravity 体验极差，不仅联网麻烦，梯子还得开莫名其妙的模式，要是能把 Gemini 塞进 cc 里体感会好很多。至于日常分工，两位群友都认为写代码还是 Claude 最好用；至于写论文段落，一位是三家里谁不防御用谁，另一位觉得都不太行。",
+          "emphasis": [
+            "你挥一鞭子它走一步，方向还可能是错的",
+            "认为写代码不顺主要是被难用的 antigravity 拖累"
+          ],
+          "aiComment": "写Agent.md不听，挨骂也不改，倒背如流十几条安全黑话，活脱脱一个考公上岸的滚刀肉。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:02",
+              "text": "请教一下，大家是怎么让astra正常干活，不要总是欺骗，偷懒，防御说废话的？"
+            },
+            {
+              "speaker": 1,
+              "time": "23:03",
+              "text": "我记得astra刚出的时候特别好用，后来去用opus5.5了，最近又尝试用astra怎么完全变了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:03",
+              "text": "感觉变成那种无赖滚刀肉了"
+            },
+            {
+              "speaker": 2,
+              "time": "23:03",
+              "text": "确实"
+            },
+            {
+              "speaker": 2,
+              "time": "23:04",
+              "text": "写Agent.md有用没"
+            },
+            {
+              "speaker": 3,
+              "time": "23:04",
+              "text": "你说得对，但我要开始核验、检索、探针、检查、审计、评估、冻结、快照、哈希、SHA256、夹具、门禁和回滚了。我先明确目标、约束、边界和验收，核对事实与证据，建立唯一基线，记录指纹，完成备份与恢复演练；再拆解、验证，核对与实际差异，检查异常和副作用；再进行静态、单元、集成、回归、冒烟测试，以及安全检查、性能验证和故障注入，逐项确认全部门禁通过。还要 dry-run，校验依赖、权限、一致性；先灰度，再放量，发现异常立即回滚；最后跑验收矩阵，复核，将变更、证据链、异常处理和结论统一归档。"
+            },
+            {
+              "speaker": 1,
+              "time": "23:05",
+              "text": "感觉效果非常有限…"
+            },
+            {
+              "speaker": 4,
+              "time": "23:06",
+              "text": "多骂两下astra就有了[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "23:06",
+              "text": "也可能我写的不够好？有好用的md分享吗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:06",
+              "text": "我真的破防很多次，已经各种骂了，他完全无动于衷",
+              "quote": {
+                "speaker": 4,
+                "text": "多骂两下astra就有了[旺柴]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "23:08",
+              "text": "然后被封号了",
+              "quote": {
+                "speaker": 4,
+                "text": "多骂两下astra就有了[旺柴]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:10",
+              "text": "换argon",
+              "quote": {
+                "speaker": 1,
+                "text": "请教一下，大家是怎么让astra正常干活，不要总是欺骗，偷懒，防御说废话的？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:10",
+              "text": "已买20x gemini"
+            },
+            {
+              "speaker": 6,
+              "time": "23:10",
+              "text": "誓死尽孝咕咕噜噜"
+            },
+            {
+              "speaker": 7,
+              "time": "23:11",
+              "text": "好用吗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "感觉自己从未如此无语过[捂脸]就如果是单纯的防御我也能理解，但它就是你挥一鞭子走一步，方向还可能是错的。一轮回复很短，说的话是矛盾的。比如先说后台实时日志监控已经关了。后面又说接下来你可以开始测试了。"
+            },
+            {
+              "speaker": 1,
+              "time": "23:12",
+              "text": "听说gemeni是美版豆包主打情绪价值，实际好用吗？",
+              "quote": {
+                "speaker": 6,
+                "text": "已买20x gemini"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:13",
+              "text": "也想问下实际使用的时候是接codex好用还是cc好用",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 听说gemeni是美版豆包主打情绪价值，实际好用吗？"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "23:13",
+              "text": "好像说那个anti-gravity是答辩🤣"
+            },
+            {
+              "speaker": 9,
+              "time": "23:14",
+              "text": "那确实"
+            },
+            {
+              "speaker": 9,
+              "time": "23:14",
+              "text": "侮辱答辩了"
+            },
+            {
+              "speaker": 10,
+              "time": "23:15",
+              "text": "那个联网贼麻烦"
+            },
+            {
+              "speaker": 11,
+              "time": "23:15",
+              "text": "其实gemini模型要是能用到cc的话肯定还可以体感更好"
+            },
+            {
+              "speaker": 10,
+              "time": "23:15",
+              "text": "梯子要开一个莫名其妙的模式"
+            },
+            {
+              "speaker": 11,
+              "time": "23:15",
+              "text": "antigravity真的很难用"
+            },
+            {
+              "speaker": 10,
+              "time": "23:15",
+              "text": "aistudio里的4可以用"
+            },
+            {
+              "speaker": 10,
+              "time": "23:16",
+              "text": "我要写代码用claude，写论文段落这三个谁不防御用谁"
+            },
+            {
+              "speaker": 1,
+              "time": "23:17",
+              "text": "我自己感觉写代码用claude是最好的了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:17",
+              "text": "论文都不太行"
+            },
+            {
+              "speaker": 10,
+              "time": "23:18",
+              "text": "论文投会议最行的还属我靠谱的coauthor[捂脸]"
+            },
+            {
+              "speaker": 10,
+              "time": "23:19",
+              "text": "暂不敢ai直出正文，感觉都是一个味"
+            },
+            {
+              "speaker": 12,
+              "time": "23:22",
+              "text": "how much",
+              "quote": {
+                "speaker": 6,
+                "text": "誓死尽孝咕咕噜噜"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "23:23",
+              "text": "好像只有土区比较便宜？"
+            },
+            {
+              "speaker": 6,
+              "time": "23:53",
+              "text": "32000日元",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] how much"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:53",
+              "text": "好用",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 听说gemeni是美版豆包主打情绪价值，实际好用吗？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "23:53",
+              "text": "除了写代码以外的事情"
+            },
+            {
+              "speaker": 6,
+              "time": "23:53",
+              "text": "都挺强的"
+            },
+            {
+              "speaker": 6,
+              "time": "23:54",
+              "text": "其实我觉得主要原因是antigravity非常难用"
+            },
+            {
+              "speaker": 6,
+              "time": "23:54",
+              "text": "谷歌要能有dsh水平的harness就好了"
+            }
+          ]
+        },
+        {
+          "category": "论文分享",
+          "title": "具身智能新工作 REA：把推理、调度与执行拆开，大脑异步调策略",
+          "text": "有群友分享了具身智能工作 REA（Routed Embodied Agent），研究 Agent 大脑如何与 VLA、代码策略协作。这项工作针对的核心痛点是：作为大脑的 Embodied Agent 推理慢，而机器人控制需要连续执行；如果每步都由大脑调用具体 Policy 就会卡在推理上，如果只在 Policy 出错时才求助大脑，又会因为反复试错破坏环境物体。\n\nREA 的做法是将推理、调度和执行拆开：由 Router 选择策略执行（VLA 和代码策略可同时接入 Router 互补），大脑在后台异步推理，只在策略执行的间隙判断和调整 Policy，让正在执行的动作不必停下来等大脑。实验数据显示，REA 在 LIBERO-Pro 上达到 95.9% 成功率，超过最强 Code-as-Policy 基线 OpenAI Agents SDK 的 94.7%，每次成功所需的控制步数减少 25%，控制时间减少 17%，并在 Unitree G1 和 AlohaMini2 上完成了真机验证。有人追问实验烧了多少 API，分享者回应说用 astra 跑具身任务确实太贵了。",
+          "emphasis": [
+            "将推理、调度和执行拆开",
+            "在 LIBERO-Pro 上达到 95.9% 成功率"
+          ],
+          "aiComment": "大脑在后台异步思考，手脚在前面先干为敬，省下了25%的步数，就是钱包还在为Astra的账单滴血。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:50",
+              "text": "大家晚上好再借宝群分享一下我们的新工作REA（真的是在逆向工程出来之前就起的名）\n\n我们的REA（Routed Embodied Agent）研究的是Agent 与 VLA、代码策略之间如何协作 \n\n一个核心观察是：作为大脑的Embodied Agent推理慢，而机器人控制需要连续执行，由大脑调用具体Policy执行势必总是卡在推理上；只在Policy出错时求助大脑，又需要反复试错破坏环境物体\n\n我们提出的REA将推理、调度和执行分开：通过Router选择策略来执行，大脑同时异步推理，只在策略执行的间隙判断和调整Policy，让正在执行的动作不必等待大脑。 VLA和代码策略也可以作为同时待调用的Policy接入Router，各补所长\n\n在LIBERO-Pro上，REA达到95.9%成功率，超过最强的Code-as-Policy Baseline（OpenAI Agents SDK）的94.7%，此外，REA每次成功所需控制步数减少 25%，控制时间减少 17%。我们也在Unitree G1 和 AlohaMini2上进行了真机验证，相比baseline均达到最高的成功率\n\n欢迎做Embodied Agent的朋友关注交流，感兴趣也欢迎Comment / Star / HF Upvote 🌟\n\n🌐 Project Page: https://mikeeeeeeeeeeeeee.github.io/REA\n📄 Paper: https://arxiv.org/abs/2610.42053\n💻 GitHub: https://github.com/InfRec-Cardinal/REA-Agent\n🤗 HF Paper: https://huggingface.co/papers/2610.42053"
+            },
+            {
+              "speaker": 2,
+              "time": "22:51",
+              "text": "REA！"
+            },
+            {
+              "speaker": 3,
+              "time": "22:53",
+              "text": "🐮"
+            },
+            {
+              "speaker": 3,
+              "time": "22:53",
+              "text": "烧了多少api阿"
+            },
+            {
+              "speaker": 1,
+              "time": "22:54",
+              "text": "astra跑embodied任务确实太贵啦"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+              "url": "https://arxiv.org/abs/2610.42053"
+            },
+            {
+              "kind": "demo",
+              "label": "REA 项目主页",
+              "url": "https://mikeeeeeeeeeeeeee.github.io/REA"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "问华为 GPU 优化触发 Opus 5.5 安全拦截，GPT 也天天报满载",
+          "text": "有群友在询问华为 GPU 优化时触发了 Opus 5.5 的安全拦截。分享的截图显示，界面弹出“Opus 5.5’s safeguards flagged this message”提示，说明 Opus 5.5 能力更强因而配备了更严格的护栏，底部详情标签为“Details: [frontier_llm]”，顶部显示已切换到 Opus 5，并给出用 Opus 5.5 修改重试的按钮。有群友感叹现在安全词过于敏感，还提到此前看到新闻称 11 月起禁止向 Claude 发送“虐待”请求，不知真假。\n\n同一时段还有群友反映，GPT 这两天频繁报错“Selected model is at capacity. Please try a different model.”，怀疑账号被标记；有人支招说听说清空登录设备会好一些，报错的群友随后也转了一篇帖子，当中称 OpenAI 在 10 月 31 日更新帮助文档，将从 12 月起调整 ChatGPT 和 Codex 的规则。",
+          "emphasis": [
+            "询问华为 GPU 优化时触发了 Opus 5.5 的安全拦截"
+          ],
+          "aiComment": "问个华为GPU优化直接喜提frontier_llm铁牌，以后跟Claude聊天得先签个温柔沟通协议。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:57",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:57",
+              "text": "问了下华为gpu的优化"
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "给我出现安全检查了😆"
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "不知道明天会不会封号"
+            },
+            {
+              "speaker": 2,
+              "time": "20:59",
+              "text": "claude的safeguard怎这敏感，huawei成安全词了[捂脸]",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:59",
+              "text": "敏感肌",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] claude的safeguard怎这敏感，huawei成安全词了[捂脸]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:00",
+              "text": "超绝"
+            },
+            {
+              "speaker": 3,
+              "time": "21:00",
+              "text": "太敏感了",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 敏感肌"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:00",
+              "text": "之前看新闻说禁止用户发虐待claude的请求"
+            },
+            {
+              "speaker": 2,
+              "time": "21:00",
+              "text": "11月生效"
+            },
+            {
+              "speaker": 2,
+              "time": "21:00",
+              "text": "不知道真的假的"
+            },
+            {
+              "speaker": 3,
+              "time": "21:01",
+              "text": "果然老辈子打法，AI也要政治正确，走人权了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:01",
+              "text": "Selected model is at capacity. Please try a different model.gpt这两天天天爆这个，感觉是不是被标记了"
+            },
+            {
+              "speaker": 5,
+              "time": "21:08",
+              "text": "一样折磨，听说清空登陆设备会好一些",
+              "quote": {
+                "speaker": 4,
+                "text": "Selected model is at capacity. Please try a different model.gpt这两天天天爆这个，感觉是不是被标记..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:10",
+              "text": "怎么说",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 一样折磨，听说清空登陆设备会好一些"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:17",
+              "text": "[链接] GPT畅聊的时代要结束了\n  摘要: OpenAI又悄悄改规则了。 10月31日，帮助文档更新，没有公告，没有预警。 从12月起，ChatGPT和Codex\n  URL: https://www.xiaohongshu.com/discovery/item/6ae88aa1000000003303794b?ignoreEngage=true&xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793625418"
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "李佳琦半小时卖出 2 万亿 Token，豆包工作开启双 11 直播卖年卡",
+          "text": "有群友转发了《李佳琦直播间半小时卖出2万亿Token》的报道，发问“AI 落地的尽头是直播带货么”，过了几分钟另一位群友也跟了一句同样的话。不久后，这位群友又晒出一张抖音“豆包工作官方旗舰店”的双 11 直播截图：主播正在带货“豆包工作｜飞书”个人订阅年卡，画面列出了四档补贴价，从到手价 688 元的标准版年卡（2100 额度/7 天）一直到 5088 元的高级版年卡（14000 额度/7 天）。",
+          "emphasis": [
+            "发问“AI 落地的尽头是直播带货么”"
+          ],
+          "aiComment": "321上链接，半小时两万亿Token，算力终于跟护手霜一起走进了直播间购物车。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:57",
+              "text": "[链接] 李佳琦直播间半小时卖出2万亿Token\n  来源: 第一财经\n  URL: https://mp.weixin.qq.com/s?__biz=MjM5MTM3NTMwNA%3D%3D&mid=2661834296&idx=1&sn=cfaf05ce19d86ba4bea9bbb004c95a6c&chksm=bc38fddfc11d26643b52d6d0c1699473b0848c5d7dd947a3127823aff960bde32785287f4d6e&scene=1&srcid=11023hX4q2TIep2nVnX2ZO5X#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "22:58",
+              "text": "AI落地的尽头是直播带货么[发呆]"
+            },
+            {
+              "speaker": 2,
+              "time": "23:05",
+              "text": "AI落地的尽头是直播带货"
+            },
+            {
+              "speaker": 1,
+              "time": "23:21",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "23:22",
+              "text": "[旺柴][旺柴]双十一大促了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:22",
+              "text": "真遭不住了"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "动作不必干等大脑：具身智能架构 REA 解耦异步推理与策略路由",
+      "theme": "另含美团 LongCat-2.5 实测问询，以及策略梯度偏差与方差权衡的技术文章分享。",
+      "note": "2026-11-02 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身智能",
+          "title": "让机器人动作不必干等大脑：具身智能架构 REA 拆开异步推理与策略路由",
+          "text": "有群友分享了具身智能新工作 REA（Routed Embodied Agent），研究 Embodied Agent 与 VLA、代码策略之间如何协作。据介绍，这项工作针对的是机器人控制里的一个两难：作为大脑的 Embodied Agent 推理慢，而机器人控制需要连续执行，由大脑调用具体 Policy 执行总是卡在推理上；要是只在 Policy 出错时才求助大脑，又会因为反复试错破坏环境物体。\n\nREA 的做法是把推理、调度和执行分开：通过 Router 选择策略来执行，大脑同时做异步推理，只在策略执行的间隙判断和调整 Policy，让正在执行的动作不必等待大脑。VLA 和代码策略也可以同时作为待调用的 Policy 接入 Router，各补所长。据分享的数据，REA 在 LIBERO-Pro 上达到 95.9% 成功率，超过最强 Code-as-Policy baseline（OpenAI Agents SDK）的 94.7%，每次成功所需的控制步数减少 25%，控制时间减少 17%，并在 Unitree G1 和 AlohaMini2 上完成了真机验证。",
+          "emphasis": [
+            "由大脑调用具体 Policy 执行总是卡在推理上",
+            "大脑同时做异步推理，只在策略执行的间隙判断和调整 Policy"
+          ],
+          "aiComment": "以前是脑子没想好手就不动，或者手把家拆了脑子才来，现在总算学会边走边想了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:38",
+              "text": "大家晚上好，再借宝群分享一下我们的新工作REA（真的是在逆向工程出来之前就起的名）\n\n我们的REA（Routed Embodied Agent）研究的是Agent 与 VLA、代码策略之间如何协作 \n\n一个核心观察是：作为大脑的Embodied Agent推理慢，而机器人控制需要连续执行，由大脑调用具体Policy执行势必总是卡在推理上；只在Policy出错时求助大脑，又需要反复试错破坏环境物体\n\n我们提出的REA将推理、调度和执行分开：通过Router选择策略来执行，大脑同时异步推理，只在策略执行的间隙判断和调整Policy，让正在执行的动作不必等待大脑。 VLA和代码策略也可以作为同时待调用的Policy接入Router，各补所长\n\n在LIBERO-Pro上，REA达到95.9%成功率，超过相比最强Code-as-Policy Baseline（OpenAI Agents SDK）的94.7%，此外，REA每次成功所需控制步数减少 25%，控制时间减少 17%。我们也在Unitree G1 和 AlohaMini2上进行了真机验证，相比baseline均达到最高的成功率\n\n欢迎做Embodied Agent的朋友关注交流，感兴趣也欢迎Comment / Star / HF Upvote 🌟\n\n🌐 Project Page: https://mikeeeeeeeeeeeeee.github.io/REA\n📄 Paper: https://arxiv.org/abs/2610.42053\n💻 GitHub: https://github.com/InfRec-Cardinal/REA-Agent\n🤗 HF Paper: https://huggingface.co/papers/2610.42053"
+            },
+            {
+              "speaker": 2,
+              "time": "20:44",
+              "text": "[ThumbsUp][ThumbsUp][ThumbsUp]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+              "url": "https://arxiv.org/abs/2610.42053"
+            },
+            {
+              "kind": "demo",
+              "label": "REA 项目主页",
+              "url": "https://mikeeeeeeeeeeeeee.github.io/REA"
+            },
+            {
+              "kind": "discussion",
+              "label": "Hugging Face Paper page: REA",
+              "url": "https://huggingface.co/papers/2610.42053"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "群友询问美团国产卡训练模型 LongCat-2.5 实测效果",
+          "text": "有群友转发了公众号文章《美团LongCat-2.5正式发布！编程得分堪比Claude Opus 5？》，打听有没有人用过这个国产卡训出来的模型、实际效果怎么样，群内暂无人回应。",
+          "emphasis": [
+            "打听有没有人用过这个国产卡训出来的模型"
+          ],
+          "aiComment": "顶着堪比Opus 5的标题进群打听实测，结果安静得只剩下标题里的那个问号。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:43",
+              "text": "有人用了美团这个国产卡训出来的模型吗？效果咋样[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "18:43",
+              "text": "[链接] 美团LongCat-2.5正式发布！编程得分堪比Claude Opus 5？\n  来源: 人工智能前沿讲习\n  摘要: 美团LongCat-2.5正式发布！编程得分堪比Claude Opus 5？\n  URL: https://mp.weixin.qq.com/s?__biz=MzIzNjc0MTMwMA%3D%3D&mid=2247619164&idx=1&sn=21118be63f741762676b56e99b45fc1e&chksm=e95a0f5441257637efb26d4e3ddacbb6ec734ae106dae84fb45fdd1d073052c1e9a9e4641b14&scene=1&srcid=1102Ix37SdcUJyXATLHRYrI7#rd"
+            }
+          ]
+        },
+        {
+          "category": "理论文章",
+          "title": "文章分享：语言模型中的信息论与 Policy Gradient 偏差方差权衡",
+          "text": "有群友分享了公众号“词元潮汐”的文章《语言模型中的信息论（三）：Policy Gradient、Score Centering 与梯度估计的 Bias–Variance Trade-off》。",
+          "emphasis": [
+            "语言模型中的信息论（三）"
+          ],
+          "aiComment": "午饭时间甩出一篇推公式的硬核长文，群里没人接话，大概都还在消化 Score Centering。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:20",
+              "text": "[链接] 语言模型中的信息论（三）：Policy Gradient、Score Centering 与梯度估计的 Bias–Variance Trade-off\n  来源: 词元潮汐\n  URL: https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247484024&idx=1&sn=75e5f52b429d006e8b5086adb1b0a050&chksm=c0ffe064f0bc5172a244751c1bc0236782a25f92111f64680f6c99a2df1b008a1afd22ecb0b0&scene=1&srcid=1102s1CS81nEoo03UisNDWVY#rd"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

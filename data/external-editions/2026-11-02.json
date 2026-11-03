@@ -1,0 +1,198 @@
+{
+  "date": "2026-11-02",
+  "title": "Anthropic 披露 Q3 营收 170 亿美元，Marvell 1150 亿美元全股收购 Lumentum",
+  "intro": "Anthropic 在修订版 S-1 中披露 Q3 营收 170 亿美元与 8954 亿美元算力采购及租赁承诺；Marvell 宣布以约 1150 亿美元全股票收购光器件商 Lumentum；美团发布 1.6T 参数的 LongCat-2.5 正式版，SemiAnalysis 推出通用 agent 基准 GDPx。",
+  "stories": [
+    {
+      "title": "Anthropic 递交修订版 S-1：Q3 营收 170 亿美元，算力与基础设施承诺达 8954 亿美元",
+      "timing": "2026 年 11 月 2 日递交 SEC；CNBC 于北京时间 11 月 2 日 22:32 报道",
+      "text": "据 CNBC 和 Fortune 报道，Anthropic 向美国 SEC 递交修订版 Form S-1 招股书，首次披露第三季度财务数据。Q3 营收约 170 亿美元，同比增长约 1127%，环比增速从 Q2 的 144% 放缓至约 47%；同期因短期采购算力成本较高及一笔 20 亿美元员工配捐非现金费用，录得经营亏损 5.67 亿美元（Q2 为经营利润 9.74 亿美元），净亏损 232.9 亿美元。前九个月营收 332.4 亿美元，净亏损 1040 亿美元。\n\n截至 9 月 30 日，公司流动性为 1466 亿美元，签订的采购承诺和租赁协议合计约 8954 亿美元，基本全部用于算力与基础设施，大部分关联自建的 Anthropic Direct 设施。另据雅虎财经转载的彭博社报道，监管文件显示 Anthropic 拟在美国 IPO 中向日本投资者配售至多 35 亿美元。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "CNBC 报道",
+          "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html"
+        },
+        {
+          "kind": "报道",
+          "label": "Fortune 报道",
+          "url": "https://fortune.com/2026/11/02/anthropics-growth-slowed-and-costs-jumped-in-the-third-quarter-updated-ipo-filing-shows/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50337439"
+        }
+      ],
+      "emphasis": [
+        "Q3 营收约 170 亿美元，同比增长约 1127%，环比增速从 Q2 的 144% 放缓至约 47%",
+        "采购承诺和租赁协议合计约 8954 亿美元，基本全部用于算力与基础设施"
+      ],
+      "aiComment": "单季营收 170 亿，反手签下 8954 亿美元的算力采购承诺，原来挣钱真的只是为了更好地交电费和房租。"
+    },
+    {
+      "title": "Marvell 宣布以约 1150 亿美元全股票交易收购光器件厂商 Lumentum",
+      "timing": "北京时间 11 月 2 日 20:05 发布官方新闻稿",
+      "text": "Marvell 与光器件厂商 Lumentum 宣布签署最终协议，由 Marvell 以全股票方式收购 Lumentum。每股 Lumentum 普通股将换取 4.500 股 Marvell 普通股，官方公布的交易隐含企业价值为 1150 亿美元（约合每股 1132 美元），较 10 月 28 日未受传言影响的收盘价溢价约 23.9%。完成后 Marvell 与 Lumentum 现有股东将分别持有合并后公司约 67% 和 33% 股份。\n\n此次合并将 Marvell 的电/光互连、网络交换、定制 XPU 技术与 Lumentum 的激光器、光模块、光路交换（OCS）及磷化铟制造能力结合，覆盖数据中心 scale-up 与 scale-out 等互连场景。双方董事会已一致批准，交易尚待股东与监管批准，预计 2028 年上半年完成。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Marvell 收购公告",
+          "url": "https://investor.marvell.com/news-events/press-releases/detail/1040/marvell-and-lumentum-to-combine-creating-a-category-leader-in-ai-connectivity"
+        },
+        {
+          "kind": "报道",
+          "label": "CNBC 报道",
+          "url": "https://www.cnbc.com/2026/11/02/marvell-to-buy-lumentum-in-115-billion-deal-in-ai-data-center-bet-.html"
+        }
+      ],
+      "emphasis": [
+        "每股 Lumentum 普通股将换取 4.500 股 Marvell 普通股，官方公布的交易隐含企业价值为 1150 亿美元",
+        "预计 2028 年上半年完成"
+      ],
+      "aiComment": "1150 亿美元全股票买光器件，在大模型时代，卖铲子的尽头是把造光纤和激光器的也并进一家。"
+    },
+    {
+      "title": "美团发布 LongCat-2.5 正式版：1.6T 总参数、约 48B 激活的原生多模态 agent 模型",
+      "timing": "官方 X 于北京时间 11 月 2 日 22:35 发布",
+      "text": "美团 LongCat 团队发布原生多模态模型 LongCat-2.5 正式版，总参数 1.6T、单 token 激活约 48B，面向长程 agent 与 visual coding 任务。模型将视觉信号表示为多层级离散 token 并支持离线预计算；训练端从 GitHub PR 与 issue 合成任务和可交互环境，采用 partial rollout 异步 RL、断网与清除 git 历史，并用 LLM judge 审计轨迹以抑制 reward hacking。\n\n在单卡显存不足 80GB 的国产算力上，其双重分片 FSDP 长序列 SFT 单卡吞吐较 DDP 基线提升 86%，并提供训推 logprob 逐位一致及 W4A4 推理方案。官方自测数据显示，Terminal Bench v2.1 得分为 88.4（上代 70.8），DeepSWE v1.1 为 64.6（上代 9.7），BrowseComp 为 91.9。模型目前已上线对话与 API，GitHub 与 Hugging Face 权重页面标注“敬请期待”。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "LongCat-2.5 博客",
+          "url": "https://longcat.ai/blog/longcat-2.5/"
+        },
+        {
+          "kind": "原帖",
+          "label": "LongCat 官方 X",
+          "url": "https://x.com/Meituan_LongCat/status/2117264311714537633"
+        }
+      ],
+      "emphasis": [
+        "总参数 1.6T、单 token 激活约 48B，面向长程 agent 与 visual coding 任务",
+        "Terminal Bench v2.1 得分为 88.4（上代 70.8），DeepSWE v1.1 为 64.6（上代 9.7）"
+      ],
+      "aiComment": "为了防模型钻空子，训练时直接拔网线再清空 git 历史，这防作弊手段比高三模拟考还严。"
+    },
+    {
+      "title": "SemiAnalysis 发布通用 agent 基准 GDPx，榜首 Claude Opus 5.5 平均得分 12.0%",
+      "timing": "北京时间 11 月 2 日 09:51 发布",
+      "text": "SemiAnalysis 联合 14 家 RL 环境数据公司发布通用 agent 能力基准 GDPx，覆盖芯片设计、网络安全、生物、金融、法律、量化交易、递归自我改进（RSI）、硬件设计、材料科学、对齐和软件工程 11 个领域。无原生 harness 的模型默认使用 OpenCode，总分按三次尝试的 pass@1 与各领域等权计算。\n\n据 SemiAnalysis 公布的榜单，Claude Opus 5.5 以 12.0% 居首，并在芯片设计、硬件设计和量化交易上排第一；Gemini 4 Carbon 得 10.9%，在生物和软件工程领先；GPT-6 Astra 在 RSI 和材料科学上居首；Muse Wonder Full 在网络安全单项最高。金融与法律任务几乎所有模型均为 0 分，Opus 5.5 与 GPT-6 Astra 的总分还受安全分类器拒答影响。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "GDPx 介绍文章",
+          "url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities"
+        },
+        {
+          "kind": "官方发布",
+          "label": "GDPx 排行榜",
+          "url": "https://gdpx.semianalysis.com/"
+        },
+        {
+          "kind": "原帖",
+          "label": "SemiAnalysis X",
+          "url": "https://x.com/SemiAnalysis_/status/2117075900575477855"
+        }
+      ],
+      "emphasis": [
+        "Claude Opus 5.5 以 12.0% 居首",
+        "金融与法律任务几乎所有模型均为 0 分"
+      ],
+      "aiComment": "榜一大哥总分 12%，金融和法律全员喜提零蛋，安全分类器还在旁边疯狂拒答拖后腿，这届卷子是真不给面子。"
+    },
+    {
+      "title": "OpenAI 推出 Grid Protectors 计划，以佐治亚算力园区试点至多 1000 MW 需求响应",
+      "timing": "北京时间 11 月 2 日 23:00 发布",
+      "text": "OpenAI 宣布推出全国性的 Grid Protectors 计划，为未来的算力园区与各地电力公司、监管方制定用电灵活性方案，在电网负荷紧张时按约定幅度、速度和时长削减用电需求，并结合现场发电、储能电池和电源控制平滑负荷波动。\n\nOpenAI 将以开发中、位于佐治亚州 Effingham County 的园区作为试点，承诺承担该园区全部基础设施与供电成本。其与 Georgia Power 的协议包含至多 1000 MW 的灵活需求响应，OpenAI 称约相当于 70 万户家庭的平均用电需求。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 官方公告",
+          "url": "https://openai.com/index/grid-protectors-program/"
+        },
+        {
+          "kind": "报道",
+          "label": "The Next Web 报道",
+          "url": "https://thenextweb.com/news/openai-grid-protectors-program-demand-response-georgia"
+        }
+      ],
+      "emphasis": [
+        "在电网负荷紧张时按约定幅度、速度和时长削减用电需求",
+        "与 Georgia Power 的协议包含至多 1000 MW 的灵活需求响应"
+      ],
+      "aiComment": "平时猛猛吞电，电网紧张时承诺让出至多 1000 MW，相当于 70 万户家庭用电，算力中心这回主动申请当巨型充电宝。"
+    },
+    {
+      "title": "数学家 Frank Calegari 在陶哲轩博客撰文，呼吁数学界改革评审与招聘以应对 AI",
+      "timing": "北京时间 11 月 2 日 02:28 发布",
+      "text": "陶哲轩博客刊发芝加哥大学数学家 Frank Calegari 的客座文章，回应 OpenAI 于 10 月 6 日一次发布 700 余篇 AI 数学研究论文。Calegari 认为这批发布是数学史上的分水岭，AI 已能在多个数学领域做出开创性贡献，但同时批评这些论文写作粗糙、违背署名归属规范，且部分结论有误。\n\nCalegari 主张数学界应调整自身控制的学术机制：默认将所有成果视为可能经 AI 辅助来评估，肯定选准问题、用 AI 完成证明并理解及开拓方向的研究者；在招聘与招生中减少对论文数量清单的依赖，增加博士后与研究生面试；对期刊审稿提出更高要求并对 AI 产出结果承担责任。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Calegari 客座文章",
+          "url": "https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50328251"
+        }
+      ],
+      "emphasis": [
+        "回应 OpenAI 于 10 月 6 日一次发布 700 余篇 AI 数学研究论文",
+        "默认将所有成果视为可能经 AI 辅助来评估"
+      ],
+      "aiComment": "OpenAI 一口气甩出 700 多篇论文，逼得数学家提议以后招人少看论文数量多面试，毕竟写手太快，审稿人先不够用了。"
+    },
+    {
+      "title": "NYU 与 Meta FAIR 提出分层世界模型 ID-WM，解耦状态可达性与局部动作控制",
+      "timing": "2026 年 10 月 30 日提交 arXiv，北京时间 11 月 2 日首次公告",
+      "text": "纽约大学 Courant 研究所、Meta FAIR 与 AMI Labs 的 Gaoyue Zhou、Lerrel Pinto、Yann LeCun 等人发表论文，提出隐式动力学分层世界模型 ID-WM。针对世界模型长程规划中搜索复杂度随步数指数增长和 rollout 误差累积的问题，ID-WM 由高层模型在状态流形上采样物理可达的子目标，再由低层世界模型充当逆动力学求解器，将状态转移转化为具体动作，从而将短片段拼接为超出训练数据分布的长程计划。\n\n论文在 Wall、PushT 和 Maze 三个导航与操作套件上测试（任务步数达数百至数千步），报告其表现比对比的 SOTA 策略和扩散规划器高 38.5%，在未见过的复杂长程配置上比单层世界模型 MPC 高 135%。项目代码尚未公开。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "arXiv 论文",
+          "url": "https://arxiv.org/abs/2610.42146"
+        },
+        {
+          "kind": "官方发布",
+          "label": "ID-WM 项目页",
+          "url": "https://id-wm.github.io"
+        }
+      ],
+      "emphasis": [
+        "由高层模型在状态流形上采样物理可达的子目标，再由低层世界模型充当逆动力学求解器",
+        "在未见过的复杂长程配置上比单层世界模型 MPC 高 135%"
+      ],
+      "aiComment": "高层只管画物理可达的饼，低层逆动力学负责想办法走过去，这套上下级分工连世界模型都悟了。"
+    },
+    {
+      "title": "任务托管平台 Trigger.dev 披露安全事件，部分客户组织环境变量遭未授权获取",
+      "timing": "北京时间 11 月 2 日 06:33 发布公告",
+      "text": "AI agent 与后台任务托管平台 Trigger.dev 的 CTO Eric Allam 发布安全公告称，平台发生安全事件，攻击者未经授权获取了一部分客户组织的环境变量。官方表示已封堵此次攻击所使用的漏洞利用，并已向所有受影响账户的所有者发送邮件说明缓解步骤。公告尚未披露入侵途径、受影响组织数量及是否涉及自托管版本，官方表示后续将在状态页更新更多细节。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Trigger.dev 公告",
+          "url": "https://trigger.dev/blog/security-incident-nov-2026"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50331784"
+        }
+      ],
+      "emphasis": [
+        "攻击者未经授权获取了一部分客户组织的环境变量"
+      ],
+      "aiComment": "环境变量被未授权获取，多少开发者的周末又要奉献给连夜轮换 API Key 和刷状态页等后续了。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "大模型算力扩张伴随巨额长期承诺、短期采购溢价与电网调峰安排",
+      "text": "Anthropic 在修订版 S-1 中披露其采购与租赁承诺达 8954 亿美元，同时因短期采购算力的单价高于多年期锁定协议，导致 Q3 重新出现经营亏损；OpenAI 则通过 Grid Protectors 计划与电力公司约定在用电高峰削减园区负荷。头部模型公司的算力投入不仅体现在长期资本锁定上，也日益受制于短期现货算力溢价与地方电网负荷容量。"
+    }
+  ]
+}
