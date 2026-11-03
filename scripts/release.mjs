@@ -52,8 +52,8 @@ export function buildReleasePlan(options, env = {}) {
     { name: 'embed catalog', argv: ['node', 'scripts/embed-catalog.mjs'] },
     // Second build packs the new vectors into dist/.
     { ...build, name: 'public build with vectors' },
-    { name: 'unit tests', argv: ['npm', 'test'] },
-    { name: 'public build check', argv: ['node', 'test/build.mjs', '--public'] },
+    // npm test and test/build.mjs --public run in deploy.yml before Pages is updated, so a failure there stops the
+    // deployment; running them here as well only repeated that check.
     // feedback-catalog.mjs does not create directories, so a --sql-out in a new folder needs it made first.
     { name: 'feedback catalog SQL', argv: ['node', 'scripts/feedback-catalog.mjs', 'dist/data.js', sqlOut],
       outputDir: path.dirname(sqlOut) },
@@ -89,10 +89,12 @@ export function resolveExecutable(value, { cwd = process.cwd(), pathEnv = proces
   throw new Error(`WRANGLER_BIN not found in PATH: ${value}`);
 }
 
-// The same token lookup as scripts/embed-catalog.mjs: the local Wrangler login, read from newspaper/feedback.
-function wranglerLoginToken() {
+// The local Wrangler login, read from newspaper/feedback. WRANGLER_BIN is used when set: `npx -y wrangler@4` first
+// resolves the version online and can hang past the timeout, which then looks like a missing login.
+function wranglerLoginToken(bin = process.env.WRANGLER_BIN) {
   try {
-    const output = execFileSync('npx', ['-y', 'wrangler@4', 'auth', 'token', '--json'],
+    const [command, ...prefix] = bin ? [bin] : ['npx', '-y', 'wrangler@4'];
+    const output = execFileSync(command, [...prefix, 'auth', 'token', '--json'],
       { cwd: path.join(root, 'feedback'), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 60000 });
     return JSON.parse(output).token || '';
   } catch {
@@ -100,10 +102,11 @@ function wranglerLoginToken() {
   }
 }
 
-// The embed step runs after the imports and a build; checking its token first keeps a missing login from
-// stopping the release halfway, with data/ already changed.
-export function checkCloudflareToken(env, getToken = wranglerLoginToken) {
-  if (env.CLOUDFLARE_API_TOKEN || getToken()) return;
+// The embed step runs after the imports and a build; getting its token first keeps a missing login from
+// stopping the release halfway, with data/ already changed. Returns the token for the embed step.
+export function checkCloudflareToken(env, getToken = () => wranglerLoginToken(env.WRANGLER_BIN)) {
+  const token = env.CLOUDFLARE_API_TOKEN || getToken();
+  if (token) return token;
   throw new Error('No Cloudflare token for embed-catalog: run `npx wrangler login` in newspaper/feedback, '
     + 'or set CLOUDFLARE_API_TOKEN.');
 }
@@ -170,7 +173,9 @@ function main() {
     // Resolved before chdir, so a relative WRANGLER_BIN still means the caller's directory.
     if (!options.skipD1 && env.WRANGLER_BIN) env.WRANGLER_BIN = resolveExecutable(env.WRANGLER_BIN);
     steps = buildReleasePlan(options, env);
-    if (!options.dryRun) checkCloudflareToken(env);
+    if (!options.dryRun) process.env.CLOUDFLARE_API_TOKEN = checkCloudflareToken(env);
+    // A local NODE_OPTIONS loader for model requests has no place in the build steps.
+    delete process.env.NODE_OPTIONS;
     // The default SQL path (scratch/feedback-catalog.sql) and every step are relative to the repository root.
     process.chdir(root);
   } catch (error) {

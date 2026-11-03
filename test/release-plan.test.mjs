@@ -11,8 +11,7 @@ import { buildReleasePlan, checkCloudflareToken, checkFeedbackSql, formatStep, p
 const env = { FEEDBACK_API_URL: 'https://feedback.example', CLOUDFLARE_ACCOUNT_ID: 'a'.repeat(32), WRANGLER_BIN: '/opt/wrangler' };
 const plan = (argv, overrides = env) => buildReleasePlan(parseReleaseArgs(argv), overrides);
 const names = steps => steps.map(step => step.name);
-const tail = ['public build', 'embed catalog', 'public build with vectors', 'unit tests', 'public build check',
-  'feedback catalog SQL', 'check SQL'];
+const tail = ['public build', 'embed catalog', 'public build with vectors', 'feedback catalog SQL', 'check SQL'];
 
 test('daily, external and weekly imports run first, then the runbook build chain, then D1', () => {
   const steps = plan(['--daily-batch', 'scratch/b', '--external-draft', 'e/draft.json', '--external-selection', 'e/sel.json',
@@ -25,8 +24,6 @@ test('daily, external and weekly imports run first, then the runbook build chain
     'npm run build -- --public',
     'node scripts/embed-catalog.mjs',
     'npm run build -- --public',
-    'npm test',
-    'node test/build.mjs --public',
     'node scripts/feedback-catalog.mjs dist/data.js scratch/c.sql',
     '(check every line of scratch/c.sql starts with INSERT OR IGNORE INTO)',
     '/opt/wrangler d1 execute agenthub-feedback --remote --config feedback/wrangler.jsonc --file scratch/c.sql',
@@ -96,7 +93,7 @@ test('--dry-run prints the plan and runs nothing', () => {
   const result = run(['--daily-batch', dir, '--external-draft', path.join(dir, 'draft.json'), '--dry-run'], dryEnv);
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /^1\. import daily batch: node scripts\/publish-reviewed-batch\.mjs /);
-  assert.ok(result.stdout.includes(`10. register D1 feedback IDs: ${path.join(bin, 'wrangler')} d1 execute`), result.stdout);
+  assert.ok(result.stdout.includes(`8. register D1 feedback IDs: ${path.join(bin, 'wrangler')} d1 execute`), result.stdout);
   assert.doesNotMatch(result.stdout, /== release step|Changed paths/);
   const missing = run(['--daily-batch', path.join(dir, 'absent'), '--dry-run'], dryEnv);
   assert.equal(missing.status, 2);
@@ -157,7 +154,7 @@ test('runSteps creates the --sql-out directory before the SQL step and stops at 
   const calls = [];
   assert.throws(() => runSteps(plan(['--sql-out', path.join(failing, 'x', 'c.sql'), '--skip-d1']),
     { spawn: (command, args) => { calls.push(args); return { status: 3 }; }, log: () => {} }),
-  /step 1\/7 "public build" failed \(exit 3\)/);
+  /step 1\/5 "public build" failed \(exit 3\)/);
   assert.equal(calls.length, 1);
   assert.equal(existsSync(path.join(failing, 'x')), false);
 });
