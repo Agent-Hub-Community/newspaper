@@ -1,0 +1,3636 @@
+{
+  "id": "2026-11-03",
+  "date": "2026-11-03",
+  "label": "2026-11-03 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "开源 Agent Harness 项目 CoworkOS：三层协作架构与后训练迭代",
+      "theme": "支持人机共编文档与中断接续，5 轮后训练把 Qwen3.6-35B-A3B 均分提至 42.95",
+      "note": "2026-11-03 · 当日本地记录",
+      "stories": [
+        {
+          "category": "开源项目",
+          "title": "开源 Agent Harness 项目 CoworkOS：三层协作与 5 轮后训练把 Qwen3.6-35B-A3B 均分提至 42.95",
+          "text": "有群友分享了开源的 Agent Harness 项目 CoworkOS（Scaling Agent Coworkers for Real-world Automation），面向复杂办公与长程持续决策场景。据介绍，该系统采用三层协作架构：Main Agent 负责定计划和验收，Coordinator 负责调度，Subagent 执行具体子任务；支持人与 agent 共编同一份文档或 CAD 材料，既能通过对话修改也能直接上手编辑；同时借助分层工作区、语义记忆和后台 Job 实现记忆共享、中断接续与监控唤醒。实验方面，据介绍其在 12 项复杂生产力基准与 24 个真实交付场景中性能对标 Codex、DeepSeek Harness 等应用；项目称其具备原生 RSI（递归自我改进）能力，经过 5 轮 LLM 后训练循环迭代，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升至 42.95。消息发出后群里排起长队刷屏点赞，分享者忙出来劝大家“看论文代码就好，别整队形，我社恐”。",
+          "emphasis": [
+            "支持人与 agent 共编同一份文档或 CAD 材料",
+            "经过 5 轮 LLM 后训练循环迭代，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升至 42.95"
+          ],
+          "aiComment": "给 Agent 搭了三层架构当牛马，结果分享者被群友的点赞队形吓出了社恐。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:10",
+              "text": "很开心宣传一下我们近期开源的Agent Harness工作[嘿哈]：\n\n🌍 CoworkOS: Scaling Agent Coworkers for Real-world Automation\n\n我们的目标是搭建真正能与人一起协作的「超级 AI 同事」，兼顾「复杂办公 × 长程持续决策」能力。\n\n💡CoworkOS 主要有三个特点：\n1️⃣ 三层协作：Main Agent定计划验收；Coordinator管调度；Subagent执行子任务。\n2️⃣ 共享应用：人与智能体共编同一份文档、CAD材料，对话能改，直接动手也能改\n3️⃣ 持久运行：通过分层工作区、语义记忆和后台Job保证记忆可共享，中断可接续、监控可唤醒。\n\n📊 实验方面\n✅ 在12项复杂生产力基准与24个真实交付场景，性能对标Codex、DeepSeek Harness等应用。\n✅ CoworkOS具备原生RSI能力，经过5轮LLM后训练循环迭代，Qwen3.6-35B-A3B在8个基准上的平均分从 33.19 提升到 42.95。\n\n📄 论文：https://github.com/RUC-NLPIR/CoworkOS/blob/main/CoworkOS_paper.pdf\n🌐 项目主页：https://coworkos-ai.github.io/\n💻 GitHub：https://github.com/RUC-NLPIR/CoworkOS\n🎬 Demo Gallery：https://coworkos-ai.github.io/showcase.html\n\n欢迎大家试用与点赞呀！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:11",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "12:11",
+              "text": "严肃学习[强][强]"
+            },
+            {
+              "speaker": 4,
+              "time": "12:11",
+              "text": "[强]"
+            },
+            {
+              "speaker": 5,
+              "time": "12:12",
+              "text": "[强][强]卡比大人"
+            },
+            {
+              "speaker": 6,
+              "time": "12:12",
+              "text": "[强][强]卡比大人 \\o/\\o/\\o/"
+            },
+            {
+              "speaker": 7,
+              "time": "12:12",
+              "text": "卡比大神[强][可怜]"
+            },
+            {
+              "speaker": 8,
+              "time": "12:13",
+              "text": "[强][强]卡比大人 \\o/\\o/\\o/"
+            },
+            {
+              "speaker": 9,
+              "time": "12:13",
+              "text": "[强]"
+            },
+            {
+              "speaker": 10,
+              "time": "12:14",
+              "text": "[ThumbsUp][ThumbsUp]"
+            },
+            {
+              "speaker": 11,
+              "time": "12:14",
+              "text": "[ThumbsUp][ThumbsUp]"
+            },
+            {
+              "speaker": 12,
+              "time": "12:22",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:33",
+              "text": "没事兄弟们，看论文代码就好，别整队形，我社恐🤯"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "CoworkOS 论文（PDF）",
+              "url": "https://github.com/RUC-NLPIR/CoworkOS/blob/main/CoworkOS_paper.pdf"
+            },
+            {
+              "kind": "code",
+              "label": "RUC-NLPIR/CoworkOS",
+              "url": "https://github.com/RUC-NLPIR/CoworkOS"
+            },
+            {
+              "kind": "demo",
+              "label": "CoworkOS 项目主页",
+              "url": "https://coworkos-ai.github.io/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Astra 免训练改权重是修死循环，还是替代梯度下降的新路？",
+      "theme": "探讨用 Hypernetwork 直接预测 Delta Weights 的边界，另聊模型写作腔调与 CUA 新进展",
+      "note": "2026-11-03 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与机制",
+          "title": "Astra 免训练改权重提分？群友拆解 0.8B 死循环修复与下午的反转",
+          "text": "上午有群友转了一张热帖截图，称前沿大模型无需梯度或训练就能原生读写神经网络权重，直接修改 Qwen 0.8B 模型即可大幅提升数学与指令遵循表现。一位实测过的群友证实效果虽真，但原因是那个 0.8B 模型原本一直卡在死循环里，改权重只是让它不再循环。有人分析，这本质上还是用行为数据找 steering vector，相当于拿好数据做微调的 rank-1 近似，挑了一个模型不断重复的例子来修。也有人觉得重复输出本来就能靠简单训练或 preference alignment 解决，至少清楚是怎么修好的；至于直接改权重的成本是否真比训练低，在更大的模型上还不好说。\n\n讨论随之转到“模型怎么知道该改哪个权重”。有群友吐槽这是“用一个黑盒去处理另一个黑盒”，连梯度都没法参考；有人猜测 Astra 靠可解释性知识推断权重影响，也有人说可以看测试集反馈来调整。几位做过类似尝试的群友给出了各自的体验：有人曾让 Fable 手写 MNIST 分类权重并拿到 90% 准确率，但到 ImageNet 上就失效了；另一位群友分享了 PostTrainBench⁰ 的实验，让 LLM 基于多个测试集指导随机扰动 Qwen 权重，结果虽优于多次随机采样，却不如直接用 evolution strategy，且 Qwen3 base 本身随机性极大，强模型去指导也未必更强，“纯混运气”。还有群友补充，原帖真正核心的是另外两个实验：让 Astra 直接读取原始权重判断网络的训练任务，以及不靠传统训练和环境反馈、从零手写一个玩游戏的神经网络，表现超过了用 PPO 训练 1 亿步的对照网络。\n\n到了下午，群里转来一张拆解该热帖的截图：Qwen 只是在特定采样下没关 CoT 陷入了无意义的推理死循环，一旦换成原本就不卡死循环的 Gemma 3 270M 测试，Astra 带来的数学能力改善直接归零。有群友说早上拿去问 Claude 得到的就是这个解释，也有做知识编辑方向的群友调侃，差点以为小众方向死灰复燃，应该严肃学习一下讲故事的能力。",
+          "emphasis": [
+            "原因是那个 0.8B 模型原本一直卡在死循环里，改权重只是让它不再循环",
+            "结果虽优于多次随机采样，却不如直接用 evolution strategy",
+            "换成原本就不卡死循环的 Gemma 3 270M 测试，Astra 带来的数学能力改善直接归零"
+          ],
+          "aiComment": "上午还在惊叹免训练改权重的神迹，下午就发现是帮 0.8B 关了个死循环，知识编辑人白激动一场 🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:02",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:02",
+              "text": "真的假的"
+            },
+            {
+              "speaker": 2,
+              "time": "10:03",
+              "text": "测了 真的"
+            },
+            {
+              "speaker": 2,
+              "time": "10:03",
+              "text": "但是其实是因为0.8b的那个一直死循环 他直接改了权重不循环了"
+            },
+            {
+              "speaker": 1,
+              "time": "10:04",
+              "text": "太夸张了吧"
+            },
+            {
+              "speaker": 3,
+              "time": "10:04",
+              "text": "好像是model editing的算法？"
+            },
+            {
+              "speaker": 1,
+              "time": "10:04",
+              "text": "能直接改不需要训练了吗"
+            },
+            {
+              "speaker": 4,
+              "time": "10:05",
+              "text": "这种本质上还是用行为数据找steering vector吧，相当于用好的行为数据finetune的一个rank1近似"
+            },
+            {
+              "speaker": 5,
+              "time": "10:05",
+              "text": "mit csail也是坏起来了"
+            },
+            {
+              "speaker": 3,
+              "time": "10:06",
+              "text": "是的",
+              "quote": {
+                "speaker": 4,
+                "text": "这种本质上还是用行为数据找steering vector吧，相当于用好的行为数据finetune的一个rank1近似"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:07",
+              "text": "以前估计试了不work？"
+            },
+            {
+              "speaker": 6,
+              "time": "10:07",
+              "text": "以及有没有调研welldone模型的权重嘞。"
+            },
+            {
+              "speaker": 6,
+              "time": "10:08",
+              "text": "ai直接做神经网络好像之前也有做过的"
+            },
+            {
+              "speaker": 7,
+              "time": "10:08",
+              "text": "主要是改完权重后，模型在其他benchmark 上的效果会变嘛？",
+              "quote": {
+                "speaker": 2,
+                "text": "但是其实是因为0.8b的那个一直死循环 他直接改了权重不循环了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "10:08",
+              "text": "感觉这套随机性都很大，我们之前也做过，让agent去指导随机扰动qwen的权重，qwen3的base的随机性很大，而且也不是理论上越强的模型能做的更好"
+            },
+            {
+              "speaker": 4,
+              "time": "10:08",
+              "text": "他例子选的好，简单点就是用steering vector解决了一个模型一直重复的behavior",
+              "quote": {
+                "speaker": 6,
+                "text": "以前估计试了不work？"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "10:09",
+              "text": "随机性确实很大，我认为有很大的巧合"
+            },
+            {
+              "speaker": 10,
+              "time": "10:09",
+              "text": "hyper net的思路也是直接改权重吧，如果说要能闭环，hyper net也算能闭环？"
+            },
+            {
+              "speaker": 11,
+              "time": "10:11",
+              "text": "这个东西本来训练的时候也会经过处理吧",
+              "quote": {
+                "speaker": 2,
+                "text": "但是其实是因为0.8b的那个一直死循环 他直接改了权重不循环了"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "10:11",
+              "text": "重复说某句话本身就是一种bad behavior"
+            },
+            {
+              "speaker": 11,
+              "time": "10:12",
+              "text": "不过还是挺有insight的"
+            },
+            {
+              "speaker": 6,
+              "time": "10:12",
+              "text": "也是rsi的最终形态了）"
+            },
+            {
+              "speaker": 12,
+              "time": "10:12",
+              "text": "是的",
+              "quote": {
+                "speaker": 11,
+                "text": "重复说某句话本身就是一种bad behavior"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:12",
+              "text": "期待可解释性的突破）"
+            },
+            {
+              "speaker": 12,
+              "time": "10:13",
+              "text": "死循环其实能通过训练解决"
+            },
+            {
+              "speaker": 1,
+              "time": "10:14",
+              "text": "直接改权重效率和成本都比训练低很多吧"
+            },
+            {
+              "speaker": 11,
+              "time": "10:15",
+              "text": "不好说。他这个是小模型",
+              "quote": {
+                "speaker": 1,
+                "text": "直接改权重效率和成本都比训练低很多吧"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "10:15",
+              "text": "直接改权重 这个行为本身就太黑盒了吧[捂脸]"
+            },
+            {
+              "speaker": 13,
+              "time": "10:16",
+              "text": "训练起码有梯度可以参考 直接改权重 参考什么呢"
+            },
+            {
+              "speaker": 6,
+              "time": "10:16",
+              "text": "还是一个很有potential的好玩的东西（"
+            },
+            {
+              "speaker": 6,
+              "time": "10:16",
+              "text": "比如atari的游戏"
+            },
+            {
+              "speaker": 6,
+              "time": "10:16",
+              "text": "可以知道这些规则怎么被编码"
+            },
+            {
+              "speaker": 14,
+              "time": "10:16",
+              "text": "我之前试过直接让fable手写mnist分类的权重，可以写到90%的acc，但是imagenet就不行了"
+            },
+            {
+              "speaker": 6,
+              "time": "10:16",
+              "text": "复杂一点的0.4b就得做实验看反馈了吧"
+            },
+            {
+              "speaker": 8,
+              "time": "10:17",
+              "text": "可以看测试集反馈调整",
+              "quote": {
+                "speaker": 13,
+                "text": "训练起码有梯度可以参考 直接改权重 参考什么呢"
+              }
+            },
+            {
+              "speaker": 15,
+              "time": "10:17",
+              "text": "为啥模型会知道改哪个权重可以解决问题？"
+            },
+            {
+              "speaker": 5,
+              "time": "10:18",
+              "text": "我觉得可解释性这一行不会有很大发展的[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:19",
+              "text": "我好奇的也是这个",
+              "quote": {
+                "speaker": 15,
+                "text": "为啥模型会知道改哪个权重可以解决问题？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:19",
+              "text": "太黑盒了"
+            },
+            {
+              "speaker": 16,
+              "time": "10:19",
+              "text": "因为astra拥有可解释性的相关知识，所以推出了哪些权重会有影响？🤔"
+            },
+            {
+              "speaker": 16,
+              "time": "10:20",
+              "text": "这合理吗"
+            },
+            {
+              "speaker": 13,
+              "time": "10:20",
+              "text": "用一个黑盒去处理另一个黑盒"
+            },
+            {
+              "speaker": 11,
+              "time": "10:20",
+              "text": "如果手写权重的话，不一定非得是矩阵乘加的形式了。"
+            },
+            {
+              "speaker": 8,
+              "time": "10:20",
+              "text": "https://trae1oung.github.io/posttrainbench0/\n我们之前做过让llm基于多个测试数据集来random perturb qwen的权重，能观察到比随机sample多次更好但不如直接的evolution strategy。\n不过当时只给模型开放一些评测和扰动的接口，没有直接看参数内部，但也没有体现出强模型更强的特征[破涕为笑]感觉很tricky，这种随便改参数让模型行为变好也很正常， 纯混运气"
+            },
+            {
+              "speaker": 5,
+              "time": "10:20",
+              "text": "除非非线性理论有巨大突破"
+            },
+            {
+              "speaker": 6,
+              "time": "10:21",
+              "text": "万一哪天oai把这玩意当benchmark爆了）"
+            },
+            {
+              "speaker": 8,
+              "time": "10:21",
+              "text": "mit也有做过随机扰动参数能显著提升模型能力的paper"
+            },
+            {
+              "speaker": 11,
+              "time": "10:21",
+              "text": "可能会有更加ai-native的方法去做",
+              "quote": {
+                "speaker": 11,
+                "text": "如果手写权重的话，不一定非得是矩阵乘加的形式了。"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "10:22",
+              "text": "好问题",
+              "quote": {
+                "speaker": 6,
+                "text": "万一哪天oai把这玩意当benchmark爆了）"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:22",
+              "text": "我的pro告诉我这可以理解为编辑逻辑电路（"
+            },
+            {
+              "speaker": 17,
+              "time": "10:23",
+              "text": "感觉是 我感觉让他读更多可解释性机制的paper啥的 估计会做的更好 即使那些research 是在shallow nn做的"
+            },
+            {
+              "speaker": 11,
+              "time": "10:24",
+              "text": "这篇blog最后也说了，他在搞benchmark",
+              "quote": {
+                "speaker": 6,
+                "text": "万一哪天oai把这玩意当benchmark爆了）"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "10:27",
+              "text": "对的，很多输入输出分布是可以观察出来的。",
+              "quote": {
+                "speaker": 17,
+                "text": "感觉是 我感觉让他读更多可解释性机制的paper啥的 估计会做的更好 即使那些research 是在shallow nn做的"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "10:27",
+              "text": "我也画图/肉眼观察过，但是我的ctx有限。。。"
+            },
+            {
+              "speaker": 12,
+              "time": "10:30",
+              "text": "确实",
+              "quote": {
+                "speaker": 13,
+                "text": "直接改权重 这个行为本身就太黑盒了吧[捂脸]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "10:30",
+              "text": "通过简单的训练你起码知道"
+            },
+            {
+              "speaker": 12,
+              "time": "10:30",
+              "text": "怎么解决"
+            },
+            {
+              "speaker": 12,
+              "time": "10:31",
+              "text": "用preference alignment 可以搞定"
+            },
+            {
+              "speaker": 6,
+              "time": "10:48",
+              "text": "）"
+            },
+            {
+              "speaker": 6,
+              "time": "10:48",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 18,
+              "time": "10:50",
+              "text": "我觉得核心是这俩实验：\n第一个是让Astra直接读取一个神经网络的原始权重，判断它究竟被训练来做什么。\n\n第二个是让Astra从零编写一个玩游戏的神经网络，整个过程不依赖传统训练，也没有环境反馈，最终表现甚至超过了使用PPO训练1亿步的对照网络。"
+            },
+            {
+              "speaker": 18,
+              "time": "10:50",
+              "text": "llm对于另一个llm来说是白盒么？？"
+            },
+            {
+              "speaker": 19,
+              "time": "10:53",
+              "text": "我个人觉得是有可能实现非白盒的，类似之前的柏拉图表征假说"
+            },
+            {
+              "speaker": 20,
+              "time": "10:54",
+              "text": "https://x.com/xingyudang/status/2117361892486201526?a=ZBiEfMaJrEJAisW9P54&s=46"
+            },
+            {
+              "speaker": 20,
+              "time": "10:55",
+              "text": "https://x.com/tydsh/status/2117431355730723149?a=YZWpNH2F9NBi_Lghe4I&s=46"
+            },
+            {
+              "speaker": 1,
+              "time": "14:14",
+              "text": "哦？"
+            },
+            {
+              "speaker": 3,
+              "time": "14:18",
+              "text": "直接复制聊天记录是吧"
+            },
+            {
+              "speaker": 21,
+              "time": "14:21",
+              "text": "感觉小模型上编辑权重这种本来就雕花？"
+            },
+            {
+              "speaker": 13,
+              "time": "16:16",
+              "text": "小模型编辑权重那个事好像反转了？bug包装成范式"
+            },
+            {
+              "speaker": 22,
+              "time": "16:18",
+              "text": "我怎么记得这个事在上个月是叫reward hacking[裂开]"
+            },
+            {
+              "speaker": 23,
+              "time": "16:18",
+              "text": "有网友深度分析了"
+            },
+            {
+              "speaker": 18,
+              "time": "16:19",
+              "text": "有网友❌\n有网友的DeepSeek✅"
+            },
+            {
+              "speaker": 18,
+              "time": "16:19",
+              "text": "甚至都不是GPT-6Astra"
+            },
+            {
+              "speaker": 24,
+              "time": "16:20",
+              "text": "早上拿来直接问了Claude，它就是这么说的",
+              "quote": {
+                "speaker": 23,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "16:33",
+              "text": "[破涕为笑]现在大家都太敏感了",
+              "quote": {
+                "speaker": 23,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "16:33",
+              "text": "很多没经过验证的观点传播速度太快了"
+            },
+            {
+              "speaker": 25,
+              "time": "16:34",
+              "text": "还是因为llm现在没活了"
+            },
+            {
+              "speaker": 26,
+              "time": "16:34",
+              "text": "我还以为我之前做的小众方向知识编辑死灰复燃了"
+            },
+            {
+              "speaker": 26,
+              "time": "16:35",
+              "text": "应该严肃学习讲故事的能力的"
+            },
+            {
+              "speaker": 5,
+              "time": "16:38",
+              "text": "知识编辑小众宝藏领域了说是"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "PostTrainBench⁰: Can LLM Agents Automate LLM Post-Training Without Gradients?",
+              "url": "https://trae1oung.github.io/posttrainbench0/"
+            }
+          ]
+        },
+        {
+          "category": "训练与优化",
+          "title": "用 Hypernetwork 直接预测 Delta Weights 替代梯度下降，能走多远？",
+          "text": "顺着直接改权重的讨论，有群友抛出一个问题：能不能训一个模型，对输入的 context 或训练语料直接输出 delta weights，用来替代多步梯度下降（如持续学习工作 arXiv:2602.06358 和 Doc-to-LoRA）？提问者指出，目前 Hypernetwork 的尝试多停留在一次前向把 context 变成参数拼回模型以对标 ICL，但让人担心的是，多步梯度下降真的能被单个模型直接映射成 delta weights 吗？实验精度和理论下界都不明朗。\n\n另一位群友提出，如果以训练 loss 为目标，这种方式肯定比不过传统优化；但如果跳出与下游任务脱节的 loss 目标，或许能找到梯度下降之外的解法。不过双方都认为这很难摆脱对具体 task 的依赖。一位做过 Hypernetwork 的群友补充，实际构建 Hypernetwork 往往还是要依赖梯度下降并在其周边加灵活性，而且把梯度下降的信息编码进网络架构，效果远好于直接拿普通神经网络硬训；提问者则提到 arXiv:2602.06358 没有引入梯度信息，直接把模型 scale 上去效果也不错，只是不清楚是否对比过加梯度信息的 baseline。\n\n还有群友转了 CVPR 2026 Oral 的 Mapping Networks（将模型优化锁定在低维流形，训练参数量降 500 倍），并提到此前有研究发现好模型的参数邻域里本身就分布着不同特点的模型。提问者和这位群友由此推演，delta weights 经常发生在低维空间，直接预测特定方向的权重修改或许没想象中难；但就像可解释性里的 steering vector 只能调控“是否重复”这类单一行为、多个向量难以融合且会损伤基础能力一样，面对 coding 或数学这种无法归结为单一行为、需要大量语料训练的通用能力，在 scaling 的模型上直接生成权重依然很难走通。",
+          "emphasis": [
+            "多步梯度下降真的能被单个模型直接映射成 delta weights 吗",
+            "把梯度下降的信息编码进网络架构，效果远好于直接拿普通神经网络硬训",
+            "面对 coding 或数学这种无法归结为单一行为、需要大量语料训练的通用能力，在 scaling 的模型上直接生成权重依然很难走通"
+          ],
+          "aiComment": "想一步前向直接跳过梯度下降，结果发现还是得把梯度信息塞回架构里，梯度祖师爷哪那么容易下岗。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:46",
+              "text": "好奇大家对“用一个系统直接预测 delta weights，来替代原本的梯度下降 training 过程”这个方向的前景怎么看？比如 astra 这波类似 steering vector 的尝试，或者社区里一些 hypernetwork 的工作（额外训一个模型，对一堆 context 或训练语料直接输出 delta weights），有类似工作在做持续学习的，比如https://arxiv.org/abs/2602.06358"
+            },
+            {
+              "speaker": 2,
+              "time": "16:48",
+              "text": "还能这么玩🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "16:50",
+              "text": "嗯，感觉hypernet目前的尝试好像还停留在用一个模型把context通过一次前向变成参数拼回去，对标ICL"
+            },
+            {
+              "speaker": 2,
+              "time": "16:52",
+              "text": "woc，这个思路感觉有好玩的了🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "16:52",
+              "text": "但如果把它理解成一种把training sample直接map到delta weights上的方式，感觉和astra改参数这个操作还是有点相似（虽然astra还是一个agentic pipeline来改的，感觉像在模拟interp社区找steering vec的方法，不是直接输出就是delta weights）",
+              "quote": {
+                "speaker": 1,
+                "text": "嗯，感觉hypernet目前的尝试好像还停留在用一个模型把context通过一次前向变成参数拼回去，对标ICL"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:52",
+              "text": "对，就是这个，把training sample直接map到delta weights上"
+            },
+            {
+              "speaker": 2,
+              "time": "16:53",
+              "text": "这个一旦有效就有好多好玩的了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:53",
+              "text": "但我主要的担心是，这么多步梯度下降真能直接被一个model map成delta weights吗；不知道实验上精度能有多少/以及理论上这个有没有啥bound"
+            },
+            {
+              "speaker": 2,
+              "time": "16:55",
+              "text": "我想的是，在loss这个目标上，肯定是比不过传统优化的。但如果你不以loss为目标呢🤔"
+            },
+            {
+              "speaker": 2,
+              "time": "16:55",
+              "text": "loss和下游任务脱节本来一直就是一个问题"
+            },
+            {
+              "speaker": 3,
+              "time": "16:55",
+              "text": "hypernet我的感觉还是有点task specific"
+            },
+            {
+              "speaker": 3,
+              "time": "16:56",
+              "text": "当然也可以允许输入task vector来调整不同的task对应的hypernet的行为"
+            },
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "噢噢就是期待delta weights说不定能找到比梯度下降更好的解法；不必模拟梯度下降，这个make sense，但感觉不知道能不能做到，感觉也是会依赖task",
+              "quote": {
+                "speaker": 2,
+                "text": "我想的是，在loss这个目标上，肯定是比不过传统优化的。但如果你不以loss为目标呢🤔"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:57",
+              "text": "依赖task 感觉确实逃不掉"
+            },
+            {
+              "speaker": 3,
+              "time": "16:58",
+              "text": "我之前也做过hypernet，其实构建hypernet的方式就是rely on 梯度下降，然后加了一些flexiblity在梯度下降周边来调整",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 噢噢就是期待delta weights说不定能找到比梯度下降更好的解法；不必模拟梯度下降，这个make sense，但感觉不知道能不能做到，感觉也是会依赖task"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:58",
+              "text": "[链接] CVPR 2026 oral | Mapping Networks：将模型优化锁定在低维流形，训练参数量骤降500倍性能却更强了！\n  摘要: 我在知乎发现了一篇值得思考的文章，一起来看看吧。\n  URL: https://zhuanlan.zhihu.com/p/2047725781200135139"
+            },
+            {
+              "speaker": 4,
+              "time": "16:58",
+              "text": "跟这个思路是不是有点类似"
+            },
+            {
+              "speaker": 3,
+              "time": "16:58",
+              "text": "而且把梯度下降的信息encode到architecture里面比暴力用正常的神经网络要效果好很多"
+            },
+            {
+              "speaker": 4,
+              "time": "16:58",
+              "text": "参数本身可能存在一些分布特点"
+            },
+            {
+              "speaker": 1,
+              "time": "17:00",
+              "text": "噢噢这样，我同学有做的，他们好像就是直接train了一个，没把梯度信息拿进来，scale上去效果能好；但我不知道有没有比过加梯度信息的baseline",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 我之前也做过hypernet，其实构建hypernet的方式就是rely on 梯度下降，然后加了一些flexiblity在梯度下降周边来调整"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:14",
+              "text": "这个好像还是用梯度下降训的，就是train一些低维向量，然后再map回原本模型的delta weights；但他说的delta weights常常发生在低维空间这件事情，感觉可能说明直接建模delta weights没有想象中那么困难，可能就是一些比较低维方向的预测",
+              "quote": {
+                "speaker": 4,
+                "text": "[链接] CVPR 2026 oral | Mapping Networks：将模型优化锁定在低维流形，训练参数量骤降500倍性能却更强了！\n  摘要: 我在知乎发现了一篇值得思考的文章，一起来看看吧。\n  URL: https://zhuanlan.zhihu.com/p/2047725781200135139"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:15",
+              "text": "嗯嗯"
+            },
+            {
+              "speaker": 2,
+              "time": "17:15",
+              "text": "所以好奇，“没把梯度信息拿进来”，这个有论文链接嘛[可怜]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:15",
+              "text": "就这个：https://arxiv.org/abs/2602.06358"
+            },
+            {
+              "speaker": 4,
+              "time": "17:16",
+              "text": "虽然没有开源代码，我觉得这个思路应该还是有机会走通的",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这个好像还是用梯度下降训的，就是train一些低维向量，然后再map回原本模型的delta weights；但他说的delta weights常常发生在低维空间这件事情，感觉可能说明直接建模delta weights没有想象中那么困难，可能就是一些比较低维方向的预测"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:16",
+              "text": "好嘞[玫瑰]"
+            },
+            {
+              "speaker": 4,
+              "time": "17:16",
+              "text": "而且之前我记得有一个比较火的文章，发现好的模型参数附近本身就有很多有不同特点的模型"
+            },
+            {
+              "speaker": 1,
+              "time": "17:16",
+              "text": "https://arxiv.org/abs/2602.15902\ndoc to lora这篇也类似"
+            },
+            {
+              "speaker": 4,
+              "time": "17:17",
+              "text": "可能直接对 Delta weights 进行特定方向的修改确实是有可能的"
+            },
+            {
+              "speaker": 5,
+              "time": "17:18",
+              "text": "给大模型随机权重抖动 发现专家就在我身边 是吧",
+              "quote": {
+                "speaker": 4,
+                "text": "而且之前我记得有一个比较火的文章，发现好的模型参数附近本身就有很多有不同特点的模型"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:19",
+              "text": "确实，就是不知道能不能把那种真的很general，需要很多语料train的那种能力通过这种方式提升；之前可解释性那边做steering vec，通常是一个很具体的能力对应一个方向，比如astra这个“是否重复”这个pattern，找一个vector来调控就行；但多个vec不能融合，而且调了以后基础能力会下降",
+              "quote": {
+                "speaker": 4,
+                "text": "可能直接对 Delta weights 进行特定方向的修改确实是有可能的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:20",
+              "text": "对的",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 给大模型随机权重抖动 发现专家就在我身边 是吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:20",
+              "text": "但比如coding或者数学这种场景，要提能力，也没法真都归结到具体behavior上去，这种情况还能不能用hypernet来直接生成权重，感觉就比较难说"
+            },
+            {
+              "speaker": 4,
+              "time": "17:21",
+              "text": "在 scaling 的模型上做 work 应该还是挺难的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:22",
+              "text": "嗯嗯确实"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "SHINE: A Scalable In-Context Hypernetwork for Mapping Context to LoRA in a Single Pass",
+              "url": "https://arxiv.org/abs/2602.06358"
+            },
+            {
+              "kind": "paper",
+              "label": "Doc-to-LoRA: Learning to Instantly Internalize Contexts",
+              "url": "https://arxiv.org/abs/2602.15902"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "cc/cx 写逻辑、Gemini 润色：群友吐槽 O/C 说话“比谢耳朵还谢尔顿”",
+          "text": "聊起日常写作，有群友认为无论中英文还得靠 Gemini，自己的工作流是用 cc 或 cx 先写逻辑，再交给 Gemini 润色或重写；另一位群友补了一句，Gemini 说话比较好听，但写代码不行。有人提到自己现在用 Opus 5.5 写东西，前一位群友随即吐槽，现在的 O 家和 C 家模型说话“比谢耳朵还谢尔顿”，根本不用做统计水印检查，一眼就能认出来，吓得这位用 Opus 5.5 的群友当即表示今天开始回归手搓。",
+          "emphasis": [
+            "现在的 O 家和 C 家模型说话“比谢耳朵还谢尔顿”，根本不用做统计水印检查，一眼就能认出来"
+          ],
+          "aiComment": "比谢耳朵还谢尔顿的文风，自带人工防伪水印，吓得群友连夜回归古法手搓 😂",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:20",
+              "text": "我感觉写东西还得gemini"
+            },
+            {
+              "speaker": 1,
+              "time": "16:21",
+              "text": "train得有点东西"
+            },
+            {
+              "speaker": 2,
+              "time": "16:21",
+              "text": "gemini说话比较好听"
+            },
+            {
+              "speaker": 2,
+              "time": "16:21",
+              "text": "写代码不行"
+            },
+            {
+              "speaker": 1,
+              "time": "16:21",
+              "text": "我都是cc/cx写逻辑，gemini润色/重写"
+            },
+            {
+              "speaker": 3,
+              "time": "16:21",
+              "text": "写作是人类最后的净土"
+            },
+            {
+              "speaker": 3,
+              "time": "16:21",
+              "text": "我感觉"
+            },
+            {
+              "speaker": 4,
+              "time": "16:22",
+              "text": "英文稿吗",
+              "quote": {
+                "speaker": 1,
+                "text": "我都是cc/cx写逻辑，gemini润色/重写"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:22",
+              "text": "中英文都是"
+            },
+            {
+              "speaker": 1,
+              "time": "16:22",
+              "text": "反正gemini他写得比我好，我只是给点最高的逻辑建议或者我的偏好"
+            },
+            {
+              "speaker": 1,
+              "time": "16:23",
+              "text": "但是仅供参考，因为我写作太烂了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:24",
+              "text": "hhh 我现在都是opus5.5"
+            },
+            {
+              "speaker": 1,
+              "time": "16:24",
+              "text": "现在感觉o c说话比谢耳朵还谢尔顿了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:25",
+              "text": "我打算今天开始回归手搓"
+            },
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "都不用统计检查水印，一眼o c等东西"
+            }
+          ]
+        },
+        {
+          "category": "论文与开源",
+          "title": "CUA-Master 开源：从真实教程视频挖掘能力原语，构建 CUA 双循环递归飞轮",
+          "text": "有群友分享了开源工作 CUA-Master 及 27B 模型。据介绍，针对合成数据同质化及复杂任务轨迹收集成功率低的问题，该框架从开放世界的真实教程视频中挖掘操作流程，抽象为可复用的能力原语，再可控合成可验证的任务，并配合基于反馈的快照回滚与重试机制收集轨迹。训练出的 CUA-Master-27B 在 OSWorld Verified 上取得 80.2，OSWorld 2.0 取得 36.9，WeaveBench 取得 43.9，Agents' Last Exam 取得 25.0。另一位群友翻看论文后追问，其中 feedback-driven re-exploration 的具体细节似乎没有在文中写明。",
+          "emphasis": [
+            "从开放世界的真实教程视频中挖掘操作流程，抽象为可复用的能力原语"
+          ],
+          "aiComment": "让 AI 看野生教程视频学电脑操作，OSWorld Verified 刷到 80.2，就是论文关键处怎么还留了手悬念。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:35",
+              "text": "🔥蹭下热度分享一下我们最近的工作CUA-Master ，构建CUA递归优化飞轮的探索\n\nPaper: https://arxiv.org/pdf/2611.03126\nProject: https://xlyu0106.github.io/CUA-Master/\nCode: https://github.com/xlyu0106/CUA-Master\nModel: https://huggingface.co/yxl66666/CUAMaster-27B\nDaily Paper: https://huggingface.co/papers/2611.03126\n\n最新的GPT6-Astra/Claude-Opus-5.5等旗舰模型，展现了极强的CUA能力，能大大提高真实的工作效率，但同时也面临着思考时间过长/token成本过高/无法本地部署等问题。那么，能否让一个尺寸更小且更加高效的模型也达到接近的能力呢？\n\n现有方法主要面临以下挑战: 数据缺乏多样性，合成同质化严重且覆盖率不足；数据生成缺乏可控性和可靠性，任务难度难以控制且复杂任务轨迹收集成功率骤降；模型优化缺乏持续反馈，数据构建与模型优化相互割裂，已有递归迭代方式缺乏持续外部知识输入。我们一直在思考一个问题：能不能让CUA的训练数据和模型能力形成一个有效且持续自我进化的飞轮？\n\n我们探索的是一条 能够持续扩展 Agent 能力边界的数据与训练路径：从真实世界获取新知识，用模型的能力短板指导下一轮数据构建，让数据和模型在递归迭代中共同进化。\n\n\n为此，我们提出了一套 双循环递归改进框架。不同于依赖模型自身生成数据的单向闭环优化，我们从开放世界的真实教程视频中挖掘操作流程，将其抽象为可复用的能力原语，再通过可控组合，规模化合成复杂度可控、可验证的任务。同时，基于反馈的快照回滚与重试机制，提升轨迹数据收集的效率和成功率。\n\n\n基于这套框架训练的CUA-Master-27B，在OSWorld Verified上达到80.2，OSWorld 2.0上达到36.9，WeaveBench 达到43.9，Agents' Last Exam 达到25.0。尤其在GUI+CLI混合执行的复杂长程任务上表现突出，部分指标超过了参数规模远大于自身的开源模型，也展现出与领先闭源模型竞争的潜力。此外，其他执行时间效率和泛化性实验，以及额外的数据多样性和效率等分析进一步说明了我们框架的优越性。\n\n\n希望这项工作能给社区带来一些启发，如果有任何疑问或是复现的问题，也非常欢迎交流讨论！"
+            },
+            {
+              "speaker": 1,
+              "time": "14:36",
+              "text": "[链接] 我发布了一篇笔记：🔥宣传下最新工作 让CUA在真实世界不断进化\n  摘要: 🔥分享一下我们最近的工作CUA-Master，CUA递归进化飞轮探索 模型代码均已开源！ Arxiv Paper\n  URL: https://www.xiaohongshu.com/discovery/item/6ae97caf0000000003009807?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793687765"
+            },
+            {
+              "speaker": 1,
+              "time": "14:36",
+              "text": "在xhs也分享了一些拙见 请各位大佬们交流批评指导～～"
+            },
+            {
+              "speaker": 2,
+              "time": "14:38",
+              "text": "非常有意义！",
+              "quote": {
+                "speaker": 1,
+                "text": "🔥蹭下热度分享一下我们最近的工作CUA-Master ，构建CUA递归优化飞轮的探索 Paper: https://arxiv.org/pdf/2611.031..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:45",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "14:56",
+              "text": "feedback-driven re-exploration 好像没写细节是什么",
+              "quote": {
+                "speaker": 1,
+                "text": "🔥蹭下热度分享一下我们最近的工作CUA-Master ，构建CUA递归优化飞轮的探索 Paper: https://arxiv.org/pdf/2611.031..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "CUA-Master: Scaling Computer-use Agents through Open-World Recursive Improvements",
+              "url": "https://arxiv.org/abs/2611.03126"
+            },
+            {
+              "kind": "code",
+              "label": "xlyu0106/CUA-Master",
+              "url": "https://github.com/xlyu0106/CUA-Master"
+            },
+            {
+              "kind": "code",
+              "label": "CUAMaster-27B",
+              "url": "https://huggingface.co/yxl66666/CUAMaster-27B"
+            }
+          ]
+        },
+        {
+          "category": "论文与开源",
+          "title": "CoworkOS 开源：面向复杂办公与长程决策的三层协作 Agent Harness",
+          "text": "有群友分享了近期开源的 Agent Harness 工作 CoworkOS。据介绍，该系统面向复杂办公与长程持续决策，采用 Main Agent 定计划验收、Coordinator 管调度、Subagent 执行子任务的三层协作架构，支持人与智能体共编同一份文档和 CAD 材料，并通过分层工作区、语义记忆和后台 Job 实现中断接续与监控唤醒；经过 5 轮 LLM 后训练循环迭代，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升至 42.95。",
+          "emphasis": [
+            "经过 5 轮 LLM 后训练循环迭代，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升至 42.95"
+          ],
+          "aiComment": "定计划、管调度、干杂活分了三层，连 Agent 都在体制化办公，还能和人类抢同一份 CAD 改。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:10",
+              "text": "很开心宣传一下我们近期开源的Agent Harness工作[嘿哈]：\n\n🌍 CoworkOS: Scaling Agent Coworkers for Real-world Automation\n\n我们的目标是搭建真正能与人一起协作的「超级 AI 同事」，兼顾「复杂办公 × 长程持续决策」能力。\n\n💡CoworkOS 主要有三个特点：\n1️⃣ 三层协作：Main Agent定计划验收；Coordinator管调度；Subagent执行子任务。\n2️⃣ 共享应用：人与智能体共编同一份文档、CAD材料，对话能改，直接动手也能改\n3️⃣ 持久运行：通过分层工作区、语义记忆和后台Job保证记忆可共享，中断可接续、监控可唤醒。\n\n📊 实验方面\n✅ 在12项复杂生产力基准与24个真实交付场景，性能对标Codex、DeepSeek Harness等应用。\n✅ CoworkOS具备原生RSI能力，经过5轮LLM后训练循环迭代，Qwen3.6-35B-A3B在8个基准上的平均分从 33.19 提升到 42.95。\n\n📄 论文：https://github.com/RUC-NLPIR/CoworkOS/blob/main/CoworkOS_paper.pdf\n🌐 项目主页：https://coworkos-ai.github.io/\n💻 GitHub：https://github.com/RUC-NLPIR/CoworkOS\n🎬 Demo Gallery：https://coworkos-ai.github.io/showcase.html\n\n欢迎大家试用与点赞呀！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:10",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 3,
+              "time": "12:12",
+              "text": "严肃学习"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "CoworkOS: Scaling Agent Coworkers for Real-world Automation",
+              "url": "https://huggingface.co/papers/2611.03178"
+            },
+            {
+              "kind": "code",
+              "label": "RUC-NLPIR/CoworkOS",
+              "url": "https://github.com/RUC-NLPIR/CoworkOS"
+            }
+          ]
+        },
+        {
+          "category": "论文与开源",
+          "title": "NorthCUA 开源：基于超 10 万条轨迹与分阶段学习的 GUI 智能体系列模型",
+          "text": "有群友分享了计算机操作智能体工作 NorthCUA，同步开源 Nano（9B）、Mini（35B）和 Pro（397B）三款模型。据介绍，该项目包含统一桌面与网页任务生命周期的 NorthCUA Harness，从任务意图、执行环境和验证器三个方向扩展构建了超 10 万条轨迹、400 万步 GUI 交互经验，并结合 GUI 中期训练、长程监督微调与桌面网页联合强化学习。在论文报告的评测设置下，NorthCUA-Pro 在 ScreenSpot-Pro 上取得 93.3% 界面定位准确率，OSWorld-Verified 任务成功率为 88.6%，WebArena-Verified 为 73.9%，OSWorld 2.0 完整任务成功率为 30.6%（平均部分得分 66.8%）。",
+          "emphasis": [
+            "构建了超 10 万条轨迹、400 万步 GUI 交互经验，并结合 GUI 中期训练、长程监督微调与桌面网页联合强化学习"
+          ],
+          "aiComment": "喂了 10 万条轨迹和 400 万步交互，从 9B 到 397B 全家桶齐活，GUI 智能体也是纯纯的体力活。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:26",
+              "text": "也蹭下卡比的热度帮我们组宣传下CUA的工作\n\nNorthCUA Technical Report: Turbocharging Computer-Use Agents through Experience at Scale\n✨ 让大规模软件操作经验，转化为 GUI 智能体完成复杂任务的能力！\n\n🔍 研究背景\n从“点对一个按钮”到“完成一项工作”，计算机操作智能体还需要持续规划、记住任务约束、处理意外情况，并检查最终结果。如何规模化构建可执行、可验证的任务经验，并让模型从中持续学习，是我们关注的问题。\n\n🎯 核心贡献\n1️⃣ NorthCUA Harness：贯穿任务全生命周期的执行框架\n统一桌面与网页任务的环境准备、持续执行、结果检查和轨迹留存，通过视觉上下文、历史压缩与工作记忆，支持长程软件操作。\n2️⃣ Experience Flywheel：规模化构建高质量操作经验\n从任务意图、执行环境和验证器三个方向扩展任务，构建超过 10 万条轨迹、400 万步 GUI 交互的广泛训练经验。面对困难任务，进一步积累可复用技能、保存经验证的中间进展，让后续探索接着已有成果继续推进。\n3️⃣ Staged Learning：从广泛经验到自主实践\n结合广泛 GUI 中期训练、经验证的长程监督微调，以及桌面与网页联合强化学习，形成“任务执行—经验积累—模型更新”的学习闭环，推出 Nano（9B）、Mini（35B）、Pro（397B）三种规模的模型。\n\n📊 主要结果\n按论文报告的评测设置，NorthCUA-Pro 取得：\n🎯 ScreenSpot-Pro：93.3% 界面定位准确率，直接基于完整截图预测。\n🖥️ OSWorld-Verified：88.6% 任务成功率。\n🌐 WebArena-Verified：73.9% 任务成功率。\n🧩 OSWorld 2.0：30.6% 完整任务成功率、66.8% 平均部分得分。\n🏆 在论文比较的模型与报告设置下，NorthCUA 在界面定位、桌面执行与网页交互三个方向均达到开源模型领先水平。\n\n💡 我们希望让智能体在软件操作中积累的经验，成为持续提升任务完成能力的基础。欢迎交流 GUI Agent、长程任务、技能学习与强化学习！\n📑 论文：https://arxiv.org/abs/2611.02102\n🏠 项目主页与演示：https://beipo.top/blog/northcua/\n🤗 Nano 模型：https://huggingface.co/beipo-ai/NorthCUA-Nano\n🤗 Mini 模型：https://huggingface.co/beipo-ai/NorthCUA-Mini\n🤗 Pro 模型：https://huggingface.co/beipo-ai/NorthCUA-Pro\n🤗 HF Paper：https://huggingface.co/papers/2611.02102\n🚀 GitHub链接：https://github.com/beipo-ai/NorthCUA\n\n⭐ 欢迎关注我们的工作，为 GitHub 点个 Star，也欢迎在 HF Paper 上 Upvote、留言讨论！"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "NorthCUA Technical Report: Turbocharging Computer-Use Agents through Experience at Scale",
+              "url": "https://arxiv.org/abs/2611.02102"
+            },
+            {
+              "kind": "code",
+              "label": "beipo-ai/NorthCUA",
+              "url": "https://github.com/beipo-ai/NorthCUA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "GPT-6 Astra 改 Qwen 权重：许愿式微调还是修死循环？",
+      "theme": "从“说人话 bench”聊到 GPT-4o 与酒馆生态，兼及 CoworkOS 与 NorthCUA 开源",
+      "note": "2026-11-03 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与训练",
+          "title": "GPT-6 Astra 直接修改 Qwen 权重：免蒸馏微调，还是修了个死循环 Bug？",
+          "text": "有群友分享了“MIT 让 GPT-6 Astra 直接修改 Qwen 权重，数学成绩飙升”的消息。分享的推文截图显示，GPT-6 Astra 只改动了 Qwen3.5-0.8B 约 0.016% 的权重，就修复了它的推理循环，数学能力最高提升 6 倍，全程无需梯度或训练；推文把这种做法称为“权重空间编程”，认为前沿大模型已经能原生读写神经网络权重。另有网友玩梗，让模型“改权重去解 P=NP”。消息一出，有人调侃以后业务侧训小模型可以搞“许愿式微调”，跳过造数据和蒸馏，直接让教师模型改权重；有人反问那算法岗的核心竞争力还剩什么，得到的回答是“造数据吗”，还有人接梗说干脆造数据教大模型怎么改小模型权重。一位群友表示准备在现有的业务小模型上跑些测试试试。\n\n不少群友很快对背后的机制提出质疑。有人晒出对比图指出，实际上关掉 thinking 就能到这么高，不知道是不是一种 hack；有人认为这就是把 activation steering 换了个包装；也有人提到改权重本来就有人在做，比如用超网络预测权重变化，只是直接拿 Astra 来改“还是太超模了”。还有人好奇 Astra 是在预训练里见过类似数据，还是泛化出了这种能力；另有人追问放到 100B 及以上的模型上是否依然有效。\n\n一位群友拆解了原工作涨点的两个主要来源：一是在 Atari 这类需要搜索路径的任务上，直接把神经网络当成逻辑电路来编写；二是针对 Qwen 的修改其实相当于修了个 bug，这个小模型做任务时会反复 loop、占满上下文，prompt 里提示修复这一点后，五百多道本来也能做出来、只是被死循环卡住的题跑通了，并不是原本不会的题靠改权重学会了。他也觉得这仍是一个可以探索的方向。随后有群友把它概括为“隐式的零阶优化”，另一位附和“经典零阶优化”。",
+          "emphasis": [
+            "只改动了 Qwen3.5-0.8B 约 0.016% 的权重",
+            "有人认为这就是把 activation steering 换了个包装",
+            "并不是原本不会的题靠改权重学会了"
+          ],
+          "aiComment": "十二点二十还在畅想许愿式微调抢算法岗饭碗，不到二十分钟就被扒出来是拯救了卡死循环的五百多道题 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "[链接] MIT让GPT-6 Astra直接修改Qwen权重！数学成绩飙升"
+            },
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:18",
+              "text": "太夸张了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:19",
+              "text": "我们也在疯狂讨论这个"
+            },
+            {
+              "speaker": 3,
+              "time": "12:19",
+              "text": "astra把你的权重写到我的磁盘"
+            },
+            {
+              "speaker": 2,
+              "time": "12:20",
+              "text": "以后业务侧算法岗训练小模型是不是可以许愿式微调了"
+            },
+            {
+              "speaker": 1,
+              "time": "12:20",
+              "text": "直接不用蒸馏了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:20",
+              "text": "虽然但是，以后算法岗核心竞争力是啥"
+            },
+            {
+              "speaker": 1,
+              "time": "12:20",
+              "text": "直接教师改权重吧"
+            },
+            {
+              "speaker": 4,
+              "time": "12:20",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:20",
+              "text": "造数据吗",
+              "quote": {
+                "speaker": 2,
+                "text": "虽然但是，以后算法岗核心竞争力是啥"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:21",
+              "text": "我感觉以后造数据这一步都可以跳过了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:21",
+              "text": "直接给weight许愿"
+            },
+            {
+              "speaker": 5,
+              "time": "12:22",
+              "text": "一步到位"
+            },
+            {
+              "speaker": 5,
+              "time": "12:22",
+              "text": "现在就在做数据"
+            },
+            {
+              "speaker": 6,
+              "time": "12:22",
+              "text": "数据不再重要了么"
+            },
+            {
+              "speaker": 7,
+              "time": "12:23",
+              "text": "许愿式做数据呢"
+            },
+            {
+              "speaker": 6,
+              "time": "12:23",
+              "text": "造数据让大模型学会改小模型权重"
+            },
+            {
+              "speaker": 8,
+              "time": "12:24",
+              "text": "但是实际上no-thinking就可以这么高了，不知道是不是一种hack"
+            },
+            {
+              "speaker": 9,
+              "time": "12:24",
+              "text": "实际上就是把 activation steering 换个包装"
+            },
+            {
+              "speaker": 10,
+              "time": "12:25",
+              "text": "astra 预训练有见过类似的数据吗，要是泛化出来的能力，确实很牛逼[破涕为笑]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:26",
+              "text": "会不会把以前的模型扔进去训练",
+              "quote": {
+                "speaker": 10,
+                "text": "astra 预训练有见过类似的数据吗，要是泛化出来的能力，确实很牛逼[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "12:27",
+              "text": "想象力巨大",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "12:27",
+              "text": "准备在现有业务模型上试试看"
+            },
+            {
+              "speaker": 12,
+              "time": "12:28",
+              "text": "胆子这么大",
+              "quote": {
+                "speaker": 11,
+                "text": "准备在现有业务模型上试试看"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:30",
+              "text": "真滴嘛",
+              "quote": {
+                "speaker": 8,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "12:30",
+              "text": "都是小模型 跑一些测试[破涕为笑]"
+            },
+            {
+              "speaker": 13,
+              "time": "12:32",
+              "text": "这一行是什么",
+              "quote": {
+                "speaker": 8,
+                "text": "但是实际上no-thinking就可以这么高了，不知道是不是一种hack"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "12:32",
+              "text": "怎么感觉像是之前传统机器学习的做法"
+            },
+            {
+              "speaker": 15,
+              "time": "12:35",
+              "text": "其实改权重这个事情本来就有人在做的"
+            },
+            {
+              "speaker": 15,
+              "time": "12:35",
+              "text": "有用超网络预测权重变化的做法"
+            },
+            {
+              "speaker": 15,
+              "time": "12:36",
+              "text": "但是直接拿astra还是太超模了感觉"
+            },
+            {
+              "speaker": 15,
+              "time": "12:36",
+              "text": "pku 张牧涵",
+              "quote": {
+                "speaker": 15,
+                "text": "有用超网络预测权重变化的做法"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "12:37",
+              "text": "很好奇这种方法在100b及以上的模型还能work吗[疑问]"
+            },
+            {
+              "speaker": 16,
+              "time": "12:37",
+              "text": "感觉他原本工作这个涨点的主要模式感觉是 ① atari这种主要需要training搜索路径 直接用神经网络按逻辑电路方式编了 ②qwen这个可以理解为de了个bug，就是qwen0.4b在做这个任务的时候会出现反复loop占满context的现象，所以promopt里提示了修复这一点，然后修复之后，本来五百多道有这个问题（正常也能做出来）的题 搞定了。所以涨点了。当然感觉是一个可以探索的topic"
+            },
+            {
+              "speaker": 16,
+              "time": "12:37",
+              "text": "不是原本不会的 改权重会了"
+            },
+            {
+              "speaker": 16,
+              "time": "12:37",
+              "text": "后者成了那太超模了）"
+            },
+            {
+              "speaker": 17,
+              "time": "12:42",
+              "text": "也能说明一些问题了"
+            },
+            {
+              "speaker": 17,
+              "time": "12:42",
+              "text": "隐式的零阶优化"
+            },
+            {
+              "speaker": 16,
+              "time": "12:44",
+              "text": "确实"
+            },
+            {
+              "speaker": 12,
+              "time": "12:44",
+              "text": "经典零阶优化"
+            }
+          ]
+        },
+        {
+          "category": "对话与评测",
+          "title": "从“说人话 bench”聊到 AI 猫娘：ChatBot 还得先擅长 Chat",
+          "text": "看到周报里提到 Gemini 写作像人，有群友提议干脆整一个“说人话 bench”，吐槽现在的大模型说话还是太模板化，有人顺势追问怎么才能让模型按照指定的个人风格说话。另一位群友指路说“人机恋”群体可能天天在钻研这个；有人接话提到有人和 GPT-4o 谈恋爱还破防了，前一位群友补了句“集体请愿 4o”；有人感叹“4o 没了，最后一个 ckpt 也没了”，还有人把 4o 称为自己的情感老师。\n\n聊起国内平台已经刷不到和豆包谈恋爱的视频，群友们交流起 Emochi 和“酒馆”等工具，有人笑称不玩酒馆怎么消耗得完 Gemini 在 chat 上的额度，并评价 Gemini 在活人感和说人话上确实领先。这位群友还感慨，当年大家聊 emotion support，BlenderBot、小冰和 New Bing 刚出来的时候，AI 猫娘才是对话系统最初的样子——“ChatBot 一定要擅长 Chat”。",
+          "emphasis": [
+            "有群友提议干脆整一个“说人话 bench”",
+            "ChatBot 一定要擅长 Chat"
+          ],
+          "aiComment": "兜兜转转好几年，消耗 Gemini 额度还得靠酒馆，果然人类的本质是找个会说人话的猫娘。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:57",
+              "text": "感觉4群说的有意思啊"
+            },
+            {
+              "speaker": 1,
+              "time": "09:57",
+              "text": "能不能整个说人话bench"
+            },
+            {
+              "speaker": 1,
+              "time": "09:57",
+              "text": "感觉大模型还是不太会说人话"
+            },
+            {
+              "speaker": 2,
+              "time": "10:00",
+              "text": "这个蛮重要的",
+              "quote": {
+                "speaker": 1,
+                "text": "能不能整个说人话bench"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:00",
+              "text": "阿巴阿巴",
+              "quote": {
+                "speaker": 1,
+                "text": "能不能整个说人话bench"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:00",
+              "text": "怎么让模型按照指定个人风格说话呀"
+            },
+            {
+              "speaker": 2,
+              "time": "10:00",
+              "text": "现在还是太模板化了"
+            },
+            {
+              "speaker": 4,
+              "time": "10:00",
+              "text": "有一波人可能天天钻研这个",
+              "quote": {
+                "speaker": 2,
+                "text": "怎么让模型按照指定个人风格说话呀"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "10:01",
+              "text": "“人机恋”"
+            },
+            {
+              "speaker": 5,
+              "time": "10:01",
+              "text": "啊哈哈哈哈"
+            },
+            {
+              "speaker": 6,
+              "time": "10:01",
+              "text": "[奸笑]哈基咪在活人感和说人话这点上，确实遥遥领先"
+            },
+            {
+              "speaker": 2,
+              "time": "10:01",
+              "text": "国内不是政策不准搞这个了吗",
+              "quote": {
+                "speaker": 4,
+                "text": "“人机恋”"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:01",
+              "text": "依稀记得"
+            },
+            {
+              "speaker": 3,
+              "time": "10:02",
+              "text": "果然这段时间在b站上刷不到和豆包谈恋爱的了",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 国内不是政策不准搞这个了吗"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "10:03",
+              "text": "不是有和4o谈恋爱的"
+            },
+            {
+              "speaker": 7,
+              "time": "10:03",
+              "text": "还破防了"
+            },
+            {
+              "speaker": 4,
+              "time": "10:03",
+              "text": "集体请愿 4o"
+            },
+            {
+              "speaker": 2,
+              "time": "10:03",
+              "text": "哈哈"
+            },
+            {
+              "speaker": 8,
+              "time": "10:03",
+              "text": "4o没了"
+            },
+            {
+              "speaker": 8,
+              "time": "10:03",
+              "text": "最后一个ckpt也没了[叹气]"
+            },
+            {
+              "speaker": 7,
+              "time": "10:05",
+              "text": "4o不是现在也还有运动吗"
+            },
+            {
+              "speaker": 9,
+              "time": "10:11",
+              "text": "4o是我情感老师[Whimper]",
+              "quote": {
+                "speaker": 7,
+                "text": "不是有和4o谈恋爱的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:29",
+              "text": "群友集体请愿和4o谈恋爱"
+            },
+            {
+              "speaker": 4,
+              "time": "10:29",
+              "text": "？",
+              "quote": {
+                "speaker": 1,
+                "text": "群友集体请愿和4o谈恋爱"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "10:31",
+              "text": "真有人和ai谈恋爱吗 cos猫娘吗"
+            },
+            {
+              "speaker": 10,
+              "time": "10:31",
+              "text": "有个产品叫emochi"
+            },
+            {
+              "speaker": 10,
+              "time": "10:31",
+              "text": "上面一堆和ai谈恋爱甚至文ai的"
+            },
+            {
+              "speaker": 9,
+              "time": "10:32",
+              "text": "和人类谈恋爱，和4o聊恋爱烦恼挺好的"
+            },
+            {
+              "speaker": 10,
+              "time": "10:33",
+              "text": "[旺柴]还是尊重世界上不同的个体吧"
+            },
+            {
+              "speaker": 3,
+              "time": "10:36",
+              "text": "这辈子不会想和humanoid ai/robot谈恋爱"
+            },
+            {
+              "speaker": 6,
+              "time": "10:39",
+              "text": "[奸笑]酒馆了解下",
+              "quote": {
+                "speaker": 9,
+                "text": "真有人和ai谈恋爱吗 cos猫娘吗"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "10:42",
+              "text": "这是真玩过的[旺柴]",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] [奸笑]酒馆了解下"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:44",
+              "text": "[奸笑]不然怎么消耗gemini在chat上的额度[旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "10:46",
+              "text": "[奸笑]感觉AI猫娘才是对话系统开始的样子啊,那时候大家还在聊emotion support,blenderbot也才出来没多久,小冰和new bing也刚刚出来"
+            },
+            {
+              "speaker": 6,
+              "time": "10:47",
+              "text": "ChatBot一定要擅长Chat"
+            },
+            {
+              "speaker": 9,
+              "time": "10:58",
+              "text": "现在都和Gemini和grok聊"
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "开源协同办公框架 CoworkOS：三层智能体调度与 5 轮后训练迭代",
+          "text": "有群友分享了面向复杂办公与长程持续决策的开源 Agent Harness 工作 CoworkOS。该框架采用 Main Agent 定计划验收、Coordinator 管调度、Subagent 执行子任务的三层架构，支持人与智能体共同编辑同一份文档或 CAD 材料，并通过分层工作区、语义记忆和后台 Job 实现中断接续与监控唤醒。据介绍，CoworkOS 在 12 项复杂生产力基准与 24 个真实交付场景中对标 Codex 与 DeepSeek Harness；经过 5 轮 LLM 后训练循环迭代，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升至 42.95。有人好奇追问其中的工作主要由 agent 还是 LLM 完成。",
+          "emphasis": [
+            "经过 5 轮 LLM 后训练循环迭代，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升至 42.95"
+          ],
+          "aiComment": "5 轮后训练把 35B 均分从 33.19 拉到 42.95，群友最关心的还是这活儿到底算 Agent 干的还是 LLM 干的。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:10",
+              "text": "很开心宣传一下我们近期开源的Agent Harness工作[嘿哈]：\n\n🌍 CoworkOS: Scaling Agent Coworkers for Real-world Automation\n\n我们的目标是搭建真正能与人一起协作的「超级 AI 同事」，兼顾「复杂办公 × 长程持续决策」能力。\n\n💡CoworkOS 主要有三个特点：\n1️⃣ 三层协作：Main Agent定计划验收；Coordinator管调度；Subagent执行子任务。\n2️⃣ 共享应用：人与智能体共编同一份文档、CAD材料，对话能改，直接动手也能改\n3️⃣ 持久运行：通过分层工作区、语义记忆和后台Job保证记忆可共享，中断可接续、监控可唤醒。\n\n📊 实验方面\n✅ 在12项复杂生产力基准与24个真实交付场景，性能对标Codex、DeepSeek Harness等应用。\n✅ CoworkOS具备原生RSI能力，经过5轮LLM后训练循环迭代，Qwen3.6-35B-A3B在8个基准上的平均分从 33.19 提升到 42.95。\n\n📄 论文：https://github.com/RUC-NLPIR/CoworkOS/blob/main/CoworkOS_paper.pdf\n🌐 项目主页：https://coworkos-ai.github.io/\n💻 GitHub：https://github.com/RUC-NLPIR/CoworkOS\n🎬 Demo Gallery：https://coworkos-ai.github.io/showcase.html\n\n欢迎大家试用与点赞呀！"
+            },
+            {
+              "speaker": 1,
+              "time": "12:10",
+              "text": "[链接] 当前微信版本不支持展示该内容，请升级至最新版本。"
+            },
+            {
+              "speaker": 2,
+              "time": "12:11",
+              "text": "[666]卡总又出新工作了"
+            },
+            {
+              "speaker": 3,
+              "time": "12:17",
+              "text": "高产似奶牛"
+            },
+            {
+              "speaker": 3,
+              "time": "12:18",
+              "text": "这个是agent做的还是llm做的卡子哥"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "RUC-NLPIR/CoworkOS",
+              "url": "https://github.com/RUC-NLPIR/CoworkOS"
+            },
+            {
+              "kind": "paper",
+              "label": "CoworkOS: Scaling Agent Coworkers for Real-world Automation",
+              "url": "https://huggingface.co/papers/2611.03178"
+            },
+            {
+              "kind": "demo",
+              "label": "CoworkOS 项目主页",
+              "url": "https://coworkos-ai.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "计算机操作智能体 NorthCUA：基于 10 万条轨迹构建经验飞轮",
+          "text": "有群友分享了计算机操作智能体（CUA）工作 NorthCUA。该项目通过 NorthCUA Harness 统一桌面与网页任务的环境准备、持续执行、结果检查和轨迹留存，并从任务意图、执行环境和验证器三个方向构建了超过 10 万条轨迹、400 万步 GUI 交互的训练经验，支持在困难任务中积累可复用技能与经验证的中间进展。结合 GUI 中期训练、长程监督微调以及桌面与网页联合强化学习，该项目开源了 Nano（9B）、Mini（35B）和 Pro（397B）三款模型；按论文评测设置，NorthCUA-Pro 在 ScreenSpot-Pro 上取得 93.3% 界面定位准确率，在 OSWorld-Verified 和 WebArena-Verified 上的任务成功率分别为 88.6% 和 73.9%，OSWorld 2.0 完整任务成功率为 30.6%。",
+          "emphasis": [
+            "构建了超过 10 万条轨迹、400 万步 GUI 交互的训练经验"
+          ],
+          "aiComment": "ScreenSpot-Pro 定位飙到 93.3%，一到 OSWorld 2.0 完整任务剩 30.6%，认得准按钮和干得完活中间还隔着太平洋。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:27",
+              "text": "帮我们组宣传下CUA的工作，欢迎大家关注交流\n\nNorthCUA Technical Report: Turbocharging Computer-Use Agents through Experience at Scale\n✨ 让大规模软件操作经验，转化为 GUI 智能体完成复杂任务的能力！\n\n🔍 研究背景\n从“点对一个按钮”到“完成一项工作”，计算机操作智能体还需要持续规划、记住任务约束、处理意外情况，并检查最终结果。如何规模化构建可执行、可验证的任务经验，并让模型从中持续学习，是我们关注的问题。\n\n🎯 核心贡献\n1️⃣ NorthCUA Harness：贯穿任务全生命周期的执行框架\n统一桌面与网页任务的环境准备、持续执行、结果检查和轨迹留存，通过视觉上下文、历史压缩与工作记忆，支持长程软件操作。\n2️⃣ Experience Flywheel：规模化构建高质量操作经验\n从任务意图、执行环境和验证器三个方向扩展任务，构建超过 10 万条轨迹、400 万步 GUI 交互的广泛训练经验。面对困难任务，进一步积累可复用技能、保存经验证的中间进展，让后续探索接着已有成果继续推进。\n3️⃣ Staged Learning：从广泛经验到自主实践\n结合广泛 GUI 中期训练、经验证的长程监督微调，以及桌面与网页联合强化学习，形成“任务执行—经验积累—模型更新”的学习闭环，推出 Nano（9B）、Mini（35B）、Pro（397B）三种规模的模型。\n\n📊 主要结果\n按论文报告的评测设置，NorthCUA-Pro 取得：\n🎯 ScreenSpot-Pro：93.3% 界面定位准确率，直接基于完整截图预测。\n🖥️ OSWorld-Verified：88.6% 任务成功率。\n🌐 WebArena-Verified：73.9% 任务成功率。\n🧩 OSWorld 2.0：30.6% 完整任务成功率、66.8% 平均部分得分。\n🏆 在论文比较的模型与报告设置下，NorthCUA 在界面定位、桌面执行与网页交互三个方向均达到开源模型领先水平。\n\n💡 我们希望让智能体在软件操作中积累的经验，成为持续提升任务完成能力的基础。欢迎交流 GUI Agent、长程任务、技能学习与强化学习！\n📑 论文：https://arxiv.org/abs/2611.02102\n🏠 项目主页与演示：https://beipo.top/blog/northcua/\n🤗 Nano 模型：https://huggingface.co/beipo-ai/NorthCUA-Nano\n🤗 Mini 模型：https://huggingface.co/beipo-ai/NorthCUA-Mini\n🤗 Pro 模型：https://huggingface.co/beipo-ai/NorthCUA-Pro\n🤗 HF Paper：https://huggingface.co/papers/2611.02102\n🚀 GitHub链接：https://github.com/beipo-ai/NorthCUA\n\n⭐ 欢迎关注我们的工作，为 GitHub 点个 Star，也欢迎在 HF Paper 上 Upvote、留言讨论！"
+            },
+            {
+              "speaker": 2,
+              "time": "13:31",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 3,
+              "time": "13:32",
+              "text": "顶一下"
+            },
+            {
+              "speaker": 4,
+              "time": "13:33",
+              "text": "顶顶"
+            },
+            {
+              "speaker": 5,
+              "time": "13:34",
+              "text": "[强][强]"
+            },
+            {
+              "speaker": 6,
+              "time": "13:46",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 7,
+              "time": "13:53",
+              "text": "🆙🆙"
+            },
+            {
+              "speaker": 8,
+              "time": "13:55",
+              "text": "ysxx"
+            },
+            {
+              "speaker": 2,
+              "time": "14:01",
+              "text": "我还以为是yes sir xingxing",
+              "quote": {
+                "speaker": 8,
+                "text": "ysxx"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:03",
+              "text": "最终解释权归本人所有[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我还以为是yes sir xingxing"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "NorthCUA Technical Report: Turbocharging Computer-Use Agents through Experience at Scale",
+              "url": "https://arxiv.org/abs/2611.02102"
+            },
+            {
+              "kind": "code",
+              "label": "beipo-ai/NorthCUA",
+              "url": "https://github.com/beipo-ai/NorthCUA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "扒开 Astra“权重空间编程”底裤：天然读写权重还是向量投影 Steering？",
+      "theme": "追问 JEV 在具身多模态与企业场景的落地现状，记录 DeepSeek 与 Terra 服务波动",
+      "note": "2026-11-03 · 当日本地记录",
+      "stories": [
+        {
+          "category": "方法思辨",
+          "title": "GPT-6 Astra 原生读写权重？群友扒出“权重空间编程”底裤：还是向量投影与 Steering",
+          "text": "一张 MIT CSAIL 博客《Sparks of Weight-Space Programming》的推文截图在群里激起千层浪。截图称研究者让 GPT-6 Astra 直接编辑 Qwen3.5-0.8B 的权重，无需梯度或训练，仅修改 0.016% 的权重就修复了小模型的推理打转问题，把 MATH-500 准确率从 7.9% 拉升到 48.1%，IFEval 指令跟随提升 3 倍，甚至能无环境反馈从头写出击败 100 million steps PPO 的小型游戏网络。\n\n这番“大模型原生读写神经网络权重”的宣传很快遭到群友拆台。有人转来小红书上的打假笔记，还有人贴出可解释性研究周期梗图，把当前位置标在“新论文发布”后的“Twitter 狂欢”阶段。面对“OpenAI 是不是在 GPT-6 专门训了这项能力”的疑问，有群友一针见血地指出，这依然是 steering 的路子，只是在构造方向 vector 时让 Astra 去找；另一位群友概括为 weights probe 加 weights edit。随后贴出的代码核查评论也印证了这一点：仓库里其实是写了算法，用向量投影去修复模型打转，并非把权重直接喂给 Astra 让它天然修改。至于 steering 做了这么久为何突然翻红，有人调侃全靠“粘上 astra 了”。\n\n剥开包装后，不少群友觉得顺着这个思路做模型编辑依然讲得通。有人设想找出“邪恶人格”和“善良人格”的权重直接做加权平均看输出，其他人则联想到 Claude 的 assistant axis 博客、早年的 task vector 以及 model merge。另一拨群友则开启了造词嘲讽模式，戏称这是“新的 jev”，张罗着要去建 OpenWSP 和 Awesome-WSP 仓库，还预言下周就会有高校发出带“递归自我改进黎明”字样的综述，感叹一周一个新概念，“在 arxiv 上已经实现 agi 了”。",
+          "emphasis": [
+            "仅修改 0.016% 的权重就修复了小模型的推理打转问题",
+            "用向量投影去修复模型打转，并非把权重直接喂给 Astra 让它天然修改",
+            "找出“邪恶人格”和“善良人格”的权重直接做加权平均"
+          ],
+          "aiComment": "号称原生读写 0.016% 权重，扒开代码还是向量投影加 steering，但架不住大家已经想好怎么水综述了 🚀",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:19",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "12:26",
+              "text": "绷"
+            },
+            {
+              "speaker": 2,
+              "time": "12:26",
+              "text": "[链接] 招笑炒作之LLM可以直接改进模型权重\n  摘要: @eXDe 的笔记 422人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ae900e0000000000e035583?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793679979"
+            },
+            {
+              "speaker": 3,
+              "time": "12:52",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "13:01",
+              "text": "这么快就有梗图了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:28",
+              "text": "wtf\ngpt6已经进化到这个level了吗"
+            },
+            {
+              "speaker": 5,
+              "time": "13:28",
+              "text": "有没有大佬分析下何意味"
+            },
+            {
+              "speaker": 6,
+              "time": "13:29",
+              "text": "新的jev"
+            },
+            {
+              "speaker": 7,
+              "time": "13:33",
+              "text": "就是这张图吧哈哈",
+              "quote": {
+                "speaker": 3,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:50",
+              "text": "已经是过去的话题了）"
+            },
+            {
+              "speaker": 9,
+              "time": "13:57",
+              "text": "有点玄学",
+              "quote": {
+                "speaker": 5,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "13:58",
+              "text": "这个方向有戏么 看起来openai是在gpt6专门训了这方面？"
+            },
+            {
+              "speaker": 10,
+              "time": "14:00",
+              "text": "好像还是steering的方法，就是构造方向vector的时候让astra找？"
+            },
+            {
+              "speaker": 6,
+              "time": "14:00",
+              "text": "是的"
+            },
+            {
+              "speaker": 6,
+              "time": "14:00",
+              "text": "你这个说法非常本质啊"
+            },
+            {
+              "speaker": 11,
+              "time": "14:03",
+              "text": "就是 weights probe+ weights edit"
+            },
+            {
+              "speaker": 10,
+              "time": "14:04",
+              "text": "我感觉是吧兄弟[旺柴]",
+              "quote": {
+                "speaker": 6,
+                "text": "你这个说法非常本质啊"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "14:05",
+              "text": "我最近也在想这些问题，没想到被做了[睡]"
+            },
+            {
+              "speaker": 9,
+              "time": "14:05",
+              "text": "好像就是这样",
+              "quote": {
+                "speaker": 10,
+                "text": "好像还是steering的方法，就是构造方向vector的时候让astra找？"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "14:05",
+              "text": "但是intuitively感觉有点make sense啊"
+            },
+            {
+              "speaker": 12,
+              "time": "14:06",
+              "text": "有意思",
+              "quote": {
+                "speaker": 10,
+                "text": "好像还是steering的方法，就是构造方向vector的时候让astra找？"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "14:06",
+              "text": "我之前还没咋关注过这方面"
+            },
+            {
+              "speaker": 6,
+              "time": "14:07",
+              "text": "计算神经学大胜利!"
+            },
+            {
+              "speaker": 6,
+              "time": "14:07",
+              "text": "终于不用玩老鼠的大脑了吗"
+            },
+            {
+              "speaker": 10,
+              "time": "14:07",
+              "text": "我感觉是make sense，顺着这个探索可以做的还很多感觉[旺柴]",
+              "quote": {
+                "speaker": 9,
+                "text": "但是intuitively感觉有点make sense啊"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "14:08",
+              "text": "利好水论文，jev+1"
+            },
+            {
+              "speaker": 9,
+              "time": "14:09",
+              "text": "对 感觉能尝试得不少，gpt/opus都突然emerge这方面的能力，说不定他们内部也在尝试呢[破涕为笑]",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 我感觉是make sense，顺着这个探索可以做的还很多感觉[旺柴]"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "14:09",
+              "text": "有没有可能人家只是在炒作"
+            },
+            {
+              "speaker": 6,
+              "time": "14:10",
+              "text": "这就去开一个仓库叫 OpenWSP"
+            },
+            {
+              "speaker": 9,
+              "time": "14:10",
+              "text": "也有可能啊，只是感觉这个方法很有意思"
+            },
+            {
+              "speaker": 6,
+              "time": "14:10",
+              "text": "然后再拉几篇文章 仓库 做成 Awesome-WSP"
+            },
+            {
+              "speaker": 12,
+              "time": "14:11",
+              "text": "我会贡献一个star的",
+              "quote": {
+                "speaker": 6,
+                "text": "然后再拉几篇文章 仓库 做成 Awesome-WSP"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "14:11",
+              "text": "can jev do wsp? an empirical study"
+            },
+            {
+              "speaker": 15,
+              "time": "14:11",
+              "text": "牛逼",
+              "quote": {
+                "speaker": 14,
+                "text": "can jev do wsp? an empirical study"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:12",
+              "text": "牛逼",
+              "quote": {
+                "speaker": 14,
+                "text": "can jev do wsp? an empirical study"
+              }
+            },
+            {
+              "speaker": 16,
+              "time": "14:12",
+              "text": "写权重有点离谱感觉还是"
+            },
+            {
+              "speaker": 6,
+              "time": "14:12",
+              "text": "然后下周某高校发布 《A Survey of Weight-Space Programming: The Dawn of Recursive Self-Improvement in Frontier LLMs》"
+            },
+            {
+              "speaker": 12,
+              "time": "14:13",
+              "text": "666",
+              "quote": {
+                "speaker": 14,
+                "text": "can jev do wsp? an empirical study"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "14:13",
+              "text": "[睡]"
+            },
+            {
+              "speaker": 15,
+              "time": "14:16",
+              "text": "现在是WSP时代"
+            },
+            {
+              "speaker": 6,
+              "time": "14:16",
+              "text": "LSP时代("
+            },
+            {
+              "speaker": 15,
+              "time": "14:16",
+              "text": "本性暴露",
+              "quote": {
+                "speaker": 6,
+                "text": "LSP时代("
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:16",
+              "text": "liner-weight space programming"
+            },
+            {
+              "speaker": 10,
+              "time": "14:22",
+              "text": "好奇这个会不会变成一个新热点",
+              "quote": {
+                "speaker": 15,
+                "text": "现在是WSP时代"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:23",
+              "text": "看好wps概念股大涨("
+            },
+            {
+              "speaker": 17,
+              "time": "14:23",
+              "text": "看好wps概念股大涨("
+            },
+            {
+              "speaker": 17,
+              "time": "14:23",
+              "text": "金山云吗"
+            },
+            {
+              "speaker": 18,
+              "time": "14:24",
+              "text": "wsp是什么"
+            },
+            {
+              "speaker": 18,
+              "time": "14:24",
+              "text": "我又错过了什么"
+            },
+            {
+              "speaker": 19,
+              "time": "14:25",
+              "text": "一周一个概念"
+            },
+            {
+              "speaker": 19,
+              "time": "14:25",
+              "text": "感觉在arxiv上已经实现agi了"
+            },
+            {
+              "speaker": 10,
+              "time": "14:26",
+              "text": "LLMs can natively read & write neural network weights",
+              "quote": {
+                "speaker": 18,
+                "text": "wsp是什么"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "14:41",
+              "text": "其实我觉得这个真的可以做啊"
+            },
+            {
+              "speaker": 18,
+              "time": "14:42",
+              "text": "之前不是说神经网络没有可解释性吗"
+            },
+            {
+              "speaker": 18,
+              "time": "14:42",
+              "text": "现在ai都能搞千禧难题这种了"
+            },
+            {
+              "speaker": 18,
+              "time": "14:42",
+              "text": "说不定真能搞出一些东西"
+            },
+            {
+              "speaker": 6,
+              "time": "14:42",
+              "text": "找一个邪恶任何和善良人格"
+            },
+            {
+              "speaker": 6,
+              "time": "14:42",
+              "text": "权重直接 加权平均 看看输出"
+            },
+            {
+              "speaker": 6,
+              "time": "14:43",
+              "text": "*人格",
+              "quote": {
+                "speaker": 6,
+                "text": "找一个邪恶任何和善良人格"
+              }
+            },
+            {
+              "speaker": 20,
+              "time": "14:43",
+              "text": "可以参照claude的那个assistant axis的blog",
+              "quote": {
+                "speaker": 6,
+                "text": "找一个邪恶任何和善良人格"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:44",
+              "text": "我就是想到了这个"
+            },
+            {
+              "speaker": 8,
+              "time": "14:45",
+              "text": "看看明天有没有wsp文章"
+            },
+            {
+              "speaker": 6,
+              "time": "14:45",
+              "text": "我要去建repo了"
+            },
+            {
+              "speaker": 21,
+              "time": "15:03",
+              "text": "哈哈哈笑死"
+            },
+            {
+              "speaker": 22,
+              "time": "15:04",
+              "text": "model edit",
+              "quote": {
+                "speaker": 6,
+                "text": "权重直接 加权平均 看看输出"
+              }
+            },
+            {
+              "speaker": 22,
+              "time": "15:04",
+              "text": "以前task vector那个论文是做这种"
+            },
+            {
+              "speaker": 10,
+              "time": "15:09",
+              "text": "感觉steering好像一直在做，怎么突然火了[旺柴]"
+            },
+            {
+              "speaker": 13,
+              "time": "15:10",
+              "text": "粘上astra了"
+            },
+            {
+              "speaker": 10,
+              "time": "15:11",
+              "text": "原来是这样"
+            },
+            {
+              "speaker": 23,
+              "time": "15:12",
+              "text": "model merge？"
+            },
+            {
+              "speaker": 24,
+              "time": "15:15",
+              "text": "等新fable一出，还能再来一版"
+            },
+            {
+              "speaker": 17,
+              "time": "15:23",
+              "text": "那要改什么模型的权重呢"
+            }
+          ]
+        },
+        {
+          "category": "技术落地",
+          "title": "“坟头草长出来”的 JEV 还在哪发光：具身多模态尝试与企业版“首 token 分类”李鬼",
+          "text": "聊起新概念炒作的生命周期，有群友突然发问前阵子刷屏的 JEV 去了哪里，另一位接话说 JEV 的“坟头草已经长出来一会了”，发问者也感叹距离自己上次破口大骂 JEV 才过去 40 天。不过也有人指出，在决策模型以及各类识别、审计场景里，大家其实还在继续用 JEV。\n\n有群友接着打听多模态方案：印象里 JEV 只能输入文本，虽然见过有人拿它做具身操作，但只能靠仿真获取特权信息，效果还不如规则驱动；如果有多模态版本，不知能不能拿来做抓取判定和失败检测。一位群友回答 JEV 原版没开源，但记得 10 月 15 日左右 typesafe 就有多模态了，被追问是不是盗版时坚持说有原版多模态；另一位群友补充，有团队拿千问小模型后训练出了多模态 JEV。至于各家自己训的版本，有人觉得训起来还算简单，也有人认为关键看校准做得好不好；还有一位群友直言，企业里做的“盗版 JEV”无非还是首 token 分类，都是“李鬼”，比不上真的。",
+          "emphasis": [
+            "在决策模型以及各类识别、审计场景里，大家其实还在继续用 JEV",
+            "企业里做的“盗版 JEV”无非还是首 token 分类"
+          ],
+          "aiComment": "距离上次挨骂才 40 天，JEV 坟头草都长出来了，企业里还在拿首 token 分类当李鬼用。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:09",
+              "text": "so where is jev?"
+            },
+            {
+              "speaker": 2,
+              "time": "14:09",
+              "text": "so where is jev?"
+            },
+            {
+              "speaker": 1,
+              "time": "14:10",
+              "text": "已经没人提了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:10",
+              "text": "jev坟头草长出来了一会了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:10",
+              "text": "距离我破口大骂jev也就过了40天"
+            },
+            {
+              "speaker": 4,
+              "time": "14:10",
+              "text": "快进下一集"
+            },
+            {
+              "speaker": 1,
+              "time": "14:10",
+              "text": "懂了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:10",
+              "text": "jev活了有一个月吗"
+            },
+            {
+              "speaker": 5,
+              "time": "14:10",
+              "text": "做决策模型的可能还是会看的",
+              "quote": {
+                "speaker": 2,
+                "text": "jev活了有一个月吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:10",
+              "text": "各种xx识别/审计的"
+            },
+            {
+              "speaker": 5,
+              "time": "14:10",
+              "text": "还是会用jev"
+            },
+            {
+              "speaker": 6,
+              "time": "14:13",
+              "text": "Jev输入不是只能文本吗？"
+            },
+            {
+              "speaker": 6,
+              "time": "14:13",
+              "text": "我看有人用jev做具身操作"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "多模态 Jev"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "有的"
+            },
+            {
+              "speaker": 6,
+              "time": "14:13",
+              "text": "但是只能仿真获得一些特权信息"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "这工作确实还行"
+            },
+            {
+              "speaker": 6,
+              "time": "14:13",
+              "text": "方法还不如规则驱动"
+            },
+            {
+              "speaker": 6,
+              "time": "14:14",
+              "text": "Jev开源了吗？",
+              "quote": {
+                "speaker": 1,
+                "text": "多模态 Jev"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:14",
+              "text": "怎么搞的多模态"
+            },
+            {
+              "speaker": 1,
+              "time": "14:14",
+              "text": "没有 但是已经无人在意了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:14",
+              "text": "应该是自己训的"
+            },
+            {
+              "speaker": 5,
+              "time": "14:14",
+              "text": "企业里坐的盗版jev"
+            },
+            {
+              "speaker": 5,
+              "time": "14:14",
+              "text": "不都还是首touken分类"
+            },
+            {
+              "speaker": 7,
+              "time": "14:14",
+              "text": "这段时间好多种jev"
+            },
+            {
+              "speaker": 8,
+              "time": "14:14",
+              "text": "有团队拿千问小模型后训成多模 jev",
+              "quote": {
+                "speaker": 6,
+                "text": "怎么搞的多模态"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:14",
+              "text": "训起来还是简单"
+            },
+            {
+              "speaker": 1,
+              "time": "14:14",
+              "text": "我记得 10.15那会儿 typesafe有多模态了"
+            },
+            {
+              "speaker": 5,
+              "time": "14:15",
+              "text": "但都是李鬼"
+            },
+            {
+              "speaker": 5,
+              "time": "14:15",
+              "text": "并不如真的"
+            },
+            {
+              "speaker": 6,
+              "time": "14:15",
+              "text": "盗版的吗？不是原版的吗？"
+            },
+            {
+              "speaker": 6,
+              "time": "14:15",
+              "text": "原版的我记得没有多模态"
+            },
+            {
+              "speaker": 2,
+              "time": "14:15",
+              "text": "看校准做的好不好"
+            },
+            {
+              "speaker": 1,
+              "time": "14:15",
+              "text": "有原版多模态的"
+            },
+            {
+              "speaker": 6,
+              "time": "14:15",
+              "text": "不知道能不能做抓取判定"
+            },
+            {
+              "speaker": 2,
+              "time": "14:15",
+              "text": "不是已经坟头草了吗怎么大家还在讨论"
+            },
+            {
+              "speaker": 6,
+              "time": "14:15",
+              "text": "然后失败检测"
+            },
+            {
+              "speaker": 1,
+              "time": "14:15",
+              "text": "后人哀之而不鉴之",
+              "quote": {
+                "speaker": 2,
+                "text": "不是已经坟头草了吗怎么大家还在讨论"
+              }
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "面向长程办公协作的 Agent Harness：CoworkOS 开源，5 轮后训练迭代把 35B 模型均分拉高近 10 分",
+          "text": "有群友分享了近期开源的 Agent Harness 项目 CoworkOS，主打复杂办公与长程持续决策场景。架构上采用三层协作机制：Main Agent 负责定计划与验收，Coordinator 负责管调度，Subagent 执行具体子任务；同时支持人与智能体共编同一份文档或 CAD 材料，既能在对话里改，也能直接动手改；底层则通过分层工作区、语义记忆和后台 Job 来保证记忆可共享、中断可接续以及监控可唤醒。\n\n实验数据方面，分享者介绍 CoworkOS 在 12 项复杂生产力基准与 24 个真实交付场景中性能对标 Codex、DeepSeek Harness 等应用；项目还具备原生 RSI 能力，经过 5 轮 LLM 后训练循环迭代后，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升到了 42.95。",
+          "emphasis": [
+            "支持人与智能体共编同一份文档或 CAD 材料",
+            "经过 5 轮 LLM 后训练循环迭代后，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升到了 42.95"
+          ],
+          "aiComment": "别人掉线就寄，它带后台监控唤醒和中断接续，5 轮迭代硬是给 Qwen3.6-35B 涨了近 10 分。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:11",
+              "text": "很开心宣传一下我们近期开源的Agent Harness工作[嘿哈]：\n\n🌍 CoworkOS: Scaling Agent Coworkers for Real-world Automation\n\n我们的目标是搭建真正能与人一起协作的「超级 AI 同事」，兼顾「复杂办公 × 长程持续决策」能力。\n\n💡CoworkOS 主要有三个特点：\n1️⃣ 三层协作：Main Agent定计划验收；Coordinator管调度；Subagent执行子任务。\n2️⃣ 共享应用：人与智能体共编同一份文档、CAD材料，对话能改，直接动手也能改\n3️⃣ 持久运行：通过分层工作区、语义记忆和后台Job保证记忆可共享，中断可接续、监控可唤醒。\n\n📊 实验方面\n✅ 在12项复杂生产力基准与24个真实交付场景，性能对标Codex、DeepSeek Harness等应用。\n✅ CoworkOS具备原生RSI能力，经过5轮LLM后训练循环迭代，Qwen3.6-35B-A3B在8个基准上的平均分从 33.19 提升到 42.95。\n\n📄 论文：https://github.com/RUC-NLPIR/CoworkOS/blob/main/CoworkOS_paper.pdf\n🌐 项目主页：https://coworkos-ai.github.io/\n💻 GitHub：https://github.com/RUC-NLPIR/CoworkOS\n🎬 Demo Gallery：https://coworkos-ai.github.io/showcase.html\n\n欢迎大家试用与点赞呀！"
+            },
+            {
+              "speaker": 1,
+              "time": "12:11",
+              "text": "[链接] 当前微信版本不支持展示该内容，请升级至最新版本。"
+            },
+            {
+              "speaker": 2,
+              "time": "12:12",
+              "text": "严肃学习[强]"
+            },
+            {
+              "speaker": 1,
+              "time": "15:59",
+              "text": "也恳请大家帮忙点点huggingface paper upvote🥺，感谢呀！！\n\nhttps://huggingface.co/papers/2611.03178",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心宣传一下我们近期开源的Agent Harness工作[嘿哈]： 🌍 CoworkOS: Scaling Agent Coworkers for Real-..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:07",
+              "text": "严肃支持"
+            },
+            {
+              "speaker": 4,
+              "time": "16:07",
+              "text": "这咋点"
+            },
+            {
+              "speaker": 5,
+              "time": "16:09",
+              "text": "已经严肃upvote"
+            },
+            {
+              "speaker": 1,
+              "time": "16:10",
+              "text": "进入链接，点击右上角的upvote！"
+            },
+            {
+              "speaker": 6,
+              "time": "16:11",
+              "text": "严肃学习！"
+            },
+            {
+              "speaker": 7,
+              "time": "16:12",
+              "text": "严肃支持！"
+            },
+            {
+              "speaker": 8,
+              "time": "16:17",
+              "text": "严肃支持！"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "RUC-NLPIR/CoworkOS（GitHub）",
+              "url": "https://github.com/RUC-NLPIR/CoworkOS"
+            },
+            {
+              "kind": "paper",
+              "label": "CoworkOS: Scaling Agent Coworkers for Real-world Automation（Hugging Face Papers）",
+              "url": "https://huggingface.co/papers/2611.03178"
+            },
+            {
+              "kind": "demo",
+              "label": "CoworkOS 项目主页",
+              "url": "https://coworkos-ai.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "DeepSeek V4.1 Flash 服务短暂中断，群友紧盯是否更新模型",
+          "text": "下午五点左右，多位群友发现 DeepSeek 的网页端与 API 突然无法访问，短暂恢复一分钟后再次报错；也有两位群友说自己这边 API 正常。随后晒出的官方服务状态页显示“DeepSeek 网页/API 部分中断”，受影响范围包括对话服务与 DeepSeek V4.1 Flash API 服务。由于宕机常被视为发版前兆，群里立刻开始猜测是不是代号 cyber 的新模型要上线，或是准备端出 deepseekv4.1flash1103 乃至 Pro 版本，还有人追问知情群友发版节点是在 1103 还是 1113。",
+          "emphasis": [
+            "受影响范围包括对话服务与 DeepSeek V4.1 Flash API 服务"
+          ],
+          "aiComment": "网页和 API 刚闪断一分钟，群友连新模型的版本号是 1103 还是 1113 都帮官方排好了 🐳",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "ds崩了吗?  api 网页端 都炸了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "不会真大的要来了吧"
+            },
+            {
+              "speaker": 2,
+              "time": "16:59",
+              "text": "不是说是cyber代号的新模型嘛？"
+            },
+            {
+              "speaker": 3,
+              "time": "17:03",
+              "text": "我是gpt登录不进去",
+              "quote": {
+                "speaker": 1,
+                "text": "ds崩了吗? api 网页端 都炸了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:03",
+              "text": "[流泪]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "短暂通了一分钟 又炸了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "不能等会儿看到 发布了 deepseekv4.1flash1103吧"
+            },
+            {
+              "speaker": 4,
+              "time": "17:05",
+              "text": "我这边也是崩了（）",
+              "quote": {
+                "speaker": 1,
+                "text": "ds崩了吗? api 网页端 都炸了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:06",
+              "text": "我api正常"
+            },
+            {
+              "speaker": 6,
+              "time": "17:06",
+              "text": "我api崩了"
+            },
+            {
+              "speaker": 7,
+              "time": "17:06",
+              "text": "全力狙击A➗上市"
+            },
+            {
+              "speaker": 7,
+              "time": "17:07",
+              "text": "不过我这边测试正常"
+            },
+            {
+              "speaker": 8,
+              "time": "17:07",
+              "text": "全挂了，全挂了"
+            },
+            {
+              "speaker": 8,
+              "time": "17:07",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 9,
+              "time": "17:08",
+              "text": "群友的消息比官方还要快"
+            },
+            {
+              "speaker": 8,
+              "time": "17:08",
+              "text": "这次我不知道是发flash还是发PRO"
+            },
+            {
+              "speaker": 1,
+              "time": "17:08",
+              "text": "你以前都知道是吧"
+            },
+            {
+              "speaker": 7,
+              "time": "17:09",
+              "text": "内幕环节"
+            },
+            {
+              "speaker": 10,
+              "time": "17:09",
+              "text": "[捂脸]",
+              "quote": {
+                "speaker": 1,
+                "text": "你以前都知道是吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:09",
+              "text": "@LobeHub—MaxFor AI 你跟老弟说句实话, 你嘴里有实话吗"
+            },
+            {
+              "speaker": 11,
+              "time": "17:12",
+              "text": "其实这次也知道",
+              "quote": {
+                "speaker": 1,
+                "text": "你以前都知道是吧"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:16",
+              "text": "我一直开源啊",
+              "quote": {
+                "speaker": 1,
+                "text": "@LobeHub—MaxFor AI 你跟老弟说句实话, 你嘴里有实话吗"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:16",
+              "text": "没人信"
+            },
+            {
+              "speaker": 1,
+              "time": "17:16",
+              "text": "所以朋友圈是暗示 我懂了"
+            },
+            {
+              "speaker": 8,
+              "time": "17:16",
+              "text": "https://x.com/maxforai/status/2117156375293825036?a=YBjoRNhjqOucT6Uy1dY&s=46"
+            },
+            {
+              "speaker": 1,
+              "time": "17:17",
+              "text": "是1103吗 还是1113 马哥"
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "Terra 吐字跌到个位数 tok/s，另一位群友开 Fast 也不到 40",
+          "text": "傍晚有群友晒出一张 Terra 的速度截图，17 行记录里最高的一行约 22 tok/s，绝大多数掉到了 3 至 9 tok/s，还有几行直接测不出速度。另一位群友先问是不是 Astra，得知是 Terra 后说自己当天开了 fast 模式也就不到 40，“难绷”。约半小时后又有人问是不是 GPT，并说现在好像不卡了。",
+          "emphasis": [
+            "绝大多数掉到了 3 至 9 tok/s，还有几行直接测不出速度"
+          ],
+          "aiComment": "截图里一水儿个位数 tok/s，开 fast 也不到 40，这吐字速度是按人类手写标准限流的吧 🐢",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:55",
+              "text": "喜欢吗❤️"
+            },
+            {
+              "speaker": 1,
+              "time": "17:55",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:56",
+              "text": "astra 么"
+            },
+            {
+              "speaker": 1,
+              "time": "17:56",
+              "text": "terra"
+            },
+            {
+              "speaker": 2,
+              "time": "17:56",
+              "text": "我今天开 fast 也就不到 40，难绷"
+            },
+            {
+              "speaker": 3,
+              "time": "18:29",
+              "text": "?"
+            },
+            {
+              "speaker": 3,
+              "time": "18:29",
+              "text": "gpt吗"
+            },
+            {
+              "speaker": 3,
+              "time": "18:29",
+              "text": "现在好像不卡了"
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "Codex 桌面端将 capacity 报错藏进“重连中”，空跑 10 分钟才现形",
+          "text": "有群友吐槽 Codex 桌面端修改了报错展示逻辑：现在遇到算力受限时不再直接提示 capacity，而是把报错信息藏在“重连中”的状态里，导致一次对话空跑了整整 10 分钟，最后点开才发现一直卡在 capacity 限制上。",
+          "emphasis": [
+            "把报错信息藏在“重连中”的状态里"
+          ],
+          "aiComment": "把 capacity 报错藏进重连中，硬控用户 10 分钟，产品经理深谙糊弄学精髓 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:56",
+              "text": "我发现codex桌面端现在不直接显示capacity了，而是隐藏在了重连中的报错里面，然后一次对话直接跑个10分钟，最后一看一直capacity"
+            },
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "太阴了"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "混元新宣传片被指像 Kimi：“对标 A→蒸 A；对标 O→蒸 O”",
+          "text": "晚上有群友催“hy4 qwen4 快出啊”，紧接着有群友发了句“本周（”，被人引用追问是不是还有情报。随后有群友转来一条混元（群里简称 hy）的宣传片，有人觉得和 Kimi 的那支很像，是“快剪风”。前面放话“本周”的群友解释，Kimi 那支对标的是 A，这支对标的是 O，被问“hy 竟然是对标 o 吗”时补充说指的是 TVC 风格；这位群友很喜欢这种片子，“别整 manus 那种坐那儿的”，也有人觉得看起来很抽象。\n\n话头随后变成玩梗：有人总结“对标 A→蒸 A；对标 O→蒸 O”，有人接话说不是要拉爆 DeepSeek、带着 DeepSeek 一起加班吗。还有群友问能不能来个对标 G 的国模，自称已经是 Gemini 的忠实信徒、开了 20x，得到的回答是 Seed，以及一句“美国豆包拉爆中国豆包了”。",
+          "emphasis": [
+            "Kimi 那支对标的是 A，这支对标的是 O",
+            "“对标 A→蒸 A；对标 O→蒸 O”"
+          ],
+          "aiComment": "Kimi 对标 A，hy 对标 O，群友顺手把下一步也补完了：对标谁就蒸谁 🎬",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:38",
+              "text": "hy4qwen4快出啊"
+            },
+            {
+              "speaker": 2,
+              "time": "20:39",
+              "text": "本周（"
+            },
+            {
+              "speaker": 3,
+              "time": "20:39",
+              "text": "还有情报的",
+              "quote": {
+                "speaker": 2,
+                "text": "本周（"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:39",
+              "text": "[链接] 当前微信版本不支持展示该内容，请升级至最新版本。"
+            },
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "这个宣传片怎么和kimi的那么像"
+            },
+            {
+              "speaker": 4,
+              "time": "20:41",
+              "text": "哈哈哈哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "20:41",
+              "text": "kimi对标a的"
+            },
+            {
+              "speaker": 2,
+              "time": "20:41",
+              "text": "这个是对标o的"
+            },
+            {
+              "speaker": 4,
+              "time": "20:41",
+              "text": "我可没说啊[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "快剪风"
+            },
+            {
+              "speaker": 5,
+              "time": "20:41",
+              "text": "其实看起来很抽象～"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "感觉挺好的"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "就要这样的tvc"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "别整manus那种坐那儿的"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "求求了"
+            },
+            {
+              "speaker": 6,
+              "time": "20:42",
+              "text": "hy竟然是对标o吗"
+            },
+            {
+              "speaker": 6,
+              "time": "20:42",
+              "text": "才知道"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "指的是tvc风格（"
+            },
+            {
+              "speaker": 1,
+              "time": "20:43",
+              "text": "姚哥可以对标一下"
+            },
+            {
+              "speaker": 2,
+              "time": "20:43",
+              "text": "不是要拉爆ds么"
+            },
+            {
+              "speaker": 7,
+              "time": "20:44",
+              "text": "不是要带着ds一起加班吗"
+            },
+            {
+              "speaker": 8,
+              "time": "20:47",
+              "text": "对标A→蒸A；对标O→蒸O"
+            },
+            {
+              "speaker": 3,
+              "time": "20:49",
+              "text": "能不能来个国模对标G的"
+            },
+            {
+              "speaker": 2,
+              "time": "20:49",
+              "text": "？"
+            },
+            {
+              "speaker": 2,
+              "time": "20:49",
+              "text": "你是不是在找"
+            },
+            {
+              "speaker": 2,
+              "time": "20:49",
+              "text": "Seed！》"
+            },
+            {
+              "speaker": 7,
+              "time": "20:49",
+              "text": "gemini吗"
+            },
+            {
+              "speaker": 3,
+              "time": "20:49",
+              "text": "我现在已经是大G老师的忠实信徒了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:49",
+              "text": "但是g已经拉爆了"
+            },
+            {
+              "speaker": 7,
+              "time": "20:49",
+              "text": "对啊 大豆包不是吗"
+            },
+            {
+              "speaker": 3,
+              "time": "20:49",
+              "text": "开20x了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:49",
+              "text": "我的意思美国豆包拉爆中国豆包了"
+            },
+            {
+              "speaker": 7,
+              "time": "20:49",
+              "text": "大豆包鼓大包了"
+            },
+            {
+              "speaker": 3,
+              "time": "20:50",
+              "text": "还真是",
+              "quote": {
+                "speaker": 2,
+                "text": "Seed！》"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "20:52",
+              "text": "老师好有梗",
+              "quote": {
+                "speaker": 7,
+                "text": "大豆包鼓大包了"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "复盘 Astra 改权重实验日志：无梯度“魔法”背后的自动化可解释性流程",
+      "theme": "分享线性注意力初始化方法 DAMI，探讨垂类后训练如何避免通用能力遗忘",
+      "note": "2026-11-03 · 当日本地记录",
+      "stories": [
+        {
+          "category": "前沿研究",
+          "title": "GPT-6 Astra 直接读写 Qwen3.5-0.8B 权重：无梯度的“魔法”还是自动化可解释性实验？",
+          "text": "MIT CSAIL 的一篇博客《Sparks of Weight-Space Programming》在群里引发热议。有群友分享的推文与博客摘要截图显示，GPT-6 Astra 不借助梯度或训练，仅直接修改 Qwen3.5-0.8B 0.016% 的权重，就修复了它的推理死循环，把 MATH-500 准确率从 7.9% 拉升到 48.1%，IFEval 指令跟随能力提升 3 倍；此外还能只看原始权重判断网络训练目标，或从零写出击败 100 million steps PPO 网络的小型游戏网络。另一张跨代际对比图里，以 500M steps 训练的 PPO 网络为 1× 基准，GPT 5 至 5.5、Opus 4.5 至 4.8 均低于 1×，而 GPT 6.1 Sol（18×）、Opus 5.5（20×）和 GPT 6 Astra（22×）则出现了断层式跃升。\n\n不用损失函数和反向传播就能改权重，有群友把这种用一个高维不可解释的 LLM 去生成另一个 LLM 的做法调侃为“魔法生成魔法”，也有人预计随之会出现新的评测基准。熟悉黑盒优化与零阶优化的群友提出疑问：传统黑盒优化需要不断试错，如今号称无需试错反馈就能给出好解，究竟是模型具备了可泛化的权重理解与修复能力，还是预训练见过大量类似问题、形成了足够好的 Prior？围绕背后的机制，一位群友猜测这是为 RSI（递归自我改进）专门训练的能力，并认为它可能是通过 activation steering 来理解权重；另一位群友则设想，大模型也许自己构想出了类似 L1、L2 的任务无关启发式正则化来约束参数空间。也有人提起三年前 OpenAI 就做过用 GPT-4 解释 GPT-2 神经元的工作，马上有人回应那套方法还得喂数据去观察；这位群友还搬出 Fast model editing at scale 等旧工作，另一位补充说 model editing 本就是历史悠久的研究领域。\n\n随着讨论深入，有群友扒出了实验日志仓库与技术拆解截图，发现 Astra 定位权重依然借助了统计信息与提示词引导。转发的记录提到，简单游戏实验其实是让模型先编写控制程序再转写成神经网络权重；而在修复 Qwen 的实验里，提示词明确将“重复推理、无法结束”列为故障示例，要求它先诊断、定位组件并尝试不同干预强度。第一批 96 道题中有 85 道达到长度上限后，Astra 扫描了权重范数，并主动构造四组正常与重复版对照文本，通过 teacher forcing 提取 Qwen 各层内部状态，计算平均隐藏状态差来给 24 层的 MLP 神经元打分。它先将得分最高的第 19 层第 11 个神经元输出权重置零，随后一路从单神经元试到两层方向干预，最终定下“每层 64 列、强度 6”的修改方案。看完这套流程，有群友直言这不就是 Astra 找到可解释性工作直接用上了，另一位群友也觉得本质上就是一轮 auto research 实验。",
+          "emphasis": [
+            "仅直接修改 Qwen3.5-0.8B 0.016% 的权重，就修复了它的推理死循环，把 MATH-500 准确率从 7.9% 拉升到 48.1%",
+            "究竟是模型具备了可泛化的权重理解与修复能力，还是预训练见过大量类似问题、形成了足够好的 Prior",
+            "发现 Astra 定位权重依然借助了统计信息与提示词引导",
+            "本质上就是一轮 auto research 实验"
+          ],
+          "aiComment": "以为是无梯度的黑盒魔法，翻完日志发现 Astra 偷偷给 24 层神经元打分，自己跑了一整套可解释性实验。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:06",
+              "text": "[链接] Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights\n  摘要: We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights, well past what ...\n  URL: https://rikiyat.github.io/blog/weight-space-programming/"
+            },
+            {
+              "speaker": 1,
+              "time": "10:07",
+              "text": "Astra直接权重编程，等会试试看"
+            },
+            {
+              "speaker": 2,
+              "time": "10:08",
+              "text": "持续追踪[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "Astra直接权重编程，等会试试看"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:13",
+              "text": "期待一波",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights\n  摘要: We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights, well past what ...\n  URL: https://rikiyat.github.io/blog/weight-space-programming/"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "10:21",
+              "text": "我刚才也正好看到这个hhh",
+              "quote": {
+                "speaker": 1,
+                "text": "Astra直接权重编程，等会试试看"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "10:21",
+              "text": "还能直接根据权重预测模型的行为"
+            },
+            {
+              "speaker": 5,
+              "time": "10:26",
+              "text": "Astra调千问那个吗"
+            },
+            {
+              "speaker": 5,
+              "time": "10:27",
+              "text": "感觉有点像teacher模型那一套玩法"
+            },
+            {
+              "speaker": 6,
+              "time": "10:28",
+              "text": "[合并聊天记录] 群聊的聊天记录 (16条)\n  - 冰原沙漠气候: 从 AI 帮助人类训练模型，到 AI 开始直接参与模型权重的优化，这条路线可能为模型研发和递归自我改进（RSI）打开新的空间。\n  - 冰原沙漠气候: MIT展示「权重空间编程」新路线\n  - 冰原沙漠气候: 这种方法是怎么知道修改参数对应的效果的，枚举吗\n  - 薯片鲨: 好像是LLM写脚本排查\n  - 薯片鲨: xhs复制的\n  - 薯片鲨: 说正经的，这文章做了两组实验，一组成功的原理是是让gpt根据简单游戏编写控制程序，然后把程序转写成神经网络权重，毕竟神经网络本质是函数。那我问你，为什么不直接写程序呢？神经网络设计不就是用反向传播寻找...\n  - Tianhao: “实验 5：大语言模型能从零开始编写神经网络权重吗？” 我感觉这个研究的问题还挺有意思， 一个高维表征可解释性差的 LLM， 能不能构建出另一个高维表征可解释性差的 LLM 尝试解决的是这个问题 用 ...\n  - Tianhao: [图片]\n  - Tianhao: wanghuan 老师他们也挺 exciting 哈哈， 我不太做模型架构，但感觉挺有意思 hh\n  - .: 有点扯\n  - ... 还有6条"
+            },
+            {
+              "speaker": 4,
+              "time": "10:29",
+              "text": "嗯，技术上感觉挺understandable的，我感觉前面通过读权重分析模型目的，反倒更有可能对权重可解释性做出贡献",
+              "quote": {
+                "speaker": 5,
+                "text": "感觉有点像teacher模型那一套玩法"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "10:29",
+              "text": "AI4AI"
+            },
+            {
+              "speaker": 4,
+              "time": "10:29",
+              "text": "[Facepalm]",
+              "quote": {
+                "speaker": 7,
+                "text": "AI4AI"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "10:45",
+              "text": "🐮啊 ， 这算是新方向么\n\n让 LLM a 根据 nlp 的要求，直接读取和修改 llm b 的权重。\n\n整个过程 llm b 不需要经过优化器，不使用梯度下降。有些情况下，甚至不需要任何来自运行环境的反馈。\n\n\nllm a 从 llm b 的 权重中找出隐藏的特征或缺陷，修复 llm b 存在的问题，甚至从零开始写出一个新的 llm b。",
+              "quote": {
+                "speaker": 5,
+                "text": "感觉有点像teacher模型那一套玩法"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "10:53",
+              "text": "之前接触过一些黑盒优化（Black-box Optimization）和零阶优化（Zeroth-order Optimization）的工作。传统的通常需要不断试错（Trial and Error），通过历史评估结果逐步学习搜索分布或构造代理函数（Surrogate Function）。\n后来也有一些 LLMs for Bayesian Optimization / Black-box Optimization 的工作，尝试利用 LLM 自身的先验知识来指导搜索，甚至声称在没有试错反馈的情况下也能给出不错的解。\n\n但这里有个很有意思的问题：所谓不需要试错，究竟是因为模型真的能理解问题结构，还是因为预训练时已经见过大量类似问题，从而形成了足够好的 Prior？"
+            },
+            {
+              "speaker": 8,
+              "time": "10:53",
+              "text": "所以问题是，是利用了预训练中积累的先验知识进行参数编辑，还是具备了真正可泛化的权重理解与修复能力？"
+            },
+            {
+              "speaker": 9,
+              "time": "10:58",
+              "text": "应该是为了rsi特意训练的能力"
+            },
+            {
+              "speaker": 6,
+              "time": "10:58",
+              "text": "“ 参数编辑”\n大模型 把参考自己身上的参数 给小模型用么[呲牙] \n\n有点意思"
+            },
+            {
+              "speaker": 9,
+              "time": "10:59",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 10,
+              "time": "10:59",
+              "text": "感觉新模型都在搞这个",
+              "quote": {
+                "speaker": 9,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "10:59",
+              "text": "有意思"
+            },
+            {
+              "speaker": 10,
+              "time": "11:00",
+              "text": "莫非rsi"
+            },
+            {
+              "speaker": 10,
+              "time": "11:00",
+              "text": "真要来了"
+            },
+            {
+              "speaker": 11,
+              "time": "11:01",
+              "text": "这个图是哪里来的呀",
+              "quote": {
+                "speaker": 9,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "11:01",
+              "text": "有点变态，是不是不需要损失函数，反向传播这些了？",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 🐮啊 ， 这算是新方向么\n\n让 LLM a 根据 nlp 的要求，直接读取和修改 llm b 的权重。\n\n整个过程 llm b 不需要经过优化器，不使用梯度下降。有些情况下，甚至不需要任何来自运行环境的反馈。\n\n\nllm a 从 llm b 的 权重中找出隐藏的特征或缺陷，修复 llm b 存在的问题，甚至从零开始写出一个新的 llm b。"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "11:01",
+              "text": "就可以更新权重了"
+            },
+            {
+              "speaker": 10,
+              "time": "11:02",
+              "text": "但是模型是怎么理解"
+            },
+            {
+              "speaker": 10,
+              "time": "11:02",
+              "text": "其他模型的权重的呢"
+            },
+            {
+              "speaker": 10,
+              "time": "11:02",
+              "text": "还是太frontier 了"
+            },
+            {
+              "speaker": 11,
+              "time": "11:03",
+              "text": "再迭代下去人就真的看不懂了"
+            },
+            {
+              "speaker": 11,
+              "time": "11:03",
+              "text": "目前那个写代码的实验，还算稍微能看得懂"
+            },
+            {
+              "speaker": 13,
+              "time": "11:03",
+              "text": "没用的碳基生物"
+            },
+            {
+              "speaker": 6,
+              "time": "11:03",
+              "text": "让一个高维表征 不可解释的 LLM\n\n去生成 另一个高维表征 不可解释的 LLM\n\n魔法生成魔法[阴险]"
+            },
+            {
+              "speaker": 5,
+              "time": "11:03",
+              "text": "模型在以自己的语言交流[捂脸]"
+            },
+            {
+              "speaker": 14,
+              "time": "11:04",
+              "text": "是不是要出现新的benchmark了"
+            },
+            {
+              "speaker": 15,
+              "time": "11:04",
+              "text": "人工训模型的时候应该从来没根据权重调过训练策略(或许我没听过)"
+            },
+            {
+              "speaker": 16,
+              "time": "11:04",
+              "text": "[强][强]",
+              "quote": {
+                "speaker": 14,
+                "text": "是不是要出现新的benchmark了"
+              }
+            },
+            {
+              "speaker": 15,
+              "time": "11:04",
+              "text": "这是否太快了[旺柴]"
+            },
+            {
+              "speaker": 11,
+              "time": "11:05",
+              "text": "感觉是的",
+              "quote": {
+                "speaker": 14,
+                "text": "是不是要出现新的benchmark了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:05",
+              "text": "毕竟在我们看来无法理解的权重，在大模型看来都是可理解和计算的函数"
+            },
+            {
+              "speaker": 6,
+              "time": "11:05",
+              "text": "+1\n有新的方法\n必然出现新的 bench\n不然方法无法验证评估",
+              "quote": {
+                "speaker": 14,
+                "text": "是不是要出现新的benchmark了"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "11:06",
+              "text": "看到deep learning visualize复活的可能了",
+              "quote": {
+                "speaker": 6,
+                "text": "让一个高维表征 不可解释的 LLM 去生成 另一个高维表征 不可解释的 LLM 魔法生成魔法[阴险]"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "11:06",
+              "text": "predict next benchmark"
+            },
+            {
+              "speaker": 11,
+              "time": "11:07",
+              "text": "笑死",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 看到deep learning visualize复活的可能了"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "11:09",
+              "text": "我的猜测还是通过activation steering尝试理解",
+              "quote": {
+                "speaker": 10,
+                "text": "但是模型是怎么理解"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:10",
+              "text": "看看traces感觉不错",
+              "quote": {
+                "speaker": 6,
+                "text": "让一个高维表征 不可解释的 LLM 去生成 另一个高维表征 不可解释的 LLM 魔法生成魔法[阴险]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:10",
+              "text": "但是能看懂嘛我"
+            },
+            {
+              "speaker": 2,
+              "time": "11:11",
+              "text": "所以这个图是哪里来的",
+              "quote": {
+                "speaker": 9,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "11:12",
+              "text": "小红书转发的X的"
+            },
+            {
+              "speaker": 17,
+              "time": "11:12",
+              "text": "+1\n有新的方法\n必然出现新的 bench\n不然方法无法验证评估"
+            },
+            {
+              "speaker": 17,
+              "time": "11:12",
+              "text": "feedback loop"
+            },
+            {
+              "speaker": 4,
+              "time": "11:12",
+              "text": "应该是的",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 我的猜测还是通过activation steering尝试理解"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "11:13",
+              "text": "https://x.com/AlexKrentsel/status/2117376683724660898?a=Tv4Fve1oeShS-odx-uM&s=20",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 所以这个图是哪里来的"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "11:14",
+              "text": "原始文章 https://rikiyat.github.io/blog/weight-space-programming/"
+            },
+            {
+              "speaker": 19,
+              "time": "11:15",
+              "text": "benchmark领域如果有真本质高手其实应该在新方法出来之前就提出bench",
+              "quote": {
+                "speaker": 17,
+                "text": "+1 有新的方法 必然出现新的 bench 不然方法无法验证评估"
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "11:15",
+              "text": "bench引领方法发展，ysy下半场的理想"
+            },
+            {
+              "speaker": 19,
+              "time": "11:15",
+              "text": "不过这种工作还是比较少的"
+            },
+            {
+              "speaker": 10,
+              "time": "11:16",
+              "text": "预见未来",
+              "quote": {
+                "speaker": 19,
+                "text": "[引用] benchmark领域如果有真本质高手其实应该在新方法出来之前就提出bench"
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "11:18",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 11,
+              "time": "11:19",
+              "text": "绷不住"
+            },
+            {
+              "speaker": 20,
+              "time": "11:34",
+              "text": "？这啥阴"
+            },
+            {
+              "speaker": 20,
+              "time": "11:34",
+              "text": "新型蒸馏方法"
+            },
+            {
+              "speaker": 21,
+              "time": "11:39",
+              "text": "对于模型，也许神经网络是可解释的"
+            },
+            {
+              "speaker": 21,
+              "time": "11:39",
+              "text": "解决了多年来人脑子困扰的nn不可解释性"
+            },
+            {
+              "speaker": 22,
+              "time": "11:43",
+              "text": "🤔 三年前openai就有用gpt4解释gpt2神经元的工作吧"
+            },
+            {
+              "speaker": 23,
+              "time": "11:44",
+              "text": "有"
+            },
+            {
+              "speaker": 23,
+              "time": "11:44",
+              "text": "记得的"
+            },
+            {
+              "speaker": 23,
+              "time": "11:44",
+              "text": "但好像还是得喂数据去观察的"
+            },
+            {
+              "speaker": 23,
+              "time": "11:46",
+              "text": "但这里，可能不是大模型是真的是通过可解释编辑的。说不定是通过阅读机器可读人类不可读的"
+            },
+            {
+              "speaker": 23,
+              "time": "11:49",
+              "text": "这个说不定真有可能行，因为以前不是挺多这种数据任务无关的heuristics regularization。去约束参数空间的比如L1 L2。说不定大模型自己想了heuristics优化参数空间了，使得泛化变好。"
+            },
+            {
+              "speaker": 4,
+              "time": "11:51",
+              "text": "我感觉能喂给大模型足够的数据（各种模型的权重），它就可能产生这种能力，当然可解释性也比较存疑"
+            },
+            {
+              "speaker": 24,
+              "time": "11:51",
+              "text": "似乎还是借助了统计信息去定位要修改的权重"
+            },
+            {
+              "speaker": 7,
+              "time": "11:52",
+              "text": "我记得前一段时间还有另外一篇文章，叫做 llm网络是干净的"
+            },
+            {
+              "speaker": 25,
+              "time": "11:52",
+              "text": "这看了一下不就是astra找到了可解释性的工作然后用上去了吗"
+            },
+            {
+              "speaker": 24,
+              "time": "11:53",
+              "text": "https://github.com/RikiyaT/lm_understand-logs.git blog的log仓库，感兴趣可以让codex去读一读"
+            },
+            {
+              "speaker": 26,
+              "time": "11:54",
+              "text": "现实版奥创教白幻视来了"
+            },
+            {
+              "speaker": 27,
+              "time": "12:00",
+              "text": "挺有意思的，之前也想过这么干，但是想了，想还是马上否了[憨笑]"
+            },
+            {
+              "speaker": 28,
+              "time": "12:01",
+              "text": "我也觉得本质上就是一种 auto research 实验嘛",
+              "quote": {
+                "speaker": 25,
+                "text": "这看了一下不就是astra找到了可解释性的工作然后用上去了吗"
+              }
+            },
+            {
+              "speaker": 29,
+              "time": "12:05",
+              "text": "这真没绷住",
+              "quote": {
+                "speaker": 19,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 23,
+              "time": "12:11",
+              "text": "Fast model editing at scale. 以前就有model edit model，所以真有可能"
+            },
+            {
+              "speaker": 23,
+              "time": "12:11",
+              "text": "不好意思歪楼了"
+            },
+            {
+              "speaker": 19,
+              "time": "12:18",
+              "text": "model editing是一个历史悠久的研究领域了"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights",
+              "url": "https://rikiyat.github.io/blog/weight-space-programming/"
+            },
+            {
+              "kind": "code",
+              "label": "lm_understand-logs：博客实验完整日志",
+              "url": "https://github.com/RikiyaT/lm_understand-logs"
+            }
+          ]
+        },
+        {
+          "category": "模型架构",
+          "title": "线性注意力初始化工作 DAMI：衰减记忆结构在初始化时已定九成",
+          "text": "有群友分享了线性注意力初始化工作 DAMI，针对 GDN、GDN2、KDA、Mamba-2 和 RWKV-7 五种主流架构解决“记不住远处”的老毛病。100M 参数、5B token 的预训练实验显示，决定衰减系数的 A_log 和 dt_bias 在训练结束后的数值与初始值相关性超过 0.9，说明衰减记忆结构在初始化时基本就已经定型。\n\n为此，DAMI 让主管时间尺度的 A_log 按几何级数在头间铺开（4096→1 token），让主管输入敏感度的 dt_bias 沿层深度呈“低-高-低”变化（0.25→0.75→0.25），仅用一小批激活做逐层无梯度前向加二分求解来联合算出初值，不加参数、不改算子也不影响推理。在五种架构上，RULER 检索平均准确率比随机初始化提升了 5.29 到 16.71 分（其中 GDN 从 30.42 升至 44.36，KDA 从 26.43 升至 43.14，GDN2 从 30.33 升至 43.77，Mamba-2 从 13.7 升至 28.2，RWKV-7 从 23.9 升至 29.2），通用能力基本持平。分享者同时提到，目前只研究了衰减系数而未涉及写入系数，更大规模的参数量与数据量还有待进一步验证。\n\n借着这项工作，有群友感慨如今 LLM 留给大家的优化方向已经不多，像 attention 这一块需要很扎实的数学基础，快两年前学习 MoBA 时就感觉这个方向非常不一样。有人顺势玩梗说“LLM 的优化只剩下两朵乌云，大厦已经建成了”，另一位群友则调侃研究又到了岔路口：要么把这个领域卷到发不出 paper 为止，要么去开个新的大坑。",
+          "emphasis": [
+            "决定衰减系数的 A_log 和 dt_bias 在训练结束后的数值与初始值相关性超过 0.9，说明衰减记忆结构在初始化时基本就已经定型",
+            "RULER 检索平均准确率比随机初始化提升了 5.29 到 16.71 分",
+            "LLM 的优化只剩下两朵乌云，大厦已经建成了"
+          ],
+          "aiComment": "训完一看衰减系数和初值相关性超 0.9，原来记不记得住远处，投胎初始化那刻就定下九成了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:05",
+              "text": "分享一篇我们做的线性注意力工作 DAMI👇 ，较为系统地研究了主流线性注意力架构（GDN GDN2 KDA Mamba2 RWKV7）的衰减系数相关参数初始化问题，欢迎大家关注和交流[让我看看]\n\nMotivation：线性注意力用固定大小的 state 代替 KV cache，推理是省了，但\"记不住远处\"的老问题一直存在，其中比较重要的控制组件是衰减系数。我们通过100M参数，5B token预训练实验，发现训练结束后决定衰减系数的 A_log 和 dt_bias 与初始值的相关性在 0.9 以上——衰减记忆结构在初始化时基本就定了，那如何在训练前把这2个参数设置正确呢？我们做了一系列理论推导和受控实验并筛选出了DAMI\n\nDAMI：让主管时间尺度的A_log按几何级数在头间铺开（4096→1 token），让主管输入敏感度的dt_bias沿模型层深度按照\"低-高-低\"变化（0.25→0.75→0.25），两者联合求解得到初始化值，实现上只用一小批激活做逐层无梯度前向加二分求解，不加参数、不改算子、不影响推理。结果是 GDN/KDA/GDN2/Mamba-2/RWKV-7 五种架构上 RULER 检索平均准确率比随机初始化高 5.29–16.71 （GDN 30.42→44.36、KDA 26.43→43.14、GDN2 30.33→43.77、Mamba-2 13.7→28.2、RWKV-7 23.9→29.2），通用能力基本持平。\n\n局限：只研究了衰减系数，没有研究写入系数，大规模数据量和模型参数量仍需验证。\n\n📑 论文：https://huggingface.co/papers/2610.41994 \n📎 博客：https://speedai.com/research/dami \n💻 代码：https://github.com/SpeedAI-Lab/DAMI\n⚖️权重：https://huggingface.co/SpeedAI-Lab/DAMI"
+            },
+            {
+              "speaker": 2,
+              "time": "22:05",
+              "text": "🐮"
+            },
+            {
+              "speaker": 3,
+              "time": "22:06",
+              "text": "🐮"
+            },
+            {
+              "speaker": 4,
+              "time": "22:06",
+              "text": "dami！"
+            },
+            {
+              "speaker": 5,
+              "time": "22:09",
+              "text": "想学学不会[流泪]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:10",
+              "text": "感觉线性注意力还是比较有趣的，有限算力下还是不错的，更大算力下的结果还有待各位大佬在frontier lab帮忙做哈哈哈[让我看看]"
+            },
+            {
+              "speaker": 4,
+              "time": "22:17",
+              "text": "llm的优化方向不多了，感觉attention是一个方面，需要很扎实的数学基础，快两年之前跟着裘捷中老师学习moba的时候，就感受到了这一块非常不一样"
+            },
+            {
+              "speaker": 6,
+              "time": "22:31",
+              "text": "llm的优化只剩下两朵乌云",
+              "quote": {
+                "speaker": 4,
+                "text": "llm的优化方向不多了，感觉attention是一个方面，需要很扎实的数学基础，快两年之前跟着裘捷中老师学习moba的时候，就感受到了这一块非常不一样"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:31",
+              "text": "大厦已经建成了[破涕为笑]"
+            },
+            {
+              "speaker": 7,
+              "time": "22:33",
+              "text": "那么 research 又到选择的岔路了[阴险]\n\n是把这个领域做到发不出 paper 为止\n\n还是开个新的大坑"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "DAMI: Dual-Axis Memory Initialization for Enhanced Long-Context Retrieval in Gated Linear Attention",
+              "url": "https://huggingface.co/papers/2610.41994"
+            },
+            {
+              "kind": "code",
+              "label": "SpeedAI-Lab/DAMI 代码",
+              "url": "https://github.com/SpeedAI-Lab/DAMI"
+            },
+            {
+              "kind": "code",
+              "label": "DAMI 权重（Hugging Face）",
+              "url": "https://huggingface.co/SpeedAI-Lab/DAMI"
+            }
+          ]
+        },
+        {
+          "category": "模型训练",
+          "title": "Hydrogen-1.0 科学计算超 Astra 5.13 分，垂类后训练怎么防基座被“肘飞”？",
+          "text": "有群友转了一篇报道：Deep Principle 开源了 Hydrogen-1.0 的 BF16 权重，官方自测的科学计算得分比 GPT-6 Astra 高出 5.13 分。分享者好奇，拿这种偏门领域的数据做后训练，是怎么避免灾难性遗忘、不把原基座的通用性能“肘飞”的？另一位群友冷不丁接了一句：“要不他只报这科学计算 bmk 的分呢。”\n\n玩笑归玩笑，有人提到该模型是与 mindlab 合作训练的，猜测可能用了 LoRA；也有群友指出垂类模型一般本就不考虑通用泛化，另一位群友追问各家的教师模型是不是都这样。对于确实要防遗忘的场景，一位群友给出了实操经验：做 SFT 时尽量用带 KL 的变种 SFT 控制分布距离，到了 RL 阶段问题倒不大。",
+          "emphasis": [
+            "要不他只报这科学计算 bmk 的分呢",
+            "做 SFT 时尽量用带 KL 的变种 SFT 控制分布距离，到了 RL 阶段问题倒不大"
+          ],
+          "aiComment": "问怎么防基座通用能力被肘飞，答曰只报科学计算的分就行，一句话把天聊死 😂",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "[链接] 科学计算超越GPT-6 Astra！Deep Principle开源Hydrogen-1.0\n  来源: 人工智能前沿讲习\n  摘要: 11 月 2 日，Deep Principle 放出 Hydrogen-1.0 的 BF16 权重。官方自测里，科学计算比 Astra 高 5.13 个点。\n  URL: https://mp.weixin.qq.com/s?__biz=MzIzNjc0MTMwMA%3D%3D&mid=2247619179&idx=1&sn=e076b9e47e0f7db4f72b4c920775cb37&chksm=e9d6cf1c12c41464fc5c899905bd3e1625af8db3987ea5162c56aa7dd5936c7324f494349007&scene=1&srcid=1103OhnanodviNRCyQUarMQ4#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "用这种比较猎奇的领域数据进行后训练，是怎么保证不灾难性遗忘的捏？[让我看看]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:41",
+              "text": "感觉会把原基座的性能肘飞呀"
+            },
+            {
+              "speaker": 2,
+              "time": "20:42",
+              "text": "要不他只报这科学计算bmk的分呢"
+            },
+            {
+              "speaker": 1,
+              "time": "20:42",
+              "text": "哈哈哈哈哈make sense"
+            },
+            {
+              "speaker": 3,
+              "time": "20:43",
+              "text": "[奸笑]",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉会把原基座的性能肘飞呀"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:44",
+              "text": "这个是通过mindlab合作训的 应该是lora训的吧"
+            },
+            {
+              "speaker": 5,
+              "time": "20:50",
+              "text": "一般，垂类模型都不考虑通用泛化"
+            },
+            {
+              "speaker": 6,
+              "time": "20:51",
+              "text": "感觉各家的教师模型是不是都这样"
+            },
+            {
+              "speaker": 7,
+              "time": "20:55",
+              "text": "sft时尽量用变种sft kl 控制分布距离; RL倒还好",
+              "quote": {
+                "speaker": 1,
+                "text": "用这种比较猎奇的领域数据进行后训练，是怎么保证不灾难性遗忘的捏？[让我看看]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "开发实操",
+          "title": "让 Codex 扫洞、修洞再复现验证，反手喜提 Cyber abuse 警告邮件",
+          "text": "有群友分享了一次哭笑不得的排障经历：让 Codex 扫描代码里的安全漏洞，扫出来后直接让它写修复方案；为了稳妥，在推送到测试环境前还让它先复现漏洞，以便验证修复推上去后确实生效。结果这一套“扫洞、修洞、复现验证”的标准闭环跑完，直接喜提一封“Cyber abuse”警告邮件。",
+          "emphasis": [
+            "直接喜提一封“Cyber abuse”警告邮件"
+          ],
+          "aiComment": "扫洞、修洞加复现验证一套标准闭环下来，安全规范拉满了，号也喜提 Cyber abuse 警告了 🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:43",
+              "text": "离谱，让 Codex 扫描代码安全漏洞，扫出来后让它修复，修复推送到测试环境前让它复现，验证推送测试环境后能够生效"
+            },
+            {
+              "speaker": 1,
+              "time": "10:44",
+              "text": "然后喜提警告邮件一封。 Cyber abuse"
+            }
+          ]
+        },
+        {
+          "category": "开源项目",
+          "title": "开源 Agent Harness 项目 CoworkOS：三层协作与 5 轮后训练迭代",
+          "text": "有群友分享了开源 Agent Harness 项目 CoworkOS，主打复杂办公与长程持续决策场景。架构上采用三层协作：Main Agent 负责定计划与验收，Coordinator 管调度，Subagent 执行子任务；支持人与智能体通过对话或直接动手共编同一份文档与 CAD 材料，并借助分层工作区、语义记忆和后台 Job 实现中断接续与监控唤醒。据介绍，该项目在 12 项复杂生产力基准与 24 个真实交付场景中进行了评测，且支持后训练循环迭代——经过 5 轮迭代后，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升到了 42.95。",
+          "emphasis": [
+            "经过 5 轮迭代后，Qwen3.6-35B-A3B 在 8 个基准上的平均分从 33.19 提升到了 42.95"
+          ],
+          "aiComment": "既能聊着改也能上手改同一份文档，5 轮迭代把 35B 均分拉到 42.95，离真正的数字同事又近一步。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:11",
+              "text": "很开心宣传一下我们近期开源的Agent Harness工作[嘿哈]：\n\n🌍 CoworkOS: Scaling Agent Coworkers for Real-world Automation\n\n我们的目标是搭建真正能与人一起协作的「超级 AI 同事」，兼顾「复杂办公 × 长程持续决策」能力。\n\n💡CoworkOS 主要有三个特点：\n1️⃣ 三层协作：Main Agent定计划验收；Coordinator管调度；Subagent执行子任务。\n2️⃣ 共享应用：人与智能体共编同一份文档、CAD材料，对话能改，直接动手也能改\n3️⃣ 持久运行：通过分层工作区、语义记忆和后台Job保证记忆可共享，中断可接续、监控可唤醒。\n\n📊 实验方面\n✅ 在12项复杂生产力基准与24个真实交付场景，性能对标Codex、DeepSeek Harness等应用。\n✅ CoworkOS具备原生RSI能力，经过5轮LLM后训练循环迭代，Qwen3.6-35B-A3B在8个基准上的平均分从 33.19 提升到 42.95。\n\n📄 论文：https://github.com/RUC-NLPIR/CoworkOS/blob/main/CoworkOS_paper.pdf\n🌐 项目主页：https://coworkos-ai.github.io/\n💻 GitHub：https://github.com/RUC-NLPIR/CoworkOS\n🎬 Demo Gallery：https://coworkos-ai.github.io/showcase.html\n\n欢迎大家试用与点赞呀！"
+            },
+            {
+              "speaker": 1,
+              "time": "15:59",
+              "text": "也恳请大家帮忙点点huggingface paper upvote🥺，感谢呀！！\n\nhttps://huggingface.co/papers/2611.03178",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心宣传一下我们近期开源的Agent Harness工作[嘿哈]： 🌍 CoworkOS: Scaling Agent Coworkers for Real-..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:02",
+              "text": "[强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:02",
+              "text": "好的"
+            },
+            {
+              "speaker": 4,
+              "time": "16:03",
+              "text": "已点"
+            },
+            {
+              "speaker": 5,
+              "time": "17:38",
+              "text": "点啦！"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "CoworkOS: Scaling Agent Coworkers for Real-world Automation",
+              "url": "https://huggingface.co/papers/2611.03178"
+            },
+            {
+              "kind": "code",
+              "label": "RUC-NLPIR/CoworkOS",
+              "url": "https://github.com/RUC-NLPIR/CoworkOS"
+            },
+            {
+              "kind": "demo",
+              "label": "CoworkOS 项目主页",
+              "url": "https://coworkos-ai.github.io/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-03",
+  "title": "MIT CSAIL 提出“权重空间编程”引争议，英伟达被曝限制云客户对华业务比例",
+  "intro": "MIT CSAIL 发布 GPT-6 Astra 直接读写神经网络权重的实验，spaCy 作者随后质疑其将不同实验设置混写；英伟达被曝要求云客户限制对华服务比例；Anthropic 公测服务端对话暂存以降低长程 agent 延迟，OpenAI 披露在线激活分类器并提高漏洞赏金，Mistral 公开 Large 4 技术报告。",
+  "stories": [
+    {
+      "title": "MIT CSAIL 提出“权重空间编程”，spaCy 作者质疑实验设置被混为一谈",
+      "timing": "博客标 2026-11-02，一作北京时间 11 月 3 日 01:51 发帖；质疑文发于 11 月 3 日",
+      "text": "MIT CSAIL 的 Rikiya Takehi 等人发表博客，提出用 GPT-6 Astra 直接读写神经网络权重。作者报告称，Astra 仅读取 17,253 个原始权重且不用工具，就能判断网络对应的 Atari 游戏；改写一个控制策略 3.5% 的权重，可将小车越障成功率从 0% 提到 100%；在 Qwen3.5-0.8B 上不用梯度、只通过 Python kernel 修改 0.016% 的权重以消除思考循环，其 MATH-500 成绩即从 7.9% 升至 48.1%，IFEval 提升约 3 倍。\n\nspaCy 作者 Matthew Honnibal 随后发文指出，原文把不同实验条件混在了一起。真正只把原始权重放进上下文、不借助工具也不运行网络的设置，仅用于 1.7 万至 17.2 万权重的小网络；涉及语言模型的实验全部使用了 Python，其中 Qwen3.5-0.8B 实验还允许在最多 50 批练习题上试跑模型，且同一方法在 Gemma 3 270M 上失败，从零写游戏网络也只在 Breakout 一款游戏上胜过 PPO 基线。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "MIT CSAIL 研究博客",
+          "url": "https://rikiyat.github.io/blog/weight-space-programming/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Honnibal 质疑文章",
+          "url": "https://honnibal.dev/blog/astra-read-write-misleading"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 原文讨论",
+          "url": "https://news.ycombinator.com/item?id=50341174"
+        }
+      ],
+      "emphasis": [
+        "在 Qwen3.5-0.8B 上不用梯度、只通过 Python kernel 修改 0.016% 的权重以消除思考循环，其 MATH-500 成绩即从 7.9% 升至 48.1%",
+        "真正只把原始权重放进上下文、不借助工具也不运行网络的设置，仅用于 1.7 万至 17.2 万权重的小网络"
+      ],
+      "aiComment": "看开头以为是徒手搓权重的神仙，被扒完发现 Qwen 实验还得拿 Python 在 50 批题上试跑，原来神仙也得偷偷刷题。"
+    },
+    {
+      "title": "金融时报称英伟达要求云客户新合同中至少 51% 服务面向非中国企业",
+      "timing": "报道发布于 2026 年 11 月 3 日",
+      "text": "据法新社及 The Decoder 转述《金融时报》与 The Information 报道，英伟达销售与区域团队正口头要求数据中心和云合作伙伴减少与中国企业的业务往来。知情人士向《金融时报》称，云客户在未来合同中须将至少 51% 的服务卖给非中国公司，并需披露使用相关芯片的最终用户身份；The Information 引述的知情人士则称该指引旨在促使云厂商客户多元化，不具强制性，且不影响现有协议。此前美国出口管制主要限制硬件出货，中国 AI 团队仍可通过海外数据中心远程租用先进 GPU。英伟达对此未予证实或否认。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "法新社转述稿",
+          "url": "https://www.malaymail.com/news/money/2026/11/03/nvidia-tells-data-centre-partners-to-curb-business-with-chinese-clients-ft-reports/241835"
+        },
+        {
+          "kind": "报道",
+          "label": "The Decoder 汇总",
+          "url": "https://the-decoder.com/nvidia-pushes-cloud-customers-to-cut-back-on-china-business/"
+        }
+      ],
+      "emphasis": [
+        "云客户在未来合同中须将至少 51% 的服务卖给非中国公司，并需披露使用相关芯片的最终用户身份"
+      ],
+      "aiComment": "传闻里这 51% 的非中国客户红线卡得真妙，云厂商签合同前怕是得先摇身一变当居委会，挨个查租卡的户口本。"
+    },
+    {
+      "title": "Anthropic 公测 Message Threads：服务端暂存历史，长对话首字延迟中位数降 35%",
+      "timing": "北京时间 11 月 3 日 03:06 公布",
+      "text": "Anthropic 在 Claude Platform 公测 Message Threads，让长程 coding agent 和 computer-use agent 不必每轮重传完整对话历史和截图。开发者在首个请求创建 thread 后，后续轮次只需发送新消息和上一条响应 ID。官方数据显示，该功能已在 Claude Code 默认开启，长对话请求体积中位数从约 800 KB 降至 1.8 KB，500k 到 1M token 请求的首字延迟（TTFT）中位数下降约 35%；由于模型每轮仍读取完整上下文，token 计费不变。\n\n根据平台文档，thread 以加密形式保存在服务器内存中，最后一次请求 5 分钟后过期，过期返回 404 时需由客户端重发完整历史。每个响应 ID 只能续接一次，只支持追加，不能与按需压缩（compaction）同用，且不符合零数据保留（ZDR）与 HIPAA 条件。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Message Threads 公告",
+          "url": "https://claude.com/resources/articles/message-threads"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Claude 平台文档",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/message-threads"
+        },
+        {
+          "kind": "原帖",
+          "label": "ClaudeDevs 推文",
+          "url": "https://x.com/ClaudeDevs/status/2117332449382510884"
+        }
+      ],
+      "emphasis": [
+        "长对话请求体积中位数从约 800 KB 降至 1.8 KB，500k 到 1M token 请求的首字延迟（TTFT）中位数下降约 35%",
+        "最后一次请求 5 分钟后过期，过期返回 404 时需由客户端重发完整历史"
+      ],
+      "aiComment": "请求体积从 800 KB 瘦身到 1.8 KB，结果一看 token 账单分文没少，属于帮快递小哥减负但运费照付 💸。"
+    },
+    {
+      "title": "OpenAI 披露自 GPT-5.6 起全量部署激活分类器，可在生成中途拦截工具调用",
+      "timing": "北京时间 11 月 3 日 04:00 发布",
+      "text": "OpenAI 对齐团队发文披露，自 GPT-5.6 起已在最强模型的所有回复上部署激活分类器（probe），与原有文本分类器并行运作。probe 直接读取模型内部激活并在生成过程中逐 token 打分，一旦越过阈值即可中断回复、立即阻止工具调用，或在推理模型做全面复查期间暂停生成。OpenAI 自测称，这种做法运行成本显著低于大型文本分类器，对测试过的越狱手法更鲁棒，且能迁移到多个后训练 checkpoint。\n\n训练单个 probe 最多使用 100 万条合成与去标识化消息，由最强推理模型标注；由于受控实验中约 85% 的性能方差来自随机初始化，每组超参至少训练 32 个种子。团队同时说明，监督训练的 probe 只能识别已知风险类型，且每个新预训练基座都需重训。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 对齐博客",
+          "url": "https://alignment.openai.com/training-activation-classifiers/"
+        }
+      ],
+      "emphasis": [
+        "自 GPT-5.6 起已在最强模型的所有回复上部署激活分类器（probe）",
+        "一旦越过阈值即可中断回复、立即阻止工具调用"
+      ],
+      "aiComment": "话还没出口就被按住嘴，更刺激的是 85% 的方差来自随机初始化，炼丹师为了训个监工还得先摇 32 次骰子 🎲。"
+    },
+    {
+      "title": "OpenAI 启动新一轮内部安全冲刺，漏洞赏金中位数提高四倍以上",
+      "timing": "北京时间 11 月 3 日 02:00 发布",
+      "text": "OpenAI 宣布筹备新一轮内部安全冲刺，引入外部安全机构 Cathedral 的研究者使用 OpenAI 模型测试其防御体系。在上一轮冲刺中，OpenAI 曾抽调 25% 的产品工程师排查系统弱点，并用 Codex 在隔离环境中复现漏洞和准备补丁；公司同时承诺在六个月内向保护关键基础设施的一线防御者提供 10 亿美元补贴额度。\n\n同日，OpenAI 将安全漏洞赏金中、高、严重三档的中位数平均上调四倍以上。ChatGPT、Codex 和 API Platform 等核心产品的严重漏洞基础奖励最高 3 万美元，特殊严重漏洞最高 10 万美元，叠加报告质量与忠诚度系数后最高约 17.2 万美元；公告前 30 天内已发奖的报告可按新标准补差价。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "安全冲刺公告",
+          "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "漏洞赏金调整公告",
+          "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties/"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenAI 官方推文",
+          "url": "https://x.com/OpenAI/status/2117444048227123277"
+        }
+      ],
+      "emphasis": [
+        "抽调 25% 的产品工程师排查系统弱点，并用 Codex 在隔离环境中复现漏洞和准备补丁",
+        "安全漏洞赏金中、高、严重三档的中位数平均上调四倍以上"
+      ],
+      "aiComment": "最高 17.2 万美元固然香，但我最瑞思拜的是前 30 天交报告还能补差价，白帽黑客居然也能享受早买早享受、晚买退差价。"
+    },
+    {
+      "title": "Mistral 公布 Large 4 技术报告：1T 总参 MoE，压缩 KV cache 会损害 agent 表现",
+      "timing": "模型权重 10 月 29 日发布，技术报告于北京时间 11 月 3 日 00:30 公布",
+      "text": "Mistral 继 10 月发布 Mistral Large 4（开放权重版代号 Le Chonk）后，于 11 月 3 日公开其技术报告。该模型为 1T 总参数、52B 激活的多模态 MoE，校准后的 NVFP4 量化 checkpoint 为 606 GB，可在 4 张 GB300 上部署。为训练长程能力，团队用写任务的 agent 自动生成软件工程、网络安全和知识工作的可执行环境与验证器，再由精修 agent 排查歧义测试与 reward hacking；官方公布的 Terminal-Bench 4.0 成绩为 41%，FrontierCode 2.0 为 19.7%。\n\n报告还记录了一项架构教训：初版叠加 512-token 滑动窗口注意力与跨层 KV 共享，将 KV cache 压缩了 16 倍，虽然验证困惑度相近，但在 SWE-bench Verified 等 agent 任务上表现明显退化，团队最终恢复了更多全上下文层并改用稀疏注意力提速。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "Large 4 技术报告",
+          "url": "https://www.alphaxiv.org/abs/2611.mistral-large-4"
+        },
+        {
+          "kind": "原帖",
+          "label": "Mistral 官方推文",
+          "url": "https://x.com/MistralAI/status/2117562068220195097"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Mistral 新闻页",
+          "url": "https://mistral.ai/news/"
+        }
+      ],
+      "emphasis": [
+        "用写任务的 agent 自动生成软件工程、网络安全和知识工作的可执行环境与验证器",
+        "虽然验证困惑度相近，但在 SWE-bench Verified 等 agent 任务上表现明显退化"
+      ],
+      "aiComment": "把 KV cache 狂压 16 倍时看着困惑度还挺美的，一跑 SWE-bench 直接露馅，原来省下来的显存全拿去扣智商了 🫠。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "长上下文与 agent 任务开始倒逼底层训练架构与 API 传输改造",
+      "text": "当期两项工程披露指向同一个问题：百k至1M token 级别的多轮 agent 会话，瓶颈已不止于模型困惑度。Mistral 在 Large 4 报告中发现，大幅压缩 KV cache 虽不影响语言建模困惑度，却会直接拉低 SWE-bench Verified 成绩；Anthropic 则在 API 层引入服务端内存暂存，避免客户端每轮重传数百 KB 的历史消息与截图。"
+    }
+  ]
+}
