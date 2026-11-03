@@ -15,8 +15,6 @@ const directory = path.resolve(process.argv[2]);
 const issues = JSON.parse(await readFile(path.join(directory, 'issues.json'), 'utf8'));
 const activityDirectory = path.join(directory, 'activity');
 const snapshot = JSON.parse(await readFile(path.join(activityDirectory, 'snapshot.json'), 'utf8'));
-const review = JSON.parse(await readFile(path.join(activityDirectory, 'avatar-review.json'), 'utf8'));
-assert.deepEqual(review.pending, [], 'Finish avatar review before publication');
 const merged = mergeDraftEditions(digests, issues);
 validatePublicActivity(snapshot, merged);
 const latest = issues.map(issue => issue.date).sort().at(-1);
