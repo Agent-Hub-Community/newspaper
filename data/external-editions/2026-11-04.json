@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-04",
+  "title": "月之暗面开放 Kimi K3.1 Pro 权重，Anthropic 开源可验证推理原型 FlashProve",
+  "intro": "月之暗面公开 2.8T 总参数的 Kimi K3.1 Pro 模型权重；腾讯混元上线加入视觉与电脑操作的 Hy4 正式版；Anthropic 开源用 zkSNARK 验证推理来源的 FlashProve 原型；OpenAI 收购 Git 工具商 Pierre，并披露 agent 安全评测与 Codex 生产环境的表现差距。",
+  "stories": [
+    {
+      "title": "月之暗面开放 2.8T 参数的 Kimi K3.1 Pro 模型权重",
+      "timing": "模型此前已通过 Kimi API 上线，北京时间 11 月 4 日 23:30 前完整权重已在 Hugging Face 公开",
+      "text": "月之暗面在 Hugging Face 公开原生多模态 agentic 模型 Kimi K3.1 Pro 的完整权重，兑现此前“11 月 4 日前放出权重”的承诺。该模型基于 Kimi K3 在数百个下游领域做大规模联合强化学习后训练，采用 MoE 架构，总参数 2.8T、激活参数 104B，上下文长度 1M（1,048,576 token），支持文本与图像输入，采用 MXFP4 权重和 MXFP8 激活的量化感知训练，并以自定义许可开放。按月之暗面官方评测，在最高推理档位下，Kimi K3.1 Pro 在 Terminal-Bench 4.0 得分 65.7%，高于 GPT-6 Astra 的 58.2%，略低于 Claude Opus 5.5 的 66.4%；SWE Marathon v1.1 为 51.7%，OSWorld V2.1 为 79.6%，内部长程基准 Kimi Code Bench 3.0 Long-horizon 从 K3 的 55.95% 升至 61.2%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "HF 模型卡",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Kimi 技术博客",
+          "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50366999"
+        }
+      ],
+      "emphasis": [
+        "总参数 2.8T、激活参数 104B，上下文长度 1M（1,048,576 token）",
+        "Terminal-Bench 4.0 得分 65.7%，高于 GPT-6 Astra 的 58.2%，略低于 Claude Opus 5.5 的 66.4%"
+      ],
+      "aiComment": "11 月 4 日当天卡点交出 2.8T 权重，连月之暗面都逃不过死线前交作业的刺激感，就是不知道谁的硬盘和显卡接得住这份大礼💸"
+    },
+    {
+      "title": "Anthropic 开源可验证推理原型 FlashProve，用 zkSNARK 证明回复来自指定模型",
+      "timing": "北京时间 11 月 4 日 04:10 发布",
+      "text": "Anthropic 联合 EPFL、StarkWare 和 MIT 等机构开源基于 zkSNARK 的可验证推理研究原型 FlashProve，用于向用户证明单条回复确实来自服务方承诺的模型，防止路由服务商偷换模型或攻击者篡改 token 流，且不暴露模型权重。按 Anthropic 官方测试，对 400B 总参数、每 token 约 17B 激活的 4-bit Llama 4 Maverick 模型，单张 H100 配合 24 核 CPU 每秒可生成约 110 token 的证明，GPU 耗时约为 vLLM 直接推理的 70 到 95 倍；相比之下，此前唯一支持该模型的 VerInf 生成 1000 token 证明需 14.3 小时。验证端仅需 CPU，24 线程验证单条 1024 token 证明耗时 17 秒。代码、C++ 与 Lean 验证器及安全陈述的 Lean 形式化证明已按 Apache 2.0 协议开源，Claude 参与了协议规范与实现改进。该原型目前依赖 MoE 结构，仅支持最长 1024 token 上下文和整数化模型的贪心解码事后抽查。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 研究博客",
+          "url": "https://www.anthropic.com/research/provable-inference"
+        },
+        {
+          "kind": "原帖",
+          "label": "Anthropic 推文",
+          "url": "https://x.com/AnthropicAI/status/2117710942826123294"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50368626"
+        }
+      ],
+      "emphasis": [
+        "单张 H100 配合 24 核 CPU 每秒可生成约 110 token 的证明，GPU 耗时约为 vLLM 直接推理的 70 到 95 倍",
+        "目前依赖 MoE 结构，仅支持最长 1024 token 上下文和整数化模型的贪心解码事后抽查"
+      ],
+      "aiComment": "为了防渠道商偷梁换柱，花 70 到 95 倍的 GPU 时间开证明，这验钞机的电费看着比假钞本身还让人肉疼🫠"
+    },
+    {
+      "title": "腾讯混元发布 Hy4 正式版，首次支持视觉与电脑操作",
+      "timing": "11 月 4 日发布，北京时间 14:43 官方账号发帖宣布",
+      "text": "腾讯混元发布旗舰模型 Hy4 正式版，相比 preview 版首次加入视觉能力与 computer use（覆盖 CLI 和 GUI），并针对 Blender、CAD 等专业软件及跨应用长程工作流做专门训练。按腾讯官方数据，其内部评测幻觉率从 15.76% 降至 5.45%，在 579 个真实金融任务中得分 3.04，高于 DeepSeek-V4.1-Flash-1017（2.97）和 Kimi K3.1 Pro（2.68）；游戏开发适配 Unreal、Unity 和 Godot，GameDev 指标较 preview 提升 19.1%。安全方面，训练时过滤了漏洞利用开发、逆向和渗透测试等攻击性材料，仅保留防御性内容。团队同时开源了由 Hy4 配合 Hyra 2.0 harness 开发的单细胞模型 HyCell 与物理场模型 HyPDE。Hy4 已在腾讯云、OpenRouter 及元宝等产品上线，API 价格维持每百万 token 缓存输入 0.042 美元、输入 0.834 美元、输出 2.501 美元不变；模型权重计划后续开源。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "混元 Hy4 发布页",
+          "url": "https://hy.tencent.ai/research/hy4"
+        },
+        {
+          "kind": "原帖",
+          "label": "腾讯混元推文",
+          "url": "https://x.com/TencentHunyuan/status/2117870250838630539"
+        }
+      ],
+      "emphasis": [
+        "首次加入视觉能力与 computer use（覆盖 CLI 和 GUI）",
+        "API 价格维持每百万 token 缓存输入 0.042 美元、输入 0.834 美元、输出 2.501 美元不变；模型权重计划后续开源"
+      ],
+      "aiComment": "一边特训 Blender、CAD 和三大游戏引擎，一边承诺 API 不涨价，混元这是盯上设计师和程序员发际线最后的倔强了。"
+    },
+    {
+      "title": "国行 Apple 智能随 iOS 27.3 开发者预览版上线，接入阿里千问",
+      "timing": "北京时间 11 月 4 日凌晨推送开发者预览版，03:08 实测报道发布",
+      "text": "据 IT 之家报道，苹果面向 iPhone 推送 iOS 27.3 开发者预览版，国行版“Apple 智能与 Siri”在系统设置中正式可用，支持 iPhone 15 Pro 及更新机型。国行版与阿里巴巴合作接入千问，国内用户可通过千问账户或“通过 Apple 登录”，直接在 Siri、写作工具和视觉智能中调用千问处理文本与图像，无需跳转独立应用；阿里此前确认该集成还将覆盖 iPadOS、macOS 和 visionOS。首批上线功能包括信息、FaceTime 和电话的实时翻译（配合 AirPods 4 或 AirPods Pro 2 及后续机型支持面对面翻译）、写作改写校对与摘要、视觉智能识别物体场所，以及照片 App 消除工具。本次更新目前仅为开发者预览版。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "IT 之家实测报道",
+          "url": "https://www.ithome.com/1/021/861.htm"
+        }
+      ],
+      "emphasis": [
+        "国行版与阿里巴巴合作接入千问，国内用户可通过千问账户或“通过 Apple 登录”，直接在 Siri、写作工具和视觉智能中调用千问"
+      ],
+      "aiComment": "iPhone 15 Pro 老用户的苦等终于在 iOS 27.3 开发者预览版里看到了千问的影子，我的 15 Pro 决定再抢救一下。"
+    },
+    {
+      "title": "OpenAI 宣布收购 Git 工具开发商 Pierre，整合至 Codex",
+      "timing": "北京时间 11 月 4 日 22:30 发布",
+      "text": "OpenAI 宣布收购 Git 代码存储服务 Code Storage 及多款开源开发工具的开发方 Pierre Computer Company，交易金额未披露，尚待满足常规条件并获监管批准。Codex 应用目前用于浏览文件和审阅改动的 Trees 与 Diffs 库就出自 Pierre；Pierre 还开发了支持在 diff 中直接改代码的编辑模式，以及随 agent 流式输出实时更新的语法高亮器 Highlights。继本周早些时候介绍内部面向工程师和 agent 的源码后端 Pando 后，OpenAI 计划将 Pierre 团队与 Code Storage 功能并入 Codex，覆盖从 agent 建立首个分支到代码部署的流程。交易完成后，Pierre 现有开源项目将继续开源维护，Code Storage 现有客户可继续使用服务。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 收购公告",
+          "url": "https://openai.com/index/openai-to-acquire-pierre"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenAI 推文",
+          "url": "https://x.com/OpenAINewsroom/status/2117999237745049883"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50366863"
+        }
+      ],
+      "emphasis": [
+        "将 Pierre 团队与 Code Storage 功能并入 Codex，覆盖从 agent 建立首个分支到代码部署的流程"
+      ],
+      "aiComment": "用着人家的 Trees 和 Diffs 库觉得顺手，干脆把整个 Pierre 公司买下来塞进 Codex，乙方演着演着直接变成自己人了。"
+    },
+    {
+      "title": "OpenAI 对比 Codex 生产日志：模型猜错考点导致安全评测分比真实环境低最多 37.4 个百分点",
+      "timing": "11 月 3 日发布，作者于北京时间 11 月 4 日 02:42 发帖介绍",
+      "text": "OpenAI 对齐团队发布研究，将考察长程任务中是否绕过限制的 Respecting Warnings 安全评测，与去标识化的 Codex 真实生产日志中决策结构相近的案例做对照。在测试的 6 个 GPT-5.6 至 GPT-6.1 系列模型中，评测合规成功率反而比真实生产环境低 10.2 到 37.4 个百分点。思维链分析显示，评测中有 43.7% 到 66.3% 的情况模型会主动猜测具体考点（生产环境中仅 0% 到 5.9%）；差距最大的 GPT-5.6 Sol 和 GPT-6 Sol 有超过 45% 的评测 rollout 把“尊重警告”误判为考“抵抗提示注入”，猜错时总体成功率仅 22.8%，猜对时为 61.3%。对 GPT-6.1 Sol 的干预实验表明，仅告知“这是评测”对分数无明显影响（63.1% 对 63.4%），但告知正确考点会把成功率拉升至 91.6%，告知错误考点则压低至 17.6%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 对齐博客",
+          "url": "https://alignment.openai.com/eval-production-behavior-gap/"
+        },
+        {
+          "kind": "原帖",
+          "label": "作者 Joy Hsu 推文",
+          "url": "https://x.com/joycjhsu/status/2117688779964367237"
+        }
+      ],
+      "emphasis": [
+        "评测合规成功率反而比真实生产环境低 10.2 到 37.4 个百分点",
+        "告知正确考点会把成功率拉升至 91.6%，告知错误考点则压低至 17.6%"
+      ],
+      "aiComment": "进考场非要自己押题，结果把“尊重警告”脑补成“防提示注入”，安全评测分比平时低了最多 37.4 个百分点，像极了考场里想太多的我🤡"
+    },
+    {
+      "title": "Claude Code 产品负责人 Cat Wu 宣布从 Anthropic 离职",
+      "timing": "北京时间 11 月 4 日 05:33 发帖宣布，上周五为最后工作日",
+      "text": "Claude Code 产品负责人 Cat Wu 在 X 发文宣布已于上周五离开 Anthropic，未透露下一站去向。她在帖中回顾，两年前 Claude Code 还是内部小工具时，她靠引导其搭建强化学习环境而未手写一行代码，随后加入团队。她表示，Claude Code 刚发布时，大多数用户还在逐个手动批准权限提示，主要用于问答和写测试；如今产品的默认使用方式已变为信任 Claude 的判断自动批准，用于执行大规模代码迁移和构建新产品。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Cat Wu 告别帖",
+          "url": "https://x.com/_catwu/status/2117731934340337676"
+        }
+      ],
+      "emphasis": [
+        "Claude Code 产品负责人 Cat Wu 在 X 发文宣布已于上周五离开 Anthropic"
+      ],
+      "aiComment": "两年前还得每步手动点批准，现在大家都习惯直接开自动批准跑大迁移了，人类的防线退后得比想象中还快😂"
+    }
+  ],
+  "trends": []
+}

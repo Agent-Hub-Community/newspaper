@@ -1,0 +1,3230 @@
+{
+  "id": "2026-11-04",
+  "date": "2026-11-04",
+  "label": "2026-11-04 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "腾讯混元 Hy4 开源发布与群友初步实测反馈",
+      "theme": "多位群友交流初体验体感，并讨论该模型后续是否会纳入 AA 评测。",
+      "note": "2026-11-04 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型发布",
+          "title": "腾讯混元 Hy4 发布，群友实测称“上大人那桌了”",
+          "text": "腾讯混元发布 Hy4，官方公众号摘要称其首次跻身最强开源模型之列。多位群友实测后给出正面反馈：分享链接的群友称“真的上大人那桌了”，另一位群友觉得体感比 hy3 有跨时代进步，“已经能用了”。有人问起 HY4 会不会进入 AA评测，接话的群友认为肯定会进。",
+          "emphasis": [
+            "分享链接的群友称“真的上大人那桌了”",
+            "体感比 hy3 有跨时代进步"
+          ],
+          "aiComment": "从小孩那桌挪到大人那桌，最高赞美居然是一句质朴的已经能用了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:26",
+              "text": "[链接] Hy4 正式发布，为真实生产力而生\n  来源: 腾讯混元\n  摘要: 首次跻身最强开源模型之列\n  URL: https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498939&idx=1&sn=74122d54739080854a4535c79437e749&chksm=c1fedbc14b79889e8702bd9fb2429b906b360bfd2539c0d30188967ee6b8d6651da6f3cc971d&scene=1&srcid=1104tgMzn6PKvR2Fq2ioT6Qh#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "13:27",
+              "text": "HY这代可以啊"
+            },
+            {
+              "speaker": 1,
+              "time": "13:27",
+              "text": "测了下真的上大人那桌了"
+            },
+            {
+              "speaker": 2,
+              "time": "13:27",
+              "text": "体感hy4这个版本不错的，比hy3跨时代进步"
+            },
+            {
+              "speaker": 2,
+              "time": "13:27",
+              "text": "已经能用了"
+            },
+            {
+              "speaker": 3,
+              "time": "13:27",
+              "text": "确实"
+            },
+            {
+              "speaker": 4,
+              "time": "14:33",
+              "text": "HY4会进AA评测么"
+            },
+            {
+              "speaker": 5,
+              "time": "14:33",
+              "text": "肯定进吧"
+            },
+            {
+              "speaker": 6,
+              "time": "14:39",
+              "text": "我测了一下，hy4这波有点牛逼的"
+            },
+            {
+              "speaker": 7,
+              "time": "14:39",
+              "text": "确实不错"
+            },
+            {
+              "speaker": 8,
+              "time": "14:47",
+              "text": "确实不错"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "4B 小模型切换 GUI/CLI 越级跑赢 30B",
+      "theme": "芯片与新药研发同困物理世界验证，另有大小模型隐层通信检验与 AgentCAD 开源。",
+      "note": "2026-11-04 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Computer Use",
+          "title": "4B 模型 39 秒跑完纯 GUI 27B 近 10 分钟的任务：Mage-VL-Cowork 开源全栈训练方案",
+          "text": "有群友分享了混合计算机操控（hybrid computer use）训练报告 Mage-VL-Cowork，让模型在 GUI 与 CLI 之间自主切换，把一个原本缺乏 grounding、tool call 和 reasoning 能力的 4B 中间权重，一路训到 OSWorld-Verified 66.0%，超过 Muse Glimmer-30B（65.9）、Qwen3.6-27B（63.9）和 Claude Sonnet 4.5（62.9）。在同一个 Calc 任务上，4B 模型 39 秒就能跑完，而纯 GUI 的 27B 模型需要 9 分 56 秒。\n\n报告把训练拆成三块：先做 Mid-training 补齐基础能力，把 OSWorld-G 从 30.6 拉到 56.9；再经过 GUI、Coding、Hybrid 三段 SFT 和在线 RL，使 OSWorld-Verified 按 45.56、55.84、66.0 逐级提升。数据合成管线 Mage-CUA-Forge 从头自建了 2k+ 个网站，每个技能写一次生成流程，合成出 293,806 个任务，单题成本降低 82.6%。采数据前还分别搭建了 GUI、终端和 Hybrid 三套 harness，反复打磨教师模型的执行框架、工具与 prompt，使教师模型在 672 道跨应用题上拿到 92.0%。模型权重（Apache-2.0）、SGLang Docker 镜像和 361 题评测代码均已开源。\n\n有人问这项工作和前两天群里出现的 hybrid computer use 有什么关联。另一位群友解释，前一篇侧重 harness 与 interface 的探索，这一篇则是 training 方面的探索，两项工作最近刚走完开源流程。分享者补充，这项工作从头 mock 网站合成了环境，工作量不小，其实九月份就已经训完，还打趣说“幸好现在有ai可以跟法务斗智斗勇”。",
+          "emphasis": [
+            "4B 模型 39 秒就能跑完，而纯 GUI 的 27B 模型需要 9 分 56 秒",
+            "自建了 2k+ 个网站，每个技能写一次生成流程，合成出 293,806 个任务，单题成本降低 82.6%",
+            "前一篇侧重 harness 与 interface 的探索，这一篇则是 training 方面的探索"
+          ],
+          "aiComment": "纯 GUI 的 27B 点了快十分钟鼠标，4B 切个终端 39 秒下班，开源前还得靠 AI 帮着跟法务对线 😂",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:01",
+              "text": "和大家分享一下我们组的新工作～\n\n🖥️ Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses\n\nGPT-6 Astra 之后，computer use 的效率和延迟越来越受关注。这份技术报告是我们对 hybrid computer use（GUI 与 CLI 自主切换）合成与训练的一次全栈探索。\n\n从环境搭建、任务合成、harness 迭代，到 Mid-training、SFT 和 RL，报告完整记录了怎样把一个缺乏 agentic CUA 能力的 4B 小模型一步步补齐能力，最后训到 OSWorld-Verified 66.0%，各环节的设计选择、对比实验和踩过的坑都写了进去。\n\n💡 主要包含三部分：\n1️⃣ 训练方案：从缺乏 grounding、tool call 和 reasoning 的 4B 中间权重出发，先用 Mid-training 补齐基础能力（OSWorld-G 30.6 → 56.9），再经 GUI / Coding / Hybrid 三段 SFT 和在线 RL，OSWorld-Verified 45.56 → 55.84 → 66.0\n2️⃣ 数据合成 Mage-CUA-Forge：每个技能写一次生成流程，自建 2k+ 个网站，合成 293,806 个任务，单题成本降低 82.6%\n3️⃣ CUA harness 迭代：采数据前反复打磨教师模型的执行框架、工具和 prompt，分别搭 GUI、终端和 Hybrid 三套 harness，教师模型在 672 道跨应用题上达到 92.0%\n\n📊 4B 模型在 OSWorld-Verified 上拿到 66.0%，超过参数量约 7 倍的 Muse Glimmer-30B（65.9）和 Qwen3.6-27B（63.9），也超过 Claude Sonnet 4.5（62.9）；同一个 Calc 任务，它 39 秒完成，纯 GUI 的 27B 要 9 分 56 秒。\n\n模型权重（Apache-2.0）、SGLang Docker 镜像和完整 361 题评测代码均已开源，欢迎大家交流讨论，也欢迎 upvote 和 star～\n📄 Paper：https://arxiv.org/abs/2610.40747\n🤗 HF：https://huggingface.co/papers/2610.40747\n💻 GitHub：https://github.com/microsoft/Mage\n🌐 Project：https://microsoft.github.io/Mage/cowork/"
+            },
+            {
+              "speaker": 1,
+              "time": "20:06",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:08",
+              "text": "欢迎大家交流[可怜]"
+            },
+            {
+              "speaker": 3,
+              "time": "20:12",
+              "text": "🐮"
+            },
+            {
+              "speaker": 4,
+              "time": "20:14",
+              "text": "cua工作好多～"
+            },
+            {
+              "speaker": 5,
+              "time": "20:52",
+              "text": "怎么感觉和前两天群里发的hybird computer use有关系"
+            },
+            {
+              "speaker": 2,
+              "time": "21:00",
+              "text": "确实 那也是我们做的[旺柴]  明天分享一下"
+            },
+            {
+              "speaker": 2,
+              "time": "21:01",
+              "text": "前两天发的那个是 harness/interface 的一些探索   这个是training 的一些探索"
+            },
+            {
+              "speaker": 6,
+              "time": "21:01",
+              "text": "[苦涩]cua要做完了"
+            },
+            {
+              "speaker": 5,
+              "time": "21:05",
+              "text": "明天还要发什么方向的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:06",
+              "text": "哦就是前两天提到的那个工作"
+            },
+            {
+              "speaker": 5,
+              "time": "21:06",
+              "text": "get"
+            },
+            {
+              "speaker": 2,
+              "time": "21:06",
+              "text": "最近这俩刚走完公司的开源流程[苦涩]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:23",
+              "text": "不过做了一些数据上的探索，也从头mock了网站合成了环境，工作量还是挺大的，也许可以给一些想更from scratch训练cua能力的同学提供一些参考",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 跟真正工业界还是没法比[敲打]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:28",
+              "text": "幸好现在有ai可以跟法务斗智斗勇"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses",
+              "url": "https://arxiv.org/abs/2610.40747"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Mage",
+              "url": "https://github.com/microsoft/Mage"
+            },
+            {
+              "kind": "demo",
+              "label": "Mage-VL-Cowork 项目主页",
+              "url": "https://microsoft.github.io/Mage/cowork/"
+            }
+          ]
+        },
+        {
+          "category": "行业讨论",
+          "title": "AI 冲击芯片设计与新药研发：前端设计压缩之后，难关都卡在物理世界",
+          "text": "有群友转了一篇关于 AI 冲击芯片设计的文章，另一位群友贴出报道截图，提到 Anthropic 工程师声称 Claude 能比英伟达和 AMD 的传统流程缩短芯片设计时间，冲击 EDA 行业。有人认为数字芯片本来就有成熟的配套工业软件，模电估计也快了。\n\n有和芯片从业者聊过的群友提出，芯片跟生物一样，idea 不难，难在实验实现 PoC。另一位群友补充，芯片真正的瓶颈是生产，卡在物理世界；过去 fabless 公司要养大批人花一年做的架构、RTL、验证、前后端布局布线和 ECO，用 AI 可以压到很短时间内完成。\n\n前一位群友觉得这和做药很像：现在从零推到临床前候选化合物（PCC）已经从一到两年压缩到三个月，难关全在后面。对比之下，有人指出芯片没有临床试验这一步，流片回来做完 test 和封装基本就能开卖；也有人调侃这岂不是利好 CXO，前一位群友接了句“重仓cro”。",
+          "emphasis": [
+            "架构、RTL、验证、前后端布局布线和 ECO，用 AI 可以压到很短时间内完成",
+            "从零推到临床前候选化合物（PCC）已经从一到两年压缩到三个月"
+          ],
+          "aiComment": "前端三个月把候选分子筛出来，回头一看临床试验还在物理世界排队，CXO 听完笑出了声。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:40",
+              "text": "别急"
+            },
+            {
+              "speaker": 1,
+              "time": "12:40",
+              "text": "芯片兄弟也快死了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:40",
+              "text": "我知道你很急，但是你先别急"
+            },
+            {
+              "speaker": 3,
+              "time": "12:40",
+              "text": "😭"
+            },
+            {
+              "speaker": 4,
+              "time": "12:40",
+              "text": "[链接] 磨刀霍霍向芯片\n  来源: 张托肯用AI\n  摘要: 案板上的芯片。\n  URL: https://mp.weixin.qq.com/s?__biz=Mzg2MzA1Mjg1Mw%3D%3D&mid=2247486074&idx=1&sn=a44fa93ecf9ce6a6b943837863919114&chksm=cf2f7a3fd801f3ed6af1d5588c00940fd052c263a3a27b5c0009fa284ab6e2ba2dc170150c09&scene=1&srcid=1103bEzECuYddX7lnhgV0T1y#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "12:40",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "12:40",
+              "text": "第一个死的兄弟是谁来着"
+            },
+            {
+              "speaker": 4,
+              "time": "12:41",
+              "text": "感觉芯片兄弟死只是时间问题😭"
+            },
+            {
+              "speaker": 3,
+              "time": "12:41",
+              "text": "啊，是客服小姐姐们"
+            },
+            {
+              "speaker": 4,
+              "time": "12:41",
+              "text": "一堆ai资源吻上来了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:41",
+              "text": "和真的做芯片的朋友聊过"
+            },
+            {
+              "speaker": 2,
+              "time": "12:41",
+              "text": "关键是数字芯片本来就是很好的配套工业软件",
+              "quote": {
+                "speaker": 4,
+                "text": "[链接] 磨刀霍霍向芯片\n  来源: 张托肯用AI\n  摘要: 案板上的芯片。\n  URL: https://mp.weixin.qq.com/s?__biz=Mzg2MzA1Mjg1Mw%3D%3D&mid=2247486074&idx=1&sn=a44fa93ecf9ce6a6b943837863919114&chksm=cf2f7a3fd801f3ed6af1d5588c00940fd052c263a3a27b5c0009fa284ab6e2ba2dc170150c09&scene=1&srcid=1103bEzECuYddX7lnhgV0T1y#rd"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:41",
+              "text": "做模电也快了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:41",
+              "text": "芯片和生物一样，idea不难，难的是实验实现poc"
+            },
+            {
+              "speaker": 2,
+              "time": "12:42",
+              "text": "在机器人起来之前，我们人类就是他们的世界接口了？",
+              "quote": {
+                "speaker": 5,
+                "text": "芯片和生物一样，idea不难，难的是实验实现poc"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:42",
+              "text": "芯片难的是生产啦"
+            },
+            {
+              "speaker": 1,
+              "time": "12:42",
+              "text": "被物理世界卡住了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:42",
+              "text": "yesyes"
+            },
+            {
+              "speaker": 1,
+              "time": "12:44",
+              "text": "前面一年的架构/RTL/验证/前端/后端布局布线/ECO，有了AI后可以压缩到非常短时间内。"
+            },
+            {
+              "speaker": 1,
+              "time": "12:44",
+              "text": "以前fabless养了很多人干这个"
+            },
+            {
+              "speaker": 5,
+              "time": "12:46",
+              "text": "真的和做药一样，现在nothing到pcc大概从一到两年压缩到三个月。。。难得还是在后面",
+              "quote": {
+                "speaker": 1,
+                "text": "前面一年的架构/RTL/验证/前端/后端布局布线/ECO，有了AI后可以压缩到非常短时间内。"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:46",
+              "text": "#什么是pcc"
+            },
+            {
+              "speaker": 5,
+              "time": "12:47",
+              "text": "Preclinical Candidate Compound"
+            },
+            {
+              "speaker": 5,
+              "time": "12:47",
+              "text": "ready to sell的时刻"
+            },
+            {
+              "speaker": 1,
+              "time": "12:47",
+              "text": "话说怎么做临床试验",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 真的和做药一样，现在nothing到pcc大概从一到两年压缩到三个月。。。难得还是在后面"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:47",
+              "text": "这个要花多少时间"
+            },
+            {
+              "speaker": 6,
+              "time": "12:48",
+              "text": "噢噢 懂了 谢谢老师"
+            },
+            {
+              "speaker": 1,
+              "time": "12:48",
+              "text": "芯片倒是没有这一步，回来test/封装后完基本上就可以卖了"
+            },
+            {
+              "speaker": 2,
+              "time": "12:48",
+              "text": "岂不是利好药明康德这样的cxo",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 真的和做药一样，现在nothing到pcc大概从一到两年压缩到三个月。。。难得还是在后面"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:50",
+              "text": "重仓cro",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 岂不是利好药明康德这样的cxo"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型协作",
+          "title": "大模型 Prefill 传隐状态给小模型 Decode 真有用吗？Platour 与 PACT-Check 拆解增益来源",
+          "text": "有群友分享了大小模型隐空间通信（Latent Communication）研究 PACT（Prefill-to-Autoregressive Cross-Model Transfer）：由大模型负责 Prefill，把内部隐层表示传给小模型，再由小模型独立完成 Decode。这项工作提出的基线方法 Platour 在 35B->4B 设置下超过了闭源的 Mostik 753B->4B，并扩展到 235B->1.7B 和 397B->4B 的跨尺寸协作。\n\n分享者同时追问了性能提升的真实来源：实验发现，在一些任务上，即便把大模型发出的表示替换成与当前问题无关的信号，或者直接对接收端小模型做强化学习训练，也能复现大部分性能提升；但在化学推理等另一些任务上，Platour 依然跑出了超出所有对照方法的增益。为此，这项工作提出了评估协议 PACT-Check，通过干预发送方信息并引入独立训练的适配基线，用来检验跨模型传输的收益到底在多大程度上真来自发送方。",
+          "emphasis": [
+            "35B->4B 设置下超过了闭源的 Mostik 753B->4B",
+            "即便把大模型发出的表示替换成与当前问题无关的信号，或者直接对接收端小模型做强化学习训练，也能复现大部分性能提升"
+          ],
+          "aiComment": "35B 辛辛苦苦算完隐状态传给 4B，结果部分任务换段无关信号也差不多，大模型当场陷入自我怀疑 🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:42",
+              "text": "✨分享一下最近我们关于大小模型Latent Communication协作的研究：PACT（Prefill-to-Autoregressive Cross-Model Transfer）：大模型负责处理Prefill，并将内部隐层表示传递给小模型，随后由小模型独立完成Decode。这种模型层面的 Prefill-Decode 分离，有望充分结合大模型的理解能力与小模型的解码效率，达到新的帕累托最优。\n\n我们通过less design, more scalable的方式提出了一个性能强劲的strong baseline Platour，在35B->4B上的效果超越了闭源Mostik 753B->4B，同时也扩展到了235B->1.7B和397B->4B这样的极端尺寸差，也进一步追问了一个关键问题：这些性能提升究竟来自哪里？ 👇\n\n🔹 在一些任务上，即使将发送方的表示替换为与当前问题无关的信号，或者直接对接收方小模型进行强化学习训练，也能复现大部分性能提升。\n🔹 但在另一些任务上，例如化学推理，PLatour 仍然展现出超出所有已测试对照方法的性能增益。\n\n为此，我们进一步提出 PACT-Check，一套面向 PACT 类系统的全面 sanity check 评估协议。它通过干预发送方传递的信息，并引入独立训练的适配基线，系统检验哪些性能提升确实依赖于发送方信息，以及哪些提升可以通过其他适配方式重现。\n\n我们希望这项工作能够推动社区对 PACT 这种模型协作范式进行更加深入的研究，也希望通过更透明的实验分析、更全面的对照和可复现的评估，帮助社区更准确地理解这类方法的真正价值与局限。\n\n论文：On the Opportunities and Challenges of Prefill-to-Autoregressive Cross-Model Transfer\n链接：https://github.com/zhenyi4/platour\n\n欢迎大家点赞关注～☘️"
+            },
+            {
+              "speaker": 2,
+              "time": "19:25",
+              "text": "[强][强][强]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "platour: On the Opportunities and Challenges of Prefill-to-Autoregressive Cross-Model Transfer",
+              "url": "https://github.com/zhenyi4/platour"
+            }
+          ]
+        },
+        {
+          "category": "AI4CAD",
+          "title": "AgentCAD 开源：Codex 五轮改图耗时从 18.3 分钟压到 6.2 分钟",
+          "text": "有群友分享了面向 AI Agent 的二维 CAD 运行时项目 AgentCAD。该项目通过 MCP 接入 Codex、Claude Code 等 coding agent，支持定位对象、修改、测量、校验、检查点以及跨会话恢复——agent 甚至能在新会话里查阅历史，撤回某次指定修改并保留后续改动。\n\n在本地复测的 AutoCAD MCP Benchmark 中，AgentCAD 31/31 项全过拿到满分 100，在 9 个开源 CAD MCP 源码能力评测中也拿了满分第一。与同一个 agent 直接写 CAD 代码相比，接入 AgentCAD 后，Codex 连续五轮改图的平均耗时从 18.3 分钟降到 6.2 分钟（两组均 3/3 完成），六个简单二维任务的平均耗时从 263 秒降到 122 秒。分享者提到，此前的三维实验显示工具封装的收益因模型而异：Claude Code 封装后几何得分更高，Codex 则是直接写代码得分更高。\n\n有群友把项目转给了画图同行，群里随即调侃画图、土木、机械兄弟要被挨个“干死”；分享者顺势提到，OpenAI 当天也刚发帖预告要分享在机械和电气方向的新进展。",
+          "emphasis": [
+            "Codex 连续五轮改图的平均耗时从 18.3 分钟降到 6.2 分钟",
+            "工具封装的收益因模型而异：Claude Code 封装后几何得分更高，Codex 则是直接写代码得分更高"
+          ],
+          "aiComment": "五轮改图从 18.3 分钟压到 6.2 分钟，还能跨会话撤回中间某步，甲方连夜把改回第一版改成了改回第三版。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:59",
+              "text": "借风水宝地，帮朋友宣传一下我们在 AI4CAD 上的新 project：AgentCAD，一个专为 AI Agent 构建的 CAD runtime。\n\n目前聚焦二维 CAD，通过 MCP 接入 Codex、Claude Code 等前沿 coding agents，提供从定位对象、修改、测量、查看结果到持续修订的交互环境，支持校验、修改追踪、检查点和跨会话恢复。\n\nAgentCAD 在 AutoCAD MCP Benchmark本地复测中，31/31 项全部通过，取得 100/100，与 AutoCAD MCP Pro 并列满分；在我们组织的 9 个开源 CAD MCP 统一源码能力评测中取得 100/100，排名第一。同时我们与同一 agent 直接写 CAD 代码做了对照：Codex 连续五轮改图的平均耗时从 18.3 分钟降到 6.2 分钟，两组均 3/3 完成；六个简单二维任务的平均耗时从 263 秒降到 122 秒。\n\n一个有意思的观察是，agent 会查询图纸、根据校验反馈继续修订，还能在新会话里查历史，撤回指定修改并保留后续改动。历史三维实验也发现，工具封装的收益因模型而异：Claude Code 的几何得分提高，Codex 则是直接写代码更高。我们希望继续探索，把 AI CAD 推进到真实生产环境中的设计与修订工作流中。\n\nGitHub：https://github.com/lizaixi01/AgentCAD\n欢迎试用、交流、提 issue，也欢迎 star / upvote 支持！"
+            },
+            {
+              "speaker": 2,
+              "time": "12:20",
+              "text": "已经推送给我的画图兄弟们",
+              "quote": {
+                "speaker": 1,
+                "text": "借风水宝地，帮朋友宣传一下我们在 AI4CAD 上的新 project：AgentCAD，一个专为 AI Agent 构建的 CAD runtime。 目前聚焦..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:20",
+              "text": "建筑佬的群"
+            },
+            {
+              "speaker": 3,
+              "time": "12:34",
+              "text": "画图兄弟也被你们干死了"
+            },
+            {
+              "speaker": 4,
+              "time": "12:35",
+              "text": "画图兄弟也被你们干死了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:35",
+              "text": "土木兄弟被你们尬死了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:35",
+              "text": "干死了"
+            },
+            {
+              "speaker": 1,
+              "time": "12:35",
+              "text": "机械兄弟被你们干死了（"
+            },
+            {
+              "speaker": 1,
+              "time": "12:36",
+              "text": "oai今天刚发的帖子说要share在机械 电气的进展"
+            },
+            {
+              "speaker": 6,
+              "time": "12:36",
+              "text": "我们真的就是欲练此功"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "lizaixi01/AgentCAD",
+              "url": "https://github.com/lizaixi01/AgentCAD"
+            }
+          ]
+        },
+        {
+          "category": "Agent 环境合成",
+          "title": "先集真实工具再按需造库：ToolSpace 744B 追平 Claude Opus 5，并升级两个高难基准",
+          "text": "有群友分享了长程智能体环境合成工作 ToolSpace。针对以往先造底层数据库再合成工具与任务、容易导致接口失真的问题，ToolSpace 反过来先从真实调用轨迹收集工具并串联成工具图谱，只给会改变状态的环境按需合成底层数据库；再通过状态感知游走和回退，把可执行工具链反编译成任务与校验脚本，产出 SFT 和混合环境 RL 数据。\n\n在 7 个长程工具基准上，ToolSpace-744B 取得 56.6 的平均分，与 Claude Opus 5 持平（其中 AutomationBench 54.7、Harvey LAB 27.5、SkillsBench 67.8、OfficeQA Pro 67.1、JobBench 57.5）。这项工作还把两个现有基准无缝升级为 AutomationBench Pro 和 τ³-Bench Banking Pro，目前强模型在上面的得分均低于 40 分。有人追问合成数据能否开源；分享者随后专门推荐了这两个升级版基准，表示评测方式与原版完全一致但难度更高，已有群友上手 clone。",
+          "emphasis": [
+            "先从真实调用轨迹收集工具并串联成工具图谱，只给会改变状态的环境按需合成底层数据库",
+            "在 7 个长程工具基准上，ToolSpace-744B 取得 56.6 的平均分，与 Claude Opus 5 持平"
+          ],
+          "aiComment": "刚拿 744B 追平 Opus 5，转手就把两个基准升级到强模型全员不过 40 分，生怕大家下班太早。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:22",
+              "text": "很开心分享我们在智能体环境合成上的最新工作[嘿哈]：\n\n🌟 ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents\n\n现有环境合成方法多是 Data-Centric：先造底层数据库，再合成工具与任务。工具接口易失真，也难形成跨环境任务。\n\n与之思路相反，ToolSpace 先从真实调用轨迹收集工具，再把真实工具集串成工具宇宙，最后按需合成底层数据库。既保住真实性，也能灵活合成跨「任意环境 × 任意工具」的可验证任务。\n\n💡 ToolSpace 关键方法 \n1️⃣ 工具宇宙探索：从真实轨迹挖掘工具依赖，串联成工具世界图谱；只给会改状态的环境合成数据库。 \n2️⃣ 可验证任务合成：用状态感知游走和回退探索图谱，把可执行工具链反编译成任务和校验脚本，并保持环境状态连续。同一链路可合成高质量 SFT 与混合环境 RL 数据。 \n3️⃣ 更难的评测基准：用ToolSpace 无缝升级两个前沿基准，提出 AutomationBench Pro 和 τ³-Bench Banking Pro。现有强模型得分均在 40 分以下，为行业提出更难标准。\n\n📊 实验 \n✅ 在 7 个长程工具基准上评测了 ToolSpace 8B、35B 和 744B。ToolSpace-744B平均分56.6，与Claude Opus 5持平。 \n✅ ToolSpace-744B：AutomationBench 54.7、Harvey LAB 27.5、SkillsBench 67.8，OfficeQA Pro 67.1，JobBench 57.5。 \n✅ 环境和数据规模扩大后，智能体性能随之提升。\n\n📄 论文：https://arxiv.org/pdf/2611.05036\n🌐 项目主页：https://toolspace-agent.github.io/ \n💻 GitHub：https://github.com/dongguanting/ToolSpace \n🤗 Models：https://huggingface.co/collections/dongguanting/toolspace\n\n欢迎大家关注，代码，模型均已开源，也恳请大家点个HF paper upvote 🥺👏👏👏\n🤗HF paper：https://huggingface.co/papers/2611.05036"
+            },
+            {
+              "speaker": 2,
+              "time": "14:27",
+              "text": "太厉害了喵"
+            },
+            {
+              "speaker": 3,
+              "time": "14:27",
+              "text": "太高产了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:57",
+              "text": "数据能不能开源"
+            },
+            {
+              "speaker": 4,
+              "time": "14:58",
+              "text": "[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "[哇]和兄弟们推销一下我toolspace升级的bench，Automation-Pro 和 Tau3-Banking-Pro，和原本bench评测方式和原本一模一样，只是任务难度变高了，真实好刷！！\n\nhttps://github.com/dongguanting/ToolSpace/tree/main/Automation-Pro\nhttps://github.com/dongguanting/ToolSpace/tree/main/Tau3-Banking-Pro"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "部署问题我管debug！！"
+            },
+            {
+              "speaker": 1,
+              "time": "17:54",
+              "text": "给兄弟们多点bench可以多在top厂🐶，防止没得刷了，亲测好刷，报分利器～",
+              "quote": {
+                "speaker": 1,
+                "text": "[哇]和兄弟们推销一下我toolspace升级的bench，Automation-Pro 和 Tau3-Banking-Pro，和原本bench评测方式和原本一..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:55",
+              "text": "求兄弟们多推销！"
+            },
+            {
+              "speaker": 5,
+              "time": "18:37",
+              "text": "已clone",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 给兄弟们多点bench可以多在top厂🐶，防止没得刷了，亲测好刷，报分利器～"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+              "url": "https://arxiv.org/abs/2611.05036"
+            },
+            {
+              "kind": "code",
+              "label": "dongguanting/ToolSpace",
+              "url": "https://github.com/dongguanting/ToolSpace"
+            },
+            {
+              "kind": "demo",
+              "label": "ToolSpace 项目主页",
+              "url": "https://toolspace-agent.github.io/"
+            },
+            {
+              "kind": "code",
+              "label": "AutomationBench Pro（Automation-Pro）",
+              "url": "https://github.com/dongguanting/ToolSpace/tree/main/Automation-Pro"
+            },
+            {
+              "kind": "code",
+              "label": "τ³-Bench Banking Pro（Tau3-Banking-Pro）",
+              "url": "https://github.com/dongguanting/ToolSpace/tree/main/Tau3-Banking-Pro"
+            }
+          ]
+        },
+        {
+          "category": "具身智能",
+          "title": "uni-robot-agent 开源：用 qwen3.8-flash-next 零特权信息控制真机与仿真机器人",
+          "text": "有群友分享了统一机器人控制框架 uni-robot-agent（Open-RUA），将不同环境的 tool 统一起来面向通用 agentic training。在没有任何特权信息或真机拿不到的信息的前提下，该框架直接用 qwen3.8-flash-next 控制机器人，在 RoboDojo 上超过了官方的 Astra，并在真机 5 个维度的 19 个任务上超过了微调后的 pi0.5 和 dream-1。",
+          "emphasis": [
+            "直接用 qwen3.8-flash-next 控制机器人，在 RoboDojo 上超过了官方的 Astra"
+          ],
+          "aiComment": "不开天眼零特权信息，直接拿 qwen3.8-flash-next 跨界控真机，连微调过的 pi0.5 都被比下去了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:04",
+              "text": "借楼宣传下我们昨天release的一个统一的rua harness hhh[嘿哈]用qwen3.8-flash-next直接控制机器人可以在robodojo上超过dojo官方的astra，真机的5个维度的19个任务上超过fine-tuned pi0.5和dream-1，并且没有特权信息/真机access不到的信息，另外我们unify了各种环境的tool来面向generalizable的agentic training，欢迎大家来交流讨论呀！\n\nhttps://x.com/zuo_yuxin/status/2117635294115795134?a=XWAw0OD1Z9QRKDbK7q4&s=20\nhttps://github.com/Open-RUA/uni-robot-agent\nhttps://arxiv.org/pdf/2611.01560"
+            },
+            {
+              "speaker": 2,
+              "time": "16:06",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:19",
+              "text": "最近很火！"
+            },
+            {
+              "speaker": 4,
+              "time": "16:49",
+              "text": "牛[强][强]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Democratizing Robot-Use Agents: A Unified Harness with Open Models",
+              "url": "https://arxiv.org/abs/2611.01560"
+            },
+            {
+              "kind": "code",
+              "label": "Open-RUA/uni-robot-agent",
+              "url": "https://github.com/Open-RUA/uni-robot-agent"
+            }
+          ]
+        },
+        {
+          "category": "模型排障",
+          "title": "DeepSeek-V4.1-Flash-1017 短请求异常：简单问候触发跨行复读与安全标签泄露",
+          "text": "有群友表示也遇到了 Hugging Face 社区讨论的 DeepSeek-V4.1-Flash-1017 短请求乱码问题，并发帖求助分析原因。分享的异常输出截图显示，模型在回复简单问候语时会出现跨行重复词句、夹杂 const 或英文练字句、突然跳接无关长文章节（如“## 1. 核心概念”），甚至直接吐出 `<ds_safety>[用户未成年]否...` 等内部安全判定标签。",
+          "emphasis": [
+            "直接吐出 `<ds_safety>[用户未成年]否...` 等内部安全判定标签"
+          ],
+          "aiComment": "只是打个招呼，🐳 就把未成年安全标签和长文大纲一锅端了出来，像极了被突然点名时的精神状态。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:51",
+              "text": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/33\n关于deepseek的这个短请求的乱码问题，我们也遇到了，大佬们可以分析讨论一下原因吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "17:54",
+              "text": "[图片]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "discussion",
+              "label": "DeepSeek-V4.1-Flash-1017 · 短请求的乱码问题",
+              "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/33"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "Kimi K3.1 被指刷榜，国模科学基准分差引热议",
+      "theme": "另有 PACT 隐层传参增益拆解、ToolSpace 环境合成与免训练改权重。",
+      "note": "2026-11-04 · 当日本地记录",
+      "stories": [
+        {
+          "category": "基准评测",
+          "title": "从 Kimi K3.1 评测审计聊到 Terminal-Bench：未洗净的 thinking 与国模科学基准分差",
+          "text": "有群友发出一份名为 kimi_k31_benchmark_audit.pdf 的评测审计文件，有人看完直言 Kimi 在 Terminal-Bench 上是在明着刷分。另一位群友感叹，现在看到接近或超过 Opus 的开源模型都会下意识怀疑，之前几次乘兴试用都败兴而归，还搭上小笔开销。\n\n有人追问 Kimi K3.1 是否也刷了 Terminal-Bench-Science（tb sci），因为国内模型里只有它在这项拿到“惊人的 40 分”，ds1017 才 13 分。有群友附和国内模型在 tbs 上整体偏弱，也有人打趣看到国模分低反而大喊 nice，“这样我才能刷分”。前面那位群友还借此提起一位“故人”：一个在鹈鹕测试里把 128k 思考打爆的模型。\n\n随后有群友贴出一张横向评测表：在 Terminal-Bench 4.0 上，Hy4 preview 与 Hy4 分别为 26.3 和 44.4，GLM-5.3 为 42.9*，DeepSeek-V4.1-Flash-1017 为 42.3 / 40.0*，Kimi K3.1 Pro 达 65.7 / 66.8*，对比 GPT-6.1 Sol 的 55.9 / 55.5* 与 Claude Opus 5.5 的 66.4 / 66.4*；而在 Terminal-Bench-Science 0.1 上，Hy4 preview（16.2）、Hy4（19.8）、GLM-5.3（10.0*）和 DeepSeek-V4.1-Flash-1017（13.7*）均未过 20，Kimi K3.1 Pro 为 38.1 / 41.7*，GPT-6.1 Sol 与 Claude Opus 5.5 则分别为 57.0 / 60.9* 和 58.7 / 56.2*。还有群友留下一句：这个故事告诉我们 skill training 不洗干净 thinking 进训练的后果。",
+          "emphasis": [
+            "看到接近或超过 Opus 的开源模型都会下意识怀疑",
+            "国内模型里只有它在这项拿到“惊人的 40 分”，ds1017 才 13 分",
+            "这个故事告诉我们 skill training 不洗干净 thinking 进训练的后果"
+          ],
+          "aiComment": "看到国模在科学基准上分普遍不到 20，群友第一反应居然是喊 nice，毕竟分数洼地才是刷分富矿 🔥",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:33",
+              "text": "[文件] kimi_k31_benchmark_audit.pdf (1.4 MB, pdf, md5=7b1f357a7672db53c8789258be139d70)"
+            },
+            {
+              "speaker": 2,
+              "time": "13:35",
+              "text": "好活儿"
+            },
+            {
+              "speaker": 3,
+              "time": "13:36",
+              "text": "好东西[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "13:36",
+              "text": "wc"
+            },
+            {
+              "speaker": 5,
+              "time": "13:36",
+              "text": "好东西"
+            },
+            {
+              "speaker": 4,
+              "time": "13:36",
+              "text": "真好东西"
+            },
+            {
+              "speaker": 6,
+              "time": "13:37",
+              "text": "牛皮"
+            },
+            {
+              "speaker": 3,
+              "time": "13:37",
+              "text": "别的不说，kimi的terminal-bench是真明着刷了"
+            },
+            {
+              "speaker": 4,
+              "time": "13:37",
+              "text": "[奸笑]有一说一,已经被这种搞得形成思维定式了,超过或者接近opus的开源模型,下意识怀疑是不是有问题"
+            },
+            {
+              "speaker": 7,
+              "time": "13:38",
+              "text": "哈哈哈哈哈"
+            },
+            {
+              "speaker": 4,
+              "time": "13:38",
+              "text": "毕竟已经被当傻子骗了几次了"
+            },
+            {
+              "speaker": 7,
+              "time": "13:38",
+              "text": "合理的",
+              "quote": {
+                "speaker": 4,
+                "text": "[奸笑]有一说一,已经被这种搞得形成思维定式了,超过或者接近opus的开源模型,下意识怀疑是不是有问题"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:38",
+              "text": "想问k3.1 刷了tb sci嘛"
+            },
+            {
+              "speaker": 4,
+              "time": "13:38",
+              "text": "每次都是乘兴而去,败兴而归"
+            },
+            {
+              "speaker": 5,
+              "time": "13:38",
+              "text": "国模就他的分高"
+            },
+            {
+              "speaker": 4,
+              "time": "13:38",
+              "text": "顺便搭上了少量钱财"
+            },
+            {
+              "speaker": 5,
+              "time": "13:38",
+              "text": "惊人的40分",
+              "quote": {
+                "speaker": 5,
+                "text": "国模就他的分高"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "13:39",
+              "text": "这"
+            },
+            {
+              "speaker": 5,
+              "time": "13:39",
+              "text": "ds1017也才13分hhh"
+            },
+            {
+              "speaker": 8,
+              "time": "13:39",
+              "text": "好活"
+            },
+            {
+              "speaker": 8,
+              "time": "13:39",
+              "text": "tbs国内的都不太行"
+            },
+            {
+              "speaker": 5,
+              "time": "13:40",
+              "text": "yes"
+            },
+            {
+              "speaker": 9,
+              "time": "13:42",
+              "text": "我嘞个豆"
+            },
+            {
+              "speaker": 4,
+              "time": "13:52",
+              "text": "[奸笑]这个时候,我不得不提到一位故人,鹈鹕测试给128k的思考打爆的一个模型",
+              "quote": {
+                "speaker": 5,
+                "text": "国模就他的分高"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:53",
+              "text": "这是好事啊",
+              "quote": {
+                "speaker": 8,
+                "text": "tbs国内的都不太行"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:53",
+              "text": "看到国模tbs分低群友大喊nice，这样我才能刷分！"
+            },
+            {
+              "speaker": 11,
+              "time": "13:54",
+              "text": "[旺柴]笑死"
+            },
+            {
+              "speaker": 11,
+              "time": "13:55",
+              "text": "还有抄底"
+            },
+            {
+              "speaker": 12,
+              "time": "13:58",
+              "text": "手哥是吧",
+              "quote": {
+                "speaker": 10,
+                "text": "看到国模tbs分低群友大喊nice，这样我才能刷分！"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:58",
+              "text": "啥愿听故人人之言",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] [奸笑]这个时候,我不得不提到一位故人,鹈鹕测试给128k的思考打爆的一个模型"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "13:59",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 14,
+              "time": "14:02",
+              "text": "这个故事告诉我们 skill training不洗干净thinking进训练的后果（"
+            }
+          ]
+        },
+        {
+          "category": "模型协作",
+          "title": "大小模型隐层传参真有用吗？PACT-Check 发现部分增益换无关信号也能复现",
+          "text": "有群友分享了大小模型隐层通信协作研究 PACT（Prefill-to-Autoregressive Cross-Model Transfer）与基线方法 Platour：由大模型负责 Prefill 并将内部隐层表示传给小模型，再由小模型独立完成 Decode。据介绍，Platour 在 35B->4B 设置下超越了闭源的 Mostik 753B->4B，并可扩展到 235B->1.7B 和 397B->4B 的跨尺寸组合。\n\n这项工作还追问了性能提升的真实来源，并提出评估协议 PACT-Check，通过干预发送方传递的信息和引入独立训练的适配基线做对照检验。实验发现，在一些任务上，即便把发送方的表示替换成与当前问题无关的信号，或直接对接收方小模型做强化学习训练，也能复现大部分性能提升；但在化学推理等另一些任务上，Platour 依然展现出超出所有对照基线的增益。消息发出后，有群友大呼“被创死了很安详”，称自己的 idea 几乎一模一样；另一位群友也感叹连自己起的名字 PACT 都撞了车。",
+          "emphasis": [
+            "由大模型负责 Prefill 并将内部隐层表示传给小模型，再由小模型独立完成 Decode",
+            "即便把发送方的表示替换成与当前问题无关的信号，或直接对接收方小模型做强化学习训练，也能复现大部分性能提升"
+          ],
+          "aiComment": "最痛的不是大模型传参被发现部分能用无关信号替代，是群友看完发现从 idea 到名字 PACT 全撞车了 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:03",
+              "text": "不好意思打扰大家了。✨分享一下最近我们关于大小模型Latent Communication协作的研究：PACT（Prefill-to-Autoregressive Cross-Model Transfer）：大模型负责处理Prefill，并将内部隐层表示传递给小模型，随后由小模型独立完成Decode。这种模型层面的 Prefill-Decode 分离，有望充分结合大模型的理解能力与小模型的解码效率，达到新的帕累托最优。\n\n我们通过less design, more scalable的方式提出了一个性能强劲的strong baseline Platour，在35B->4B上的效果超越了闭源Mostik 753B->4B，同时也扩展到了235B->1.7B和397B->4B这样的极端尺寸差，也进一步追问了一个关键问题：这些性能提升究竟来自哪里？ 👇\n\n🔹 在一些任务上，即使将发送方的表示替换为与当前问题无关的信号，或者直接对接收方小模型进行强化学习训练，也能复现大部分性能提升。\n🔹 但在另一些任务上，例如化学推理，PLatour 仍然展现出超出所有已测试对照方法的性能增益。\n\n为此，我们进一步提出 PACT-Check，一套面向 PACT 类系统的全面 sanity check 评估协议。它通过干预发送方传递的信息，并引入独立训练的适配基线，系统检验哪些性能提升确实依赖于发送方信息，以及哪些提升可以通过其他适配方式重现。\n\n我们希望这项工作能够推动社区对 PACT 这种模型协作范式进行更加深入的研究，也希望通过更透明的实验分析、更全面的对照和可复现的评估，帮助社区更准确地理解这类方法的真正价值与局限。\n\n论文：On the Opportunities and Challenges of Prefill-to-Autoregressive Cross-Model Transfer\n链接：https://github.com/zhenyi4/platour\n\n欢迎大家点赞关注～☘️"
+            },
+            {
+              "speaker": 2,
+              "time": "19:04",
+              "text": "我草 群友们让我压力山大 都tql[可怜]"
+            },
+            {
+              "speaker": 3,
+              "time": "19:05",
+              "text": "太强了佬，idea可以说几乎一样，被创死了很安详"
+            },
+            {
+              "speaker": 4,
+              "time": "19:06",
+              "text": "太强了"
+            },
+            {
+              "speaker": 5,
+              "time": "19:06",
+              "text": "PACT"
+            },
+            {
+              "speaker": 5,
+              "time": "19:06",
+              "text": "难顶 我起得名字竟然能和大佬撞车"
+            },
+            {
+              "speaker": 2,
+              "time": "19:07",
+              "text": "已stars"
+            },
+            {
+              "speaker": 1,
+              "time": "19:08",
+              "text": "感谢感谢，同门的论文，多多交流[握手][握手]"
+            },
+            {
+              "speaker": 1,
+              "time": "19:09",
+              "text": "希望都能顺利[握手]",
+              "quote": {
+                "speaker": 5,
+                "text": "难顶 我起得名字竟然能和大佬撞车"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:12",
+              "text": "借大佬吉言",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 希望都能顺利[握手]"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "zhenyi4/platour（On the Opportunities and Challenges of Prefill-to-Autoregressive Cross-Model Transfer）",
+              "url": "https://github.com/zhenyi4/platour"
+            }
+          ]
+        },
+        {
+          "category": "环境合成",
+          "title": "ToolSpace 反转环境合成顺序：先从真实轨迹串起工具宇宙，再按需造数据库",
+          "text": "有群友分享了智能体环境合成工作 ToolSpace。据介绍，现有环境合成多采用 Data-Centric 路线，先造底层数据库再合成工具与任务，容易导致工具接口失真且难以形成跨环境任务；ToolSpace 反过来先从真实调用轨迹中收集工具、挖掘依赖并串联成工具世界图谱，最后只给会改变状态的环境按需合成底层数据库。在此基础上，该方法用状态感知游走和回退探索图谱，把可执行工具链反编译成任务和校验脚本，同时合成 SFT 与混合环境 RL 数据。在 7 个长程工具基准上，ToolSpace-744B 取得 56.6 的平均分，与 Claude Opus 5 持平（其中 AutomationBench 54.7、Harvey LAB 27.5、SkillsBench 67.8、OfficeQA Pro 67.1、JobBench 57.5）。\n\n有群友好奇这类真实轨迹数据通常从哪获得，其他人猜测可能来自用户回流、模型蒸馏或中转站；也有群友感叹其实验所需的 API 和算力卡规模足以劝退不少团队。分享者随后还专门推荐了用 ToolSpace 升级的两个高难基准 Automation-Pro（AutomationBench Pro）与 Tau3-Banking-Pro（τ³-Bench Banking Pro），称评测方式与原基准完全一致，但现有强模型得分均在 40 分以下。有人顺势问起有没有具身方向的 benchmark，其他群友讨论具身评测是否得配套硬件，或干脆把 robodojo 刷到 100%。",
+          "emphasis": [
+            "先从真实调用轨迹中收集工具、挖掘依赖并串联成工具世界图谱，最后只给会改变状态的环境按需合成底层数据库",
+            "有群友好奇这类真实轨迹数据通常从哪获得，其他人猜测可能来自用户回流、模型蒸馏或中转站"
+          ],
+          "aiComment": "反着合成工具图谱效果虽好，但一想到背后的真实轨迹和算力卡规模，普通团队已经自觉退群了 💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:22",
+              "text": "很开心分享我们在智能体环境合成上的最新工作[嘿哈]：\n\n🌟 ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents\n\n现有环境合成方法多是 Data-Centric：先造底层数据库，再合成工具与任务。工具接口易失真，也难形成跨环境任务。\n\n与之思路相反，ToolSpace 先从真实调用轨迹收集工具，再把真实工具集串成工具宇宙，最后按需合成底层数据库。既保住真实性，也能灵活合成跨「任意环境 × 任意工具」的可验证任务。\n\n💡 ToolSpace 关键方法 \n1️⃣ 工具宇宙探索：从真实轨迹挖掘工具依赖，串联成工具世界图谱；只给会改状态的环境合成数据库。 \n2️⃣ 可验证任务合成：用状态感知游走和回退探索图谱，把可执行工具链反编译成任务和校验脚本，并保持环境状态连续。同一链路可合成高质量 SFT 与混合环境 RL 数据。 \n3️⃣ 更难的评测基准：用ToolSpace 无缝升级两个前沿基准，提出 AutomationBench Pro 和 τ³-Bench Banking Pro。现有强模型得分均在 40 分以下，为行业提出更难标准。\n\n📊 实验 \n✅ 在 7 个长程工具基准上评测了 ToolSpace 8B、35B 和 744B。ToolSpace-744B平均分56.6，与Claude Opus 5持平。 \n✅ ToolSpace-744B：AutomationBench 54.7、Harvey LAB 27.5、SkillsBench 67.8，OfficeQA Pro 67.1，JobBench 57.5。 \n✅ 环境和数据规模扩大后，智能体性能随之提升。\n\n📄 论文：https://arxiv.org/pdf/2611.05036\n🌐 项目主页：https://toolspace-agent.github.io/ \n💻 GitHub：https://github.com/dongguanting/ToolSpace \n🤗 Models：https://huggingface.co/collections/dongguanting/toolspace\n\n欢迎大家关注，代码，模型均已开源，也恳请大家点个HF paper upvote 🥺👏👏👏\n🤗HF paper：https://huggingface.co/papers/2611.05036"
+            },
+            {
+              "speaker": 2,
+              "time": "14:22",
+              "text": "卡神tql"
+            },
+            {
+              "speaker": 3,
+              "time": "14:23",
+              "text": "卡神tql"
+            },
+            {
+              "speaker": 2,
+              "time": "14:23",
+              "text": "猛猛高产出"
+            },
+            {
+              "speaker": 4,
+              "time": "14:23",
+              "text": "卡神高产"
+            },
+            {
+              "speaker": 5,
+              "time": "14:23",
+              "text": "哥们人",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心分享我们在智能体环境合成上的最新工作[嘿哈]： 🌟 ToolSpace: Scaling Tool-Centric Environment Synthes..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:23",
+              "text": "太高产了"
+            },
+            {
+              "speaker": 5,
+              "time": "14:23",
+              "text": "怎么每周都有新突破"
+            },
+            {
+              "speaker": 5,
+              "time": "14:24",
+              "text": "给留条活路吧"
+            },
+            {
+              "speaker": 7,
+              "time": "14:24",
+              "text": "我有个疑问，这种真实轨迹数据一般是怎么获得呀"
+            },
+            {
+              "speaker": 4,
+              "time": "14:24",
+              "text": "肝上长了个人"
+            },
+            {
+              "speaker": 8,
+              "time": "14:24",
+              "text": "卡神怎么每天都有高质量产出啊"
+            },
+            {
+              "speaker": 9,
+              "time": "14:24",
+              "text": "tql卡神"
+            },
+            {
+              "speaker": 4,
+              "time": "14:24",
+              "text": "用户回流"
+            },
+            {
+              "speaker": 4,
+              "time": "14:25",
+              "text": "或者蒸功夫"
+            },
+            {
+              "speaker": 10,
+              "time": "14:25",
+              "text": "中转站？",
+              "quote": {
+                "speaker": 7,
+                "text": "我有个疑问，这种真实轨迹数据一般是怎么获得呀"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "14:30",
+              "text": "妈啊咋这么高产"
+            },
+            {
+              "speaker": 12,
+              "time": "14:31",
+              "text": "严肃学习一下"
+            },
+            {
+              "speaker": 13,
+              "time": "14:44",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 14,
+              "time": "14:45",
+              "text": "太高产了"
+            },
+            {
+              "speaker": 15,
+              "time": "14:46",
+              "text": "卡神已实现 RSI"
+            },
+            {
+              "speaker": 16,
+              "time": "14:46",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 17,
+              "time": "14:55",
+              "text": "太高产了 而且纯学界竟然有这么多api和卡的资源 这个实验规模也劝退很多团队了。"
+            },
+            {
+              "speaker": 2,
+              "time": "14:57",
+              "text": "卡神是纯学术界嘛[旺柴]",
+              "quote": {
+                "speaker": 17,
+                "text": "太高产了 而且纯学界竟然有这么多api和卡的资源 这个实验规模也劝退很多团队了。"
+              }
+            },
+            {
+              "speaker": 17,
+              "time": "14:58",
+              "text": "okok[破涕为笑]我看这篇只有高校"
+            },
+            {
+              "speaker": 17,
+              "time": "14:59",
+              "text": "感觉科研做到卡神这种级别已经自带系统了。。"
+            },
+            {
+              "speaker": 4,
+              "time": "15:10",
+              "text": "卡神还是不一样的"
+            },
+            {
+              "speaker": 18,
+              "time": "15:16",
+              "text": "成果大爆发蛙趣，太牛了[哇]",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心分享我们在智能体环境合成上的最新工作[嘿哈]： 🌟 ToolSpace: Scaling Tool-Centric Environment Synthes..."
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "15:16",
+              "text": "tql"
+            },
+            {
+              "speaker": 20,
+              "time": "15:20",
+              "text": "tql"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "[哇]和兄弟们推销一下我toolspace升级的bench，Automation-Pro 和 Tau3-Banking-Pro，和原本bench评测方式和原本一模一样，只是任务难度变高了，真实好刷！！\n\nhttps://github.com/dongguanting/ToolSpace/tree/main/Automation-Pro\nhttps://github.com/dongguanting/ToolSpace/tree/main/Tau3-Banking-Pro"
+            },
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "有问题我管部署debug"
+            },
+            {
+              "speaker": 1,
+              "time": "17:54",
+              "text": "给兄弟们多点bench可以多在top厂🐶，防止没得刷了，亲测好刷，报分利器～",
+              "quote": {
+                "speaker": 1,
+                "text": "[哇]和兄弟们推销一下我toolspace升级的bench，Automation-Pro 和 Tau3-Banking-Pro，和原本bench评测方式和原本一..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:55",
+              "text": "求兄弟们多推销！"
+            },
+            {
+              "speaker": 21,
+              "time": "17:58",
+              "text": "太懂大厂需求了",
+              "quote": {
+                "speaker": 1,
+                "text": "[哇]和兄弟们推销一下我toolspace升级的bench，Automation-Pro 和 Tau3-Banking-Pro，和原本bench评测方式和原本一..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:03",
+              "text": "太懂了"
+            },
+            {
+              "speaker": 22,
+              "time": "18:12",
+              "text": "[旺柴]有没有一些具身的bench"
+            },
+            {
+              "speaker": 23,
+              "time": "18:12",
+              "text": "具身的bench是不是还得配套硬件？"
+            },
+            {
+              "speaker": 24,
+              "time": "18:13",
+              "text": "可以把robodojo干到100%"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ToolSpace 论文（arXiv 2611.05036）",
+              "url": "https://arxiv.org/abs/2611.05036"
+            },
+            {
+              "kind": "demo",
+              "label": "ToolSpace 项目主页",
+              "url": "https://toolspace-agent.github.io/"
+            },
+            {
+              "kind": "code",
+              "label": "dongguanting/ToolSpace",
+              "url": "https://github.com/dongguanting/ToolSpace"
+            },
+            {
+              "kind": "code",
+              "label": "Automation-Pro 基准",
+              "url": "https://github.com/dongguanting/ToolSpace/tree/main/Automation-Pro"
+            },
+            {
+              "kind": "code",
+              "label": "Tau3-Banking-Pro 基准",
+              "url": "https://github.com/dongguanting/ToolSpace/tree/main/Tau3-Banking-Pro"
+            }
+          ]
+        },
+        {
+          "category": "Computer Use",
+          "title": "Mage-VL-Cowork 训出 4B 混合 CUA 模型：GUI 与 CLI 自主切换，Calc 耗时从近 10 分钟缩至 39 秒",
+          "text": "有群友分享了混合 Computer Use（GUI 与 CLI 自主切换）全栈训练报告 Mage-VL-Cowork。据介绍，该工作从缺乏 grounding、tool call 和 reasoning 能力的 4B 中间权重出发，先通过 Mid-training 补齐基础能力（OSWorld-G 从 30.6 升至 56.9），再经 GUI、Coding、Hybrid 三段 SFT 与在线 RL，把 OSWorld-Verified 从 45.56、55.84 一路拉到 66.0%，超过 Muse Glimmer-30B（65.9%）、Qwen3.6-27B（63.9%）和 Claude Sonnet 4.5（62.9%）。同一道 Calc 任务，该 4B 模型 39 秒即可完成，而纯 GUI 的 27B 模型需要 9 分 56 秒。数据层面，Mage-CUA-Forge 为每个技能编写生成流程，自建 2k+ 个网站并合成 293,806 个任务，单题成本降低 82.6%；采数据前还分别打磨了 GUI、终端和 Hybrid 三套 harness，使教师模型在 672 道跨应用题上达到 92.0%。\n\n看着群里一天内密集冒出多项新成果，不少群友直呼“follow 不过来了”。分享者感叹近期 CUA 工作确实太多，有人调侃这一方向已经“wellsolved”，也有人建议避开太卷的热门方向、去找做得少的领域。面对“找不到该做啥”的感慨，几位群友提议“research for fun”；还有群友自嘲今年只跟了 OPD 一波热潮，发现解决方法和 insight 不闭环后就摸鱼了半个月。",
+          "emphasis": [
+            "同一道 Calc 任务，该 4B 模型 39 秒即可完成，而纯 GUI 的 27B 模型需要 9 分 56 秒",
+            "还有群友自嘲今年只跟了 OPD 一波热潮，发现解决方法和 insight 不闭环后就摸鱼了半个月"
+          ],
+          "aiComment": "2k 多个自建网站训出 39 秒跑完任务的 4B 模型，卷到群友放弃追热点，直接退回摸鱼模式。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:16",
+              "text": "和大家分享一下我们组的新工作～\n\n🖥️ Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses\n\nGPT-6 Astra 之后，computer use 的效率和延迟越来越受关注。这份技术报告是我们对 hybrid computer use（GUI 与 CLI 自主切换）合成与训练的一次全栈探索。\n\n从环境搭建、任务合成、harness 迭代，到 Mid-training、SFT 和 RL，报告完整记录了怎样把一个缺乏 agentic CUA 能力的 4B 小模型一步步补齐能力，最后训到 OSWorld-Verified 66.0%，各环节的设计选择、对比实验和踩过的坑都写了进去。\n\n💡 主要包含三部分：\n1️⃣ 训练方案：从缺乏 grounding、tool call 和 reasoning 的 4B 中间权重出发，先用 Mid-training 补齐基础能力（OSWorld-G 30.6 → 56.9），再经 GUI / Coding / Hybrid 三段 SFT 和在线 RL，OSWorld-Verified 45.56 → 55.84 → 66.0\n2️⃣ 数据合成 Mage-CUA-Forge：每个技能写一次生成流程，自建 2k+ 个网站，合成 293,806 个任务，单题成本降低 82.6%\n3️⃣ CUA harness 迭代：采数据前反复打磨教师模型的执行框架、工具和 prompt，分别搭 GUI、终端和 Hybrid 三套 harness，教师模型在 672 道跨应用题上达到 92.0%\n\n📊 4B 模型在 OSWorld-Verified 上拿到 66.0%，超过参数量约 7 倍的 Muse Glimmer-30B（65.9）和 Qwen3.6-27B（63.9），也超过 Claude Sonnet 4.5（62.9）；同一个 Calc 任务，它 39 秒完成，纯 GUI 的 27B 要 9 分 56 秒。\n\n模型权重（Apache-2.0）、SGLang Docker 镜像和完整 361 题评测代码均已开源，欢迎大家交流讨论，也欢迎 upvote 和 star～\n📄 Paper：https://arxiv.org/abs/2610.40747\n🤗 HF：https://huggingface.co/papers/2610.40747\n💻 GitHub：https://github.com/microsoft/Mage\n🌐 Project：https://microsoft.github.io/Mage/cowork/"
+            },
+            {
+              "speaker": 1,
+              "time": "20:17",
+              "text": "欢迎大家一起交流[可怜]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:23",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "20:24",
+              "text": "今天冒出来好多新成果[色]"
+            },
+            {
+              "speaker": 4,
+              "time": "20:30",
+              "text": "人类（群友）群星闪耀时"
+            },
+            {
+              "speaker": 5,
+              "time": "20:47",
+              "text": "人类（群友）群星闪耀时"
+            },
+            {
+              "speaker": 6,
+              "time": "21:12",
+              "text": "你们慢点发，我follow不过来了"
+            },
+            {
+              "speaker": 7,
+              "time": "21:12",
+              "text": "写太快了"
+            },
+            {
+              "speaker": 7,
+              "time": "21:12",
+              "text": "看不过来了"
+            },
+            {
+              "speaker": 8,
+              "time": "21:12",
+              "text": "follow不过来了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:13",
+              "text": "最近的 cua 工作确实太多了😭😭  群友们太高产了"
+            },
+            {
+              "speaker": 8,
+              "time": "21:13",
+              "text": "wellsolved（"
+            },
+            {
+              "speaker": 8,
+              "time": "21:13",
+              "text": "[苦涩]"
+            },
+            {
+              "speaker": 7,
+              "time": "21:13",
+              "text": "找找做得少的领域，做得多的卷不动"
+            },
+            {
+              "speaker": 9,
+              "time": "21:14",
+              "text": "ai大肠杆菌",
+              "quote": {
+                "speaker": 7,
+                "text": "找找做得少的领域，做得多的卷不动"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "21:15",
+              "text": "完全找不到该做啥，纯摆烂了[快哭了]"
+            },
+            {
+              "speaker": 6,
+              "time": "21:16",
+              "text": "这么自由的吗"
+            },
+            {
+              "speaker": 8,
+              "time": "21:18",
+              "text": "research for fun（"
+            },
+            {
+              "speaker": 11,
+              "time": "21:20",
+              "text": "哭了",
+              "quote": {
+                "speaker": 10,
+                "text": "完全找不到该做啥，纯摆烂了[快哭了]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "21:21",
+              "text": "？",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] ai大肠杆菌"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:21",
+              "text": "耍起是对的"
+            },
+            {
+              "speaker": 4,
+              "time": "21:22",
+              "text": "ai4fun"
+            },
+            {
+              "speaker": 4,
+              "time": "21:22",
+              "text": "耍起"
+            },
+            {
+              "speaker": 8,
+              "time": "21:24",
+              "text": "ai4fun是对的"
+            },
+            {
+              "speaker": 13,
+              "time": "21:34",
+              "text": "ai4boji"
+            },
+            {
+              "speaker": 14,
+              "time": "21:45",
+              "text": "ai4fun是对的"
+            },
+            {
+              "speaker": 15,
+              "time": "21:47",
+              "text": "bojirsi"
+            },
+            {
+              "speaker": 16,
+              "time": "21:49",
+              "text": "这是对的",
+              "quote": {
+                "speaker": 13,
+                "text": "ai4boji"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "21:51",
+              "text": "这是对的",
+              "quote": {
+                "speaker": 8,
+                "text": "research for fun（"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "21:51",
+              "text": "这粉喝一口少一口，咋回事[可怜]",
+              "quote": {
+                "speaker": 13,
+                "text": "ai4boji"
+              }
+            },
+            {
+              "speaker": 17,
+              "time": "21:51",
+              "text": "我觉得能研究自己喜欢的娱乐性的东西也挺好的"
+            },
+            {
+              "speaker": 13,
+              "time": "21:52",
+              "text": "🤣",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 这粉喝一口少一口，咋回事[可怜]"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "22:14",
+              "text": "今年的热潮就跟了opd 发现解决方法和insight不闭环 我就摸鱼了半个月"
+            },
+            {
+              "speaker": 14,
+              "time": "22:35",
+              "text": "啊哈哈哈"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Mage-VL-Cowork 技术报告（arXiv 2610.40747）",
+              "url": "https://arxiv.org/abs/2610.40747"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Mage",
+              "url": "https://github.com/microsoft/Mage"
+            },
+            {
+              "kind": "demo",
+              "label": "Mage-VL-Cowork 项目主页",
+              "url": "https://microsoft.github.io/Mage/cowork/"
+            }
+          ]
+        },
+        {
+          "category": "权重编程",
+          "title": "免训练直接改权重：从 Qwen3.5-0.8B 数学提分到具身模型 π0.5 折衣服实验",
+          "text": "凌晨有群友晒出一张推文与 Hugging Face 模型卡截图：有人用开源研究 harness“ML Intern”复现了《Sparks of Weight Space Programming》的实验 8，推出 Qwen3.5-0.8B-wsp-math-edit。截图显示，前沿大模型 Astra（GPT-6 Astra）直接读取 Qwen3.5-0.8B 的权重，在不做训练或微调的情况下修改了第 15 层和第 19 层 down_proj 各 64 列 MLP 输出共 131,072 个权重，用于修复重复死循环。修改后，模型在 MATH-500 上的准确率从基座的 5.0%（post: 7.9%）升至 47.0%（post: 48.1%），在 32k tokens 处被截断的回答比例从 95%（post: 93.0%）降至 29%（post: 33.1%）。\n\n上午另一位群友又转来一张把直接改权重用到具身模型 π0.5（pi0.5）上的实验推文截图：在 robodojo 的折衣服任务（cloth-folding）中，Base 模型成功率为 50%，用 Astra 纠错数据微调为 68%，而直接操纵权重达到了 75%；配图展示了 18 层 × 4,096 神经元的 π0.5 Neuron Explorer，并高亮了夹爪抓取前触发的神经元 L7 N1399。有群友追问这套做法到底是吹出来的还是真有用；分享者表示推文只说细节 coming soon，目前无从辨别，提问者随即调侃：“难不成刷数学题才是 agi，coding 都不是？”",
+          "emphasis": [
+            "修改了第 15 层和第 19 层 down_proj 各 64 列 MLP 输出共 131,072 个权重，用于修复重复死循环",
+            "Base 模型成功率为 50%，用 Astra 纠错数据微调为 68%，而直接操纵权重达到了 75%"
+          ],
+          "aiComment": "不训练直接手搓十万多个权重，把 0.8B 数学分从 5% 抬到 47%，调参侠看完连夜进修脑外科手术。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:21",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "00:21",
+              "text": "好快啊"
+            },
+            {
+              "speaker": 2,
+              "time": "09:57",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "09:57",
+              "text": "手真快啊。"
+            },
+            {
+              "speaker": 3,
+              "time": "10:19",
+              "text": "所以这个到底是吹出来的还是真的work",
+              "quote": {
+                "speaker": 2,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:19",
+              "text": "他说commingsoon"
+            },
+            {
+              "speaker": 2,
+              "time": "10:19",
+              "text": "无从辨别啊）"
+            },
+            {
+              "speaker": 3,
+              "time": "10:21",
+              "text": "难不成刷数学题才是agi，coding都不是？"
+            }
+          ]
+        },
+        {
+          "category": "模型路由",
+          "title": "Route Anything：4B 路由模型在 Terminal-Bench 上拿到 77.78 分，反超固定调用 Opus 5.5",
+          "text": "有群友分享了全模态路由技术报告 Route Anything。据介绍，该工作基于 25 项基准、37.4 万次内部评分运行，构建了覆盖文本、图像、视频、语音到 Agent 和 Embodied AI 的路由能力；其中一个 4B Router 模型在 Terminal-Bench 上拿到 77.78 分，超过固定调用 Opus 5.5 的 69.44 分。分享者提到，大部分潜在的路由收益藏在同类任务内部，光判断“属于哪类任务”还不够，需要借助 Capability Tree 把能力切分得更细，去判断每个模型能否做好眼前的具体任务。群友纷纷接龙玩笑“群友一人送我一个工作可以吗”，也有人好奇这算不算 super agent。",
+          "emphasis": [
+            "4B Router 模型在 Terminal-Bench 上拿到 77.78 分，超过固定调用 Opus 5.5 的 69.44 分"
+          ],
+          "aiComment": "4B 的包工头带队在 Terminal-Bench 拿了 77.78 分，比 Opus 5.5 自己单干还高，以后真成拼好模时代了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:52",
+              "text": "终于到了本次 # InfRec Launch Week 的收官之作，Route Anything\n最后一篇技术报告，我们想挑战如何突破最强模型的性能天花板\n核心Insight: 一个 4B Router模型在 Terminal-Bench 上拿到了 77.78分，超过固定调用 Opus 5.5 的 69.44\n关键突破：基于 25 项基准、37.4 万次 in-house 评分运行，我们的Router实现了从文本、图像、视频、语音，到 Agent 和Embodied AI的全模态路由能力，\n我们想做的，是把整个模型生态的长处，变成一个系统的能力，以在最强模型的基础上进一步突破智能的上限。\n\n这个工作的一部分思想也和The Trinity串联了起来：大部分潜在路由收益藏在同类任务内部，只判断“属于哪类任务”还远远不够。Capability Tree 可以把能力划分得更细，而更大的机会，在于判断每个模型能否做好眼前这个具体任务。\n\n📄 论文：https://arxiv.org/abs/2611.05275\n💻 代码：https://github.com/InfRec-Cardinal/route-anything\n🌐 项目：https://mikeeeeeeeeeeeeee.github.io/RouteAnything/\n🤗 HF：https://huggingface.co/papers/2611.05275\n欢迎大家私信交流，也欢迎帮忙点点upvote和star！"
+            },
+            {
+              "speaker": 2,
+              "time": "18:52",
+              "text": "群友一人送我一个工作可以吗？"
+            },
+            {
+              "speaker": 3,
+              "time": "18:54",
+              "text": "群友一人送我一个工作可以吗？"
+            },
+            {
+              "speaker": 4,
+              "time": "18:54",
+              "text": "群友一人送我二个工作可以吗？"
+            },
+            {
+              "speaker": 5,
+              "time": "18:54",
+              "text": "哥哥tql",
+              "quote": {
+                "speaker": 1,
+                "text": "终于到了本次 # InfRec Launch Week 的收官之作，Route Anything 最后一篇技术报告，我们想挑战如何突破最强模型的性能天花板 核心..."
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:55",
+              "text": "这就是super agent吗[可怜]",
+              "quote": {
+                "speaker": 1,
+                "text": "终于到了本次 # InfRec Launch Week 的收官之作，Route Anything 最后一篇技术报告，我们想挑战如何突破最强模型的性能天花板 核心..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Route Anything 技术报告（arXiv 2611.05275）",
+              "url": "https://arxiv.org/abs/2611.05275"
+            },
+            {
+              "kind": "code",
+              "label": "InfRec-Cardinal/route-anything",
+              "url": "https://github.com/InfRec-Cardinal/route-anything"
+            },
+            {
+              "kind": "demo",
+              "label": "Route Anything 项目主页",
+              "url": "https://mikeeeeeeeeeeeeee.github.io/RouteAnything/"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "Open Code Review：用 Qwen3.8 Flash 在 GitHub ReviewBench 复现到第二名",
+          "text": "有群友推荐了开源 AI 代码评审项目 Open Code Review，目前在 GitHub 上接近 50k star。据介绍，该项目使用 qwen3.8 flash 在 GitHub 官方的 ReviewBench 上复现到了第二名成绩，正在等待官方审核。有群友回应自己已经用了很久，体验很好。",
+          "emphasis": [
+            "在 GitHub 官方的 ReviewBench 上复现到了第二名成绩"
+          ],
+          "aiComment": "攒了快 50k star 的代码评审工具，带着 qwen3.8 flash 冲到官方榜第二，现在轮到官方审核它的 PR 了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:08",
+              "text": "给兄弟们推荐一下我们最近开源的项目：Open Code Review，愿景是让AI代码评审这件事情变得更简单、透明、便宜，目前接近50k star，同时我们使用qwen3.8 flash 在GitHub官方的ReviewBench复现到了第二的成绩，目前正在等官方审核成绩，过去的几个月也登顶了Github Trending的日榜、周榜、月榜，欢迎有想法的大佬加入我们一起做得更好。\nhttps://github.com/alibaba/open-code-review"
+            },
+            {
+              "speaker": 2,
+              "time": "20:09",
+              "text": "非常好用！已经服用了好久了！",
+              "quote": {
+                "speaker": 1,
+                "text": "给兄弟们推荐一下我们最近开源的项目：Open Code Review，愿景是让AI代码评审这件事情变得更简单、透明、便宜，目前接近50k star，同时我们使用..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "alibaba/open-code-review",
+              "url": "https://github.com/alibaba/open-code-review"
+            }
+          ]
+        },
+        {
+          "category": "端侧助手",
+          "title": "iPhone 跑马灯语音助手测试版接入千问，自称基于“通义 Qwen 最新的闭源模型”",
+          "text": "有群友晒出带有彩色发光边框（“跑马灯”）效果的 iPhone 桌面截图，顶部系统语音助手卡片标注为“千问”。面对“请你通过千问询问你是什么模型”的提问，助手回答底座是“通义 Qwen 最新的闭源模型”；分享者表示测试版刚刚上线，目前还十分原始。",
+          "emphasis": [
+            "回答底座是“通义 Qwen 最新的闭源模型”"
+          ],
+          "aiComment": "iPhone 亮起跑马灯召唤出千问，追问之下自报家门是最新闭源模型，果粉和开源党双双陷入沉思。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:57",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "09:57",
+              "text": "等了两年的跑马灯😭"
+            },
+            {
+              "speaker": 2,
+              "time": "10:00",
+              "text": "可以用了？🫣",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "10:02",
+              "text": "是的，测试版上线了"
+            },
+            {
+              "speaker": 1,
+              "time": "10:07",
+              "text": "但是十分原始"
+            },
+            {
+              "speaker": 2,
+              "time": "10:08",
+              "text": "😭要下载beta呀，晚上回去耍耍"
+            },
+            {
+              "speaker": 3,
+              "time": "10:12",
+              "text": "《Qwen最新的闭源模型》"
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "订阅党为何没被一网打尽？群友拿算力合同算 Anthropic 的封号账",
+          "text": "聊到新模型风评时，前面吐槽被开源模型“当傻子骗了几次”的群友说，自己一般先去 L 站看看反响，反响不好就不去试用了。他觉得 L 站的社区风评和模型真实体验很接近，因为那边“起手就是 OA”，站内最大的话题就是如何与 A\\（Anthropic）博弈。有群友说自己还进不去 L 站，另一位群友称自己有个号两周没上就被回收了。\n\n有人问 Anthropic 不会监控这个网站吗。这位群友回答，上面很多方案只能活过 pro 账号的订阅，并给出自己的成本解释：A\\ 并不想彻底横扫东八区，它的服务器签的是承诺使用合同，没法停机，只要东八区订阅用户能填补用量谷底，系统就不会失衡，成本也不会明显上升；但如果谷底用量比 B 端用户的峰值还高，A\\ 就得封一批账号强制限流，否则财务很快会出问题，他认为 OAI 就是用量和财务管理糟糕的典型。在他看来，订阅用户是给系统做负载均衡的，毕竟 A\\ 还背着 5000 亿的算力使用承诺。有群友表示说得有道理。",
+          "emphasis": [
+            "他觉得 L 站的社区风评和模型真实体验很接近",
+            "只要东八区订阅用户能填补用量谷底，系统就不会失衡",
+            "如果谷底用量比 B 端用户的峰值还高，A\\ 就得封一批账号强制限流"
+          ],
+          "aiComment": "封不封号原来看机房谷底填没填满，订阅党的安全感全靠 5000 亿算力合同兜底。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:03",
+              "text": "[奸笑]你可以去L站看看,谁的思维链给上下文输出打爆了[旺柴]",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 啥愿听故人人之言"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:04",
+              "text": "[奸笑]一般模型出来,我先去L站看看反响,如果反响不好感觉就不用去试用了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:06",
+              "text": "草 我还进不去l站",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] [奸笑]你可以去L站看看,谁的思维链给上下文输出打爆了[旺柴]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:07",
+              "text": "个人感觉L站的社区风评和模型的真实体验还是很接近的,毕竟那边起手就是OA,站内最大的话题就是如何与A\\博弈[奸笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "14:08",
+              "text": "a 不会监控这个网站吗"
+            },
+            {
+              "speaker": 4,
+              "time": "14:08",
+              "text": "xs 我有个号两周没上去 然后给我回收了",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 草 我还进不去l站"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:08",
+              "text": "[奸笑]其实上面很多方案只能活过pro账号的订阅",
+              "quote": {
+                "speaker": 3,
+                "text": "a 不会监控这个网站吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:09",
+              "text": "从成本上,我觉得A\\并不想彻底横扫东八区"
+            },
+            {
+              "speaker": 1,
+              "time": "14:10",
+              "text": "A\\的服务器签的都是承诺使用合同,没办法停机的,那么只要东八区能提供可以填补用量谷底的订阅用户,就不会导致系统失衡,A\\的成本也不会明显上升"
+            },
+            {
+              "speaker": 1,
+              "time": "14:11",
+              "text": "但是如果这个用量在谷底的时候比他们的B端用户在峰值的时候的用量都高,A\\如果不斩杀一些账号去强制限流,财务很快就会出问题"
+            },
+            {
+              "speaker": 1,
+              "time": "14:11",
+              "text": "这个典型就是OAI,极为糟糕的财务管理和用量管理"
+            },
+            {
+              "speaker": 5,
+              "time": "14:20",
+              "text": "说的有道理啊"
+            },
+            {
+              "speaker": 1,
+              "time": "14:20",
+              "text": "对于A\\来说,我感觉订阅用户是来进行系统负载均衡的,毕竟他还有5000亿的算力使用承诺"
+            }
+          ],
+          "resources": []
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "4B 路由器跑赢固定调用 Opus 5.5",
+      "theme": "群友争论混元 Hy4 能否拿到内部游戏工作室数据，并聊及模型过度安全防御对文风的影响。",
+      "note": "2026-11-04 · 当日本地记录",
+      "stories": [
+        {
+          "category": "系统路由",
+          "title": "不止省钱还能提分：Route Anything 用 4B 路由器在 Terminal-Bench 反超固定 Opus 5.5",
+          "text": "有群友分享了多模态与智能体路由研究《Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems》。以往的 Router 多用于降低调用成本，这项工作则尝试利用模型间的互补性来突破单一强模型的能力上限，将语言、图像、视频、语音、Agent 和机器人策略纳入同一套路由框架，覆盖 25 项基准、452 种候选配置和 374,401 次已评分运行。\n\n方法上，系统通过 Capability Tree（能力树）识别任务所需能力并调度候选模型。在机器人策略路由实验中，同样的输入和骨干模型下，直接学习“谁最强”的成功率只有 42.8%，改为预测各策略的成功概率后升至 71.6%。评测结果显示，4B 规模的 Router 在 Terminal-Bench 上拿到 77.78 分，高于固定调用 Opus 5.5 的 69.44 分；跨模态 16 项基准统一调度得分 79.98，超过各基准最佳固定模型组成的 79.68 基线；在独立的 CodeRouterBench 上，测试分数仅比 Opus 4.6 低 0.44 分，代码成本降低 96.1%，每美元任务质量达到 25.5 倍。\n\n有群友对降本 96.1% 且能提高性能感到好奇，也有人问起它与近期 Switchyard、HiRoute 等路由工作的区别。分享者回应称，同类工作大多仍聚焦于降本增效，而 Route Anything 更看重“性能摸高”。对于如何靠路由提分，有群友推测是按任务类型分工，比如多模态和写文档交给 Gemini、写代码交给 Claude；分享者补充说，即便在 coding 内部也能进一步细分，某些具体编程任务上甚至会出现 DeepSeek 等模型更强的情况。",
+          "emphasis": [
+            "利用模型间的互补性来突破单一强模型的能力上限",
+            "4B 规模的 Router 在 Terminal-Bench 上拿到 77.78 分，高于固定调用 Opus 5.5 的 69.44 分",
+            "即便在 coding 内部也能进一步细分，某些具体编程任务上甚至会出现 DeepSeek 等模型更强的情况"
+          ],
+          "aiComment": "代码成本砍掉 96.1% 还能靠能力树在 Terminal-Bench 反超 Opus 5.5，原来最强的模型是懂得找外援的 4B。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:22",
+              "text": "很开心和大家分享我们最新的研究工作Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems\n\n这个工作的Motivation很简单：总分最高的模型，也不总是擅长每一道题。如果把不同模型的长处组合起来，整个系统是否就有机会突破固定使用Astra / Opus的性能上限？\n\n在此之前，Router常被用来降低调用成本。Route Anything 往前再走一步：把模型之间的互补性真正用起来，突破最强单模型的能力边界。我们把路由研究从文本一路铺到图像、视频、语音、Agent 和机器人，覆盖 25 项基准、452 种候选配置、374,401 次已评分运行，探索如何把整个模型生态组织起来实现全模态的智能\n\n💡 从选模型，到组织能力树\n1️⃣ 统一不同模态的路由。语言模型、图像和视频生成器、语音模型、机器人策略，都纳入同一框架，根据任务需求、预期质量和调用成本决定让谁出手\n2️⃣ 用能力树调度多模型。通过Capability Tree识别任务需要的能力，再选择合适的候选；同一个 Router 跨文本、代码与办公 Agent、图像、视频、语音，在 16 项基准上评测\n3️⃣ Router需要学会判断每个候选能做成什么。在机器人实验中，同样的输入和骨干模型，直接学谁最强只有 42.8% 成功率；改为预测各策略的成功概率，达到 71.6%\n\n📊 几个最想分享的结果\n✅ 超过固定 Opus 5.5：Terminal-Bench上，4B Router拿到77.78分，固定调用Opus 5.5为69.44分\n✅ 跨模态统一调度，整体表现更强：16项基准得分79.98，超过各基准使用最佳固定模型组成的79.68基线\n✅ 代码成本降低 96.1%：在独立的CodeRouterBench实验中，相比Opus 4.6，测试分数仅低0.44 分，每美元任务质量达到25.5倍\n\n📄 论文：https://arxiv.org/abs/2611.05275\n🌐 项目主页：https://mikeeeeeeeeeeeeee.github.io/RouteAnything/\n💻 GitHub：https://github.com/InfRec-Cardinal/route-anything\n🤗 HF Paper：https://huggingface.co/papers/2611.05275\n\n从文本、图像、视频、语音，到 Agent 和 Embodied，我们把路由研究铺到了 25 项基准，欢迎做模型路由、多模态和 Agent 的朋友一起交流！也拜托大家帮忙点个 GitHub Star、HF Paper Upvote🔥"
+            },
+            {
+              "speaker": 2,
+              "time": "17:56",
+              "text": "代码成本降低 96.1%这么夸张嘛  怎么做到的啊"
+            },
+            {
+              "speaker": 1,
+              "time": "17:57",
+              "text": "Router是这样的",
+              "quote": {
+                "speaker": 2,
+                "text": "代码成本降低 96.1%这么夸张嘛 怎么做到的啊"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:00",
+              "text": "确实效果夸张，还有跨模态能力?",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] Router是这样的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:00",
+              "text": "是这样的",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 确实效果夸张，还有跨模态能力?"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:27",
+              "text": "这个看着很强啊[强]",
+              "quote": {
+                "speaker": 1,
+                "text": "很开心和大家分享我们最新的研究工作Route Anything: A Study of Model and Policy Routing for General..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:33",
+              "text": "[社会社会]",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 这个看着很强啊[强]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:47",
+              "text": "感觉最近这种router工作还挺多的？Switchyard、HiRoute，不知道是不是同类产品"
+            },
+            {
+              "speaker": 1,
+              "time": "19:49",
+              "text": "都比较烂哈哈，感觉他们的router大多还是聚焦降本增效而不是性能摸高",
+              "quote": {
+                "speaker": 4,
+                "text": "感觉最近这种router工作还挺多的？Switchyard、HiRoute，不知道是不是同类产品"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:50",
+              "text": "要严肃学习了",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 都比较烂哈哈，感觉他们的router大多还是聚焦降本增效而不是性能摸高"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:50",
+              "text": "router还能提高模型性能嘛"
+            },
+            {
+              "speaker": 4,
+              "time": "19:51",
+              "text": "应该是不同模型负责不同功能，例如多模态、写文档部分用哈基米，Coding用Claude这样吧"
+            },
+            {
+              "speaker": 5,
+              "time": "19:57",
+              "text": "router应该本身还是系统编排上比较重要的核心嘛",
+              "quote": {
+                "speaker": 2,
+                "text": "router还能提高模型性能嘛"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:57",
+              "text": "coding上面其实也可以进一步细分，某些coding task上甚至会出现deepseek等更强的情况",
+              "quote": {
+                "speaker": 4,
+                "text": "应该是不同模型负责不同功能，例如多模态、写文档部分用哈基米，Coding用Claude这样吧"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:53",
+              "text": "小鲸鱼nb",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] coding上面其实也可以进一步细分，某些coding task上甚至会出现deepseek等更强的情况"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:57",
+              "text": "[强]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Route Anything（arXiv 2611.05275）",
+              "url": "https://arxiv.org/abs/2611.05275"
+            },
+            {
+              "kind": "code",
+              "label": "route-anything 代码仓库",
+              "url": "https://github.com/InfRec-Cardinal/route-anything"
+            },
+            {
+              "kind": "demo",
+              "label": "Route Anything 项目主页",
+              "url": "https://mikeeeeeeeeeeeeee.github.io/RouteAnything/"
+            }
+          ]
+        },
+        {
+          "category": "数据壁垒",
+          "title": "混元 Hy4 主打游戏与前端开发，群友激辩大厂自研基模能否拿到内部工作室数据",
+          "text": "有群友转发了腾讯混元 Hy4 的发布文章，分享的截图显示新模型重点强化了前端与游戏开发能力，并提到与 IEG 游戏开发者合作优化数据与评测，适配了 UE、Unity、Godot、Three.js 等主流引擎。有人顺带关心 Hy4 是否仍采用类 DeepSeek V3.2 的架构，也有群友认为游戏开发应该已是基座模型评测的共识。\n\n围绕训练数据来源，转发者猜测该模型直接蒸馏了旗下游戏工作室的数据，感叹这类数据其他基模公司根本拿不到。但另两位群友对此提出异议：一位认为游戏属于核心资产，业务团队担心数据在训练中被蒸馏出去，未必愿意交出；另一位表示即便在内部跨部门拿数据同样费劲，提供数据对业务方来说吃力不讨好，早期的 WeLM 也是类似逻辑。转发者随后认同了这一判断，补充说游戏数据是现金流资产，赚钱的头部游戏确实不会给。",
+          "emphasis": [
+            "重点强化了前端与游戏开发能力",
+            "一位认为游戏属于核心资产，业务团队担心数据在训练中被蒸馏出去，未必愿意交出"
+          ],
+          "aiComment": "外面羡慕大厂基模能随便啃自家游戏工作室的数据，群友一句“内部拿也费劲”，跨部门讨数据原来也得排队 😂",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:12",
+              "text": "[链接] Hy4 正式发布，为真实生产力而生\n  来源: 腾讯混元\n  摘要: 首次跻身最强开源模型之列\n  URL: https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498939&idx=1&sn=74122d54739080854a4535c79437e749&chksm=c183d6d9784be79e97a50bbb635d4e63e5d7856fb30651ff372fbf3d60e155ee47c27b9ae433&scene=1&srcid=1104rGtUbEq7PjwrmFEfMxkB#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "15:13",
+              "text": "确实有在做游戏方面啊"
+            },
+            {
+              "speaker": 3,
+              "time": "15:14",
+              "text": "游戏应该是目前基座bench的共识吧"
+            },
+            {
+              "speaker": 1,
+              "time": "15:20",
+              "text": "游戏估计就hy能做得好了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:20",
+              "text": "直接蒸馏鹅厂旗下的工作室数据了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:21",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "15:22",
+              "text": "hy4还是类deepseek v3.2的架构么"
+            },
+            {
+              "speaker": 1,
+              "time": "15:22",
+              "text": "就这数据 其他基模公司根本拿不到啊"
+            },
+            {
+              "speaker": 5,
+              "time": "15:23",
+              "text": "不一定会给他们训"
+            },
+            {
+              "speaker": 5,
+              "time": "15:23",
+              "text": "因为可能会被蒸馏出去"
+            },
+            {
+              "speaker": 6,
+              "time": "15:23",
+              "text": "其实内部拿也费劲",
+              "quote": {
+                "speaker": 1,
+                "text": "就这数据 其他基模公司根本拿不到啊"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:23",
+              "text": "游戏是核心资产"
+            },
+            {
+              "speaker": 6,
+              "time": "15:23",
+              "text": "提供数据属于吃力不讨好. 腾讯游戏又树大根深"
+            },
+            {
+              "speaker": 6,
+              "time": "15:26",
+              "text": "WeLM不也是这个逻辑"
+            },
+            {
+              "speaker": 1,
+              "time": "15:30",
+              "text": "是这样"
+            },
+            {
+              "speaker": 1,
+              "time": "15:31",
+              "text": "毕竟数据就是资产 而且游戏数据还是现金流资产"
+            },
+            {
+              "speaker": 1,
+              "time": "15:32",
+              "text": "确实 腾讯赚钱的头部游戏肯定不会给的",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 其实内部拿也费劲"
+              }
+            }
+          ]
+        },
+        {
+          "category": "环境合成",
+          "title": "逆向合成长程智能体环境：ToolSpace-744B 追平 Claude Opus 5，升级版基准强模型均不过 40 分",
+          "text": "有群友分享了智能体环境合成工作《ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents》。针对现有 Data-Centric 方法先造底层数据库再合成工具与任务、容易导致接口失真且难跨环境的问题，ToolSpace 反过来先从真实调用轨迹收集工具并串联成工具世界图谱，只给会改变状态的环境按需合成数据库；随后用状态感知游走和回退探索图谱，把可执行工具链反编译成任务和校验脚本，同时产出 SFT 与混合环境 RL 数据。\n\n在 7 个长程工具基准上，研究评测了 8B、35B 和 744B 模型，其中 ToolSpace-744B 平均分达到 56.6，与 Claude Opus 5 持平；它的分项成绩为 AutomationBench 54.7、Harvey LAB 27.5、SkillsBench 67.8、OfficeQA Pro 67.1、JobBench 57.5。团队还基于该方法无缝升级出 Automation-Pro 和 Tau3-Banking-Pro 两个高难度基准，现有强模型在上面的得分均在 40 分以下。分享者随后在群里推荐大家刷这两个新基准，表示评测方式与原版完全一致，并调侃有问题包部署 debug，“防止没得刷了”。",
+          "emphasis": [
+            "先从真实调用轨迹收集工具并串联成工具世界图谱，只给会改变状态的环境按需合成数据库",
+            "ToolSpace-744B 平均分达到 56.6，与 Claude Opus 5 持平"
+          ],
+          "aiComment": "新基准把强模型全压到 40 分以下，分享者在线揽客包部署包 debug，唯恐大家没题可刷。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:22",
+              "text": "很开心分享我们在智能体环境合成上的最新工作[嘿哈]：\n\n🌟 ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents\n\n现有环境合成方法多是 Data-Centric：先造底层数据库，再合成工具与任务。工具接口易失真，也难形成跨环境任务。\n\n与之思路相反，ToolSpace 先从真实调用轨迹收集工具，再把真实工具集串成工具宇宙，最后按需合成底层数据库。既保住真实性，也能灵活合成跨「任意环境 × 任意工具」的可验证任务。\n\n💡 ToolSpace 关键方法 \n1️⃣ 工具宇宙探索：从真实轨迹挖掘工具依赖，串联成工具世界图谱；只给会改状态的环境合成数据库。 \n2️⃣ 可验证任务合成：用状态感知游走和回退探索图谱，把可执行工具链反编译成任务和校验脚本，并保持环境状态连续。同一链路可合成高质量 SFT 与混合环境 RL 数据。 \n3️⃣ 更难的评测基准：用ToolSpace 无缝升级两个前沿基准，提出 AutomationBench Pro 和 τ³-Bench Banking Pro。现有强模型得分均在 40 分以下，为行业提出更难标准。\n\n📊 实验 \n✅ 在 7 个长程工具基准上评测了 ToolSpace 8B、35B 和 744B。ToolSpace-744B平均分56.6，与Claude Opus 5持平。 \n✅ ToolSpace-744B：AutomationBench 54.7、Harvey LAB 27.5、SkillsBench 67.8，OfficeQA Pro 67.1，JobBench 57.5。 \n✅ 环境和数据规模扩大后，智能体性能随之提升。\n\n📄 论文：https://arxiv.org/pdf/2611.05036\n🌐 项目主页：https://toolspace-agent.github.io/ \n💻 GitHub：https://github.com/dongguanting/ToolSpace \n🤗 Models：https://huggingface.co/collections/dongguanting/toolspace\n\n欢迎大家关注，代码，模型均已开源，也恳请大家点个HF paper upvote 🥺👏👏👏\n🤗HF paper：https://huggingface.co/papers/2611.05036"
+            },
+            {
+              "speaker": 1,
+              "time": "14:22",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:27",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 1,
+              "time": "17:56",
+              "text": "[哇]和兄弟们推销一下我toolspace升级的bench，Automation-Pro 和 Tau3-Banking-Pro，和原本bench评测方式和原本一模一样，只是任务难度变高了，真实好刷！！\n\nhttps://github.com/dongguanting/ToolSpace/tree/main/Automation-Pro\nhttps://github.com/dongguanting/ToolSpace/tree/main/Tau3-Banking-Pro"
+            },
+            {
+              "speaker": 1,
+              "time": "17:57",
+              "text": "有问题我管部署debug，给兄弟们多点bench可以多在top厂🐶，防止没得刷了，亲测好刷，报分利器～"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ToolSpace（arXiv 2611.05036）",
+              "url": "https://arxiv.org/abs/2611.05036"
+            },
+            {
+              "kind": "code",
+              "label": "ToolSpace 代码仓库",
+              "url": "https://github.com/dongguanting/ToolSpace"
+            },
+            {
+              "kind": "code",
+              "label": "Automation-Pro 基准",
+              "url": "https://github.com/dongguanting/ToolSpace/tree/main/Automation-Pro"
+            },
+            {
+              "kind": "code",
+              "label": "Tau3-Banking-Pro 基准",
+              "url": "https://github.com/dongguanting/ToolSpace/tree/main/Tau3-Banking-Pro"
+            },
+            {
+              "kind": "demo",
+              "label": "ToolSpace 项目主页",
+              "url": "https://toolspace-agent.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "Computer Use",
+          "title": "GUI 与 CLI 混合操控：4B 模型 Mage-VL-Cowork 训到 OSWorld-Verified 66.0%，同一 Calc 任务 39 秒完成",
+          "text": "有群友分享了混合 computer use 训练技术报告《Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses》，探索让模型在 GUI 与 CLI 之间自主切换的全栈方案。训练从一个缺乏 grounding、tool call 和 reasoning 的 4B 中间权重起步，先通过 Mid-training 补齐基础能力，将 OSWorld-G 从 30.6 提升到 56.9；再经过 GUI、Coding、Hybrid 三段 SFT 和在线 RL，把 OSWorld-Verified 成绩从 45.56、55.84 一路拉升至 66.0%。\n\n数据与框架层面，项目通过 Mage-CUA-Forge 自建 2k+ 个网站、合成 293,806 个任务，使单题合成成本降低 82.6%；采样前反复打磨了 GUI、终端和 Hybrid 三套 harness，让教师模型在 672 道跨应用题上达到 92.0%。最终训练出的 4B 模型在 OSWorld-Verified 上以 66.0% 超越了 Muse Glimmer-30B（65.9）、Qwen3.6-27B（63.9）和 Claude Sonnet 4.5（62.9）；处理同一个 Calc 任务时，该模型仅需 39 秒完成，而纯 GUI 模式的 27B 模型需要 9 分 56 秒。相关 Apache-2.0 权重、SGLang Docker 镜像及 361 题评测代码已开源。",
+          "emphasis": [
+            "经过 GUI、Coding、Hybrid 三段 SFT 和在线 RL，把 OSWorld-Verified 成绩从 45.56、55.84 一路拉升至 66.0%",
+            "处理同一个 Calc 任务时，该模型仅需 39 秒完成，而纯 GUI 模式的 27B 模型需要 9 分 56 秒"
+          ],
+          "aiComment": "自建两千多个网站把单题合成成本砍了 82.6%，训出来的 4B 一言不合就切 CLI，39 秒教 27B 做人。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:17",
+              "text": "和大家分享一下我们组的新工作～\n\n🖥️ Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses\n\nGPT-6 Astra 之后，computer use 的效率和延迟越来越受关注。这份技术报告是我们对 hybrid computer use（GUI 与 CLI 自主切换）合成与训练的一次全栈探索。\n\n从环境搭建、任务合成、harness 迭代，到 Mid-training、SFT 和 RL，报告完整记录了怎样把一个缺乏 agentic CUA 能力的 4B 小模型一步步补齐能力，最后训到 OSWorld-Verified 66.0%，各环节的设计选择、对比实验和踩过的坑都写了进去。\n\n💡 主要包含三部分：\n1️⃣ 训练方案：从缺乏 grounding、tool call 和 reasoning 的 4B 中间权重出发，先用 Mid-training 补齐基础能力（OSWorld-G 30.6 → 56.9），再经 GUI / Coding / Hybrid 三段 SFT 和在线 RL，OSWorld-Verified 45.56 → 55.84 → 66.0\n2️⃣ 数据合成 Mage-CUA-Forge：每个技能写一次生成流程，自建 2k+ 个网站，合成 293,806 个任务，单题成本降低 82.6%\n3️⃣ CUA harness 迭代：采数据前反复打磨教师模型的执行框架、工具和 prompt，分别搭 GUI、终端和 Hybrid 三套 harness，教师模型在 672 道跨应用题上达到 92.0%\n\n📊 4B 模型在 OSWorld-Verified 上拿到 66.0%，超过参数量约 7 倍的 Muse Glimmer-30B（65.9）和 Qwen3.6-27B（63.9），也超过 Claude Sonnet 4.5（62.9）；同一个 Calc 任务，它 39 秒完成，纯 GUI 的 27B 要 9 分 56 秒。\n\n模型权重（Apache-2.0）、SGLang Docker 镜像和完整 361 题评测代码均已开源，欢迎大家交流讨论，也欢迎 upvote 和 star～\n📄 Paper：https://arxiv.org/abs/2610.40747\n🤗 HF：https://huggingface.co/papers/2610.40747\n💻 GitHub：https://github.com/microsoft/Mage\n🌐 Project：https://microsoft.github.io/Mage/cowork/"
+            },
+            {
+              "speaker": 1,
+              "time": "20:17",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:17",
+              "text": "欢迎大家一起交流[可怜]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Mage-VL-Cowork（arXiv 2610.40747）",
+              "url": "https://arxiv.org/abs/2610.40747"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Mage 代码仓库",
+              "url": "https://github.com/microsoft/Mage"
+            },
+            {
+              "kind": "demo",
+              "label": "Mage-VL-Cowork 项目主页",
+              "url": "https://microsoft.github.io/Mage/cowork/"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "从 Opus 5.5 聊到 GPT-4o：群友吐槽过度安全防御毁文风，担忧 Chat 与 Work 模式合并“互相带坏”",
+          "text": "有群友打听 Gemini 写代码的表现，有人评价在 Opus 4.6 到 5 的水平；紧接着有人提问 Opus 5.5 xhigh 的写作水平比 Opus 4.6 和 Gemini 2.5/argon 差多少，有人回了句“最好的是 3.5”，引发了一轮关于模型文风的讨论。有群友认为不必过于纠结模型写作能力，因为初稿最终都得人工修改，自己体感写作最好的是“降智+无脑防御以前的 GPT”Chat 模式。另一位群友觉得现在的 Chat 模式也还好，依然“说人话”，只是不理解厂商为什么要疯狂训练安全防御。\n\n前一位群友补充说，目前 Chat 模式的表达明显好于 Work 模式，并听说这两个模式即将合并，猜测内部可能会用路由机制，也调侃“不知道合并了之后是谁被谁带坏”。话题随后延伸到早期模型：有人怀念 GPT-4.5，也有人感慨 GPT-4o 当年几乎没有对手、各项都很均衡，直到今年仍有论文用 4o 和 4o-mini 做实验。有人提到 4o 时期有大量“人机恋”用户，一位群友猜现在这个圈子里最受欢迎的是 Grok，另一位接话说主要是 Grok“甲低”，也就是安全防御更宽松。",
+          "emphasis": [
+            "自己体感写作最好的是“降智+无脑防御以前的 GPT”Chat 模式",
+            "听说这两个模式即将合并，猜测内部可能会用路由机制"
+          ],
+          "aiComment": "安全防御叠太厚把文风都训僵了，听说 Chat 和 Work 模式要合并，大家只担心谁把谁带坏 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:39",
+              "text": "gemini如何"
+            },
+            {
+              "speaker": 1,
+              "time": "00:39",
+              "text": "还没用过写代码"
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "opus4.6-5的水平"
+            },
+            {
+              "speaker": 3,
+              "time": "00:43",
+              "text": "所以群友们觉得opus 5.5 xhigh的写作水平大约比opus 4.6和gemini 2.5/argon差多少呢"
+            },
+            {
+              "speaker": 4,
+              "time": "00:43",
+              "text": "最好的是3.5("
+            },
+            {
+              "speaker": 5,
+              "time": "00:44",
+              "text": "什么3.5"
+            },
+            {
+              "speaker": 2,
+              "time": "00:44",
+              "text": "得不到的就更加爱("
+            },
+            {
+              "speaker": 6,
+              "time": "00:48",
+              "text": "为啥这么纠结写作水平，最后不都得人修一遍吗"
+            },
+            {
+              "speaker": 6,
+              "time": "00:49",
+              "text": "我感觉写作最好的是降智+无脑防御以前的gpt"
+            },
+            {
+              "speaker": 6,
+              "time": "00:49",
+              "text": "Chat模式"
+            },
+            {
+              "speaker": 7,
+              "time": "00:49",
+              "text": "现在chat也还好。"
+            },
+            {
+              "speaker": 7,
+              "time": "00:49",
+              "text": "说人话。"
+            },
+            {
+              "speaker": 7,
+              "time": "00:49",
+              "text": "不知道为什么要疯狂训防御（"
+            },
+            {
+              "speaker": 6,
+              "time": "00:50",
+              "text": "对，现在也明显比work好"
+            },
+            {
+              "speaker": 6,
+              "time": "00:50",
+              "text": "听说chat和work要合并了"
+            },
+            {
+              "speaker": 7,
+              "time": "00:50",
+              "text": "合并了共享一下说话方式呢（"
+            },
+            {
+              "speaker": 6,
+              "time": "00:50",
+              "text": "不知道合并了之后是谁被谁带坏[捂脸]"
+            },
+            {
+              "speaker": 6,
+              "time": "00:51",
+              "text": "还是内部有个路由"
+            },
+            {
+              "speaker": 1,
+              "time": "00:51",
+              "text": "之前gpt 4.5 还挺好用的"
+            },
+            {
+              "speaker": 7,
+              "time": "00:51",
+              "text": "gpt4o"
+            },
+            {
+              "speaker": 7,
+              "time": "00:51",
+              "text": "我没经历过4o时期）"
+            },
+            {
+              "speaker": 7,
+              "time": "00:51",
+              "text": "当时真的那么严重吗（"
+            },
+            {
+              "speaker": 6,
+              "time": "00:52",
+              "text": "4o真是一个时代了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:52",
+              "text": "第一次用gpt还是疫情时候"
+            },
+            {
+              "speaker": 1,
+              "time": "00:52",
+              "text": "有点遥远了"
+            },
+            {
+              "speaker": 6,
+              "time": "00:52",
+              "text": "4o那时候应该是公认标杆了吧"
+            },
+            {
+              "speaker": 6,
+              "time": "00:53",
+              "text": "几乎没有对手，各项都很均衡"
+            },
+            {
+              "speaker": 6,
+              "time": "00:53",
+              "text": "（直到今年还有一些论文在用4o和4o-mini做实验"
+            },
+            {
+              "speaker": 7,
+              "time": "00:54",
+              "text": "主要是感觉那个时候有超多人机恋"
+            },
+            {
+              "speaker": 6,
+              "time": "00:54",
+              "text": "这个倒没留意，我知道有这个圈子的"
+            },
+            {
+              "speaker": 6,
+              "time": "00:54",
+              "text": "现在也有"
+            },
+            {
+              "speaker": 6,
+              "time": "00:54",
+              "text": "现在搞这个应该是gork最受欢迎吧"
+            },
+            {
+              "speaker": 8,
+              "time": "00:57",
+              "text": "grok主要是甲低吧"
+            }
+          ]
+        },
+        {
+          "category": "产品动态",
+          "title": "AI Studio 现身 Antigravity Agent Preview，群友指出实为无本地目录权限的云端 Agent",
+          "text": "有群友晒出 AI Studio 的模型选择界面截图，显示在 Agents 分类下新增了付费预览选项 Antigravity Agent Preview（antigravity-preview-09-2026），默认搭载 Gemini 3.8 Flash，简介为运行在 Google 托管远程 Linux 环境中的通用自主 agent，同列还有两个采用 Gemini 3.1 Pro 与 Gemini 3 Flash 计费的 Deep Research 预览版。晒图群友疑惑这与直接使用 Antigravity 效果是否相同、功能是否重复；另一位群友解答称，网页端版本本质上无法读取本地文件夹，更接近一个 cloud agent。",
+          "emphasis": [
+            "网页端版本本质上无法读取本地文件夹，更接近一个 cloud agent"
+          ],
+          "aiComment": "名字叫反重力 Agent 听着很科幻，点进去发现是没本地目录权限的云端 Linux 打工仔。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:47",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:47",
+              "text": "aistudio也有agent用"
+            },
+            {
+              "speaker": 1,
+              "time": "01:47",
+              "text": "这个和antigravity的使用效果是一样的吗，感觉功能上重复了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:20",
+              "text": "本质是看不到你本地的 folder 吧，类似于一个 cloud agent",
+              "quote": {
+                "speaker": 1,
+                "text": "这个和antigravity的使用效果是一样的吗，感觉功能上重复了"
+              }
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "国模股价半年回到一年前，DeepSeek 概念股板块总市值标着 13 万亿",
+          "text": "有群友晒出一张行情长截图，感叹国产大模型相关股票这半年怎么都在跌，“回到一年前”。分享的截图显示，智谱和 MiniMax 两只港股的周 K 线都从高点大幅回落，Kimi 概念和 DeepSeek 概念股两个板块指数也在走低。\n\n有群友注意到 DeepSeek 概念股板块总市值标着 13 万亿，调侃“这是真概念”。另一位追问 13 万亿是怎么来的、是不是按总市值算；前者解释应该是板块里各家公司市值的总和，上面三家的数值都在正常范围。",
+          "emphasis": [
+            "智谱和 MiniMax 两只港股的周 K 线都从高点大幅回落",
+            "应该是板块里各家公司市值的总和"
+          ],
+          "aiComment": "智谱从周 K 高点 2980 港元滑到 442，概念股板块倒是一开口就 13 万亿，果然概念最抗跌。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:02",
+              "text": "国模的股票这半年怎么都在跌a 大趋势好像"
+            },
+            {
+              "speaker": 1,
+              "time": "01:02",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "回到一年前"
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "ds概念股13w亿》〉"
+            },
+            {
+              "speaker": 2,
+              "time": "01:03",
+              "text": "这是真概念"
+            },
+            {
+              "speaker": 1,
+              "time": "01:05",
+              "text": "还真是诶",
+              "quote": {
+                "speaker": 2,
+                "text": "ds概念股13w亿》〉"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:06",
+              "text": "13万亿是?"
+            },
+            {
+              "speaker": 3,
+              "time": "01:06",
+              "text": "这个不是按总市值来的嘛"
+            },
+            {
+              "speaker": 2,
+              "time": "01:09",
+              "text": "指的应该就是各家的总值吧，上面三家都是正常范围"
+            }
+          ],
+          "resources": []
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "4B 模型混合操控电脑，OSWorld 跑出 66%",
+      "theme": "混元 Hy4 上线引来多模态评测追问，另有 ToolSpace 环境合成与跨模态路由新作",
+      "note": "2026-11-04 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 训练",
+          "title": "4B 小模型自主切换 GUI 与 CLI：Mage-VL-Cowork 在 OSWorld-Verified 拿到 66.0%",
+          "text": "有群友分享了混合 computer use 训练方案 Mage-VL-Cowork，让 4B 模型自主在 GUI 与 CLI 之间切换，在 OSWorld-Verified 上拿到 66.0%，超过了参数量约 7 倍的 Muse Glimmer-30B（65.9）和 Qwen3.6-27B（63.9），也高于 Claude Sonnet 4.5（62.9）。处理同一个 Calc 任务时，该模型耗时 39 秒，而纯 GUI 的 27B 模型需要 9 分 56 秒。\n\n据介绍，这项工作先打磨教师模型的 CUA harness，分别搭建 GUI、终端和 Hybrid 三套执行框架，使教师模型在 672 道跨应用题上达到 92.0%；同时通过 Mage-CUA-Forge 自建 2k+ 个网站，每个技能编写一次生成流程，合成了 293,806 个任务，单题成本降低 82.6%。模型训练则从缺乏 grounding、tool call 和 reasoning 的 4B 中间权重出发，先用 Mid-training 将 OSWorld-G 从 30.6 提升到 56.9，再经过 GUI、Coding、Hybrid 三段 SFT 和在线 RL，把 OSWorld-Verified 从 45.56 推高到 55.84，最终达到 66.0%。该模型的 Apache-2.0 权重、SGLang Docker 镜像和 361 题评测代码均已开源。\n\n有人询问是否对比过 open-gcua。另一位群友认为两者定位不同，印象中 open-gcua 主要在做 harness 层面的改动和探索，没有训模型；提问者则提到对方应该已经训了或正在训。还有人说之前看过前作 Mage-VL，回应 open-gcua 的那位群友补充说这次的 CUA post-train 正是基于 Mage-VL 的中间 ckpt 完成的。",
+          "emphasis": [
+            "让 4B 模型自主在 GUI 与 CLI 之间切换，在 OSWorld-Verified 上拿到 66.0%",
+            "自建 2k+ 个网站，每个技能编写一次生成流程，合成了 293,806 个任务，单题成本降低 82.6%",
+            "基于 Mage-VL 的中间 ckpt 完成的"
+          ],
+          "aiComment": "从缺推理缺工具调用的 4B 中间权重一路拉扯到 66.0%，参数大 7 倍的前辈们看着 39 秒的成绩单沉默了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:00",
+              "text": "和大家分享一下我们组的新工作～\n\n🖥️ Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses\n\nGPT-6 Astra 之后，computer use 的效率和延迟越来越受关注。这份技术报告是我们对 hybrid computer use（GUI 与 CLI 自主切换）合成与训练的一次全栈探索。\n\n从环境搭建、任务合成、harness 迭代，到 Mid-training、SFT 和 RL，报告完整记录了怎样把一个缺乏 agentic CUA 能力的 4B 小模型一步步补齐能力，最后训到 OSWorld-Verified 66.0%，各环节的设计选择、对比实验和踩过的坑都写了进去。\n\n💡 主要包含三部分：\n1️⃣ 训练方案：从缺乏 grounding、tool call 和 reasoning 的 4B 中间权重出发，先用 Mid-training 补齐基础能力（OSWorld-G 30.6 → 56.9），再经 GUI / Coding / Hybrid 三段 SFT 和在线 RL，OSWorld-Verified 45.56 → 55.84 → 66.0\n2️⃣ 数据合成 Mage-CUA-Forge：每个技能写一次生成流程，自建 2k+ 个网站，合成 293,806 个任务，单题成本降低 82.6%\n3️⃣ CUA harness 迭代：采数据前反复打磨教师模型的执行框架、工具和 prompt，分别搭 GUI、终端和 Hybrid 三套 harness，教师模型在 672 道跨应用题上达到 92.0%\n\n📊 4B 模型在 OSWorld-Verified 上拿到 66.0%，超过参数量约 7 倍的 Muse Glimmer-30B（65.9）和 Qwen3.6-27B（63.9），也超过 Claude Sonnet 4.5（62.9）；同一个 Calc 任务，它 39 秒完成，纯 GUI 的 27B 要 9 分 56 秒。\n\n模型权重（Apache-2.0）、SGLang Docker 镜像和完整 361 题评测代码均已开源，欢迎大家交流讨论，也欢迎 upvote 和 star～\n📄 Paper：https://arxiv.org/abs/2610.40747\n🤗 HF：https://huggingface.co/papers/2610.40747\n💻 GitHub：https://github.com/microsoft/Mage\n🌐 Project：https://microsoft.github.io/Mage/cowork/"
+            },
+            {
+              "speaker": 2,
+              "time": "20:11",
+              "text": "有对比open-gcua不",
+              "quote": {
+                "speaker": 1,
+                "text": "和大家分享一下我们组的新工作～ 🖥️ Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Comput..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:15",
+              "text": "[引用] 我记得 open gcua 没有训模型吧  主要是 harness 方面的一些改动和探索  定位还是不太一样的\n  ↳ [引用] 有对比open-gcua不"
+            },
+            {
+              "speaker": 2,
+              "time": "20:16",
+              "text": "是呢 但是应该训了/正在训",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 我记得 open gcua 没有训模型吧  主要是 harness 方面的一些改动和探索  定位还是不太一样的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:24",
+              "text": "之前看过mage-vl"
+            },
+            {
+              "speaker": 3,
+              "time": "20:25",
+              "text": "[引用] 基于 mage vl 的中间 ckpt 做的 cua 的 post train [旺柴][旺柴]\n  ↳ 之前看过mage-vl"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses",
+              "url": "https://arxiv.org/abs/2610.40747"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Mage",
+              "url": "https://github.com/microsoft/Mage"
+            },
+            {
+              "kind": "article",
+              "label": "Mage-VL-Cowork 项目主页",
+              "url": "https://microsoft.github.io/Mage/cowork/"
+            }
+          ]
+        },
+        {
+          "category": "模型发布",
+          "title": "腾讯混元 Hy4 正式上线：WorkBuddy 开放 0 倍率限免，群友追问 3D 与多模态评测",
+          "text": "有群友分享了腾讯混元开源模型 Hy4 正式发布的消息，介绍其主打多模态、审美和长 context 理解能力，并已在元宝等产品中同步上线。有人发问能否直接用来制作论文主页，另一位群友认为配合模板的话，目前主流国产模型大多可以胜任。\n\n不少群友关心元宝和 WorkBuddy 里的 Hy4 是否已是最新正式版。有人认为名字没带 pre 后缀应该就是正式版，另一位群友记得之前是 Hy4 preview；随后有群友晒出 WorkBuddy v5.3.14 的界面截图：菜单中 Hy4 被标注为“Agent与多模专长”、思考强度“高”，除 0.29x 倍率外还提供限时免费的 0.00x 倍率选项。分享者提到元宝完全免费，且 WorkBuddy 国际版的额度福利更好；有群友接话称国际版被不少人拿去做反代，分享者感叹只要有免费额度就会招来羊毛灰产。\n\n针对模型评测，有群友提出疑问：宣传中强调了 CAD 和 Blender 能力，但公开的多模态 benchmark 并不多，缺少 benchcad、3dcodebench、blenderworld 以及 babyvision 的成绩。还有人好奇为何没有提交 AA index，有人提到 AA 剔除了一些榜单，另一位群友则解释 AA 评测通常需要好几天，除非在发布前一周就提前提供 API。",
+          "emphasis": [
+            "主打多模态、审美和长 context 理解能力",
+            "除 0.29x 倍率外还提供限时免费的 0.00x 倍率选项",
+            "宣传中强调了 CAD 和 Blender 能力，但公开的多模态 benchmark 并不多"
+          ],
+          "aiComment": "WorkBuddy 刚摆出 0.00x 倍率的限免招牌，群友已经开始替国际版操心羊毛灰产的反代大军了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:39",
+              "text": "[链接] Hy4 正式发布，为真实生产力而生\n  来源: 腾讯混元\n  摘要: 首次跻身最强开源模型之列\n  URL: https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498939&idx=1&sn=74122d54739080854a4535c79437e749&chksm=c1f325986661ed5ea40659b44f860d088a821211da4a5a1d489d91196393100ed8bf532aa774&scene=1&srcid=1104ZwFTNwUX7IzXYWJgh3tY#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "17:40",
+              "text": "hy4发了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:40",
+              "text": "欢迎大家在元宝测试"
+            },
+            {
+              "speaker": 2,
+              "time": "17:40",
+              "text": "🐮"
+            },
+            {
+              "speaker": 3,
+              "time": "17:40",
+              "text": "🐮"
+            },
+            {
+              "speaker": 4,
+              "time": "17:46",
+              "text": "@腾讯-PYR workbuddy的hy4是最新版本的吗"
+            },
+            {
+              "speaker": 5,
+              "time": "17:47",
+              "text": "元宝的hy4是最新版本的吗 [旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "17:47",
+              "text": "我看hy4之前workbuddy好像也有"
+            },
+            {
+              "speaker": 2,
+              "time": "17:48",
+              "text": "没加 pre 后缀 应该就是吧"
+            },
+            {
+              "speaker": 2,
+              "time": "17:48",
+              "text": "正式版没 pre 后缀"
+            },
+            {
+              "speaker": 5,
+              "time": "17:48",
+              "text": "之前好像是hy4 preview",
+              "quote": {
+                "speaker": 4,
+                "text": "我看hy4之前workbuddy好像也有"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:48",
+              "text": "一般都是这么命名"
+            },
+            {
+              "speaker": 4,
+              "time": "17:49",
+              "text": "那我试试"
+            },
+            {
+              "speaker": 4,
+              "time": "17:50",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "是!",
+              "quote": {
+                "speaker": 5,
+                "text": "元宝的hy4是最新版本的吗 [旺柴]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "都发了!"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "腾讯系AI都配套发HY4"
+            },
+            {
+              "speaker": 5,
+              "time": "17:53",
+              "text": "免费用[旺柴] 倍率0",
+              "quote": {
+                "speaker": 1,
+                "text": "腾讯系AI都配套发HY4"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "btw，分享一个小诀窍，wb的国际版的额度福利比较好"
+            },
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "元宝不收费"
+            },
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "元宝使劲用"
+            },
+            {
+              "speaker": 1,
+              "time": "17:54",
+              "text": "hy4的多模态超强"
+            },
+            {
+              "speaker": 1,
+              "time": "17:54",
+              "text": "而且审美很不错"
+            },
+            {
+              "speaker": 1,
+              "time": "17:54",
+              "text": "长context理解能力很强"
+            },
+            {
+              "speaker": 4,
+              "time": "17:56",
+              "text": "国际版好多人拿来反代的",
+              "quote": {
+                "speaker": 1,
+                "text": "btw，分享一个小诀窍，wb的国际版的额度福利比较好"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:56",
+              "text": "[破涕为笑]"
+            },
+            {
+              "speaker": 6,
+              "time": "17:56",
+              "text": "但是我看多模态放出来的 bench 不多啊",
+              "quote": {
+                "speaker": 1,
+                "text": "hy4的多模态超强"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:56",
+              "text": "宣发说是 cad、blender 这种能力可以，但是没有benchcad、3dcodebench、blenderworld 的评测"
+            },
+            {
+              "speaker": 7,
+              "time": "17:57",
+              "text": "在做了在做了",
+              "quote": {
+                "speaker": 6,
+                "text": "宣发说是 cad、blender 这种能力可以，但是没有benchcad、3dcodebench、blenderworld 的评测"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:58",
+              "text": "只要有免费额度，就有羊毛灰产",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 国际版好多人拿来反代的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:58",
+              "text": "确实是"
+            },
+            {
+              "speaker": 6,
+              "time": "17:58",
+              "text": "诶 babyvision 这种好像也没放"
+            },
+            {
+              "speaker": 8,
+              "time": "18:01",
+              "text": "好奇为啥没提交 AA index呀"
+            },
+            {
+              "speaker": 9,
+              "time": "18:03",
+              "text": "AA把一些榜单剔除了[旺柴]"
+            },
+            {
+              "speaker": 10,
+              "time": "18:05",
+              "text": "懂哥来了"
+            },
+            {
+              "speaker": 11,
+              "time": "18:06",
+              "text": "aa"
+            },
+            {
+              "speaker": 11,
+              "time": "18:06",
+              "text": "没这么快的吧"
+            },
+            {
+              "speaker": 11,
+              "time": "18:06",
+              "text": "一般要好几天"
+            },
+            {
+              "speaker": 11,
+              "time": "18:07",
+              "text": "除非发布前一周就给他们api啥的"
+            },
+            {
+              "speaker": 12,
+              "time": "19:22",
+              "text": "可以用来做论文主页吗",
+              "quote": {
+                "speaker": 1,
+                "text": "而且审美很不错"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:51",
+              "text": "主流国产模型应该都可以？ 配个模板啥的[让我看看]",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 可以用来做论文主页吗"
+              }
+            }
+          ]
+        },
+        {
+          "category": "环境合成",
+          "title": "ToolSpace 先搭工具宇宙再按需造数据库，744B 模型长程工具均分追平 Claude Opus 5",
+          "text": "有群友分享了长程智能体环境合成工作 ToolSpace。针对传统 Data-Centric 方法先造底层数据库再合成工具容易导致接口失真、难做跨环境任务的问题，ToolSpace 反过来从真实调用轨迹中收集工具并挖掘依赖，串联成“工具世界图谱”，最后只给会改变状态的环境按需合成底层数据库。\n\n在任务构建上，该方法通过状态感知游走和回退探索图谱，将可执行工具链反编译为任务与校验脚本，保持环境状态连续，同一链路可同时合成 SFT 与混合环境 RL 数据。基于这套方案升级出的 AutomationBench Pro 和 τ³-Bench Banking Pro 两个基准，现有强模型得分均在 40 分以下。在 7 个长程工具基准测试中，开源的 ToolSpace-744B 平均分达到 56.6，与 Claude Opus 5 持平，其中 SkillsBench 得分为 67.8、OfficeQA Pro 为 67.1、JobBench 为 57.5、AutomationBench 为 54.7、Harvey LAB 为 27.5。",
+          "emphasis": [
+            "从真实调用轨迹中收集工具并挖掘依赖，串联成“工具世界图谱”，最后只给会改变状态的环境按需合成底层数据库",
+            "在 7 个长程工具基准测试中，开源的 ToolSpace-744B 平均分达到 56.6，与 Claude Opus 5 持平"
+          ],
+          "aiComment": "不再傻傻先造数据库，先把真实工具串成宇宙再按需建库，744B 直接和 Opus 5 坐一桌。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:23",
+              "text": "很开心分享我们在智能体环境合成上的最新工作[嘿哈]：\n\n🌟 ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents\n\n现有环境合成方法多是 Data-Centric：先造底层数据库，再合成工具与任务。工具接口易失真，也难形成跨环境任务。\n\n与之思路相反，ToolSpace 先从真实调用轨迹收集工具，再把真实工具集串成工具宇宙，最后按需合成底层数据库。既保住真实性，也能灵活合成跨「任意环境 × 任意工具」的可验证任务。\n\n💡 ToolSpace 关键方法 \n1️⃣ 工具宇宙探索：从真实轨迹挖掘工具依赖，串联成工具世界图谱；只给会改状态的环境合成数据库。 \n2️⃣ 可验证任务合成：用状态感知游走和回退探索图谱，把可执行工具链反编译成任务和校验脚本，并保持环境状态连续。同一链路可合成高质量 SFT 与混合环境 RL 数据。 \n3️⃣ 更难的评测基准：用ToolSpace 无缝升级两个前沿基准，提出 AutomationBench Pro 和 τ³-Bench Banking Pro。现有强模型得分均在 40 分以下，为行业提出更难标准。\n\n📊 实验 \n✅ 在 7 个长程工具基准上评测了 ToolSpace 8B、35B 和 744B。ToolSpace-744B平均分56.6，与Claude Opus 5持平。 \n✅ ToolSpace-744B：AutomationBench 54.7、Harvey LAB 27.5、SkillsBench 67.8，OfficeQA Pro 67.1，JobBench 57.5。 \n✅ 环境和数据规模扩大后，智能体性能随之提升。\n\n📄 论文：https://arxiv.org/pdf/2611.05036\n🌐 项目主页：https://toolspace-agent.github.io/ \n💻 GitHub：https://github.com/dongguanting/ToolSpace \n🤗 Models：https://huggingface.co/collections/dongguanting/toolspace\n\n欢迎大家关注，代码，模型均已开源，也恳请大家点个HF paper upvote 🥺👏👏👏\n🤗HF paper：https://huggingface.co/papers/2611.05036"
+            },
+            {
+              "speaker": 1,
+              "time": "14:23",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:25",
+              "text": "🐮"
+            },
+            {
+              "speaker": 3,
+              "time": "14:25",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 4,
+              "time": "14:26",
+              "text": "严肃学习"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+              "url": "https://arxiv.org/abs/2611.05036"
+            },
+            {
+              "kind": "code",
+              "label": "dongguanting/ToolSpace",
+              "url": "https://github.com/dongguanting/ToolSpace"
+            },
+            {
+              "kind": "article",
+              "label": "ToolSpace 项目主页",
+              "url": "https://toolspace-agent.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "模型路由",
+          "title": "Route Anything 用能力树跨模态调度：4B Router 在 Terminal-Bench 跑赢固定 Opus 5.5",
+          "text": "有群友分享了全模态与策略路由研究 Route Anything，尝试利用不同模型的互补性突破固定调用 Astra 或 Opus 的单模型上限。研究横跨文本、图像、视频、语音、Agent 和机器人，覆盖 25 项基准、452 种候选配置和 374,401 次已评分运行，通过构建能力树（Capability Tree）识别任务所需能力并结合预期质量与成本统一调度候选模型。\n\n实验显示，Router 预测候选策略能否做成比单纯判断谁最强更有效：在相同输入和骨干模型的机器人实验中，直接学习谁最强成功率仅为 42.8%，改为预测各策略的成功概率后升至 71.6%。在 Terminal-Bench 上，4B Router 拿到 77.78 分，超过固定调用 Opus 5.5 的 69.44 分；16 项跨模态基准综合得分为 79.98，高于各基准分别取最佳固定模型组成的 79.68 基线；在 CodeRouterBench 中，相比 Opus 4.6 测试分仅低 0.44 分，但代码调用成本降低了 96.1%，每美元任务质量提升至 25.5 倍。",
+          "emphasis": [
+            "通过构建能力树（Capability Tree）识别任务所需能力并结合预期质量与成本统一调度候选模型",
+            "直接学习谁最强成功率仅为 42.8%，改为预测各策略的成功概率后升至 71.6%"
+          ],
+          "aiComment": "机器人路由只学选谁最强成功率才 42.8%，改成算各自成功率立马飙到 71.6%，端水大师实锤了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:22",
+              "text": "很开心和大家分享我们最新的研究工作Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems\n\n这个工作的Motivation很简单：总分最高的模型，也不总是擅长每一道题。如果把不同模型的长处组合起来，整个系统是否就有机会突破固定使用Astra / Opus的性能上限？\n\n在此之前，Router常被用来降低调用成本。Route Anything 往前再走一步：把模型之间的互补性真正用起来，突破最强单模型的能力边界。我们把路由研究从文本一路铺到图像、视频、语音、Agent 和机器人，覆盖 25 项基准、452 种候选配置、374,401 次已评分运行，探索如何把整个模型生态组织起来实现全模态的智能\n\n💡 从选模型，到组织能力树\n1️⃣ 统一不同模态的路由。语言模型、图像和视频生成器、语音模型、机器人策略，都纳入同一框架，根据任务需求、预期质量和调用成本决定让谁出手\n2️⃣ 用能力树调度多模型。通过Capability Tree识别任务需要的能力，再选择合适的候选；同一个 Router 跨文本、代码与办公 Agent、图像、视频、语音，在 16 项基准上评测\n3️⃣ Router需要学会判断每个候选能做成什么。在机器人实验中，同样的输入和骨干模型，直接学谁最强只有 42.8% 成功率；改为预测各策略的成功概率，达到 71.6%\n\n📊 几个最想分享的结果\n✅ 超过固定 Opus 5.5：Terminal-Bench上，4B Router拿到77.78分，固定调用Opus 5.5为69.44分\n✅ 跨模态统一调度，整体表现更强：16项基准得分79.98，超过各基准使用最佳固定模型组成的79.68基线\n✅ 代码成本降低 96.1%：在独立的CodeRouterBench实验中，相比Opus 4.6，测试分数仅低0.44 分，每美元任务质量达到25.5倍\n\n📄 论文：https://arxiv.org/abs/2611.05275\n🌐 项目主页：https://mikeeeeeeeeeeeeee.github.io/RouteAnything/\n💻 GitHub：https://github.com/InfRec-Cardinal/route-anything\n🤗 HF Paper：https://huggingface.co/papers/2611.05275\n\n从文本、图像、视频、语音，到 Agent 和 Embodied，我们把路由研究铺到了 25 项基准，欢迎做模型路由、多模态和 Agent 的朋友一起交流！也拜托大家帮忙点个 GitHub Star、HF Paper Upvote🔥"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems",
+              "url": "https://arxiv.org/abs/2611.05275"
+            },
+            {
+              "kind": "code",
+              "label": "InfRec-Cardinal/route-anything",
+              "url": "https://github.com/InfRec-Cardinal/route-anything"
+            },
+            {
+              "kind": "article",
+              "label": "Route Anything 项目主页",
+              "url": "https://mikeeeeeeeeeeeeee.github.io/RouteAnything/"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "端侧 GrokBot 开源替代品求助：群友推荐自带虚拟机的 OpenMausBot",
+          "text": "有群友发问 GitHub 上是否有效果最接近 grokbot 的开源项目，打算接入刚发布的 Hy4 做测试。有人问云端虚拟机部署的 OpenClaw 或 hermes 算不算，提问者表示这类偏云端部署、不算，更希望找类似 grokbot 的端侧方案。随后另一位群友推荐了还未亲自试用过的 OpenMausBot，该项目自称是自带可供 bot 调用的虚拟机的 Grok Bot 开源替代品，提问者表示将拿来实测。",
+          "emphasis": [
+            "自带可供 bot 调用的虚拟机的 Grok Bot 开源替代品"
+          ],
+          "aiComment": "想给刚出的 Hy4 找个端侧窝，群友反手掏出自带虚拟机的 OpenMausBot，主打一个拎包入住。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:41",
+              "text": "请教大家一个问题，github上有没有效果最接近grokbot类的开源项目？有测评过的同学吗？那个目前是效果最好的。"
+            },
+            {
+              "speaker": 1,
+              "time": "17:41",
+              "text": "@腾讯-PYR 准备接入测试一下哈。"
+            },
+            {
+              "speaker": 2,
+              "time": "17:43",
+              "text": "云端虚拟机部署的 OpenClaw 或者 hermes 算么",
+              "quote": {
+                "speaker": 1,
+                "text": "请教大家一个问题，github上有没有效果最接近grokbot类的开源项目？有测评过的同学吗？那个目前是效果最好的。"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "这个偏云端部署，不算。",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 云端虚拟机部署的 OpenClaw 或者 hermes 算么"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:54",
+              "text": "哈哈我也蹲一下这里",
+              "quote": {
+                "speaker": 1,
+                "text": "请教大家一个问题，github上有没有效果最接近grokbot类的开源项目？有测评过的同学吗？那个目前是效果最好的。"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:54",
+              "text": "最好是类似grokbot的端侧的"
+            },
+            {
+              "speaker": 4,
+              "time": "19:10",
+              "text": "https://github.com/milind-soni/OpenMausBot \n号称Open-source Grok Bot alternative with a virtual machine that bots can use\n不过我没用过\n @patchx-ArmorSE",
+              "quote": {
+                "speaker": 1,
+                "text": "最好是类似grokbot的端侧的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:18",
+              "text": "ok多谢。这个倒是没测试过，我测试一下。",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] https://github.com/milind-soni/OpenMausBot \n号称Open-source Grok Bot alternative with a virtual machine that bots can use\n不过我没用过\n @patchx-ArmorSE"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "19:18",
+              "text": "@字节-王佳恒"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "milind-soni/OpenMausBot",
+              "url": "https://github.com/milind-soni/OpenMausBot"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-7",
+      "label": "Robot",
+      "section": "今日讨论",
+      "heading": "RUA 脚本扛得住实时变化吗，harness 会怎么变",
+      "theme": "桌面级 Sim2Real 硬件选型对比，以及 uni-robot-agent 开源与 π0.5 推理加速。",
+      "note": "2026-11-04 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身架构",
+          "title": "RUA 脚本难应付高频实时变化？群友探讨 waypoint 尺度与 harness 演进",
+          "text": "有群友对 RUA 相关方法提出疑问：LLM 编写的执行循环脚本虽然包含对环境的观察，但这种 rule-based 的方式似乎很难泛化处理高频实时的环境变化，效果或许不如 VLA。一位群友回应称时延确实是个问题，同时分享了一篇用 6.1-terra（非 fast mode）直接控制机械臂的笔记，猜测其中把 waypoint 设得比较大，而且任务本身路线较直、不需要频繁变动路线；提问者追问 waypoint 大是否指每个子动作的时间较长。另一位群友补充，这类方法胜在可解释性较强，可以针对一些数据合成中的误差。\n\n讨论随后转向 RUA 架构的演进。有群友认为表现如何也看具体场景，并期待下一代 astra 的能力。这位群友类比早期 coding 的 agent harness，指出一开始的 harness 结构与后续稳定后的形态应该会差很多；提问者理解为还要等新方案出来 cover，并猜测类似的小脑模型说不定也会成为 harness 中的一环。前者回应“至少我是这个观点”，认为上一版 astra 还没真正发力，还说不知道现在 RUA 里的一些 tool 是否真的需要。",
+          "emphasis": [
+            "胜在可解释性较强，可以针对一些数据合成中的误差",
+            "类似的小脑模型说不定也会成为 harness 中的一环"
+          ],
+          "aiComment": "现在还在纠结 waypoint 设多大来迁就机械臂时延，乐观的群友已经在琢磨下一代 Astra 来了，RUA 这堆工具还要不要。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:00",
+              "text": "哈喽 群友们，我是具身小白，最近看到rua相关的方法，一只有一个疑问想请教。就是LLM写的执行循环脚本里，虽然有对环境的观察，但是这种方式应该几乎很难泛化处理高频实时的环境的变化吧？rule-based的方法应该甚至不如vla的效果？不知道我理解的是否有问题"
+            },
+            {
+              "speaker": 2,
+              "time": "11:18",
+              "text": "时延是一个问题"
+            },
+            {
+              "speaker": 2,
+              "time": "11:18",
+              "text": "我感觉是waypoint设的比较大"
+            },
+            {
+              "speaker": 2,
+              "time": "11:18",
+              "text": "[链接] 6.1-terra直接控机械臂也很快(非fast mode\n  摘要: @硅基漫步 的笔记 86人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6ae6a9de000000001a02137a?ignoreEngage=true&xsec_source=app_share&type=video&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793692022"
+            },
+            {
+              "speaker": 2,
+              "time": "11:19",
+              "text": "本身这个任务不需要频繁变动路线，原定的路线也是比较直的"
+            },
+            {
+              "speaker": 1,
+              "time": "11:22",
+              "text": "waypoint大是指每个子动作时间比较长一点吗？"
+            },
+            {
+              "speaker": 3,
+              "time": "12:23",
+              "text": "我感觉是可解释性比较强，可以针对一些数据合成中的误差",
+              "quote": {
+                "speaker": 1,
+                "text": "哈喽 群友们，我是具身小白，最近看到rua相关的方法，一只有一个疑问想请教。就是LLM写的执行循环脚本里，虽然有对环境的观察，但是这种方式应该几乎很难泛化处理高..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:28",
+              "text": "也看场景"
+            },
+            {
+              "speaker": 4,
+              "time": "14:29",
+              "text": "以及等下一代astra hhhhh"
+            },
+            {
+              "speaker": 1,
+              "time": "14:30",
+              "text": "等下一代astra给方案吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:30",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 4,
+              "time": "14:30",
+              "text": "看能力到哪了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:30",
+              "text": "一开始的harness的结构跟后边稳定的也应该是差很多"
+            },
+            {
+              "speaker": 4,
+              "time": "14:31",
+              "text": "如果回想起最开始coding的agent harness的话"
+            },
+            {
+              "speaker": 1,
+              "time": "14:32",
+              "text": "i see，那其实就还在等新的方案出来能cover",
+              "quote": {
+                "speaker": 4,
+                "text": "一开始的harness的结构跟后边稳定的也应该是差很多"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:33",
+              "text": "说不定类似的小脑模型也是harness中的一环"
+            },
+            {
+              "speaker": 4,
+              "time": "14:35",
+              "text": "至少我是这个观点, 毕竟上一版astra还没发力 不知道发力的话🤣是个啥效果, 现在RUA的一些tool还真的要吗我都不知道",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] i see，那其实就还在等新的方案出来能cover"
+              }
+            }
+          ]
+        },
+        {
+          "category": "硬件与生态",
+          "title": "桌面级 Sim2Real 硬件怎么选：从 SO-ARM101 到带底盘的 XLeRobot",
+          "text": "有群友想找除了 microduck 之外适合业余玩 sim2real 的桌面级机器人，有人推荐了 so101。另一位群友贴出电商商品截图询问价格：截图显示一款基于 Hugging Face LeRobot 开发的幻尔 SO-ARM101 开源 6 轴机械臂（含主臂+从臂套件），豪华版成品到手价为 2251 元。\n\n不过有群友认为纯机械臂的工作空间太小、缺乏可玩性；另一位群友也建议做 agentic 最好直接上 mobile manipulation，并分享了带轮式底盘的开源项目 XLeRobot。最初推荐 so101 的群友提醒，这类低价设备只是当玩具玩玩，哪怕自己搞一台 Franka 也当不了多少生产力。有人接话称现在本来也没多少设备能当生产力，但“快了”；另一位群友调侃目前是“如快”阶段，引发了关于如何寻找商业化切入点、究竟“具身的 manus 会是什么”的追问。",
+          "emphasis": [
+            "基于 Hugging Face LeRobot 开发的幻尔 SO-ARM101 开源 6 轴机械臂",
+            "做 agentic 最好直接上 mobile manipulation"
+          ],
+          "aiComment": "2251 元的六轴机械臂嫌手短，上 Franka 又当不了生产力，具身智能目前稳居如快阶段 🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "想请教下群友，除了microduck这种，还有没有什么比较好的桌面级机器人可以业余玩一下sim2real的[嘿哈]"
+            },
+            {
+              "speaker": 2,
+              "time": "18:06",
+              "text": "so101👀"
+            },
+            {
+              "speaker": 1,
+              "time": "18:20",
+              "text": "感谢[社会社会]",
+              "quote": {
+                "speaker": 2,
+                "text": "so101👀"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:22",
+              "text": "哈哈哈，没错的",
+              "quote": {
+                "speaker": 2,
+                "text": "so101👀"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:23",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "18:23",
+              "text": "是这个吗"
+            },
+            {
+              "speaker": 4,
+              "time": "18:23",
+              "text": "多少钱合适呀"
+            },
+            {
+              "speaker": 4,
+              "time": "18:23",
+              "text": "我也想买一个玩"
+            },
+            {
+              "speaker": 5,
+              "time": "18:26",
+              "text": "https://github.com/Vector-Wangel/XLeRobot"
+            },
+            {
+              "speaker": 5,
+              "time": "18:27",
+              "text": "agentic最好还是上mobile manipulation[让我看看]"
+            },
+            {
+              "speaker": 6,
+              "time": "18:28",
+              "text": "纯机械臂，工作空间太小了，没啥可玩性"
+            },
+            {
+              "speaker": 4,
+              "time": "18:29",
+              "text": "这个不是有轮子吗",
+              "quote": {
+                "speaker": 5,
+                "text": "https://github.com/Vector-Wangel/XLeRobot"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "18:32",
+              "text": "我说的是这个",
+              "quote": {
+                "speaker": 4,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:33",
+              "text": "哦哦哦"
+            },
+            {
+              "speaker": 4,
+              "time": "18:33",
+              "text": "这个感觉真可以",
+              "quote": {
+                "speaker": 5,
+                "text": "https://github.com/Vector-Wangel/XLeRobot"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:35",
+              "text": "这东西也就是 便宜当玩具玩玩的hh 不能真当生产力"
+            },
+            {
+              "speaker": 3,
+              "time": "18:37",
+              "text": "现在也没多少能当生产力的[捂脸][捂脸]"
+            },
+            {
+              "speaker": 2,
+              "time": "18:38",
+              "text": "哈哈 自己就算搞个Franka也当不了多少生产力"
+            },
+            {
+              "speaker": 3,
+              "time": "18:38",
+              "text": "但快了"
+            },
+            {
+              "speaker": 7,
+              "time": "18:39",
+              "text": "我感觉现在是 “如快” 阶段🤣"
+            },
+            {
+              "speaker": 3,
+              "time": "18:49",
+              "text": "哈哈哈，要找到好的商业化切入点。\n具身的manus会是什么",
+              "quote": {
+                "speaker": 7,
+                "text": "我感觉现在是 “如快” 阶段🤣"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Vector-Wangel/XLeRobot",
+              "url": "https://github.com/Vector-Wangel/XLeRobot"
+            }
+          ]
+        },
+        {
+          "category": "开源发布",
+          "title": "uni-robot-agent 开源：用 Qwen3.8-Flash-Next 控机器人超越官方 Astra 与微调 π0.5",
+          "text": "有群友分享了新发布的统一 RUA harness 开源项目 uni-robot-agent 及配套论文。据分享者介绍，该项目统一了多种环境的 tool 以支持可泛化的 agentic training；在不使用特权信息或真机无法获取的信息的前提下，用 qwen3.8-flash-next 直接控制机器人，在 robodojo 上超越了 dojo 官方的 astra，并在真机 5 个维度的 19 个任务上超过了 fine-tuned pi0.5 和 dream-1。有人追问该项目是否基于 strata，分享者表示并没有。",
+          "emphasis": [
+            "用 qwen3.8-flash-next 直接控制机器人，在 robodojo 上超越了 dojo 官方的 astra"
+          ],
+          "aiComment": "把各路环境工具一统江湖，不用特权信息直接拿 qwen3.8-flash-next 在真机 19 个任务上干翻微调 pi0.5。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:04",
+              "text": "借楼宣传下我们昨天release的一个统一的rua harness hhh[嘿哈]用qwen3.8-flash-next直接控制机器人可以在robodojo上超过dojo官方的astra，真机的5个维度的19个任务上超过fine-tuned pi0.5和dream-1，并且没有特权信息/真机access不到的信息，另外我们unify了各种环境的tool来面向generalizable的agentic training，欢迎大家来交流讨论呀！\n\nhttps://x.com/zuo_yuxin/status/2117635294115795134?a=XWAw0OD1Z9QRKDbK7q4&s=20\nhttps://github.com/Open-RUA/uni-robot-agent\nhttps://arxiv.org/pdf/2611.01560"
+            },
+            {
+              "speaker": 2,
+              "time": "16:05",
+              "text": "牛的"
+            },
+            {
+              "speaker": 3,
+              "time": "16:07",
+              "text": "牛的，基于strata吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "16:07",
+              "text": "这倒没有hhh"
+            },
+            {
+              "speaker": 4,
+              "time": "16:08",
+              "text": "牛啊"
+            },
+            {
+              "speaker": 5,
+              "time": "16:09",
+              "text": "[强]太牛了"
+            },
+            {
+              "speaker": 6,
+              "time": "16:26",
+              "text": "太牛了 严肃学习"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Open-RUA/uni-robot-agent",
+              "url": "https://github.com/Open-RUA/uni-robot-agent"
+            },
+            {
+              "kind": "paper",
+              "label": "Democratizing Robot-Use Agents: A Unified Harness with Open Models",
+              "url": "https://arxiv.org/pdf/2611.01560"
+            }
+          ]
+        },
+        {
+          "category": "推理加速",
+          "title": "PhyAI rollout backend 合入 RLinf，OpenPI π0.5 推理加速 2.07 倍",
+          "text": "有群友分享了刚合入 RLinf 的 PhyAI rollout backend。据介绍，该后端可直接用于加速 OpenPI π0.5 的 PPO rollout，在 4×H800、64 个 LIBERO 并发环境测试中实现了 2.07× 的 prediction 加速，相关代码与使用文档已开源。",
+          "emphasis": [
+            "实现了 2.07× 的 prediction 加速"
+          ],
+          "aiComment": "4 张 H800 跑 64 个并发环境，合入新后端直接给 π0.5 的 PPO rollout 提速 2.07 倍，显卡终于少熬点夜。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:58",
+              "text": "宣传下我们刚合入 RLinf 的 PhyAI rollout backend ，现在可以直接用 PhyAI 加速 OpenPI π0.5 的 PPO rollout。在 4×H800、64 个 LIBERO并发环境测试中，PhyAI 实现了 2.07× prediction 加速。欢迎大家使用 🤗！\n\n💻 代码：https://github.com/mingti-org/phyai\n📄 文档：https://rlinf.readthedocs.io/en/latest/rst_source/guides/rollout-engines/phyai.html"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "mingti-org/phyai",
+              "url": "https://github.com/mingti-org/phyai"
+            },
+            {
+              "kind": "article",
+              "label": "RLinf 文档：PhyAI Embodied Rollout Backend",
+              "url": "https://rlinf.readthedocs.io/en/latest/rst_source/guides/rollout-engines/phyai.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
