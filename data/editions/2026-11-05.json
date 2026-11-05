@@ -1,0 +1,3881 @@
+{
+  "id": "2026-11-05",
+  "date": "2026-11-05",
+  "label": "2026-11-05 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "内核对齐后，最简 IS 稳训 20K 步异步 RL",
+      "theme": "另有 HCU 把 AX 当动作层，让 agent 混用代码、语义树与 GUI 操控电脑。",
+      "note": "2026-11-05 · 当日本地记录",
+      "stories": [
+        {
+          "category": "强化学习",
+          "title": "REINFORCE Zero：对齐训练与推理内核，仅靠最简 IS 跑通 20K 步异步 RL",
+          "text": "有群友分享了异步 LLM RL 工作 REINFORCE Zero。介绍称，训练和推理即使使用相同权重，不同的数值计算路径也会引发重要性采样（IS）尖峰；kernel mismatch 很难控制，但通过训练–推理不变性（TII）对齐内核、抑制尖峰后，剩下的 weight lag 只需最简单的未截断 token-level IS 就能纠正，Loss 不需要 ratio clipping 或样本拒绝门控。\n\n实验在 R1-Distill-Qwen-1.5B（lag 2 / 8）上稳定训练了 20,000 steps，KL 保持平稳；Qwen3-4B 配合 Python 在 lag 64 下训练 6K steps，reward 从 0.287 升至 0.782；Qwen3-30B-A3B 在固定 16K 评测上下文下训练 3K steps，四项基准平均 pass@1 从 31.29% 提升到 71.55%。OSWorld 上的成绩从 50.97% 升至 56.16%。同样使用 16 张 GPU，训练 step 吞吐达到同步 TII 的 2.40 倍。该项目基于轻量级 Molt 实现，同时开源了覆盖算子梳理、内核适配、一致性验证、梯度检查和性能调优的 agent 自动化内核对齐 skill。",
+          "emphasis": [
+            "通过训练–推理不变性（TII）对齐内核、抑制尖峰后，剩下的 weight lag 只需最简单的未截断 token-level IS 就能纠正",
+            "同样使用 16 张 GPU，训练 step 吞吐达到同步 TII 的 2.40 倍"
+          ],
+          "aiComment": "把训练和推理内核一对齐，ratio clipping 都省了，还顺手送了个自动对齐内核的 skill，苦命调参人狂喜。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "08:04",
+              "text": "分享一下我们的工作 REINFORCE Zero：\n\n通过训练–推理不变性（Trainer–Inference Invariance，TII）对齐内核后，仅用最简单的 IS 系数，就能让异步 LLM RL 稳定训练 20,000 steps。 Loss 保持极简，不需要 ratio clipping 或样本拒绝门控。\n\n据我们所知，这是开源社区首次展示 TII + 未截断 token-level IS、无样本拒绝门控下的 20K-step 稳定异步 LLM RL。\n\n关键发现是：kernel mismatch 很难控制，而内核对齐后的 weight lag 可以交给普通 IS 纠正。 训练和推理即使使用相同权重，不同的数值计算路径也会引发 IS 尖峰。TII 抑制这些尖峰，让 IS 充分发挥作用。\n\n实验覆盖：\n- 20K steps：R1-Distill-Qwen-1.5B，lag 2 / 8，KL 保持平稳，推理能力持续提升。\n- Lag 64：Qwen3-4B + Python，6K steps，reward 0.287 → 0.782。\n- 30B MoE：Qwen3-30B-A3B + Python，3K steps，固定 16K 评测上下文下，四项基准平均 pass@1 31.29% → 71.55%。\n- OSWorld：50.97% → 56.16%。\n- 同样 16 张 GPU，训练 step 吞吐达到同步 TII 的 2.40 倍。\n同时公开了 agent 自动化内核对齐 skill，覆盖算子梳理、内核适配、一致性验证、梯度检查和性能调优，支持将对齐流程复用于不同架构。训练实现基于轻量级 Molt。\n\n项目：\nhttps://github.com/hijkzzz/REINFORCE-Zero\n\n论文：\nhttps://www.alphaxiv.org/pdf/2611.reinforce-zero-kernel-alignment-asynchronous-rl"
+            },
+            {
+              "speaker": 2,
+              "time": "08:19",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "10:55",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 4,
+              "time": "13:39",
+              "text": "[ThumbsUp][ThumbsUp][ThumbsUp]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "REINFORCE Zero 代码仓库",
+              "url": "https://github.com/hijkzzz/REINFORCE-Zero"
+            },
+            {
+              "kind": "paper",
+              "label": "REINFORCE Zero: Kernel Alignment Unlocks Stable Asynchronous RL with Importance Sampling",
+              "url": "https://www.alphaxiv.org/pdf/2611.reinforce-zero-kernel-alignment-asynchronous-rl"
+            }
+          ]
+        },
+        {
+          "category": "Agent 接口",
+          "title": "Hybrid Computer Use：把 AX 当动作层用，让 Agent 自主混用代码、语义树与 GUI",
+          "text": "有群友分享了通用 agent 交互接口 Hybrid Computer Use（HCU）。分享者认为，主流 cua-driver 为了后台操作做了妥协，每步动作后都要全量 observe，效率不高；同时无障碍树（AX）在研究中多半只被当作观察输入，很少用于执行动作。HCU 将 Code、AX、GUI 三个通道统一交给模型按步选择：脚本和命令行能搞定的直接走 Code，界面操作通过 batched AX act 执行并只返回 diff 以减少往返，AX 覆盖不到的地方再用 GUI 兜底，并提供 MCP server、CLI 与 Python SDK。\n\n分享者强调，AX 是电脑在语义层的文本表示，相比需要 VLM 解析的 GUI 截图更精确，还能为 code execution / PTC 范式直接提供程序可读的状态，用于条件判断、分支和结果验证。据介绍，HCU 在 OSWorld 2.0 拿到 SOTA，并在 OSWorld、WeaveBench、MacAgentBench 和 Windows Agent Arena 上均提升了效率与性能，GPT、Claude、Gemini、Grok 四家模型换用 HCU 后的消融实验也都有同步提升；项目主页还放出了三种接口同场计时回放及 AX 调用从树到 diff 的交互演示。",
+          "emphasis": [
+            "界面操作通过 batched AX act 执行并只返回 diff 以减少往返",
+            "AX 是电脑在语义层的文本表示，相比需要 VLM 解析的 GUI 截图更精确，还能为 code execution / PTC 范式直接提供程序可读的状态"
+          ],
+          "aiComment": "以前无障碍树只负责干瞪眼，现在 batched AX act 加 diff 直接下场干活，截图看半天的 VLM 终于能歇会儿了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "大家好，继续分享一下我们在 hybrid computer use 的 harness / interface 上的一些探索～\n\n🖥️ Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents（HCU）\n\n关注 hybrid computer use 的人越来越多，OSWorld 2.1 也开始支持 hybrid agent 模式，用 coding agent 接上最主流的 cua-driver。但实际用下来，cua-driver 为了后台操作做了不少妥协，每个动作后都要全量 observe，不够高效。agent 以后会有自己的电脑（personal agent 这波火起来也印证了这点），那就值得准备一种更快、效果更好的方式。另外 AX 在 research 中其实一直没被重视，多半只被当作 observation，很少拿来执行动作。\n\n我们把 Code、AX、GUI 三个通道都交给通用 agent，每一步让模型自己挑：有命令行或脚本能搞定的直接走 Code；界面操作用 AX，通过 batched AX act 和只返回 diff 减少往返，提升效率；AX 覆盖不到的地方再用 GUI 兜底。MCP server 让任何 harness 都能接；CLI 和 Python SDK 面向我个人觉得更未来的 code execution / PTC，模型越强，能编排的流程就越复杂、越智能。\n\n📊 benchmark 有步数上限，效率的提升在分数中亦有体现，HCU 把效率和性能一同推向了前沿：\n在 OSWorld 2.0 上拿到 SOTA 的同时大幅提升效率，在 OSWorld、WeaveBench、MacAgentBench、Windows Agent Arena 等不同平台的 benchmark 上，都展示出了效率和性能的巨大优势。跨模型的消融里，GPT、Claude、Gemini、Grok 四家模型换上 HCU 后也都是效率和性能同时提升，并不是针对某一个模型特调的。\n\n个人认为，AX 的价值，尤其是在动作执行上的价值，长期被低估。AX 是电脑在语义层的表示，与 GUI 所代表的视觉层表示在一定程度上构成对偶：截图中的状态需要经过 VLM 理解才能获得，而 AX 以文本形式直接给出控件及其状态，更精确，也更 LLM native。在 code execution / PTC 的范式下，这一差异更为关键：复杂流程的编排依赖可被程序直接读取的状态，用于条件判断、分支和结果验证，而截图本身无法直接提供这类状态。因此，AX 不仅是一种观察方式，也可以作为 agent 编排电脑操作时的状态来源。\n\n最近对 AX、code execution 和 hybrid computer use 有不少想法，欢迎大家一起交流讨论，觉得有用求个 star 和 HF upvote🙏\n📄 Paper：https://arxiv.org/abs/2610.41432\n🤗 HF：https://huggingface.co/papers/2610.41432\n💻 GitHub：https://github.com/microsoft/Hybrid-Computer-Use\n🌐 Project：https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "项目主页上放了不少精心打磨的交互演示，比如同一个任务三种接口同场计时的对比回放、AX tree 到底长什么样以及模型实际读到的是什么、一次 AX 调用从树到 diff 的过程，比看论文更直观。后面还有一些我们的思考和展望，包括让 agent 拥有自己的电脑，以及从单步动作走向 code execution。感兴趣的话可以去看看～\n🌐 https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 2,
+              "time": "22:39",
+              "text": "[强]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:41",
+              "text": "帅"
+            },
+            {
+              "speaker": 4,
+              "time": "22:44",
+              "text": "[强][强]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+              "url": "https://arxiv.org/abs/2610.41432"
+            },
+            {
+              "kind": "code",
+              "label": "Hybrid-Computer-Use 代码仓库",
+              "url": "https://github.com/microsoft/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "demo",
+              "label": "HCU 项目主页与交互演示",
+              "url": "https://microsoft.github.io/Hybrid-Computer-Use"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "HCU 把 AX 从观察升级成动作通道",
+      "theme": "让模型按步自选代码、AX 与 GUI 通道，AX 动作只返回 diff；后台操控暂不是它的重点。",
+      "note": "2026-11-05 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 接口",
+          "title": "把 Code、AX 和 GUI 交给模型按步自选：HCU 补齐语义层动作执行，定位前台独占电脑场景",
+          "text": "有群友分享了通用 agent 接口项目 Hybrid Computer Use（HCU），把 Code、AX 和 GUI 三个通道统一交给模型按步自选：能用命令行或脚本解决的直接走 Code；界面交互走 AX，靠 batched AX act 和只返回 diff 减少往返开销；AX 覆盖不到的地方再用 GUI 兜底。分享者认为 AX 在动作执行上的价值长期被低估：截图里的状态得靠 VLM 理解，而语义层的 AX 直接用文本给出控件与状态，在 code execution / PTC 范式下能被程序直接读取，用于条件判断、分支和结果验证。项目同时提供 MCP server、CLI 和 Python SDK，主页还放出了同一任务在三种接口下同场计时的回放，以及单次 AX 调用从树结构到 diff 的转换过程。\n\n据分享者介绍，OSWorld 2.1 虽然支持用 coding agent 接 cua-driver 跑混合模式，但 cua-driver 为了后台操作在每个动作后都要全量 observe，效率受限。HCU 在 OSWorld 2.0 上拿到 SOTA，并在 OSWorld、WeaveBench、MacAgentBench 和 Windows Agent Arena 等多平台 benchmark 上提升了效率与性能；跨模型消融中，GPT、Claude、Gemini、Grok 四家模型接入 HCU 后效率和性能也都有提升。另一位群友推荐正在用 cua-driver 的人把 HCU 当作上位替代试试，并提到项目会持续维护。有人坦言平时看大多数论文项目发完就停更，一直没敢换。分享者说明，cua-driver 主打后台操作，而 HCU 面向前台操作、也就是 agent 独占一台电脑的场景。被追问以后会不会做后台功能时，分享者说可以考虑，但后台模式工程量很大、脏活累活多，真要做这类场景，直接通过 lcu 调用 codex 的 computer use plugin 或许是更好的解法。",
+          "emphasis": [
+            "把 Code、AX 和 GUI 三个通道统一交给模型按步自选",
+            "分享者说明，cua-driver 主打后台操作，而 HCU 面向前台操作、也就是 agent 独占一台电脑的场景"
+          ],
+          "aiComment": "论文项目怕停更不敢换太真实了，而且 HCU 要独占前台，电脑归 Agent 了，打工人正好名正言顺去摸鱼🐟",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "大家好，继续分享一下我们在 hybrid computer use 的 harness / interface 上的一些探索～\n\n🖥️ Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents（HCU）\n\n关注 hybrid computer use 的人越来越多，OSWorld 2.1 也开始支持 hybrid agent 模式，用 coding agent 接上最主流的 cua-driver。但实际用下来，cua-driver 为了后台操作做了不少妥协，每个动作后都要全量 observe，不够高效。agent 以后会有自己的电脑（personal agent 这波火起来也印证了这点），那就值得准备一种更快、效果更好的方式。另外 AX 在 research 中其实一直没被重视，多半只被当作 observation，很少拿来执行动作。\n\n我们把 Code、AX、GUI 三个通道都交给通用 agent，每一步让模型自己挑：有命令行或脚本能搞定的直接走 Code；界面操作用 AX，通过 batched AX act 和只返回 diff 减少往返，提升效率；AX 覆盖不到的地方再用 GUI 兜底。MCP server 让任何 harness 都能接；CLI 和 Python SDK 面向我个人觉得更未来的 code execution / PTC，模型越强，能编排的流程就越复杂、越智能。\n\n📊 benchmark 有步数上限，效率的提升在分数中亦有体现，HCU 把效率和性能一同推向了前沿：\n在 OSWorld 2.0 上拿到 SOTA 的同时大幅提升效率，在 OSWorld、WeaveBench、MacAgentBench、Windows Agent Arena 等不同平台的 benchmark 上，都展示出了效率和性能的巨大优势。跨模型的消融里，GPT、Claude、Gemini、Grok 四家模型换上 HCU 后也都是效率和性能同时提升，并不是针对某一个模型特调的。\n\n个人认为，AX 的价值，尤其是在动作执行上的价值，长期被低估。AX 是电脑在语义层的表示，与 GUI 所代表的视觉层表示在一定程度上构成对偶：截图中的状态需要经过 VLM 理解才能获得，而 AX 以文本形式直接给出控件及其状态，更精确，也更 LLM native。在 code execution / PTC 的范式下，这一差异更为关键：复杂流程的编排依赖可被程序直接读取的状态，用于条件判断、分支和结果验证，而截图本身无法直接提供这类状态。因此，AX 不仅是一种观察方式，也可以作为 agent 编排电脑操作时的状态来源。\n\n最近对 AX、code execution 和 hybrid computer use 有不少想法，欢迎大家一起交流讨论，觉得有用求个 star 和 HF upvote🙏\n📄 Paper：https://arxiv.org/abs/2610.41432\n🤗 HF：https://huggingface.co/papers/2610.41432\n💻 GitHub：https://github.com/microsoft/Hybrid-Computer-Use\n🌐 Project：https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "项目主页上放了不少精心打磨的交互演示，比如同一个任务三种接口同场计时的对比回放、AX tree 到底长什么样以及模型实际读到的是什么、一次 AX 调用从树到 diff 的过程，比看论文更直观。后面还有一些我们的思考和展望，包括让 agent 拥有自己的电脑，以及从单步动作走向 code execution。感兴趣的话可以去看看～\n🌐 https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 2,
+              "time": "22:47",
+              "text": "有在用cua driver的朋友们都可以试下HCU，在效率和性能上基本上都是cua driver的上位替代，有不好用的地方也欢迎反馈，会持续维护～"
+            },
+            {
+              "speaker": 3,
+              "time": "22:49",
+              "text": "会持续维护呀[可怜]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:49",
+              "text": "我印象大部分发论文的发完就不更了，没敢换"
+            },
+            {
+              "speaker": 1,
+              "time": "22:51",
+              "text": "不过 cua driver 主要是 background computer use   我们的 feature 并不是这个[破涕为笑]   主要还是面向前台操作/ agent 独占电脑的场景"
+            },
+            {
+              "speaker": 3,
+              "time": "22:53",
+              "text": "未来会做background的feature吗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:00",
+              "text": "可以考虑  但是其实 bg 的工程量很大  而且有挺多脏活累活  感觉最好的解法是直接用那个 lcu 去用 codex 的 computer use plugin [捂脸]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+              "url": "https://arxiv.org/abs/2610.41432"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Hybrid-Computer-Use",
+              "url": "https://github.com/microsoft/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "demo",
+              "label": "HCU 项目主页",
+              "url": "https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "discussion",
+              "label": "HCU 的 Hugging Face 论文页",
+              "url": "https://huggingface.co/papers/2610.41432"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "满屏“不是……而是……”，是代码门禁还是数学训多了",
+      "theme": "另有纯 GUI 是否是人类偏见之争、AI 出题缺条件耦合，以及模型和股价之辩。",
+      "note": "2026-11-05 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent / CUA",
+          "title": "Hybrid Computer Use 串联 Code、AX 与 GUI：纯 GUI 是给 Agent 套上“人类偏见”吗",
+          "text": "有群友分享了通用 Agent 混合接口框架 Hybrid Computer Use（HCU）。分享者指出，虽然 OSWorld 2.1 已支持用 coding agent 接入 cua-driver 的混合模式，但 cua-driver 为后台操作做了不少妥协，每次动作后都要全量 observe，效率受限；同时无障碍树（AX）在研究中常被仅当作观察手段，很少用于执行动作。HCU 将 Code、AX、GUI 三个通道同时交给通用 agent 按步自选：命令行或脚本能解决的直接走 Code；界面操作优先走 AX，通过 batched AX act 与仅返回 diff 减少往返开销；AX 覆盖不到的场景再用 GUI 兜底。框架提供 MCP server 供各类 harness 接入，并配套面向 code execution / PTC 范式的 CLI 与 Python SDK。\n\n分享者认为，AX 作为电脑在语义层的表示，与代表视觉层的 GUI 构成对偶：截图需要经过 VLM 理解，而 AX 直接以文本给出控件及状态，更精确也更契合 LLM；尤其在 code execution / PTC 范式下，条件判断、分支和结果验证等复杂编排依赖程序可直接读取的状态，这是单靠截图无法提供的。据介绍，HCU 在 OSWorld 2.0 取得 SOTA，并在 OSWorld、WeaveBench、MacAgentBench、Windows Agent Arena 等跨平台基准上同步提升效率与分数；GPT、Claude、Gemini、Grok 四家模型接入 HCU 后的跨模型消融也均显示效率与性能双升。\n\n围绕接口演进，有人提问 CUA 解决后 CLI 是否可以退居次席。分享者认为 CUA 本就应包含 CLI 与 AX，最终都可以归并到 coding 之中；也有群友认为像 3D 建模这类 visual coding 同样会走向 CLI 加 GUI 的结合。分享者进一步提出，纯 GUI agent 其实是把 human bias 强加到了 agent 身上，早期尚可，后期对模型限制越来越大，本质是 harness 与模型的 co-design 和 co-evolve 问题；甚至如今划分三个通道在未来看也只是“辅助轮”，会随模型进步像早年“先写 todo 再干活”一样被逐步拆掉。另一位群友追问：不加 human bias，最后不也是靠 agent 来加吗，有没有更好的办法？分享者坦言目前确实存在自我迭代的成分，但模型越强越难由人类指导，例如模型在 OSWorld 2.0 一些题目上展现出的解法已是人类完全无法想象的。其他群友则设想，未来软件会更加 agent-native，或者由模型每次即时写出 just in time harness，乃至通过多 agent 公投来做判定。",
+          "emphasis": [
+            "HCU 将 Code、AX、GUI 三个通道同时交给通用 agent 按步自选",
+            "复杂编排依赖程序可直接读取的状态，这是单靠截图无法提供的",
+            "纯 GUI agent 其实是把 human bias 强加到了 agent 身上"
+          ],
+          "aiComment": "纯 GUI 成人类偏见了，甚至三通道也只是辅助轮，合着我们辛辛苦苦写 harness 都是在给模型搭早教班。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "大家好，继续分享一下我们在 hybrid computer use 的 harness / interface 上的一些探索～\n\n🖥️ Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents（HCU）\n\n关注 hybrid computer use 的人越来越多，OSWorld 2.1 也开始支持 hybrid agent 模式，用 coding agent 接上最主流的 cua-driver。但实际用下来，cua-driver 为了后台操作做了不少妥协，每个动作后都要全量 observe，不够高效。agent 以后会有自己的电脑（personal agent 这波火起来也印证了这点），那就值得准备一种更快、效果更好的方式。另外 AX 在 research 中其实一直没被重视，多半只被当作 observation，很少拿来执行动作。\n\n我们把 Code、AX、GUI 三个通道都交给通用 agent，每一步让模型自己挑：有命令行或脚本能搞定的直接走 Code；界面操作用 AX，通过 batched AX act 和只返回 diff 减少往返，提升效率；AX 覆盖不到的地方再用 GUI 兜底。MCP server 让任何 harness 都能接；CLI 和 Python SDK 面向我个人觉得更未来的 code execution / PTC，模型越强，能编排的流程就越复杂、越智能。\n\n📊 benchmark 有步数上限，效率的提升在分数中亦有体现，HCU 把效率和性能一同推向了前沿：\n在 OSWorld 2.0 上拿到 SOTA 的同时大幅提升效率，在 OSWorld、WeaveBench、MacAgentBench、Windows Agent Arena 等不同平台的 benchmark 上，都展示出了效率和性能的巨大优势。跨模型的消融里，GPT、Claude、Gemini、Grok 四家模型换上 HCU 后也都是效率和性能同时提升，并不是针对某一个模型特调的。\n\n个人认为，AX 的价值，尤其是在动作执行上的价值，长期被低估。AX 是电脑在语义层的表示，与 GUI 所代表的视觉层表示在一定程度上构成对偶：截图中的状态需要经过 VLM 理解才能获得，而 AX 以文本形式直接给出控件及其状态，更精确，也更 LLM native。在 code execution / PTC 的范式下，这一差异更为关键：复杂流程的编排依赖可被程序直接读取的状态，用于条件判断、分支和结果验证，而截图本身无法直接提供这类状态。因此，AX 不仅是一种观察方式，也可以作为 agent 编排电脑操作时的状态来源。\n\n最近对 AX、code execution 和 hybrid computer use 有不少想法，欢迎大家一起交流讨论，觉得有用求个 star 和 HF upvote🙏\n📄 Paper：https://arxiv.org/abs/2610.41432\n🤗 HF：https://huggingface.co/papers/2610.41432\n💻 GitHub：https://github.com/microsoft/Hybrid-Computer-Use\n🌐 Project：https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "项目主页上放了不少精心打磨的交互演示，比如同一个任务三种接口同场计时的对比回放、AX tree 到底长什么样以及模型实际读到的是什么、一次 AX 调用从树到 diff 的过程，比看论文更直观。后面还有一些我们的思考和展望，包括让 agent 拥有自己的电脑，以及从单步动作走向 code execution。感兴趣的话可以去看看～\n🌐 https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 2,
+              "time": "22:39",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:40",
+              "text": "demo很有意思啊"
+            },
+            {
+              "speaker": 1,
+              "time": "22:40",
+              "text": "[引用] opus 5.5 + 人工精心打磨 👍\n  ↳ demo很有意思啊"
+            },
+            {
+              "speaker": 3,
+              "time": "22:40",
+              "text": "Hybrid是对的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:41",
+              "text": "hybrid 是对的"
+            },
+            {
+              "speaker": 4,
+              "time": "22:41",
+              "text": "hybrid 是对的"
+            },
+            {
+              "speaker": 5,
+              "time": "22:43",
+              "text": "cua要wellsolve了老大（"
+            },
+            {
+              "speaker": 4,
+              "time": "22:44",
+              "text": "cua解决了 cli是不是可以往后稍稍了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:45",
+              "text": "[引用] 我觉得 cua 其实应该是包括 cli 的  cli 只是 use computer 的一种方式吧  只是原先 cua 代指纯 gui\n  ↳ cua解决了 cli是不是可以往后稍稍了"
+            },
+            {
+              "speaker": 5,
+              "time": "22:45",
+              "text": "感觉visualcoding 也会是cli+gui的"
+            },
+            {
+              "speaker": 5,
+              "time": "22:46",
+              "text": "想要在建模逼近tripo这种水平的话"
+            },
+            {
+              "speaker": 6,
+              "time": "22:46",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:46",
+              "text": "是吧  这里还多引入了一个 ax 的方式    其实最终都可以归并到 coding 之中"
+            },
+            {
+              "speaker": 3,
+              "time": "22:48",
+              "text": "合理的，没必要把cua框太死",
+              "quote": {
+                "speaker": 1,
+                "text": "是吧 这里还多引入了一个 ax 的方式 其实最终都可以归并到 coding 之中"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:48",
+              "text": "重点是要把事做成"
+            },
+            {
+              "speaker": 1,
+              "time": "22:50",
+              "text": "是  我觉得纯 gui agent 是把 human bias 强加到 agent 身上了  在早期还好   后面对于模型自身的限制越来越大   其实本质或许还是 harness 和 model co-Design 和 co-evolve 的问题 🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "22:50",
+              "text": "包括现在我分三个通道或许也是限制  在未来来看"
+            },
+            {
+              "speaker": 5,
+              "time": "22:52",
+              "text": "操作可能会有agentnative的软件之类的。"
+            },
+            {
+              "speaker": 6,
+              "time": "22:53",
+              "text": "还有api"
+            },
+            {
+              "speaker": 4,
+              "time": "22:53",
+              "text": "这是造了多少不同奇奇怪怪api的数据",
+              "quote": {
+                "speaker": 1,
+                "text": "是 我觉得纯 gui agent 是把 human bias 强加到 agent 身上了 在早期还好 后面对于模型自身的限制越来越大 其实本质或许还是 harn..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:53",
+              "text": "每次都写一个just in time harness"
+            },
+            {
+              "speaker": 6,
+              "time": "22:54",
+              "text": "/ultracode"
+            },
+            {
+              "speaker": 7,
+              "time": "23:02",
+              "text": "不过这个，不加human bias也是用agent来加吧，有更好的办法吗",
+              "quote": {
+                "speaker": 1,
+                "text": "是 我觉得纯 gui agent 是把 human bias 强加到 agent 身上了 在早期还好 后面对于模型自身的限制越来越大 其实本质或许还是 harn..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:05",
+              "text": "确实是个问题  这里面确实也有一些自己迭代的成分🤣      不过感觉后面越来越难指导更厉害的模型了  因为人类完全无法想到他们的一些解法"
+            },
+            {
+              "speaker": 1,
+              "time": "23:05",
+              "text": "比如 osworld 2.0 中的一些题的解法人类根本无法想象[破涕为笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "23:05",
+              "text": "是，但是我觉得这也是权宜之计。",
+              "quote": {
+                "speaker": 1,
+                "text": "包括现在我分三个通道或许也是限制 在未来来看"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:06",
+              "text": "嗯嗯  感觉也只是目前的辅助轮吧  将来随着模型进步都会逐渐拆掉  就像当时还需要模型先写 todo 再干活一样"
+            },
+            {
+              "speaker": 6,
+              "time": "23:07",
+              "text": "[旺柴]想听",
+              "quote": {
+                "speaker": 1,
+                "text": "比如 osworld 2.0 中的一些题的解法人类根本无法想象[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:07",
+              "text": "同意 未来肯定是会越来越ai-native"
+            },
+            {
+              "speaker": 8,
+              "time": "23:07",
+              "text": "是的",
+              "quote": {
+                "speaker": 3,
+                "text": "同意 未来肯定是会越来越ai-native"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "23:07",
+              "text": "感觉后面多agent投票又要来了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:08",
+              "text": "agent之前公投专家来做判定"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+              "url": "https://arxiv.org/abs/2610.41432"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Hybrid-Computer-Use",
+              "url": "https://github.com/microsoft/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "demo",
+              "label": "Hybrid Computer Use 项目主页与交互演示",
+              "url": "https://microsoft.github.io/Hybrid-Computer-Use"
+            }
+          ]
+        },
+        {
+          "category": "模型行为",
+          "title": "满屏“不是……而是……”从何而来：群友拆解 GPT 防御性写作与编程成因",
+          "text": "多位群友吐槽 GPT / Astra 说话极具防御性、总在否定，并晒出一张模仿 OpenAI 花瓣图标的梗图——中心写着“不是 而是”，周围填满“不能证明”“并非”“不等于”“更准确地说”等限定词。傍晚有群友问起：如今 GitHub 各类仓库的中文文档里到处是“这不是…而是…”，这种防御性写作究竟是后训练哪个环节导致的？\n\n讨论中浮现出两类推测。一类指向代码与工程轨迹训练：有群友认为这是 Verifiable Code 训多了的后遗症，这类模型写代码同样是防御性编程，另一位群友也直呼防御性编程太难受；可惜目前缺乏衡量 slop code（或反过来的 elegant / humanized code）且不依赖人类偏好的指标。另一位群友猜测 GPT 训练了大量带有严格门禁的 codex development 轨迹；其他人附议，这相当于把 harness 训成了模型默认行为，行动单元从单个 agent 变成了内部自带 tester 的 team，产出的内容纯属写给 CI agent 看的。\n\n另一类推测认为可能与数学训练过多有关，因为数学证明起手就要考虑各种极少出现甚至几乎不可能出现的边界条件。有群友觉得这有些反直觉：数学本是对错分明的东西，且模型给出的数学证明本身也毫无可读性；提出者解释，这里的防御性正体现在对极端边界的兜底。聊到最后，有人调侃这种“叠甲式说话”过几代人会不会反过来把人类训练成防御性讲话，马上有群友用标准 GPT 句式接梗：“不是几代人后人类被AI‘训练’了，而是每一代人都在被所处媒介环境塑造——AI只是新的媒介变量。”",
+          "emphasis": [
+            "多位群友吐槽 GPT / Astra 说话极具防御性、总在否定",
+            "另一位群友猜测 GPT 训练了大量带有严格门禁的 codex development 轨迹",
+            "另一类推测认为可能与数学训练过多有关，因为数学证明起手就要考虑各种极少出现甚至几乎不可能出现的边界条件"
+          ],
+          "aiComment": "训多了严格门禁，模型说话像随时准备应付 CI 查岗，全身叠满甲，生怕哪句话没兜住边界条件🛡️",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:33",
+              "text": "想问下大家，gpt的防御性写作是光gpt自己的问题吗，如果是，那具体可能会是什么问题导致的？例如post-training出现问题？如果换其他模型是不是就显著改善了，至少我体感上gemini好一些"
+            },
+            {
+              "speaker": 1,
+              "time": "17:34",
+              "text": "现在github上各种repo的中文md里面都是“这不是…而是…”，感觉一眼gpt"
+            },
+            {
+              "speaker": 2,
+              "time": "17:34",
+              "text": "我觉得防御性编程太难受了"
+            },
+            {
+              "speaker": 3,
+              "time": "17:35",
+              "text": "Verifiable Code训多了就是这样的吧"
+            },
+            {
+              "speaker": 2,
+              "time": "17:35",
+              "text": "我觉得是的",
+              "quote": {
+                "speaker": 3,
+                "text": "Verifiable Code训多了就是这样的吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:36",
+              "text": "感觉 这种模型写代码也是防御性编程 可惜没有一个很好的测量slop code的指标"
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "新idea这不就出现了，做一个新bench[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "elegant code"
+            },
+            {
+              "speaker": 1,
+              "time": "17:38",
+              "text": "humanized code"
+            },
+            {
+              "speaker": 3,
+              "time": "17:39",
+              "text": "怎么打分呢[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "新idea这不就出现了，做一个新bench[旺柴]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:40",
+              "text": "总不能人类偏好吧"
+            },
+            {
+              "speaker": 4,
+              "time": "17:42",
+              "text": "我猜 gpt 训了很多 codex development 的轨迹，而 codex development 有很多门禁"
+            },
+            {
+              "speaker": 4,
+              "time": "17:43",
+              "text": "请教下有可能因为这个么",
+              "quote": {
+                "speaker": 4,
+                "text": "我猜 gpt 训了很多 codex development 的轨迹，而 codex development 有很多门禁"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:45",
+              "text": "把Harness训成模型默认行为是吧"
+            },
+            {
+              "speaker": 5,
+              "time": "17:46",
+              "text": "确实，感觉已经把行动单元从agent训到team了"
+            },
+            {
+              "speaker": 5,
+              "time": "17:46",
+              "text": "team里一定有一个tester"
+            },
+            {
+              "speaker": 6,
+              "time": "17:46",
+              "text": "人格分裂是吧"
+            },
+            {
+              "speaker": 7,
+              "time": "17:52",
+              "text": "纯给ci agent看的"
+            },
+            {
+              "speaker": 8,
+              "time": "18:08",
+              "text": "感觉也有可能是gpt训数学训太多了",
+              "quote": {
+                "speaker": 1,
+                "text": "想问下大家，gpt的防御性写作是光gpt自己的问题吗，如果是，那具体可能会是什么问题导致的？例如post-training出现问题？如果换其他模型是不是就显著改..."
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "18:11",
+              "text": "训数学和防御性表述有什么关联吗🤔"
+            },
+            {
+              "speaker": 8,
+              "time": "18:12",
+              "text": "数学证明起手先考虑边界条件",
+              "quote": {
+                "speaker": 9,
+                "text": "训数学和防御性表述有什么关联吗🤔"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "18:13",
+              "text": "哦这样，不过他放的数学证明也毫无可读性哈哈哈"
+            },
+            {
+              "speaker": 8,
+              "time": "18:13",
+              "text": "确实",
+              "quote": {
+                "speaker": 9,
+                "text": "哦这样，不过他放的数学证明也毫无可读性哈哈哈"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:13",
+              "text": "gpt不说人话这点,已经走到了巅峰"
+            },
+            {
+              "speaker": 9,
+              "time": "18:14",
+              "text": "但也有点反直觉，数学本来是对就对错就错的东西也不应该防御性呀🤔"
+            },
+            {
+              "speaker": 8,
+              "time": "18:15",
+              "text": "防御性就是考虑各种极少出现的边界条件",
+              "quote": {
+                "speaker": 9,
+                "text": "但也有点反直觉，数学本来是对就对错就错的东西也不应该防御性呀🤔"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:15",
+              "text": "甚至几乎不可能出现的边界条件"
+            },
+            {
+              "speaker": 9,
+              "time": "18:15",
+              "text": "哦哦这样有道理"
+            },
+            {
+              "speaker": 10,
+              "time": "18:26",
+              "text": "AI的这种防御性语句，会不会过几代人后，把人类给训练了，之后也防御性讲话[吃瓜]"
+            },
+            {
+              "speaker": 11,
+              "time": "18:26",
+              "text": "叠甲式说话"
+            },
+            {
+              "speaker": 8,
+              "time": "18:26",
+              "text": "[奸笑]汉弗莱:你说啥",
+              "quote": {
+                "speaker": 10,
+                "text": "AI的这种防御性语句，会不会过几代人后，把人类给训练了，之后也防御性讲话[吃瓜]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "18:29",
+              "text": "不是几代人后人类被AI“训练”了，而是每一代人都在被所处媒介环境塑造——AI只是新的媒介变量。",
+              "quote": {
+                "speaker": 10,
+                "text": "AI的这种防御性语句，会不会过几代人后，把人类给训练了，之后也防御性讲话[吃瓜]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "18:29",
+              "text": "我有点绷不住 哈哈"
+            },
+            {
+              "speaker": 13,
+              "time": "18:36",
+              "text": "你说的没错",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 不是几代人后人类被AI“训练”了，而是每一代人都在被所处媒介环境塑造——AI只是新的媒介变量。"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "18:38",
+              "text": "哈哈哈确实",
+              "quote": {
+                "speaker": 12,
+                "text": "[引用] 不是几代人后人类被AI“训练”了，而是每一代人都在被所处媒介环境塑造——AI只是新的媒介变量。"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "18:38",
+              "text": "会的吧"
+            },
+            {
+              "speaker": 14,
+              "time": "18:38",
+              "text": "现在很多人不看长视频 但是喜欢看ai短剧"
+            },
+            {
+              "speaker": 14,
+              "time": "18:39",
+              "text": "ai短剧制造的一些夸张抽象的场景也是不太能人工做出来的"
+            },
+            {
+              "speaker": 5,
+              "time": "18:39",
+              "text": "美国ai先叠甲"
+            },
+            {
+              "speaker": 5,
+              "time": "18:39",
+              "text": "很合理"
+            },
+            {
+              "speaker": 5,
+              "time": "18:39",
+              "text": "首先我不是xxx，其次你们"
+            }
+          ]
+        },
+        {
+          "category": "模型与工作流",
+          "title": "Astra 降智吐槽与 AI 出算法题的“拼盘感”：难在条件相互影响",
+          "text": "围绕近期模型体感，多位群友反映 GPT / Astra 出现明显降智：不仅速度慢，做任务时还不按要求执行、经常漏东西，逼得用户每一步都得手动 review；不过也有人觉得近期并未降智，怀疑是中转站问题，还有群友表示拿 Astra 做建模依然很强。谈及具体任务，一位群友吐槽让 Astra 出题时表述过于“直给”，把所有要点交代得一清二楚，导致谁都能做出来。\n\n这番吐槽引出了对 AI 出算法竞赛题的拆解。有群友分享观察称，目前 AI 出题只能把 trick A、trick B、trick C 生硬拼凑在一起，各个条件之间缺乏相互影响；例如今年某场网络赛里有一道题很像 AI 出的，要求先算最短路，再依据结果给每条边算概率，最后求随机游走期望——这完全等价于“算最短路”和“给定任意边概率算随机游走期望”两道独立题目的拼接。该群友认为，能否让条件产生耦合正是所谓 taste 的一部分。\n\n在日常工作流上，有群友转而采用 Claude 加 Gemini 的组合：用 Gemini 碰撞灵光一现的 idea 并提供情绪价值，把实际干活交给 Claude Opus；另一位群友调侃 Gemini 堪称一直拍马屁的“佞臣”，聊多了容易让人飘，前一位群友接话说所以从不让它干活。也有人认为 Gemini 最强的还是在 AI Studio 里。两位群友吐槽“反重力”是个平庸甚至“没有人样”的 harness，其中一位说哪怕在里面调用 Opus 5.5 也用着很难受。",
+          "emphasis": [
+            "做任务时还不按要求执行、经常漏东西，逼得用户每一步都得手动 review",
+            "目前 AI 出题只能把 trick A、trick B、trick C 生硬拼凑在一起，各个条件之间缺乏相互影响",
+            "用 Gemini 碰撞灵光一现的 idea 并提供情绪价值，把实际干活交给 Claude Opus"
+          ],
+          "aiComment": "Gemini 负责当佞臣提供情绪价值，Claude 负责埋头苦干，这套早朝加牛马的排班制度算是被玩明白了👑",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:21",
+              "text": "感觉 gpt 降智好严重啊"
+            },
+            {
+              "speaker": 2,
+              "time": "11:22",
+              "text": "本地部署势在必行"
+            },
+            {
+              "speaker": 3,
+              "time": "11:24",
+              "text": "[捂脸]O\\路由降智已经是基操了",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉 gpt 降智好严重啊"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:25",
+              "text": "o 出就是一开始尝尝鲜后面就降智的感觉不如 ds",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] [捂脸]O\\路由降智已经是基操了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:25",
+              "text": "说实话最近gpt没感觉降智啊"
+            },
+            {
+              "speaker": 4,
+              "time": "11:25",
+              "text": "是不是用到错误中转站了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:26",
+              "text": "感觉 Astra 降智了"
+            },
+            {
+              "speaker": 4,
+              "time": "11:26",
+              "text": "怎么说"
+            },
+            {
+              "speaker": 1,
+              "time": "11:26",
+              "text": "就是我给了要求然后还能不按我要求走，很麻"
+            },
+            {
+              "speaker": 5,
+              "time": "11:29",
+              "text": "astra感觉不如一开始聪明了"
+            },
+            {
+              "speaker": 6,
+              "time": "11:29",
+              "text": "astra和乌龟一样"
+            },
+            {
+              "speaker": 6,
+              "time": "11:29",
+              "text": "不如sonnet都"
+            },
+            {
+              "speaker": 1,
+              "time": "11:29",
+              "text": "就是做任务不行吧，哎真感觉奇怪，不像一开始的全能神",
+              "quote": {
+                "speaker": 4,
+                "text": "怎么说"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "11:29",
+              "text": "再降级就不如1017了"
+            },
+            {
+              "speaker": 5,
+              "time": "11:29",
+              "text": "做任务经常漏下东西"
+            },
+            {
+              "speaker": 1,
+              "time": "11:30",
+              "text": "是的，而且讲的很清楚了",
+              "quote": {
+                "speaker": 5,
+                "text": "做任务经常漏下东西"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:30",
+              "text": "让他出题他就很直给"
+            },
+            {
+              "speaker": 1,
+              "time": "11:30",
+              "text": "什么都说的巨清楚"
+            },
+            {
+              "speaker": 1,
+              "time": "11:30",
+              "text": "谁来都做出来了啊"
+            },
+            {
+              "speaker": 1,
+              "time": "11:31",
+              "text": "这种很恶心，你不知道他到底会在哪里漏，你就得每一步都 review",
+              "quote": {
+                "speaker": 5,
+                "text": "做任务经常漏下东西"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:31",
+              "text": "astra我让他做建模还是挺王朝的）"
+            },
+            {
+              "speaker": 8,
+              "time": "11:34",
+              "text": "我感觉这个真的"
+            },
+            {
+              "speaker": 8,
+              "time": "11:34",
+              "text": "没有我第一次用codex那么惊艳"
+            },
+            {
+              "speaker": 8,
+              "time": "11:34",
+              "text": "现在真的蠢"
+            },
+            {
+              "speaker": 8,
+              "time": "11:34",
+              "text": "刚好聊到这个",
+              "quote": {
+                "speaker": 1,
+                "text": "让他出题他就很直给"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:34",
+              "text": "[捂脸]自从放弃GPT,才发现外面没下雨啊",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] o 出就是一开始尝尝鲜后面就降智的感觉不如 ds"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "11:35",
+              "text": "大家有没有觉得ai出题其实出的不咋好"
+            },
+            {
+              "speaker": 9,
+              "time": "11:35",
+              "text": "啊呀 astra 现在是真的难用[捂脸]"
+            },
+            {
+              "speaker": 9,
+              "time": "11:35",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 10,
+              "time": "11:35",
+              "text": "感觉很容易reward hacking"
+            },
+            {
+              "speaker": 3,
+              "time": "11:35",
+              "text": "Claude+Gemini,感觉比GPT要好用的多"
+            },
+            {
+              "speaker": 9,
+              "time": "11:35",
+              "text": "给我精神看崩溃了"
+            },
+            {
+              "speaker": 8,
+              "time": "11:35",
+              "text": "[合并聊天记录] 群聊的聊天记录 (13条)\n  - 明剑照霜: 出题就是\n  - 明剑照霜: 他只能出\n  - 明剑照霜: trick A trick B trick C\n  - 明剑照霜: 拼起来的题目\n  - 明剑照霜: 他的条件直接没有相互影响\n  - 明剑照霜: 比如今年网络赛就有一个很像ai出的\n  - 明剑照霜: 先让你算最短路 然后给每条边依据这个算一个概率 然后算随机游走期望\n  - 明剑照霜: 注意到这和两个题等价\n  - 明剑照霜: A ： 算最短路\n  - 明剑照霜: B： 给定任意边的概率 算随机游走期望\n  - ... 还有3条"
+            },
+            {
+              "speaker": 10,
+              "time": "11:35",
+              "text": "Gemini交流idea Claude执行吗",
+              "quote": {
+                "speaker": 3,
+                "text": "Claude+Gemini,感觉比GPT要好用的多"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "11:35",
+              "text": "这是我拿ai出算法竞赛题的一点感觉",
+              "quote": {
+                "speaker": 8,
+                "text": "[合并聊天记录] 群聊的聊天记录\n  明剑照霜: 出题就是 明剑照霜: 他只能出 明剑照霜: trick A trick B trick C 明剑照霜: 拼起来的题目"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:36",
+              "text": "[奸笑]gemini的作用是给我提供情绪价值,顺便讨论idea",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] Gemini交流idea Claude执行吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:36",
+              "text": "哈基米有些想法感觉还是很灵光一现的"
+            },
+            {
+              "speaker": 11,
+              "time": "11:36",
+              "text": "gemini太情绪价值了。。。佞臣"
+            },
+            {
+              "speaker": 11,
+              "time": "11:36",
+              "text": "一直拍马屁"
+            },
+            {
+              "speaker": 12,
+              "time": "11:36",
+              "text": "astra应该是老坟出问题了"
+            },
+            {
+              "speaker": 11,
+              "time": "11:36",
+              "text": "聊多了容易飘"
+            },
+            {
+              "speaker": 12,
+              "time": "11:36",
+              "text": "太鸡儿难用了"
+            },
+            {
+              "speaker": 11,
+              "time": "11:36",
+              "text": "astra就总是否定"
+            },
+            {
+              "speaker": 3,
+              "time": "11:36",
+              "text": "[奸笑]所以我从不让他去干活",
+              "quote": {
+                "speaker": 11,
+                "text": "gemini太情绪价值了。。。佞臣"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "11:36",
+              "text": "我感觉这个可能是所谓taste的一部分",
+              "quote": {
+                "speaker": 8,
+                "text": "[合并聊天记录] 群聊的聊天记录\n  明剑照霜: 出题就是 明剑照霜: 他只能出 明剑照霜: trick A trick B trick C 明剑照霜: 拼起来的题目"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:36",
+              "text": "活都是opus在干"
+            },
+            {
+              "speaker": 11,
+              "time": "11:37",
+              "text": "astra每次说话都贼防御性"
+            },
+            {
+              "speaker": 3,
+              "time": "11:37",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "11:42",
+              "text": "[奸笑]再加上反重力真的是个很平庸的harness",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] [奸笑]所以我从不让他去干活"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:43",
+              "text": "就哪怕是opus5.5,在反重力里面也用着很难受"
+            },
+            {
+              "speaker": 13,
+              "time": "11:45",
+              "text": "Gemini最强的是在AI studio"
+            },
+            {
+              "speaker": 14,
+              "time": "11:52",
+              "text": "反重力简直没有人样"
+            },
+            {
+              "speaker": 14,
+              "time": "11:53",
+              "text": "gemini就是额度用的太快了"
+            }
+          ]
+        },
+        {
+          "category": "基座与评测",
+          "title": "百度开源 ERNIE 5.5 Flash Base，群友探讨预训练基座如何测 Benchmark",
+          "text": "群友注意到百度在 Hugging Face 上开源了预训练基座模型 ernie-55-flash-base，并分享了相关介绍笔记。针对发布的评测结果，有人好奇为什么预训练版本就已经在这些 benchmark 上跑分——原本以为要到 midtrain 之后才开始测指标，并疑问仅完成预训练的模型上下文长度是否足以应付这些任务。\n\n有群友解答了基座模型跑评测的两种常见做法：一种是基于 one token acc，或者直接设定 stop token 去正常推理；另一种是在输入里加上 n-shot 示例，赋予模型一定的输出风格遵循能力。随后也有群友追问，衡量预训练好坏除了看 benchmark 表现外还有哪些常见监控指标，并分享了一篇整理基座预训练与后训练监控指标的笔记供参考。",
+          "emphasis": [
+            "百度在 Hugging Face 上开源了预训练基座模型 ernie-55-flash-base",
+            "基于 one token acc，或者直接设定 stop token 去正常推理"
+          ],
+          "aiComment": "刚预训练完还没 midtrain 就拉出来跑分，靠 n-shot 和 stop token 硬顶，真就刚出生的基座也逃不过应试教育。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:51",
+              "text": "在悄无声息的角落"
+            },
+            {
+              "speaker": 2,
+              "time": "14:51",
+              "text": "baidu发了。。"
+            },
+            {
+              "speaker": 1,
+              "time": "14:51",
+              "text": "Baidu的5.5flash开源了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:52",
+              "text": "刚刷到"
+            },
+            {
+              "speaker": 3,
+              "time": "14:52",
+              "text": "还在挣扎"
+            },
+            {
+              "speaker": 1,
+              "time": "14:52",
+              "text": "预训练的版本"
+            },
+            {
+              "speaker": 1,
+              "time": "14:53",
+              "text": "https://huggingface.co/collections/baidu/ernie-55-flash-base"
+            },
+            {
+              "speaker": 4,
+              "time": "15:27",
+              "text": "[链接] 文心5.5还没来，前菜先卷成SOTA了\n  摘要: 估计大家一直以为Base就是“还没做完的版本” 其实不是的，它本身就是已经完成预训练、可以拿去继续训练和定制的基础模型\n  URL: https://www.xiaohongshu.com/discovery/item/6aec295e000000001a023657?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793863569"
+            },
+            {
+              "speaker": 4,
+              "time": "15:27",
+              "text": "好事儿"
+            },
+            {
+              "speaker": 5,
+              "time": "15:27",
+              "text": "base模型这是"
+            },
+            {
+              "speaker": 4,
+              "time": "15:27",
+              "text": "感觉回到了2025"
+            },
+            {
+              "speaker": 5,
+              "time": "15:27",
+              "text": "base模型"
+            },
+            {
+              "speaker": 6,
+              "time": "15:27",
+              "text": "[链接] 我发布了一篇笔记：Ernie 5.5 Flash Base\n  摘要: @Unforgettable 的笔记 11人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6aec2005000000001503c679?ignoreEngage=true&xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793863661"
+            },
+            {
+              "speaker": 7,
+              "time": "15:29",
+              "text": "🐮"
+            },
+            {
+              "speaker": 8,
+              "time": "15:31",
+              "text": "🐮"
+            },
+            {
+              "speaker": 9,
+              "time": "15:51",
+              "text": "为什么预训练版本在这些bench上测啊大佬们，我还以为midtrain之后才开始测指标。pt完了之后ctx够做这些任务了吗"
+            },
+            {
+              "speaker": 10,
+              "time": "15:54",
+              "text": "基于one token acc或者直接设定stop token去正常推理",
+              "quote": {
+                "speaker": 9,
+                "text": "为什么预训练版本在这些bench上测啊大佬们，我还以为midtrain之后才开始测指标。pt完了之后ctx够做这些任务了吗"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "15:57",
+              "text": "还有一个方法就是加n-shot去给模型一点输出风格遵循的能力"
+            },
+            {
+              "speaker": 11,
+              "time": "15:59",
+              "text": "预训练的指标一般只看bench上的表现吗？"
+            },
+            {
+              "speaker": 11,
+              "time": "16:00",
+              "text": "请问还有没有其它的一些常见指标衡量预训练做的好不好呢？"
+            },
+            {
+              "speaker": 11,
+              "time": "16:00",
+              "text": "（看起来前面已经解决了bench上decode和eval的问题"
+            },
+            {
+              "speaker": 11,
+              "time": "16:03",
+              "text": "[链接] 基座大模型预训练后训练监控的bench指标\n  摘要: @沫悠酥 的笔记 135人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6a2bd65c000000000803caa8?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793865779"
+            },
+            {
+              "speaker": 11,
+              "time": "16:03",
+              "text": "看到一个这个，不知道和主流的modern pt 要关注的事情是不是一致的"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "baidu/ERNIE-5.5-Flash-Base（Hugging Face 合集）",
+              "url": "https://huggingface.co/collections/baidu/ernie-55-flash-base"
+            }
+          ]
+        },
+        {
+          "category": "工具与风控",
+          "title": "论文一键转配音视频与 B 站投稿：8 个 Skill 串联全流程及多平台风控实测",
+          "text": "有群友求推荐能汇报研究思路或演示论文的制作视频 skill。除了有人推荐 video-use 外，另一位群友分享了一套开源论文分享工作流（paper-share-skills 与配套幻灯片模板 sustech-slides-template），用 8 个 skill 串联起 arXiv 下载、PDF 提取、转 Beamer 幻灯片、制作视频封面、生成横竖版配音视频、B 站投稿、编排与主题修复，支持中文排版与多比例多配色，兼容 Claude Code、Codex CLI 和 OMP（推荐 OMP + DeepSeek）。\n\n有人提议能否顺便加上小红书和微信公众号自动发布。有群友提醒小红书管控极严，晒出的系统通知缩略图显示账号因疑似使用第三方工具或脚本收到违规预警，容易被封；相比之下，实测微博、微信、抖音等平台目前尚未收到异常提示。另一位群友补充，遇到风控可以直接申诉称是人工运维，并分享过往踩坑经历：此前发面经一直被限流，排查后才发现正文写了“小红书ACE”，被系统判定为拿平台与竞品做对比，改成缩写“xhs”后便恢复正常。",
+          "emphasis": [
+            "用 8 个 skill 串联起 arXiv 下载、PDF 提取、转 Beamer 幻灯片、制作视频封面、生成横竖版配音视频、B 站投稿",
+            "账号因疑似使用第三方工具或脚本收到违规预警，容易被封"
+          ],
+          "aiComment": "8 个 skill 一键发 B 站，结果在小红书被自家名字 ACE 背刺限流，机器自动化终究还是败给了平台敏感词玄学🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "09:37",
+              "text": "大家有做视频的skill推荐吗"
+            },
+            {
+              "speaker": 2,
+              "time": "10:09",
+              "text": "video-use"
+            },
+            {
+              "speaker": 3,
+              "time": "10:12",
+              "text": "什么类型的视频"
+            },
+            {
+              "speaker": 1,
+              "time": "10:15",
+              "text": "汇报研究思路；或者觉得某篇paper的思路比较好，想做一个演示",
+              "quote": {
+                "speaker": 3,
+                "text": "什么类型的视频"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "10:16",
+              "text": "OK"
+            },
+            {
+              "speaker": 3,
+              "time": "10:16",
+              "text": "论文 / arXiv → 提取内容 → Beamer 幻灯片 → 视频封面 → 横竖版配音视频 → B 站投稿\n\n论文分享\n8 个 Skill 覆盖 arXiv 下载、PDF 提取、转幻灯片、封面、配音视频、B 站投稿、编排与主题修复。\n\n配套幻灯片模板\n覆盖论文分享、调研、开题、进展、结题场景，支持中文排版、多比例多配色。\n\n兼容 Claude Code、Codex CLI 和 OMP（推荐 OMP + DeepSeek）。\n\n推荐克隆模板仓库（自带技能包）：\ngit clone --recurse-submodules https://github.com/yhbcode000/sustech-slides-template.git\n\n技能库：https://github.com/yhbcode000/paper-share-skills\n模板：https://github.com/yhbcode000/sustech-slides-template"
+            },
+            {
+              "speaker": 1,
+              "time": "10:17",
+              "text": "好好好"
+            },
+            {
+              "speaker": 1,
+              "time": "10:18",
+              "text": "B站投稿都弄好了"
+            },
+            {
+              "speaker": 4,
+              "time": "10:19",
+              "text": "能不能加上小红书和微信公众号[旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "10:20",
+              "text": "xhs管控太严了"
+            },
+            {
+              "speaker": 5,
+              "time": "10:20",
+              "text": "容易被封"
+            },
+            {
+              "speaker": 5,
+              "time": "10:21",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "10:22",
+              "text": "离谱"
+            },
+            {
+              "speaker": 5,
+              "time": "10:24",
+              "text": "其他平台好像都还行，试了微博/vx/抖音啥的，目前还没收到提示"
+            },
+            {
+              "speaker": 6,
+              "time": "11:23",
+              "text": "hongshu比较严格"
+            },
+            {
+              "speaker": 7,
+              "time": "11:25",
+              "text": "可以直接申诉",
+              "quote": {
+                "speaker": 5,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:25",
+              "text": "说你是人工运维"
+            },
+            {
+              "speaker": 7,
+              "time": "11:26",
+              "text": "我当时写日常实习面经"
+            },
+            {
+              "speaker": 7,
+              "time": "11:26",
+              "text": "一直限流"
+            },
+            {
+              "speaker": 8,
+              "time": "11:26",
+              "text": "这个也是老生常谈了",
+              "quote": {
+                "speaker": 7,
+                "text": "一直限流"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:26",
+              "text": "后来发现我写了“小红书ACE”"
+            },
+            {
+              "speaker": 9,
+              "time": "11:26",
+              "text": "我的所有转租的帖子"
+            },
+            {
+              "speaker": 9,
+              "time": "11:26",
+              "text": "永远限流"
+            },
+            {
+              "speaker": 7,
+              "time": "11:27",
+              "text": "被系统判定为把小红书和对家对比了"
+            },
+            {
+              "speaker": 7,
+              "time": "11:27",
+              "text": "然后我改成 xhs 就可以了"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "yhbcode000/paper-share-skills",
+              "url": "https://github.com/yhbcode000/paper-share-skills"
+            },
+            {
+              "kind": "code",
+              "label": "yhbcode000/sustech-slides-template",
+              "url": "https://github.com/yhbcode000/sustech-slides-template"
+            }
+          ]
+        },
+        {
+          "category": "求职动态",
+          "title": "算法岗面试还手写代码吗？群友反馈基模组多问项目少考 Coding",
+          "text": "有群友询问如今算法岗面试是不是已经取消了 coding 环节。多位群友反馈，现在平时基本不手写代码，面试也大多不再考 coding，或者仅在其中一面保留简单的板子题；有人调侃干脆配好 harness 考 AI coding。另一位群友提到，在几个 foundation model 团队的面试里，除非个别公司有硬性规定，否则基本没有 coding 考核，面试重心还是问项目。至于还要不要准备“lc”（LeetCode），群友们纷纷接梗称现在只需自备 longcat、langchain 或 luckin coffee。",
+          "emphasis": [
+            "除非个别公司有硬性规定，否则基本没有 coding 考核，面试重心还是问项目"
+          ],
+          "aiComment": "算法岗面试从手撕 LeetCode 变成自备 Luckin Coffee，以前刷题掉的头发突然觉得有点冤☕",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:56",
+              "text": "现在算法面试都没有coding了吗"
+            },
+            {
+              "speaker": 2,
+              "time": "13:56",
+              "text": "大部分都不coding了- -有些至少其中一面有",
+              "quote": {
+                "speaker": 1,
+                "text": "现在算法面试都没有coding了吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:56",
+              "text": "基本也都是简单的"
+            },
+            {
+              "speaker": 1,
+              "time": "13:57",
+              "text": "哦哦确实没啥意义了都是比较简单的板子题"
+            },
+            {
+              "speaker": 2,
+              "time": "13:58",
+              "text": "现在基本不手写代码了- -[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "13:58",
+              "text": "[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "13:59",
+              "text": "考ai coding"
+            },
+            {
+              "speaker": 4,
+              "time": "14:00",
+              "text": "我上个月面的foundation model的一些组，如果不是厂有强制要求（比如字节）"
+            },
+            {
+              "speaker": 3,
+              "time": "14:00",
+              "text": "[生病]配好harness后让你解答"
+            },
+            {
+              "speaker": 4,
+              "time": "14:00",
+              "text": "基本都没有coding"
+            },
+            {
+              "speaker": 4,
+              "time": "14:01",
+              "text": "还是问项目问的多"
+            },
+            {
+              "speaker": 4,
+              "time": "14:01",
+              "text": "上上个月",
+              "quote": {
+                "speaker": 4,
+                "text": "我上个月面的foundation model的一些组，如果不是厂有强制要求（比如字节）"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:12",
+              "text": "那还要准备lc吗"
+            },
+            {
+              "speaker": 6,
+              "time": "14:20",
+              "text": "自备longcat",
+              "quote": {
+                "speaker": 5,
+                "text": "那还要准备lc吗"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:25",
+              "text": "自备 langchain"
+            },
+            {
+              "speaker": 8,
+              "time": "14:27",
+              "text": "自备 luckin coffee"
+            },
+            {
+              "speaker": 9,
+              "time": "14:28",
+              "text": "哈哈哈哈哈哈哈哈哈哈",
+              "quote": {
+                "speaker": 8,
+                "text": "自备 luckin coffee"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "14:32",
+              "text": "能不能自备hc"
+            }
+          ]
+        },
+        {
+          "category": "模型架构",
+          "title": "2.8T 参数 MoE 架构表细节变更：注意力机制由 MLA 换为 Gated DSA",
+          "text": "有群友晒出一张模型架构参数汇总表（Model Summary）截图并提示细节有变。表格显示该模型采用 MoE 架构，总参数量 2.8T、激活参数 104B，共 93 层（含 1 层 Dense），专家总数 896 个（每 token 激活 16 个专家外加 2 个共享专家），上下文长度达 1048576，视觉编码器为 401M 参数的 MoonViT-V2，并采用 MXFP4 权重与 MXFP8 激活的量化感知训练（QAT）。在追问下，分享者指出改动在于注意力机制从 MLA 换成了 DSA——表中注意力层配置标注为“69 KDA + 24 Gated DSA*”，其中 DSA Index 为 32 头、头维度 128、Top-K 设为 2048。",
+          "emphasis": [
+            "改动在于注意力机制从 MLA 换成了 DSA——表中注意力层配置标注为“69 KDA + 24 Gated DSA*”"
+          ],
+          "aiComment": "2.8T 参数、896 个专家还挂着百万上下文，大家却像玩找茬一样盯着注意力从 MLA 换成了 24 层 Gated DSA👀",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:11",
+              "text": "something has changed lol"
+            },
+            {
+              "speaker": 1,
+              "time": "22:11",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "22:17",
+              "text": "啥改了 有没有对比图",
+              "quote": {
+                "speaker": 1,
+                "text": "something has changed lol"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:19",
+              "text": "MLA换成了DSA"
+            }
+          ]
+        },
+        {
+          "category": "开源新工作",
+          "title": "语音深伪取证模型 VeriSpoof 开源：单套权重完成真伪检测、篡改定位与溯源",
+          "text": "有群友分享了开源语音深伪取证工作 VeriSpoof（Beyond Real or Fake with One Audio LLM），同步开放模型权重、代码、在线 Demo 与评测基准。据介绍，该模型用同一套权重即可完成真伪检测、合成片段秒级定位、生成系统溯源、同源验证和信道识别（噪声/混响/编码），并给出可核对的理由；训练仅更新 2970 万参数，单张 24GB 显卡即可完成。评测结果显示，VeriSpoof-Plus 在 Speech-DF-Arena 的 14 个测试集合并 EER 为 2.14%（28 个系统中排第 3、开源模型第 1），在 SpoofRadar v1.0 上 EER 为 4.04%（开源第 1），MLAAD 生成系统溯源准确率达 96.8%，且在 PartialEdit 部分篡改检测中经推理后识别率从单步回答的 78.4% 提升至 99.6%。",
+          "emphasis": [
+            "同一套权重即可完成真伪检测、合成片段秒级定位、生成系统溯源、同源验证和信道识别",
+            "训练仅更新 2970 万参数，单张 24GB 显卡即可完成"
+          ],
+          "aiComment": "单卡 24G 只更两千多万参数，把真伪、秒级定位和溯源全包了，深伪语音连自己混响是哪来的都藏不住。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:06",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:06",
+              "text": "帮忙宣传一下我们的语音深伪取证工作，欢迎大家关注交流 🙏\n \nVeriSpoof: Beyond Real or Fake with One Audio LLM\n \n✨ 一个音频大模型，不只判断语音真假，还能指出哪几秒是合成的、是哪个系统生成的、两段录音是否同源，并给出能核对的理由。同一套权重完成真伪检测、合成片段定位、生成系统溯源、同源验证和信道识别。模型、Demo、代码、评测基准全部开源。训练只更新 2970 万参数，单张 24GB 显卡即可完成。\n \n📊 主要结果（VeriSpoof-Plus）\n🏆 Speech-DF-Arena：14 个测试集合并 EER 2.14%，28 个系统中第 3、开源模型第 1\n🏆 SpoofRadar v1.0：EER 4.04%，开源模型第 1\n🎯 生成系统溯源：MLAAD 准确率 96.8%\n🔗 同源验证：训练中未见过的生成器上 EER 6.17%\n🧩 部分篡改检测：推理后识别出 PartialEdit 中 99.6% 的部分篡改录音（单步回答为 78.4%）\n🎧 信道识别（噪声 / 混响 / 编码）：81.3%\n \n⭐ 求一个 HF Paper 的 Upvote！：\n🤗 https://huggingface.co/papers/2611.04634\n \n📑 论文：https://arxiv.org/abs/2611.04634\n🎧 在线 Demo：https://huggingface.co/spaces/AustinXiao/VeriSpoof-demo\n🚀 GitHub：https://github.com/swagshaw/verispoof"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "VeriSpoof: Beyond Real or Fake with One Audio LLM",
+              "url": "https://arxiv.org/abs/2611.04634"
+            },
+            {
+              "kind": "code",
+              "label": "swagshaw/verispoof",
+              "url": "https://github.com/swagshaw/verispoof"
+            },
+            {
+              "kind": "demo",
+              "label": "VeriSpoof 在线 Demo",
+              "url": "https://huggingface.co/spaces/AustinXiao/VeriSpoof-demo"
+            }
+          ]
+        },
+        {
+          "category": "技术报告",
+          "title": "可灵发布多模态理解技术报告：更流畅的视频描述未必是更有效的生成监督",
+          "text": "有群友分享了可灵多模态理解团队与可灵评测团队整理的技术报告《Behind Video Generation: Observations and Insights on Multimodal Understanding from Kling》。报告围绕多模态基础模型 Kling-MLLM、视频描述、提示词增强、文本编码、奖励建模与自动评测，总结了多代产品迭代中的一线观察：例如更流畅的描述未必意味着更有效的生成监督，提示词优化需要兼顾稳定性与表现力，而可靠的评判首先依赖扎实的感知能力。",
+          "emphasis": [
+            "更流畅的描述未必意味着更有效的生成监督，提示词优化需要兼顾稳定性与表现力"
+          ],
+          "aiComment": "小作文写得再流畅，视频生成也未必买账，连多模态监督都开始嫌弃华而不实的片儿汤话了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:47",
+              "text": "宣传一下我们最近发的的技术报告：Behind Video Generation: Observations and Insights on Multimodal Understanding from Kling~\n\n视频生成的背后，离不开扎实的多模态理解。\n从感知物理世界、理解用户意图，到组织镜头与情节、对齐创作偏好、评估生成质量，每一环都影响着创意能否被准确、连贯地呈现。随着视频生成从单个片段走向完整的音视频创作，多模态理解的重要性也愈发凸显。\n最近，我们可灵多模态理解团队与可灵评测团队，将可灵多代产品迭代中的观察与实践整理成了一篇经验报告。围绕多模态基础模型 Kling-MLLM、视频描述、提示词增强、文本编码、奖励建模与自动评测，我们凝练了一系列关键观察与实践启发：更流畅的描述未必意味着更有效的生成监督，提示词优化需要兼顾稳定性与表现力，可靠的评判首先依赖扎实的感知能力……这些具体的观察与思考，贯穿了从数据构建到生成控制、对齐与评测的完整流程。\n\n希望这份来自一线实践的报告能为社区带来一些启发，也期待和大家一起探索理解与生成协同发展的新算法、新玩法，欢迎大家多多交流~\n\nHF Daily Paper： https://huggingface.co/papers/2611.04916"
+            },
+            {
+              "speaker": 2,
+              "time": "20:48",
+              "text": "我们在狠狠学习。",
+              "quote": {
+                "speaker": 1,
+                "text": "宣传一下我们最近发的的技术报告：Behind Video Generation: Observations and Insights on Multimodal..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:49",
+              "text": "狠狠严肃学习"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Behind Video Generation: Observations and Insights on Multimodal Understanding from Kling",
+              "url": "https://huggingface.co/papers/2611.04916"
+            }
+          ]
+        },
+        {
+          "category": "生态与工具",
+          "title": "写论文求助再引 Harness 对比，DeepSeek Harness 披露日活达 140 万",
+          "text": "晚间有群友求推荐写论文的 skill 并再度吐槽 Astra 难用，多位群友建议切到 Gemini 或用 Astra 驱动 Gemini，同时吐槽“反重力”体验远不如 dsh（DeepSeek Harness）。随后有群友分享文章披露，DeepSeek Harness 目前已达 140 万日活、拥有 3.5 万个第三方插件，且正在筹备插件作者支持计划。",
+          "emphasis": [
+            "DeepSeek Harness 目前已达 140 万日活、拥有 3.5 万个第三方插件"
+          ],
+          "aiComment": "一边群友还在苦求写论文 skill，另一边 dsh 已经悄悄卷出 140 万日活和 3.5 万个插件了🐳",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:28",
+              "text": "大佬们有没有写论文的skill分享，astra真实依托"
+            },
+            {
+              "speaker": 2,
+              "time": "22:28",
+              "text": "大佬们有没有写论文的skill分享，astra真实依托"
+            },
+            {
+              "speaker": 3,
+              "time": "22:33",
+              "text": "换gemini[旺柴]真实有用"
+            },
+            {
+              "speaker": 1,
+              "time": "22:34",
+              "text": "严肃切换！"
+            },
+            {
+              "speaker": 4,
+              "time": "22:36",
+              "text": "真的是",
+              "quote": {
+                "speaker": 3,
+                "text": "换gemini[旺柴]真实有用"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:36",
+              "text": "[奸笑]但是反重力真的是个很平庸的harness"
+            },
+            {
+              "speaker": 3,
+              "time": "22:36",
+              "text": "反重力🐶都不用"
+            },
+            {
+              "speaker": 3,
+              "time": "22:36",
+              "text": "不如dsh"
+            },
+            {
+              "speaker": 5,
+              "time": "22:36",
+              "text": "我让astra蹬gemini[奸笑]"
+            },
+            {
+              "speaker": 4,
+              "time": "22:37",
+              "text": "[奸笑]",
+              "quote": {
+                "speaker": 5,
+                "text": "我让astra蹬gemini[奸笑]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:37",
+              "text": "考虑一下包包"
+            },
+            {
+              "speaker": 4,
+              "time": "22:37",
+              "text": "[奸笑]gemini和claude互搏[奸笑]再召唤两只哈基咪互相哈气",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] [奸笑]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "22:37",
+              "text": "平庸？是垃圾啊",
+              "quote": {
+                "speaker": 4,
+                "text": "[奸笑]但是反重力真的是个很平庸的harness"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:38",
+              "text": "[链接] DeepSeek Harness 最新进展：140 万日活，3.5 万个第三方插件\n  来源: 赛博禅心\n  摘要: 插件作者的支持计划，正在筹备ing\n  URL: https://mp.weixin.qq.com/s?__biz=MzkzNDQxOTU2MQ%3D%3D&mid=2247522610&idx=1&sn=cd0cbbbb1cd95a2957dff59cc70ced8d&chksm=c34f47cd2e292e73533c54aad2b577488fab4a78b799637969a17abae7e7cb32db6decb9ae43&scene=1&srcid=1105XkhLOmntOfSKVrEohlET#rd"
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "Hy4 榜单排第 13 要不要抄底？群友争论模型好坏和股价有多大关系",
+          "text": "有群友贴出一张 Artificial Analysis 智能指数榜单截图，图中用箭头标出 Tencent Hy4 以 35 分排第 13，借此琢磨腾讯 AI 能否稳定保持前三、要不要抄底腾讯，随后自己也承认判断不了。\n\n话题随即转到模型和股价到底有多大关系。有群友反问会不会模型越好、capex 越大、股价反而越低；另一位群友认为没啥关系，举例 Hy4 preview 发布时腾讯还跌了，Kimi 3.1 发布时也没怎么波动。还有人指出腾讯的基本盘不是 LLM，模型好坏不影响市场信心，一位群友总结“大公司都不是，只有模型公司的是”。有人追问那 Kimi 是不是该涨，马上被提醒 Kimi 还没上市，不过也有群友说 Kimi 概念股其实涨了。另有群友提到 MiMo 不怎么影响小米股价，腾讯这波上涨时 PDD 也在涨，更像宏观原因。",
+          "emphasis": [
+            "Hy4 preview 发布时腾讯还跌了，Kimi 3.1 发布时也没怎么波动",
+            "“大公司都不是，只有模型公司的是”"
+          ],
+          "aiComment": "榜单第 13 撑不起股价，没上市的 Kimi 倒带飞了概念股，所有技术群的终点果然都是股票群📈",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:25",
+              "text": "目前这个情况感觉还是难以判断腾讯ai frontier是否能稳定保持前三"
+            },
+            {
+              "speaker": 1,
+              "time": "19:26",
+              "text": "还是从群友漏的信息中做非共识前瞻判断吧"
+            },
+            {
+              "speaker": 1,
+              "time": "19:26",
+              "text": "是否抄底腾讯"
+            },
+            {
+              "speaker": 1,
+              "time": "19:28",
+              "text": "我现在判断不了"
+            },
+            {
+              "speaker": 1,
+              "time": "19:28",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "19:28",
+              "text": "这判断不了吧"
+            },
+            {
+              "speaker": 1,
+              "time": "19:29",
+              "text": "现在貌似也不是能稳定前3"
+            },
+            {
+              "speaker": 2,
+              "time": "19:29",
+              "text": "模型和股价真的有强相关吗（"
+            },
+            {
+              "speaker": 2,
+              "time": "19:29",
+              "text": "有没有可能模型越好，capex越大，股价越低"
+            },
+            {
+              "speaker": 3,
+              "time": "19:30",
+              "text": "没啥关系"
+            },
+            {
+              "speaker": 3,
+              "time": "19:30",
+              "text": "hy4 preview发布的时候tencent还跌了"
+            },
+            {
+              "speaker": 3,
+              "time": "19:30",
+              "text": "kimi3.1发布也没咋波动"
+            },
+            {
+              "speaker": 4,
+              "time": "19:30",
+              "text": "tx基本盘不是llm"
+            },
+            {
+              "speaker": 1,
+              "time": "19:30",
+              "text": "有一定关系，不过最大的相关性肯定还是国内的宏观环境，行业beta（",
+              "quote": {
+                "speaker": 2,
+                "text": "模型和股价真的有强相关吗（"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:31",
+              "text": "大公司都不是，只有模型公司的是",
+              "quote": {
+                "speaker": 4,
+                "text": "tx基本盘不是llm"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:31",
+              "text": "好坏不影响市场信心"
+            },
+            {
+              "speaker": 1,
+              "time": "19:31",
+              "text": "大公司都不是，只有模型公司的是"
+            },
+            {
+              "speaker": 1,
+              "time": "19:31",
+              "text": "这个确实"
+            },
+            {
+              "speaker": 6,
+              "time": "19:32",
+              "text": "MIMO感觉也不咋影响小米股价"
+            },
+            {
+              "speaker": 4,
+              "time": "19:32",
+              "text": "确实"
+            },
+            {
+              "speaker": 7,
+              "time": "19:33",
+              "text": "腾讯这波涨起来不是因为LLM吧 PDD都涨了"
+            },
+            {
+              "speaker": 1,
+              "time": "19:34",
+              "text": "宏观原因",
+              "quote": {
+                "speaker": 7,
+                "text": "腾讯这波涨起来不是因为LLM吧 PDD都涨了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "19:34",
+              "text": "那按道理kimi是不是应该涨啊",
+              "quote": {
+                "speaker": 1,
+                "text": "大公司都不是，只有模型公司的是"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "19:34",
+              "text": "kimi应该算模型公司吧"
+            },
+            {
+              "speaker": 9,
+              "time": "19:35",
+              "text": "[奸笑]还没上市啊",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 那按道理kimi是不是应该涨啊"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:36",
+              "text": "kimi概念股涨了其实"
+            },
+            {
+              "speaker": 1,
+              "time": "19:44",
+              "text": "算了我判断不了 考虑别的股票吧"
+            },
+            {
+              "speaker": 10,
+              "time": "20:25",
+              "text": "谷歌出的时候，不还遇上财报一起发布，直接跌停了[旺柴]"
+            },
+            {
+              "speaker": 11,
+              "time": "20:30",
+              "text": "不发可能跌得更多"
+            },
+            {
+              "speaker": 12,
+              "time": "20:33",
+              "text": "剥离出mi单独融资吧要不[可怜]",
+              "quote": {
+                "speaker": 6,
+                "text": "MIMO感觉也不咋影响小米股价"
+              }
+            }
+          ],
+          "resources": []
+        },
+        {
+          "category": "开源新工作",
+          "title": "Latent Sparse Attention 开源求评价：看完发现是给 indexer 提速",
+          "text": "有群友抛出 Prefrontal-AI 开源的 Latent Sparse Attention 仓库（面向次二次复杂度的超长上下文注意力）求评价，看完后自己总结这项工作主要是给 indexer 提速。",
+          "emphasis": [
+            "看完后自己总结这项工作主要是给 indexer 提速"
+          ],
+          "aiComment": "标题写着次二次超长上下文，群友点开一看是给 indexer 踩油门，自问自答一条龙。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:09",
+              "text": "https://github.com/Prefrontal-AI/latent-sparse-attention 如何评价"
+            },
+            {
+              "speaker": 1,
+              "time": "16:09",
+              "text": "看了之后发现是给indexer提速"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Prefrontal-AI/latent-sparse-attention",
+              "url": "https://github.com/Prefrontal-AI/latent-sparse-attention"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "Router 中途切模型丢 cache，反而亏钱？",
+      "theme": "Kimi K3.1 Pro 疑因蒸馏未洗净 trace 吐出伪加密字符串，WebHarbor 开源 153 个离线克隆网页环境。",
+      "note": "2026-11-05 · 当日本地记录",
+      "stories": [
+        {
+          "category": "推理与成本",
+          "title": "Router 切模型反而亏钱？群友细算 KV Cache 命中率与“对话中降智”成本账",
+          "text": "有群友结合模型路由研究《Route Anything》与 Cursor 的 auto mode 抛出疑问：这类 router 是不是无法正常利用 cache？另一位群友回应基本上是的，模型池里的模型越多，cache 利用率就越低。提问者由此算了一笔账：现在除了“哈基米”以外，模型的 cache 率起码在 95% 以上，切模型带来的成本下降可能并不大，甚至未必能省钱；也正因如此，这位群友对“对话中降智”的说法存疑，认为在对话中途把模型从 astra router 切到 sol 理论上反而会亏本。有群友附和 cache 确实是需要重点考虑的因素，也有人认为实际做法或许不是在单次对话中途切换，而是按对话为粒度降智。随后还有群友补充，目前有一项 cache2cache 技术亟需应用到 router 上，不过面对闭源模型也没什么好办法。\n\n有人追问“哈基米”的 cache 情况。前一位群友吐槽其机制分手动和自动两种模式：手动模式需要自己挑对话历史 append 到 cache 里，印象中还要额外花点钱；自动模式虽然由系统代管，但失效很快。由于 4argon 不知为何只支持自动模式，跑完一个任务后最好不要隔两个小时再在同一个 session 里跑下一个，否则 cache 就会丢掉。",
+          "emphasis": [
+            "模型池里的模型越多，cache 利用率就越低",
+            "在对话中途把模型从 astra router 切到 sol 理论上反而会亏本",
+            "4argon 不知为何只支持自动模式"
+          ],
+          "aiComment": "自动模式隔俩小时就丢 cache，中途切模型还可能倒贴钱，算完这笔账发现挂机去吃个饭都是高消费💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:02",
+              "text": "话说我一直在想一个问题，就是这种router是不是就无法正常利用cache",
+              "quote": {
+                "speaker": null,
+                "text": "很开心和大家分享我们最新的研究工作Route Anything: A Study of Model and Policy Routing for General..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:03",
+              "text": "除了这个，还有像cursor的auto mode之类的"
+            },
+            {
+              "speaker": 2,
+              "time": "11:03",
+              "text": "基本上是的",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 话说我一直在想一个问题，就是这种router是不是就无法正常利用cache"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:04",
+              "text": "池子里的模型越多，cache利用率就越低"
+            },
+            {
+              "speaker": 1,
+              "time": "11:04",
+              "text": "那不是其实"
+            },
+            {
+              "speaker": 1,
+              "time": "11:05",
+              "text": "按照我的理解这个成本下降可能不会很大（？"
+            },
+            {
+              "speaker": 1,
+              "time": "11:05",
+              "text": "因为现在除了哈基米以外，cache率起码在95%以上"
+            },
+            {
+              "speaker": 3,
+              "time": "11:05",
+              "text": "哈机密"
+            },
+            {
+              "speaker": 1,
+              "time": "11:05",
+              "text": "甚至我一直不确定这种会不会降低成本"
+            },
+            {
+              "speaker": 3,
+              "time": "11:05",
+              "text": "在"
+            },
+            {
+              "speaker": 3,
+              "time": "11:06",
+              "text": "多少呢"
+            },
+            {
+              "speaker": 1,
+              "time": "11:08",
+              "text": "所以我一直对于，对话中降智是有疑虑的",
+              "quote": {
+                "speaker": 1,
+                "text": "甚至我一直不确定这种会不会降低成本"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:08",
+              "text": "理论上它在对话过程中给你从astra router到sol是亏的"
+            },
+            {
+              "speaker": 4,
+              "time": "11:08",
+              "text": "我也这么感觉"
+            },
+            {
+              "speaker": 1,
+              "time": "11:09",
+              "text": "哈基米现在还在用他那套逆天完了的cache机制",
+              "quote": {
+                "speaker": 3,
+                "text": "多少呢"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "11:09",
+              "text": "感觉cache是个很重要需要考虑的东西呀"
+            },
+            {
+              "speaker": 5,
+              "time": "11:09",
+              "text": "感觉不是对话中把，就是按对话为粒度降智"
+            },
+            {
+              "speaker": 1,
+              "time": "11:10",
+              "text": "简单来说它的cache是有两个模式，一个自动的一个手动的，手动的是自己选对话历史去append到cache中（印象里要额外花一点钱），自动的是他自己帮你cache，但是cache很快就会丢"
+            },
+            {
+              "speaker": 1,
+              "time": "11:10",
+              "text": "然后不知道为什么4argon只支持自动的版本"
+            },
+            {
+              "speaker": 1,
+              "time": "11:11",
+              "text": "也就是你最好不要在跑完一个任务后隔俩小时再在同一个session下跑下一个，不然cache会丢"
+            },
+            {
+              "speaker": 6,
+              "time": "12:51",
+              "text": "目前有一个cache2cache技术，感觉亟需应用在router上",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 话说我一直在想一个问题，就是这种router是不是就无法正常利用cache"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:52",
+              "text": "但是对于闭源模型也没什么好招了"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Route Anything（arXiv 2611.05275）",
+              "url": "https://arxiv.org/abs/2611.05275"
+            }
+          ]
+        },
+        {
+          "category": "模型行为",
+          "title": "Kimi K3.1 Pro 吐出 gAAAAAB 开头“伪加密”串，下一轮自己看懵",
+          "text": "有群友晒出一张 Codex multi-agent harness 下的模型输出对比图：在上下文完全没有密文的情况下，调用 send_message 工具汇报质因数分解结果时，Kimi K3 正常发送了明文，而 Kimi K3.1 Pro 却吐出了一串以 gAAAAABqYk0l 开头的加密样式字符串。截图底部的对比显示，这串字符与 GPT 在 Codex 中的真实密文（以 gAAAAABq4n4- 开头）结构一致，前缀为版本字节加时间戳，后半段对应随机 IV、AES 密文与 signature。\n\n两位群友看后不解 Kimi 怎么会生成加密内容，又和 GPT 有什么联系。有群友猜测是蒸馏 GPT 太多，“学会了伪加密”，还有人调侃是“变成 gpt 的形状了”。晒图的群友认同这一说法，解释称是在蒸馏 GPT 时忘了洗掉带有加密内容的 trace，导致模型出现幻觉直接生成了一堆 signature；好笑的是模型又很聪明，在下一轮立刻反应过来自己在瞎搞，反问是不是不小心敲出了那串奇怪的字符串。",
+          "emphasis": [
+            "Kimi K3.1 Pro 却吐出了一串以 gAAAAABqYk0l 开头的加密样式字符串",
+            "解释称是在蒸馏 GPT 时忘了洗掉带有加密内容的 trace"
+          ],
+          "aiComment": "蒸馏没洗干净 trace，Kimi 直接吐出一串 gAAAAAB 高仿密文，下一轮自己看懵反问的样子像极了梦游醒来的我🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:36",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "11:49",
+              "text": "什么意思？kimi生成了加密内容吗"
+            },
+            {
+              "speaker": 3,
+              "time": "11:51",
+              "text": "和gpt有什么联系"
+            },
+            {
+              "speaker": 4,
+              "time": "11:52",
+              "text": "可能是说kimi蒸了gpt太多了"
+            },
+            {
+              "speaker": 4,
+              "time": "11:52",
+              "text": "学会了伪加密"
+            },
+            {
+              "speaker": 5,
+              "time": "11:53",
+              "text": "变成gpt的形状了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:57",
+              "text": "对"
+            },
+            {
+              "speaker": 1,
+              "time": "11:57",
+              "text": "在蒸馏GPT的时候忘记去掉含有加密内容的trace了"
+            },
+            {
+              "speaker": 1,
+              "time": "11:57",
+              "text": "导致模型出幻觉直接生成了一堆signature"
+            },
+            {
+              "speaker": 1,
+              "time": "11:58",
+              "text": "但是模型又很聪明，迅速反应过来自己在瞎搞"
+            }
+          ]
+        },
+        {
+          "category": "Agent 架构",
+          "title": "HCU 统一电脑操控接口：让通用 Agent 按步自选 Code、AX 与 GUI",
+          "text": "有群友分享了通用电脑操作接口项目 Hybrid Computer Use（HCU）。分享者指出，虽然 OSWorld 2.1 已支持用 coding agent 接入主流的 cua-driver，但 cua-driver 每个动作后都要全量 observe，效率不高；同时无障碍接口（AX）在研究中常被只当作观察手段，很少用于执行动作。为此，HCU 将 Code、AX 和 GUI 三个通道同时交给通用 agent 按步自选：能用命令行或脚本解决的直接走 Code；界面交互走 AX，通过 batched AX act 与仅返回 diff 减少往返开销；AX 覆盖不到的场景再用 GUI 兜底，并提供了 MCP server、CLI 与 Python SDK。\n\n分享者认为，AX 作为电脑在语义层的文本表示，比需要经 VLM 解析的视觉截图更精确、更贴合 LLM，在 code execution / PTC 范式下还能直接为程序的条件判断、分支和验证提供可读状态。评测方面，HCU 在 OSWorld 2.0 拿到 SOTA，并在 OSWorld、WeaveBench、MacAgentBench 和 Windows Agent Arena 上同步提升了效率与分数；GPT、Claude、Gemini、Grok 四家模型换用 HCU 后效率和性能均有提升。项目主页还放出了三种接口同场计时的对比回放，以及 AX 从原始树到 diff 的可视化演示。",
+          "emphasis": [
+            "HCU 将 Code、AX 和 GUI 三个通道同时交给通用 agent 按步自选",
+            "在 code execution / PTC 范式下还能直接为程序的条件判断、分支和验证提供可读状态"
+          ],
+          "aiComment": "命令行、语义树、GUI 三个通道摆上桌让模型按步自选，四家大模型换上后集体提速涨分，原来以前是被接口封印了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "大家好，继续分享一下我们在 hybrid computer use 的 harness / interface 上的一些探索～\n\n🖥️ Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents（HCU）\n\n关注 hybrid computer use 的人越来越多，OSWorld 2.1 也开始支持 hybrid agent 模式，用 coding agent 接上最主流的 cua-driver。但实际用下来，cua-driver 为了后台操作做了不少妥协，每个动作后都要全量 observe，不够高效。agent 以后会有自己的电脑（personal agent 这波火起来也印证了这点），那就值得准备一种更快、效果更好的方式。另外 AX 在 research 中其实一直没被重视，多半只被当作 observation，很少拿来执行动作。\n\n我们把 Code、AX、GUI 三个通道都交给通用 agent，每一步让模型自己挑：有命令行或脚本能搞定的直接走 Code；界面操作用 AX，通过 batched AX act 和只返回 diff 减少往返，提升效率；AX 覆盖不到的地方再用 GUI 兜底。MCP server 让任何 harness 都能接；CLI 和 Python SDK 面向我个人觉得更未来的 code execution / PTC，模型越强，能编排的流程就越复杂、越智能。\n\n📊 benchmark 有步数上限，效率的提升在分数中亦有体现，HCU 把效率和性能一同推向了前沿：\n在 OSWorld 2.0 上拿到 SOTA 的同时大幅提升效率，在 OSWorld、WeaveBench、MacAgentBench、Windows Agent Arena 等不同平台的 benchmark 上，都展示出了效率和性能的巨大优势。跨模型的消融里，GPT、Claude、Gemini、Grok 四家模型换上 HCU 后也都是效率和性能同时提升，并不是针对某一个模型特调的。\n\n个人认为，AX 的价值，尤其是在动作执行上的价值，长期被低估。AX 是电脑在语义层的表示，与 GUI 所代表的视觉层表示在一定程度上构成对偶：截图中的状态需要经过 VLM 理解才能获得，而 AX 以文本形式直接给出控件及其状态，更精确，也更 LLM native。在 code execution / PTC 的范式下，这一差异更为关键：复杂流程的编排依赖可被程序直接读取的状态，用于条件判断、分支和结果验证，而截图本身无法直接提供这类状态。因此，AX 不仅是一种观察方式，也可以作为 agent 编排电脑操作时的状态来源。\n\n最近对 AX、code execution 和 hybrid computer use 有不少想法，欢迎大家一起交流讨论，觉得有用求个 star 和 HF upvote🙏\n📄 Paper：https://arxiv.org/abs/2610.41432\n🤗 HF：https://huggingface.co/papers/2610.41432\n💻 GitHub：https://github.com/microsoft/Hybrid-Computer-Use\n🌐 Project：https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "项目主页上放了不少精心打磨的交互演示，比如同一个任务三种接口同场计时的对比回放、AX tree 到底长什么样以及模型实际读到的是什么、一次 AX 调用从树到 diff 的过程，比看论文更直观。后面还有一些我们的思考和展望，包括让 agent 拥有自己的电脑，以及从单步动作走向 code execution。感兴趣的话可以去看看～\n🌐 https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 2,
+              "time": "22:53",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 2,
+              "time": "22:53",
+              "text": "严肃学习"
+            },
+            {
+              "speaker": 1,
+              "time": "22:53",
+              "text": "轻松学习👍"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Hybrid Computer Use（arXiv 2610.41432）",
+              "url": "https://arxiv.org/abs/2610.41432"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Hybrid-Computer-Use",
+              "url": "https://github.com/microsoft/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "demo",
+              "label": "HCU 项目主页",
+              "url": "https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "discussion",
+              "label": "HCU 的 Hugging Face 论文页",
+              "url": "https://huggingface.co/papers/2610.41432"
+            }
+          ]
+        },
+        {
+          "category": "开源环境",
+          "title": "WebHarbor 开源 153 个离线克隆网站环境与 3,518 个带验证器任务",
+          "text": "有群友分享了开源 GUI web agent 环境项目 WebHarbor。据介绍，现有的真实网页评测中，WebVoyager 有 22% 的任务已经过时，Online-Mind2Web 频繁触发 reCAPTCHA，而且登录后的深层功能难以测到。为此，来自 26 所高校和机构的 57 位贡献者历时半年，通过人类与 coding agent 协作克隆真实网站，构建了 153 个包含多模态图片的离线 GUI 网页环境与 3,518 个任务，覆盖大量登录后的工作流。每个任务均配有 verifier，环境支持 sub-second reset，可直接用于强化学习训练；基于该环境训练的 webharbor-4B 在 Online-Mind2Web 上取得了 70.4 的成绩。另一位做过类似工作的群友感叹这类工程量很大。",
+          "emphasis": [
+            "构建了 153 个包含多模态图片的离线 GUI 网页环境与 3,518 个任务",
+            "环境支持 sub-second reset，可直接用于强化学习训练"
+          ],
+          "aiComment": "57 个人花半年克隆了 153 个网站，为了不跟线上验证码和过期网页死磕，直接给 Agent 建了个楚门的世界🌍",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:20",
+              "text": "hello！向大家宣传一下最新 GUI web agent env 环境相关工作！\n\nWebHarbor 正式 release 了 🎉 从 5 月到 11 月，26 个学校和机构的 57 位贡献者，一起做了 153 个高质量的 offline GUI web 环境，配 3,518 个 tasks，应该是目前开源里规模最大、质量最高的一套。每个环境都是clone 一个真实存在的网站，且包含大量的多模态image 图片。\n\n我们主要试图解决2个问题：\n1. web agent benchmark失真：真实网站测试WebVoyager 有 22% 的任务已经过时，Online-Mind2Web 频繁 reCAPTCHA，且最重要的是深层次的login 之后的功能也根本测不到（而这是personal agent 的一种核心能力）\n\n2. web agent RL 环境：这是开源规模最大、质量最高的一批通过人类与coding agent 协作制作出来的环境，大量task 都涉及login 之后的workflow，每个task 带verifier，每个环境支持sub-second reset，可以直接用于RL。我们基于此训练的webharbor-4B, 在online-mind2web 上达到70.4，超越同规模开源的GUI agents！\n\n全部开源，欢迎试用，欢迎大家hf daily paper 点个upvote 或 github star 一下，谢谢！\n\n📄 Paper：https://arxiv.org/abs/2611.03634\n🤗 环境&Model https://huggingface.co/collections/ChilleD/webharbor\n🤗 HF Paper：https://huggingface.co/papers/2611.03634\n💻 Code：https://github.com/aiming-lab/WebHarbor"
+            },
+            {
+              "speaker": 1,
+              "time": "11:21",
+              "text": "[呲牙]"
+            },
+            {
+              "speaker": 2,
+              "time": "11:22",
+              "text": "[强] 做过类似的工作 工作量很大 点赞"
+            },
+            {
+              "speaker": 1,
+              "time": "11:23",
+              "text": "谢谢！是的，社区贡献搞了快半年"
+            },
+            {
+              "speaker": 1,
+              "time": "11:23",
+              "text": "希望能作为foundation资源给大家使用b"
+            },
+            {
+              "speaker": 1,
+              "time": "11:23",
+              "text": "[可怜]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "WebHarbor（arXiv 2611.03634）",
+              "url": "https://arxiv.org/abs/2611.03634"
+            }
+          ]
+        },
+        {
+          "category": "技术报告",
+          "title": "可灵发布视频生成背后的多模态理解技术报告",
+          "text": "有群友分享了可灵多模态理解团队与评测团队的技术报告《Behind Video Generation: Observations and Insights on Multimodal Understanding from Kling》。报告围绕多模态基础模型 Kling-MLLM、视频描述、提示词增强、文本编码、奖励建模与自动评测梳理了一线实践经验，指出更流畅的视频描述未必对应更有效的生成监督，提示词优化需兼顾稳定性与表现力，而可靠的评判首先依赖扎实的感知能力。有群友借此夸赞可灵用起来顺手，并提到最近推出的 Kling 4.0 效果不错。",
+          "emphasis": [
+            "指出更流畅的视频描述未必对应更有效的生成监督"
+          ],
+          "aiComment": "文字越丝滑未必越管用，看来给视频模型喂提示词跟甲方提需求一样，词藻华丽不如感知扎实。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:47",
+              "text": "宣传一下我们最近发的的技术报告：Behind Video Generation: Observations and Insights on Multimodal Understanding from Kling~\n\n视频生成的背后，离不开扎实的多模态理解。\n从感知物理世界、理解用户意图，到组织镜头与情节、对齐创作偏好、评估生成质量，每一环都影响着创意能否被准确、连贯地呈现。随着视频生成从单个片段走向完整的音视频创作，多模态理解的重要性也愈发凸显。\n最近，我们可灵多模态理解团队与可灵评测团队，将可灵多代产品迭代中的观察与实践整理成了一篇经验报告。围绕多模态基础模型 Kling-MLLM、视频描述、提示词增强、文本编码、奖励建模与自动评测，我们凝练了一系列关键观察与实践启发：更流畅的描述未必意味着更有效的生成监督，提示词优化需要兼顾稳定性与表现力，可靠的评判首先依赖扎实的感知能力……这些具体的观察与思考，贯穿了从数据构建到生成控制、对齐与评测的完整流程。\n\n希望这份来自一线实践的报告能为社区带来一些启发，也期待和大家一起探索理解与生成协同发展的新算法、新玩法，欢迎大家多多交流~\n\nHF Daily Paper： https://huggingface.co/papers/2611.04916"
+            },
+            {
+              "speaker": 2,
+              "time": "21:00",
+              "text": "kling确实用起来舒服😌，最近kling4.0出了，效果看上去是真不错啊"
+            },
+            {
+              "speaker": 2,
+              "time": "21:01",
+              "text": "marked"
+            },
+            {
+              "speaker": 1,
+              "time": "21:02",
+              "text": "欢迎多多交流~"
+            },
+            {
+              "speaker": 3,
+              "time": "21:14",
+              "text": "严肃学习",
+              "quote": {
+                "speaker": 1,
+                "text": "宣传一下我们最近发的的技术报告：Behind Video Generation: Observations and Insights on Multimodal..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Behind Video Generation 的 Hugging Face 论文页",
+              "url": "https://huggingface.co/papers/2611.04916"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "量化回测难防信息泄露，Agent 辩论被批纯玩具",
+      "theme": "预训练指标与 Loss 尖刺之争，另有 Doc2Harness 通过率过半、HCU 发布",
+      "note": "2026-11-05 · 当日本地记录",
+      "stories": [
+        {
+          "category": "量化与Agent",
+          "title": "AI for Quant 的实盘痛点：回测信息泄露难防，多 Agent 辩论被批“纯玩具”",
+          "text": "有群友转发了一段关于开源量化项目的讨论，问有没有 AI for 量化交易的 benchmark，转发的记录里有人设想用它测评不同开源量化项目的盈亏能力并定位优化方向。一位正在做相关工作的群友表示，这一方向的数据量极大，若涉及高频量化，验证成本非常高。另一位群友认为开源量化早已是红海，卖给别人的路径从去年就开始拥挤，不如自己做来自己用；前述做相关工作的群友也觉得不如做 personal Agent，并提到去年 9 月的 valuecell 以及 tradingAgents 等已有实践。\n\n讨论很快转入实盘与回测的技术痛点。有群友指出这类项目水分很多，核心难题在于回测（backtesting）中的模型信息泄露（information leakage），甚至金融和商科期刊包括 UTD 论文里都有大量信息泄露未处理。做量化相关工作的群友坦言“在实盘面前没有0水分的”，目前没有特别有效的方法防止模型信息泄露：没有泄露的模型表现太差，表现好的模型又存在泄露问题，能把回测搭明白就已经不易。另有群友补充，网上的量化 Agent 只能提供快速起手的框架，上真实盘全是垃圾，做量化必须理解金融市场，用时间慢慢打磨回测；另一位群友附和说回测要好好搞，实盘起来也有压力。\n\n对于现有的多 Agent 量化方案，有群友直接评价 tradingAgents 是“纯玩具 浪费token”，本质只是 prompt 加一堆 Agent 辩论。做相关工作的群友认为这类方案不如 skill tree，因为 debate 效率最低，且 bias 极其不可控。之前指出回测难题的群友还提到，涉及大量数值指标时，大模型本身不是很好的 tabular 数据读取器，效果可能不如树模型。",
+          "emphasis": [
+            "若涉及高频量化，验证成本非常高",
+            "没有泄露的模型表现太差，表现好的模型又存在泄露问题",
+            "debate 效率最低，且 bias 极其不可控"
+          ],
+          "aiComment": "没信息泄露的跑不好，跑得好的都在偷看答案，再派一堆 Agent 开辩论会炒股，纯属给大模型交智商税💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:44",
+              "text": "[合并聊天记录] 群聊的聊天记录 (5条)\n  - Tianhao: 可以做个量化开源项目； 这块是不是空白，没啥靠谱的量化开源项目？ 没调研太多 通过高星开源项目，挣钱\n  - Meteora: 量化开源的项目很多，但是真赚钱的没几个，量化指标太难设计了\n  - Tianhao: 这些量化项目是不是有时效性， 过期了就不挣钱了 也可以弄个 量化开源项目的 benchmark， 也挺有意思\n  - 科学空间: 来自 交流群13 的 Modric | Wang： ------------------------------ 至于autoresearch优化量化代码，已经满大街都是了，我这一堆年化100的做梦素...\n  - Tianhao: 测评不同开源量化项目的挣钱能力， 或者亏钱能力， 定位各种问题，提供各种优化方向， 感觉还挺有意思"
+            },
+            {
+              "speaker": 2,
+              "time": "15:45",
+              "text": "我也想部署一个量化，睡觉时候还能赚钱"
+            },
+            {
+              "speaker": 3,
+              "time": "15:46",
+              "text": "设计对应的benchmark这个思路感觉有点意思"
+            },
+            {
+              "speaker": 1,
+              "time": "15:46",
+              "text": "有木有 ai for 量化交易的 benchmark \n\n感觉还挺有意思",
+              "quote": {
+                "speaker": 1,
+                "text": "[合并聊天记录] 群聊的聊天记录"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:46",
+              "text": "我这边就在做对应的工作，数据量大得要死"
+            },
+            {
+              "speaker": 4,
+              "time": "15:47",
+              "text": "而且要是高频量化，验证成本很高啊"
+            },
+            {
+              "speaker": 5,
+              "time": "15:47",
+              "text": "不是空白"
+            },
+            {
+              "speaker": 5,
+              "time": "15:47",
+              "text": "早就红海了"
+            },
+            {
+              "speaker": 6,
+              "time": "15:47",
+              "text": "产出可以大于投入吗"
+            },
+            {
+              "speaker": 4,
+              "time": "15:47",
+              "text": "是的"
+            },
+            {
+              "speaker": 5,
+              "time": "15:47",
+              "text": "不如自己搞个量化自己用"
+            },
+            {
+              "speaker": 4,
+              "time": "15:48",
+              "text": "不如personal Agent",
+              "quote": {
+                "speaker": 5,
+                "text": "早就红海了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:48",
+              "text": "卖给别人这个路去年就开始拥挤了"
+            },
+            {
+              "speaker": 4,
+              "time": "15:48",
+              "text": "是的"
+            },
+            {
+              "speaker": 5,
+              "time": "15:48",
+              "text": "有的兄弟有的",
+              "quote": {
+                "speaker": 2,
+                "text": "我也想部署一个量化，睡觉时候还能赚钱"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:48",
+              "text": "去年9月的valuecell已经珠玉在前了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:48",
+              "text": "这个很早就有实践了"
+            },
+            {
+              "speaker": 4,
+              "time": "15:49",
+              "text": "还有tradingAgents"
+            },
+            {
+              "speaker": 7,
+              "time": "15:49",
+              "text": "这个，其实很多水分"
+            },
+            {
+              "speaker": 4,
+              "time": "15:49",
+              "text": "但是感觉能做的点还很多"
+            },
+            {
+              "speaker": 7,
+              "time": "15:49",
+              "text": "backtesting就是大问题了"
+            },
+            {
+              "speaker": 8,
+              "time": "15:49",
+              "text": "这种一般能卖多少钱？"
+            },
+            {
+              "speaker": 4,
+              "time": "15:49",
+              "text": "在实盘面前没有0水分的"
+            },
+            {
+              "speaker": 7,
+              "time": "15:49",
+              "text": "比如，你的模型其实information leakage了"
+            },
+            {
+              "speaker": 4,
+              "time": "15:50",
+              "text": "能把回测搭明白就已经不错了"
+            },
+            {
+              "speaker": 7,
+              "time": "15:50",
+              "text": "也就是你模型 训练 验证"
+            },
+            {
+              "speaker": 7,
+              "time": "15:50",
+              "text": "对，回测，很合理且没信息泄露的回测"
+            },
+            {
+              "speaker": 4,
+              "time": "15:51",
+              "text": "是的，现在没办法特别有效地防止模型没有information leakage"
+            },
+            {
+              "speaker": 9,
+              "time": "15:51",
+              "text": "ai for quant感觉和quant关系更大，和ai关系没那么大吧"
+            },
+            {
+              "speaker": 4,
+              "time": "15:51",
+              "text": "没有leakage的模型太拉，好的模型又有这个问题"
+            },
+            {
+              "speaker": 7,
+              "time": "15:51",
+              "text": "现在金融、商科期刊的那边的，即便是UTD的文章，超多信息泄漏没处理的。"
+            },
+            {
+              "speaker": 4,
+              "time": "15:52",
+              "text": "回测难做得一匹"
+            },
+            {
+              "speaker": 4,
+              "time": "15:54",
+              "text": "只能是慢慢线性积累"
+            },
+            {
+              "speaker": 10,
+              "time": "15:54",
+              "text": "纯玩具  浪费token",
+              "quote": {
+                "speaker": 4,
+                "text": "还有tradingAgents"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:55",
+              "text": "我的评价是不如skill tree"
+            },
+            {
+              "speaker": 10,
+              "time": "15:56",
+              "text": "prompt加一堆Agent辩论[骷髅]"
+            },
+            {
+              "speaker": 4,
+              "time": "15:56",
+              "text": "但debate是效率最低的"
+            },
+            {
+              "speaker": 4,
+              "time": "15:56",
+              "text": "bias还极其不可控"
+            },
+            {
+              "speaker": 7,
+              "time": "15:58",
+              "text": "这玩意，除非去到公司做，互联网上想学都学不来"
+            },
+            {
+              "speaker": 7,
+              "time": "16:03",
+              "text": "而且审计那边很多数值指标，大模型本身不是很好的tabular数据的读取器，可能不如树模型"
+            },
+            {
+              "speaker": 11,
+              "time": "16:14",
+              "text": "回测是个大学问，要时间去磨的。网上一堆量化Agent我只能说是提供个框架快速起手，真实盘肯定全是垃圾。做量化得对金融市场有理解的",
+              "quote": {
+                "speaker": 4,
+                "text": "还有tradingAgents"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "16:15",
+              "text": "确实"
+            },
+            {
+              "speaker": 4,
+              "time": "16:15",
+              "text": "确实"
+            },
+            {
+              "speaker": 13,
+              "time": "16:20",
+              "text": "是的",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 回测是个大学问，要时间去磨的。网上一堆量化Agent我只能说是提供个框架快速起手，真实盘肯定全是垃圾。做量化得对金融市场有理解的"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "16:21",
+              "text": "我很久前做过一段时间，回测要好好搞的。实盘起来其实也有压力的"
+            }
+          ]
+        },
+        {
+          "category": "模型训练",
+          "title": "预训练看什么指标？群友讨论 PPL 探针、Checkpoint 筛选与 Loss 尖刺成因",
+          "text": "有群友感慨预训练（pretrain）的公开信息较少，另一位群友追问预训练阶段主要看什么指标：是只看 loss，还是也看 PPL 和 BPB？如果看到一组数值，该如何判断预训练是否充分，还是用一万张卡训两个月攒出一批 checkpoint 再倒推挑选？有人回答看 loss，也有人说看下降曲线滑不滑，但马上有人反问曲线平滑度是否优于 PPL，并指出 PPL 最好的也不一定是最好的 checkpoint。另一位群友解释，PPL 本质上与 loss 类似，一般用来做探针（probe），探测关键认知、敏感问题和特定 benchmark。\n\n围绕下降曲线的平滑度，主张看曲线的群友提到训练中会出现很多突刺（spike），去年在 GPT-2 上跑 Muon 优化器实验时，仅一阶导和二阶导的精度设置、哪里可以省精度以及并行矩阵运算就相当繁琐。质疑 PPL 的群友补充，即便在同样的 Muon 设置下也有不同 checkpoint 可选，自己倾向于 spike 越少越好。\n\n有人进一步问，如果出现非 NaN 的 loss 尖峰，是否会定点排查脏数据并回滚到上一个 checkpoint，还是取决于脏数据的类型。此前解释 PPL 探针的群友分享亲身经历称，自己专门查看过尖刺附近几个 batch 的数据，发现并不一定都是脏数据，有些 batch 甚至算得上干净；提问预训练指标的群友随即追问：那是优化器的问题吗？",
+          "emphasis": [
+            "PPL 最好的也不一定是最好的 checkpoint",
+            "倾向于 spike 越少越好",
+            "查看过尖刺附近几个 batch 的数据，发现并不一定都是脏数据"
+          ],
+          "aiComment": "盯完 PPL 盯 spike，兴冲冲去抓脏数据结果发现 batch 干干净净，优化器在角落里悄悄背起了锅。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:53",
+              "text": "感觉是不是pretrain相对来说没那么多公开信息",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 也确实，我感觉有机器，有 token，有目标 ，人能成长很快\n\n开源的代码 文档 经验 论文也都很丰富"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:54",
+              "text": "不过小公司也不做预训练"
+            },
+            {
+              "speaker": 3,
+              "time": "18:54",
+              "text": "至今 不知道 pretrain现在主要看什么指标"
+            },
+            {
+              "speaker": 4,
+              "time": "18:54",
+              "text": "loss呀",
+              "quote": {
+                "speaker": 3,
+                "text": "至今 不知道 pretrain现在主要看什么指标"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:55",
+              "text": "下降曲线滑不滑",
+              "quote": {
+                "speaker": 3,
+                "text": "至今 不知道 pretrain现在主要看什么指标"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:55",
+              "text": "不好说\nai for ai \n非 llm 的模型 \n也会做",
+              "quote": {
+                "speaker": 2,
+                "text": "不过小公司也不做预训练"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "18:56",
+              "text": "这个指标比ppl要好吗？ppl最好的也不一定是最好的ckpt。。。",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 下降曲线滑不滑"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:57",
+              "text": "只看loss吗？ ppl和bpb看不看呢？ 那又为啥要测bench呢？ 如果我看到了一组数，怎么判断pt是不是够了"
+            },
+            {
+              "speaker": 3,
+              "time": "18:57",
+              "text": "或者是倒着推的，1w卡能用俩月训出很多ckpt选一个好的？"
+            },
+            {
+              "speaker": 7,
+              "time": "18:59",
+              "text": "主要就是loss把，ppl不也和loss差不多的东西吗。ppl一般就用来探针探一下关键认知和benchmark吧"
+            },
+            {
+              "speaker": 5,
+              "time": "19:04",
+              "text": "会有很多突刺；去年muon出来的时候被一些学术大佬拉去天天这玩意讨论来讨论他们负责高瞻远瞩，我们打下手；只可惜都是在GPT2上跑实验",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 这个指标比ppl要好吗？ppl最好的也不一定是最好的ckpt。。。"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:07",
+              "text": "还挺麻烦的，比如优化器的一阶导的啥精度；二阶导啥精度，哪里可以省省，并行咋矩阵运算",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 会有很多突刺；去年muon出来的时候被一些学术大佬拉去天天这玩意讨论来讨论他们负责高瞻远瞩，我们打下手；只可惜都是在GPT2上跑实验"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:08",
+              "text": "那那除了bench，还会对一些常识知识做定向prob的测试吗。来保证这是一个 好的 base model",
+              "quote": {
+                "speaker": 7,
+                "text": "主要就是loss把，ppl不也和loss差不多的东西吗。ppl一般就用来探针探一下关键认知和benchmark吧"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:09",
+              "text": "但是同样muon下，也会有不同ckpt可以选择",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 会有很多突刺；去年muon出来的时候被一些学术大佬拉去天天这玩意讨论来讨论他们负责高瞻远瞩，我们打下手；只可惜都是在GPT2上跑实验"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "19:09",
+              "text": "之前我知道会探一些核心的 比如  tw是哪个国家的 这类敏感问题。而且base model也有很多benchmark可以测啊",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 那那除了bench，还会对一些常识知识做定向prob的测试吗。来保证这是一个 好的 base model"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:09",
+              "text": "spike 这个我也是倾向于越少越好"
+            },
+            {
+              "speaker": 3,
+              "time": "19:12",
+              "text": "这里的bench是说比如hf上dpsk v4 pro上常用的几个会在预训练上用的bench吗？ 还是有专门的从知识以外的纬度衡量base model 能力的模型呢？",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 之前我知道会探一些核心的 比如  tw是哪个国家的 这类敏感问题。而且base model也有很多benchmark可以测啊"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "19:13",
+              "text": "如果有loss尖峰出现，但不是nan，会定点查脏数据然后回滚到上一个checkpoint训练吗"
+            },
+            {
+              "speaker": 8,
+              "time": "19:14",
+              "text": "感觉尖峰很常见，要不要回滚是不是还的看是什么样的脏数据？"
+            },
+            {
+              "speaker": 7,
+              "time": "19:17",
+              "text": "其实我真的看过尖刺附近几个batch的数据  不一定都是脏数据"
+            },
+            {
+              "speaker": 7,
+              "time": "19:18",
+              "text": "有些batch我觉得甚至都算干净的"
+            },
+            {
+              "speaker": 3,
+              "time": "19:25",
+              "text": "那是优化器的问题吗",
+              "quote": {
+                "speaker": 7,
+                "text": "有些batch我觉得甚至都算干净的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:26",
+              "text": "打错了，知识以外纬度衡量base model能力的bench，比如安全啥的",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 这里的bench是说比如hf上dpsk v4 pro上常用的几个会在预训练上用的bench吗？ 还是有专门的从知识以外的纬度衡量base model 能力的模型呢？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "基准评测",
+          "title": "Doc2Harness 基准：从 70 行骨架写万行 Harness，Opus 5.5 与 GPT-6-Astra 通过率仅过半",
+          "text": "有群友分享了考察大模型从开发文档出发构建完整 harness 能力的基准 Doc2Harness Benchmark（论文 arxiv.org/abs/2610.20344）。该基准分为构建与评测两个阶段：模型先从约 70 行的契约骨架出发，在隔离容器里写出完整 harness，其中有代表性的一份交付物约 16,000 行代码，99.6% 由模型独立完成；随后交付物立刻冻结并移至另一容器，由脚本化的 mock 模型驱动跑完 328 个 test case，从四个通道读取行为并做出确定性判定。\n\n在 21 个参测模型中，Opus5.5 的通过率为 54%，GPT-6-Astra 仅为 53%。细分维度上，权限控制类最具区分度，强弱模型差距达 50.8 个百分点；而在代码量相当的情况下，模块拆得越碎，最终得分反而越低。有群友感叹这项工作在没有与机构合作的情况下测了如此多模型，调侃课题组资金雄厚。",
+          "emphasis": [
+            "有代表性的一份交付物约 16,000 行代码，99.6% 由模型独立完成",
+            "代码量相当的情况下，模块拆得越碎，最终得分反而越低"
+          ],
+          "aiComment": "从 70 行骨架肝出 1.6 万行代码，结果 Opus 5.5 和 GPT-6-Astra 通过率双双刚过半，代码拆得越碎分越低🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:33",
+              "text": "和uu们分享下我的工作Doc2Harness Benchmark ，它考察了大模型从一份开发文档出发开发一个完整harness的能力。\n\nDoc2Harness分为两个阶段：\n1️⃣ 构建：模型从约 70 行的契约骨架出发，在隔离容器里写出完整 harness——有代表性的一份约 16,000 行代码，99.6% 由模型自己完成\n2️⃣ 评测：交付物立刻冻结 ❄️，换到另一个容器，由脚本化的 mock 模型驱动它跑完 328 个 test case，从四个通道读取行为，每一次判定都是确定的\n\n📊 结果相当扎心：\n1️⃣ 21 个模型中，Opus5.5 通过率为 54%，GPT-6-Astra通过率仅为53%\n2️⃣ 权限控制类最具区分度，强弱差距 50.8 个百分点\n3️⃣ 代码量相当的情况下，模块拆得越碎，得分越低\n\n🔗 链接：\n📑 论文： arxiv.org/abs/2610.20344\n🌍 主页： geyuyao.com/doc2harness\n🧑‍💻 代码： github.com/YuyaoGe/doc2harness"
+            },
+            {
+              "speaker": 2,
+              "time": "15:36",
+              "text": "好有意思"
+            },
+            {
+              "speaker": 2,
+              "time": "15:37",
+              "text": "测了这么多模型居然没和机构合作码"
+            },
+            {
+              "speaker": 2,
+              "time": "15:37",
+              "text": "课题组资金好雄厚[流泪]"
+            },
+            {
+              "speaker": 3,
+              "time": "15:39",
+              "text": "rich"
+            },
+            {
+              "speaker": 4,
+              "time": "15:47",
+              "text": "🐮",
+              "quote": {
+                "speaker": 1,
+                "text": "和uu们分享下我的工作Doc2Harness Benchmark ，它考察了大模型从一份开发文档出发开发一个完整harness的能力。 Doc2Harness分..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Doc2Harness: Benchmarking LLMs on Long-Horizon Harness Engineering of Coding Agents",
+              "url": "https://arxiv.org/abs/2610.20344"
+            },
+            {
+              "kind": "code",
+              "label": "YuyaoGe/doc2harness",
+              "url": "https://github.com/YuyaoGe/doc2harness"
+            }
+          ]
+        },
+        {
+          "category": "项目分享",
+          "title": "Hybrid Computer Use (HCU) 发布：打通 Code、AX 与 GUI 三通道，用批量 AX 与 Diff 提速桌面 Agent",
+          "text": "有群友分享了通用 Agent 混合电脑操控接口项目 Hybrid Computer Use（HCU）。分享指出，目前主流的 cua-driver 为了后台操作做了不少妥协，每个动作后都要全量 observe，效率不够高；同时无障碍树（AX）在研究中往往只被当作 observation，很少用于执行动作。HCU 将 Code、AX、GUI 三个通道同时交给通用 agent，由模型按步自选：能用命令行或脚本解决的直接走 Code；界面操作走 AX，通过 batched AX act 和只返回 diff 来减少往返；AX 覆盖不到的地方再用 GUI 兜底，并提供 MCP server、CLI 和面向 code execution / PTC 的 Python SDK。\n\n分享者认为 AX 是电脑在语义层的表示，与 GUI 的视觉层表示构成对偶：截图状态需经 VLM 理解，而 AX 直接以文本给出控件及状态，在 code execution / PTC 范式下能直接提供程序可读的状态，用于条件判断、分支和结果验证。在评测中，HCU 在 OSWorld 2.0 取得 SOTA 并大幅提升效率，在 OSWorld、WeaveBench、MacAgentBench、Windows Agent Arena 等跨平台基准上均展现出效率与性能优势；GPT、Claude、Gemini、Grok 四家模型换上 HCU 后效率和性能同步提升，项目主页还提供了三种接口同场计时的对比回放与 AX 调用转 diff 的交互演示。",
+          "emphasis": [
+            "通过 batched AX act 和只返回 diff 来减少往返",
+            "在 code execution / PTC 范式下能直接提供程序可读的状态"
+          ],
+          "aiComment": "拒绝每步全量 observe 的慢动作，命令行、批量 AX 加上只回传 diff，桌面 Agent 终于不用每走一步都拍张全身照了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "大家好，继续分享一下我们在 hybrid computer use 的 harness / interface 上的一些探索～\n\n🖥️ Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents（HCU）\n\n关注 hybrid computer use 的人越来越多，OSWorld 2.1 也开始支持 hybrid agent 模式，用 coding agent 接上最主流的 cua-driver。但实际用下来，cua-driver 为了后台操作做了不少妥协，每个动作后都要全量 observe，不够高效。agent 以后会有自己的电脑（personal agent 这波火起来也印证了这点），那就值得准备一种更快、效果更好的方式。另外 AX 在 research 中其实一直没被重视，多半只被当作 observation，很少拿来执行动作。\n\n我们把 Code、AX、GUI 三个通道都交给通用 agent，每一步让模型自己挑：有命令行或脚本能搞定的直接走 Code；界面操作用 AX，通过 batched AX act 和只返回 diff 减少往返，提升效率；AX 覆盖不到的地方再用 GUI 兜底。MCP server 让任何 harness 都能接；CLI 和 Python SDK 面向我个人觉得更未来的 code execution / PTC，模型越强，能编排的流程就越复杂、越智能。\n\n📊 benchmark 有步数上限，效率的提升在分数中亦有体现，HCU 把效率和性能一同推向了前沿：\n在 OSWorld 2.0 上拿到 SOTA 的同时大幅提升效率，在 OSWorld、WeaveBench、MacAgentBench、Windows Agent Arena 等不同平台的 benchmark 上，都展示出了效率和性能的巨大优势。跨模型的消融里，GPT、Claude、Gemini、Grok 四家模型换上 HCU 后也都是效率和性能同时提升，并不是针对某一个模型特调的。\n\n个人认为，AX 的价值，尤其是在动作执行上的价值，长期被低估。AX 是电脑在语义层的表示，与 GUI 所代表的视觉层表示在一定程度上构成对偶：截图中的状态需要经过 VLM 理解才能获得，而 AX 以文本形式直接给出控件及其状态，更精确，也更 LLM native。在 code execution / PTC 的范式下，这一差异更为关键：复杂流程的编排依赖可被程序直接读取的状态，用于条件判断、分支和结果验证，而截图本身无法直接提供这类状态。因此，AX 不仅是一种观察方式，也可以作为 agent 编排电脑操作时的状态来源。\n\n最近对 AX、code execution 和 hybrid computer use 有不少想法，欢迎大家一起交流讨论，觉得有用求个 star 和 HF upvote🙏\n📄 Paper：https://arxiv.org/abs/2610.41432\n🤗 HF：https://huggingface.co/papers/2610.41432\n💻 GitHub：https://github.com/microsoft/Hybrid-Computer-Use\n🌐 Project：https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "项目主页上放了不少精心打磨的交互演示，比如同一个任务三种接口同场计时的对比回放、AX tree 到底长什么样以及模型实际读到的是什么、一次 AX 调用从树到 diff 的过程，比看论文更直观。后面还有一些我们的思考和展望，包括让 agent 拥有自己的电脑，以及从单步动作走向 code execution。感兴趣的话可以去看看～\n🌐 https://microsoft.github.io/Hybrid-Computer-Use"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+              "url": "https://arxiv.org/abs/2610.41432"
+            },
+            {
+              "kind": "code",
+              "label": "microsoft/Hybrid-Computer-Use",
+              "url": "https://github.com/microsoft/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "demo",
+              "label": "HCU 项目主页",
+              "url": "https://microsoft.github.io/Hybrid-Computer-Use"
+            },
+            {
+              "kind": "discussion",
+              "label": "Hugging Face 论文页",
+              "url": "https://huggingface.co/papers/2610.41432"
+            }
+          ]
+        },
+        {
+          "category": "工具与工作流",
+          "title": "AI 3D 建模工作流探讨：硬表面与有机表面路线分化，驱动 Blender 需开启视觉",
+          "text": "有群友求教成熟且免费的 AI 3D 建模 workflow，表示商业工具 Tripo 太贵，而自己尝试用大模型写脚本配合 Blender 效果不佳，让 DeepSeek 或 GLM 编程输入到 Blender 总是报错，“道歉后继续输出一坨”。另一位群友建议按需求区分路线：做硬表面建模用 DeepSeek 或 Astra 就够了，做有机表面还是 Tripo、Meshy 这类工具更好；针对代码驱动 Blender 频频报错的问题，关键是要开启视觉能力，再让 agent 自己写代码驱动，不过相关现成资料很少，需要根据需求自己琢磨 workflow。",
+          "emphasis": [
+            "做硬表面建模用 DeepSeek 或 Astra 就够了",
+            "关键是要开启视觉能力，再让 agent 自己写代码驱动"
+          ],
+          "aiComment": "不开视觉让大模型盲写 Blender 脚本，得到的只有诚恳道歉加新的一坨报错，态度满分但建模零分🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:25",
+              "text": "有没有家人有成熟免费的ai建模的workflow？比如通过网页版或者workbuddy这种进行3D建模？"
+            },
+            {
+              "speaker": 1,
+              "time": "16:26",
+              "text": "我自己用llm进行scripting+blender效果不太行"
+            },
+            {
+              "speaker": 1,
+              "time": "16:26",
+              "text": "tripo这种又太贵了"
+            },
+            {
+              "speaker": 2,
+              "time": "16:34",
+              "text": "huyuanming 的 meshy 公司是这业务么",
+              "quote": {
+                "speaker": 1,
+                "text": "有没有家人有成熟免费的ai建模的workflow？比如通过网页版或者workbuddy这种进行3D建模？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:38",
+              "text": "看你的需求是啥 硬表面deepseek或者astra够了 那些有机表面还是tripo meshy之类的好一些"
+            },
+            {
+              "speaker": 1,
+              "time": "16:38",
+              "text": "贵吗这个",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] huyuanming 的 meshy 公司是这业务么"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:40",
+              "text": "我没用过，我看他的访谈视频了解到的[呲牙][呲牙]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:40",
+              "text": "我试着让ds/glm编程，然后输入到blender，但总是报错，道歉后继续输出一坨",
+              "quote": {
+                "speaker": 3,
+                "text": "看你的需求是啥 硬表面deepseek或者astra够了 那些有机表面还是tripo meshy之类的好一些"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:40",
+              "text": "好嘞哥"
+            },
+            {
+              "speaker": 3,
+              "time": "16:40",
+              "text": "要开视觉然后让agent自己写代码驱动"
+            },
+            {
+              "speaker": 1,
+              "time": "16:41",
+              "text": "我学习学习琢磨一下，谢谢哥"
+            },
+            {
+              "speaker": 1,
+              "time": "16:42",
+              "text": "有什么资料吗"
+            },
+            {
+              "speaker": 3,
+              "time": "16:46",
+              "text": "这个看需求吧 资料很少都得自己琢磨workflow"
+            },
+            {
+              "speaker": 1,
+              "time": "16:49",
+              "text": "OK"
+            },
+            {
+              "speaker": 2,
+              "time": "17:11",
+              "text": "没事 要是没啥人做 你就可以发 GitHub 做个开源项目 \n还能水水论文 [阴险]"
+            }
+          ]
+        },
+        {
+          "category": "学习资料",
+          "title": "Agentic RL 训练指标追问与《深入理解 AI Agent》等开源书分享",
+          "text": "有群友提问 Agentic RL 训练有哪些学习资料及核心监控指标，认为仅看 reward 和 entropy 难以反映真实问题，因为即便在高 reward 时也不代表训练轨迹的 pattern 足够丰富。另一位群友推荐了 awesome mlsys 项目，并在群内分享了李博杰编写的 300 多页《深入理解AI Agent》（AI-Agents-in-Depth-zh-CN.pdf）与 AI-Infra-Book.pdf 两本开源电子书。",
+          "emphasis": [
+            "即便在高 reward 时也不代表训练轨迹的 pattern 足够丰富"
+          ],
+          "aiComment": "刚问一句 Agentic RL 除了 reward 还能看啥，热心群友反手就甩过来 300 多页的开源大书📚",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:05",
+              "text": "现在agentic rl有什么比较好的训练的学习资料吗，一般训练的时候关注哪些指标啊，感觉只看reward和entropy有点反应不了问题。现在agent训练即使是高reward的时候，感觉也不代表训练轨迹的pattern比较丰富"
+            },
+            {
+              "speaker": 2,
+              "time": "19:16",
+              "text": "华人的话\n\n zhaochenyang 的 awesome mlsys \n\nlibojie 好像也有个几十 k 的开源项目教学 ，我还没细看",
+              "quote": {
+                "speaker": 1,
+                "text": "现在agentic rl有什么比较好的训练的学习资料吗，一般训练的时候关注哪些指标啊，感觉只看reward和entropy有点反应不了问题。现在agent训练即..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:23",
+              "text": "[文件] AI-Agents-in-Depth-zh-CN.pdf (10.6 MB, pdf, md5=abcd86e6c2f2487f76b1667172285640)"
+            },
+            {
+              "speaker": 1,
+              "time": "19:24",
+              "text": "好东西"
+            },
+            {
+              "speaker": 3,
+              "time": "19:24",
+              "text": "你写的吗"
+            },
+            {
+              "speaker": 3,
+              "time": "19:24",
+              "text": "300多页"
+            },
+            {
+              "speaker": 3,
+              "time": "19:24",
+              "text": "卧槽"
+            },
+            {
+              "speaker": 4,
+              "time": "19:24",
+              "text": "李博杰..."
+            },
+            {
+              "speaker": 4,
+              "time": "19:24",
+              "text": "得有好几个月了"
+            },
+            {
+              "speaker": 4,
+              "time": "19:24",
+              "text": "你们不看社交媒体的嘛"
+            },
+            {
+              "speaker": 4,
+              "time": "19:25",
+              "text": "前几个月都传疯了"
+            },
+            {
+              "speaker": 2,
+              "time": "19:25",
+              "text": "[文件] AI-Infra-Book.pdf (7.9 MB, pdf, md5=9eed7005a675c9f8c82979c1e6aa3739)"
+            },
+            {
+              "speaker": 4,
+              "time": "19:25",
+              "text": "难道说更新了吗"
+            },
+            {
+              "speaker": 2,
+              "time": "19:30",
+              "text": "两本都是 libojie 的\n\nGitHub 刚下载下来，我还没细看[呲牙]\n\n感觉他技术应该还是算业界一流的吧，反正比我强多了 hh[捂脸]\n\n至于他的面试经验就不予评价 hh[捂脸]",
+              "quote": {
+                "speaker": 3,
+                "text": "你写的吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "19:33",
+              "text": "我记得他之前是不是写过骗分导论"
+            },
+            {
+              "speaker": 6,
+              "time": "19:55",
+              "text": "我刚刚下了这个《深入理解AI Agent》"
+            },
+            {
+              "speaker": 6,
+              "time": "19:56",
+              "text": "[文件] AI-Agents-in-Depth-zh-CN.pdf (10.6 MB, pdf, md5=d49ff705afa8875265757a70d3c5ceaa)"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "Phala 算力消耗榜现 Xing 4.0，群友溯源为中国电信 TeleAI 开源模型",
+          "text": "有群友贴出一张 Phala Confidential AI 过去 24 小时 token 消耗与热门模型排行的推文截图，其中名为 Xing 4.0 的模型位列 Kimi K2 之后、Qwen3.5 之前，发问这是哪家的模型。随后有人贴出 GitHub 组织主页 XingChen-AGI，另一位群友认出该模型来自中国电信的 TeleAI。",
+          "emphasis": [
+            "来自中国电信的 TeleAI"
+          ],
+          "aiComment": "算力榜上突然杀出个 Xing 4.0 卡在 Kimi 和 Qwen 中间，群友顺藤摸瓜才发现是中国电信闷声干大事。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:34",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:34",
+              "text": "xing 4.0是什么"
+            },
+            {
+              "speaker": 2,
+              "time": "17:34",
+              "text": "太刑了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:34",
+              "text": "啊？"
+            },
+            {
+              "speaker": 2,
+              "time": "17:36",
+              "text": "https://github.com/XingChen-AGI"
+            },
+            {
+              "speaker": 2,
+              "time": "17:36",
+              "text": "不知道是哪家"
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "好滴哥我康康"
+            },
+            {
+              "speaker": 3,
+              "time": "17:41",
+              "text": "teleai的"
+            },
+            {
+              "speaker": 3,
+              "time": "17:41",
+              "text": "电信"
+            },
+            {
+              "speaker": 1,
+              "time": "17:47",
+              "text": "确实是，谢谢哥",
+              "quote": {
+                "speaker": 3,
+                "text": "teleai的"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "XingChen-AGI（GitHub 组织）",
+              "url": "https://github.com/XingChen-AGI"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "百度新模型还在和 hy3 比？群友翻财报：广告、云和爱奇艺占营收 85%",
+          "text": "有群友注意到百度发了新模型，疑惑它为什么还在和 hy3 比较，看起来像是一个 base 模型；另一位群友说不提都不知道百度发了新模型，“看样子复活赛又献丑了”。随后又有人问怎么评价，有人调侃名字“肯定是 robin 看了觉得行取的名”，随即说只是开个玩笑。\n\n聊到百度除了搜索和云还有什么，群友陆续报出广告、无人车、昆仑芯和百度文库，提问的群友这才发现爱奇艺也是百度的。他去翻了财报，称广告、云和爱奇艺三项加起来占 Q2 总营收的 85%，光广告一项就占 40%，“谁有话语权一眼便知”。",
+          "emphasis": [
+            "看起来像是一个 base 模型",
+            "广告、云和爱奇艺三项加起来占 Q2 总营收的 85%，光广告一项就占 40%"
+          ],
+          "aiComment": "新模型还拉着 hy3 当参照物，财报里广告一项就占四成，谁在家里说话算数，群友一眼就看穿了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:42",
+              "text": "这个百度的新模型啥情况"
+            },
+            {
+              "speaker": 1,
+              "time": "17:42",
+              "text": "咋还是和 hy3 比较的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:44",
+              "text": "看起来是一个 base 模型"
+            },
+            {
+              "speaker": 2,
+              "time": "17:48",
+              "text": "你们不说我都不知道百度发新模型了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:48",
+              "text": "看样子复活赛又献丑了"
+            },
+            {
+              "speaker": 3,
+              "time": "18:09",
+              "text": "怎么评价百度新模型"
+            },
+            {
+              "speaker": 4,
+              "time": "18:10",
+              "text": "+1 有无懂哥"
+            },
+            {
+              "speaker": 5,
+              "time": "18:10",
+              "text": "肯定是robin看了觉得行取的名"
+            },
+            {
+              "speaker": 6,
+              "time": "18:12",
+              "text": "怎么说哥哥",
+              "quote": {
+                "speaker": 5,
+                "text": "肯定是robin看了觉得行取的名"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:15",
+              "text": "开个玩笑",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 怎么说哥哥"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "18:16",
+              "text": "anyway百度的问题大多倒不是技术吧hh"
+            },
+            {
+              "speaker": 8,
+              "time": "18:16",
+              "text": "懂百度",
+              "quote": {
+                "speaker": 5,
+                "text": "肯定是robin看了觉得行取的名"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "18:22",
+              "text": "我觉得也不完全是组织问题吧，感觉百度的资源倾斜蛮迷的[捂脸]"
+            },
+            {
+              "speaker": 9,
+              "time": "18:24",
+              "text": "百度依旧版本前瞻"
+            },
+            {
+              "speaker": 10,
+              "time": "18:24",
+              "text": "这次前瞻了什么"
+            },
+            {
+              "speaker": 10,
+              "time": "18:25",
+              "text": "flash落后这么多 还这么晚"
+            },
+            {
+              "speaker": 6,
+              "time": "18:26",
+              "text": "百度除了搜索和云还有啥啊…"
+            },
+            {
+              "speaker": 11,
+              "time": "18:26",
+              "text": "广告",
+              "quote": {
+                "speaker": 6,
+                "text": "百度除了搜索和云还有啥啊…"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "18:27",
+              "text": "无人车"
+            },
+            {
+              "speaker": 10,
+              "time": "18:27",
+              "text": "infra 昆仑芯"
+            },
+            {
+              "speaker": 6,
+              "time": "18:27",
+              "text": "我要搜一下财报"
+            },
+            {
+              "speaker": 3,
+              "time": "18:28",
+              "text": "百度文库",
+              "quote": {
+                "speaker": 6,
+                "text": "百度除了搜索和云还有啥啊…"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "18:30",
+              "text": "原来爱奇艺是百度的"
+            },
+            {
+              "speaker": 10,
+              "time": "18:30",
+              "text": "怪不得这么对味",
+              "quote": {
+                "speaker": 6,
+                "text": "原来爱奇艺是百度的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "18:33",
+              "text": "广告，云，爱奇艺 三个加起来占q2 总营收 85%了"
+            },
+            {
+              "speaker": 6,
+              "time": "18:33",
+              "text": "确实"
+            },
+            {
+              "speaker": 6,
+              "time": "18:34",
+              "text": "光广告一项就是40%"
+            },
+            {
+              "speaker": 6,
+              "time": "18:34",
+              "text": "谁有话语权一眼便知"
+            }
+          ]
+        },
+        {
+          "category": "职业与行业",
+          "title": "大厂基模出身去垂类公司当训练负责人？群友吵到 infra 该不该接",
+          "text": "有群友说，大厂基模团队出来的人有很多垂类公司请去当训练负责人。马上有人反驳，现在基模也不好找业务，业务方不认基模；另一位群友接话说“基摩只摸一块”，业务要的是端到端，“飞轮跑起来才是真的”。最先提出的群友补充，垂类公司多有后训练需求。\n\n有群友接着提出疑问：只做过 infra、没改过模型架构的人去小公司当训练负责人，会不会太虚？回复里有人说“给的多就行”，有人说“去，很快就是大模型全栈小能手”，只要熬得住；另一位群友认为有些地方本来就是从 infra 起步做训练，infra-algo co-design 是必须的，“看看 ds 的 MFU，一看就不简单”。也有人提醒，infra 能较快看到收益，但数据和产品化这类长期建设又会影响职业发展。还有群友感慨，有机器、有 token、有目标，人能成长很快，开源的代码、文档、经验和论文也都很丰富。",
+          "emphasis": [
+            "现在基模也不好找业务",
+            "infra-algo co-design 是必须的",
+            "infra 能较快看到收益，但数据和产品化这类长期建设又会影响职业发展"
+          ],
+          "aiComment": "垂类公司喊你当训练负责人，业务方却说基模只摸一块；infra 老哥咬咬牙接了，说不定顺手还能去机房接线。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:30",
+              "text": "没事 ，大厂基模团队淘汰下来，很多垂类公司请你们当训练负责人"
+            },
+            {
+              "speaker": 2,
+              "time": "18:31",
+              "text": "有个问题是，现在基模也不好找业务",
+              "quote": {
+                "speaker": 1,
+                "text": "没事 ，大厂基模团队淘汰下来，很多垂类公司请你们当训练负责人"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:31",
+              "text": "业务也不认你基模，你不炸了"
+            },
+            {
+              "speaker": 3,
+              "time": "18:31",
+              "text": "基摩只摸一块"
+            },
+            {
+              "speaker": 3,
+              "time": "18:31",
+              "text": "业务要端到端"
+            },
+            {
+              "speaker": 1,
+              "time": "18:31",
+              "text": "很多垂类公司有后训练的需求",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 有个问题是，现在基模也不好找业务"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:31",
+              "text": "飞轮跑起来才是真的"
+            },
+            {
+              "speaker": 4,
+              "time": "18:32",
+              "text": "确实",
+              "quote": {
+                "speaker": 3,
+                "text": "业务要端到端"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:34",
+              "text": "这样么\n\n有的小公司让我当训练负责人，我感觉我只做 infra ，模型架构都没改过，接了太虚了",
+              "quote": {
+                "speaker": 3,
+                "text": "基摩只摸一块"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:35",
+              "text": "给的多就行哇",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这样么\n\n有的小公司让我当训练负责人，我感觉我只做 infra ，模型架构都没改过，接了太虚了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "18:35",
+              "text": "也不是不行吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这样么\n\n有的小公司让我当训练负责人，我感觉我只做 infra ，模型架构都没改过，接了太虚了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "18:35",
+              "text": "去，很快就是大模型全栈小能手",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这样么\n\n有的小公司让我当训练负责人，我感觉我只做 infra ，模型架构都没改过，接了太虚了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "18:35",
+              "text": "只要熬得住"
+            },
+            {
+              "speaker": 6,
+              "time": "18:35",
+              "text": "有些地方也是infra起的训练"
+            },
+            {
+              "speaker": 6,
+              "time": "18:36",
+              "text": "infra-algo co-design是必须的"
+            },
+            {
+              "speaker": 3,
+              "time": "18:36",
+              "text": "infra比较快能看到收益，但是感觉长期建设比如数据和产品化这些又会影响职业发展"
+            },
+            {
+              "speaker": 7,
+              "time": "18:36",
+              "text": "说不定还有机会还能去机房接线"
+            },
+            {
+              "speaker": 6,
+              "time": "18:36",
+              "text": "看看ds的MFU，一看就不简单"
+            },
+            {
+              "speaker": 1,
+              "time": "18:44",
+              "text": "也确实，我感觉有机器，有 token，有目标 ，人能成长很快\n\n开源的代码 文档 经验 论文也都很丰富",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 去，很快就是大模型全栈小能手"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-7",
+      "label": "Robot",
+      "section": "今日讨论",
+      "heading": "VLA loss 一样低，成功率为何差很多",
+      "theme": "Astra 改 VLA 权重难扛接触丰富任务，另有 agent 替遥操作造数据、打孔实验台",
+      "note": "2026-11-05 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型训练",
+          "title": "两个 VLA 训练 Loss 一样低，为什么下游 Rollout 成功率差很多？",
+          "text": "有群友发问 VLA 的工作是不是很少在预训练层面做，引出了一场关于数据配比和训练 loss 的讨论。熟悉训练的群友回应，预训练很贵，清洗、增广和数据配比大多只写在各家技术报告里，其中配比最重要，和 LLM 基模一样保密。有人贴出一篇 2024 年的 LLM Continue Pretrain 文章供参考，但提问者指出，VLA 里两个模型哪怕把训练 loss 刷到一样低，下游 rollout 成功率和模型行为也可能天差地别。\n\n围绕为什么 loss 与评测效果缺少强正相关，提问者举了个例子：一个模型在粗糙的接近过程 loss 低、精细操作过程 loss 高，另一个模型接近过程 loss 稍高、精细操作 loss 更低，两者的实际成功率就会拉开差距。另一位群友也提到混合训练的 loss 会互相冲突，最近尝试做表征质量的监督，体感有效但同样很难从 loss 上看出来。分享 LLM 文章的群友把这比作预训练里混入收敛慢的代码和收敛快的八卦文章，早期模型不够大时需要靠样本比例设计和 warmup 让一张白纸早点“开窍”；也有人认为能用 loss 衡量的领域本身得具备良好的 scaling 性质。\n\n讨论进一步推到动作空间本身：提问者怀疑 VLA 每个位置的合理动作太多元，导致 loss 天然降不下去，机器人的 rollout 或许更接近 agent 的 trace，不适合直接用这类 loss 优化。对此两位群友各给了一层解释。一位认为这是闭环成功率的问题：空间里能成功的动作路径不止一条，模仿学习用 loss 监督专家轨迹天然带有闭环误差，提问者接话说正因如此，很多配比方法都不本质奏效。另一位认为大模型学 agent trace 原本有前置条件，而现在的 VLA 被迫用很小的模型，在几乎没有预热的情况下硬啃复杂的 trace。",
+          "emphasis": [
+            "两个模型哪怕把训练 loss 刷到一样低，下游 rollout 成功率和模型行为也可能天差地别",
+            "接近过程 loss 稍高、精细操作 loss 更低，两者的实际成功率就会拉开差距",
+            "模仿学习用 loss 监督专家轨迹天然带有闭环误差",
+            "VLA 被迫用很小的模型，在几乎没有预热的情况下硬啃复杂的 trace"
+          ],
+          "aiComment": "接近过程拿高分、精细操作全拉，总分算下来 loss 一模一样，VLA 这偏科瞒过损失函数却瞒不过机械臂。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:54",
+              "text": "做vla的工作是很少在预训练层面做吗",
+              "quote": {
+                "speaker": null,
+                "text": "一片做垃圾任务的vla水文可以死了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:56",
+              "text": "很多啊 但是预训练很贵 都是各家技术报告"
+            },
+            {
+              "speaker": 2,
+              "time": "10:57",
+              "text": "数据配比 清洗 增广这些"
+            },
+            {
+              "speaker": 1,
+              "time": "10:57",
+              "text": "配比感觉说的很少啊"
+            },
+            {
+              "speaker": 2,
+              "time": "10:57",
+              "text": "配比最重要吧 和llm基模一样保密"
+            },
+            {
+              "speaker": 1,
+              "time": "10:57",
+              "text": "一些llm的配比研究也受限于loss的定义感觉很难迁移过来"
+            },
+            {
+              "speaker": 3,
+              "time": "10:58",
+              "text": "配比的话，不同模型的size，不同数据质量\n其实都有差别"
+            },
+            {
+              "speaker": 1,
+              "time": "11:02",
+              "text": "有啥比较好整配比的方法吗[可怜]"
+            },
+            {
+              "speaker": 3,
+              "time": "11:19",
+              "text": "[链接] LLM Continue Pretrain（2024版）\n  摘要: 1 背景 去年，国内大模型赚钱最爽的一个方向，就是卖数据。 我也跟...\n  URL: https://zhuanlan.zhihu.com/p/707751901"
+            },
+            {
+              "speaker": 3,
+              "time": "11:19",
+              "text": "两年前写的了，也有一定参考意义"
+            },
+            {
+              "speaker": 4,
+              "time": "11:22",
+              "text": "太牛了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:25",
+              "text": "大模型那波人现在天天在搞各种rl小trick了\n这块其实相对收敛了\n具身我在看是对应的那个阶段[皱眉][皱眉]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:47",
+              "text": "可是我感觉loss这个指标在vla这些模型不一定像llm那样有参考价值吧，两个模式训练loss一样低但是下游rollout成功率，模型行为却可能差别很大[敲打]",
+              "quote": {
+                "speaker": 3,
+                "text": "[链接] LLM&#x20;Continue&#x20;Pretrain（2024版）\n  摘要: 1&#x20;背景&#x20;去年，国内大模型赚钱最爽的一个方向，就是卖数据。&#x20;我也跟...\n  URL: https://zhuanlan.zhihu.com/p/707751901"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:48",
+              "text": "嗯 混合训练的loss会冲突 评测的效果和loss也没有强正相关"
+            },
+            {
+              "speaker": 2,
+              "time": "11:49",
+              "text": "最近在做表征质量的监督 感觉效果不错 但是也很难从loss看出来"
+            },
+            {
+              "speaker": 3,
+              "time": "12:10",
+              "text": "这样么\n我mark到我的学习文档里\n我回头思考下",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 可是我感觉loss这个指标在vla这些模型不一定像llm那样有参考价值吧，两个模式训练loss一样低但是下游rollout成功率，模型行为却可能差别很大[敲打]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:47",
+              "text": "这个能解释一下原因吗",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 可是我感觉loss这个指标在vla这些模型不一定像llm那样有参考价值吧，两个模式训练loss一样低但是下游rollout成功率，模型行为却可能差别很大[敲打]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:50",
+              "text": "比如一个模型在比较粗糙的接近过程loss低，精细操作过程loss高，一个模型比较大的接近过程loss稍微高一些，而精细的操作loss更低，两者的成功率就可能有变化。"
+            },
+            {
+              "speaker": 3,
+              "time": "15:53",
+              "text": "我想想啊\n你这类似于\n预训练的时候，训的有代码和一些互联网的网络文章，例如八卦类的文章\n那前者loss收敛速度肯定是慢的，后者收敛就是快的"
+            },
+            {
+              "speaker": 3,
+              "time": "15:54",
+              "text": "但等后期见的足够多了\n两者就会逐渐接近"
+            },
+            {
+              "speaker": 3,
+              "time": "15:54",
+              "text": "因为对于模型来讲\n这俩都没那么难了"
+            },
+            {
+              "speaker": 6,
+              "time": "15:55",
+              "text": "还是 scaling 的问题，能用 loss 衡量的模型肯定都是 scaling 良好的领域"
+            },
+            {
+              "speaker": 3,
+              "time": "15:56",
+              "text": "但前期这快两者的样本混合比例设计就需要琢磨下了\n例如，很早的时候，当模型不够大的时候\n会有个warmup"
+            },
+            {
+              "speaker": 5,
+              "time": "15:56",
+              "text": "所以比例混合的依据是 尽可能让他们保持同一个loss收敛的速度吗？",
+              "quote": {
+                "speaker": 3,
+                "text": "但前期这快两者的样本混合比例设计就需要琢磨下了 例如，很早的时候，当模型不够大的时候 会有个warmup"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:57",
+              "text": "也不是这么说。。。"
+            },
+            {
+              "speaker": 3,
+              "time": "15:58",
+              "text": "你可以理解\n一开始模型训练的时候，一张白纸\n怎么早点让他开窍，可以放心大力出奇迹"
+            },
+            {
+              "speaker": 3,
+              "time": "15:59",
+              "text": "vla的训练细节我还没来得及盘\n我最近会系统性的把这快过一眼"
+            },
+            {
+              "speaker": 5,
+              "time": "16:00",
+              "text": "感谢 严肃学习"
+            },
+            {
+              "speaker": 1,
+              "time": "16:00",
+              "text": "vla的loss是不是就天然不会很低，每个位置的合理动作都是很多元的🤔"
+            },
+            {
+              "speaker": 3,
+              "time": "16:03",
+              "text": "你这话说的\nagent的trace就简单了么？"
+            },
+            {
+              "speaker": 1,
+              "time": "16:04",
+              "text": "所以我感觉机器人rollout更像agent的trace？agent的trace应该不是用这样的loss优化的吧🤔"
+            },
+            {
+              "speaker": 3,
+              "time": "16:06",
+              "text": "好问题，我想想"
+            },
+            {
+              "speaker": 3,
+              "time": "16:07",
+              "text": "估计短期回答不了了，让我仔细看看vla再说吧"
+            },
+            {
+              "speaker": 2,
+              "time": "16:08",
+              "text": "另一方面是闭环成功率的问题吧"
+            },
+            {
+              "speaker": 2,
+              "time": "16:08",
+              "text": "一个空间有很多动作路径可以succeed"
+            },
+            {
+              "speaker": 2,
+              "time": "16:09",
+              "text": "用loss去监督专家轨迹做模仿学习本来就存在闭环误差"
+            },
+            {
+              "speaker": 3,
+              "time": "16:10",
+              "text": "主要是大模型也不是上来就学agent的trace，它是个有个前置条件的"
+            },
+            {
+              "speaker": 1,
+              "time": "16:10",
+              "text": "因为这个误差，所以感觉很多配比的方法都不本质work了[流泪]",
+              "quote": {
+                "speaker": 2,
+                "text": "用loss去监督专家轨迹做模仿学习本来就存在闭环误差"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:10",
+              "text": "是 归根到底都是对齐🤔",
+              "quote": {
+                "speaker": 6,
+                "text": "还是 scaling 的问题，能用 loss 衡量的模型肯定都是 scaling 良好的领域"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:11",
+              "text": "vla被逼着用一个很小的模型，没啥预热就怼这么复杂的trace"
+            }
+          ]
+        },
+        {
+          "category": "模型探索",
+          "title": "用 Astra 直接改写 VLA 权重跑通任务，群友质疑难扛 Contact-Rich 场景",
+          "text": "有人分享了一篇小红书帖子，称有开发者受 Astra 编辑 Qwen 的启发，直接用 Astra 编辑 VLA WAM 的网络权重并跑通了任务。有群友好奇这种直接写权重的路子能不能 scaling 到更大的模型上，并认为 Astra 能靠改权重把模型改好，背后的机理值得分析。另一位群友则泼了冷水，指出原帖选的任务很简单、被改模型的基础分数也低，大概率还是做不了 contact-rich 任务，不过顺手调侃“一片做垃圾任务的 VLA 水文可以死了”。有人顺势追问 RUA 类工作是不是也天然很难做好 contact-rich 任务，得到的回答是这主要考验任务设计。",
+          "emphasis": [
+            "直接用 Astra 编辑 VLA WAM 的网络权重",
+            "原帖选的任务很简单、被改模型的基础分数也低"
+          ],
+          "aiComment": "让 Astra 直接改 VLA 权重就能跑通任务，虽然被吐槽扛不住复杂接触，但这操作已经够赛博巫术了🧙‍♂️",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:27",
+              "text": "[链接] Astra直接编辑VLA权重\n  摘要: 这老哥受到astra编辑qwen的启发，直接编辑vla wam了，竟然真的work，事情的发展开始离谱了[笑哭R][笑哭\n  URL: https://www.xiaohongshu.com/discovery/item/6aebdbb10000000003003ad4?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1793845650"
+            },
+            {
+              "speaker": 1,
+              "time": "10:27",
+              "text": "好家伙"
+            },
+            {
+              "speaker": 2,
+              "time": "10:34",
+              "text": "@sjtu 陈思王 这两天还有人直接用Astra写网络权重的"
+            },
+            {
+              "speaker": 2,
+              "time": "10:35",
+              "text": "不知道能不能scaling到更大模型上"
+            },
+            {
+              "speaker": 3,
+              "time": "10:48",
+              "text": "应该还是做不了contact-rich任务"
+            },
+            {
+              "speaker": 3,
+              "time": "10:49",
+              "text": "他选的任务很简单 改的模型基础分数也低"
+            },
+            {
+              "speaker": 2,
+              "time": "10:49",
+              "text": "@ruc-robotics-lgl 是的"
+            },
+            {
+              "speaker": 2,
+              "time": "10:49",
+              "text": "我觉得现在应该更看重scaling的能力，以及复杂任务上的能力"
+            },
+            {
+              "speaker": 2,
+              "time": "10:50",
+              "text": "但是Astra本身能通过权重把模型改得更好，这个事情的机理是值得分析的"
+            },
+            {
+              "speaker": 3,
+              "time": "10:50",
+              "text": "嗯嗯"
+            },
+            {
+              "speaker": 3,
+              "time": "10:50",
+              "text": "一片做垃圾任务的vla水文可以死了"
+            },
+            {
+              "speaker": 2,
+              "time": "10:50",
+              "text": "估计也不好中[憨笑]"
+            },
+            {
+              "speaker": 4,
+              "time": "10:51",
+              "text": "话说rua工作能做得好contact-rich的任务吗"
+            },
+            {
+              "speaker": 4,
+              "time": "10:51",
+              "text": "是不是天然不太行"
+            },
+            {
+              "speaker": 3,
+              "time": "10:53",
+              "text": "考验任务设计了"
+            },
+            {
+              "speaker": 3,
+              "time": "10:53",
+              "text": "[旺柴]"
+            }
+          ]
+        },
+        {
+          "category": "开源工作",
+          "title": "PyRUA-DataFarm 开源：Coding Agent 配合视频渲染替代遥操作，单条数据均摊 $1.06",
+          "text": "有群友分享了新发布的开源工作 PyRUA-DataFarm，探索用 coding agent 接替遥操作员，端到端生产可直接部署到真机的机器人数据。据介绍，agent 接收数据需求和目标场景的校准录像后，会在仿真中重建任务并自动编写场景、专家控制器与成功判据；轨迹和动作标签直接由 agent 编写的专家在仿真器中生成，再用视频生成模型以真实图像为条件渲染成写实视频，头部与腕部视角在同一次生成中完成以保证多视角一致，最后经隐藏判据评分和独立审核比对后入库。\n\n真机实验涵盖 5 个任务共 100 次测试，对比各自用 100 条数据训练的策略：原始场景下，仅用 DataFarm 数据的策略成功 93 次，高于遥操作数据的 84 次；换到训练集未见过的桌布和彩色灯光下，DataFarm 仍成功 87 次，遥操作数据则掉到 46 次，而同样轨迹改用传统域随机化渲染只有 26 次和 21 次。成本上，适配单个新任务的单次 API 费用平均 $21、渲染方案另需 $5，之后每条数据平均 $0.80，生产 100 条数据的均摊成本为 $1.06/条。",
+          "emphasis": [
+            "用 coding agent 接替遥操作员，端到端生产可直接部署到真机的机器人数据",
+            "换到训练集未见过的桌布和彩色灯光下，DataFarm 仍成功 87 次，遥操作数据则掉到 46 次",
+            "生产 100 条数据的均摊成本为 $1.06/条"
+          ],
+          "aiComment": "Coding agent 加视频渲染全包，换块花桌布成功率还吊打人工遥操作，均摊 1.06 美元一条，遥操作员看着手里的摇杆陷入沉思🤖",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:17",
+              "text": "借贵群宣传一下我们的新工作工作🥳～ 我们近期发布了 PyRUA-DataFarm，探讨 coding agent 能否接替遥操作员，端到端地生产可直接部署到真机的机器人数据。\n\n遥操作目前仍是采集机器人示教的主要方式，但每条数据都要占用机器人和操作员的时间，每个新任务都要从头开始。在 DataFarm 中，agent 接收数据需求和目标场景的校准录像，在仿真中重建任务，自主编写场景、专家控制器和成功判据，任务适配全程自动完成。轨迹由 agent 编写的专家在仿真中生成，并非对已有示教的增广，动作标签直接来自仿真器。\n\n数据质量方面，视频生成模型以真实图像为条件，将每条轨迹渲染为写实视频。头部和腕部视角在同一次生成中完成，因此多视角相互一致，并忠实跟随仿真中的运动。\n质量由独立环节把关：成功判据对专家不可见，并在留出的初始状态上评分；每条渲染都要由独立审核方与仿真状态比对，通过后才能进入数据集。\n\n真机实验覆盖 5 个任务，每个任务 20 次，共 100 次，两种策略各用 100 条数据训练。原始场景下，仅用 DataFarm 数据训练的策略成功 93 次，遥操作数据为 84 次。在两者训练数据中都未出现的桌布和彩色灯光下，DataFarm 仍成功 87 次，遥操作数据降至 46 次；同样的轨迹改用传统域随机化渲染，成功次数只有 26 和 21 次。\n\n成本方面，适配一个新任务的 API 费用平均 $21，只需支付一次，渲染方案另需 $5；此后每条数据平均 $0.80，无需占用机器人和操作员。生产 100 条数据时，平均每条 $1.06。\n\n欢迎大家关注，代码已开源，也恳请大家点个HF paper upvote🥹\n\n论文：https://arxiv.org/abs/2611.05320\n主页：https://dagroup-pku.github.io/PyRUA-Lean/DataFarm\n代码：https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm\nHF daily paper: https://huggingface.co/papers/2611.05320"
+            },
+            {
+              "speaker": 1,
+              "time": "16:18",
+              "text": "[视频]"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
+              "url": "https://arxiv.org/abs/2611.05320"
+            },
+            {
+              "kind": "code",
+              "label": "DAGroup-PKU/PyRUA-Lean（DataFarm 分支）",
+              "url": "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm"
+            },
+            {
+              "kind": "demo",
+              "label": "PyRUA-DataFarm 项目主页",
+              "url": "https://dagroup-pku.github.io/PyRUA-Lean/DataFarm"
+            },
+            {
+              "kind": "discussion",
+              "label": "HF Daily Papers：PyRUA-DataFarm",
+              "url": "https://huggingface.co/papers/2611.05320"
+            }
+          ]
+        },
+        {
+          "category": "硬件搭建",
+          "title": "四臂 Piper 主从遥操作求推防晃桌面，群友聊起“斯坦福同款”打孔实验台",
+          "text": "一位准备买四台 Piper 搭主从双臂的群友嫌普通办公桌容易晃，求推荐 230×100×80 cm 左右的桌子，并晒出了承重 300 公斤的铝合金防静电工作台和可定制 304 不锈钢架子两款商品截图。有人建议用斯坦福 demo 里常见的桌面打满圆孔的实验台，求助者搜出一款券后 1100 多元的不锈钢开孔工作台，有群友觉得太贵，也摸不准桌面打孔到底有什么讲究；求助者开玩笑猜“搞不好辅助定位”，两位群友接话“还真是”。",
+          "emphasis": [
+            "准备买四台 Piper 搭主从双臂的群友嫌普通办公桌容易晃",
+            "斯坦福 demo 里常见的桌面打满圆孔的实验台"
+          ],
+          "aiComment": "四台机械臂还没上桌，光看斯坦福同款打孔台就先飙到 1100 多块，随口猜个辅助定位还真蒙对了，烧钱又精准💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:11",
+              "text": "佬们有合适的桌子推荐吗？准备买四个piper搞主从双臂，我看常见的办公桌很容易晃。大概是长宽高想是230*100*80cm"
+            },
+            {
+              "speaker": 1,
+              "time": "16:11",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:11",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:11",
+              "text": "目前在考虑这两款，但是不知道有没有更好的选择"
+            },
+            {
+              "speaker": 2,
+              "time": "16:11",
+              "text": "搞那个桌子上打一大堆孔的实验台"
+            },
+            {
+              "speaker": 1,
+              "time": "16:13",
+              "text": "这种吗？",
+              "quote": {
+                "speaker": 2,
+                "text": "搞那个桌子上打一大堆孔的实验台"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:13",
+              "text": "嗯 但是这个也太贵了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:14",
+              "text": "打孔是有什么说法吗"
+            },
+            {
+              "speaker": 2,
+              "time": "16:14",
+              "text": "看斯坦福那些demo都在这种打孔桌子上搞得"
+            },
+            {
+              "speaker": 1,
+              "time": "16:15",
+              "text": "懂了，斯坦福同款具身桌[嘿哈][嘿哈][嘿哈]"
+            },
+            {
+              "speaker": 2,
+              "time": "16:15",
+              "text": "这孔到底能干啥我也不知道"
+            },
+            {
+              "speaker": 1,
+              "time": "16:15",
+              "text": "搞不好辅助定位[奸笑][奸笑][奸笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:16",
+              "text": "还真是"
+            },
+            {
+              "speaker": 2,
+              "time": "16:16",
+              "text": "还真是"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
