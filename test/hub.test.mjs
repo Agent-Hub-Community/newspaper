@@ -29,12 +29,20 @@ const input = {
   searchable: 42,
 };
 
-test('the hub summary points at the latest readable daily and lists only its readable pages', () => {
+test('the hub summary points at the latest readable daily; a quiet group keeps its place with its last page', () => {
   const hub = hubSummary(input);
   assert.equal(hub.daily.date, '2026-10-16', 'an edition with no readable page is skipped');
   assert.equal(hub.daily.path, `${basePath}daily/2026-10-16/overview/`);
-  assert.deepEqual(hub.daily.pages.map(entry => [entry.id, entry.label, entry.title]),
+  assert.deepEqual(hub.daily.pages.filter(entry => !entry.quiet).map(entry => [entry.id, entry.label, entry.title]),
     [['group-2', '二群', '二群标题'], ['external', '外部资讯', '资讯标题']]);
+  // 三群 was empty on 10-16 and never had a page before, so it is left out; nothing invents a page.
+  assert.equal(hub.daily.pages.some(entry => entry.id === 'group-3'), false);
+  const quiet = hubSummary({ ...input, data: { ...input.data, digests: [
+    { date: '2026-10-15', pages: [page('group-1', '一群标题')] },
+    { date: '2026-10-16', pages: [page('group-1', '空', ''), page('group-2', '二群标题')] },
+  ] } }).daily.pages;
+  assert.deepEqual(quiet.map(entry => [entry.id, Boolean(entry.quiet)]), [['group-1', true], ['group-2', false]], 'groups stay in order');
+  assert.deepEqual(quiet[0].last, { date: '2026-10-15', id: 'group-1', label: '一群', title: '一群标题', path: `${basePath}daily/2026-10-15/group-1/` });
   assert.deepEqual(hub.issues, { daily: 2, weekly: 1, first: '2026-10-15', last: '2026-10-17' });
 });
 
