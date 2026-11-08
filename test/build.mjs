@@ -253,8 +253,11 @@ for (const element of notFound.querySelectorAll('[href], [src]')) {
   if (value.startsWith('data:')) continue;
   const target = new URL(value, missing);
   assert.equal(target.origin, missing.origin, value);
+  // "/" is the community homepage on the same origin, published from its own repository.
+  if (target.pathname === '/') continue;
   assert.ok(target.pathname.startsWith(basePath), value);
-  const built = path.join(root, target.pathname.slice(basePath.length) || 'index.html');
+  const relative = target.pathname.slice(basePath.length);
+  const built = path.join(root, !relative || relative.endsWith('/') ? `${relative}index.html` : relative);
   assert.ok(await stat(built).then(s => s.isFile(), () => false), `404 link ${value} does not reach a built file`);
 }
 console.log(`Verified ${data.digests.length} daily editions and ${files.length} assets; discussion fields validated, private source metadata excluded.`);

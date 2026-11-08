@@ -494,11 +494,14 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
     flex: 1;
     min-width: 0;
     gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
-  body[data-view="digest"] .edition-nav .tabs button {
-    flex: 1;
-    min-width: 0;
-    padding-inline: 5px;
+  /* Five sections share the row evenly but never shrink below their label; below that the row scrolls. */
+  body[data-view="digest"] .edition-nav .tabs :is(a, button) {
+    flex: 1 0 auto;
+    min-width: max-content;
+    padding-inline: 4px;
   }
   body[data-view="digest"] .edition-nav .edition-bar {
     display: none;
@@ -524,7 +527,7 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
     body:is([data-view="digest"], [data-view="rank"]) .edition-nav {
       padding-inline: 6px;
     }
-    body:is([data-view="digest"], [data-view="rank"]) .edition-nav .tabs button {
+    body:is([data-view="digest"], [data-view="rank"]) .edition-nav .tabs :is(a, button) {
       padding-inline: 2px;
       font-size: 13px;
     }
@@ -599,11 +602,13 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
     display: flex;
     flex: 1;
     min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
-  body[data-view="rank"] .edition-nav .tabs button {
-    flex: 1;
-    min-width: 0;
-    padding-inline: 5px;
+  body[data-view="rank"] .edition-nav .tabs :is(a, button) {
+    flex: 1 0 auto;
+    min-width: max-content;
+    padding-inline: 4px;
   }
   body[data-view="rank"] .edition-nav .edition-appearance,
   body[data-view="rank"] .edition-nav .search-entry {

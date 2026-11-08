@@ -40,7 +40,7 @@ body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-weekday,.is
 .community-home span { font-size: 16px; }
 body:is([data-view], [data-page]) .edition-nav { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); min-height: 52px; }
 body:is([data-view], [data-page]) .tabs { gap: 30px; }
-body:is([data-view], [data-page]) .tabs :is(a,button) { font-weight: 400; font-size: 13px; min-height: 50px; border-bottom-width: 1px; transition: color .2s; }
+body:is([data-view], [data-page]) .tabs :is(a,button) { display: inline-flex; align-items: center; justify-content: center; font-weight: 400; font-size: 13px; min-height: 50px; border-bottom-width: 1px; transition: color .2s; }
 body:is([data-view], [data-page]) .tabs :is(.active,[aria-current]) { font-weight: 500; color: var(--ink); border-color: var(--ink); }
 body:is([data-view], [data-page]) .edition-nav .tabs button.active { color: var(--ink); border-color: var(--ink); }
 body:is([data-view], [data-page]) .icon-button { border-radius: 50%; transition: background .2s, color .2s; }
@@ -105,12 +105,17 @@ body:is([data-view], [data-page]) .paper-footer, body:is([data-view], [data-page
   margin-top: 80px; padding: 44px var(--page-gutter) 22px; font: 11px/1.8 var(--sans);
 }
 body > .shell > .footer { margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
-.publication-colophon { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding-bottom: 28px; border-bottom: 1px solid #293952; }
-.colophon-brand { display: block; color: #eef3fa; }
+/* The footer lists the whole site, the same map as the homepage footer. */
+.publication-colophon { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 36px 48px; padding: 12px 0 36px; border-bottom: 1px solid #293952; }
+.colophon-brand { display: block; width: fit-content; color: #eef3fa; transition: opacity .25s; }
+.colophon-brand:hover { opacity: .78; }
 .colophon-brand .brand-wordmark { display: block; width: 192px; height: auto; }
-.publication-colophon nav { display: flex; align-items: center; gap: 28px; }
-.publication-colophon nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; color: #c5d4e7; text-decoration: none; }
-.publication-colophon nav a:hover { color: #eef3fa; text-decoration: underline; text-underline-offset: 5px; }
+.colophon-lead p { margin: 18px 0 0; font: 13px/1.8 var(--sans); color: #99aac2; }
+.colophon-map { display: grid; grid-template-columns: repeat(4, auto); gap: 24px clamp(28px, 4.4vw, 72px); }
+body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-spacing: .08em; color: #7d8ea6; }
+.colophon-map ul { list-style: none; margin: 0; padding: 0; }
+.colophon-map a { display: inline-flex; align-items: center; min-height: 34px; font: 13px/1.5 var(--sans); color: #c5d4e7; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 5px; transition: color .2s, text-decoration-color .2s; }
+.colophon-map a:is(:hover, :focus-visible) { color: #fff; text-decoration-color: currentColor; }
 
 @media (min-width: 1921px) {
   body[data-view] .paper-shell, body > .shell { max-width: min(1536px, calc(100vw - 624px)); }
@@ -123,6 +128,7 @@ body > .shell > .footer { margin-inline: calc(-1 * var(--gutter)); padding-inlin
   body[data-page] .story h2 { font-size: 22px; }
   body:is([data-view], [data-page]) .brief p { font-size: 15px; }
   .community-home { margin-right: 0; }
+  .colophon-map { grid-template-columns: repeat(2, minmax(0, auto)); }
 }
 @media (max-width: 700px) {
   body { --page-gutter: 20px; --gutter: 20px; }
@@ -133,8 +139,12 @@ body > .shell > .footer { margin-inline: calc(-1 * var(--gutter)); padding-inlin
   body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-weekday,.issue-date small) { font-size: 10px; }
   .community-home { display: none; }
   body:is([data-view], [data-page]) .edition-nav { min-height: 48px; gap: 8px; }
-  body:is([data-view], [data-page]) .tabs { gap: 16px; }
-  body:is([data-view], [data-page]) .tabs :is(a,button) { min-height: 47px; font-size: 13px; }
+  /* The daily app spreads its sections and 44px tools across the row itself (daily.css), without gaps. */
+  body[data-view] .edition-nav { gap: 0; }
+  /* Five sections and the tools share one row: they fit from 390px; narrower screens scroll the sections. */
+  body:is([data-view], [data-page]) .tabs { flex: 1 1 auto; min-width: 0; gap: 12px; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
+  body:is([data-view], [data-page]) .tabs::-webkit-scrollbar { display: none; }
+  body:is([data-view], [data-page]) .tabs :is(a,button) { flex: none; min-width: 0; min-height: 47px; padding-inline: 0; font-size: 13px; white-space: nowrap; }
   body:is([data-view], [data-page]) .group-nav { min-height: 46px; }
   body:is([data-view], [data-page]) .group-nav :is(.overview-pill,.page-links > a,.page-links > button) { font-size: 13px; }
   body[data-view='digest'] .reading-layout { padding-top: 27px; }
@@ -153,18 +163,24 @@ body > .shell > .footer { margin-inline: calc(-1 * var(--gutter)); padding-inlin
   body[data-page] :is(.filters,.filter-row,.more-filters) { min-width: 0; grid-template-columns: minmax(0, 1fr); }
   body:is([data-view], [data-page]) .entry-title { font-size: 20px; }
   body:is([data-view], [data-page]) .paper-footer, body:is([data-view], [data-page]) .footer { grid-template-columns: 1fr auto; gap: 18px 20px; padding-top: 32px; margin-top: 52px; }
-  .publication-colophon { align-items: flex-start; flex-direction: column; gap: 18px; padding-bottom: 20px; }
+  .publication-colophon { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 4px 0 24px; }
   .colophon-brand .brand-wordmark { width: 172px; }
-  .publication-colophon nav { gap: 25px; }
+  .colophon-map { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; }
   body:is([data-view], [data-page]) .paper-footer #footer-note, body:is([data-view], [data-page]) .footer > span:last-child { grid-column: 1; font-size: 10px; }
   body:is([data-view], [data-page]) .paper-footer #back-top { grid-column: 2; grid-row: 2 / 4; }
+}
+@media (max-width: 389px) {
+  body:is([data-view], [data-page]) .tabs { gap: 9px; }
+}
+/* Below this width the static pages cannot fit all five sections; fade the edge so the row reads as scrollable. */
+@media (max-width: 371px) {
+  body[data-page] .tabs { padding-right: 18px; mask-image: linear-gradient(90deg, #000 calc(100% - 22px), transparent); }
 }
 @media (max-width: 360px) {
   body { --page-gutter: 16px; --gutter: 16px; }
   body:is([data-view], [data-page]) .masthead .brand-wordmark { width: 96px; }
   body:is([data-view], [data-page]) .masthead .masthead-main .wordmark > span { margin-left: 9px; padding-left: 9px; font-size: 15px; }
   body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-label,.period) { font-size: 16px; }
-  body:is([data-view], [data-page]) .tabs { gap: 10px; }
   body:is([data-view], [data-page]) .digest-heading h1, body:is([data-view], [data-page]) .heading h1 { font-size: 26px; }
 }
 @media (prefers-reduced-motion: reduce) {

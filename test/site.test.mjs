@@ -28,8 +28,10 @@ test('app.js builds canonical links from the configured site', async () => {
 test('404.html links back to the configured base path', async () => {
   const { document } = parseHTML(await read('404.html'));
   const links = [...document.querySelectorAll('a[href]')].map(link => link.getAttribute('href'));
-  assert.ok(links.length > 0);
-  assert.deepEqual([...new Set(links)], [basePath]);
+  assert.equal(document.querySelector('.home').getAttribute('href'), basePath);
+  // Every other way out stays on the site: a page under the newspaper, or the community homepage at the root.
+  assert.ok(links.length > 1);
+  for (const href of links) assert.ok(href === '/' || href.startsWith(basePath), href);
 });
 
 test('search tracking starts only on the configured site', async () => {
