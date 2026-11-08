@@ -1,4 +1,4 @@
-import { readFile, readdir, mkdir, writeFile, copyFile, rm } from 'node:fs/promises';
+import { readFile, readdir, mkdir, writeFile, copyFile, cp, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
@@ -10,6 +10,7 @@ import { feedbackId } from './lib/feedback-id.mjs';
 import { createHash } from 'node:crypto';
 import { loadSkins } from './site/skins/build.mjs';
 import { writeRoutePages } from './lib/route-pages.mjs';
+import { writeRedirectPages } from './lib/redirect-pages.mjs';
 import { buildIconBundle } from './lib/icons.mjs';
 import { readerReport, validateExternalDraft } from './lib/external-workflow.mjs';
 import { validateStoryDiscussion } from './lib/story-discussion.mjs';
@@ -22,10 +23,12 @@ import { atomFeed, jsonFeed } from './lib/feed.mjs';
 import { contentCatalog, writeContentFiles } from './lib/agent-content.mjs';
 import { AGENTS_PAGE } from './lib/agent-docs.mjs';
 import { mergedAliases, normalizeGlossary, readGlossary } from './lib/glossary.mjs';
+import { hubSummary } from './lib/hub.mjs';
 import { writeGlossaryFiles } from './lib/glossary-render.mjs';
 import { searchCounts, searchIndex, writeSearchFiles } from './lib/search-render.mjs';
 import { readSynonyms, searchVocabulary } from './lib/synonyms.mjs';
 import { weeklyRoute } from './lib/weekly-editions.mjs';
+import { brandWordmark, communityLink, colophon, favicon } from './lib/brand.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 // Browser files and templates copied into the build as they are.
@@ -223,10 +226,11 @@ const index = {
   weeklies: data.weeklies.map(({ pages, rank, ...issue }) => ({ ...issue, pages: outline(pages) })),
 };
 await writeFile(path.join(out, 'data.js'), `window.AGENT_HUB_DATA = ${JSON.stringify(index).replaceAll('<', '\\u003c')};\n`);
-for (const file of ['index.html', '404.html', 'app.js', 'routes.js', 'appearance.js', 'digest.js', 'feedback.js', 'ranking.js', 'share-image.js', 'style.css', 'daily.css', 'color-scheme.css', 'skins.js', 'weekly.css', 'weekly-reader.js', 'discussion-panel.js', 'discussion-panel.css', 'library.css', 'library.js', 'copy.js', 'bm25.js', 'query.js', 'search.js']) {
+for (const file of ['index.html', '404.html', 'app.js', 'routes.js', 'appearance.js', 'digest.js', 'feedback.js', 'ranking.js', 'share-image.js', 'style.css', 'daily.css', 'color-scheme.css', 'community.css', 'skins.js', 'weekly.css', 'weekly-reader.js', 'discussion-panel.js', 'discussion-panel.css', 'library.css', 'library.js', 'copy.js', 'bm25.js', 'query.js', 'search.js']) {
   const content = await exists(path.join(siteDir, file));
   if (content) await writeFile(path.join(out, file), file === 'index.html' ? withAnalytics(content, 'analytics.js') : content);
 }
+await cp(path.join(siteDir, 'brand'), path.join(out, 'brand'), { recursive: true });
 if (publicBuild) {
   await copyFile(path.join(siteDir, 'analytics.js'), path.join(out, 'analytics.js'));
   await copyFile(path.join(siteDir, 'search-tracking.js'), path.join(out, 'search-tracking.js'));
@@ -237,6 +241,11 @@ await writeFile(path.join(out, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
 await writeFile(path.join(out, 'icons.js'), await buildIconBundle(root));
 await copyFile(path.join(root, 'node_modules/modern-screenshot/dist/index.js'), path.join(out, 'screenshot.js'));
 const { document } = parseHTML(await readFile(path.join(out, 'index.html'), 'utf8'));
+const brand = document.querySelector('.wordmark');
+brand.innerHTML = brandWordmark + brand.querySelector('span').outerHTML;
+document.querySelector('.masthead-main').insertAdjacentHTML('beforeend', communityLink);
+document.querySelector('.paper-footer').insertAdjacentHTML('afterbegin', colophon);
+document.querySelector('link[rel="icon"]').href = favicon;
 // The root page opens the latest readable issue; route pages swap in their own date.
 const latest = index.digests.filter(issue => issue.pages.some(page => page.hasContent)).at(-1) || index.digests.at(-1);
 const issueScript = document.createElement('script');
@@ -253,6 +262,8 @@ for (const element of document.querySelectorAll('script[src], link[rel="styleshe
 }
 await writeFile(path.join(out, 'index.html'), document.toString());
 await writeRoutePages(out, data, { issueVersions });
+// Shortened URLs such as daily/ or rank/ forward to the page they stand for.
+await writeRedirectPages(out, data);
 const vocabulary = searchVocabulary({ aliases: library.aliases, glossary, synonyms: await readSynonyms(dataDir) });
 library.vocabulary = vocabulary;
 // Opportunities close on a Beijing date; the build date decides which are still open (a daily rebuild moves them).
@@ -271,6 +282,8 @@ const weeklyHref = latestWeekly
   ? `../${weeklyRoute(latestWeekly, latestWeekly.pages.find(page => page.id === 'group-3')?.id || latestWeekly.pages[0].id)}` : '../';
 const entries = searchIndex({ digests: data.digests, weeklies: data.weeklies, library, opportunities });
 const counts = await searchCounts(entries, vocabulary, glossary.terms.map(entry => entry.term));
+// Read by the community homepage at runtime for its "latest" panel.
+await writeFile(path.join(out, 'hub.json'), `${JSON.stringify(hubSummary({ data, library, glossary, opportunities, searchable: entries.length }), null, 1)}\n`);
 await writeGlossaryFiles(out, { glossary, counts, publicBuild, feedbackEndpoint, weeklyHref });
 await writeSearchFiles(out, { entries, vocabulary, publicBuild, weeklyHref, feedbackEndpoint });
 console.log(JSON.stringify({ digests: editions.length, first: data.coverage.first, last: data.coverage.last }));

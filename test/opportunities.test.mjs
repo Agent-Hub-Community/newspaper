@@ -117,7 +117,7 @@ test('the collector keeps postings and leaves questions, banter and relays out',
   assert.ok(looksLikePosting('📣AAAI 2027 Workshop 征稿通知 官网 trust4rsi-agent.github.io 加拿大蒙特利尔 2027年2/22–23'));
   assert.ok(!looksLikePosting('有没有人知道哪里在招 agent 方向的实习？最好是北京的，求推荐一下谢谢各位'), 'a question is not a posting');
   assert.ok(!looksLikePosting('日报已更新：招聘、实习、北京、上海的讨论都在里面，大家可以去看看今天的内容'));
-  assert.ok(!looksLikePosting('AgentHub 2026.10.17 日报已上线 【三群】看点还有自进化 Agent 操作系统方向的征稿，以及北京实习的讨论'), 'the daily relay names postings but is not one');
+  assert.ok(!looksLikePosting('Agent Hub 2026.10.17 日报已上线 【三群】看点还有自进化 Agent 操作系统方向的征稿，以及北京实习的讨论'), 'the daily relay names postings but is not one');
   assert.ok(!looksLikePosting('哈哈哈'));
   assert.ok(!looksLikePosting('同意，这个方向的实习确实不错↳ 商汤基座模型code方向实习生招聘 本岗位聚焦商汤基座大模型，面向真实软件工程场景'),
     'a reply quoting a posting is not itself a posting');

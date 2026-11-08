@@ -49,7 +49,7 @@ test('weekly page shares the daily chrome: one date, three editions, one collaps
   assert.equal(chrome.split('10.05–10.11').length-1,1);
   for(const repeated of [issue.label,'2026.10.05'])assert.equal(chrome.includes(repeated),false,repeated);
   assert.deepEqual([...document.querySelectorAll('.edition-nav .tabs a')].map(a=>[a.textContent,a.getAttribute('href')]),[
-    ['日报','../../../../daily/2026-10-11/group-3/'],['周报','../../../../'+weeklyRoute(issue,'group-3')],['资料库','../../../../library/'],['活跃榜','../../../../rank/week/'],...(AGENTS_PAGE?[['给 Agent 用','../../../../agents/']]:[]),
+    ['日报','../../../../daily/2026-10-11/group-3/'],['周报','../../../../'+weeklyRoute(issue,'group-3')],['资料库','../../../../library/'],['黑话','../../../../glossary/'],['活跃榜','../../../../rank/week/'],...(AGENTS_PAGE?[['给 Agent 用','../../../../agents/']]:[]),
   ]);
   assert.ok(document.querySelector('.edition-nav #archive-toggle[aria-controls="weekly-archive"]'));
   assert.ok(document.querySelector('.masthead #period-toggle[aria-controls="weekly-archive"]'), 'the week in the masthead opens the archive');
@@ -104,7 +104,7 @@ test('public weekly reuses existing analytics with restricted CSP and same-origi
 test('historical weekly editions retain every story under both route forms',async t=>{
   const out=await mkdtemp(path.join(tmpdir(),'weekly-pages-'));t.after(()=>rm(out,{recursive:true,force:true}));
   const weeklies=await Promise.all((await readdir(new URL('../data/weekly-editions/',import.meta.url))).map(async file=>normalizeWeeklyIssue(JSON.parse(await readFile(new URL('../data/weekly-editions/'+file,import.meta.url))))));
-  for(const file of ['weekly.css','weekly-reader.js','screenshot.js','appearance.js','color-scheme.css','discussion-panel.js','discussion-panel.css',...new Set(weeklies.flatMap(w=>w.rank?.groups.flatMap(g=>g.leaders.map(m=>m.avatar).filter(Boolean))||[]))]){
+  for(const file of ['weekly.css','weekly-reader.js','screenshot.js','appearance.js','color-scheme.css','community.css','discussion-panel.js','discussion-panel.css',...new Set(weeklies.flatMap(w=>w.rank?.groups.flatMap(g=>g.leaders.map(m=>m.avatar).filter(Boolean))||[]))]){
     await mkdir(path.dirname(path.join(out,file)),{recursive:true});await writeFile(path.join(out,file),'asset');
   }
   await writeWeeklyPages(out,{weeklies,digests:[{date:'2026-10-11'}]});

@@ -67,7 +67,7 @@ export function trafficReport({ from, to, execute = wrangler }) {
 const percent = share => share === null ? '—' : `${Math.round(share * 100)}%`;
 
 export function formatReport({ from, to, days }) {
-  const lines = [`AgentHub 浏览量 · ${from} 至 ${to}（北京时间）`, '', '日期          浏览    访客  微信占比'];
+  const lines = [`Agent Hub 浏览量 · ${from} 至 ${to}（北京时间）`, '', '日期          浏览    访客  微信占比'];
   for (const row of days) lines.push(`${row.day}  ${String(row.views).padStart(6)}  ${String(row.visitors).padStart(6)}  ${percent(row.wechat_share).padStart(8)}`);
   const views = days.reduce((sum, row) => sum + row.views, 0);
   const wechat = days.reduce((sum, row) => sum + row.wechat_views, 0);

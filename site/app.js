@@ -39,11 +39,15 @@
   // A readable page anywhere in the issue keeps its date reachable.
   const published = (mode = state.mode) => entries(mode).filter(item =>
     mode !== 'digest' || item.pages.some(window.digestPageHasContent));
-  const selectPage = (item, pageId) => pageId === 'overview' && item.pages?.some(window.digestPageHasContent)
-    ? { id: 'overview', label: '总览' }
-    : item.pages?.find(page => page.id === pageId && window.digestPageHasContent(page)) ||
-      item.pages?.find(window.digestPageHasContent) ||
-      item.pages?.find(page => page.id === pageId) || item.pages?.[0];
+  const selectPage = (item, pageId, mode = 'digest') => {
+    // An address without a page opens a daily issue on its overview when there is more than one section to survey.
+    if (!pageId && mode === 'digest' && (item.pages?.filter(window.digestPageHasContent).length || 0) > 1) pageId = 'overview';
+    return pageId === 'overview' && item.pages?.some(window.digestPageHasContent)
+      ? { id: 'overview', label: '总览' }
+      : item.pages?.find(page => page.id === pageId && window.digestPageHasContent(page)) ||
+        item.pages?.find(window.digestPageHasContent) ||
+        item.pages?.find(page => page.id === pageId) || item.pages?.[0];
+  };
   const pageAvailability = item => {
     if (state.page === 'overview') {
       const active = item.pages.filter(window.digestPageHasContent).map(page => page.label);
@@ -99,10 +103,10 @@
     if (!list?.length) return;
     const selected = list.find(item => key(item) === id) || (mode === 'rank' ? list[0] : published(mode).at(-1) || list.at(-1));
     if (mode === 'weekly') {
-      location.assign(routes.href(mode, key(selected), selectPage(selected, pageId)?.id) + location.search);
+      location.assign(routes.href(mode, key(selected), selectPage(selected, pageId, mode)?.id) + location.search);
       return;
     }
-    routes.write(mode, key(selected), mode === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId)?.id);
+    routes.write(mode, key(selected), mode === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId, mode)?.id);
     restore();
     if (scroll) window.scrollTo({ top: 0, behavior: 'instant' });
   }
@@ -111,7 +115,7 @@
     const modes = ['digest', 'weekly', 'rank'];
     const chosen = modes.includes(mode) && entries(mode).length ? mode : 'digest';
     const selected = entries(chosen).find(item => key(item) === id) || (chosen === 'rank' ? ranks[0] : published(chosen).at(-1) || entries(chosen).at(-1));
-    state = { mode: chosen, id: key(selected), page: chosen === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId)?.id };
+    state = { mode: chosen, id: key(selected), page: chosen === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId, chosen)?.id };
     if (chosen === 'weekly') {
       location.replace(routes.href(chosen, state.id, state.page) + location.search + anchor);
       return;
@@ -157,10 +161,10 @@
     document.body.dataset.view = state.mode === 'weekly' ? 'digest' : state.mode;
     $('#edition-sections').replaceChildren();
     $('#reading').ontouchstart = $('#reading').ontouchend = null;
-    document.title = `${title(state.mode, item)} · AgentHub`;
+    document.title = `${title(state.mode, item)} · Agent Hub`;
     const section = { rank: '活跃榜', weekly: '周报' }[state.mode] || '日报';
     $('.wordmark span').textContent = section;
-    $('#footer-label').textContent = `AGENT HUB / ${section}`;
+    $('#footer-label').textContent = `Agent Hub / ${section}`;
     if (state.mode === 'rank') {
       $('#rank-period').textContent = item.label;
       $('#rank-through').textContent = `统计截至 ${dateText(item.date)}`;
@@ -176,9 +180,10 @@
     $('.wordmark').href = routes.root;
     // Site-wide links (search) resolve from the site root; a relative href would follow the daily path the app pushes.
     for (const link of document.querySelectorAll('a[data-root-href]')) link.href = routes.asset(link.dataset.rootHref);
-    for (const tab of document.querySelectorAll('[data-mode]')) {
-      tab.classList.toggle('active', tab.dataset.mode === state.mode);
-      tab.setAttribute('aria-pressed', String(tab.dataset.mode === state.mode));
+    for (const tab of document.querySelectorAll('.tabs [data-mode]')) {
+      const current = tab.dataset.mode === state.mode;
+      tab.classList.toggle('active', current);
+      if (current) tab.setAttribute('aria-current', 'page'); else tab.removeAttribute('aria-current');
     }
     $('#edition-kind').textContent = badge(state.mode);
     $('#edition-label').textContent = state.mode === 'digest' ? '' : `${index + 1} / ${list.length}`;
@@ -198,11 +203,14 @@
     document.body.dataset.edition = `${state.mode}/${state.id}`;
   }
   function bindJumps() {
-    for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => {
+    for (const button of document.querySelectorAll('[data-jump]')) button.onclick = event => {
+      // A jump that is a real link still opens in a new tab or window with a modifier key.
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       if (button.dataset.jump === 'digest' && !published('digest').some(item => key(item) === button.dataset.id)) return;
+      event.preventDefault();
       $('#archive-dialog').close();
       navigate(button.dataset.jump, button.dataset.id, true,
-        ['digest', 'weekly'].includes(button.dataset.jump) ? state.page : undefined);
+        button.dataset.jumpPage || (['digest', 'weekly'].includes(button.dataset.jump) ? state.page : undefined));
     };
   }
   function openArchive(event) {
@@ -226,8 +234,13 @@
     const item = neighbor(delta);
     if (item) navigate(state.mode, key(item), true, state.page);
   }
-  for (const tab of document.querySelectorAll('[data-mode]')) {
-    tab.onclick = () => navigate(tab.dataset.mode, undefined, true, state.page);
+  // Section tabs are links: a plain click switches in place, a modified click opens the section's own address.
+  for (const tab of document.querySelectorAll('.tabs [data-mode]')) {
+    tab.onclick = event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      navigate(tab.dataset.mode, undefined, true, state.page);
+    };
   }
   for (const button of document.querySelectorAll('[data-close]')) button.onclick = () => document.getElementById(button.dataset.close).close();
   for (const dialog of document.querySelectorAll('dialog')) dialog.addEventListener('click', e => {

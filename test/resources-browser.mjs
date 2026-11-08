@@ -27,7 +27,9 @@ try {
       await page.goto(`${base}#digest/${date}/${group}`);
       await page.locator('.brief-resources a').first().waitFor();
       assert.equal(await page.locator('.brief-resources a').count(), count);
-      assert.doesNotMatch(await page.locator('body').innerText(), /Gemini|这里提供的是|材料没有提供|不能据此判断/);
+      // Summarizer boilerplate must not leak into an edition. Gemini itself is a model the groups discuss, so only
+      // a summarizer speaking as Gemini counts.
+      assert.doesNotMatch(await page.locator('body').innerText(), /(?:我是|作为)\s*Gemini|这里提供的是|材料没有提供|不能据此判断/);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
       for (const link of await page.locator('.brief-resources a').all()) {
         assert.equal(await link.getAttribute('target'), '_blank');

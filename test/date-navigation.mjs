@@ -20,8 +20,9 @@ try {
         await page.goto(`${url}?skin=${skin}#digest/2026-09-25/group-1`);
         await page.locator('#digest-panel').waitFor();
         assert.match(page.url(), /2026-09-25\/group-2$/);
-        assert.equal(await page.locator('[data-page="0"]').isDisabled(), true);
-        assert.match(await page.locator('[data-page="0"]').getAttribute('title'), /暂无稿件/);
+        // Groups without stories are left out of the tabs rather than shown disabled.
+        assert.equal(await page.locator('.page-links [role="tab"]', { hasText: '一群' }).count(), 0);
+        assert.match(await page.locator('[data-page="0"]').textContent(), /二群/);
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
         const overlap = await page.evaluate(() => {
           const a = document.querySelector('.wordmark').getBoundingClientRect();
@@ -34,8 +35,11 @@ try {
           const alignment = await page.evaluate(() => {
             const rect = selector => document.querySelector(selector).getBoundingClientRect();
             const row = rect('.masthead-main'), title = rect('.wordmark'), controls = rect('.edition-controls');
+            // Measure within the row's content box: a festival skin reserves the right edge for its art.
+            const style = getComputedStyle(document.querySelector('.masthead-main'));
+            const left = row.left + parseFloat(style.paddingLeft), right = row.right - parseFloat(style.paddingRight);
             return {
-              centered: Math.abs((title.left + controls.right) / 2 - (row.left + row.right) / 2),
+              centered: Math.abs((title.left + controls.right) / 2 - (left + right) / 2),
               vertical: Math.abs((title.top + title.bottom) / 2 - (controls.top + controls.bottom) / 2),
             };
           });

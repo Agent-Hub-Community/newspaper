@@ -69,7 +69,7 @@ test('the text report lists every day and the per-day top pages', () => {
   view('2026-10-22', 'library/', 'other', 1);
   visitor('2026-10-22', 'a');
   const text = formatReport(trafficReport({ from: '2026-10-21', to: '2026-10-22', execute }));
-  assert.match(text, /^AgentHub 浏览量 · 2026-10-21 至 2026-10-22（北京时间）\n/);
+  assert.match(text, /^Agent Hub 浏览量 · 2026-10-21 至 2026-10-22（北京时间）\n/);
   assert.match(text, /\n2026-10-21\s+0\s+0\s+—\n/);
   assert.match(text, /\n2026-10-22\s+4\s+1\s+75%\n/);
   assert.match(text, /\n合计\s+4\s+—\s+75%\n/);

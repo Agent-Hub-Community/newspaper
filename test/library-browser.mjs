@@ -26,7 +26,8 @@ const server = http.createServer(async (request, response) => {
     if (withEndpoint && file === '/library/index.html') {
       body = body.toString()
         .replace('<meta http-equiv', `<meta name="agenthub-feedback" content="${endpoint}"><meta http-equiv`)
-        .replace("connect-src 'none'", `connect-src ${endpoint}`);
+        // Works on a local build ('none') and a public one (analytics already listed).
+        .replace(/connect-src (?:'none')?/, `connect-src ${endpoint} `);
     }
     response.writeHead(200, { 'content-type': types[path.extname(file)] || 'application/octet-stream' });
     response.end(body);

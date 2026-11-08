@@ -10,6 +10,7 @@ import { AGENTS_PAGE, dailyMarkdown } from '../lib/agent-docs.mjs';
 import { searchIndex } from '../lib/search-render.mjs';
 import { readingBase, readingLinks, readingNotice, readablePath } from '../lib/agent-reading.mjs';
 import { basePath, site } from '../lib/site.mjs';
+import { redirectRoutes } from '../lib/redirect-pages.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), process.argv.includes('--preview') ? '../dist-preview' : '../dist');
 const source = await readFile(path.join(root, 'data.js'), 'utf8');
@@ -233,7 +234,7 @@ for (const page of paths.filter(p => p.endsWith('.html'))) {
 // Rank pages carry their own section name in the masthead and footer before any script runs.
 const rankPage = parseHTML(await readFile(path.join(root, 'rank/week/index.html'), 'utf8')).document;
 assert.equal(rankPage.querySelector('.wordmark span').textContent, '活跃榜');
-assert.equal(rankPage.querySelector('#footer-label').textContent, 'AGENT HUB / 活跃榜');
+assert.equal(rankPage.querySelector('#footer-label').textContent, 'Agent Hub / 活跃榜');
 // Until a section is listed in seo.mjs, every page stays out of search indexes.
 const { INDEXED } = await import('../lib/seo.mjs');
 if (!INDEXED.size) {
@@ -253,8 +254,31 @@ for (const element of notFound.querySelectorAll('[href], [src]')) {
   if (value.startsWith('data:')) continue;
   const target = new URL(value, missing);
   assert.equal(target.origin, missing.origin, value);
+  // "/" is the community homepage on the same origin, published from its own repository.
+  if (target.pathname === '/') continue;
   assert.ok(target.pathname.startsWith(basePath), value);
-  const built = path.join(root, target.pathname.slice(basePath.length) || 'index.html');
+  const relative = target.pathname.slice(basePath.length);
+  const built = path.join(root, !relative || relative.endsWith('/') ? `${relative}index.html` : relative);
   assert.ok(await stat(built).then(s => s.isFile(), () => false), `404 link ${value} does not reach a built file`);
 }
+// Every shortened URL forwards to a page this build wrote.
+const forwards = redirectRoutes(data);
+for (const { route, target } of forwards) {
+  assert.ok(await stat(path.join(root, route, 'index.html')).then(s => s.isFile(), () => false), `${route} has a page`);
+  assert.ok(await stat(path.join(root, route, target, 'index.html')).then(s => s.isFile(), () => false), `${route} forwards to missing ${target}`);
+}
+console.log(`Verified ${forwards.length} forwarding pages for shortened URLs.`);
+// The community homepage reads hub.json at runtime and links straight to these paths, so each must be a built page.
+const hub = JSON.parse(await readFile(path.join(root, 'hub.json'), 'utf8'));
+const hubPaths = [hub.daily?.path, ...(hub.daily?.pages || []).map(entry => entry.quiet ? entry.last.path : entry.path),
+  hub.weekly?.path, ...(hub.weekly?.pages || []).map(entry => entry.path), ...(hub.library?.recent || []).map(entry => entry.path),
+  hub.library?.path, hub.glossary?.path, hub.search?.path, hub.rank?.path, hub.opportunities?.path,
+  ...Object.values(hub.sections || {}).flatMap(value => typeof value === 'string' ? [value] : Object.values(value))].filter(Boolean);
+for (const value of hubPaths) {
+  assert.ok(value.startsWith(basePath), value);
+  const relative = value.slice(basePath.length).split('#')[0];
+  const built = path.join(root, !relative || relative.endsWith('/') ? `${relative}index.html` : relative);
+  assert.ok(await stat(built).then(s => s.isFile(), () => false), `hub.json path ${value} is not a built page`);
+}
+console.log(`Verified ${hubPaths.length} hub.json paths for the community homepage.`);
 console.log(`Verified ${data.digests.length} daily editions and ${files.length} assets; discussion fields validated, private source metadata excluded.`);

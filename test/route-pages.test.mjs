@@ -20,7 +20,7 @@ const template = `<!doctype html><html><head>
 <script defer src="routes.js?v=123def"></script>
 <script defer src="https://example.com/external.js"></script>
 </head><body><main id="reading"></main><a href="#reading">Read</a>
-<a class="wordmark notranslate" href="./">AgentHub</a></body></html>`;
+<a class="wordmark notranslate" href="./">Agent Hub</a></body></html>`;
 
 async function fixture(t) {
   const out = await mkdtemp(path.join(tmpdir(), 'agenthub-route-pages-'));
@@ -76,13 +76,13 @@ test('writes real directory indexes including missing sections and all ranking w
     assert.equal(document.querySelector('script[src^="https:"]').src, 'https://example.com/external.js');
   }
   const absent = parseHTML(await readFile(path.join(out, 'daily/2026-09-27/group-2/index.html'), 'utf8')).document;
-  assert.equal(absent.title, '二群 · 2026-09-27 · AgentHub');
+  assert.equal(absent.title, '二群 · 2026-09-27 · Agent Hub');
   const fourth = parseHTML(await readFile(path.join(out, 'daily/2026-09-27/group-4/index.html'), 'utf8')).document;
-  assert.equal(fourth.title, '四群 · 2026-09-27 · AgentHub');
+  assert.equal(fourth.title, '四群 · 2026-09-27 · Agent Hub');
   const rank = parseHTML(await readFile(path.join(out, 'rank/week/index.html'), 'utf8')).document;
-  assert.equal(rank.title, '活跃榜 · 周榜 · AgentHub');
+  assert.equal(rank.title, '活跃榜 · 周榜 · Agent Hub');
   const rankGroup = parseHTML(await readFile(path.join(out, 'rank/week/group-2/index.html'), 'utf8')).document;
-  assert.equal(rankGroup.title, '活跃榜 · 周榜 · 二群 · AgentHub');
+  assert.equal(rankGroup.title, '活跃榜 · 周榜 · 二群 · Agent Hub');
 });
 
 test('fifth-group routes start with its reader date without inventing historical pages', async t => {
@@ -94,11 +94,11 @@ test('fifth-group routes start with its reader date without inventing historical
   assert.ok(!files.includes('daily/2026-10-19/group-5/index.html'));
   for (const date of ['2026-10-20', '2026-10-21']) assert.ok(files.includes(`daily/${date}/group-5/index.html`));
   const fifth = parseHTML(await readFile(path.join(out, 'daily/2026-10-20/group-5/index.html'), 'utf8')).document;
-  assert.equal(fifth.title, '五群今日讨论 · 2026-10-20 · AgentHub');
+  assert.equal(fifth.title, '五群今日讨论 · 2026-10-20 · Agent Hub');
   assert.equal(fifth.querySelector('link[rel="canonical"]').href, `${site}daily/2026-10-20/group-5/`);
   assert.equal(fifth.querySelector('link[rel="alternate"][type="text/markdown"]').href, 'index.md');
   const absent = parseHTML(await readFile(path.join(out, 'daily/2026-10-21/group-5/index.html'), 'utf8')).document;
-  assert.equal(absent.title, '五群 · 2026-10-21 · AgentHub');
+  assert.equal(absent.title, '五群 · 2026-10-21 · Agent Hub');
 });
 
 test('escapes page titles and rereads the latest root hashes when called after a data merge', async t => {
@@ -107,7 +107,7 @@ test('escapes page titles and rereads the latest root hashes when called after a
   await writeRoutePages(out, { digests: [issue('2026-09-27', heading)] });
   const target = path.join(out, 'daily/2026-09-27/group-1/index.html');
   const first = parseHTML(await readFile(target, 'utf8')).document;
-  assert.equal(first.title, `${heading} · 2026-09-27 · AgentHub`);
+  assert.equal(first.title, `${heading} · 2026-09-27 · Agent Hub`);
   assert.equal(first.querySelector('#injected'), null);
   const rootFile = path.join(out, 'index.html');
   await writeFile(rootFile, (await readFile(rootFile, 'utf8')).replace('data.js?v=789abc', 'data.js?v=fresh123'));
