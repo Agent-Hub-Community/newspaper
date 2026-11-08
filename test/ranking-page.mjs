@@ -20,15 +20,16 @@ try {
     // Every width shows the section tabs, phones included.
     await nav.click();
     await page.waitForFunction(() => document.body.dataset.view === 'rank');
-    assert.equal(await nav.getAttribute('aria-pressed'), 'true');
+    assert.equal(await nav.getAttribute('aria-current'), 'page');
     assert.equal(await page.locator('#sidebar').isVisible(), false);
     assert.equal(await page.locator('#date-picker').isVisible(), false);
     for (const period of ['month', 'all', 'week']) {
       await page.locator(`[data-rank="${period}"]`).click();
       // The group the reader came from stays in the route and is marked on the board.
-      assert.match(await page.evaluate(() => location.hash), new RegExp(`^#rank/${period}(?:/group-[1-4])?$`));
+      assert.match(await page.evaluate(() => location.hash), new RegExp(`^#rank/${period}(?:/group-[1-5])?$`));
       assert.equal(await page.locator('[aria-labelledby="rank-community"] .activity-leaders li').count(), 3);
-      assert.deepEqual(await page.locator('.rank-column h2').allTextContents(), ['全社区', '一群', '二群', '三群', '四群']);
+      // One column per group in the public activity snapshot (five groups since 五群 joined).
+      assert.deepEqual(await page.locator('.rank-column h2').allTextContents(), ['全社区', '一群', '二群', '三群', '四群', '五群']);
       await page.locator('.activity-leaders img').evaluateAll(imgs => Promise.all(imgs.map(i => i.decode())));
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       assert.doesNotMatch(await page.locator('#reading').innerText(), /分数|计分|消息数|微信号/);

@@ -176,9 +176,10 @@
     $('.wordmark').href = routes.root;
     // Site-wide links (search) resolve from the site root; a relative href would follow the daily path the app pushes.
     for (const link of document.querySelectorAll('a[data-root-href]')) link.href = routes.asset(link.dataset.rootHref);
-    for (const tab of document.querySelectorAll('[data-mode]')) {
-      tab.classList.toggle('active', tab.dataset.mode === state.mode);
-      tab.setAttribute('aria-pressed', String(tab.dataset.mode === state.mode));
+    for (const tab of document.querySelectorAll('.tabs [data-mode]')) {
+      const current = tab.dataset.mode === state.mode;
+      tab.classList.toggle('active', current);
+      if (current) tab.setAttribute('aria-current', 'page'); else tab.removeAttribute('aria-current');
     }
     $('#edition-kind').textContent = badge(state.mode);
     $('#edition-label').textContent = state.mode === 'digest' ? '' : `${index + 1} / ${list.length}`;
@@ -229,8 +230,13 @@
     const item = neighbor(delta);
     if (item) navigate(state.mode, key(item), true, state.page);
   }
-  for (const tab of document.querySelectorAll('[data-mode]')) {
-    tab.onclick = () => navigate(tab.dataset.mode, undefined, true, state.page);
+  // Section tabs are links: a plain click switches in place, a modified click opens the section's own address.
+  for (const tab of document.querySelectorAll('.tabs [data-mode]')) {
+    tab.onclick = event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      navigate(tab.dataset.mode, undefined, true, state.page);
+    };
   }
   for (const button of document.querySelectorAll('[data-close]')) button.onclick = () => document.getElementById(button.dataset.close).close();
   for (const dialog of document.querySelectorAll('dialog')) dialog.addEventListener('click', e => {

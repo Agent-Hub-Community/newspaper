@@ -42,7 +42,7 @@ body:is([data-view], [data-page]) .edition-nav { border-top: 1px solid var(--rul
 body:is([data-view], [data-page]) .tabs { gap: 30px; }
 body:is([data-view], [data-page]) .tabs :is(a,button) { display: inline-flex; align-items: center; justify-content: center; font-weight: 400; font-size: 13px; min-height: 50px; border-bottom-width: 1px; transition: color .2s; }
 body:is([data-view], [data-page]) .tabs :is(.active,[aria-current]) { font-weight: 500; color: var(--ink); border-color: var(--ink); }
-body:is([data-view], [data-page]) .edition-nav .tabs button.active { color: var(--ink); border-color: var(--ink); }
+body:is([data-view], [data-page]) .edition-nav .tabs :is(a, button).active { color: var(--ink); border-color: var(--ink); }
 body:is([data-view], [data-page]) .icon-button { border-radius: 50%; transition: background .2s, color .2s; }
 body:is([data-view], [data-page]) .edition-tools { align-items: center; }
 body:is([data-view], [data-page]) .group-nav { min-height: 49px; }
@@ -146,7 +146,8 @@ body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-
   /* Five sections and the tools share one row: they fit from 390px; narrower screens scroll the sections. */
   body:is([data-view], [data-page]) .tabs { flex: 1 1 auto; min-width: 0; gap: 12px; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
   body:is([data-view], [data-page]) .tabs::-webkit-scrollbar { display: none; }
-  body:is([data-view], [data-page]) .tabs :is(a,button) { flex: none; min-width: 0; min-height: 47px; padding-inline: 0; font-size: 13px; white-space: nowrap; }
+  /* A scrolling row clips anything past its edge, so the current tab's rule sits inside the row instead of overlapping the border. */
+  body:is([data-view], [data-page]) .tabs :is(a,button) { flex: none; min-width: 0; min-height: 47px; margin-bottom: 0; padding-inline: 0; font-size: 13px; white-space: nowrap; }
   body:is([data-view], [data-page]) .group-nav { min-height: 46px; }
   body:is([data-view], [data-page]) .group-nav :is(.overview-pill,.page-links > a,.page-links > button) { font-size: 13px; }
   body[data-view='digest'] .reading-layout { padding-top: 27px; }

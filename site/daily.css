@@ -104,8 +104,8 @@ body:has(#archive-dialog[open]) { overflow: hidden; }
 }
 body:is([data-view="digest"], [data-view="rank"]) .edition-nav { min-height: 46px; border-top: 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 55%, transparent); }
 body:is([data-view="digest"], [data-view="rank"]) .tabs { gap: 24px; }
-body:is([data-view="digest"], [data-view="rank"]) .tabs button { min-width: 52px; }
-body:is([data-view="digest"], [data-view="rank"]) .tabs button.active { color: var(--accent); border-color: var(--accent); }
+body:is([data-view="digest"], [data-view="rank"]) .tabs :is(a, button) { min-width: 52px; }
+body:is([data-view="digest"], [data-view="rank"]) .tabs :is(a, button).active { color: var(--accent); border-color: var(--accent); }
 body:is([data-view="digest"], [data-view="rank"]) .archive-button { border-left: 0; padding-left: 8px; }
 body[data-view="rank"] .edition-nav .search-entry { border-left: 0; }
 body[data-view="digest"] .edition-description { font-size: 11px; }
@@ -357,7 +357,7 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
   body[data-view="rank"] .rank-periods { width: 100%; }
   body[data-view="rank"] .rank-periods button { flex: 1; min-height: 40px; }
   body[data-view="rank"] .tabs { width: 100%; justify-content: space-between; gap: 0; }
-  body[data-view="rank"] .tabs button { padding-inline: 8px; font-size: 15px; }
+  body[data-view="rank"] .tabs :is(a, button) { padding-inline: 8px; font-size: 15px; }
   body[data-view="rank"] .rank-column { --avatar: 48px; grid-template-columns: 5.5em minmax(0, 1fr); column-gap: 12px; padding: 14px 8px; }
   body[data-view="rank"] .rank-column h2 { font-size: 16px; }
   body[data-view="rank"] .activity-leaders { gap: 16px; }
@@ -370,7 +370,7 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
   body[data-view="digest"] #edition-sections { border-top: 0; border-bottom: 1px solid var(--rule); }
   body[data-view="digest"] .group-nav { gap: 8px; min-height: 44px; }
   body[data-view="digest"] .group-nav [role="tab"],
-  body[data-view="digest"] .edition-nav .tabs button { min-height: 44px; }
+  body[data-view="digest"] .edition-nav .tabs :is(a, button) { min-height: 44px; }
   body[data-view="digest"] .group-nav [role="tablist"] { flex: 1; }
   body[data-view="digest"] .group-nav [role="tab"] { font-size: 14px; }
   body[data-view="digest"] .reading-layout { display: block; }
