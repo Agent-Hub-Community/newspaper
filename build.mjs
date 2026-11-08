@@ -10,6 +10,7 @@ import { feedbackId } from './lib/feedback-id.mjs';
 import { createHash } from 'node:crypto';
 import { loadSkins } from './site/skins/build.mjs';
 import { writeRoutePages } from './lib/route-pages.mjs';
+import { writeRedirectPages } from './lib/redirect-pages.mjs';
 import { buildIconBundle } from './lib/icons.mjs';
 import { readerReport, validateExternalDraft } from './lib/external-workflow.mjs';
 import { validateStoryDiscussion } from './lib/story-discussion.mjs';
@@ -261,6 +262,8 @@ for (const element of document.querySelectorAll('script[src], link[rel="styleshe
 }
 await writeFile(path.join(out, 'index.html'), document.toString());
 await writeRoutePages(out, data, { issueVersions });
+// Shortened URLs such as daily/ or rank/ forward to the page they stand for.
+await writeRedirectPages(out, data);
 const vocabulary = searchVocabulary({ aliases: library.aliases, glossary, synonyms: await readSynonyms(dataDir) });
 library.vocabulary = vocabulary;
 // Opportunities close on a Beijing date; the build date decides which are still open (a daily rebuild moves them).

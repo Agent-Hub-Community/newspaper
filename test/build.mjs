@@ -10,6 +10,7 @@ import { AGENTS_PAGE, dailyMarkdown } from '../lib/agent-docs.mjs';
 import { searchIndex } from '../lib/search-render.mjs';
 import { readingBase, readingLinks, readingNotice, readablePath } from '../lib/agent-reading.mjs';
 import { basePath, site } from '../lib/site.mjs';
+import { redirectRoutes } from '../lib/redirect-pages.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), process.argv.includes('--preview') ? '../dist-preview' : '../dist');
 const source = await readFile(path.join(root, 'data.js'), 'utf8');
@@ -260,4 +261,11 @@ for (const element of notFound.querySelectorAll('[href], [src]')) {
   const built = path.join(root, !relative || relative.endsWith('/') ? `${relative}index.html` : relative);
   assert.ok(await stat(built).then(s => s.isFile(), () => false), `404 link ${value} does not reach a built file`);
 }
+// Every shortened URL forwards to a page this build wrote.
+const forwards = redirectRoutes(data);
+for (const { route, target } of forwards) {
+  assert.ok(await stat(path.join(root, route, 'index.html')).then(s => s.isFile(), () => false), `${route} has a page`);
+  assert.ok(await stat(path.join(root, route, target, 'index.html')).then(s => s.isFile(), () => false), `${route} forwards to missing ${target}`);
+}
+console.log(`Verified ${forwards.length} forwarding pages for shortened URLs.`);
 console.log(`Verified ${data.digests.length} daily editions and ${files.length} assets; discussion fields validated, private source metadata excluded.`);
