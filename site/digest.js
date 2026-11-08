@@ -203,7 +203,7 @@
     </dialog>` : '';
     main.innerHTML = `
       <nav class="group-nav" aria-label="本期版面" data-page-count="${issue.pages.length}">
-        ${!weekly && availablePages.length > 1 ? `<a class="overview-pill" href="${esc(pageHref('overview'))}" ${isOverview ? 'aria-current="page"' : ''} aria-pressed="${isOverview}" title="查看本日各群与外部资讯总览">总览</a>` : ''}
+        ${!weekly && availablePages.length > 1 ? `<a class="overview-pill" href="${esc(pageHref('overview'))}" ${isOverview ? 'aria-current="page"' : ''} title="查看本日各群与外部资讯总览">总览</a>` : ''}
         <div class="page-links" role="tablist" aria-label="群聊与外部资讯">${issue.pages.map((p, i) => `<button role="tab" id="group-${i}" data-nav-group="${navGroup(p)}" ${hasContent(p) ? '' : `disabled title="${esc(p.label)}暂无稿件" aria-label="${esc(p.label)}，暂无稿件"`} aria-selected="${!isOverview && i === pageIndex}" ${!isOverview && i === pageIndex ? 'aria-current="page"' : ''} aria-controls="digest-panel" tabindex="${!isOverview && i === pageIndex && hasContent(p) ? 0 : isOverview && i === availablePages[0] ? 0 : -1}" data-page="${i}"><span>${String(i + 1).padStart(2, '0')}</span>${esc(p.label)}</button>`).join('')}</div>
         <div class="group-tools">
           ${!weekly && availablePages.length > 1 ? `<button type="button" class="switcher-toggle" id="switcher-toggle" aria-haspopup="dialog" aria-controls="section-switcher" title="查看全部版面与主题"><i data-lucide="layout-grid"></i><span>版面</span></button>` : ''}
