@@ -138,7 +138,7 @@ body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-
   body:is([data-view], [data-page]) .masthead .brand-wordmark { width: 111px; }
   body:is([data-view], [data-page]) .masthead .masthead-main .wordmark > span { margin-left: 12px; padding-left: 12px; font-size: 17px; }
   body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-label,.period) { font-size: 18px; }
-  body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-weekday,.issue-date small) { font-size: 10px; }
+  body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-weekday,.issue-date small) { font-size: 11px; }
   .community-home { display: none; }
   /* Phones reach the archive through the date; say so beside the weekday. */
   body[data-view="digest"] .masthead #date-weekday::after { content: ' · 往期'; color: var(--accent); }
@@ -171,7 +171,7 @@ body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-
   .publication-colophon { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 4px 0 24px; }
   .colophon-brand .brand-wordmark { width: 172px; }
   .colophon-map { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; }
-  body:is([data-view], [data-page]) .paper-footer #footer-note, body:is([data-view], [data-page]) .footer > span:last-child { grid-column: 1; font-size: 10px; }
+  body:is([data-view], [data-page]) .paper-footer #footer-note, body:is([data-view], [data-page]) .footer > span:last-child { grid-column: 1; font-size: 11px; }
   body:is([data-view], [data-page]) .paper-footer #back-top { grid-column: 2; grid-row: 2 / 4; }
 }
 /* Phones keep four sections with 44px targets beside the tools; the glossary stays one tap away in the footer
