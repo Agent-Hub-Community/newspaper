@@ -39,11 +39,15 @@
   // A readable page anywhere in the issue keeps its date reachable.
   const published = (mode = state.mode) => entries(mode).filter(item =>
     mode !== 'digest' || item.pages.some(window.digestPageHasContent));
-  const selectPage = (item, pageId) => pageId === 'overview' && item.pages?.some(window.digestPageHasContent)
-    ? { id: 'overview', label: '总览' }
-    : item.pages?.find(page => page.id === pageId && window.digestPageHasContent(page)) ||
-      item.pages?.find(window.digestPageHasContent) ||
-      item.pages?.find(page => page.id === pageId) || item.pages?.[0];
+  const selectPage = (item, pageId, mode = 'digest') => {
+    // An address without a page opens a daily issue on its overview when there is more than one section to survey.
+    if (!pageId && mode === 'digest' && (item.pages?.filter(window.digestPageHasContent).length || 0) > 1) pageId = 'overview';
+    return pageId === 'overview' && item.pages?.some(window.digestPageHasContent)
+      ? { id: 'overview', label: '总览' }
+      : item.pages?.find(page => page.id === pageId && window.digestPageHasContent(page)) ||
+        item.pages?.find(window.digestPageHasContent) ||
+        item.pages?.find(page => page.id === pageId) || item.pages?.[0];
+  };
   const pageAvailability = item => {
     if (state.page === 'overview') {
       const active = item.pages.filter(window.digestPageHasContent).map(page => page.label);
@@ -99,10 +103,10 @@
     if (!list?.length) return;
     const selected = list.find(item => key(item) === id) || (mode === 'rank' ? list[0] : published(mode).at(-1) || list.at(-1));
     if (mode === 'weekly') {
-      location.assign(routes.href(mode, key(selected), selectPage(selected, pageId)?.id) + location.search);
+      location.assign(routes.href(mode, key(selected), selectPage(selected, pageId, mode)?.id) + location.search);
       return;
     }
-    routes.write(mode, key(selected), mode === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId)?.id);
+    routes.write(mode, key(selected), mode === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId, mode)?.id);
     restore();
     if (scroll) window.scrollTo({ top: 0, behavior: 'instant' });
   }
@@ -111,7 +115,7 @@
     const modes = ['digest', 'weekly', 'rank'];
     const chosen = modes.includes(mode) && entries(mode).length ? mode : 'digest';
     const selected = entries(chosen).find(item => key(item) === id) || (chosen === 'rank' ? ranks[0] : published(chosen).at(-1) || entries(chosen).at(-1));
-    state = { mode: chosen, id: key(selected), page: chosen === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId)?.id };
+    state = { mode: chosen, id: key(selected), page: chosen === 'rank' ? rankGroup(pageId) : selectPage(selected, pageId, chosen)?.id };
     if (chosen === 'weekly') {
       location.replace(routes.href(chosen, state.id, state.page) + location.search + anchor);
       return;
@@ -157,10 +161,10 @@
     document.body.dataset.view = state.mode === 'weekly' ? 'digest' : state.mode;
     $('#edition-sections').replaceChildren();
     $('#reading').ontouchstart = $('#reading').ontouchend = null;
-    document.title = `${title(state.mode, item)} · AgentHub`;
+    document.title = `${title(state.mode, item)} · Agent Hub`;
     const section = { rank: '活跃榜', weekly: '周报' }[state.mode] || '日报';
     $('.wordmark span').textContent = section;
-    $('#footer-label').textContent = `AGENT HUB / ${section}`;
+    $('#footer-label').textContent = `Agent Hub / ${section}`;
     if (state.mode === 'rank') {
       $('#rank-period').textContent = item.label;
       $('#rank-through').textContent = `统计截至 ${dateText(item.date)}`;

@@ -234,7 +234,7 @@ for (const page of paths.filter(p => p.endsWith('.html'))) {
 // Rank pages carry their own section name in the masthead and footer before any script runs.
 const rankPage = parseHTML(await readFile(path.join(root, 'rank/week/index.html'), 'utf8')).document;
 assert.equal(rankPage.querySelector('.wordmark span').textContent, '活跃榜');
-assert.equal(rankPage.querySelector('#footer-label').textContent, 'AGENT HUB / 活跃榜');
+assert.equal(rankPage.querySelector('#footer-label').textContent, 'Agent Hub / 活跃榜');
 // Until a section is listed in seo.mjs, every page stays out of search indexes.
 const { INDEXED } = await import('../lib/seo.mjs');
 if (!INDEXED.size) {

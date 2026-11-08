@@ -172,7 +172,7 @@ try {
   assert.ok((await page.locator('.wordmark').getAttribute('class')).split(' ').includes('notranslate'));
   // Synthetic bilingual-extension output, not a claim about any specific extension.
   await page.locator('.wordmark').evaluate(el => {
-    el.append(document.createTextNode(' AgentHub 群聊'));
+    el.append(document.createTextNode(' Agent Hub 群聊'));
   });
   for (const width of [320, 390, 430]) {
     await page.setViewportSize({ width, height: 844 });

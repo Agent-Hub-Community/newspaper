@@ -32,7 +32,7 @@ const data = { digests: [issue, { date: '2026-10-12', pages: [{ id: 'group-1', l
 
 test('daily Markdown keeps summaries, comments and sources but never the raw discussion', () => {
   const markdown = dailyMarkdown(issue);
-  assert.match(markdown, /^# AgentHub 日报 2026-10-13/);
+  assert.match(markdown, /^# Agent Hub 日报 2026-10-13/);
   assert.match(markdown, /## 二群：AI 审稿会怎样变？/);
   assert.doesNotMatch(markdown, /一群/, 'pages without copy are left out');
   assert.match(markdown, /第一段。\n\n第二段 \\\*不是强调\\\*。/, 'paragraphs survive and Markdown syntax is escaped');
@@ -68,7 +68,7 @@ test('approved quotes survive while discussion changes cannot affect Markdown or
 
 test('a single page copy carries only that page', () => {
   const markdown = dailyMarkdown(issue, 'group-2');
-  assert.match(markdown, /^# AgentHub 日报 2026-10-13 二群/);
+  assert.match(markdown, /^# Agent Hub 日报 2026-10-13 二群/);
   assert.ok(markdown.includes(`网页：${site}daily/2026-10-13/group-2/\n`));
   assert.equal(dailyMarkdown(issue, 'group-1').includes('## '), false, 'a page without copy has no sections');
 });
@@ -86,10 +86,10 @@ test('the index, llms files and skill point only at files the build writes', () 
   assert.doesNotMatch(index, /2026-10-12/, 'issues without readable pages have no Markdown copy');
   assert.match(index, /weekly\/2026-10-05\/2026-10-11\/index\.md/);
   const llms = llmsTxt(data, library, glossary);
-  assert.match(llms, /^# AgentHub\n\n> /, 'llms.txt starts with a title and a summary block');
+  assert.match(llms, /^# Agent Hub\n\n> /, 'llms.txt starts with a title and a summary block');
   for (const target of ['index.md', 'agents/SKILL.md', 'library/resources.json', 'glossary/glossary.json', 'llms-full.txt']) assert.ok(llms.includes(target), target);
   const full = llmsFullTxt(data, library, glossary);
-  assert.ok(full.includes('# AgentHub 群聊黑话') && full.includes('# AgentHub 资料库') && full.includes('# AgentHub 周报') && full.includes('# AgentHub 日报 2026-10-13'));
+  assert.ok(full.includes('# Agent Hub 群聊黑话') && full.includes('# Agent Hub 资料库') && full.includes('# Agent Hub 周报') && full.includes('# Agent Hub 日报 2026-10-13'));
   const skill = siteSkill();
   assert.match(skill, /^---\nname: agenthub\ndescription: .+\n---\n/);
   assert.doesNotMatch(skill, /共 \d+ 项|收录到/, "an installed skill must not carry counts that go stale");

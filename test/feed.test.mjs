@@ -16,7 +16,7 @@ const data = {
 test('the JSON feed lists readable editions newest first, with section headings and a Markdown copy', () => {
   const feed = JSON.parse(jsonFeed(data));
   assert.equal(feed.version, 'https://jsonfeed.org/version/1.1');
-  assert.deepEqual(feed.items.map(item => item.title), ['AgentHub 日报 2026-10-17', 'AgentHub 日报 2026-10-15', 'AgentHub 周报 2026-10-05 至 2026-10-11：一周'],
+  assert.deepEqual(feed.items.map(item => item.title), ['Agent Hub 日报 2026-10-17', 'Agent Hub 日报 2026-10-15', 'Agent Hub 周报 2026-10-05 至 2026-10-11：一周'],
     'an edition with no readable page is left out');
   assert.equal(feed.items[0].date_published, '2026-10-17T00:00:00+08:00');
   assert.match(feed.items[1].content_text, /^一群：一群标题\n外部资讯：资讯 <标题> & 动态/);
