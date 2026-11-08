@@ -163,6 +163,19 @@
       <a class="relay-card is-prev" href="${esc(pageHref(prevRelay.id))}" data-overview-target="${esc(prevRelay.id)}" data-relay="prev"><span class="relay-dir">← 上一版 · ${esc(prevRelay.label)}（${esc(prevRelay.count)}）</span><strong class="relay-title">${esc(prevRelay.title)}</strong></a>
       <a class="relay-card is-next" href="${esc(pageHref(nextRelay.id))}" data-overview-target="${esc(nextRelay.id)}" data-relay="next"><span class="relay-dir">下一版 · ${esc(nextRelay.label)}（${esc(nextRelay.count)}） →</span><strong class="relay-title">${esc(nextRelay.title)}</strong></a>
     </nav>` : '';
+    // Turning to the day before or after keeps the reader on the same group when that day has it.
+    const days = weekly ? [] : (archive.digests || []).filter(entry => entry.pages.some(hasContent));
+    const dayIndex = days.findIndex(entry => entry.date === issue.date);
+    const dayLink = (entry, direction) => {
+      if (!entry) return `<span class="day-link is-${direction} is-empty" aria-hidden="true"></span>`;
+      const target = !isOverview && entry.pages.some(other => other.id === page.id && hasContent(other)) ? page.id : 'overview';
+      const href = window.AgentHubRoutes?.href('digest', entry.date, target) || '';
+      const date = esc(entry.date.replaceAll('-', '.'));
+      return `<a class="day-link is-${direction}" href="${esc(href)}" data-jump="digest" data-id="${esc(entry.date)}" data-jump-page="${esc(target)}">` +
+        (direction === 'prev' ? `<span class="day-dir">← 前一天</span><span class="day-date">${date}</span>` : `<span class="day-date">${date}</span><span class="day-dir">后一天 →</span>`) + '</a>';
+    };
+    const dayNav = dayIndex >= 0 && days.length > 1
+      ? `<nav class="day-pager" aria-label="相邻日期">${dayLink(days[dayIndex - 1], 'prev')}${dayLink(days[dayIndex + 1], 'next')}</nav>` : '';
     const navGroup = p => p.id === 'external' ? 'meta' : isTopicalGroup(p.id) ? 'topical' : 'main';
     const switcherPages = availablePages.map(idx => issue.pages[idx]);
     const switcherMain = switcherPages.filter(sec => sec.id !== 'external' && !isTopicalGroup(sec.id));
@@ -236,6 +249,7 @@
         ${!isOverview && external && page.trends?.length ? `<section class="external-trends" aria-labelledby="trends-heading"><h2 id="trends-heading">动向观察</h2><div>${page.trends.map(trend => `<article><h3>${esc(trend.title)}</h3><p>${esc(trend.text)}</p></article>`).join('')}</div></section>` : ''}
         ${!isOverview && note && hasContent(page) ? `<div class="digest-source">${esc(note)}</div>` : ''}
         ${relayNav}
+        ${dayNav}
       </section>
       ${switcherDialog}`;
     for (const image of main.querySelectorAll('.lead-figure img')) image.src = asset(image.getAttribute('src'));

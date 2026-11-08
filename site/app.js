@@ -198,11 +198,14 @@
     document.body.dataset.edition = `${state.mode}/${state.id}`;
   }
   function bindJumps() {
-    for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => {
+    for (const button of document.querySelectorAll('[data-jump]')) button.onclick = event => {
+      // A jump that is a real link still opens in a new tab or window with a modifier key.
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       if (button.dataset.jump === 'digest' && !published('digest').some(item => key(item) === button.dataset.id)) return;
+      event.preventDefault();
       $('#archive-dialog').close();
       navigate(button.dataset.jump, button.dataset.id, true,
-        ['digest', 'weekly'].includes(button.dataset.jump) ? state.page : undefined);
+        button.dataset.jumpPage || (['digest', 'weekly'].includes(button.dataset.jump) ? state.page : undefined));
     };
   }
   function openArchive(event) {

@@ -887,3 +887,9 @@ body[data-view="digest"] .masthead-main #date-weekday { color: var(--muted); fon
   body:is([data-view="digest"], [data-view="rank"]) .masthead-main .wordmark span { font-size: 16px; }
   body[data-view="digest"] .masthead-main #date-label { font-size: 18px; }
 }
+
+/* The day before and after, under the section relay. */
+body[data-view="digest"] .day-pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 14px; }
+body[data-view="digest"] .day-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
+body[data-view="digest"] .day-link .day-date { font-family: var(--latin); font-variant-numeric: tabular-nums; color: var(--ink); transition: color .2s; }
+body[data-view="digest"] .day-link:is(:hover, :focus-visible), body[data-view="digest"] .day-link:is(:hover, :focus-visible) .day-date { color: var(--accent); }

@@ -103,6 +103,8 @@ body:is([data-view], [data-page]) .paper-footer, body:is([data-view], [data-page
   display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 25px 32px;
   background: #080f1c; color: #99aac2; border-top: 0;
   margin-top: 80px; padding: 44px var(--page-gutter) 22px; font: 11px/1.8 var(--sans);
+  /* The band runs edge to edge like the homepage footer, while its content keeps the reading width. */
+  box-shadow: 0 0 0 100vmax #080f1c; clip-path: inset(0 -100vmax);
 }
 body > .shell > .footer { margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
 /* The footer lists the whole site, the same map as the homepage footer. */
