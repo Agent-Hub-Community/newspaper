@@ -140,6 +140,8 @@ body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-
   body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-label,.period) { font-size: 18px; }
   body:is([data-view], [data-page]) .masthead .masthead-main :is(#date-weekday,.issue-date small) { font-size: 10px; }
   .community-home { display: none; }
+  /* Phones reach the archive through the date; say so beside the weekday. */
+  body[data-view="digest"] .masthead #date-weekday::after { content: ' · 往期'; color: var(--accent); }
   body:is([data-view], [data-page]) .edition-nav { min-height: 48px; gap: 8px; }
   /* The daily app spreads its sections and 44px tools across the row itself (daily.css), without gaps. */
   body[data-view] .edition-nav, body[data-view] .edition-nav .tabs { gap: 0; }
