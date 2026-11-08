@@ -28,7 +28,7 @@ import { writeGlossaryFiles } from './lib/glossary-render.mjs';
 import { searchCounts, searchIndex, writeSearchFiles } from './lib/search-render.mjs';
 import { readSynonyms, searchVocabulary } from './lib/synonyms.mjs';
 import { weeklyRoute } from './lib/weekly-editions.mjs';
-import { brandWordmark, communityLink, colophon, favicon } from './lib/brand.mjs';
+import { brandHome, brandWordmark, communityLink, colophon, favicon } from './lib/brand.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 // Browser files and templates copied into the build as they are.
@@ -243,6 +243,7 @@ await copyFile(path.join(root, 'node_modules/modern-screenshot/dist/index.js'), 
 const { document } = parseHTML(await readFile(path.join(out, 'index.html'), 'utf8'));
 const brand = document.querySelector('.wordmark');
 brand.innerHTML = brandWordmark + brand.querySelector('span').outerHTML;
+brand.insertAdjacentHTML('beforebegin', brandHome);
 document.querySelector('.masthead-main').insertAdjacentHTML('beforeend', communityLink);
 document.querySelector('.paper-footer').insertAdjacentHTML('afterbegin', colophon);
 document.querySelector('link[rel="icon"]').href = favicon;
