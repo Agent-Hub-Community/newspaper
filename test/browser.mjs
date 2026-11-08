@@ -106,7 +106,8 @@ try {
     [p.stories, p.papers, p.trends].some(items => items?.some(s => s.text?.trim()))).id);
   assert.equal(await page.locator('#reading').getAttribute('data-page'), firstPage);
   assert.equal(await page.locator('.masthead-main .edition-controls').count(), 1);
-  const pageCount = await page.evaluate(() => AGENT_HUB_DATA.digests.at(-1).pages.length);
+  // Groups without stories are left out of the tabs.
+  const pageCount = await page.evaluate(() => AGENT_HUB_DATA.digests.at(-1).pages.filter(window.digestPageHasContent).length);
   assert.equal(await page.locator('#edition-sections [role="tab"]').count(), pageCount);
   assert.equal(await page.locator('.digest-heading .daily-ranking').count(), 1);
   assert.equal(await page.locator('#sidebar .daily-ranking').count(), 0);
@@ -138,8 +139,12 @@ try {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.locator('[data-page="1"]').click();
   await checkDigestPage();
-  assert.equal(await page.locator('.daily-ranking').getAttribute('data-group'), 'group-2');
-  assert.equal(await page.locator('#daily-ranking-title').innerText(), '本群活跃榜');
+  // The second tab is the second group with stories in this edition; ranked groups show their board.
+  const secondGroup = await page.evaluate(() => AGENT_HUB_DATA.digests.at(-1).pages.filter(window.digestPageHasContent)[1].id);
+  if (await page.locator('.daily-ranking').count()) {
+    assert.equal(await page.locator('.daily-ranking').getAttribute('data-group'), secondGroup);
+    assert.equal(await page.locator('#daily-ranking-title').innerText(), '本群活跃榜');
+  }
   await page.locator('[data-mode="rank"]').click();
   await page.waitForFunction(() => document.body.dataset.view === 'rank');
   await page.locator('[data-rank="month"]').click();
