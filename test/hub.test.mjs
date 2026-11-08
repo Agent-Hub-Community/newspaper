@@ -25,7 +25,7 @@ const input = {
     { id: 'd', title: '没有日期', type: 'paper' },
   ] },
   glossary: { terms: [{ term: 'RL' }, { term: 'SFT' }] },
-  opportunities: { items: [{}, {}, {}] },
+  opportunities: { items: [{ kind: 'hiring', open: true }, { kind: 'cfp', open: true }, { kind: 'hiring', open: false }] },
   searchable: 42,
 };
 
@@ -60,6 +60,8 @@ test('counts and paths cover every section, with root-relative links only', () =
   const hub = hubSummary(input);
   assert.equal(hub.glossary.count, 2);
   assert.equal(hub.opportunities.count, 3);
+  assert.equal(hub.opportunities.open, 2, 'closed postings are not counted as open');
+  assert.deepEqual(hub.opportunities.kinds, { hiring: 1, cfp: 1 });
   assert.deepEqual(hub.search, { count: 42, path: `${basePath}search/` });
   assert.equal(hub.rank.groups, 2, 'groups marked unavailable are not counted');
   const paths = JSON.stringify(hub).match(/"path":"[^"]*"/g);
