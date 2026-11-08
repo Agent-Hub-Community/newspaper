@@ -497,9 +497,9 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
     overflow-x: auto;
     scrollbar-width: none;
   }
-  /* Five sections share the row evenly but never shrink below their label; below that the row scrolls. */
+  /* The sections share the row in equal widths but never shrink below their label; below that the row scrolls. */
   body[data-view="digest"] .edition-nav .tabs :is(a, button) {
-    flex: 1 0 auto;
+    flex: 1 1 0;
     min-width: max-content;
     padding-inline: 4px;
   }
@@ -606,7 +606,7 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
     scrollbar-width: none;
   }
   body[data-view="rank"] .edition-nav .tabs :is(a, button) {
-    flex: 1 0 auto;
+    flex: 1 1 0;
     min-width: max-content;
     padding-inline: 4px;
   }

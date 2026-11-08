@@ -140,7 +140,7 @@ body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-
   .community-home { display: none; }
   body:is([data-view], [data-page]) .edition-nav { min-height: 48px; gap: 8px; }
   /* The daily app spreads its sections and 44px tools across the row itself (daily.css), without gaps. */
-  body[data-view] .edition-nav { gap: 0; }
+  body[data-view] .edition-nav, body[data-view] .edition-nav .tabs { gap: 0; }
   /* Five sections and the tools share one row: they fit from 390px; narrower screens scroll the sections. */
   body:is([data-view], [data-page]) .tabs { flex: 1 1 auto; min-width: 0; gap: 12px; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
   body:is([data-view], [data-page]) .tabs::-webkit-scrollbar { display: none; }
@@ -169,8 +169,13 @@ body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-
   body:is([data-view], [data-page]) .paper-footer #footer-note, body:is([data-view], [data-page]) .footer > span:last-child { grid-column: 1; font-size: 10px; }
   body:is([data-view], [data-page]) .paper-footer #back-top { grid-column: 2; grid-row: 2 / 4; }
 }
+/* Phones keep four sections with 44px targets beside the tools; the glossary stays one tap away in the footer
+   and the library, and its own page still shows its tab. */
+@media (max-width: 430px) {
+  body .tabs .glossary-tab:not([aria-current]) { display: none; }
+}
 @media (max-width: 389px) {
-  body:is([data-view], [data-page]) .tabs { gap: 9px; }
+  body[data-page] .tabs { gap: 9px; }
 }
 /* Below this width the static pages cannot fit all five sections; fade the edge so the row reads as scrollable. */
 @media (max-width: 371px) {

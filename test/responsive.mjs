@@ -29,7 +29,8 @@ const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/cs
 const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
-    const file = path.resolve(dist, `.${pathname === '/' ? '/index.html' : pathname}`);
+    // Like GitHub Pages, a directory path serves its index.html (the app pushes route paths such as daily/<date>/<group>/).
+    const file = path.resolve(dist, `.${pathname.endsWith('/') ? `${pathname}index.html` : pathname}`);
     if (!file.startsWith(`${dist}${path.sep}`)) {
       response.writeHead(403).end();
       return;
@@ -71,10 +72,14 @@ async function layout(label, touch = true) {
     const visible = el => el.getBoundingClientRect().width && el.getBoundingClientRect().height;
     const name = el => el.id || `${el.tagName}.${el.className}`;
     const elements = [...document.querySelectorAll('.paper-shell *, dialog[open], dialog[open] *')];
-    const overflow = elements.filter(el => visible(el) && (
+    // Rows built to scroll sideways (the section and group tabs) may hold more than they show; the row itself must fit.
+    const scrolls = el => ['auto', 'scroll'].includes(getComputedStyle(el).overflowX);
+    const inScroller = el => { for (let p = el.parentElement; p; p = p.parentElement) if (scrolls(p)) return true; return false; };
+    const overflow = elements.filter(el => visible(el) && !inScroller(el) && (
       el.getBoundingClientRect().left < -1 ||
       el.getBoundingClientRect().right > innerWidth + 1 ||
-      (el.clientWidth && el.scrollWidth > el.clientWidth + 1)
+      // Labels truncated with an ellipsis are clipped on purpose.
+      (!scrolls(el) && getComputedStyle(el).textOverflow !== 'ellipsis' && el.clientWidth && el.scrollWidth > el.clientWidth + 1)
     )).map(name);
     const overlap = [];
     for (const selector of ['.masthead-main', '.edition-nav', '.edition-bar', '.edition-controls', '.group-nav', '.digest-heading-top', '.ranking-heading', '.rank-tabs', '.dialog-header']) {
@@ -117,6 +122,7 @@ async function storyLayout(label, count) {
     };
     return {
       columns: grid ? getComputedStyle(grid).gridTemplateColumns.split(' ').length : 0,
+      discussion: !!grid?.classList.contains('discussion-stories'),
       grid: grid && box(grid),
       empty: !!document.querySelector('.digest-empty'),
       stories: [...document.querySelectorAll('.brief')].map(el => {
@@ -139,7 +145,8 @@ async function storyLayout(label, count) {
     return;
   }
   const width = page.viewportSize().width;
-  const columns = width <= 700 ? 1 : width < 1200 ? 2 : 3;
+  // Group discussions read in two columns on any wide screen; external news widens to three.
+  const columns = width <= 700 ? 1 : width < 1200 || result.discussion ? 2 : 3;
   assert.equal(result.columns, columns, `${label}: column count`);
   const columnWidth = result.stories[0].width;
   for (let i = 0; i < count; i++) {
@@ -147,7 +154,9 @@ async function storyLayout(label, count) {
     assert.equal(story.headings, 1, `${label}: story ${i + 1} uses h2`);
     assert.equal(story.headingFont, result.stories[0].headingFont, `${label}: same heading hierarchy`);
     assert.deepEqual(story.borders, ['0px', '0px', '0px'], `${label}: no frame or vertical rules`);
-    assert.equal(story.topBorder, '1px', `${label}: horizontal separator`);
+    // Rows are separated by a rule; the first row sits directly under the heading without one.
+    const firstRow = Math.abs(story.top - result.stories[0].top) < 1;
+    assert.equal(story.topBorder, firstRow ? '0px' : '1px', `${label}: horizontal separator between rows`);
     assert.equal(story.shadow, 'none', `${label}: no card shadow`);
     assert.ok(Math.abs(story.width - columnWidth) < 1, `${label}: equal width`);
     assert.ok(story.bottom <= result.grid.bottom + 1, `${label}: contained in grid`);
@@ -183,6 +192,8 @@ async function storyCountMatrix() {
         current.note = '测试夹具';
         delete current.figure;
         delete current.papers;
+        // The daily hides groups without stories, so an empty page only shows when the whole issue is empty.
+        if (!count) for (const other of issue.pages) Object.assign(other, { stories: [], papers: [], trends: [], hasContent: false });
         current.stories = Array.from({ length: count }, (_, i) => ({
           category: `测试分类 ${i + 1}`,
           title: i % 3 === 0 ? `测试观点 ${i + 1}：较长标题用于检查多行排版和同级标题` : `测试观点 ${i + 1}`,
@@ -274,8 +285,8 @@ try {
     });
     assert.deepEqual(positions, { ranks: true, fullWidth: true }, `${label}: ranking hierarchy`);
     await screenshot(`digest-${label}`, viewport.width <= 430);
-    await page.locator('#date-picker').click();
-    await page.locator('[data-jump="rank"]').click();
+    // The archive no longer links the rankings; the section tab does.
+    await page.locator('.tabs [data-mode="rank"]').click();
     await page.waitForFunction(() => document.body.dataset.view === 'rank');
     for (const period of ['month', 'all', 'week']) {
       await page.locator(`[data-rank="${period}"]`).click();

@@ -128,7 +128,7 @@ try {
       return date.left < logo.right && date.right > logo.left && date.top < logo.bottom && date.bottom > logo.top;
     }), false, 'date and wordmark do not overlap');
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-    // Phones keep the group row for groups only; its save button sits in the section row instead.
+    // Phones keep the group row for groups and the switcher; its save button sits in the section row instead.
     const toolbar = await page.locator('.group-nav').evaluate(nav => {
       const tabs = [...nav.querySelectorAll('[role="tab"]')].map(el => el.getBoundingClientRect());
       const compact = innerWidth <= 700;
@@ -137,7 +137,8 @@ try {
       return {
         equalGroups: tabs.slice(0, 3).every(rect => Math.abs(rect.width - tabs[0].width) < 1),
         roomForExternal: tabs.at(-1).width >= 68,
-        separated: compact ? !visible(nav.querySelector('.group-tools')) && save.width >= 44 : save.left - tabs.at(-1).right >= 7,
+        // On phones the group row keeps only the 版面 switcher; saving moves up to the section row.
+        separated: compact ? !visible(nav.querySelector('.group-tools .save-image')) && save.width >= 44 : save.left - tabs.at(-1).right >= 7,
         aligned: tabs.every(rect => Math.abs(rect.top - tabs[0].top) < 1),
         targets: [...nav.querySelectorAll('button')].filter(visible).every(el => {
           const rect = el.getBoundingClientRect();
