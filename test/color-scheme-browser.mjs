@@ -86,7 +86,8 @@ async function darkText(page) {
     if (await item.count() && await item.isVisible()) await contrast(item);
   }
   const background = await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor.match(/\d+/g).map(Number));
-  assert.ok(Math.max(...background) < 45 && Math.max(...background) - Math.min(...background) < 8, 'Neutral charcoal background');
+  // The community palette's night is a deep navy (community.css): dark, and cool rather than warm.
+  assert.ok(Math.max(...background) < 45 && background[2] >= background[0] && background[2] - background[0] < 32, 'Dark navy background');
   assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).colorScheme), 'dark');
 }
 
@@ -138,9 +139,10 @@ try {
     await page.locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode().catch(() => {}))));
     const light = await colors(page);
     // Disabling only the new sheet proves light output is identical to the existing styles.
-    await page.evaluate(() => { document.querySelector('link[href="color-scheme.css"]').disabled = true; });
+    // routes.js pins stylesheet hrefs to absolute URLs, so match the file name at the end.
+    await page.evaluate(() => { document.querySelector('link[href$="/color-scheme.css"], link[href="color-scheme.css"]').disabled = true; });
     assert.deepEqual(await colors(page), light, `${width}: light unchanged`);
-    await page.evaluate(() => { document.querySelector('link[href="color-scheme.css"]').disabled = false; });
+    await page.evaluate(() => { document.querySelector('link[href$="/color-scheme.css"], link[href="color-scheme.css"]').disabled = false; });
     await page.screenshot({ path: `${output}/${width}-light.png`, fullPage: true });
     const timeOrigin = await page.evaluate(() => performance.timeOrigin);
     const row = page.locator('.story-feedback').first();
@@ -222,8 +224,8 @@ try {
       await page.keyboard.press('ArrowLeft');
       assert.equal(await groups.first().getAttribute('aria-selected'), 'true');
     }
-    await page.locator('#date-picker').click();
-    await page.locator('#archive-modes [data-jump="rank"]').click();
+    // The archive no longer switches publications; the rankings open from their section tab.
+    await page.locator('.tabs [data-mode="rank"]').click();
     await page.locator('[data-rank="month"]').click();
     assert.equal(await page.locator('[data-rank="month"]').getAttribute('aria-pressed'), 'true');
     await contrast(page.locator('[data-rank="month"]'));
@@ -238,7 +240,7 @@ try {
     await page.waitForFunction(() => document.documentElement.dataset.colorScheme === 'light');
     assert.notEqual(await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor), darkRank);
     assert.equal(await page.locator('[data-rank="month"]').getAttribute('aria-pressed'), 'true');
-    await page.locator('[data-mode="digest"]').click();
+    await page.locator('.tabs [data-mode="digest"]').click();
     await page.evaluate(hash => { location.hash = hash; }, hash);
     await page.locator('.story-feedback').first().waitFor();
     await page.mouse.move(0, 0);
