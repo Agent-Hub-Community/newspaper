@@ -16,14 +16,24 @@ const errors = [];
 page.on('pageerror', error => errors.push(error.message));
 const network = [];
 page.on('request', request => { if (/^https?:/.test(request.url())) network.push(request.url()); });
-const overflow = () => page.evaluate(() => [...document.querySelectorAll('.paper-shell *')]
-  .filter(el => el.getBoundingClientRect().width && (el.getBoundingClientRect().right > innerWidth + 1 || el.scrollWidth > el.clientWidth + 1))
-  .map(el => `${el.tagName}.${el.className}`));
+// Labels truncated with an ellipsis and rows built to scroll sideways hold more than they show on purpose.
+const overflow = () => page.evaluate(() => {
+  const scrolls = el => ['auto', 'scroll'].includes(getComputedStyle(el).overflowX);
+  const inScroller = el => { for (let p = el.parentElement; p; p = p.parentElement) if (scrolls(p)) return true; return false; };
+  return [...document.querySelectorAll('.paper-shell *')]
+    .filter(el => el.getBoundingClientRect().width && !inScroller(el) && (el.getBoundingClientRect().right > innerWidth + 1 ||
+      (!scrolls(el) && getComputedStyle(el).textOverflow !== 'ellipsis' && el.scrollWidth > el.clientWidth + 1)))
+    .map(el => `${el.tagName}.${el.className}`);
+});
 async function checkDigestPage() {
+  // The edition is marked before a not-yet-loaded issue arrives; compare once its articles are in.
+  await page.waitForFunction(() => !document.querySelector('#reading .issue-status') && document.querySelector('#digest-panel'));
   const expected = await page.evaluate(() => {
     const id = document.body.dataset.edition.slice('digest/'.length);
     const issue = AGENT_HUB_DATA.digests.find(item => item.id === id);
-    const current = issue.pages.find(item => item.id === document.querySelector('#reading').dataset.page);
+    // The index carries only flags; an issue's articles arrive in AGENT_HUB_ISSUES when it loads.
+    const pages = window.AGENT_HUB_ISSUES?.[issue.date]?.pages || issue.pages;
+    const current = pages.find(item => item.id === document.querySelector('#reading').dataset.page);
     return { stories: current.stories || [], papers: current.papers || [], note: current.note, figure: current.figure };
   });
   assert.deepEqual(await page.locator('.brief h2').allTextContents(), expected.stories.map(story => story.title));
@@ -53,13 +63,15 @@ async function checkDigestPage() {
     const { x, y, width, bottom } = el.getBoundingClientRect();
     return { x, y, width, bottom };
   }));
+  // Group discussions read in two columns on desktop; external news in three.
+  const columns = await page.locator('.digest-stories').first().evaluate(el => el.classList.contains('discussion-stories') ? 2 : 3).catch(() => 3);
   for (let i = 0; i < boxes.length; i++) {
     assert.ok(Math.abs(boxes[i].width - boxes[0].width) < 1, 'all stories have equal column widths');
-    if (i % 3) {
-      assert.ok(Math.abs(boxes[i].y - boxes[i - 1].y) < 1, 'three stories per desktop row');
+    if (i % columns) {
+      assert.ok(Math.abs(boxes[i].y - boxes[i - 1].y) < 1, `${columns} stories per desktop row`);
       assert.ok(boxes[i].x >= boxes[i - 1].x + boxes[i - 1].width, 'columns do not overlap');
     } else if (i) {
-      assert.ok(boxes[i].y >= Math.max(...boxes.slice(i - 3, i).map(box => box.bottom)), 'subsequent rows do not overlap');
+      assert.ok(boxes[i].y >= Math.max(...boxes.slice(i - columns, i).map(box => box.bottom)), 'subsequent rows do not overlap');
     }
   }
 }
@@ -96,7 +108,11 @@ try {
   await page.screenshot({ path: '/tmp/agenthub-home-desktop.png', fullPage: true });
   for (const viewport of [{ width: 1920, height: 1080 }, { width: 2560, height: 1440 }]) {
     await page.setViewportSize(viewport);
-    assert.ok(await page.locator('.paper-shell').evaluate(el => el.getBoundingClientRect().width >= innerWidth - 1), 'newspaper fills desktop width');
+    // Wide screens keep a centred reading width (community.css); bands such as the footer still span the window.
+    assert.ok(await page.locator('.paper-shell').evaluate(el => {
+      const rect = el.getBoundingClientRect();
+      return rect.width >= 1200 && Math.abs(rect.left - (innerWidth - rect.right)) < 1;
+    }), 'newspaper keeps a wide, centred reading width');
     assert.deepEqual(await overflow(), []);
     assert.ok(await page.evaluate(() => Math.abs(
       document.querySelector('#reading').getBoundingClientRect().width -
@@ -138,9 +154,10 @@ try {
   await page.locator(`[data-page="${pageCount - 1}"]`).focus();
   await page.keyboard.press('Home');
   assert.equal(await page.locator('#reading').getAttribute('data-page'), firstPage);
+  // ArrowRight moves to the next group that has stories, whichever that is in this edition.
   await page.locator('[role="tab"]:not(:disabled)').first().focus();
   await page.keyboard.press('ArrowRight');
-  assert.equal(await page.locator('#reading').getAttribute('data-page'), 'group-3');
+  assert.equal(await page.locator('[role="tab"]:not(:disabled)').nth(1).getAttribute('aria-selected'), 'true');
   await page.locator('[role="tab"]:not(:disabled)').first().click();
   for (const viewport of [{ width: 390, height: 844 }, { width: 375, height: 812 }, { width: 320, height: 640 }]) {
     await page.setViewportSize(viewport);
@@ -156,8 +173,9 @@ try {
   assert.equal(await page.locator('[data-mode="week"], [data-mode="topic"], [data-jump="week"], [data-jump="topic"]').count(), 0);
   const publicBuild = await page.evaluate(() => AGENT_HUB_DATA.publicBuild);
   const editions = await page.evaluate(() => AGENT_HUB_DATA.digests.map(issue => issue.id));
+  // data.js is an index: each page carries a hasContent flag, and the articles load per issue.
   const readableEditions = await page.evaluate(() => AGENT_HUB_DATA.digests.filter(issue =>
-    issue.pages.some(p => [p.stories, p.papers, p.trends].some(items => items?.some(s => s.text?.trim())))).map(issue => issue.id));
+    issue.pages.some(p => p.hasContent ?? [p.stories, p.papers, p.trends].some(items => items?.some(s => s.text?.trim())))).map(issue => issue.id));
   assert.equal(await page.locator('#archive-list .issue-row').count(), readableEditions.length);
   await page.locator('#archive-list .issue-row').last().click();
   await page.waitForFunction(id => document.body.dataset.edition === `digest/${id}`, readableEditions[0]);
