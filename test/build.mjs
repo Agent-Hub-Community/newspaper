@@ -268,4 +268,17 @@ for (const { route, target } of forwards) {
   assert.ok(await stat(path.join(root, route, target, 'index.html')).then(s => s.isFile(), () => false), `${route} forwards to missing ${target}`);
 }
 console.log(`Verified ${forwards.length} forwarding pages for shortened URLs.`);
+// The community homepage reads hub.json at runtime and links straight to these paths, so each must be a built page.
+const hub = JSON.parse(await readFile(path.join(root, 'hub.json'), 'utf8'));
+const hubPaths = [hub.daily?.path, ...(hub.daily?.pages || []).map(entry => entry.quiet ? entry.last.path : entry.path),
+  hub.weekly?.path, ...(hub.weekly?.pages || []).map(entry => entry.path), ...(hub.library?.recent || []).map(entry => entry.path),
+  hub.library?.path, hub.glossary?.path, hub.search?.path, hub.rank?.path, hub.opportunities?.path,
+  ...Object.values(hub.sections || {}).flatMap(value => typeof value === 'string' ? [value] : Object.values(value))].filter(Boolean);
+for (const value of hubPaths) {
+  assert.ok(value.startsWith(basePath), value);
+  const relative = value.slice(basePath.length).split('#')[0];
+  const built = path.join(root, !relative || relative.endsWith('/') ? `${relative}index.html` : relative);
+  assert.ok(await stat(built).then(s => s.isFile(), () => false), `hub.json path ${value} is not a built page`);
+}
+console.log(`Verified ${hubPaths.length} hub.json paths for the community homepage.`);
 console.log(`Verified ${data.digests.length} daily editions and ${files.length} assets; discussion fields validated, private source metadata excluded.`);

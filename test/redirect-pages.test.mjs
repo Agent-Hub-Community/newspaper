@@ -15,13 +15,15 @@ const data = {
 
 test('shortened URLs forward to the page they stand for', () => {
   assert.deepEqual(redirectRoutes(data).map(({ route, target }) => [route, target]), [
-    ['daily/', '2026-10-15/overview/'],
-    ['daily/2026-10-15/', 'overview/'],
+    ['daily/', '2026-10-15/group-1/'],
+    ['daily/2026-10-15/', 'group-1/'],
     ['daily/2026-10-16/', 'overview/'],
     ['rank/', 'week/'],
     ['weekly/2026-10-05/2026-10-11/', 'overview/'],
     ['weekly/2026-10-05/', '2026-10-11/overview/'],
-  ], 'daily/ skips an issue without readable pages');
+  ], 'daily/ skips an issue without readable pages; one readable section opens directly, as in the reader');
+  const busy = { digests: [{ date: '2026-10-17', pages: [page('group-1'), page('group-2')] }], weeklies: [] };
+  assert.deepEqual(redirectRoutes(busy).slice(0, 2).map(({ target }) => target), ['2026-10-17/overview/', 'overview/'], 'several sections open on the overview');
 });
 
 test('a forwarding page works without scripts, keeps anchors with them, and stays out of indexes', () => {
@@ -41,7 +43,7 @@ test('forwarding pages never replace a page the build already wrote', async () =
     const written = await writeRedirectPages(out, data);
     assert.ok(!written.includes('rank/'));
     assert.equal(await readFile(path.join(out, 'rank/index.html'), 'utf8'), 'existing');
-    assert.match(await readFile(path.join(out, 'daily/index.html'), 'utf8'), /url=2026-10-15\/overview\//);
+    assert.match(await readFile(path.join(out, 'daily/index.html'), 'utf8'), /url=2026-10-15\/group-1\//);
   } finally {
     await rm(out, { recursive: true, force: true });
   }

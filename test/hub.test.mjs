@@ -44,6 +44,8 @@ test('the hub summary points at the latest readable daily; a quiet group keeps i
   assert.deepEqual(quiet.map(entry => [entry.id, Boolean(entry.quiet)]), [['group-1', true], ['group-2', false]], 'groups stay in order');
   assert.deepEqual(quiet[0].last, { date: '2026-10-15', id: 'group-1', label: '一群', title: '一群标题', path: `${basePath}daily/2026-10-15/group-1/` });
   assert.deepEqual(hub.issues, { daily: 2, weekly: 1, first: '2026-10-15', last: '2026-10-17' });
+  const single = hubSummary({ ...input, data: { ...input.data, digests: [{ date: '2026-10-15', pages: [page('group-1', '一群标题')] }] } });
+  assert.equal(single.daily.path, `${basePath}daily/2026-10-15/group-1/`, 'an issue with one readable section opens on it, as the reader does');
 });
 
 test('the hub summary links the latest weekly overview and its sections with stories', () => {
