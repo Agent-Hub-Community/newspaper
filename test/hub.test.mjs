@@ -54,6 +54,7 @@ test('recent resources are newest first, shown once per title, and link into the
     ['没有日期', '', `${basePath}library/#d`],
   ]);
   assert.deepEqual(library.recent.map(item => item.type), ['工具与产品', '论文', '论文'], 'types use their reader-facing names');
+  assert.deepEqual(library.recent.map(item => item.kind), ['tool', 'paper', 'paper'], 'and keep their ids for other languages');
 });
 
 test('counts and paths cover every section, with root-relative links only', () => {
