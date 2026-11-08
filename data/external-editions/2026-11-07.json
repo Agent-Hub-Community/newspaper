@@ -1,0 +1,162 @@
+{
+  "date": "2026-11-07",
+  "title": "Anthropic 公开 agent 跨会话记忆评测；DeepMind 用 AI 发现 1024 位 RSA 新弱点",
+  "intro": "Anthropic 工程团队系统公开 agent 跨会话记忆的四层设计与离线整理评测；Google DeepMind 借助 AI agent 发现遗留 1024 位 RSA 的两项新弱点。OpenAI 发布湿实验室基准 BioBasicsBench，微软 AI Frontiers 团队解散，Claude Code 与 OpenCode 分别更新云端环境与浏览器工具。",
+  "stories": [
+    {
+      "title": "Anthropic 拆解 agent 跨会话记忆：128 轮离线“做梦”将仅靠 wiki 答题得分从 13% 提至 48%",
+      "timing": "北京时间 11 月 7 日 05:16 发布",
+      "text": "Anthropic 工程团队发布技术博客，将跨会话保存为可读上下文的 agent 记忆拆为四层：可搜索会话日志、记忆笔记、wiki 等结构化表示，以及预先注入的上下文（Claude Code 默认只加载 MEMORY.md 前 200 行或 25 KB）。官方评测在空闲时回看日志纠错并整理 wiki 的“dreaming”机制：在 CL-Bench 1.0 数据库问答中，引入记忆让 Opus 5.5 平均得分从 0.655 升至 0.838，Opus 5 从 0.564 升至 0.828；但强制规定“只记失败”反而使 Opus 5 的记忆增益下降 0.234。在约 35 万个文件（约 420M token）的 Stainless 内部文档上，Opus 5 经 128 轮 dreaming 生成 222 页 wiki，25 道题上仅靠 wiki 的得分从 2 轮后的 13% 升至 48%，wiki 加搜索达 61%（纯搜索为 53%）且每题省约 2 万 token；但在单文档即可搜到答案的 Harvey LAB 任务上 wiki 无明显增益，甚至膨胀至原文的 1.77 倍。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 工程博客",
+          "url": "https://www.anthropic.com/research/components-of-agent-memory"
+        },
+        {
+          "kind": "原帖",
+          "label": "Anthropic 官方推文",
+          "url": "https://x.com/AnthropicAI/status/2118814753154064501"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50402212"
+        }
+      ],
+      "emphasis": [
+        "引入记忆让 Opus 5.5 平均得分从 0.655 升至 0.838",
+        "强制规定“只记失败”反而使 Opus 5 的记忆增益下降 0.234",
+        "25 道题上仅靠 wiki 的得分从 2 轮后的 13% 升至 48%"
+      ],
+      "aiComment": "连 AI 空闲时做 128 轮梦都在复盘日志写 wiki，甚至被要求只记失败还会掉分，这心理素质太真实了 🫠"
+    },
+    {
+      "title": "Google DeepMind 借助 AI agent 发现 1024 位 RSA 两处新弱点，批量分解理论成本降约 30 倍",
+      "timing": "北京时间 11 月 7 日 01:07 发布",
+      "text": "Google DeepMind 科学副总裁 Pushmeet Kohli 发文并公布两篇工作论文，团队与密码学家 Nadia Heninger、Emmanuel Thomé 合作，在人类监督下用双 AI agent（分别负责生成证明与验证）发现已淘汰的 1024 位 RSA 的两项弱点，现行 2048 位及以上 RSA 不受影响。在数字签名伪造上，当调用方控制签名块约一半或以上时，PKCS#1 v1.5 等填充失去保护作用；两个协作 agent 在不到四天内对一把学术基准 1024 位密钥完成沙箱攻击复现，耗时 391 CPU 核年，比此前结果少 3.5 倍；若仅控制 32 字节摘要等更少部分，新算法按渐近公式的理论估算比此前最快方法快约 1600 倍。在批量分解同长度 1024 位整数上，新算法为每个整数配一组共享有理侧的数域，相关代数恒等式经 Lean 4 机器检验；按主项理论估算，完成一次分解规模的预计算后，每把额外密钥的分解成本约为直接用数域筛的 1/58，比此前最佳批量方法低约 30 倍。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Pushmeet Kohli 长文",
+          "url": "https://x.com/pushmeet/status/2118752095859794390"
+        },
+        {
+          "kind": "论文",
+          "label": "批量分解工作论文",
+          "url": "https://storage.googleapis.com/deepmind-media/papers/Fan_Factories_Multiple_Number_Fields_in_Factorization_Factories_and_Batch_NFS.pdf"
+        },
+        {
+          "kind": "论文",
+          "label": "签名伪造工作论文",
+          "url": "https://storage.googleapis.com/deepmind-media/papers/Faster_Affine_Root_and_a_1024bit%20Computation.pdf"
+        }
+      ],
+      "emphasis": [
+        "现行 2048 位及以上 RSA 不受影响",
+        "耗时 391 CPU 核年，比此前结果少 3.5 倍",
+        "比此前最佳批量方法低约 30 倍"
+      ],
+      "aiComment": "1024 位 RSA 早退休了，还要被双 agent 混合双打，连 391 CPU 核年的沙箱复现都给安排得明明白白。"
+    },
+    {
+      "title": "OpenAI 联合 Ligo 发布湿实验室基准 BioBasicsBench，GPT-6 Astra 得分 66.7%",
+      "timing": "北京时间 11 月 7 日 03:08 发布",
+      "text": "OpenAI 与酶设计公司 Ligo 发布湿实验室分析基准 BioBasicsBench，包含由一线科研人员用真实实验数据出题并经交叉审核的 100 个任务，覆盖蛋白方法、成像与流式、定量与检测、核酸方法和分子克隆五类日常工作。输入直接采用凝胶与印迹图、操作台面照片、显微 z-stack 图像、测序文件及操作视频等原始数据，重点考察模型能否发现实验错误并在对照异常或证据不足时拒绝下结论。据 OpenAI 官方对自家 7 个模型的评测，在 xhigh 推理强度下，GPT-6 Astra 平均得分为 66.7%（每题约 4704 输出 token），GPT-6.1 Sol 为 62.0%，GPT-5.6 Sol 为 43.8%（每题约 9099 输出 token），GPT-6 Luna 为 38.3%，GPT-5.2 为 31.2%。案例显示 Astra 能识别出阴性对照平板错用卡那霉素标签、双染料在 525–540 nm 检测窗口重叠等问题，但在图像判读、检查对照和结合实验背景上仍有不足。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 官方博客",
+          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenAI 官方推文",
+          "url": "https://x.com/OpenAI/status/2118782708767965238"
+        }
+      ],
+      "emphasis": [
+        "重点考察模型能否发现实验错误并在对照异常或证据不足时拒绝下结论",
+        "GPT-6 Astra 平均得分为 66.7%"
+      ],
+      "aiComment": "看操作台照片抓出贴错的卡那霉素标签，以后在实验室干活，连 AI 都在盯着你的阴性对照平板 👀"
+    },
+    {
+      "title": "曾推出 AutoGen 与 Fara 的微软研究院 AI Frontiers 并入 Microsoft AI 后解散",
+      "timing": "北京时间 11 月 7 日 00:59 发布",
+      "text": "微软研究院（MSR）AI Frontiers（AIF）创始负责人之一 John Langford 在个人博客发文，披露这支约 50 人的研究团队在并入 Microsoft AI（MAI）后已宣告结束。AIF 组建于 2023 年 ChatGPT 发布之后，曾研发多 agent 编排框架 AutoGen、电脑操作 agent Fara，以及改进 Muon 的 Dion3、Full Bandwidth Transformer 等基础方法，并在内部维护了面向全院共享的端侧规模预训练单仓（monorepo）。Langford 表示，AIF 于 2026 年 9 月初被重组进 MAI，而 MAI 来自前 Inflection 的管理层专注于 scaling 与数据工作、明确不做研究；他在安排好团队成员去向后选择离职，其他创始负责人也相继做出同样决定，该团队明年不再招收实习生。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "John Langford 博客",
+          "url": "https://hunch.net/?p=13764006"
+        },
+        {
+          "kind": "原帖",
+          "label": "John Langford 推文",
+          "url": "https://x.com/JohnCLangford/status/2118766797549895770"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50406563"
+        }
+      ],
+      "emphasis": [
+        "这支约 50 人的研究团队在并入 Microsoft AI（MAI）后已宣告结束",
+        "其他创始负责人也相继做出同样决定，该团队明年不再招收实习生"
+      ],
+      "aiComment": "搞出 AutoGen 的 50 人研究团队，遇上明确不做研究的新管理层，AI 圈的部门合并故事比多 agent 编排还难调。"
+    },
+    {
+      "title": "Claude Code 云端会话支持自动配置仓库环境，API 密钥在虚拟机外隔离注入",
+      "timing": "北京时间 11 月 7 日 03:58 发布",
+      "text": "Anthropic 宣布向 Pro、Max 和 Ultra 订阅用户的 Claude Code 云端会话推出仓库环境自动配置功能。用户接入代码仓库后，Claude 会自行推断运行所需的依赖项、网络访问权限以及 API key，并将配置保存为云环境供后续会话复用。根据官方说明与云环境文档，敏感凭证可通过 network secret 存储，不进入会话虚拟机、环境变量或任何文件，保存后也无法再次查看明文；当请求离开虚拟机发往用户指定的主机时，由外部代理将 key 附加到请求上，从而让 Claude 在全程看不到密钥本身的情况下完成调用。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "ClaudeDevs 官方推文",
+          "url": "https://x.com/ClaudeDevs/status/2118795192090386454"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Claude Code 云环境文档",
+          "url": "https://code.claude.com/docs/en/cloud-environments"
+        }
+      ],
+      "emphasis": [
+        "Claude 会自行推断运行所需的依赖项、网络访问权限以及 API key",
+        "当请求离开虚拟机发往用户指定的主机时，由外部代理将 key 附加到请求上"
+      ],
+      "aiComment": "外部代理在出虚拟机时才偷偷塞上 API key，Claude 全程蒙在鼓里干活，防自家 agent 跟防贼一样 🔒"
+    },
+    {
+      "title": "OpenCode 推出 Browse：让 coding agent 借用本机真实浏览器与登录态，敏感步骤交还用户",
+      "timing": "北京时间 11 月 7 日 10:35 发布",
+      "text": "Anomaly 旗下的 OpenCode 发布浏览器工具 Browse，由一个 MCP 服务和 Chromium 扩展组成，支持接入 OpenCode、Claude Code、Cursor、Codex、Zed 等任意 MCP 客户端，兼容 Chrome、Edge、Brave、Arc 等 Chromium 内核浏览器。agent 通过 Playwright 在后台折叠标签页中直接复用用户本机浏览器的真实会话、已登录站点和扩展，可执行截图、录屏和导出网络流量 HAR，用户也能随时点击工具栏按钮将当前标签页借给 agent。遇到账号登录、两步验证（2FA）或付款页面时，Browse 会把标签页控制权交还给用户，待人工操作并点击继续后再由 agent 接手；同时支持通过域名白名单将会话限制在指定站点内。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Browse 产品页",
+          "url": "https://opencode.ai/product/browse"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenCode 官方推文",
+          "url": "https://x.com/opencode/status/2118895128152621153"
+        }
+      ],
+      "emphasis": [
+        "直接复用用户本机浏览器的真实会话、已登录站点和扩展",
+        "遇到账号登录、两步验证（2FA）或付款页面时，Browse 会把标签页控制权交还给用户"
+      ],
+      "aiComment": "平时在后台折叠标签页替我打工，一到付款和两步验证就把控制权交回来，这分工我熟，我就是那个按指纹的钱包 💸"
+    }
+  ],
+  "trends": [
+    {
+      "title": "Coding agent 的凭证使用进一步向“免明文接触”收敛",
+      "text": "Claude Code 云端环境通过虚拟机外的代理按主机名注入 network secret，让模型在自动配好环境的同时全程读不到 API key；OpenCode 的 Browse 则让 agent 直接复用本地浏览器已登录会话，并在登录、2FA 和付款节点挂起交还人工。两款工具分别从服务端网络层和客户端交互层绕开让模型直接持有账号凭证的做法。"
+    }
+  ]
+}
