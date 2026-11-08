@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "through": "2026-11-01",
+  "through": "2026-11-08",
   "terms": [
     {
       "term": "A社",
@@ -196,7 +196,10 @@
       "variants": [
         "hunyuan",
         "hy4p",
-        "hy4"
+        "hy4",
+        "hy4pre",
+        "hy4 preview",
+        "hy3p"
       ],
       "meaning": "腾讯混元大模型的缩写，常连版本号写，如 hy4。",
       "category": "缩写",
@@ -239,7 +242,8 @@
     {
       "term": "lc",
       "variants": [
-        "longcat"
+        "longcat",
+        "长猫"
       ],
       "meaning": "LongCat 的缩写，美团的大模型。",
       "category": "缩写",
@@ -248,7 +252,9 @@
     {
       "term": "K3",
       "variants": [
-        "k3.1"
+        "k3.1",
+        "kimi3.1",
+        "k31p"
       ],
       "meaning": "月之暗面 Kimi K3 模型的简称。",
       "category": "缩写",
@@ -291,7 +297,9 @@
     },
     {
       "term": "AA",
-      "variants": [],
+      "variants": [
+        "AA榜"
+      ],
       "meaning": "第三方模型评测榜 Artificial Analysis 的缩写。",
       "category": "缩写",
       "refersTo": "Artificial Analysis"
@@ -301,7 +309,8 @@
       "variants": [
         "TB-Science",
         "tb4",
-        "terminalbench"
+        "terminalbench",
+        "tb sci"
       ],
       "meaning": "Terminal-Bench 的缩写，终端任务 agent 评测集。",
       "category": "缩写",
@@ -892,7 +901,8 @@
       "term": "鹈鹕骑车",
       "variants": [
         "鹈鹕",
-        "鹈鹕骑自行车"
+        "鹈鹕骑自行车",
+        "鹈鹕测试"
       ],
       "meaning": "让模型按一句提示生成“鹈鹕骑自行车”的图或动画，用来比较模型能力。",
       "category": "梗",
@@ -919,7 +929,8 @@
       "variants": [
         "薄肌理论",
         "薄士",
-        "薄学"
+        "薄学",
+        "boji"
       ],
       "meaning": "原指偏瘦有肌肉线条的身材，群里用来调侃锻炼身体才是出路；“薄士”是由此造的词。",
       "category": "梗"
@@ -930,7 +941,9 @@
         "严肃关注",
         "严肃品鉴",
         "严肃star",
-        "严肃支持"
+        "严肃支持",
+        "ysxx",
+        "严肃upvote"
       ],
       "meaning": "群里对别人分享的论文或项目的固定捧场回复。",
       "category": "梗"
@@ -949,7 +962,10 @@
         "防御性话语",
         "防御性输出",
         "防御性表述",
-        "防御写作"
+        "防御写作",
+        "叠甲",
+        "无脑防御",
+        "防御性语句"
       ],
       "meaning": "模型写作时堆砌限定、免责和正反套话。",
       "category": "梗"
@@ -1113,7 +1129,8 @@
       "variants": [
         "agy",
         "反重力",
-        "antigravity"
+        "antigravity",
+        "anti-gravity"
       ],
       "meaning": "Google 的 AI 编程工具 Antigravity 的简称。",
       "category": "缩写",
@@ -1232,7 +1249,9 @@
     },
     {
       "term": "argon",
-      "variants": [],
+      "variants": [
+        "4argon"
+      ],
       "meaning": "Google Gemini 4 Argon 模型的简称。",
       "category": "代号",
       "refersTo": "Gemini 4 Argon",
@@ -1247,7 +1266,9 @@
     },
     {
       "term": "1017",
-      "variants": [],
+      "variants": [
+        "ds1017"
+      ],
       "meaning": "DeepSeek-V4.1-Flash 在 10 月 17 日发布的更新版，按发布日期称呼。",
       "category": "代号",
       "refersTo": "DeepSeek-V4.1-Flash-1017",
@@ -1345,7 +1366,8 @@
     {
       "term": "frontier llm",
       "variants": [
-        "build frontier llm"
+        "build frontier llm",
+        "frontier_llm"
       ],
       "meaning": "Claude 判断用户在开发前沿大模型时弹出的拦截警告。",
       "category": "行话"
@@ -1482,7 +1504,8 @@
     {
       "term": "compact",
       "variants": [
-        "上下文压缩"
+        "上下文压缩",
+        "compaction"
       ],
       "meaning": "把已有对话压缩成较短记录，腾出后续上下文空间。",
       "category": "行话",
@@ -1650,6 +1673,146 @@
       "meaning": "模型输出里套路化、低质量的惯用表达。",
       "category": "行话",
       "refersTo": "AI slop"
+    },
+    {
+      "term": "AX",
+      "variants": [
+        "AX树",
+        "AX tree"
+      ],
+      "meaning": "操作系统的无障碍接口和控件树，computer use agent 用它读取和操作界面控件。",
+      "category": "行话",
+      "refersTo": "Accessibility Tree（macOS AX / Windows UIA）",
+      "keyword": "accessibility tree"
+    },
+    {
+      "term": "PTC",
+      "variants": [],
+      "meaning": "程序化工具调用：模型写一段代码批量编排工具调用，代替逐次单步调用。",
+      "category": "行话",
+      "refersTo": "Programmatic Tool Calling"
+    },
+    {
+      "term": "WSP",
+      "variants": [
+        "权重空间编程"
+      ],
+      "meaning": "权重空间编程：让大模型直接读写另一个神经网络的权重。",
+      "category": "行话",
+      "refersTo": "Weight-Space Programming",
+      "keyword": "Weight-Space Programming"
+    },
+    {
+      "term": "L站",
+      "variants": [],
+      "meaning": "linux.do 论坛的简称，常讨论大模型订阅、账号和 API 中转。",
+      "category": "代号",
+      "refersTo": "linux.do"
+    },
+    {
+      "term": "RUA",
+      "variants": [],
+      "meaning": "Robot-Use Agent 的缩写：类比 CUA，让模型写代码或调用工具直接操控机器人。",
+      "category": "缩写",
+      "refersTo": "Robot-Use Agent",
+      "keyword": "robot use"
+    },
+    {
+      "term": "ai4game",
+      "variants": [
+        "LLM4Game",
+        "code4game"
+      ],
+      "meaning": "用 AI 或大模型做游戏开发、生成游戏的方向。",
+      "category": "缩写",
+      "refersTo": "AI for Game"
+    },
+    {
+      "term": "hypernet",
+      "variants": [
+        "hyper net",
+        "超网络"
+      ],
+      "meaning": "超网络：用一个网络生成另一个网络的权重或 LoRA 增量。",
+      "category": "缩写",
+      "refersTo": "Hypernetwork",
+      "keyword": "hypernetwork"
+    },
+    {
+      "term": "上桌",
+      "variants": [
+        "能上桌",
+        "上大人那桌"
+      ],
+      "meaning": "形容模型实力进入第一梯队，能和头部模型同台比较。",
+      "category": "网络用语"
+    },
+    {
+      "term": "msra",
+      "variants": [],
+      "meaning": "微软亚洲研究院的缩写。",
+      "category": "缩写",
+      "refersTo": "Microsoft Research Asia"
+    },
+    {
+      "term": "被路由",
+      "variants": [
+        "路由降智"
+      ],
+      "meaning": "怀疑服务商把请求暗中转给更弱或更便宜的模型。",
+      "category": "行话",
+      "refersTo": "模型路由降级"
+    },
+    {
+      "term": "神鬼二象性",
+      "variants": [],
+      "meaning": "化用“波粒二象性”，调侃同一个模型时而表现神勇、时而离谱。",
+      "category": "梗"
+    },
+    {
+      "term": "TML",
+      "variants": [
+        "thinkingmachines"
+      ],
+      "meaning": "Thinking Machines Lab 的缩写。",
+      "category": "缩写",
+      "refersTo": "Thinking Machines Lab",
+      "keyword": "Thinking Machines Lab"
+    },
+    {
+      "term": "hc",
+      "variants": [],
+      "meaning": "招聘名额，即 headcount 的缩写。",
+      "category": "行话",
+      "refersTo": "headcount"
+    },
+    {
+      "term": "qoder",
+      "variants": [
+        "qodercn"
+      ],
+      "meaning": "阿里推出的 AI 编程 IDE，qodercn 指国内版。",
+      "category": "代号",
+      "refersTo": "Qoder"
+    },
+    {
+      "term": "AF3",
+      "variants": [
+        "AF2"
+      ],
+      "meaning": "AlphaFold 的缩写，AF3、AF2 分别指第 3 代和第 2 代。",
+      "category": "缩写",
+      "refersTo": "AlphaFold",
+      "keyword": "AlphaFold 3"
+    },
+    {
+      "term": "wbc",
+      "variants": [
+        "whole body control"
+      ],
+      "meaning": "人形机器人的全身控制，负责平衡与全身动作协调。",
+      "category": "缩写",
+      "refersTo": "Whole-Body Control"
     }
   ]
 }

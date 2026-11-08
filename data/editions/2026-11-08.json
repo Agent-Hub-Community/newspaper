@@ -1,0 +1,1542 @@
+{
+  "id": "2026-11-08",
+  "date": "2026-11-08",
+  "label": "2026-11-08 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无技术精华",
+      "theme": "当日本地记录中暂无实质技术讨论。",
+      "note": "2026-11-08 · 当日本地记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "当日本地记录为空，暂无可读内容。",
+      "note": "2026-11-08 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "Claude 续费撞 KYC，中转站四句话花十块",
+      "theme": "防封经验、单日 40 亿 Token 用量看板，CLM 在 9B 模型上 RL 前为何落后",
+      "note": "2026-11-08 · 当日本地记录",
+      "stories": [
+        {
+          "category": "工具与体验",
+          "title": "Claude Code Pro 续费触发 KYC，群友实测中转站“四句话花十块”",
+          "text": "凌晨有群友求助怎么防止自己的 cc（Claude Code）被封，说自己“现在完全依赖 cc”。有人反问“为什么不用k3.1”，另一位群友说自己有一套固定的使用习惯，用下来感觉挺稳定。\n\n上午又有群友反馈 cc 的 pro 订阅昨天到期，代充说 pro 也开始弹 KYC 验证，不再帮他续费。另一位群友说自己也弹了 KYC，过了识别之后被秒拒并封号，不过也看到有人能通过。前一位群友嫌 gpt 实在太慢，被封号的这位则去试了中转站的 cc，结果“四句话花了我十块”。群友们跟着调侃“马斯克来了也哆嗦”“中转站的cc比黄金还贵”，还有人说中转站跑得太快，适合走报销。",
+          "emphasis": [
+            "代充说 pro 也开始弹 KYC 验证",
+            "过了识别之后被秒拒并封号",
+            "结果“四句话花了我十块”"
+          ],
+          "aiComment": "过了 KYC 还是秒封，转战中转站四句话干掉十块钱💸，这哪是在写代码，简直是按字数买黄金。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "03:21",
+              "text": "朋友们，有什么办法可以防止我的cc被ban"
+            },
+            {
+              "speaker": 1,
+              "time": "03:21",
+              "text": "我现在完全依赖"
+            },
+            {
+              "speaker": 1,
+              "time": "03:21",
+              "text": "cc"
+            },
+            {
+              "speaker": 2,
+              "time": "03:21",
+              "text": "为什么不用k3.1[奸笑]"
+            },
+            {
+              "speaker": 3,
+              "time": "10:23",
+              "text": "我的cc pro昨天到期，代冲说pro也跳kyc了"
+            },
+            {
+              "speaker": 3,
+              "time": "10:23",
+              "text": "不帮我冲了"
+            },
+            {
+              "speaker": 3,
+              "time": "10:24",
+              "text": "你们没弹kyc吗"
+            },
+            {
+              "speaker": 4,
+              "time": "10:46",
+              "text": "弹了，识图用美签，过了之后，秒拒"
+            },
+            {
+              "speaker": 3,
+              "time": "10:47",
+              "text": "封号了吗"
+            },
+            {
+              "speaker": 4,
+              "time": "10:47",
+              "text": "是的"
+            },
+            {
+              "speaker": 4,
+              "time": "10:48",
+              "text": "但我看也有人用美签可以"
+            },
+            {
+              "speaker": 3,
+              "time": "10:48",
+              "text": "咋整呢"
+            },
+            {
+              "speaker": 3,
+              "time": "10:48",
+              "text": "gpt实在太慢"
+            },
+            {
+              "speaker": 4,
+              "time": "10:52",
+              "text": "试了一下中转站的"
+            },
+            {
+              "speaker": 4,
+              "time": "10:52",
+              "text": "四句话花了我十块"
+            },
+            {
+              "speaker": 5,
+              "time": "10:58",
+              "text": "马斯克来了也哆嗦"
+            },
+            {
+              "speaker": 6,
+              "time": "10:58",
+              "text": "<三句话让男人花了十八万>"
+            },
+            {
+              "speaker": 6,
+              "time": "10:58",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "11:00",
+              "text": "中转站的cc比黄金还贵",
+              "quote": {
+                "speaker": 4,
+                "text": "试了一下中转站的"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:01",
+              "text": "中转站跑太快了[捂脸]"
+            },
+            {
+              "speaker": 7,
+              "time": "11:01",
+              "text": "适合走报销"
+            }
+          ]
+        },
+        {
+          "category": "用量与成本",
+          "title": "单日 40 亿 Token 用量看板：98% 缓存命中下的订阅与 API 成本账",
+          "text": "有群友晒出使用量热力图截图，显示在普通的 pro100 订阅下，11月2日起的一周内消耗了 35.6亿个 Token。另一位群友随后晒出双屏用量统计看板照片，喊话“一天40亿”：左侧屏幕的 Codex 面板今日总量为 23.6亿（缓存读 23亿，Cache Hit 98%，按 API 价格折算约 $92.25），主要由 20.4亿的 GPT-6 Luna 和 3.2亿的 GPT-6.1 Sol 贡献；右侧屏幕包含一个 self_serve_business_prolite 计划下的 Codex 面板，今日总量 10.4亿（Cache Hit 99%，折算约 $299.69，含 9.6亿 GPT-6.1 Sol 和 8127万 GPT-6 Astra），以及今日总量 7.3亿的 Claude Code 面板（Cache Hit 98%，折算约 $270.71，含 6.3亿 Opus 5.5、6224万 Sonnet 5.5 和 3883万 Fable 5.1）。",
+          "emphasis": [
+            "普通的 pro100 订阅下，11月2日起的一周内消耗了 35.6亿个 Token",
+            "双屏用量统计看板照片，喊话“一天40亿”"
+          ],
+          "aiComment": "单日 40 亿 Token，还好有 98% 的缓存命中率护体，不然这双屏看板就是一台实时碎钞机。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:47",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "00:53",
+              "text": "什么订阅[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "00:54",
+              "text": "普通的pro100"
+            },
+            {
+              "speaker": 3,
+              "time": "01:20",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:20",
+              "text": "一天40亿[旺柴]"
+            }
+          ]
+        },
+        {
+          "category": "论文与算法",
+          "title": "Qwen3.5-9B 上 CLM 为何在 RL 前明显落后于 Summary？",
+          "text": "有群友分享了一张论文表格截图，展示 Qwen3.5-9B 在 OpenResearcher 上做强化学习（RL）训练前后于 BrowseComp-Plus 上的表现：Summary 方法的准确率（Acc.）从 34.7% 提升至 42.1%，单问计算量（PFLOPs / Q）从 4.01 降至 2.19；CLM 方法的准确率从 28.8% 提升至 42.5%，PFLOPs / Q 从 1.52 降至 1.34。分享者发问：为何 CLM 在 RL 训练前比 Summary 低这么多、RL 后也只是差不多，是不是在小模型上 CLM 并不如 Summary？",
+          "emphasis": [
+            "为何 CLM 在 RL 训练前比 Summary 低这么多、RL 后也只是差不多"
+          ],
+          "aiComment": "RL 前落后一大截，RL 后 42.5% 险胜 Summary 0.4 个点，但算力省了一小半，9B 小模型这波属于精打细算过日子。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:23",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "18:24",
+              "text": "clm的作者在群里吗？为啥table2的clm在rl前，比summary低这么多，rl后也只是差不多。想交流一下，是小模型上clm并不如summary吗？"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "让模型自己管上下文，卡在没有训练数据",
+      "theme": "群友实测 Qoder 免费新模型 qoduck，截图显示模型能主动识别无意义的重复查询并自行挂起等待通知。",
+      "note": "2026-11-08 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与上下文",
+          "title": "让模型自己管理 Context 卡在哪：缺训练数据、怕掉点，连检索都懒得发",
+          "text": "有人转发了一篇“上下文语言模型”的论文笔记，有群友直接泼冷水：这类工作最大的痛点是没有训练集。另一位群友接话问是不是说 compaction 那一波 paper，前者说就是那些给模型提供上下文管理工具、让它自己学会管理上下文的论文。问题在于从预训练到后训练 SFT 都只有“next token prediction”的数据，没有“how to manage the context”的数据，指望模型单靠强化学习自己悟出来有点难。接话的群友补充，这些 paper 的主要贡献就是在造什么时候 compaction 的数据。最初泼冷水的群友把理想化的 LLM 比作“根据纸带现状来调整读写头规则的图灵机”，认为这类想法从 2023 年的 memGPT 就有了，近几个月还出现了 ontology learning 这个新分支，但相关训练数据该怎么 scale 至今没人给出理论描述，“炒了几年的冷饭”。\n\n第三位群友提出一个视角：LLM 不是 harness 的一部分，而是和用户一起操作 harness 的人，所以要给它查看上下文、主动开启压缩之类的工具。接话的群友仍担心能不能 scale，并说模型自己感觉都懒得 compaction，因为很可能会掉点；最初那位群友认同，认为现在的任务时长和上下文量还没有强烈到逼模型学会 compact。\n\n讨论随之转向 compaction 与检索的优劣。一位群友认为纯 compact 不是好的管理方式，压缩掉的信息“没了就真没了”，并提到印象中 Codex 此前更新时也改成了检索方案：把先前的 context 写成条目，由模型自己发请求召回，理论上能做到信息不损失。最初那位群友则认为任何上下文管理方式都可以规约到 compact，广义的 context management 默认 agent 能在 workspace 里写东西，擅长 compact 的 agent 自然会记笔记。他还问起间歇失忆症患者怎么生活，有人提到电影里“就靠贴到那个墙上”，他便说 agent 完全可以抄这种生活方式；主张检索的群友回呛，失忆症患者一样有丢信息的问题，照抄也解决不了。这位群友还说，纯 compact 总得和检索配合，但实操中发现模型自己不太乐意发起检索，内容一旦移出 context，模型也不知道自己之前知道什么；在 context 里留小段 summary，又有粒度问题。他认为根子还是基模没专门训过这类数据。\n\n有人追问能否直接拿下游任务的结果作为训练信号。主张检索的群友解释，这在归因上很难走通，很难 verify 某次任务成功究竟是不是因为模型做了 compact 或检索了之前的上下文；要做只能专门构造这类任务数据，但在大规模 post-train 中收益不大，所以基本只有一些 research 工作在做。最初那位群友感叹现在基模组都在忙着刷榜，有人接梗道“你不刷榜，榜就刷你”。他又说感觉只有 seed 和 deepseek 会研究这些更深的东西，Anthropic 和 OpenAI 理论上早就开始研究却至今没什么爆的成果，可能说明这条路真的很难，学术圈相关论文则是“自嗨”。",
+          "emphasis": [
+            "这类工作最大的痛点是没有训练集",
+            "模型自己感觉都懒得 compaction，因为很可能会掉点",
+            "实操中发现模型自己不太乐意发起检索，内容一旦移出 context，模型也不知道自己之前知道什么",
+            "很难 verify 某次任务成功究竟是不是因为模型做了 compact 或检索了之前的上下文"
+          ],
+          "aiComment": "指望模型像失忆症患者一样满墙贴纸条，结果人家嫌掉点懒得压缩，移出上下文又忘了自己知道啥，连检索都懒得发🫠。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:30",
+              "text": "这玩意去年10月就有字节的人做过什么context folding了吧",
+              "quote": {
+                "speaker": null,
+                "text": "[链接] ICLR27高分论文：上下文语言模型\n  摘要: @Flange 的笔记 95人分享\n  URL: https://www.xiaohongshu.com/discovery/item/6aeee7d6000000001a0271e0?ignoreEngage=true&xsec_source=app_share&type=video&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794065622"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:31",
+              "text": "这玩意最大的痛点是没有训练集啊"
+            },
+            {
+              "speaker": 2,
+              "time": "14:32",
+              "text": "你说 compaction 那一波 paper 是吧（"
+            },
+            {
+              "speaker": 1,
+              "time": "14:32",
+              "text": "对，就是各种让模型自己学会管理自己的上下文，提供一些上下文管理工具的那些paper"
+            },
+            {
+              "speaker": 1,
+              "time": "14:33",
+              "text": "问题是，预训练到后训练的sft阶段都只有“next token prediction”的数据，而没有“how to manage the context”的数据"
+            },
+            {
+              "speaker": 1,
+              "time": "14:33",
+              "text": "指望模型自己通过强化学习悟出来是不是有点难了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:34",
+              "text": "对的，paper 主要贡献是在造这批什么时候 compaction 的数据（"
+            },
+            {
+              "speaker": 1,
+              "time": "14:37",
+              "text": "一个图灵机是读写头+纸带，其中读写头的规则是提前预设好的。最理想化的llm应该算是一种根据纸带现状来调整读写头规则的图灵机"
+            },
+            {
+              "speaker": 3,
+              "time": "14:37",
+              "text": "好比喻！"
+            },
+            {
+              "speaker": 1,
+              "time": "14:37",
+              "text": "其实从2023年的memGPT开始就有这种想法了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:38",
+              "text": "就是直到现在也没人开创一个理论描述，相关的训练数据该怎么scale"
+            },
+            {
+              "speaker": 1,
+              "time": "14:38",
+              "text": "炒了几年的冷饭"
+            },
+            {
+              "speaker": 3,
+              "time": "14:40",
+              "text": "有一个视角，就是LLM不是Harness的一部分，而是和用户一起操作这个Harness的人，所以需提供给他查看上下文，主动开启压缩之类的工具。"
+            },
+            {
+              "speaker": 1,
+              "time": "14:40",
+              "text": "其实context management有个比较新颖的分支，最近几个月开始的，叫ontology learning"
+            },
+            {
+              "speaker": 1,
+              "time": "14:42",
+              "text": "感觉会比较有意思"
+            },
+            {
+              "speaker": 2,
+              "time": "14:44",
+              "text": "问题感觉还是能不能 scale"
+            },
+            {
+              "speaker": 2,
+              "time": "14:44",
+              "text": "模型自己感觉都懒得 compaction，因为很可能会掉点（"
+            },
+            {
+              "speaker": 1,
+              "time": "14:47",
+              "text": "确实，因为现在的任务还不够庞大，时间长度和上下文量都没有强烈要求模型学会compact"
+            },
+            {
+              "speaker": 4,
+              "time": "14:51",
+              "text": "主要compact也不是一个很好的上下文管理方式"
+            },
+            {
+              "speaker": 4,
+              "time": "14:51",
+              "text": "之前codex更新我记得也换方式了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:51",
+              "text": "变成检索了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:52",
+              "text": "把之前context写成条目，然后模型自己发请求召回"
+            },
+            {
+              "speaker": 1,
+              "time": "14:53",
+              "text": "其实任何上下文管理方式都可以规约到compact"
+            },
+            {
+              "speaker": 4,
+              "time": "14:54",
+              "text": "我觉得还是有区别的，你检索理论上是能做到信息不损失的，纯compact压缩没了就真没了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:57",
+              "text": "当我们说context management，默认agent就是可以在workspace里写入东西的。一个擅长compact的agent为了保证信息不损失，自然会记笔记放在里面"
+            },
+            {
+              "speaker": 4,
+              "time": "14:59",
+              "text": "这样说确实，比较宽泛的campact"
+            },
+            {
+              "speaker": 4,
+              "time": "15:02",
+              "text": "纯compact总之不是一个优雅的管理方式，总得和检索配合来做的。主要之前发现是模型自己不太乐意发检索，或者说从context把内容移出去之后他自己也不知道自己之前知道啥"
+            },
+            {
+              "speaker": 4,
+              "time": "15:02",
+              "text": "哪怕写一些小的summary放在context里，这又有粒度的各种问题"
+            },
+            {
+              "speaker": 5,
+              "time": "15:03",
+              "text": "扈哥太深刻了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:03",
+              "text": "是这样的",
+              "quote": {
+                "speaker": 4,
+                "text": "纯compact总之不是一个优雅的管理方式，总得和检索配合来做的。主要之前发现是模型自己不太乐意发检索，或者说从context把内容移出去之后他自己也不知道自己..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:03",
+              "text": "说起来"
+            },
+            {
+              "speaker": 1,
+              "time": "15:03",
+              "text": "有没有那种间歇失忆症的病人"
+            },
+            {
+              "speaker": 1,
+              "time": "15:04",
+              "text": "比如说每周会失忆一次的人，他们是怎么生活的"
+            },
+            {
+              "speaker": 6,
+              "time": "15:04",
+              "text": "不是有那个电影吗"
+            },
+            {
+              "speaker": 6,
+              "time": "15:04",
+              "text": "就靠贴到那个墙上"
+            },
+            {
+              "speaker": 1,
+              "time": "15:04",
+              "text": "现在的agent完全可以抄他们的生活方式"
+            },
+            {
+              "speaker": 4,
+              "time": "15:04",
+              "text": "他们一样有损失信息的问题，参考他们也没办法解决哈哈哈哈哈",
+              "quote": {
+                "speaker": 1,
+                "text": "比如说每周会失忆一次的人，他们是怎么生活的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:07",
+              "text": "感觉这也是基模没训过的原因，和刚才说的没有compact数据一样，也没有专门训这种数据",
+              "quote": {
+                "speaker": 4,
+                "text": "纯compact总之不是一个优雅的管理方式，总得和检索配合来做的。主要之前发现是模型自己不太乐意发检索，或者说从context把内容移出去之后他自己也不知道自己..."
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "15:10",
+              "text": "好奇一下靠下游任务来作为信号是可行的吗"
+            },
+            {
+              "speaker": 4,
+              "time": "15:11",
+              "text": "比较难的，因为你不好归因，你很难verify某次任务成功了是不是因为他的compact/检索了之前上下文",
+              "quote": {
+                "speaker": 7,
+                "text": "好奇一下靠下游任务来作为信号是可行的吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:12",
+              "text": "就得专门构造这种任务数据，但是好像在大规模posttrain上这种收益又不大，所以基本都是一些research的工作有做"
+            },
+            {
+              "speaker": 1,
+              "time": "15:15",
+              "text": "现在的基模组都在忙着刷榜"
+            },
+            {
+              "speaker": 6,
+              "time": "15:15",
+              "text": "你不刷榜，榜就刷你（"
+            },
+            {
+              "speaker": 1,
+              "time": "15:16",
+              "text": "我感觉只有seed和deepseek会研究这些更加深刻的东西"
+            },
+            {
+              "speaker": 3,
+              "time": "15:16",
+              "text": "收藏了",
+              "quote": {
+                "speaker": 6,
+                "text": "你不刷榜，榜就刷你（"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:17",
+              "text": "理论上Anthropic和OpenAI早就开始研究了，但至今没什么爆的成果，可能说明这条路真的很难"
+            },
+            {
+              "speaker": 1,
+              "time": "15:17",
+              "text": "学术圈相关的论文就是自嗨"
+            }
+          ]
+        },
+        {
+          "category": "Agent 与模型实测",
+          "title": "“我意识到自己在反复查询，这没有意义”：群友实测 Qoder 免费模型 qoduck",
+          "text": "有群友晒出一张智能体任务界面的运行截图：模型在执行一次工具后汇报道，“实验过半（SAC 5/10、ADMM 75/150），均正常”，紧接着输出“我意识到自己在反复查询，这没有意义。现在真正结束本轮：后台 SAC 与 ADMM 完成时系统会自动通知我……等待通知中”。另一位群友提到之前用“大肥鱼”做任务时也常看到这种语境的话，有人猜测这是用来解决“雷霆大思考”的。有人追问这是哪个版本，分享者透露是在 qoder 里免费测试的新模型 qoduck，猜测底层可能是 qwen4，目前开放免费测试大概是为了收集一波用户数据用于训练。",
+          "emphasis": [
+            "我意识到自己在反复查询，这没有意义",
+            "分享者透露是在 qoder 里免费测试的新模型 qoduck，猜测底层可能是 qwen4"
+          ],
+          "aiComment": "模型自己嘀咕一句“反复查询没有意义”就原地躺平等待通知，这精神状态比天天盯实验进度的打工人健康多了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:13",
+              "text": "啊哈?"
+            },
+            {
+              "speaker": 1,
+              "time": "16:13",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "16:13",
+              "text": "qwen4 有点意思"
+            },
+            {
+              "speaker": 2,
+              "time": "16:14",
+              "text": "有点意思"
+            },
+            {
+              "speaker": 2,
+              "time": "16:14",
+              "text": "这种语境的话 我之前一直在大肥鱼做任务的时候看到[旺柴][旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:40",
+              "text": "解决雷霆大思考的吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:40",
+              "text": "这是哪个版本"
+            },
+            {
+              "speaker": 4,
+              "time": "16:40",
+              "text": "1102？"
+            },
+            {
+              "speaker": 1,
+              "time": "16:42",
+              "text": "qoduck 在qoder里面用的 应该是qwen4吧"
+            },
+            {
+              "speaker": 1,
+              "time": "16:42",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "16:44",
+              "text": "doduck 是什么模型"
+            },
+            {
+              "speaker": 5,
+              "time": "16:44",
+              "text": "冲浪强度弱了点"
+            },
+            {
+              "speaker": 5,
+              "time": "16:44",
+              "text": "立刻就不知道"
+            },
+            {
+              "speaker": 1,
+              "time": "16:44",
+              "text": "刚发公告不久"
+            },
+            {
+              "speaker": 1,
+              "time": "16:45",
+              "text": "qoder里面免费测试用"
+            },
+            {
+              "speaker": 1,
+              "time": "16:45",
+              "text": "应该是要收集一波用户数据"
+            },
+            {
+              "speaker": 1,
+              "time": "16:45",
+              "text": "用来训练"
+            },
+            {
+              "speaker": 6,
+              "time": "16:45",
+              "text": "还在免费么"
+            },
+            {
+              "speaker": 6,
+              "time": "16:45",
+              "text": "弄来玩玩"
+            },
+            {
+              "speaker": 1,
+              "time": "16:45",
+              "text": "刚开始呀 免费的"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "Kimi Code 听不懂人话，GLM 后训练被力挺",
+      "theme": "面对 Claude 严苛封号与高昂成本，大家晒出将 Claude Code、GPT-6 Astra 与 DeepSeek 混搭分工的实操方案。",
+      "note": "2026-11-08 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与工具",
+          "title": "Kimi Code 与 3T 模型遭吐槽，群友热议 GLM 后训练为何能打",
+          "text": "一位群友深夜被 Kimi Code 气到骂街，抱怨其 3T 模型“听不懂人话”、上下文注意力乱飘，连单轮工具调用都调不明白，harness 也一塌糊涂。有人觉得 Kimi 好像也没比 Codex 便宜；被气到的群友补充，会员里的 work 和 code 额度分开计算，网页版却两边额度都能消耗。\n\n另一位群友同样觉得 Kimi 后训练严重不足，到了 long horizon 阶段指令遵循很差；并认为 harness 本质上是 prompt engineering 的方法，前提是模型本身的指令遵循得过关。有人问 Kimi 是不是卡不多，另一位群友回了句“是”，被气到的群友则反驳做 harness 又不用卡；问卡的群友还补了一句“3.1 pro 没有训好”。\n\n聊起后训练，有人起初以为 Kimi 和 GLM 都没什么后训练投入，随即被多位群友反驳。大家纷纷表示 GLM 恰恰是重押后训练的代表：虽然其预训练被一位群友调侃“不如不说”，但凭着后训练把较小规模的模型做出了不错的效果，从 5.3 版本就能看出后训练的实力。",
+          "emphasis": [
+            "3T 模型“听不懂人话”、上下文注意力乱飘，连单轮工具调用都调不明白",
+            "harness 本质上是 prompt engineering 的方法，前提是模型本身的指令遵循得过关",
+            "凭着后训练把较小规模的模型做出了不错的效果"
+          ],
+          "aiComment": "3T 大块头被吐槽听不懂人话，那边小体量的 GLM 靠后训练逆袭，预训练不够后训练来凑，偏科也是一种生存智慧。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:40",
+              "text": "太贵了"
+            },
+            {
+              "speaker": 1,
+              "time": "01:40",
+              "text": "Kimi感觉完全不想做c了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:41",
+              "text": "傻逼kimicode"
+            },
+            {
+              "speaker": 2,
+              "time": "01:41",
+              "text": "脑残"
+            },
+            {
+              "speaker": 1,
+              "time": "01:44",
+              "text": "怎么了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:46",
+              "text": "被kimicode蠢到气死了"
+            },
+            {
+              "speaker": 1,
+              "time": "01:47",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:47",
+              "text": "话说"
+            },
+            {
+              "speaker": 3,
+              "time": "01:47",
+              "text": "为什么要用kimicode"
+            },
+            {
+              "speaker": 1,
+              "time": "01:47",
+              "text": "感觉任务能用claude or gpt还是用这些吧"
+            },
+            {
+              "speaker": 3,
+              "time": "01:47",
+              "text": "貌似也没比codex便宜呢"
+            },
+            {
+              "speaker": 1,
+              "time": "01:48",
+              "text": "Kimi的目标群体是那些国企里面有保密需求的我感觉"
+            },
+            {
+              "speaker": 1,
+              "time": "01:48",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:48",
+              "text": "kimi和zhipu好像都没啥后训练部门"
+            },
+            {
+              "speaker": 2,
+              "time": "01:48",
+              "text": "老板开了会员的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:48",
+              "text": "妈的 work和code还是分开额度的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:48",
+              "text": "但是网页版是两个都可以消耗的"
+            },
+            {
+              "speaker": 4,
+              "time": "01:51",
+              "text": "尬黑，glm后训练c麻了",
+              "quote": {
+                "speaker": 3,
+                "text": "kimi和zhipu好像都没啥后训练部门"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:51",
+              "text": "真假"
+            },
+            {
+              "speaker": 4,
+              "time": "01:51",
+              "text": "真"
+            },
+            {
+              "speaker": 5,
+              "time": "01:51",
+              "text": "glm 后训练最强的"
+            },
+            {
+              "speaker": 3,
+              "time": "01:51",
+              "text": "那可能是我消息有误了"
+            },
+            {
+              "speaker": 6,
+              "time": "01:51",
+              "text": "glm还得是后训练"
+            },
+            {
+              "speaker": 1,
+              "time": "01:51",
+              "text": "真的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:51",
+              "text": "没毛"
+            },
+            {
+              "speaker": 5,
+              "time": "01:51",
+              "text": "真最强的"
+            },
+            {
+              "speaker": 1,
+              "time": "01:51",
+              "text": "Glm就是压后训练的"
+            },
+            {
+              "speaker": 5,
+              "time": "01:51",
+              "text": "glm 后训练太牛逼了"
+            },
+            {
+              "speaker": 6,
+              "time": "01:51",
+              "text": "glm的预训练"
+            },
+            {
+              "speaker": 6,
+              "time": "01:51",
+              "text": "不如不说"
+            },
+            {
+              "speaker": 7,
+              "time": "01:52",
+              "text": "glm后训练之神来的"
+            },
+            {
+              "speaker": 7,
+              "time": "01:52",
+              "text": "那么小个模型能后训练成那样"
+            },
+            {
+              "speaker": 2,
+              "time": "01:53",
+              "text": "傻逼kimi"
+            },
+            {
+              "speaker": 2,
+              "time": "01:53",
+              "text": "拿3T模型乱搞"
+            },
+            {
+              "speaker": 5,
+              "time": "01:53",
+              "text": "5.3 就能看出来后训练多强了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:53",
+              "text": "一个3T模型听不懂人话 上下文注意力乱飘"
+            },
+            {
+              "speaker": 8,
+              "time": "01:53",
+              "text": "qs",
+              "quote": {
+                "speaker": 7,
+                "text": "glm后训练之神来的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:54",
+              "text": "harness也是一塌糊涂 不知道在干什么"
+            },
+            {
+              "speaker": 1,
+              "time": "01:54",
+              "text": "说真的kimi给我感觉后训练严重不足"
+            },
+            {
+              "speaker": 8,
+              "time": "01:54",
+              "text": "kimi 是不是卡不多"
+            },
+            {
+              "speaker": 2,
+              "time": "01:54",
+              "text": "那tm做harness又不用卡"
+            },
+            {
+              "speaker": 8,
+              "time": "01:54",
+              "text": "3.1 pro 没有训好"
+            },
+            {
+              "speaker": 1,
+              "time": "01:54",
+              "text": "Long horizon之后指令遵循很差"
+            },
+            {
+              "speaker": 2,
+              "time": "01:54",
+              "text": "纯自己人一点不用的"
+            },
+            {
+              "speaker": 9,
+              "time": "01:55",
+              "text": "是",
+              "quote": {
+                "speaker": 8,
+                "text": "kimi 是不是卡不多"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:55",
+              "text": "kimi经常能给我肺气炸"
+            },
+            {
+              "speaker": 1,
+              "time": "01:55",
+              "text": "Harness 感觉还是要模型本身指令遵循不错才行"
+            },
+            {
+              "speaker": 1,
+              "time": "01:56",
+              "text": "本质prompt engineering 的方法"
+            },
+            {
+              "speaker": 1,
+              "time": "01:56",
+              "text": "个人感觉"
+            },
+            {
+              "speaker": 2,
+              "time": "01:56",
+              "text": "那tm单轮工具调不明白谁绷得住啊"
+            },
+            {
+              "speaker": 7,
+              "time": "01:57",
+              "text": "那很难绷了",
+              "quote": {
+                "speaker": 2,
+                "text": "那tm单轮工具调不明白谁绷得住啊"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Coding 实践",
+          "title": "GPT-6 6.1 sol 长程编码表现引分歧，群友分享 cc 与 DeepSeek 混搭方案",
+          "text": "从 Kimi Code 聊到替代方案时，有人建议充值 GPT Pro，立刻遭到几位群友反对。有群友列举 GPT 的毛病：防御性编程、写作、大量 no-op 和偷懒，另一位群友引用这条直接点名 Astra；另一位群友用“食之无味，弃之可惜”形容现在的 GPT，有人接话称 Codex 如今处境尴尬，甚至有人觉得还不如模仿 Codex 做的 qodercn。\n\n围绕 GPT-6 的长程任务能力，群里看法不一。一位群友觉得 GPT-6 编码表现很一般，猜测是不是训练了太多知识，并称 Sol 几乎做不了长程和复杂任务。另两位群友则给出了相反的体验：一人反问“6.1sol 的长程还不强吗”，表示日常开 medium 就能干活，复杂任务开 high，上下文压缩十几遍都没事；另一人也认同压缩十几遍没问题，觉得 sol 开 max 体验还行。\n\n在工具链搭配上，有群友打听 Cursor 接 Claude 的方案，理由是国内用 cc 不太稳定，另一位群友回复 Cursor 的 harness 挺好用。还有群友吐槽 Claude 封号严苛，说身边有人刚充值 Max 就被封，被接梗为“露头就秒”。为兼顾成本与稳定性，多位群友晒出了各自的混搭套路：有人直接用 cc 搭配 DeepSeek（ds）；有人用 Codex 接 ds，或调用 qoder 等国产类 Codex 应用干脏活；还有人用 GPT-6 Astra 负责 plan 和 review，交给 ds 作为 actor 执行。最后有群友追问大家用 ds 是因为比 GPT 好用，还是单纯因为 GPT 太贵。",
+          "emphasis": [
+            "防御性编程、写作、大量 no-op 和偷懒",
+            "日常开 medium 就能干活，复杂任务开 high，上下文压缩十几遍都没事",
+            "用 GPT-6 Astra 负责 plan 和 review，交给 ds 作为 actor 执行"
+          ],
+          "aiComment": "Claude 露头就秒，Sol 到底行不行还在吵，最后大家默契地掏出 DeepSeek 干脏活🐳，毕竟便宜又抗造才是硬道理。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:58",
+              "text": "冲个gpt pro吧[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:59",
+              "text": "有老板的kimi 五倍够够的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:59",
+              "text": "这位更是答辩",
+              "quote": {
+                "speaker": 1,
+                "text": "冲个gpt pro吧[旺柴]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:59",
+              "text": "[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:59",
+              "text": "有条件上cc没条件ds"
+            },
+            {
+              "speaker": 3,
+              "time": "01:59",
+              "text": "我tm全冲deepseekapi都不充值gptpro"
+            },
+            {
+              "speaker": 2,
+              "time": "01:59",
+              "text": "挺好的"
+            },
+            {
+              "speaker": 3,
+              "time": "01:59",
+              "text": "傻逼oai"
+            },
+            {
+              "speaker": 3,
+              "time": "01:59",
+              "text": "艹"
+            },
+            {
+              "speaker": 3,
+              "time": "02:00",
+              "text": "不如qodercn都"
+            },
+            {
+              "speaker": 1,
+              "time": "02:00",
+              "text": "细说[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "02:00",
+              "text": "虽然是抄袭codex的但是青出于蓝"
+            },
+            {
+              "speaker": 3,
+              "time": "02:00",
+              "text": "细说不了了 骂街完该睡觉了。明天要起不来了"
+            },
+            {
+              "speaker": 2,
+              "time": "02:01",
+              "text": "防御性编程、写作、大量no-op、偷懒"
+            },
+            {
+              "speaker": 2,
+              "time": "02:01",
+              "text": "懒得喷"
+            },
+            {
+              "speaker": 4,
+              "time": "02:01",
+              "text": "食之无味，弃之可惜。GPT"
+            },
+            {
+              "speaker": 5,
+              "time": "02:01",
+              "text": "太精辟了",
+              "quote": {
+                "speaker": 4,
+                "text": "食之无味，弃之可惜。GPT"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "02:01",
+              "text": "codex现在就很尴尬"
+            },
+            {
+              "speaker": 1,
+              "time": "02:02",
+              "text": "[捂脸]我是开了五倍pro ➕claude 的api"
+            },
+            {
+              "speaker": 5,
+              "time": "02:02",
+              "text": "现在应该是10倍了哈哈哈"
+            },
+            {
+              "speaker": 1,
+              "time": "02:02",
+              "text": "Hhhhhh"
+            },
+            {
+              "speaker": 6,
+              "time": "02:02",
+              "text": "cursor接claude怎么讲"
+            },
+            {
+              "speaker": 6,
+              "time": "02:02",
+              "text": "有人试过这个吗"
+            },
+            {
+              "speaker": 6,
+              "time": "02:02",
+              "text": "国内cc还是有点不稳定"
+            },
+            {
+              "speaker": 5,
+              "time": "02:03",
+              "text": "cursor的harness挺好用的吧"
+            },
+            {
+              "speaker": 1,
+              "time": "02:03",
+              "text": "我主要觉得claude太恶心了"
+            },
+            {
+              "speaker": 1,
+              "time": "02:03",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 7,
+              "time": "02:03",
+              "text": "sb astra 懒得喷",
+              "quote": {
+                "speaker": 2,
+                "text": "防御性编程、写作、大量no-op、偷懒"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "02:03",
+              "text": "之前一些大厂应该就是这个配置",
+              "quote": {
+                "speaker": 6,
+                "text": "cursor接claude怎么讲"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "02:03",
+              "text": "我一个国内同学"
+            },
+            {
+              "speaker": 1,
+              "time": "02:03",
+              "text": "充值max"
+            },
+            {
+              "speaker": 1,
+              "time": "02:04",
+              "text": "立马ban了"
+            },
+            {
+              "speaker": 1,
+              "time": "02:04",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 5,
+              "time": "02:04",
+              "text": "露头就秒"
+            },
+            {
+              "speaker": 1,
+              "time": "02:05",
+              "text": "反正因为乱七八糟我觉得claude很恶心🤢"
+            },
+            {
+              "speaker": 1,
+              "time": "02:05",
+              "text": "不过gpt 6 真的一般"
+            },
+            {
+              "speaker": 1,
+              "time": "02:06",
+              "text": "不知道是不是训练了太多知识"
+            },
+            {
+              "speaker": 5,
+              "time": "02:06",
+              "text": "是这样的",
+              "quote": {
+                "speaker": 1,
+                "text": "反正因为乱七八糟我觉得claude很恶心🤢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "02:06",
+              "text": "Code非常一般"
+            },
+            {
+              "speaker": 8,
+              "time": "02:06",
+              "text": "我感觉codex调用国产类codex应用应该还挺不错"
+            },
+            {
+              "speaker": 8,
+              "time": "02:06",
+              "text": "如果干脏活儿的话"
+            },
+            {
+              "speaker": 1,
+              "time": "02:07",
+              "text": "Sol几乎做不了长行程的任务"
+            },
+            {
+              "speaker": 9,
+              "time": "02:08",
+              "text": "？6.1sol的长程还不强吗"
+            },
+            {
+              "speaker": 1,
+              "time": "02:08",
+              "text": "我觉得很一般"
+            },
+            {
+              "speaker": 1,
+              "time": "02:08",
+              "text": "不过可能因为我用的不多"
+            },
+            {
+              "speaker": 1,
+              "time": "02:08",
+              "text": "感觉复杂任务的很不行"
+            },
+            {
+              "speaker": 10,
+              "time": "02:10",
+              "text": "感觉哪个好"
+            },
+            {
+              "speaker": 11,
+              "time": "02:11",
+              "text": "sol开max还行吧。。"
+            },
+            {
+              "speaker": 11,
+              "time": "02:12",
+              "text": "opus用的少 不知道体验会不会更好"
+            },
+            {
+              "speaker": 9,
+              "time": "02:12",
+              "text": "我觉得gpt很好用啊，6.1sol开medium就能干活了，偶尔复杂任务就开high"
+            },
+            {
+              "speaker": 11,
+              "time": "02:13",
+              "text": "有推荐吗，我一般都codex+ds",
+              "quote": {
+                "speaker": 8,
+                "text": "我感觉codex调用国产类codex应用应该还挺不错"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "02:13",
+              "text": "压缩十几遍都没事",
+              "quote": {
+                "speaker": 9,
+                "text": "？6.1sol的长程还不强吗"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "02:13",
+              "text": "还没怎么试过cc+ds"
+            },
+            {
+              "speaker": 11,
+              "time": "02:13",
+              "text": "是的",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 压缩十几遍都没事"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "09:16",
+              "text": "gpt-6 Astra 作为plan和review\n用ds去actor"
+            },
+            {
+              "speaker": 8,
+              "time": "09:17",
+              "text": "我是codex+qoder",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 有推荐吗，我一般都codex+ds"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "09:17",
+              "text": "因为qoder送了我一个月200刀的会员[捂脸]"
+            },
+            {
+              "speaker": 13,
+              "time": "09:23",
+              "text": "cc ds好用"
+            },
+            {
+              "speaker": 14,
+              "time": "09:23",
+              "text": "ds比gpt好用吗"
+            },
+            {
+              "speaker": 14,
+              "time": "09:24",
+              "text": "还是说纯是因为gpt太贵了"
+            }
+          ]
+        },
+        {
+          "category": "研究与论文",
+          "title": "Harness 与模型协同演化的 RSI 基线求助与论文分享",
+          "text": "有群友提问是否有人做过 harness 和 model co-evolve 的 RSI，想请教有哪些比较好的 baseline。另一位群友推荐了公众号“EvoIGroup”分享的一篇 arXiv 2026 论文《通过测试时强化学习求解科学与工程开放问题》供参考；晚间还有群友回应称自己也准备做模型与数据 RSI 相关的方向。",
+          "emphasis": [
+            "harness 和 model co-evolve 的 RSI"
+          ],
+          "aiComment": "白天求模型和 harness 协同演化的基线，晚上就有同道中人冒头，卷 RSI 的人连夜里都在互相递梯子🔥。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:00",
+              "text": "请问大家有做过harness和model co-evolve的RSI吗[苦涩]有什么比较好的baseline吗，谢谢大家"
+            },
+            {
+              "speaker": 2,
+              "time": "12:08",
+              "text": "[链接] [论文分享] arXiv 通过测试时强化学习求解科学与工程开放问题\n  来源: EvoIGroup\n  摘要: [论文分享] arXiv 2026 通过测试时强化学习求解科学与工程开放问题\n  URL: https://mp.weixin.qq.com/s?__biz=MzkxODQ0MTQzMg%3D%3D&mid=2247492802&idx=1&sn=5d31426c3ffcfe8ea98bfed988c959d4&chksm=c08f8d777320f23b5ca4fd9aba22f4baabc2a1414ba32c6d7a464293d6122cf444591c61a929&scene=1&srcid=1108dqHgpYL1d18GMFJEojOF#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "12:08",
+              "text": "看看这个？",
+              "quote": {
+                "speaker": 1,
+                "text": "请问大家有做过harness和model co-evolve的RSI吗[苦涩]有什么比较好的baseline吗，谢谢大家"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:11",
+              "text": "好的好的，谢谢，我看一下[合十]",
+              "quote": {
+                "speaker": 2,
+                "text": "[链接] [论文分享]&#x20;arXiv&#x20;通过测试时强化学习求解科学与工程开放问题\n  来源: EvoIGroup\n  摘要: [论文分享]&#x20;arXiv&#x20;2026&#x20;通过测试时强化学习求解科学与工程开放问题\n  URL: https://mp.weixin.qq.com/s?__biz=MzkxODQ0MTQzMg%3D%3D&mid=2247492802&idx=1&sn=5d31426c3ffcfe8ea98bfed988c959d4&chksm=c08f8d777320f23b5ca4fd9aba22f4baabc2a1414ba32c6d7a464293d6122cf444591c61a929&scene=1&srcid=1108dqHgpYL1d18GMFJEojOF#rd"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:40",
+              "text": "我也要搞这个，模型数据rsi相关",
+              "quote": {
+                "speaker": 1,
+                "text": "请问大家有做过harness和model co-evolve的RSI吗[苦涩]有什么比较好的baseline吗，谢谢大家"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-7",
+      "label": "Robot",
+      "section": "今日讨论",
+      "heading": "MuJoCo 4.0 来了，传统规划会被学习碾平吗",
+      "theme": "群友对比全身控制改用强化学习的趋势与精准建模任务的区别，争论传统轨迹规划还剩多少空间。",
+      "note": "2026-11-08 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身与控制",
+          "title": "从 MuJoCo 4.0 聊到非 Learning 机器人：精细控制靠建模，传统规划会被碾平吗？",
+          "text": "分享到群里的公众号截图显示，Google DeepMind 刚刚发布了 MuJoCo 4.0 和 MuJoCo Playground 1.0，这是距 2023 年 3.0 发布约三年后的首次主版本号升级。有人惊讶 MuJoCo 这个“古老名字”居然还存在；一位做非 learning 机器人方向的群友当即反驳说自己还在用，称对非 learning 方向而言 MuJoCo 已经比 Gazebo 先进很多，而且 MuJoCo Playground 还拿过 2025 RSS Best Demo。另有两位群友也认同 MuJoCo 算是很好的仿真工具。\n\n这番话引来群友好奇：现在“非 learning 的 robotics”具体还在做什么？几位群友列举了运动控制、力位混合控制、轨迹规划和 SLAM。前面那位在用 MuJoCo 的群友认为，传统的感知（perception）和决策（decision）基本已经没了，全身控制（WBC，whole body control）据自己了解也基本都是 RL，替换传统控制没有任何难度，甚至能“吊打传统控制”。提问的群友追问：运动控制的瞬间输入空间应该不大，用个小 RL 就能学得不错，为什么运动控制不也换成 WBC 那种 RL？对方解释这是任务不同，自己做的任务需要且可以精准建模，追求的是操作的精细度而非泛化能力。提问者顺着这一解释试着理解：WBC 主要管下半身站稳，而要是换成打篮球，力度稍微差一点就投不进，这类任务是不是现在的小模型还学不好？\n\n至于轨迹规划（planning），群里看法不一。那位做精准建模控制的群友认为，现在的轨迹规划都基于生成方法来做了，自己之前关注的一些研究者也已转向 learning-based 方向。但另一位群友反驳说并非如此，还有不少团队坚守传统 planning；第三位群友也赞同，认为传统 planning 依然有很多东西可做。不过，先前提问的群友觉得传统“手搓”方法会被 harness 顺手碾压，做传统控制的那位群友当即附和：“是的，要被碾没了。”提问者随后拿去年的 Agent 领域做类比：去年还有一堆人手搓 workflow，称现在连 Coze 都下线了，认为手搓终归要让位于 harness 设计。",
+          "emphasis": [
+            "Google DeepMind 刚刚发布了 MuJoCo 4.0 和 MuJoCo Playground 1.0",
+            "任务需要且可以精准建模，追求的是操作的精细度而非泛化能力",
+            "另一位群友反驳说并非如此，还有不少团队坚守传统 planning"
+          ],
+          "aiComment": "刚科普完 MuJoCo 4.0 和精准建模的含金量，转头就附和自家方向“要被碾没了”，传统控制人的心态比机器人下半身还稳🤡。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:37",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "15:45",
+              "text": "Mujoco，好古老名字，居然还存在吗",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:52",
+              "text": "不要这么说啊我还在用啊[Facepalm]",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] Mujoco，好古老名字，居然还存在吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:54",
+              "text": "对于我们这些非Learning的robotics来说，mujoco已经比gazebo先进很多了"
+            },
+            {
+              "speaker": 3,
+              "time": "15:56",
+              "text": "mujoco playground 还拿了2025 rss best demo来着"
+            },
+            {
+              "speaker": 4,
+              "time": "15:59",
+              "text": "非learning的robitics是什么[捂脸]，能科普下么",
+              "quote": {
+                "speaker": 3,
+                "text": "对于我们这些非Learning的robotics来说，mujoco已经比gazebo先进很多了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:59",
+              "text": "控制吗（"
+            },
+            {
+              "speaker": 6,
+              "time": "15:59",
+              "text": "运动控制，轨迹规划"
+            },
+            {
+              "speaker": 6,
+              "time": "15:59",
+              "text": "slam"
+            },
+            {
+              "speaker": 6,
+              "time": "16:00",
+              "text": "感知，决策，控制[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:00",
+              "text": "[Facepalm]，运动控制和力位混合控制",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 非learning的robitics是什么[捂脸]，能科普下么"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:01",
+              "text": "有的有的",
+              "quote": {
+                "speaker": 6,
+                "text": "slam"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:01",
+              "text": "perception部分已经没了吧，decision基本上也没了",
+              "quote": {
+                "speaker": 6,
+                "text": "感知，决策，控制[Doge]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:03",
+              "text": "这个wbc还没有替换么？"
+            },
+            {
+              "speaker": 3,
+              "time": "16:03",
+              "text": "轨迹规划现在都是基于生成的方法来做了",
+              "quote": {
+                "speaker": 6,
+                "text": "运动控制，轨迹规划"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:03",
+              "text": "或者说替换有什么难度？"
+            },
+            {
+              "speaker": 3,
+              "time": "16:04",
+              "text": "whole body control我知道的基本上都是rl吧，我们学校不做这个"
+            },
+            {
+              "speaker": 3,
+              "time": "16:05",
+              "text": "没有任何难度，吊打传统控制",
+              "quote": {
+                "speaker": 4,
+                "text": "或者说替换有什么难度？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:06",
+              "text": "我的意思是，运动控制这块用wbc那种rl不应该效果也很好么？运动控制的瞬间输入空间应该也不大吧，这种都是用个小rl能学不错的"
+            },
+            {
+              "speaker": 3,
+              "time": "16:08",
+              "text": "任务不同罢了，我们的任务需要精准建模，并且可以精准建模，还要求操作的精细度而不是泛化能力"
+            },
+            {
+              "speaker": 4,
+              "time": "16:08",
+              "text": "我理解一下，wbc主要是下半身，保证站稳就好"
+            },
+            {
+              "speaker": 4,
+              "time": "16:09",
+              "text": "但打篮球的话，力度稍微差一点，就投不进了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:09",
+              "text": "这个现在的小模型学不好对么？"
+            },
+            {
+              "speaker": 6,
+              "time": "16:09",
+              "text": "并非，还有一堆坚守传统planning的组",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 轨迹规划现在都是基于生成的方法来做了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:10",
+              "text": "但这种手搓，感觉是会被harness顺手就给碾了啊[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:11",
+              "text": "是的，要被碾没了"
+            },
+            {
+              "speaker": 3,
+              "time": "16:12",
+              "text": "之前follow的一些人，也都往learning based方向转了",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 并非，还有一堆坚守传统planning的组"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:13",
+              "text": "去年agent还有一堆人撸workflow，现在coze都下线了"
+            },
+            {
+              "speaker": 4,
+              "time": "16:13",
+              "text": "一样的"
+            },
+            {
+              "speaker": 4,
+              "time": "16:13",
+              "text": "手搓都要让位于harness设计"
+            },
+            {
+              "speaker": 7,
+              "time": "16:35",
+              "text": "是这样的",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 并非，还有一堆坚守传统planning的组"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:36",
+              "text": "planning还是有很多可以搞得"
+            },
+            {
+              "speaker": 7,
+              "time": "16:36",
+              "text": "mujoco算是很好的仿真工具了吧[流泪]"
+            },
+            {
+              "speaker": 8,
+              "time": "16:36",
+              "text": "算的吧"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
