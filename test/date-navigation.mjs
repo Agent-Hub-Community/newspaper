@@ -35,8 +35,11 @@ try {
           const alignment = await page.evaluate(() => {
             const rect = selector => document.querySelector(selector).getBoundingClientRect();
             const row = rect('.masthead-main'), title = rect('.wordmark'), controls = rect('.edition-controls');
+            // Measure within the row's content box: a festival skin reserves the right edge for its art.
+            const style = getComputedStyle(document.querySelector('.masthead-main'));
+            const left = row.left + parseFloat(style.paddingLeft), right = row.right - parseFloat(style.paddingRight);
             return {
-              centered: Math.abs((title.left + controls.right) / 2 - (row.left + row.right) / 2),
+              centered: Math.abs((title.left + controls.right) / 2 - (left + right) / 2),
               vertical: Math.abs((title.top + title.bottom) / 2 - (controls.top + controls.bottom) / 2),
             };
           });

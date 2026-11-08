@@ -28,6 +28,16 @@ const overflow = () => page.evaluate(() => {
 async function checkDigestPage() {
   // The edition is marked before a not-yet-loaded issue arrives; compare once its articles are in.
   await page.waitForFunction(() => !document.querySelector('#reading .issue-status') && document.querySelector('#digest-panel'));
+  // A date-only address opens the overview: it lists one card per section that has stories.
+  if (await page.locator('#reading').getAttribute('data-page') === 'overview') {
+    const sections = await page.evaluate(() => {
+      const id = document.body.dataset.edition.slice('digest/'.length);
+      const issue = AGENT_HUB_DATA.digests.find(item => item.id === id);
+      return (window.AGENT_HUB_ISSUES?.[issue.date]?.pages || issue.pages).filter(window.digestPageHasContent).length;
+    });
+    assert.equal(await page.locator('.daily-overview-card').count(), sections, 'overview lists every section with stories');
+    return;
+  }
   const expected = await page.evaluate(() => {
     const id = document.body.dataset.edition.slice('digest/'.length);
     const issue = AGENT_HUB_DATA.digests.find(item => item.id === id);
@@ -85,6 +95,10 @@ try {
     }
   }
   await page.goto(url);
+  await page.locator('#digest-panel').waitFor();
+  // The newspaper opens on the latest issue's overview; the reading checks start from its first group.
+  assert.match(page.url(), /overview\/?$/, "opens on the overview (a path, or a hash route from file://)");
+  await page.locator('.page-links [role="tab"]:not(:disabled)').first().click();
   await page.locator('#digest-panel h1').waitFor();
   const hasActivity = await page.evaluate(() => !!AGENT_HUB_DATA.activity);
   await checkDigestPage();

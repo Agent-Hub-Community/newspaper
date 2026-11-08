@@ -345,6 +345,9 @@ try {
   page = await desktop.newPage();
   await page.goto(url);
   await page.locator('#digest-panel').waitFor();
+  // The root opens on the overview; check the real stories of the first group.
+  await page.locator('.page-links [role="tab"]:not(:disabled)').first().click();
+  await page.locator('#digest-panel .brief').first().waitFor();
   await layout('desktop mouse', false);
   await storyLayout('desktop mouse', await page.locator('.brief').count());
   await screenshot('desktop-mouse-1440x1000');
