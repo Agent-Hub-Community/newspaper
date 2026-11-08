@@ -119,6 +119,12 @@ body .colophon-map h2 { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-
 .colophon-map a { display: inline-flex; align-items: center; min-height: 34px; font: 13px/1.5 var(--sans); color: #c5d4e7; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 5px; transition: color .2s, text-decoration-color .2s; }
 .colophon-map a:is(:hover, :focus-visible) { color: #fff; text-decoration-color: currentColor; }
 
+/* A festival band runs edge to edge like the footer, while its content keeps the reading width. */
+body .masthead[data-skin]:not([data-skin="default"]) .masthead-brand { box-shadow: 0 0 0 100vmax var(--skin-paper); clip-path: inset(0 -100vmax); }
+/* Festival skins draw their art at the masthead's right edge (skins/base.css); keep the date clear of it. */
+@media (min-width: 1200px) {
+  body:is([data-view], [data-page]) .masthead[data-skin]:not([data-skin="default"]) .masthead-main { padding-right: 196px; }
+}
 @media (min-width: 1921px) {
   body[data-view] .paper-shell, body > .shell { max-width: min(1536px, calc(100vw - 624px)); }
 }

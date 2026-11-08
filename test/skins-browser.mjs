@@ -59,9 +59,16 @@ try {
           return r.width && r.height && [art, flora].some(image => Math.min(r.right, image.right) - Math.max(r.left, image.left) > 1 &&
             Math.min(r.bottom, image.bottom) - Math.max(r.top, image.top) > 1);
         }).map(el => el.className);
-        const readingBackground = luminance(getComputedStyle(document.body).backgroundColor);
+        // Each text against the surface it sits on: the page for the reading column, the dark band for the footer.
+        const surface = el => {
+          for (let node = el; node; node = node.parentElement) {
+            const color = getComputedStyle(node).backgroundColor;
+            if (!/rgba\([^)]*,\s*0\)$/.test(color)) return color;
+          }
+          return getComputedStyle(document.body).backgroundColor;
+        };
         const readingContrast = [...document.querySelectorAll('.brief p, .brief-category, .brief-resources a, .paper-footer, .brief-comment-label')].map(el => {
-          const foreground = luminance(getComputedStyle(el).color);
+          const foreground = luminance(getComputedStyle(el).color), readingBackground = luminance(surface(el));
           return (Math.max(foreground, readingBackground) + .05) / (Math.min(foreground, readingBackground) + .05);
         });
         const shell = document.querySelector('.paper-shell');
@@ -80,11 +87,12 @@ try {
           gutterVisible: gutter.content !== 'none',
           ink: getComputedStyle(document.querySelector('.wordmark')).color,
           paper: getComputedStyle(document.querySelector('.masthead-brand')).backgroundColor,
-          brandBounds: {
-            left: document.querySelector('.masthead-brand').getBoundingClientRect().left,
-            right: document.querySelector('.masthead-brand').getBoundingClientRect().right,
-            topBorder: getComputedStyle(document.querySelector('.masthead-brand')).borderTopWidth,
-          },
+          brandBounds: (() => {
+            const brand = document.querySelector('.masthead-brand'), style = getComputedStyle(brand), rect = brand.getBoundingClientRect();
+            // The band may span the window itself, or paint its own color past a centred reading width.
+            const bleeds = style.clipPath.startsWith('inset') && style.boxShadow.startsWith(style.backgroundColor);
+            return { left: bleeds ? 0 : rect.left, right: bleeds ? innerWidth : rect.right, topBorder: style.borderTopWidth };
+          })(),
           firstParagraph: document.querySelector('.brief p').getBoundingClientRect().top,
         };
       });
@@ -149,14 +157,15 @@ try {
   assert.equal(await page.locator('.skin-flora').isVisible(), false);
   assert.equal(await page.locator('body').getAttribute('data-skin'), 'default');
   assert.equal(await page.locator('.masthead').getAttribute('data-skin'), 'default');
-  // An open page must enter and leave a campaign without a reload.
-  await page.clock.install({ time: new Date('2026-09-24T15:59:59Z') });
+  // An open page must enter and leave a campaign without a reload. Campaigns come and go in config.json; use the first.
+  const [campaign] = JSON.parse(await readFile(new URL('../site/skins/config.json', import.meta.url), 'utf8')).campaigns;
+  await page.clock.install({ time: new Date(Date.parse(campaign.startsAt) - 1000) });
   await page.goto(url);
   assert.equal(await page.locator('.masthead').getAttribute('data-skin'), 'default');
   await page.clock.runFor(1100);
-  assert.equal(await page.locator('.masthead').getAttribute('data-skin'), 'mid-autumn');
-  assert.equal(await page.locator('body').getAttribute('data-skin'), 'mid-autumn');
-  await page.clock.setSystemTime(new Date('2026-09-27T16:00:00Z'));
+  assert.equal(await page.locator('.masthead').getAttribute('data-skin'), campaign.skin);
+  assert.equal(await page.locator('body').getAttribute('data-skin'), campaign.skin);
+  await page.clock.setSystemTime(new Date(campaign.endsAt));
   await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
   assert.equal(await page.locator('.masthead').getAttribute('data-skin'), 'default');
   assert.equal(await page.locator('body').getAttribute('data-skin'), 'default');
