@@ -22,6 +22,7 @@ import { atomFeed, jsonFeed } from './lib/feed.mjs';
 import { contentCatalog, writeContentFiles } from './lib/agent-content.mjs';
 import { AGENTS_PAGE } from './lib/agent-docs.mjs';
 import { mergedAliases, normalizeGlossary, readGlossary } from './lib/glossary.mjs';
+import { hubSummary } from './lib/hub.mjs';
 import { writeGlossaryFiles } from './lib/glossary-render.mjs';
 import { searchCounts, searchIndex, writeSearchFiles } from './lib/search-render.mjs';
 import { readSynonyms, searchVocabulary } from './lib/synonyms.mjs';
@@ -278,6 +279,8 @@ const weeklyHref = latestWeekly
   ? `../${weeklyRoute(latestWeekly, latestWeekly.pages.find(page => page.id === 'group-3')?.id || latestWeekly.pages[0].id)}` : '../';
 const entries = searchIndex({ digests: data.digests, weeklies: data.weeklies, library, opportunities });
 const counts = await searchCounts(entries, vocabulary, glossary.terms.map(entry => entry.term));
+// Read by the community homepage at runtime for its "latest" panel.
+await writeFile(path.join(out, 'hub.json'), `${JSON.stringify(hubSummary({ data, library, glossary, opportunities, searchable: entries.length }), null, 1)}\n`);
 await writeGlossaryFiles(out, { glossary, counts, publicBuild, feedbackEndpoint, weeklyHref });
 await writeSearchFiles(out, { entries, vocabulary, publicBuild, weeklyHref, feedbackEndpoint });
 console.log(JSON.stringify({ digests: editions.length, first: data.coverage.first, last: data.coverage.last }));
