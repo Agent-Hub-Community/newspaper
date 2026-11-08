@@ -1,5 +1,6 @@
 (() => {
-  const key = 'agenthub-appearance';
+  const key = 'agenthub-theme';
+  const legacyKey = 'agenthub-appearance';
   const modes = ['system', 'light', 'dark'];
   const names = { system: '跟随系统', light: '浅色', dark: '深色' };
   // Inline SVG (Lucide sun-moon, sun, moon) so pages without the icon bundle can use the toggle.
@@ -11,7 +12,8 @@
   const system = matchMedia('(prefers-color-scheme: dark)');
   let mode = 'system';
   try {
-    const saved = localStorage.getItem(key);
+    const shared = localStorage.getItem(key);
+    const saved = modes.includes(shared) ? shared : localStorage.getItem(legacyKey);
     if (modes.includes(saved)) mode = saved;
   } catch { /* Storage can be blocked; the current tab still supports switching. */ }
   function update() {
@@ -28,12 +30,16 @@
   document.addEventListener('click', event => {
     if (!event.target.closest('.appearance-toggle')) return;
     mode = modes[(modes.indexOf(mode) + 1) % modes.length];
-    try { localStorage.setItem(key, mode); } catch { /* Keep the tab preference. */ }
+    try { localStorage.setItem(key, mode); localStorage.setItem(legacyKey, mode); } catch { /* Keep the tab preference. */ }
     update();
   });
   window.addEventListener('storage', event => {
-    if (event.key !== key && event.key !== null) return;
-    mode = modes.includes(event.newValue) ? event.newValue : 'system';
+    if (event.key !== key && event.key !== legacyKey && event.key !== null) return;
+    try {
+      const shared = localStorage.getItem(key);
+      const saved = modes.includes(shared) ? shared : localStorage.getItem(legacyKey);
+      mode = modes.includes(saved) ? saved : 'system';
+    } catch { mode = 'system'; }
     update();
   });
   system.addEventListener('change', update);
