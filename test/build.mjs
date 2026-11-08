@@ -139,14 +139,16 @@ for (const file of files) {
 }
 assert.equal(paths.includes('analytics.js'), data.publicBuild);
 // Page views: only a public build with a feedback endpoint ships views.js, unchanged, on every reader page.
-// The 404 page and the /weekly/ forwarding page load no script.
+// The 404 page and the forwarding pages (/weekly/ and the shortened URLs, recognised by their refresh) load no
+// script, so a forward is never counted as a view.
 const viewsBuild = Boolean(data.publicBuild && data.feedbackEndpoint);
+const isForwardingPage = html => /<meta http-equiv="refresh"/.test(html);
 assert.equal(paths.includes('views.js'), viewsBuild);
 if (viewsBuild) assert.equal(await readFile(path.join(root, 'views.js'), 'utf8'), await readFile(new URL('../site/views.js', import.meta.url), 'utf8'));
 for (const page of paths.filter(p => p.endsWith('.html')).map(p => p.split(path.sep).join('/'))) {
   const html = await readFile(path.join(root, page), 'utf8');
   const tags = [...html.matchAll(/<script\b[^>]*\bsrc="[^"]*views\.js[^"]*"[^>]*>/g)].map(([tag]) => tag);
-  const expected = viewsBuild && !['404.html', 'weekly/index.html'].includes(page);
+  const expected = viewsBuild && page !== '404.html' && !isForwardingPage(html);
   assert.equal(tags.length, expected ? 1 : 0, `${page} views script`);
   if (!expected) continue;
   assert.equal(tags[0].match(/\bdata-endpoint="([^"]*)"/)?.[1], data.feedbackEndpoint, `${page} views endpoint`);
