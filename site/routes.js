@@ -27,7 +27,8 @@
       ? `weekly/${encodeURIComponent(id.split('_')[0])}/${encodeURIComponent(id.split('_')[1])}/${encodeURIComponent(page || 'group-3')}/`
       : mode === 'rank'
       ? `rank/${encodeURIComponent(id)}/${page ? `${encodeURIComponent(page)}/` : ''}`
-      : `${mode === 'weekly' ? 'weekly' : 'daily'}/${encodeURIComponent(id)}/${encodeURIComponent(page)}/`;
+      // Without a page, the issue's own path forwards to its overview (lib/redirect-pages.mjs).
+      : `daily/${encodeURIComponent(id)}/${page ? `${encodeURIComponent(page)}/` : ''}`;
     return new URL(route, root).href;
   }
   function write(mode, id, page, { replace = false, anchor = '' } = {}) {
