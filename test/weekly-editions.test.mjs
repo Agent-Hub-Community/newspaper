@@ -49,7 +49,7 @@ test('weekly page shares the daily chrome: one date, three editions, one collaps
   assert.equal(chrome.split('10.05–10.11').length-1,1);
   for(const repeated of [issue.label,'2026.10.05'])assert.equal(chrome.includes(repeated),false,repeated);
   assert.deepEqual([...document.querySelectorAll('.edition-nav .tabs a')].map(a=>[a.textContent,a.getAttribute('href')]),[
-    ['日报','../../../../daily/2026-10-11/group-3/'],['周报','../../../../'+weeklyRoute(issue,'group-3')],['资料库','../../../../library/'],['黑话','../../../../glossary/'],['活跃榜','../../../../rank/week/'],...(AGENTS_PAGE?[['给 Agent 用','../../../../agents/']]:[]),
+    ['日报','../../../../daily/2026-10-11/group-3/'],['周报','../../../../'+weeklyRoute(issue,'group-3')],['资料库','../../../../library/'],['黑话','../../../../glossary/'],['活跃榜','../../../../rank/week/'],['社群','/community.html'],...(AGENTS_PAGE?[['给 Agent 用','../../../../agents/']]:[]),
   ]);
   assert.ok(document.querySelector('.edition-nav #archive-toggle[aria-controls="weekly-archive"]'));
   assert.ok(document.querySelector('.masthead #period-toggle[aria-controls="weekly-archive"]'), 'the week in the masthead opens the archive');
