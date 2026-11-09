@@ -32,7 +32,7 @@ try {
     await page.goto(url);
     await page.locator('#digest-panel').waitFor();
     for (const mode of ['digest', 'week', 'topic']) {
-      const tab = page.locator(`[data-mode="${mode}"]`);
+      const tab = page.locator(`[data-mode="${mode}"]:visible`);
       if (await tab.isVisible()) await tab.tap();
       else if (mode !== 'digest') await page.locator(`.archive-teaser [data-jump="${mode}"]`).first().tap();
       await page.waitForFunction(mode => document.body.dataset.view === mode, mode);
@@ -51,7 +51,7 @@ try {
       await page.waitForFunction(() => document.querySelector('#date-picker').getAttribute('aria-expanded') === 'false');
       assert.equal(await page.locator('#date-picker').evaluate(el => document.activeElement === el), true);
     }
-    await page.locator('[data-mode="digest"]').tap();
+    await page.locator('[data-mode="digest"]:visible').tap();
     await page.getByRole('tab', { name: '二群' }).tap();
     await page.reload();
     await page.waitForFunction(() => document.querySelector('#reading').dataset.page === 'group-2');

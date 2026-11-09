@@ -49,6 +49,23 @@ body:is([data-view], [data-page]) .tabs { gap: 30px; }
 body:is([data-view], [data-page]) .tabs :is(a,button) { display: inline-flex; align-items: center; justify-content: center; font-weight: 400; font-size: 13px; min-height: 50px; border-bottom-width: 1px; transition: color .2s; }
 body:is([data-view], [data-page]) .tabs :is(.active,[aria-current]) { font-weight: 500; color: var(--ink); border-color: var(--ink); }
 body:is([data-view], [data-page]) .edition-nav .tabs :is(a, button).active { color: var(--ink); border-color: var(--ink); }
+/* Wide screens keep the sections where the homepage keeps its menu: at the right of the brand row, before 加入社群.
+   The row below then holds only its tools. Narrower screens show that row's own copy of the tabs instead, so only
+   one copy is ever displayed (lib/brand.mjs mastheadNav). A row hides its tabs only when it is marked
+   has-masthead-nav, that is, when the brand-row copy exists. From 1200px every page's brand row has room for the
+   tabs (at least 70px to spare). A festival skin draws its art at the right of the brand row, so skinned issues keep
+   the tabs in the row below at every width. */
+.masthead-nav { display: none; }
+@media (min-width: 1200px) {
+  body:is([data-view], [data-page]):not([data-skin]:not([data-skin="default"])) .masthead .masthead-nav { display: flex; order: 1; flex: none; margin-left: auto; }
+  body:is([data-view], [data-page]) .masthead .masthead-nav .tabs { gap: 28px; }
+  body:is([data-view], [data-page]) .masthead .masthead-nav .tabs :is(a, button) { min-height: 44px; margin-bottom: 0; padding-block: 0; }
+  body:is([data-view], [data-page]):not([data-skin]:not([data-skin="default"])) .masthead .masthead-nav + .community-home { margin-left: 12px; }
+  body:is([data-view], [data-page]):not([data-skin]:not([data-skin="default"])) .edition-nav.has-masthead-nav > .tabs { display: none; }
+  body:is([data-view], [data-page]):not([data-skin]:not([data-skin="default"])) .edition-nav.has-masthead-nav { justify-content: flex-end; }
+  /* With the tabs gone from this row, the rule that set the tools apart from them has nothing to separate. */
+  body:is([data-view], [data-page]):not([data-skin]:not([data-skin="default"])) .edition-nav.has-masthead-nav .edition-tools { padding-left: 0; border-left: 0; }
+}
 body:is([data-view], [data-page]) .icon-button { border-radius: 50%; transition: background .2s, color .2s; }
 body:is([data-view], [data-page]) .edition-tools { align-items: center; }
 body:is([data-view], [data-page]) .group-nav { min-height: 49px; }

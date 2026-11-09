@@ -286,7 +286,7 @@ try {
     assert.deepEqual(positions, { ranks: true, fullWidth: true }, `${label}: ranking hierarchy`);
     await screenshot(`digest-${label}`, viewport.width <= 430);
     // The archive no longer links the rankings; the section tab does.
-    await page.locator('.tabs [data-mode="rank"]').click();
+    await page.locator('.tabs [data-mode="rank"]:visible').click();
     await page.waitForFunction(() => document.body.dataset.view === 'rank');
     for (const period of ['month', 'all', 'week']) {
       await page.locator(`[data-rank="${period}"]`).click();
@@ -294,7 +294,7 @@ try {
       assert.equal(await page.locator('[aria-labelledby="rank-community"] .activity-leaders li').count(), fixture.hasActivity ? 3 : 0);
       await layout(`${label}: ${period} ranking`);
     }
-    await page.locator('[data-mode="digest"]').click();
+    await page.locator('[data-mode="digest"]:visible').click();
     for (let index = 1; index < current.pages; index++) {
       if (await page.locator(`[data-page="${index}"]`).isDisabled()) continue;
       await page.locator(`[data-page="${index}"]`).click();

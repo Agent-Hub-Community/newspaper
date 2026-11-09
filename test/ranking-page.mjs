@@ -16,7 +16,7 @@ try {
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(url);
     assert.ok(await page.evaluate(() => Boolean(window.AGENT_HUB_DATA.activity)), 'Build with `npm run build -- --public` first');
-    const nav = page.locator('[data-mode="rank"]');
+    const nav = page.locator('[data-mode="rank"]:visible');
     // Every width shows the section tabs, phones included.
     await nav.click();
     await page.waitForFunction(() => document.body.dataset.view === 'rank');
@@ -40,7 +40,7 @@ try {
     await page.goBack();
     await page.waitForFunction(() => document.querySelector('[data-rank="week"]')?.getAttribute('aria-pressed') === 'true');
     await page.screenshot({ path: `${root}output/playwright/ranking/${width}.png`, fullPage: true });
-    await page.locator('[data-mode="digest"]').click();
+    await page.locator('[data-mode="digest"]:visible').click();
     await page.locator('#digest-panel').waitFor();
     const expectedLeaders = await page.evaluate(() => {
       const date = document.body.dataset.edition.slice('digest/'.length);

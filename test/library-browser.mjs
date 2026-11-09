@@ -181,7 +181,7 @@ try {
     assert.equal(await page.locator('.sort').isHidden(), true);
     // Agent entry points are for desktop readers only.
     assert.equal(await page.locator('#agents').isVisible(), !hasTouch);
-    assert.equal(await page.locator('.tabs .agents-tab').isVisible(), AGENTS_PAGE && !hasTouch);
+    assert.equal(await page.locator('.tabs .agents-tab:visible').isVisible(), AGENTS_PAGE && !hasTouch);
     if (hasTouch) {
       const box = await page.locator('.entry .heart').first().boundingBox();
       assert.ok(box.width >= 44 && box.height >= 44, 'heart touch target');
@@ -274,21 +274,21 @@ try {
     const { context, page, errors } = await open(site, { viewport: { width: 1440, height: 1000 } });
     const status = async href => (await page.request.get(new URL(href, page.url()).href)).status();
     assert.equal(await status(await page.locator('link[rel="alternate"][type="text/markdown"]').getAttribute('href')), 200);
-    await page.locator('.tabs [data-mode="library"]').click();
+    await page.locator('.tabs [data-mode="library"]:visible').click();
     await page.waitForURL(`${site}library/`);
-    await page.locator('.tabs a', { hasText: '周报' }).click();
+    await page.locator('.tabs a:visible', { hasText: '周报' }).click();
     await page.waitForURL(/\/weekly\//);
     assert.equal(await status(await page.locator('link[rel="alternate"][type="text/markdown"]').getAttribute('href')), 200);
-    await page.locator('.tabs a', { hasText: '资料库' }).click();
+    await page.locator('.tabs a:visible', { hasText: '资料库' }).click();
     await page.waitForURL(`${site}library/`);
-    assert.equal(await page.locator('.tabs [aria-current="page"]').textContent(), '资料库');
+    assert.equal(await page.locator('.tabs [aria-current="page"]:visible').textContent(), '资料库');
     await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: new URL(site).origin });
     await page.locator('.copy[data-copy="ask-agent"]').click();
     assert.equal(await page.evaluate(() => navigator.clipboard.readText()), await page.locator('#ask-agent').textContent());
     if (AGENTS_PAGE) {
-      await page.locator('.tabs a', { hasText: '给 Agent 用' }).click();
+      await page.locator('.tabs a:visible', { hasText: '给 Agent 用' }).click();
       await page.waitForURL(`${site}agents/`);
-      assert.equal(await page.locator('.tabs [aria-current="page"]').textContent(), '给 Agent 用');
+      assert.equal(await page.locator('.tabs [aria-current="page"]:visible').textContent(), '给 Agent 用');
       await page.locator('.copy[data-copy="install-skill"]').click();
       assert.equal(await page.evaluate(() => navigator.clipboard.readText()), await page.locator('#install-skill').textContent());
       for (const href of await page.locator('.agent-files a').evaluateAll(links => links.map(link => link.href))) assert.equal(await status(href), 200, href);
@@ -300,7 +300,7 @@ try {
   if (AGENTS_PAGE) {
     // The daily agent tab leaves a deep daily route for the agent page.
     const { context, page, errors } = await open(`${site}daily/${library.coverage.through}/group-2/`, { viewport: { width: 1440, height: 1000 } });
-    await page.locator('.tabs .agents-tab').click();
+    await page.locator('.tabs .agents-tab:visible').click();
     await page.waitForURL(`${site}agents/`);
     assert.deepEqual(errors, []);
     await context.close();
