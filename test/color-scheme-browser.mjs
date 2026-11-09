@@ -225,7 +225,7 @@ try {
       assert.equal(await groups.first().getAttribute('aria-selected'), 'true');
     }
     // The archive no longer switches publications; the rankings open from their section tab.
-    await page.locator('.tabs [data-mode="rank"]').click();
+    await page.locator('.tabs [data-mode="rank"]:visible').click();
     await page.locator('[data-rank="month"]').click();
     assert.equal(await page.locator('[data-rank="month"]').getAttribute('aria-pressed'), 'true');
     await contrast(page.locator('[data-rank="month"]'));
@@ -240,7 +240,7 @@ try {
     await page.waitForFunction(() => document.documentElement.dataset.colorScheme === 'light');
     assert.notEqual(await page.locator('body').evaluate(el => getComputedStyle(el).backgroundColor), darkRank);
     assert.equal(await page.locator('[data-rank="month"]').getAttribute('aria-pressed'), 'true');
-    await page.locator('.tabs [data-mode="digest"]').click();
+    await page.locator('.tabs [data-mode="digest"]:visible').click();
     await page.evaluate(hash => { location.hash = hash; }, hash);
     await page.locator('.story-feedback').first().waitFor();
     await page.mouse.move(0, 0);

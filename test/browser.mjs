@@ -145,7 +145,7 @@ try {
     assert.equal(await page.locator('.daily-ranking').getAttribute('data-group'), secondGroup);
     assert.equal(await page.locator('#daily-ranking-title').innerText(), '本群活跃榜');
   }
-  await page.locator('[data-mode="rank"]').click();
+  await page.locator('[data-mode="rank"]:visible').click();
   await page.waitForFunction(() => document.body.dataset.view === 'rank');
   await page.locator('[data-rank="month"]').click();
   assert.equal(await page.locator('[data-rank="month"]').getAttribute('aria-pressed'), 'true');
@@ -160,7 +160,7 @@ try {
     await page.locator('.activity-leaders img').evaluateAll(images => Promise.all(images.map(img => img.decode())));
     assert.ok(await page.locator('.activity-leaders img').count() > 0);
   }
-  await page.locator('[data-mode="digest"]').click();
+  await page.locator('[data-mode="digest"]:visible').click();
   await page.getByRole('tab', { name: '三群' }).click();
   await checkDigestPage();
   assert.equal(await page.locator('.daily-ranking').getAttribute('data-group'), 'group-3');

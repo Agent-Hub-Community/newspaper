@@ -28,7 +28,7 @@ import { writeGlossaryFiles } from './lib/glossary-render.mjs';
 import { searchCounts, searchIndex, writeSearchFiles } from './lib/search-render.mjs';
 import { readSynonyms, searchVocabulary } from './lib/synonyms.mjs';
 import { weeklyRoute } from './lib/weekly-editions.mjs';
-import { brandHome, brandWordmark, communityLink, colophon, favicon } from './lib/brand.mjs';
+import { brandHome, brandWordmark, communityLink, colophon, favicon, mastheadNav } from './lib/brand.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 // Browser files and templates copied into the build as they are.
@@ -244,7 +244,9 @@ const { document } = parseHTML(await readFile(path.join(out, 'index.html'), 'utf
 const brand = document.querySelector('.wordmark');
 brand.innerHTML = brandWordmark + brand.querySelector('span').outerHTML;
 brand.insertAdjacentHTML('beforebegin', brandHome);
-document.querySelector('.masthead-main').insertAdjacentHTML('beforeend', communityLink);
+document.querySelector('.masthead-main').insertAdjacentHTML('beforeend', mastheadNav(document.querySelector('.edition-nav .tabs').innerHTML) + communityLink);
+// Only a row whose tabs have a brand-row copy may hide them on wide screens (site/community.css).
+document.querySelector('.edition-nav').classList.add('has-masthead-nav');
 document.querySelector('.paper-footer').insertAdjacentHTML('afterbegin', colophon);
 document.querySelector('link[rel="icon"]').href = favicon;
 // The root page opens the latest readable issue; route pages swap in their own date.
@@ -254,7 +256,8 @@ issueScript.setAttribute('defer', '');
 issueScript.setAttribute('data-issue', '');
 issueScript.setAttribute('src', `issues/${latest.date}.js`);
 document.querySelector('script[src="data.js"]').after(issueScript);
-if (!AGENTS_PAGE) document.querySelector('.tabs .agents-tab')?.remove();
+// Both copies of the section tabs carry the tab (the brand row's and the row below's).
+if (!AGENTS_PAGE) for (const tab of document.querySelectorAll('.tabs .agents-tab')) tab.remove();
 for (const element of document.querySelectorAll('script[src], link[rel="stylesheet"], meta[name="agenthub-screenshot"]')) {
   const attribute = element.tagName === 'SCRIPT' ? 'src' : element.tagName === 'META' ? 'content' : 'href';
   const file = element.getAttribute(attribute);

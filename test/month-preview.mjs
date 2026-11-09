@@ -77,7 +77,7 @@ try {
     await page.locator('[data-jump="rank"]').click();
     await page.waitForURL(/#rank\/week$/);
     assert.equal(await page.locator('[aria-labelledby="rank-community"] .activity-leaders li').count(), 3);
-    await page.locator('[data-mode="digest"]').click();
+    await page.locator('[data-mode="digest"]:visible').click();
     await page.waitForURL(/#digest\/2026-09-23\/group-1$/);
     assert.deepEqual(errors, []);
     await page.close();

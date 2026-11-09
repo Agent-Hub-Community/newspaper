@@ -154,7 +154,7 @@ try {
   await page.goto(url + '#rank/week');
   await page.waitForFunction(() => document.body.dataset.view === 'rank');
   assert.equal(await page.locator('#date-picker').isVisible(), false);
-  await page.locator('.tabs [data-mode="digest"]').click();
+  await page.locator('.tabs [data-mode="digest"]:visible').click();
   await page.waitForFunction(() => document.body.dataset.view === 'digest');
   assert.equal(await page.locator('#date-label').isVisible(), true);
   await assertEditionDate();
