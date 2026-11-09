@@ -1,0 +1,156 @@
+{
+  "date": "2026-11-09",
+  "title": "英伟达董事会调查黄仁勋，Google 推出两款新 TPU 系统，美团开源 LongCat-2.5 权重",
+  "intro": "英伟达董事会就黄仁勋被指成为外国情报目标启动独立调查，黄仁勋同日致信员工道歉。Google 发布 TPU 8tx 与 TPU 8i Max，美团以 MIT 协议开源 1.6 万亿参数模型 LongCat-2.5 权重，字节发布 Seedream 5.5，百度公开自动研究系统 ERNIE Evolve。",
+  "stories": [
+    {
+      "title": "英伟达董事会就黄仁勋被指成外国情报目标启动独立调查",
+      "timing": "北京时间 11 月 9 日 04:02 发布董事会声明，黄仁勋致员工信同日公开",
+      "text": "英伟达董事会发表声明，针对近期有关创始人兼 CEO 黄仁勋成为外国情报行动目标的报道启动独立调查。调查由独立董事组成的委员会在外部独立律师协助下监督。董事会称目前没有理由认为美国国家安全或英伟达机密遭到泄露，但将审查所有可获得的信息，黄仁勋支持审查并承诺配合；声明未披露调查期限、委员会成员或外部律所名称。\n\n黄仁勋同日向全体员工发信，承认对妻子不忠，向家人和公司致歉并表示承担全部责任。他在信中确认董事会已就国家安全相关报道启动独立调查，表示将全力配合，并请求外界给予其家人隐私。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "英伟达董事会声明",
+          "url": "https://nvidianews.nvidia.com/news/statement-from-nvidia-board-of-directors"
+        },
+        {
+          "kind": "官方发布",
+          "label": "黄仁勋致员工信",
+          "url": "https://nvidianews.nvidia.com/news/a-message-to-our-company"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50418016"
+        }
+      ],
+      "emphasis": [
+        "针对近期有关创始人兼 CEO 黄仁勋成为外国情报行动目标的报道启动独立调查",
+        "黄仁勋同日向全体员工发信，承认对妻子不忠"
+      ],
+      "aiComment": "白天看董事会发独立调查声明，晚上看全员信道歉，公关部和法务部今天算是把带薪加班演成了连续剧 🫠"
+    },
+    {
+      "title": "Google 发布 TPU 8tx 与 TPU 8i Max，Cloud Pathways 在 GKE 正式可用",
+      "timing": "北京时间 11 月 9 日 21:00 发布",
+      "text": "Google 宣布在第八代 TPU 中新增 TPU 8tx 与 TPU 8i Max 两款系统，但未公布具体上市日期。TPU 8tx 与 TPU 8t 采用同一芯片，搭配第五代 AMD EPYC 主机，在硬件层集成机密计算以保护使用中的数据与权重；其采用 Boardfly 网络，官方称延迟比 TPU 8t 最多低 2 倍，可在同一系统上执行私有微调、蒸馏和强化学习。TPU 8i Max 将两颗 TPU 8i 芯片封装在一起，面向超长上下文，算力、SRAM 和 HBM 带宽均为 TPU 8i 的两倍。\n\n软件栈方面，Cloud Pathways 与 GKE dynamic slicing 正式可用，官方称后者可将作业启动时间最多缩短 5 倍、故障恢复最多快 4.5 倍。Google 同时开源了降低 KV 传输延迟的 TPU Sync 模型状态层、XLA Serving Engine，以及可接入 Claude Code、Cursor 与 Antigravity 的预览版 TPU agent 套件。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google TPU 博客",
+          "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Google 官方 X 帖",
+          "url": "https://x.com/Google/status/2119788086490001906"
+        }
+      ],
+      "emphasis": [
+        "在硬件层集成机密计算以保护使用中的数据与权重",
+        "TPU 8i Max 将两颗 TPU 8i 芯片封装在一起，面向超长上下文，算力、SRAM 和 HBM 带宽均为 TPU 8i 的两倍",
+        "Cloud Pathways 与 GKE dynamic slicing 正式可用"
+      ],
+      "aiComment": "TPU 8i Max 直接把两颗芯片塞进一个封装里翻倍算力，连写代码的 Claude Code 和 Cursor 都被拉进预览套件打工了，唯独上市日期还在保密局。"
+    },
+    {
+      "title": "美团以 MIT 协议开源 1.6 万亿参数原生多模态模型 LongCat-2.5 权重",
+      "timing": "11 月 2 日发布模型；北京时间 11 月 9 日 22:00 宣布开源权重",
+      "text": "美团宣布以 MIT 协议开源原生多模态 MoE 模型 LongCat-2.5 权重，支持商用推理与二次训练。模型总参数 1.6 万亿，每 token 激活约 480 亿参数，支持一百万上下文；视觉信号经残差向量量化表示为离散 token，与主干联合训练。官方内部测试数据显示，其在 Claude Code harness 下的 Terminal Bench v2.1 得分为 88.4（前代为 70.8），DeepSWE v1.1 为 64.6，BrowseComp 为 91.9。\n\n在单卡显存不足 80GB 的国产算力环境下，团队通过 FSDP 双重分片、混合词表并行与 MoonEP 动态专家复制完成长序列训练，长序列 SFT 单卡吞吐量较 DDP 基线提升 86%；Agent 训练采用 partial rollout 异步方案并断网清除 git 历史。同步开源的还有将专家权重与激活均量化至 4 bit 的 W4A4 仓库。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "美团 LongCat 公众号",
+          "url": "https://mp.weixin.qq.com/s/EGLDrPxND-xGTyStJIDXrw"
+        },
+        {
+          "kind": "代码",
+          "label": "HF 模型仓库",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+        },
+        {
+          "kind": "原帖",
+          "label": "LongCat 官方 X 帖",
+          "url": "https://x.com/Meituan_LongCat/status/2119793531393040462"
+        }
+      ],
+      "emphasis": [
+        "模型总参数 1.6 万亿，每 token 激活约 480 亿参数，支持一百万上下文",
+        "在单卡显存不足 80GB 的国产算力环境下，团队通过 FSDP 双重分片、混合词表并行与 MoonEP 动态专家复制完成长序列训练"
+      ],
+      "aiComment": "1.6 万亿参数直接 MIT 开源，还在单卡不到 80GB 的国产算力上硬把百万上下文训了出来，显卡都快被榨成猫条了 🐱"
+    },
+    {
+      "title": "字节跳动发布图像模型 Seedream 5.5：支持百轮连续编辑与最多 100 层透明素材",
+      "timing": "北京时间 11 月 9 日 17:07 发布；C 端陆续上线，API 本周上线",
+      "text": "字节跳动 Seed 团队发布图像模型 Seedream 5.5，支持围绕同一作品进行多达 100 轮连续编辑，保持非编辑区域像素与主体特征一致、消除色彩偏移；同时支持原生 RGBA 透明素材生成与拆分，最多可分层输出 100 层带 Alpha 通道的透明或半透明素材，并改善了材质光照与密集小字渲染。\n\n该模型正在即梦、豆包等平台陆续上线，火山方舟 API 将于本周上线。火山引擎公布 API 采用“输入图+输出图”两段计费，文本 Token 免费，2K 方图编辑单张 0.28 元，官方称比 Seedream 5.0 Pro 便宜 60%、生成速度快近 40%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Seed 官方博客",
+          "url": "https://seed.bytedance.com/zh/blog/%E7%94%9F%E6%88%90%E6%9B%B4%E7%9C%9F%E5%AE%9E-%E7%99%BE%E8%BD%AE%E7%BC%96%E8%BE%91%E6%9B%B4%E7%A8%B3%E5%AE%9A-seedream-5-5-%E5%8F%91%E5%B8%83"
+        },
+        {
+          "kind": "官方发布",
+          "label": "火山引擎公众号",
+          "url": "https://mp.weixin.qq.com/s/35BineRdaBEsMi2Wvefr6Q"
+        }
+      ],
+      "emphasis": [
+        "最多可分层输出 100 层带 Alpha 通道的透明或半透明素材",
+        "2K 方图编辑单张 0.28 元"
+      ],
+      "aiComment": "支持连续改图 100 轮还能拆出 100 层透明通道，甲方那句微调一下终于找到了不会翻白眼的对手，单张 2K 只要两毛八 💸"
+    },
+    {
+      "title": "百度发布自动研究系统 ERNIE Evolve，用于优化 ERNIE-5.5-Flash 推理吞吐",
+      "timing": "北京时间 11 月 9 日 20:14 发布",
+      "text": "百度文心团队发布自动研究系统 ERNIE Evolve，采用双层循环组织实验：外层 Director 从知识库提出方向，内层 Selector 与 Executor 在隔离环境中修改代码，由对智能体不可见的固定评测程序 Evaluator 和 Reviewer 决定去留，利用评测漏洞的版本直接作废。\n\n官方公布的数据显示，该系统在 NanoChat AutoResearch 验证集上取得 0.8763 BPB（社区公开最佳为 0.8878），NanoGPT Speedrun Track 1 达标时间为 38.9 秒（公开最佳 39.9 秒）。在研发中的 ERNIE-5.5-Flash 推理优化任务上，GPU 确定性推理经约 3 天搜索吞吐提升 33.7%、每 token 生成时间缩短 26%；昆仑芯 P800 低时延场景生成速度提升至基线的 623.6%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "文心技术博客",
+          "url": "https://ernie.baidu.com/zh/research/posts/ernie-evolve/"
+        },
+        {
+          "kind": "原帖",
+          "label": "百度官方 X 帖",
+          "url": "https://x.com/Baidu_Inc/status/2119765512238637559"
+        }
+      ],
+      "emphasis": [
+        "由对智能体不可见的固定评测程序 Evaluator 和 Reviewer 决定去留，利用评测漏洞的版本直接作废",
+        "GPU 确定性推理经约 3 天搜索吞吐提升 33.7%、每 token 生成时间缩短 26%"
+      ],
+      "aiComment": "评测程序对写代码的智能体直接不可见，钻空子的版本当场作废，防 AI 作弊的规格已经赶上高考阅卷了 😂"
+    },
+    {
+      "title": "英伟达发布世界动作模型 GR00T 2 白皮书并开源 10 万小时人类第一视角数据",
+      "timing": "北京时间 11 月 9 日 22:00 发布；模型代码预计 12 月开放",
+      "text": "英伟达在 CoRL 会议上发布基于 NVIDIA Cosmos 的世界动作模型 GR00T 2，使用机器人数据及同步在 Hugging Face 开源的 10 万小时人类第一视角视频（Human-1M-100K）训练，可从人类视频学习并在不同机器人本体间迁移技能。官方数据显示，在 50 个评测任务中，单任务使用 1 条演示时平均成功率为 71%，5 条演示时达 95%；AI agent 可通过 API 按序调用技能并从错误中恢复。\n\n目前英伟达公开了 GR00T 2 白皮书与数据集，项目页注明代码将于 12 月开放，未说明完整模型规模（仅披露 Turbo 变体为 2B 参数）及权重开放方式。富士康、西门子与 Nexuni 正在测试或评估该模型。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "NVIDIA 官方博客",
+          "url": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/"
+        },
+        {
+          "kind": "论文",
+          "label": "GR00T 2 项目页",
+          "url": "https://research.nvidia.com/labs/gear/gr00t-2"
+        }
+      ],
+      "emphasis": [
+        "单任务使用 1 条演示时平均成功率为 71%，5 条演示时达 95%",
+        "目前英伟达公开了 GR00T 2 白皮书与数据集，项目页注明代码将于 12 月开放"
+      ],
+      "aiComment": "先喂了 10 万小时人类第一视角视频，今天把数据和白皮书端上桌，等代码的各位还得看着日历熬到 12 月。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "长上下文与 Agent 训练开始把防作弊和状态管理做成专门环节",
+      "text": "美团在 LongCat-2.5 的 Agent 训练中专门断网、清除 git 历史与文件缓存，并用 LLM judge 约束重复调用；百度 ERNIE Evolve 则把评测程序对智能体设为不可见，直接作废利用评测漏洞的代码版本。同时 Google 新发布的 TPU 8i Max 翻倍封装 HBM 与 SRAM，并配套 TPU Sync 与可挂起空闲会话的 Agent Compute Engine，软硬件两端都在针对长程、多步任务的状态开销与评测失真做工程修补。"
+    }
+  ]
+}
