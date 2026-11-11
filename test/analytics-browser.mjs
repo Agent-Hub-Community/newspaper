@@ -6,7 +6,7 @@ import { chromium } from 'playwright';
 import { basePath, site } from '../lib/site.mjs';
 
 // Test the vendor script under the production CSP without sending real telemetry.
-// Supply a freshly downloaded official script through CF_BEACON_FILE. While analytics.js has no token yet,
+// Supply a freshly downloaded official script through CF_BEACON_FILE. If analytics.js has an empty token,
 // the test serves it with a placeholder token so the loader and the beacon still run.
 assert.ok(process.env.CF_BEACON_FILE, 'Set CF_BEACON_FILE to the official beacon.min.js');
 const beacon = await readFile(process.env.CF_BEACON_FILE, 'utf8');
