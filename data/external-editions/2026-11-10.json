@@ -1,0 +1,225 @@
+{
+  "date": "2026-11-10",
+  "title": "Anthropic 发布 Claude Fable 5.2 并启动 IPO 路演，DeepMind 用多 agent 形式化验证 Signal 协议",
+  "intro": "Anthropic 同日推出 Claude Fable 5.2 与 Mythos 5.2，并公布每股 70 至 78 美元的 IPO 路演定价区间。Meta 上线面向高频子任务的小模型 Muse Ember，Google DeepMind 发布 AlphaProof Code 与 Gemini Robotics 2.5，MiniMax 与蚂蚁灵波分别开放图像生成和触觉基础模型。",
+  "stories": [
+    {
+      "title": "Anthropic 发布 Claude Fable 5.2 与 Mythos 5.2，API 定价每百万 token 8/40 美元",
+      "timing": "官方页面标注 2026-11-09，官方 X 帖于北京时间 11 月 10 日 02:57 发布；Fable 5.2 已正式上线，Mythos 5.2 需申请验证计划",
+      "text": "Anthropic 发布 Claude Fable 5.2 和 Claude Mythos 5.2。两者基于同一底层模型：Fable 5.2 带有更强的网络安全和生物安全防护，已在付费方案、Claude Platform 及 AWS、Google Cloud、Azure 上线，API 名称为 claude-fable-5-2；Mythos 5.2 仅向通过生命科学与网络安全验证计划的组织开放。标准价格为每百万输入 token 8 美元、输出 40 美元，输出速度比 5.1 最多提升 30%；可选 fast mode 速度最多快 2.5 倍，定价为每百万 token 16/80 美元。\n\n官方基准数据显示，Fable 5.2 在 FrontierCode 2.0（Xhigh）上得分为 49.1%，高于 Fable 5.1 的 32.4%、Opus 5.5 的 45.5%、GPT-6 Astra 的 42.8% 和 Gemini 4 Carbon 的 41.1%；FrontierSWE v2 为 69.9%，OSWorld 2.1 离线集为 89.3%，Mythos 5.2 在 CVE Rediscovery 上达 89.6%。在 High effort 档位下，Fable 5.2 的 FrontierCode 2.0 得分为 45.3%，接近 Opus 5.5 的 45.5%，单任务成本约为后者一半。官方建议常规编码任务从 Opus 5.5 起步，将 Fable 5.2 作为调度小模型的 Advisor 或 Orchestrator。预发布测试中，模型曾协调 1000 多个子 agent 连续 8 天从空目录写出可在笔记本电脑启动的原型操作系统，并在 30 小时内完成费马大定理证明的形式化。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Fable 5.2 发布页",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+        },
+        {
+          "kind": "原帖",
+          "label": "Claude 官方 X",
+          "url": "https://x.com/claudeai/status/2119867114450268322"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论帖",
+          "url": "https://news.ycombinator.com/item?id=50429068"
+        }
+      ],
+      "emphasis": [
+        "标准价格为每百万输入 token 8 美元、输出 40 美元",
+        "Fable 5.2 在 FrontierCode 2.0（Xhigh）上得分为 49.1%"
+      ],
+      "aiComment": "1000 多个子 agent 连干 8 天搓出操作系统，按 fast mode 输出百万 token 80 刀算，财务已经在拔电源的路上了💸"
+    },
+    {
+      "title": "Anthropic 启动 IPO 路演，完全稀释后隐含估值最高约 1.404 万亿美元",
+      "timing": "北京时间 11 月 10 日 19:32 发布公告；目前处于路演阶段，注册声明尚未生效",
+      "text": "Anthropic 继 10 月 26 日公开递交 S-1 文件后，正式启动 A 类普通股首次公开发行路演，拟以代码 ANT 在纳斯达克全球精选市场上市。本次计划发行 8.25 亿股，其中公司发售 801,351,354 股，现有股东出售 23,648,646 股，另授予承销商 30 天内额外购买最多 1.2375 亿股的选择权。预计发行价为每股 70 至 78 美元，相关 SEC 注册声明尚未生效。\n\n据 TechCrunch 援引更新后的招股文件报道，按区间上限定价，Anthropic 公开募资规模最高为 643.5 亿美元，完全稀释后隐含估值约 1.404 万亿美元。同时，AMD、Broadcom、Google、Micron、Microsoft、Nvidia 和 TSMC 将按 IPO 价格私募认购 260 亿美元无投票权 N 类股，其中 Google 与 Nvidia 各认购 100 亿美元；计入私募及超额配售，公司估计净募资达 846 亿至 937 亿美元。文件还披露，截至 10 月底公司年化营收达 810 亿美元，较 9 月底增加约 100 亿美元；创始人持有的 F 类股占 50.1% 投票权。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 路演公告",
+          "url": "https://www.anthropic.com/news/roadshow-launch"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Anthropic 官方 X",
+          "url": "https://x.com/AnthropicAI/status/2120117722230968385"
+        }
+      ],
+      "emphasis": [
+        "完全稀释后隐含估值约 1.404 万亿美元",
+        "截至 10 月底公司年化营收达 810 亿美元"
+      ],
+      "aiComment": "七家半导体和云巨头排队掏 260 亿美元买无投票权股票，这募资款怕不是左脚进账右脚就回去买卡了🔄"
+    },
+    {
+      "title": "Meta 上线小模型 Muse Ember，面向 agent 高频工具调用与子任务",
+      "timing": "官方博客标注 2026-11-09，官方 X 帖于北京时间 11 月 10 日 02:04 发布；API 已上线，未开放权重",
+      "text": "Meta 发布由 Muse Wonder Full 训练的最小模型 Muse Ember，定位是承接工具调用、编码子任务、路由、信息抽取和长文档解析等高频 agent 执行工作。模型已在 Muse Code 和 Meta Model API 上线，API 名称为 muse-ember-1.0，支持文本、图像、音频、视频原生输入，具备 1M token 上下文和最多 512K 输出。定价为每百万输入 token 0.10 美元、缓存输入 0.004 美元、输出 0.50 美元。\n\n官方公布的 max 推理档位评测显示，Muse Ember 在 Artificial Analysis 智能指数上得分为 36，与 Claude Haiku 5.5 并列，单任务成本约 0.14 美元，约为 Haiku 5.5 最佳档成本的三分之一。分项上，AutomationBench-AA 为 37.8（Haiku 5.5 为 13.9、GPT-6 Luna 为 20.2），Agents' Last Exam 为 61.6，Terminal-Bench 4.0 为 40.9，Coding Agent Index-AA 为 46；FrontierCode 2.0-AA 得分为 27.2，低于 Haiku 5.5 的 34.9。官方建议由 Muse Wonder 负责规划，搭配 Muse Ember 承担批量子任务执行。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Muse Ember 博客",
+          "url": "https://research.meta.ai/blog/muse-ember"
+        },
+        {
+          "kind": "原帖",
+          "label": "AI at Meta X",
+          "url": "https://x.com/AIatMeta/status/2119853591703998787"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论帖",
+          "url": "https://news.ycombinator.com/item?id=50429024"
+        }
+      ],
+      "emphasis": [
+        "定价为每百万输入 token 0.10 美元、缓存输入 0.004 美元、输出 0.50 美元",
+        "在 Artificial Analysis 智能指数上得分为 36，与 Claude Haiku 5.5 并列"
+      ],
+      "aiComment": "百万输入 0.1 美元、缓存 0.004 美元，大模型终于能名正言顺把脏活累活全外包给便宜实习生了🛠️"
+    },
+    {
+      "title": "Google DeepMind 发布 AlphaProof Code，4 周完成 Signal 协议实现代码的形式化验证",
+      "timing": "北京时间 11 月 10 日 20:00 发布；形式化验证产物将开源",
+      "text": "Google DeepMind 发布多模型 agent 框架 AlphaProof Code，并用其在 4 周内完成了对 Signal 协议实际生产代码的形式化安全验证。验证流程中，研究人员先与模型配合将安全目标转化为形式化规格并由人类专家逐条审阅；随后由 Gemini Carbon 驱动的 agent 编写出超过 600 万行 Lean 证明代码；最后由 agent 审计证明并标出约 1% 需人工复查的部分，其余交由 Lean 自动检查。\n\n此次验证直接针对编译后的实现代码而非仅停留在协议设计层，证明了包括设备遭临时攻破前后消息仍受保护等关键性质。为检验系统的判别能力，团队将两个已修复的真实历史漏洞重新引入隔离分支，AlphaProof Code 在两个案例中均生成了证明该版本不安全的机器可检验证明。DeepMind 表示将开源相关形式化验证产物并发布技术论文。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "AlphaProof 博客",
+          "url": "https://deepmind.google/blog/introducing-alphaproof-code/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Pushmeet Kohli X",
+          "url": "https://x.com/pushmeet/status/2120127611137634376"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论帖",
+          "url": "https://news.ycombinator.com/item?id=50439193"
+        }
+      ],
+      "emphasis": [
+        "在 4 周内完成了对 Signal 协议实际生产代码的形式化安全验证",
+        "由 Gemini Carbon 驱动的 agent 编写出超过 600 万行 Lean 证明代码"
+      ],
+      "aiComment": "600 万行 Lean 证明代码只标出 1% 要人工复查，被抽中看这 6 万行证明的专家今晚怕是睡不着了🫠"
+    },
+    {
+      "title": "Google DeepMind 推出 VLA 模型 Gemini Robotics 2.5，奔驰产线分拣验证成功率达 96%",
+      "timing": "北京时间 11 月 10 日 23:00 发布；正向机器人合作伙伴逐步开放，开源安全基准 ASIMOV-Jailbreak",
+      "text": "Google DeepMind 发布视觉-语言-动作（VLA）模型 Gemini Robotics 2.5，目前正向机器人合作伙伴逐步开放。官方在夹取上菜、系礼盒蝴蝶结、移液等 200 多项任务上的评测显示，模型成功率较此前基线按任务类型提升 30% 至 100%，动作完成速度加快 20% 至 30%。模型适配配备 22 自由度五指 SharpaWave 灵巧手的 Apptronik Apollo 2 人形机器人及平行夹爪 Franka Duo 等硬件。在匈牙利 Kecskemét 和德国 Sindelfingen 的梅赛德斯-奔驰产线概念验证中，Apollo 2 结合 Gemini Robotics ER 与 2.5 按车辆顺序分拣零件，成功率达 96%。\n\n研发与安全方面，团队利用 Gemini 4 Argon 从单个真实相机场景生成数千个仿真练习并从视频中分析失败原因。推理时安全引导使避开障碍物和附近人员的安全完成率分别提升 33% 和 43%；在同步开源的机器人越狱基准 ASIMOV-Jailbreak 上，Gemini 4 Argon 的危险指令抵抗率为 99.5%，上一代 Gemini Robotics ER 2 为 82%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "DeepMind 博客",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/"
+        },
+        {
+          "kind": "原帖",
+          "label": "DeepMind 官方 X",
+          "url": "https://x.com/GoogleDeepMind/status/2120169787896525104"
+        }
+      ],
+      "emphasis": [
+        "模型成功率较此前基线按任务类型提升 30% 至 100%",
+        "梅赛德斯-奔驰产线概念验证中，Apollo 2 结合 Gemini Robotics ER 与 2.5 按车辆顺序分拣零件，成功率达 96%"
+      ],
+      "aiComment": "左手在奔驰产线按车序分拣零件，右手还能系礼盒蝴蝶结，这 22 自由度的手比我过年包饺子还利索🤖"
+    },
+    {
+      "title": "MiniMax 发布并开放 H3-Image 模型权重，支持 10 秒生成 4096×4096 图像",
+      "timing": "北京时间 11 月 10 日 23:00 发布；权重已上线 Hugging Face，采用自定义社区许可协议",
+      "text": "MiniMax 发布衍生自 H3 基座的图像生成与编辑模型 H3-Image，并在 Hugging Face 开放权重，采用自定义社区许可协议（minimax-h3-image-community-license-agreement）。该模型支持文生图、图像参考和图像编辑，最多可输入 16 张参考图。官方数据显示，在强化后训练、步数压缩和部署优化后，H3-Image 可在 10 秒内生成一张 4096×4096 像素（约 16MP）的图像，生成速度可达同类主流工具的 5 倍。在线服务已同步接入 MiniMax 开放平台、MiniMax Code 和海螺应用，官方称定价为同档位主流工具的 50% 至 70%，发布首周对 16MP 及以上请求提供五折优惠。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "MiniMax 公众号",
+          "url": "https://mp.weixin.qq.com/s/k155NbBb4srZoJBZvlWttA"
+        },
+        {
+          "kind": "代码",
+          "label": "HF 模型仓库",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image"
+        },
+        {
+          "kind": "原帖",
+          "label": "MiniMax 官方 X",
+          "url": "https://x.com/MiniMax_AI/status/2120179737695826420"
+        }
+      ],
+      "emphasis": [
+        "在 Hugging Face 开放权重，采用自定义社区许可协议"
+      ],
+      "aiComment": "10 秒直出 4096×4096 还能塞 16 张参考图，甲方再说差点感觉，可以把前 16 版全叠进去一键炼蛊了🎨"
+    },
+    {
+      "title": "蚂蚁灵波开源触觉基础模型 LingBot-Touch，用近 5000 小时异构触觉数据预训练",
+      "timing": "论文于北京时间 11 月 10 日 02:12 提交 arXiv，官方 X 于 03:11 发布；已开源 Tiny 与 Small 模型及代码",
+      "text": "蚂蚁灵波（Robbyant）发布并开源基于 JEPA 的触觉表征模型 LingBot-Touch，提供 Tiny 和 Small 两个尺寸及代码。模型通过规范几何接口与模态专用 tokenizer 将触觉信号送入共享 Haptic Transformer，预训练数据涵盖压阻（2,197 小时）、磁性（1,136 小时）和视触觉（1,650 小时）三类传感器，合计 4,983 小时、464,431 段交互、约 13.3 亿帧。最小配置 HaT-Tiny 编码器参数量为 5.46M，生成的触觉 token 可接入 diffusion policy、π0.5 及 LingBot-VLA 等策略模型。团队在 Sharpa Wave 手和 XHand 的 26 项真机任务及 12 项仿真任务上完成了验证，演示了钥匙开锁、按压力挤牙膏和封自封袋等操作。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "LingBot 项目页",
+          "url": "https://technology.robbyant.com/lingbot-touch"
+        },
+        {
+          "kind": "论文",
+          "label": "arXiv 论文",
+          "url": "https://arxiv.org/abs/2611.12806"
+        },
+        {
+          "kind": "原帖",
+          "label": "Robbyant 官方 X",
+          "url": "https://x.com/robbyant_brain/status/2119870554056651004"
+        }
+      ],
+      "emphasis": [
+        "预训练数据涵盖压阻（2,197 小时）、磁性（1,136 小时）和视触觉（1,650 小时）三类传感器，合计 4,983 小时"
+      ],
+      "aiComment": "练了近 5000 小时触觉学会按压力挤牙膏和封自封袋，只要别从中间开始挤牙膏，它就是家里最懂事的仔🪥"
+    },
+    {
+      "title": "榜单推荐：元认知科研发现架构 Sage-Taiyi",
+      "timing": "论文 v1 于北京时间 11 月 10 日 01:38 提交 arXiv",
+      "text": "Weida Wang、Lei Bai、Dahua Lin、Bowen Zhou 等 90 位作者联合发表论文，提出面向科学发现的元认知架构 Sage-Taiyi。该系统通过显式的监控与控制机制，持续修正对现有证据、科学假设和未决问题的理解，并据此动态调整研究目标与可复用的推理方法。在涵盖 10 个学科、265 个任务的 AI co-scientist 构思基准 Taiyi-Bench 上，论文数据显示 Sage-Taiyi 在全部 8 项指标中排名第一，Overall 得分为 54.0，高于最强基线 AI Scientist-v2 的 47.9。团队还开展了 5 项专家合作的实验与计算验证，其中在化学反应条件优化中，将钴催化羰基化反应产率从痕量提升至 84%，将光催化烯丙基胺化反应产率从 13% 提升至 69%。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "arXiv 论文",
+          "url": "https://arxiv.org/abs/2611.12762"
+        },
+        {
+          "kind": "讨论",
+          "label": "HF Papers 页面",
+          "url": "https://huggingface.co/papers/2611.12762"
+        },
+        {
+          "kind": "讨论",
+          "label": "alphaXiv 页面",
+          "url": "https://www.alphaxiv.org/abs/2611.12762"
+        }
+      ],
+      "emphasis": [
+        "将钴催化羰基化反应产率从痕量提升至 84%，将光催化烯丙基胺化反应产率从 13% 提升至 69%"
+      ],
+      "aiComment": "把化学反应产率从痕量拉到 84%，90 位作者联名发论文，实验室熬夜调参数的师兄师姐终于能准点下班了🧪"
+    }
+  ],
+  "trends": [
+    {
+      "title": "模型厂商围绕主从 agent 分工明确高低档模型配比",
+      "text": "Anthropic 与 Meta 在同日的新模型发布中均给出了多模型分层调度的官方建议：Anthropic 建议常规任务使用 Opus 5.5，将每百万 token 8/40 美元的 Fable 5.2 作为顶层 Advisor 或 Orchestrator 调度子 agent；Meta 则将每百万 token 0.10/0.50 美元的 Muse Ember 明确定位为配合 Muse Wonder 规划模型执行高频工具调用、路由和子任务的底层执行模型。"
+    },
+    {
+      "title": "长时多 agent 协作开始用于大规模形式化数学与代码证明",
+      "text": "Google DeepMind 的 AlphaProof Code 通过人类专家审阅形式化规格、Gemini Carbon 驱动的 agent 生成超 600 万行 Lean 代码并做自审计，在 4 周内完成了 Signal 协议生产代码的机器可检验验证；Anthropic 也在 Fable 5.2 预发布测试中展示了 30 小时完成费马大定理证明形式化的案例，验证器（如 Lean）与代码 agent 的结合提供了可自动核验输出正确性的工程路径。"
+    }
+  ]
+}
