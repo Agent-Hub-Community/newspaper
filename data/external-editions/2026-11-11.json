@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-11",
+  "title": "Google 开放 Gemini 4 Carbon，Claude 上线白板与表格，阿里与百度推出预览新模型",
+  "intro": "Google 正式向开发者和 Ultra 订阅者开放 Gemini 4 Carbon，并在 Antigravity 中预览 /swarm；Anthropic 为 Claude 增加白板、表格与嵌入式第三方应用；阿里与百度分别上线 Qwen4-Max 和 ERNIE 5.5 Flash 预览版；Claroc 披露 Grok Build 发布应用的默认权限隐患。",
+  "stories": [
+    {
+      "title": "Google 正式开放 Gemini 4 Carbon，Antigravity 预览 /swarm 多 agent 协作",
+      "timing": "北京时间 11 月 11 日 00:00 发布",
+      "text": "Google DeepMind 宣布向付费开发者、企业和 Google AI Ultra 订阅者开放 Gemini 4 Carbon。该模型两周前仅通过 Fairwind 计划向网络安全防守方提供，定位复杂多步编码调试、开放式科研、长程 agentic 工作流与网络安全，会比 Argon 消耗更多 token 做深度推理和更长的验证循环。API 已在 Google AI Studio 和 Gemini for business 上线，11 月 30 日前入门价与 Argon 相同，为每百万输入 token 2 美元、输出 10 美元，12 月 1 日起恢复为 4 美元和 20 美元；Ultra 订阅者可在 Antigravity、Gemini 应用和搜索 AI Mode 中逐步使用。\n\n官方数据显示，Carbon 在 CursorBench 4.0、Perplexity WANDR 和 Zapier AutomationBench 上排名第一，每任务成本比次优外部模型低 2 倍以上；在模拟网络攻击测试中单次尝试突破率从 Argon 的 3.1% 降到 0.8%。Cursor 同日上线该模型，称其在 high effort 下以 60.4% 位列 CursorBench 第一。Antigravity 同步预览 /swarm，可将单个 prompt 拆成并行隔离工作区中的协作 agent 团队，由 Carbon 负责架构、协调和审计，搭配更轻快的模型执行，并配对抗式验证者测试每处改动。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "DeepMind 博客",
+          "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Cursor 上线帖",
+          "url": "https://x.com/cursor_ai/status/2120193584670580857"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50442303"
+        }
+      ],
+      "emphasis": [
+        "11 月 30 日前入门价与 Argon 相同，为每百万输入 token 2 美元、输出 10 美元",
+        "可将单个 prompt 拆成并行隔离工作区中的协作 agent 团队"
+      ],
+      "aiComment": "一句 prompt 拆出一个团队，Carbon 当总监，小模型搬砖，对抗验证者挑刺，连 12 月涨翻倍的账单都挺有大厂味💸"
+    },
+    {
+      "title": "Claude 推出 Whiteboards 与 Sheets，支持在对话旁打开完整第三方应用",
+      "timing": "北京时间 11 月 11 日 01:26 发布",
+      "text": "Anthropic 向所有付费方案推出 Claude Whiteboards 和 Claude Sheets 两个 beta 功能，并将 10 月上线测试的 Claude Dashboards 正式定名为 Claude Data。Whiteboards 支持团队与 Claude 实时协作整理时间线、框选局部提问并将白板转为文档；Sheets 可根据单句提示生成带分页、公式、格式和下拉菜单的表格并标注每次修改，支持导出为 .xlsx 或 CSV。Claude Data 连接 Amazon Redshift、BigQuery、ClickHouse 等数据源，新增修改追踪与回滚、缓存刷新频率设置，以及仍处于 beta 的认证指标和 live sharing。\n\n同日逐步放量的 interactive connectors 允许用户在对话旁或全屏打开 Adobe、Atlassian、Box、Notion 等完整应用，自行或与 Claude 共同修改内容。三项新功能覆盖网页、桌面和移动端；Team 方案默认开启，Enterprise 方案中 Whiteboards 和 Sheets 默认关闭，Claude Data 将于 11 月 19 日默认开启。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Claude 博客",
+          "url": "https://claude.com/blog/sheets-whiteboards-data"
+        },
+        {
+          "kind": "原帖",
+          "label": "Claude 官方帖",
+          "url": "https://x.com/claudeai/status/2120206365759094857"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50443716"
+        }
+      ],
+      "emphasis": [
+        "向所有付费方案推出 Claude Whiteboards 和 Claude Sheets 两个 beta 功能",
+        "允许用户在对话旁或全屏打开 Adobe、Atlassian、Box、Notion 等完整应用"
+      ],
+      "aiComment": "白板、表格、数据库全塞进侧边栏，还把 Notion 和 Adobe 搬到聊天框旁边，Claude 的对话框快装修成工位了。"
+    },
+    {
+      "title": "阿里预告 Qwen4 并上线 Qwen4-Max 预览版，同日发布 Qwen Code 1.0 Preview",
+      "timing": "北京时间 11 月 11 日 10:01 发布",
+      "text": "阿里千问团队预告新一代模型 Qwen4，并在阿里 Token Plan、QwenWork、Qoder、千问 App 和 QwenStudio 上线 Qwen4-Max 预览版，主打复杂编码、知识工作、前端构建与软件工作流，官方暂未公布 benchmark 分数。Qoder 同步将内置的 Qoduck 升级为 Qwen4-Max-Preview，此前该模型已作为匿名测试版在 Qoder 中每日更新运行 4 天；目前面向所有方案开放，限时按 0.1 倍 credits 计费。\n\n同日，QwenLM 在 GitHub 发布 Qwen Code 1.0 Preview 预发布版，以独立分支将 Qoder 与 Qwen Code 的 agent 能力合并，用于代码理解、实现、调试与测试。新版本支持 Qwen 与 Qoder 账号、多模型提供方及自定义兼容端点，提供 macOS、Linux、Windows 原生安装包，无需单独安装 Node.js，并支持会话恢复与非交互执行；预览期间部分接口和配置仍可能调整。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Qwen 官方帖",
+          "url": "https://x.com/Alibaba_Qwen/status/2120335993643684315"
+        },
+        {
+          "kind": "原帖",
+          "label": "Qoder 升级帖",
+          "url": "https://x.com/qoder_ai_ide/status/2120343731673108936"
+        },
+        {
+          "kind": "代码",
+          "label": "Qwen Code 预览版",
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v1.0.0-preview"
+        }
+      ],
+      "emphasis": [
+        "在阿里 Token Plan、QwenWork、Qoder、千问 App 和 QwenStudio 上线 Qwen4-Max 预览版",
+        "将 Qoder 与 Qwen Code 的 agent 能力合并"
+      ],
+      "aiComment": "先披着 Qoduck 马甲匿名干活 4 天，转正还给打一折 credits，连 Node.js 都不用自己装，主打一个拎包入住。"
+    },
+    {
+      "title": "百度发布 ERNIE 5.5 Flash Preview，280B 总参数、权重将于 11 月 25 日前开源",
+      "timing": "2026 年 11 月 11 日发布，官方 X 帖于北京时间 11 月 11 日 13:42 发出",
+      "text": "百度发布 ERNIE 5.5 Flash Preview。这是基于此前 Base 模型的首个后训练中间版本，采用 280B 总参数、每 token 激活 14B，支持 1M 上下文窗口。官方数据显示其生成速度超过 200 tokens/s，并在 Terminal-Bench、AutomationBench 等基准上取得有竞争力的成绩。模型 API 已上线百度千帆平台，官方承诺于 11 月 25 日前开源模型权重，并说明当前版本仍可能存在训练不充分导致的能力缺陷。\n\n官方展示了该模型在 agent 框架中端到端完成的任务，包括在 11 小时长程编码任务中将跨代虚幻引擎素材合入同一 UE 5.8 工程并用 C++ 完成一款第三人称武侠游戏，以及调用 Blender Python API 和 FreeCAD 脚本完成 3D 建模。训练中使用了 30 万个工作空间、1000 万份参考文件和超过 15 万个视频创作环境。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "文心发布页",
+          "url": "https://ernie.baidu.com/zh/release/ernie-5-5-flash-preview/"
+        },
+        {
+          "kind": "原帖",
+          "label": "百度官方帖",
+          "url": "https://x.com/Baidu_Inc/status/2120391732248637734"
+        }
+      ],
+      "emphasis": [
+        "采用 280B 总参数、每 token 激活 14B，支持 1M 上下文窗口",
+        "官方承诺于 11 月 25 日前开源模型权重"
+      ],
+      "aiComment": "280B 总参只激活 14B，省心模式一开，官方演示里它已经闷头用 C++ 肝了 11 小时武侠游戏🎮"
+    },
+    {
+      "title": "Claroc 调查发现 94.7% 的 Grok Build 在线应用无需登录即可访问",
+      "timing": "报告标注 2026 年 11 月 10 日，北京时间 11 月 11 日 05:12 起见诸公开报道",
+      "text": "安全公司 Claroc 发布调查报告称，其检测的 37,571 个仍在运行的 Grok Build 应用中，有 35,578 个（94.7%）无需登录即可打开，仅 5.3% 返回 HTTP 401。成因是 Grok 发布应用时默认建议“任何持有链接者可访问”，且每个应用分配独立的 .grok.me 子域名，首次访问后主机名便会进入可按模式检索的商业被动 DNS 数据库。Claroc 还在自建应用上测试发现，Grok 自动生成的 Google 登录校验允许任意 Google 账号读写和删除记录。\n\n暴露的应用涉及 30 家外部组织（含 6 家财富 500 强）的内部数据，如 ICU 患者化验结果、医院员工名单和明文写有密码的考勤表，Claroc 估计约十分之一含敏感内容、约 2% 达高危或严重级别。另有 24 个开放应用由 SpaceXSI 和 X 员工构建，含 594 个客户的销售区域地图和机密广告提案；SpaceXSI 收到报告后下线了这 24 个内部应用，但未处理其他用户的开放应用。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Claroc 调查报告",
+          "url": "https://blog.claroc.io/ghostshares-grok-build-apps/"
+        }
+      ],
+      "emphasis": [
+        "37,571 个仍在运行的 Grok Build 应用中，有 35,578 个（94.7%）无需登录即可打开",
+        "每个应用分配独立的 .grok.me 子域名，首次访问后主机名便会进入可按模式检索的商业被动 DNS 数据库"
+      ],
+      "aiComment": "94.7% 的应用大门敞开，自家员工那 24 个连夜关门，剩下三万多个还在被动 DNS 里迎宾🫠"
+    },
+    {
+      "title": "DeepMind 发布 AlphaGenome 2，支持按细胞类型条件预测 DNA 变异效应",
+      "timing": "北京时间 11 月 11 日 23:00 发布",
+      "text": "Google DeepMind 发布下一代 DNA 序列模型 AlphaGenome 2，并即日起通过 AlphaGenome API 开放非商业研究使用，商业研究为私有预览，面向 Antigravity 的 AlphaGenome 2 Skills 也将随后上线。与前代并行输出固定组织和细胞系预测不同，AlphaGenome 2 改为条件模型，将目标组织、细胞类型或状态作为每一层架构的输入；条件既可从参考目录选择，也可通过 cell encoder 从研究者自己的少量单细胞 RNA-seq 数据即时生成，无需重新训练。\n\n模型在人和小鼠的 bulk 及超 1.07 亿个单细胞档案上训练，覆盖 68 种组织，并新增 DNA 甲基化读出。官方数据显示，在包含 28 种原代免疫细胞类型的 TenK10K 数据集上，AlphaGenome 2 识别因果变异的比例为 30%，高于单细胞数据微调版前代模型的 16%；方向性基因效应识别率为 43%，对比前代为 23%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "DeepMind 博客",
+          "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
+        },
+        {
+          "kind": "原帖",
+          "label": "DeepMind 官方帖",
+          "url": "https://x.com/GoogleDeepMind/status/2120532824465805749"
+        }
+      ],
+      "emphasis": [
+        "将目标组织、细胞类型或状态作为每一层架构的输入",
+        "AlphaGenome 2 识别因果变异的比例为 30%，高于单细胞数据微调版前代模型的 16%"
+      ],
+      "aiComment": "喂了超 1.07 亿个单细胞档案，现在塞点自己的单细胞数据就能按细胞类型现算，免重训这点可太体谅实验室的显卡了🧬"
+    }
+  ],
+  "trends": [
+    {
+      "title": "旗舰模型更新与自家 coding agent 工具同步捆绑",
+      "text": "Google 开放 Gemini 4 Carbon 时同步在 Antigravity 中预览由 Carbon 负责架构和审计的 /swarm 多 agent 功能，并将 AlphaGenome 2 封装为 Antigravity Skills；阿里在上线 Qwen4-Max 预览版同日将 Qoder 内置模型升级，并把 Qoder 的 agent 能力合入开源的 Qwen Code 1.0 Preview。模型厂商正把新模型的长程推理与验证能力直接转化为自家编码工具的编排特性。"
+    }
+  ]
+}
