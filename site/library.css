@@ -111,7 +111,9 @@
 .opportunity-title a { overflow-wrap: anywhere; }
 .opportunity-org { margin-top: 2px; color: var(--muted); font: 13px/1.6 var(--sans); }
 .opportunity-contact, .opportunity-shared { margin-top: 10px; color: var(--muted); font: 12px/1.6 var(--sans); }
-.opportunity-shared { margin-top: auto; padding-top: 10px; }
+/* The card's last line: where it was shared, and the topic that wrote it up when there is one. */
+.opportunity-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 10px; }
+.opportunity-foot .opportunity-shared { margin-top: 0; min-width: 0; }
 .opportunities-closed { margin-top: 16px; }
 .opportunities-closed summary { min-height: 44px; display: flex; align-items: center; color: var(--muted); font: 13px/1.6 var(--sans); cursor: pointer; }
 .opportunities-closed .opportunity { opacity: .72; }

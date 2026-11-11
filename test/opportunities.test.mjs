@@ -84,6 +84,35 @@ test('the library page shows open opportunities as cards and folds the closed on
   assert.equal(page.querySelector('a.inline-link[href="#opportunities"]'), null);
 });
 
+test('a card links the daily topic that carries its link, before any weekly one; others link nothing', () => {
+  // The chat is private; the topic that wrote the post up is where a reader sees what the group said about it.
+  const editions = [{ id: '2026-10-17', date: '2026-10-17', pages: [{ id: 'group-3', stories: [
+    { title: '空稿', text: ' ', resources: [{ kind: 'docs', url: 'https://example.org/cfp' }] },
+    { title: '别的话题', text: '另一段讨论。', resources: [] },
+    { title: 'AAAI 2027 Workshop 征稿', text: '征稿讨论。', resources: [{ kind: 'docs', url: 'https://example.org/cfp' }] }] }] }];
+  const weeklies = [{ start: '2026-10-13', end: '2026-10-19', pages: [{ id: 'group-3', stories: [
+    { title: '本周征稿', text: '本周汇总。', resources: [{ kind: 'docs', url: 'https://example.org/cfp' }] }] }] }];
+  const opportunities = normalizeOpportunities(file([hiring(), workshop(), meetup()]), { today: '2026-10-18', editions, weeklies });
+  const byId = Object.fromEntries(opportunities.items.map(item => [item.id, item]));
+  assert.deepEqual(byId['agents-workshop'].discussions.map(story => [story.kind, story.date, story.anchor]),
+    [['daily', '2026-10-17', 'topic-2'], ['weekly', '2026-10-19', 'topic-1']], 'empty topics do not count, like the daily page');
+  assert.deepEqual(byId['sensetime-code-intern'].discussions, [], 'a post without links matches nothing');
+  assert.deepEqual(byId['tb-meetup'].discussions, [], 'no topic carries this link');
+
+  const library = normalizeLibrary({ version: 1, through: '2026-10-17', items: [] });
+  const { document } = parseHTML(renderLibraryPage(library, { dailyHref: '../', weeklyHref: '../', opportunities }));
+  assert.equal(document.querySelector('#agents-workshop .entry-discussion').getAttribute('href'), '../daily/2026-10-17/group-3/#topic-2');
+  assert.equal(document.querySelector('#sensetime-code-intern .entry-discussion'), null);
+  assert.equal(document.querySelector('#tb-meetup .entry-discussion'), null);
+
+  const json = opportunitiesJson(opportunities).items.find(item => item.id === 'agents-workshop');
+  assert.deepEqual(json.discussions.map(story => [story.kind, story.url]), [
+    ['daily', 'https://agent-hub-community.github.io/newspaper/daily/2026-10-17/group-3/#topic-2'],
+    ['weekly', 'https://agent-hub-community.github.io/newspaper/weekly/2026-10-13/2026-10-19/group-3/#topic-1']]);
+  assert.ok(json.discussions[0].read_url.endsWith('.md'));
+  assert.match(opportunitiesMarkdown(opportunities), /\[群聊摘要 2026-10-17\]\(https:\/\/agent-hub-community\.github\.io\/newspaper\/daily\/2026-10-17\/group-3\/#topic-2\)/);
+});
+
 test('agents find opportunities by kind and the API judges open against today, not the build date', async () => {
   // Built on 10-18, read on 11-25: the workshop deadline (11-20) has passed, the internship (12-15) has not.
   const opportunities = normalizeOpportunities(file([hiring(), workshop(), meetup()]), { today: '2026-10-18' });
