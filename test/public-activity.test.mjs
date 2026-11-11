@@ -43,6 +43,19 @@ test('public validation rejects private fields, excess members, unrelated dates 
   }
 });
 
+test('public validation accepts member numbers past 999 and rejects malformed ones', () => {
+  const { snapshot } = projectActivity(fixture(), issues);
+  const renumber = key => {
+    const changed = structuredClone(snapshot);
+    changed.ranks.week.leaders[0].key = key;
+    return changed;
+  };
+  assert.doesNotThrow(() => validatePublicActivity(renumber('member-1000'), issues));
+  for (const key of ['member-01', 'member-1a00', 'member-']) {
+    assert.throws(() => validatePublicActivity(renumber(key), issues));
+  }
+});
+
 test('fourth-group activity remains anonymous and only includes dates with a group page', () => {
   const source = fixture();
   source.groups.push({ ...structuredClone(source.groups[0]), id: 'group-4' });
