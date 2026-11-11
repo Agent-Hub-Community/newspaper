@@ -271,7 +271,7 @@ await writeRedirectPages(out, data);
 const vocabulary = searchVocabulary({ aliases: library.aliases, glossary, synonyms: await readSynonyms(dataDir) });
 library.vocabulary = vocabulary;
 // Opportunities close on a Beijing date; the build date decides which are still open (a daily rebuild moves them).
-const opportunities = normalizeOpportunities(await readOpportunities(dataDir), { today: new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10) });
+const opportunities = normalizeOpportunities(await readOpportunities(dataDir), { today: new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10), editions, weeklies: weeklyReports });
 await writeLibraryPages(out, { library, dataDir, weeklies: data.weeklies, publicBuild, feedbackEndpoint, vocabulary, opportunities });
 await writeAgentFiles(out, { data, library, glossary, publicBuild });
 await writeFile(path.join(out, 'feed.json'), jsonFeed(data));
