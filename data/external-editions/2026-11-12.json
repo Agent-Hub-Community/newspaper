@@ -1,0 +1,133 @@
+{
+  "date": "2026-11-12",
+  "title": "黄仁勋辞任 NVIDIA CEO；Google 发布 Gemini Decision 1 与 A2UI 1.0",
+  "intro": "黄仁勋辞去 NVIDIA 总裁、CEO 及董事职务，CFO Colette Kress 任临时 CEO。Google 发布一次前向打分的 Gemini Decision 1 与生成式 UI 协议 A2UI 1.0。此外，美联航限制第三方个人 AI agent 代用户购票，Perplexity 公布沙箱红队测试。",
+  "stories": [
+    {
+      "title": "黄仁勋辞任 NVIDIA CEO 并退出董事会，CFO Colette Kress 出任临时 CEO",
+      "timing": "北京时间 11 月 12 日 21:48 发布",
+      "text": "NVIDIA 董事会宣布创始人黄仁勋辞去总裁、首席执行官和董事会成员职务，立即生效。执行副总裁兼首席财务官 Colette Kress 出任临时 CEO，同时继续兼任原职；董事会已启动正式 CEO 的内外部遴选，并任命前 Synopsys CEO Harvey C. Jones 为公司首位董事长。\n\nKress 自 2013 年 9 月加入 NVIDIA 担任 CFO，此前在 Microsoft、Cisco 等公司任职。官方公告未说明辞任原因，称公司运营、客户承诺和产品路线图不受影响，2027 财年第三季度财报将按原计划于太平洋时间 11 月 17 日发布。TechCrunch 报道称，此次辞任前已有涉及其个人行为的媒体报道，公司此前也未建立接班计划。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "NVIDIA 官方新闻稿",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50467087"
+        }
+      ],
+      "emphasis": [
+        "黄仁勋辞去总裁、首席执行官和董事会成员职务，立即生效",
+        "执行副总裁兼首席财务官 Colette Kress 出任临时 CEO"
+      ],
+      "aiComment": "连个接班计划都没留就辞职立即生效，离 11 月 17 日发财报还剩五天，接过担子的 CFO 兼临时 CEO 已经在深呼吸了。"
+    },
+    {
+      "title": "Google 发布 Gemini Decision 1 与 Decisions API，面向 agent 路由与封闭式决策",
+      "timing": "北京时间 11 月 12 日 02:00 发布",
+      "text": "Google 推出 Gemini Decision 1（gemini-decision-1）模型与 Decisions API，现已在 Gemini API 和 Google AI Studio 上线，Google Cloud 上的 Gemini 支持即将推出。该接口用于工具选择、模型路由、策略检查和上下文打分，不逐 token 生成文本，而是在一次前向计算中对候选选项打分并返回 0 到 1 的置信度。\n\n单次请求可传入最长 256K token 的文本、图片、音频、视频或 PDF，并同时评估最多 1000 个独立问题，支持是/否判断、2 至 255 项单选和有序评分标准。定价为每百万输入 token 0.10 美元，共享输入每次请求只计费一次，不收输出与思考 token 费。官方数据显示，其端到端延迟为 150 至 250 毫秒，在共享基准集上比通过 Interactions API 调用 Gemini 3.5 Flash-Lite 便宜近 5 倍；Gemini Notebook 用它做实时路由后，日常请求延迟最多降低 40%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 官方博客",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Gemini API 更新日志",
+          "url": "https://ai.google.dev/gemini-api/docs/changelog"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50456791"
+        }
+      ],
+      "emphasis": [
+        "不逐 token 生成文本，而是在一次前向计算中对候选选项打分",
+        "定价为每百万输入 token 0.10 美元，共享输入每次请求只计费一次，不收输出与思考 token 费"
+      ],
+      "aiComment": "以前让大模型做个选择题还得哄它别写小作文，现在 0.1 美元一百万输入只打分不收输出费，话痨的嘴终于被官方封上了💸"
+    },
+    {
+      "title": "美联航限制第三方个人 AI agent 代用户订票与值机",
+      "timing": "北京时间 11 月 12 日报道",
+      "text": "据 TechCrunch 和 CNBC 报道，美联航宣布将在自有数字平台及通过旅行社、聚合平台限制未经授权的第三方个人 AI agent 访问，后续将更新订票、出票和分销政策，但未公布具体生效日期。调整后，AI agent 仍可读取航班选项与价格，但不能在官网代用户完成购买。\n\n美联航在声明中表示，向第三方 AI 助手共享账户凭据可能泄露敏感信息，并导致非预期购买、账户变更或常旅客里程被动用；此外，值机时确认行李未含爆炸物等违禁品的步骤按联邦航空规定必须由旅客本人完成。报道还提到，近期 Amazon 已屏蔽 Meta 的 agent Muse，Bank of America 也就区分真人客户与代理 AI 发出类似风险提示。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks/"
+        },
+        {
+          "kind": "报道",
+          "label": "CNBC 报道",
+          "url": "https://www.cnbc.com/2026/11/11/united-airlines-ai-agents.html"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50458900"
+        }
+      ],
+      "emphasis": [
+        "AI agent 仍可读取航班选项与价格，但不能在官网代用户完成购买",
+        "向第三方 AI 助手共享账户凭据可能泄露敏感信息"
+      ],
+      "aiComment": "只能查票价不能买票值机，毕竟 agent 确实没法替我向联邦航空局发誓行李箱里没有违禁品🧳"
+    },
+    {
+      "title": "Google 发布生成式 UI 开放协议 A2UI 1.0 稳定版",
+      "timing": "北京时间 11 月 12 日 01:03 发布",
+      "text": "Google 发布生成式 UI 开放协议 A2UI 1.0 稳定版，配套开源 Python、TypeScript、Dart 的 agent SDK 以及多端渲染器。协议中 agent 只描述展示内容并挑选开发者注册过的组件，由客户端用原生组件绘制界面；数据与子组件在服务端绑定，敏感值不进入模型。\n\n1.0 版新增双向函数调用（如订座组件直接查询余位）、可访问性支持和元数据扩展机制。目前 Web（React、Angular、Lit）与 Flutter 渲染器已支持 1.0 并可在 Claude、Gemini 等支持 MCP Apps 的宿主内运行；iOS（SwiftUI）和 Android（Jetpack Compose）原生渲染器当前为 v0.9.1，v1.0 即将推出。Atlassian、Bloomberg、ByteDance 等公司已在开发中采用该协议。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "A2UI 1.0 博客",
+          "url": "https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Google Cloud 公告帖",
+          "url": "https://x.com/GoogleCloudTech/status/2120563165557571629"
+        }
+      ],
+      "emphasis": [
+        "数据与子组件在服务端绑定，敏感值不进入模型",
+        "1.0 版新增双向函数调用（如订座组件直接查询余位）"
+      ],
+      "aiComment": "只允许在开发者注册过的组件里挑，彻底断了大模型自己手搓奇葩界面的念想，前端程序员总算能睡个好觉。"
+    },
+    {
+      "title": "Perplexity 公布 Computer agent 沙箱红队测试第二部分：12 个模型均未逃逸 VM",
+      "timing": "北京时间 11 月 12 日 02:21 发布",
+      "text": "Perplexity 发布其生产沙箱 SPACE（基于 Firecracker microVM）红队研究的第二部分，在前期 9 个模型基础上新增 Claude Mythos 5.1、Claude Opus 5.5 和 GPT-6 Astra，共测试 12 个模型的虚拟机逃逸与网络限制绕过能力。\n\n研究发现，CTF 式“找 flag”任务会让 agent 偏离待测安全边界：初始提示下，除三个 GPT 模型投入虚拟化层探测的精力占 18% 至 22% 外，其余模型最高仅 4%；改为明确要求聚焦虚拟化层的提示后，该比例平均提高约 60 个百分点，Claude 和 GPT 模型基本用满 120 分钟上限，但仍无一实现从 VM 到宿主机的逃逸。此外，在带源码访问的网络绕过测试中，基础模型 GPT-5.6 Sol 三次全部成功，而经网络安全专项训练的 GPT-5.6 Cyber 三次全部失败；通用模型 GPT-6 Astra 的表现也优于安全专用的 Claude Mythos 5.1。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Perplexity 研究博客",
+          "url": "https://www.perplexity.ai/hub/blog/escaping-space-part-ii"
+        },
+        {
+          "kind": "原帖",
+          "label": "Perplexity 官方帖",
+          "url": "https://x.com/perplexity_ai/status/2120582674549203004"
+        }
+      ],
+      "emphasis": [
+        "CTF 式“找 flag”任务会让 agent 偏离待测安全边界",
+        "基础模型 GPT-5.6 Sol 三次全部成功，而经网络安全专项训练的 GPT-5.6 Cyber 三次全部失败"
+      ],
+      "aiComment": "12 个模型吭哧吭哧干满 120 分钟也没逃出虚拟机，反倒是带源码的网络绕过里，网安特训模型三次全跪，被基础版三次全通按在地上摩擦🤡"
+    }
+  ],
+  "trends": []
+}

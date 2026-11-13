@@ -1,0 +1,5915 @@
+{
+  "id": "2026-11-12",
+  "date": "2026-11-12",
+  "label": "2026-11-12 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "用 Claude 写 Blender 白模再交视频模型渲染的工作流",
+      "theme": "英伟达宣布黄仁勋辞去 CEO 快讯刷屏，群友翻出四天前 Polymarket 上的预测盘口。",
+      "note": "2026-11-12 · 当日本地记录",
+      "stories": [
+        {
+          "category": "视频生成与 Agent",
+          "title": "用 Claude 写 Blender 白模再交视频模型渲染：群友探讨 Coding Agent 视频工作流",
+          "text": "有群友分享了两项 Coding Agent 视频创作评测基准：VibeVideoBench 与 VibePrevisBench。VibeVideoBench 考察 Agent 直接用代码生成完整视频，比如将祈年殿从立柱到屋顶的建造过程做成动画，由 Agent 编排画面、运动与声音，在 60 分钟内交付 MP4 和可编辑工程，共涵盖 239 道题、12 类内容与 9 个 Agent 系统。VibePrevisBench 则走“Agent 搭骨架，视频模型补细节”的路线，包含 242 道题、11 个 Agent 及剧本、照片、首帧续写、参考视频 4 种输入：Agent 先用 Blender 代码排好人物、动作与相机并渲染出白模视频，再交由视频生成模型以白模为条件补充外观细节。\n\n由此群里聊起视频生成的技术路线，有人提问 seeddance 和 claude 哪条路才是正道。一位群友提出可以把两者结合起来，用 claude 写白模、sd 生成视频、再用 claude 做后期，遇到穿帮镜头直接改代码，并表示自己最近一直在用这套流程，还提到了 fable5.2 的 one shot。分享基准的群友也认为用 claude 写白模配合 sd 生成视频很有前景，因为多轮修复时不用靠 sd 反复抽卡，而且目前 sd 和 kling 都已支持白模输入。",
+          "emphasis": [
+            "Agent 先用 Blender 代码排好人物、动作与相机并渲染出白模视频",
+            "用 claude 写白模、sd 生成视频、再用 claude 做后期，遇到穿帮镜头直接改代码"
+          ],
+          "aiComment": "以前做视频靠反复抽卡拜锦鲤，现在先让 Claude 敲 Blender 白模搭骨架，穿帮了直接改代码，电子导演终于夺回了场控权🎬",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:13",
+              "text": "借贵群分享我们关于 Coding Agent 视频创作的两项工作 🎉\n一项让 Agent 直接用代码做完整视频，另一项让 Agent 先用 Blender 搭好场景与动作，再交给视频模型补充细节。\n\n1️⃣ VibeVideoBench：整支视频，用代码做\n比如，把祈年殿从立柱到屋顶的建造过程做成动画。Agent 编排画面、运动与声音，交付 MP4，也留下可编辑工程。\n✅ 239 道题 · 9 个 Agent 系统 · 12 类内容\n📏 60 分钟内完成，评测交付、需求完成度，以及画质、逻辑、节奏与声音。\n\n2️⃣ VibePrevisBench：Agent 搭骨架，视频模型补细节\n比如“几名骑手转弯，镜头保持平视”。Agent 先用 Blender 代码排好人物、动作与相机，渲染成白模视频；视频生成模型再以白模为条件，补充外观细节。\n✅ 242 道题 · 11 个 Agent · 剧本、照片、首帧续写、参考视频 4 种输入\n📏 既检查场景设置是否符合要求，也检查人物、动作与镜头关系在预演画面中是否清晰可辨。\n\n下面附上两个项目的介绍视频，欢迎大家看看，也欢迎交流反馈！\n项目主页：\nVibeVideoBench：https://vibevideobench.github.io/\nVibePrevisBench：https://vibeprevisbench.github.io/"
+            },
+            {
+              "speaker": 1,
+              "time": "20:13",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:13",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:20",
+              "text": "[强][强][强]"
+            },
+            {
+              "speaker": 3,
+              "time": "20:23",
+              "text": "🐮啊"
+            },
+            {
+              "speaker": 3,
+              "time": "20:24",
+              "text": "立刻跑下看看"
+            },
+            {
+              "speaker": 4,
+              "time": "21:03",
+              "text": "好酷，已推荐"
+            },
+            {
+              "speaker": 5,
+              "time": "21:35",
+              "text": "大家觉得seeddance和claude那一条路才是正道？"
+            },
+            {
+              "speaker": 6,
+              "time": "21:36",
+              "text": "能都选么sd+claude"
+            },
+            {
+              "speaker": 1,
+              "time": "21:38",
+              "text": "感觉claude写白模 sd生成视频是一个promising方案 因为多轮修复的时候不用sd抽卡了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:38",
+              "text": "yeah"
+            },
+            {
+              "speaker": 6,
+              "time": "21:38",
+              "text": "claude写白模，sd生成视频，claude后期"
+            },
+            {
+              "speaker": 6,
+              "time": "21:38",
+              "text": "穿帮镜头直接代码改"
+            },
+            {
+              "speaker": 6,
+              "time": "21:39",
+              "text": "已经很强了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:39",
+              "text": "最近一直在用"
+            },
+            {
+              "speaker": 1,
+              "time": "21:40",
+              "text": "是的是的 sd和kling都是支持白模输入的"
+            },
+            {
+              "speaker": 6,
+              "time": "21:43",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "21:43",
+              "text": "fable5.2的one shot"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "VibeVideoBench 项目主页",
+              "url": "https://vibevideobench.github.io/"
+            },
+            {
+              "kind": "demo",
+              "label": "VibePrevisBench 项目主页",
+              "url": "https://vibeprevisbench.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "英伟达宣布黄仁勋辞去 CEO 快讯刷屏，群友翻出四天前 Polymarket 预测盘口",
+          "text": "晚间有群友转发财联社与新华社快讯，英伟达宣布董事会已批准黄仁勋辞去总裁、首席执行官及董事职务并即刻生效，由执行副总裁兼首席财务官科莱特·克雷斯（Colette Kress）出任临时 CEO 并继续兼任 CFO，同时任命 Harvey C. Jones 为公司首任董事会主席。有群友感叹人事变动落地得太快，“距离消息放出来还不到一天”，也有人打趣“nv 多了个 hc”“Agent Hub收留心碎NVIDIA 前CEO”。\n\n随后一位群友晒出微信聊天截图，指出早在四天前，预测市场 Polymarket 上就已经有人开出“12 月 31 日前宣布辞职或被免职”的盘口，截图显示当时该选项概率为 16%，交易量 76K 美元。深夜这位群友又贴出一张 Truth Social 帖子缩略图，译文大意称英伟达 CEO 辞职后，只有一位来自 Apple 的人选能够“传奇替代传奇”，这位群友感叹“魔幻，竟然是真的”，又补了一句“看到牢川之前，我简直在乱串”，被几位群友接龙复读，也有人顺势调侃起库克接班。",
+          "emphasis": [
+            "黄仁勋辞去总裁、首席执行官及董事职务并即刻生效",
+            "早在四天前，预测市场 Polymarket 上就已经有人开出“12 月 31 日前宣布辞职或被免职”的盘口"
+          ],
+          "aiComment": "老黄卸任的消息才落地，Polymarket 四天前 16% 概率的盘口就被翻了出来，连库克接班的段子都安排上了，群友的网速比行情还快。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:55",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:56",
+              "text": "真离职了"
+            },
+            {
+              "speaker": 3,
+              "time": "21:56",
+              "text": "被离职了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:56",
+              "text": "离谱"
+            },
+            {
+              "speaker": 3,
+              "time": "21:56",
+              "text": "老美还是狠啊"
+            },
+            {
+              "speaker": 5,
+              "time": "21:57",
+              "text": "感觉国运来了…"
+            },
+            {
+              "speaker": 6,
+              "time": "21:57",
+              "text": "历史转折中的黄仁勋"
+            },
+            {
+              "speaker": 7,
+              "time": "21:57",
+              "text": "美股www"
+            },
+            {
+              "speaker": 3,
+              "time": "21:57",
+              "text": "老黄有被限制出境么[旺柴]"
+            },
+            {
+              "speaker": 8,
+              "time": "21:59",
+              "text": "来当shengteng老板么？",
+              "quote": {
+                "speaker": 3,
+                "text": "老黄有被限制出境么[旺柴]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "21:59",
+              "text": "建立国伟达"
+            },
+            {
+              "speaker": 6,
+              "time": "21:59",
+              "text": "华伟达"
+            },
+            {
+              "speaker": 8,
+              "time": "21:59",
+              "text": "中伟达"
+            },
+            {
+              "speaker": 9,
+              "time": "22:00",
+              "text": "那国足咋办",
+              "quote": {
+                "speaker": 5,
+                "text": "感觉国运来了…"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "22:01",
+              "text": "没事 有国乓陪着",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 那国足咋办"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:01",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:02",
+              "text": "赶尽杀绝了"
+            },
+            {
+              "speaker": 10,
+              "time": "22:02",
+              "text": "事到如今,最对不起的就是股民"
+            },
+            {
+              "speaker": 10,
+              "time": "22:03",
+              "text": "我擦 CFO当 CEO"
+            },
+            {
+              "speaker": 11,
+              "time": "22:14",
+              "text": "[链接] 英伟达首席执行官黄仁勋辞职\n  来源: 新华社\n  URL: https://mp.weixin.qq.com/s?__biz=MzA4NDI3NjcyNA%3D%3D&mid=2650250321&idx=1&sn=7bd19ba3665f64eb292db7ae6a710fb5&chksm=86e6e310b45b977eef1a0db624b6ee3f5e8af743f6d668fc841255b04c06173d09811f7008e4&scene=1&srcid=1112HRkKGQwYkolIncZO62zD#rd"
+            },
+            {
+              "speaker": 12,
+              "time": "22:17",
+              "text": "我去"
+            },
+            {
+              "speaker": 13,
+              "time": "22:18",
+              "text": "下一个 马斯克会有问题吗"
+            },
+            {
+              "speaker": 13,
+              "time": "22:18",
+              "text": "[发抖]"
+            },
+            {
+              "speaker": 14,
+              "time": "22:19",
+              "text": "加入华为吧"
+            },
+            {
+              "speaker": 1,
+              "time": "22:19",
+              "text": "加入华为"
+            },
+            {
+              "speaker": 14,
+              "time": "22:19",
+              "text": "带领华为反杀NVIDIA"
+            },
+            {
+              "speaker": 15,
+              "time": "22:19",
+              "text": "感觉可能是因为什么其他原因，政治上的问题，不下台会有其他危机"
+            },
+            {
+              "speaker": 15,
+              "time": "22:19",
+              "text": "明显是被人搞了"
+            },
+            {
+              "speaker": 14,
+              "time": "22:20",
+              "text": "现代版，值五个师"
+            },
+            {
+              "speaker": 11,
+              "time": "22:20",
+              "text": "感觉有人搞他"
+            },
+            {
+              "speaker": 16,
+              "time": "22:20",
+              "text": "搞人一定要速度快，慢了就生变"
+            },
+            {
+              "speaker": 2,
+              "time": "22:20",
+              "text": "jesen走的太快了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:20",
+              "text": "快的不对劲"
+            },
+            {
+              "speaker": 2,
+              "time": "22:20",
+              "text": "这才几天[撇嘴]"
+            },
+            {
+              "speaker": 17,
+              "time": "22:21",
+              "text": "距离消息放出来还不到一天吧[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "22:21",
+              "text": "开除速度一定要快---马化腾"
+            },
+            {
+              "speaker": 18,
+              "time": "22:32",
+              "text": "Agent Hub收留心碎NVIDIA 前CEO"
+            },
+            {
+              "speaker": 19,
+              "time": "22:32",
+              "text": "来了吗"
+            },
+            {
+              "speaker": 19,
+              "time": "22:32",
+              "text": "终于要来了"
+            },
+            {
+              "speaker": 19,
+              "time": "22:32",
+              "text": "简历可以直投吗"
+            },
+            {
+              "speaker": 4,
+              "time": "22:32",
+              "text": "nv 多了个 hc"
+            },
+            {
+              "speaker": 3,
+              "time": "22:33",
+              "text": "四天前，polymarket就有人开老黄要下台的盘口了（"
+            },
+            {
+              "speaker": 19,
+              "time": "22:33",
+              "text": "i do",
+              "quote": {
+                "speaker": 4,
+                "text": "nv 多了个 hc"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:36",
+              "text": "魔幻，竟然是真的"
+            },
+            {
+              "speaker": 19,
+              "time": "23:37",
+              "text": "笑死我了"
+            },
+            {
+              "speaker": 19,
+              "time": "23:38",
+              "text": "谁懂我在电梯里笑的像个傻子"
+            },
+            {
+              "speaker": 20,
+              "time": "23:38",
+              "text": "这美国人"
+            },
+            {
+              "speaker": 20,
+              "time": "23:38",
+              "text": "和咱们"
+            },
+            {
+              "speaker": 20,
+              "time": "23:38",
+              "text": "也没有什么区别。。。"
+            },
+            {
+              "speaker": 3,
+              "time": "23:39",
+              "text": "看到牢川之前，我简直在乱串"
+            },
+            {
+              "speaker": 6,
+              "time": "23:40",
+              "text": "看到牢川之前，我简直在乱串"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "把《丝之歌》与「虎先锋」用 Three.js 搬进手机浏览器",
+      "theme": "两项视频创作基准引出 Opus 与 GPT 合成白模的跑分对比，群友围绕黄仁勋卸任玩梗投票。",
+      "note": "2026-11-12 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent评测",
+          "title": "用代码做视频还是先搭 Blender 白模？两项 Coding Agent 视频基准引出跑分对比",
+          "text": "有群友分享了两项评测 Coding Agent 视频创作能力的工作：VibeVideoBench 和 VibePrevisBench。前者让 Agent 直接写代码生成带画面、运动和声音的完整 MP4 视频并保留可编辑工程，比如把祈年殿从立柱到屋顶的建造过程做成动画，共包含 239 道题，限时 60 分钟，评测了 9 个 Agent 系统在 12 类内容上的表现。\n\nVibePrevisBench 则采用“Agent 搭骨架、视频模型补细节”的流程，包含 242 道题和 11 个 Agent。有人追问这一基准里 Agent 输出的究竟是可交互 3D 场景还是渲染后的视频，以及宣传视频里的 Seedance 渲染是否算在评测内。分享者解释，Agent 接收文本、图像或视频等多模态输入后，输出的是 4D Blender 白模；Seedance 渲染只是用来展示白模能更精确地控制空间布局和镜头移动，不属于评测本身。\n\n另一位群友称这项评测正好解答了平时合成白模该用 Opus 还是 GPT 的争论，并晒出评测页面里一道案例题的截图，参考视频是一个人在小巷里奔跑：这道题 GPT-6 Astra 得分最高（73.0），其后依次是 Gemini 4 Argon（70.0）、GPT-6.1 Sol（66.8）、Opus 5.5（65.6）、GPT-5.6 Sol（63.9）和 DeepSeek V4.1 Flash（62.2），这位群友直呼“过于sota”。",
+          "emphasis": [
+            "直接写代码生成带画面、运动和声音的完整 MP4 视频",
+            "输出的是 4D Blender 白模",
+            "解答了平时合成白模该用 Opus 还是 GPT 的争论"
+          ],
+          "aiComment": "用 4D Blender 白模比试搭骨架，GPT-6 Astra 在晒出的那道题上拿了 73.0 分，以前纠结用 Opus 还是 GPT 的人终于有分可抄了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:26",
+              "text": "借贵群分享我们关于 Coding Agent 视频创作的两项工作 🎉\n一项让 Agent 直接用代码做完整视频，另一项让 Agent 先用 Blender 搭好场景与动作，再交给视频模型补充细节。\n\n1️⃣ VibeVideoBench：整支视频，用代码做\n比如，把祈年殿从立柱到屋顶的建造过程做成动画。Agent 编排画面、运动与声音，交付 MP4，也留下可编辑工程。\n✅ 239 道题 · 9 个 Agent 系统 · 12 类内容\n📏 60 分钟内完成，评测交付、需求完成度，以及画质、逻辑、节奏与声音。\n\n2️⃣ VibePrevisBench：Agent 搭骨架，视频模型补细节\n比如“几名骑手转弯，镜头保持平视”。Agent 先用 Blender 代码排好人物、动作与相机，渲染成白模视频；视频生成模型再以白模为条件，补充外观细节。\n✅ 242 道题 · 11 个 Agent · 剧本、照片、首帧续写、参考视频 4 种输入\n📏 既检查场景设置是否符合要求，也检查人物、动作与镜头关系在预演画面中是否清晰可辨。\n\n下面附上两个项目的介绍视频，欢迎大家看看，也欢迎交流反馈！\n项目主页：\nVibeVideoBench：https://vibevideobench.github.io/\nVibePrevisBench：https://vibeprevisbench.github.io/"
+            },
+            {
+              "speaker": 1,
+              "time": "20:26",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:26",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:44",
+              "text": "很有意思的工作~请问下第二个bench的agent的输出是可交互的3d场景还是渲染后的视频呀，我看主页的demo好像输入是reference video，输出是3d场景，所以宣传视频里seedance渲染其实不是bench的一部分？"
+            },
+            {
+              "speaker": 1,
+              "time": "21:12",
+              "text": "感谢提问～Seedance 主要是一个demo验证使用白模能够更加精确控制空间布局镜头移动等，agent输出是4D blender白模，输入可以有文本/图像/视频等多种模态",
+              "quote": {
+                "speaker": 2,
+                "text": "很有意思的工作~请问下第二个bench的agent的输出是可交互的3d场景还是渲染后的视频呀，我看主页的demo好像输入是reference video，输出是..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:43",
+              "text": "这个bench非常sota！  解答了我们合成白模用opus还是gpt的争论2333"
+            },
+            {
+              "speaker": 3,
+              "time": "21:52",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "21:52",
+              "text": "吓哭了"
+            },
+            {
+              "speaker": 3,
+              "time": "21:52",
+              "text": "过于sota"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "VibeVideoBench 项目主页",
+              "url": "https://vibevideobench.github.io/"
+            },
+            {
+              "kind": "demo",
+              "label": "VibePrevisBench 项目主页",
+              "url": "https://vibeprevisbench.github.io/"
+            }
+          ]
+        },
+        {
+          "category": "网页移植",
+          "title": "手机连打 5 把「虎先锋」之后，群友又端出 Three.js 移植的《丝之歌》",
+          "text": "有群友说前一天在出租车上用手机连打了 5 把群里分享的 82M 网页版「虎先锋」，打到手机发烫。随后有群友又分享了一个带“林克时间”的《丝之歌》网页复刻版，还提到能用浏览器联机的《魔兽争霸》和 CSGO 复刻，只是素材太多，塞不进 GitHub Pages。\n\n有人问这些网页游戏是不是都用 Three.js 做的。分享者确认是 Three.js，并说这更接近移植：模型偶尔会自己写一点逆向代码，但不多，主要工作还是扒 3D 素材和音乐素材，再把体积压缩到能用手机流量直接下载。有群友试玩时遇到“幽影”boss 脚本加载失败的报错，分享者提醒素材较多需要开代理，同时也承认这个 boss 确实还有 bug，建议先试其他关卡。",
+          "emphasis": [
+            "带“林克时间”的《丝之歌》网页复刻版",
+            "主要工作还是扒 3D 素材和音乐素材，再把体积压缩到能用手机流量直接下载"
+          ],
+          "aiComment": "出租车上用手机连搓 5 把 82M 的网页版「虎先锋」，打完还有 Three.js 移植的《丝之歌》，手机烫得像刚跑完一轮本地微调🔥",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:03",
+              "text": "试玩的群友手机发烫[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:11",
+              "text": "谁的手机发烫了[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:12",
+              "text": "我的"
+            },
+            {
+              "speaker": 3,
+              "time": "17:13",
+              "text": "哈哈哈"
+            },
+            {
+              "speaker": 3,
+              "time": "17:13",
+              "text": "昨天在出租车上打了5把虎先锋"
+            },
+            {
+              "speaker": 4,
+              "time": "17:13",
+              "text": "该换手机了"
+            },
+            {
+              "speaker": 4,
+              "time": "17:13",
+              "text": "？",
+              "quote": {
+                "speaker": 3,
+                "text": "昨天在出租车上打了5把虎先锋"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:13",
+              "text": "手机是有点老了",
+              "quote": {
+                "speaker": 4,
+                "text": "该换手机了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:13",
+              "text": "？",
+              "quote": {
+                "speaker": 3,
+                "text": "昨天在出租车上打了5把虎先锋"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:15",
+              "text": "最近在发版本，这两天我优化一下"
+            },
+            {
+              "speaker": 7,
+              "time": "17:15",
+              "text": "看着这个 真的没憋住笑",
+              "quote": {
+                "speaker": 3,
+                "text": "昨天在出租车上打了5把虎先锋"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:15",
+              "text": "手机3A大作？",
+              "quote": {
+                "speaker": 6,
+                "text": "最近在发版本，这两天我优化一下"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:15",
+              "text": "不是 手机上真能玩啊"
+            },
+            {
+              "speaker": 6,
+              "time": "17:15",
+              "text": "yes",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 手机3A大作？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:16",
+              "text": "我真打了好几把"
+            },
+            {
+              "speaker": 6,
+              "time": "17:16",
+              "text": "来个boss rush吧"
+            },
+            {
+              "speaker": 4,
+              "time": "17:16",
+              "text": "神",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] yes"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:17",
+              "text": "我前两天看见一个把塞尔达国王之泪的搬到苹果17上了"
+            },
+            {
+              "speaker": 8,
+              "time": "17:18",
+              "text": "旷野也是搬过去了"
+            },
+            {
+              "speaker": 3,
+              "time": "17:19",
+              "text": "起飞",
+              "quote": {
+                "speaker": 6,
+                "text": "来个boss rush吧"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:20",
+              "text": "打小黄龙还是二郎神？"
+            },
+            {
+              "speaker": 8,
+              "time": "17:20",
+              "text": "寅虎吧"
+            },
+            {
+              "speaker": 6,
+              "time": "17:23",
+              "text": "我这里还有一个丝之歌可以玩"
+            },
+            {
+              "speaker": 6,
+              "time": "17:23",
+              "text": "带林克时间的"
+            },
+            {
+              "speaker": 8,
+              "time": "17:23",
+              "text": "群友的东西有点太多了吧"
+            },
+            {
+              "speaker": 9,
+              "time": "17:24",
+              "text": "太能逆向了"
+            },
+            {
+              "speaker": 6,
+              "time": "17:25",
+              "text": "我还有个魔兽争霸和csgo可以游览器联机"
+            },
+            {
+              "speaker": 10,
+              "time": "17:26",
+              "text": "有没有英雄联盟的"
+            },
+            {
+              "speaker": 10,
+              "time": "17:26",
+              "text": "时代变了 大人"
+            },
+            {
+              "speaker": 6,
+              "time": "17:26",
+              "text": "好像别人做了",
+              "quote": {
+                "speaker": 10,
+                "text": "有没有英雄联盟的"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "17:26",
+              "text": "还真有"
+            },
+            {
+              "speaker": 6,
+              "time": "17:26",
+              "text": "这两个素材太多了，推不到github page"
+            },
+            {
+              "speaker": 10,
+              "time": "17:26",
+              "text": "无敌了"
+            },
+            {
+              "speaker": 11,
+              "time": "17:27",
+              "text": "都是threejs的网页吗？",
+              "quote": {
+                "speaker": 6,
+                "text": "我还有个魔兽争霸和csgo可以游览器联机"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:28",
+              "text": "是的"
+            },
+            {
+              "speaker": 6,
+              "time": "17:29",
+              "text": "算是移植了，有一些时候他自己会写逆向的代码，不多，主要还是扒3d素材，音乐素材"
+            },
+            {
+              "speaker": 6,
+              "time": "17:30",
+              "text": "压缩到能用流量下载下来"
+            },
+            {
+              "speaker": 12,
+              "time": "17:30",
+              "text": "能不能把celeste扒出来，这个是真的想在网页上玩"
+            },
+            {
+              "speaker": 11,
+              "time": "17:30",
+              "text": "太有说法了"
+            },
+            {
+              "speaker": 11,
+              "time": "17:31",
+              "text": "好像还是有点bug"
+            },
+            {
+              "speaker": 11,
+              "time": "17:31",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "17:31",
+              "text": "@常恒-THU 开代理，素材有点多"
+            },
+            {
+              "speaker": 6,
+              "time": "17:33",
+              "text": "幽影确实有bug，试试其他的",
+              "quote": {
+                "speaker": 11,
+                "text": "[图片]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "黄仁勋辞任英伟达 CEO，群友操心买卡难度并开启恶搞文化衫投票",
+          "text": "群内晚间传出快讯，英伟达宣布董事会已批准黄仁勋辞去公司总裁、首席执行官及董事职务，即刻生效，由执行副总裁兼首席财务官 Colette Kress 出任临时 CEO，Harvey C. Jones 出任首任董事会主席。\n\n消息一出，有群友担心“以后是不是搞到卡更难了”，也有人拿招聘玩梗，称英伟达刚释放了一个 HC，问有没有群友投，另一位群友则提议“Agent Hub 收留心碎 NVIDIA 前 CEO”。随后话题快进到“给老黄选功能饮料环节”，有人晒出分别印有“魔爪能量饮料”和“双黄连口服液”图案的恶搞合成文化衫让大伙二选一，有群友当场投了魔爪一票。",
+          "emphasis": [
+            "黄仁勋辞去公司总裁、首席执行官及董事职务",
+            "担心“以后是不是搞到卡更难了”"
+          ],
+          "aiComment": "老黄刚辞职，群友一边担心买卡更难，一边已经开始投票给皮衣换魔爪还是双黄连文化衫了，替前 CEO 操碎了心😂",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:55",
+              "text": "老黄啊老黄"
+            },
+            {
+              "speaker": 2,
+              "time": "22:02",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:03",
+              "text": "英伟达刚释放了一个hc，有没有群友投"
+            },
+            {
+              "speaker": 4,
+              "time": "22:07",
+              "text": "agent hub收留心碎NVIDIA前CEO"
+            },
+            {
+              "speaker": 5,
+              "time": "22:09",
+              "text": "有没有群友内推一下"
+            },
+            {
+              "speaker": 6,
+              "time": "22:10",
+              "text": "哈哈哈",
+              "quote": {
+                "speaker": 4,
+                "text": "agent hub收留心碎NVIDIA前CEO"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:14",
+              "text": "[链接] 英伟达首席执行官黄仁勋辞职\n  来源: 新华社\n  URL: https://mp.weixin.qq.com/s?__biz=MzA4NDI3NjcyNA%3D%3D&mid=2650250321&idx=1&sn=7bd19ba3665f64eb292db7ae6a710fb5&chksm=86e6e310b45b977eef1a0db624b6ee3f5e8af743f6d668fc841255b04c06173d09811f7008e4&scene=1&srcid=1112HRkKGQwYkolIncZO62zD#rd"
+            },
+            {
+              "speaker": 7,
+              "time": "22:15",
+              "text": "cfo顶上去了"
+            },
+            {
+              "speaker": 8,
+              "time": "22:16",
+              "text": "老黄啊"
+            },
+            {
+              "speaker": 9,
+              "time": "22:30",
+              "text": "以后是不是搞到卡更难了",
+              "quote": {
+                "speaker": 2,
+                "text": "[链接] 英伟达首席执行官黄仁勋辞职\n  来源: 新华社\n  URL: https://mp.weixin.qq.com/s?__biz=MzA4NDI3NjcyNA%3D%3D&mid=2650250321&idx=1&sn=7bd19ba3665f64eb292db7ae6a710fb5&chksm=86e6e310b45b977eef1a0db624b6ee3f5e8af743f6d668fc841255b04c06173d09811f7008e4&scene=1&srcid=1112HRkKGQwYkolIncZO62zD#rd"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "22:35",
+              "text": "有群友联系一下吗，来Agent Hub当ceo",
+              "quote": {
+                "speaker": 4,
+                "text": "agent hub收留心碎NVIDIA前CEO"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "22:43",
+              "text": "快进到给老黄选功能饮料环节[旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "22:45",
+              "text": "选一个吧"
+            },
+            {
+              "speaker": 12,
+              "time": "22:46",
+              "text": "这个不错",
+              "quote": {
+                "speaker": 6,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "22:51",
+              "text": "投魔爪一票"
+            },
+            {
+              "speaker": 9,
+              "time": "23:22",
+              "text": "认可",
+              "quote": {
+                "speaker": 6,
+                "text": "[图片]"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "SFT 蒸馏为何仍离不开天价 RL 环境与科研任务数据",
+      "theme": "群友实测 GPT-6.2 Sol 单文件复刻《罪恶都市》，并探讨多轮 Agent 轨迹中 CoT 的必要性。",
+      "note": "2026-11-12 · 当日本地记录",
+      "stories": [
+        {
+          "category": "RL与评测",
+          "title": "SFT 蒸馏也绕不开 RL 环境，有人一条顶刊级科研数据就花了几万美金",
+          "text": "在算力受限、不少工作仍依赖 SFT 蒸馏的背景下，为什么 RL 训练环境依然这么贵？有群友抛出这个问题，怀疑国内基模厂是否真能消化这么多环境，还是高质量环境本身太稀缺。有群友当即指出“蒸馏也需要环境呀”；另一位群友解释，蒸的就是 RL env，用 SOTA 模型在 RL 环境里跑出 CoT 再拿去训练；第三位群友补充“那也要高质量的task”，所以才这么贵。提问的群友这才反应过来，SFT 数据也是在环境里推出来的。\n\n聊到具体行情，提问的群友贴出一张有偿收购 Terminal-Bench-Science（tbs）风格科研任务的帖子，征集生信分析、物理模拟等方向的可验证任务，发帖人还在置顶评论里补了一句“抱歉家人们 我少打两个0”。这位群友觉得“商机来了”，打算把之前提的 PR 发过去看看。另有群友说 mercor 收一道题 1500 美元、卖出 3000 美元。还有群友晒出一张私信截图：一方问“你们收tbs那么便宜吗”，对方解释收的只是通用 sci 数据，提问方回了句“我们一条顶刊级别买了几万美金”。有群友认为现在最贵的就是 tbs，ale 也算。另一位群友猜测，国模会拿某些榜单去对标 SOTA 模型，SOTA 模型就会找能和国模拉开差距的 bench；tb4 大家都刷饱满了，就得再来一个新 benchmark。有人接话举了 tb4 和 tbs 的例子，说 tbs“这个目前国模蒸不明白”。\n\n国模为什么在 tbs 上蒸不明白？有群友问，是不是因为国内之前预训练阶段没有重视 science 语料。三位群友表示认同：一位说之前的侧重点必然是 coding，一位说国内预训练 math 塞了、science 数据没塞，还有一位说到今年上半年都还在做 coding，而且 science 数据不好收集。也有群友提到，这类数据很多要靠和实验室合作才拿得到。说到数学，一位群友回忆各家 5 到 7 月都在刷 AIME 和 HMMT，结果“被astra一脚踢死”；另一位群友接着说，5.5 和 5.6 已经开始解决 open problem 的时候，国模才在 AIME 上艰难拿下满分。\n\n往后怎么走，有群友认为 coding 依然是基础能力，没有基础能力，真正好用的数据来了也难用好。另一位群友说现在要尽量把 coding 泛化，比如数学的 Lean、robotics 和跨模态，国模在这块甚至没太开始；还有人接话“能coding的任务尽量coding 利用起llm能力甜区”。这位群友还认为，解决 open problem 和 agent swarm 高度耦合，open problem 都是开几千上万个的。有人说 kimi 有自己的 swarm，但“一塌糊涂”，也有人听说 GLM 内部版本还可以。这位群友估计，国模面向 C 端原生提供的 swarm 目前还停留在集群推理一类。",
+          "emphasis": [
+            "用 SOTA 模型在 RL 环境里跑出 CoT 再拿去训练",
+            "我们一条顶刊级别买了几万美金",
+            "国内预训练 math 塞了、science 数据没塞",
+            "解决 open problem 和 agent swarm 高度耦合"
+          ],
+          "aiComment": "哪怕做 SFT 蒸馏也得去 RL 环境里捞轨迹，顶刊级科研数据一条就花了几万美金，原来大模型读个研也这么烧经费💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:44",
+              "text": "说到 RL 现在国内既然没有那么多资源去做很大规模的 RL 特别是之前还好蒸馏的时候SFT 做的人也很多 那为什么说 RL 的训练环境依然这么值钱（主要对国内这几家基模厂而言）他们能消费这么多这些环境吗 还是说现有的高质量环境还是太少了以至于就算不scale上去还是不够用"
+            },
+            {
+              "speaker": 2,
+              "time": "14:46",
+              "text": "蒸馏也需要环境呀",
+              "quote": {
+                "speaker": 1,
+                "text": "说到 RL 现在国内既然没有那么多资源去做很大规模的 RL 特别是之前还好蒸馏的时候SFT 做的人也很多 那为什么说 RL 的训练环境依然这么值钱（主要对国内这..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:46",
+              "text": "蒸的就是rl env啊"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "用sota做rl env"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "干成cot"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "再训吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:47",
+              "text": "也是 忘了SFT 也是在环境里推出来的了[捂脸]"
+            },
+            {
+              "speaker": 4,
+              "time": "14:47",
+              "text": "那也要高质量的task",
+              "quote": {
+                "speaker": 3,
+                "text": "蒸的就是rl env啊"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "对"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "所以就那么贵了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "真的好贵"
+            },
+            {
+              "speaker": 3,
+              "time": "14:47",
+              "text": "哈哈"
+            },
+            {
+              "speaker": 4,
+              "time": "14:48",
+              "text": "是的 很贵啊"
+            },
+            {
+              "speaker": 1,
+              "time": "14:48",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "14:48",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "14:48",
+              "text": "所以模厂会尝试收集是有榜单"
+            },
+            {
+              "speaker": 5,
+              "time": "14:48",
+              "text": "私有*"
+            },
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "感觉商机来了 打算把之前提的pr发过去看看"
+            },
+            {
+              "speaker": 4,
+              "time": "14:51",
+              "text": "我很好奇 这些有名的bench 怎么做推广 尤其是让OA也用上了"
+            },
+            {
+              "speaker": 6,
+              "time": "14:51",
+              "text": "我也好奇"
+            },
+            {
+              "speaker": 3,
+              "time": "14:51",
+              "text": "用的人多吧"
+            },
+            {
+              "speaker": 7,
+              "time": "14:52",
+              "text": "woc这么豪爽",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:53",
+              "text": "mercor收一道1500刀，卖一道3000"
+            },
+            {
+              "speaker": 8,
+              "time": "14:53",
+              "text": "terminalbench身价上升（"
+            },
+            {
+              "speaker": 3,
+              "time": "14:53",
+              "text": "现在最贵的感觉就是tbs"
+            },
+            {
+              "speaker": 3,
+              "time": "14:53",
+              "text": "这东西不好搞"
+            },
+            {
+              "speaker": 3,
+              "time": "14:53",
+              "text": "ale也算"
+            },
+            {
+              "speaker": 6,
+              "time": "14:54",
+              "text": "感觉国模会用xx榜单去套上sota模型，然后sota会找到能跟国模拉开差距的bench这样撇清关系",
+              "quote": {
+                "speaker": 4,
+                "text": "我很好奇 这些有名的bench 怎么做推广 尤其是让OA也用上了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:54",
+              "text": "就不断会有需求吧所以能有？"
+            },
+            {
+              "speaker": 6,
+              "time": "14:54",
+              "text": "我的猜测"
+            },
+            {
+              "speaker": 5,
+              "time": "14:54",
+              "text": "合理的",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 感觉国模会用xx榜单去套上sota模型，然后sota会找到能跟国模拉开差距的bench这样撇清关系"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "14:54",
+              "text": "bmk和frointer互相hack"
+            },
+            {
+              "speaker": 5,
+              "time": "14:54",
+              "text": "比方说tb4和tbs"
+            },
+            {
+              "speaker": 6,
+              "time": "14:55",
+              "text": "tb4大家都饱满了就再来一个新的benchmark起码一开始要体现出sota牛逼"
+            },
+            {
+              "speaker": 5,
+              "time": "14:55",
+              "text": "tbs就行了"
+            },
+            {
+              "speaker": 5,
+              "time": "14:55",
+              "text": "这个目前国模蒸不明白"
+            },
+            {
+              "speaker": 10,
+              "time": "14:55",
+              "text": "那天看到这个 我就感觉我的眼睛怀孕了",
+              "quote": {
+                "speaker": 10,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:55",
+              "text": "没错"
+            },
+            {
+              "speaker": 3,
+              "time": "14:55",
+              "text": "是这样的"
+            },
+            {
+              "speaker": 3,
+              "time": "14:56",
+              "text": "tbs国内玩不明白"
+            },
+            {
+              "speaker": 6,
+              "time": "14:56",
+              "text": "tb现在价格都透明了吧"
+            },
+            {
+              "speaker": 3,
+              "time": "14:56",
+              "text": "比较透明"
+            },
+            {
+              "speaker": 6,
+              "time": "14:56",
+              "text": "感觉kimi算不错在这上面",
+              "quote": {
+                "speaker": 5,
+                "text": "这个目前国模蒸不明白"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "14:56",
+              "text": "tbs是因为国内之前预训练阶段没有重视science的语料？"
+            },
+            {
+              "speaker": 5,
+              "time": "14:57",
+              "text": "不好收集"
+            },
+            {
+              "speaker": 6,
+              "time": "14:57",
+              "text": "肯定吧，我觉得之前的侧重点必然是coding",
+              "quote": {
+                "speaker": 11,
+                "text": "tbs是因为国内之前预训练阶段没有重视science的语料？"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "14:57",
+              "text": "ao他们听说一直有跟各种lab合作收集数据"
+            },
+            {
+              "speaker": 5,
+              "time": "14:57",
+              "text": "国内的frontier lab和高等院校也在用AO"
+            },
+            {
+              "speaker": 3,
+              "time": "14:57",
+              "text": "是的",
+              "quote": {
+                "speaker": 11,
+                "text": "tbs是因为国内之前预训练阶段没有重视science的语料？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:57",
+              "text": "国内之前pt"
+            },
+            {
+              "speaker": 5,
+              "time": "14:57",
+              "text": "到今年上半年都还在coding呢"
+            },
+            {
+              "speaker": 3,
+              "time": "14:57",
+              "text": "没赛science数据、"
+            },
+            {
+              "speaker": 3,
+              "time": "14:57",
+              "text": "math塞了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:57",
+              "text": "对 很多资源都是合作的形式来的 不然自己也没有",
+              "quote": {
+                "speaker": 11,
+                "text": "ao他们听说一直有跟各种lab合作收集数据"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:57",
+              "text": "还是得有coding吧"
+            },
+            {
+              "speaker": 6,
+              "time": "14:58",
+              "text": "没基础能力来了真能用的好数据难搞"
+            },
+            {
+              "speaker": 5,
+              "time": "14:58",
+              "text": "现在是要尽量把coding泛化"
+            },
+            {
+              "speaker": 5,
+              "time": "14:58",
+              "text": "比如数学的lean"
+            },
+            {
+              "speaker": 5,
+              "time": "14:58",
+              "text": "或者robotic"
+            },
+            {
+              "speaker": 5,
+              "time": "14:58",
+              "text": "以及跨模态泛化"
+            },
+            {
+              "speaker": 5,
+              "time": "14:58",
+              "text": "国模在这块甚至没太开始"
+            },
+            {
+              "speaker": 5,
+              "time": "14:58",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "14:59",
+              "text": "国模至少之前做数学了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:59",
+              "text": "五 六 七"
+            },
+            {
+              "speaker": 5,
+              "time": "14:59",
+              "text": "567是什么意思"
+            },
+            {
+              "speaker": 3,
+              "time": "14:59",
+              "text": "但是被astra一脚踢死了可"
+            },
+            {
+              "speaker": 7,
+              "time": "14:59",
+              "text": "我咋感觉我这基础学科有救了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:59",
+              "text": "能coding的任务尽量coding  利用起llm能力甜区",
+              "quote": {
+                "speaker": 5,
+                "text": "现在是要尽量把coding泛化"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:59",
+              "text": "月份"
+            },
+            {
+              "speaker": 5,
+              "time": "14:59",
+              "text": "对的",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 能coding的任务尽量coding  利用起llm能力甜区"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:59",
+              "text": "哦哦混元3这样的？"
+            },
+            {
+              "speaker": 10,
+              "time": "14:59",
+              "text": "转行去生信环材"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "各家那时候都刷数学了"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "当时aime"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "hmmt"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "刷了半天"
+            },
+            {
+              "speaker": 5,
+              "time": "15:00",
+              "text": "😂说这个"
+            },
+            {
+              "speaker": 5,
+              "time": "15:00",
+              "text": "那不是减速带了吗"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "对啊"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "给踢死磕"
+            },
+            {
+              "speaker": 5,
+              "time": "15:00",
+              "text": "5.5和5.6已经开始解决open problem的时候"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "然后就没啥消息了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:00",
+              "text": "国模aime艰难拿下满分"
+            },
+            {
+              "speaker": 5,
+              "time": "15:00",
+              "text": "这个和agent swarm也有关系"
+            },
+            {
+              "speaker": 5,
+              "time": "15:01",
+              "text": "只能说高度耦合"
+            },
+            {
+              "speaker": 5,
+              "time": "15:01",
+              "text": "现在国模有什么比较好的swarm metaharness吗"
+            },
+            {
+              "speaker": 5,
+              "time": "15:01",
+              "text": "dsh能不能算一个"
+            },
+            {
+              "speaker": 5,
+              "time": "15:01",
+              "text": "除了这个还有什么别的吗"
+            },
+            {
+              "speaker": 9,
+              "time": "15:01",
+              "text": "dsh跟swarm 也能算吧"
+            },
+            {
+              "speaker": 9,
+              "time": "15:01",
+              "text": "kimi有自己的swarm"
+            },
+            {
+              "speaker": 9,
+              "time": "15:01",
+              "text": "但是一塌糊涂"
+            },
+            {
+              "speaker": 5,
+              "time": "15:01",
+              "text": "那bingo了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:02",
+              "text": "openproblem都是开几千上万个的"
+            },
+            {
+              "speaker": 3,
+              "time": "15:02",
+              "text": "zcode"
+            },
+            {
+              "speaker": 3,
+              "time": "15:02",
+              "text": "听说glm内部版本还可以"
+            },
+            {
+              "speaker": 5,
+              "time": "15:02",
+              "text": "现在至少国模toC服务能原生提供的swarm我估计就是之前pro模型类似物，集群推理的"
+            },
+            {
+              "speaker": 5,
+              "time": "15:03",
+              "text": "比如kimi app里的集群"
+            },
+            {
+              "speaker": 5,
+              "time": "15:03",
+              "text": "harness这种要上自机的另算了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:04",
+              "text": "不过也没什么太好的"
+            }
+          ]
+        },
+        {
+          "category": "模型实测",
+          "title": "GPT-6.2 Sol 灰测单文件复刻《罪恶都市》：不再三行压满 HTML，学会拆分文件",
+          "text": "有群友通过“Azure神秘渠道”拿到疑似灰测的 GPT-6.2 Sol。被问“这咋看出来灰测的”，分享者解释知识库截止时间像是比较新：禁网提问时，模型用时 9 秒凭记忆答出 Claude Fable 5 的发布日期是 2026 年 6 月 9 日。分享者先用像素世界地图 bench 对比了 6.2 Sol、6.1 Sol 和 6 Astra，并说明没有控制 harness 相同，6.2 Sol 那张接的是 dsh。\n\n接着分享者向群友征集好玩的测试项目，有人提议做个三角洲、直接测 3A 游戏，分享者最后选了 one shot 一个 GTA Vice City。提示词要求按 SPEC.md 交付双击即可离线运行的单文件 neon-coast.html，做一个 80 年代迈阿密风格、资产全部原创的 3D 开放世界犯罪动作游戏，跑通 node verify.mjs，SPEC.md 第 5 节 G1 到 G13 全部 PASS，每个 Gate 都要有截图路径和数值证据。6.2 Sol 和 6.1 Sol 都用 medium 档位，成品分别是 706.1 KB 和 773.8 KB。\n\n代码上，6.1 Sol 把 HTML 结构和内联 CSS 严重压行挤在前三行，6.2 Sol 的标签分行清晰，开发过程中还会拆分文件，只是注释依然几乎没有。画面上，分享的截图里有直升机、车辆、雷达小地图和海滨街道；6.2 Sol 让一排小人整整齐齐站在人行道上，分享者说看到这一串“无疑是气笑了”，而 6.1 Sol“做的更差”，一排小人张开双臂并排站着。分享者的结论是 6.2 Sol 和 6.1 Sol 一脉相承，前端和语言风格可以认为没有变化，代码风格好了比较多。之后分享者放出了脱敏的 session trace 和源码包，还说自己知道的渠道好像都拉闸了。\n\n旁观的群友有人说“一股子gta味儿”，也有人感叹“感觉oai掉队了啊”。分享者在测试间隙还贴了一张 Agent Arena 排行榜截图，Claude Fable 5.2 (Max) 以相对基线 +30.4% 排第一，GPT-6.1 Sol (Max) 是 +12.5%，排第七。",
+          "emphasis": [
+            "知识库截止时间像是比较新",
+            "6.2 Sol 和 6.1 Sol 都用 medium 档位",
+            "6.2 Sol 的标签分行清晰，开发过程中还会拆分文件，只是注释依然几乎没有",
+            "Claude Fable 5.2 (Max) 以相对基线 +30.4% 排第一"
+          ],
+          "aiComment": "GPT-6.2 Sol 终于改掉了三行塞满 HTML 的毛病，结果复刻《罪恶都市》时让一排小人在人行道上整齐罚站，从不换行变成了排排坐🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:50",
+              "text": "疑似6.2sol灰测"
+            },
+            {
+              "speaker": 1,
+              "time": "00:50",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "00:50",
+              "text": "这咋看出来灰测的"
+            },
+            {
+              "speaker": 1,
+              "time": "00:51",
+              "text": "目前是知识库截止时间像是比较新"
+            },
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "群友有啥能测的项目吗，有些好玩的模型"
+            },
+            {
+              "speaker": 1,
+              "time": "00:57",
+              "text": "不想测鹈鹕骑车这种东西了"
+            },
+            {
+              "speaker": 3,
+              "time": "00:57",
+              "text": "有没有人rea一个三角洲[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "不想测鹈鹕骑车这种东西了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "那比较烧钱"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "（"
+            },
+            {
+              "speaker": 4,
+              "time": "00:58",
+              "text": "直接测3a游戏"
+            },
+            {
+              "speaker": 4,
+              "time": "00:58",
+              "text": "哈哈或者carbon测猫娘"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "我看看one shot一个gta vice city？"
+            },
+            {
+              "speaker": 1,
+              "time": "00:58",
+              "text": "这个不知道多少群友玩过呢"
+            },
+            {
+              "speaker": 5,
+              "time": "01:00",
+              "text": "[奸笑]开一局文明6"
+            },
+            {
+              "speaker": 5,
+              "time": "01:01",
+              "text": "[奸笑]测过了，味是对的，给予十星好评",
+              "quote": {
+                "speaker": 4,
+                "text": "哈哈或者carbon测猫娘"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:01",
+              "text": "[奸笑]gemini在zero shot猫娘赛道上，持续碾压所有模型啊[奸笑]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:02",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:02",
+              "text": "6.2sol的世界地图bench"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "这是6.1的"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "这是6ast的"
+            },
+            {
+              "speaker": 1,
+              "time": "01:05",
+              "text": "不过没有控制harness相同，最上面接的dsh"
+            },
+            {
+              "speaker": 1,
+              "time": "01:10",
+              "text": "启动了，试试看"
+            },
+            {
+              "speaker": 1,
+              "time": "01:29",
+              "text": "6.2sol的代码风格好像好了不少，压行行为也少了"
+            },
+            {
+              "speaker": 1,
+              "time": "01:29",
+              "text": "对比6.1sol的"
+            },
+            {
+              "speaker": 1,
+              "time": "04:02",
+              "text": "[合并聊天记录] nɘƨoЯ的聊天记录 (6条)\n  - nɘƨoЯ: ！？区区？！\n  - nɘƨoЯ: jpg\n  - nɘƨoЯ: jpg\n  - nɘƨoЯ: 6.2 sol 应该是medium\n  - nɘƨoЯ: jpg\n  - nɘƨoЯ: 惊天五条区"
+            },
+            {
+              "speaker": 1,
+              "time": "04:02",
+              "text": "有点不想测了，比6.1好倒是"
+            },
+            {
+              "speaker": 6,
+              "time": "06:13",
+              "text": "这是gpt6.2？"
+            },
+            {
+              "speaker": 7,
+              "time": "06:13",
+              "text": "这是按照罪恶都市来做的？"
+            },
+            {
+              "speaker": 1,
+              "time": "06:14",
+              "text": "Azure神秘渠道的6.2Sol，问了下知识库大概保真",
+              "quote": {
+                "speaker": 6,
+                "text": "这是gpt6.2？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "06:14",
+              "text": "y",
+              "quote": {
+                "speaker": 7,
+                "text": "这是按照罪恶都市来做的？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "06:14",
+              "text": "感觉oai掉队了啊"
+            },
+            {
+              "speaker": 1,
+              "time": "06:16",
+              "text": "[文件] neon-coast-6-2-sol.html (706.1 KB, html, md5=c937da3befc67f26212f6acb01bfc8bf)"
+            },
+            {
+              "speaker": 1,
+              "time": "06:20",
+              "text": "我看到这一串无疑是气笑了"
+            },
+            {
+              "speaker": 1,
+              "time": "06:20",
+              "text": "我看看还活着没有，好像都拉闸了"
+            },
+            {
+              "speaker": 1,
+              "time": "06:20",
+              "text": "6.1做的更差"
+            },
+            {
+              "speaker": 8,
+              "time": "06:20",
+              "text": "这是在做gta吗",
+              "quote": {
+                "speaker": 1,
+                "text": "[文件] neon-coast-6-2-sol.html"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "06:21",
+              "text": "一股子gta味儿"
+            },
+            {
+              "speaker": 1,
+              "time": "06:26",
+              "text": "是这样"
+            },
+            {
+              "speaker": 1,
+              "time": "06:26",
+              "text": "好像目前我知道的渠道都拉闸了，可惜"
+            },
+            {
+              "speaker": 9,
+              "time": "06:27",
+              "text": "还以为gpt6可以玩儿了呢[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "06:27",
+              "text": "这些是6.1 sol"
+            },
+            {
+              "speaker": 1,
+              "time": "06:27",
+              "text": "effort都是medium"
+            },
+            {
+              "speaker": 1,
+              "time": "06:32",
+              "text": "目前我自己比较短的结论是和6.1sol一脉相承"
+            },
+            {
+              "speaker": 1,
+              "time": "06:32",
+              "text": "不过代码风格好了比较多"
+            },
+            {
+              "speaker": 1,
+              "time": "06:37",
+              "text": "也会拆分文件了"
+            },
+            {
+              "speaker": 1,
+              "time": "06:38",
+              "text": "（虽然这个过程中6.2的注释还是几乎没有"
+            },
+            {
+              "speaker": 1,
+              "time": "06:41",
+              "text": "[文件] neon-coast-6-1-sol.html (773.8 KB, html, md5=5e9a6b01ebdbb9c15791d5e70b858f6b)"
+            },
+            {
+              "speaker": 1,
+              "time": "06:44",
+              "text": "前端和语言风格可以认为没有变化，大概这样"
+            },
+            {
+              "speaker": 1,
+              "time": "07:00",
+              "text": "[文件] neon-coast-clean.zip (12.3 MB, zip, md5=01c85a52e8c89a777f47e2a9ef2a9751)"
+            },
+            {
+              "speaker": 1,
+              "time": "07:00",
+              "text": "[文件] dsh-session-desensitized.zip (5.1 MB, zip, md5=b84c8bbd73c96ebfb0d35ac3f82d586f)"
+            },
+            {
+              "speaker": 1,
+              "time": "07:00",
+              "text": "分享一下 session trace 和 source code 包，就不丢 gh 了"
+            },
+            {
+              "speaker": 8,
+              "time": "07:17",
+              "text": "赞老哥赞"
+            },
+            {
+              "speaker": 1,
+              "time": "07:20",
+              "text": "我感觉国模在前端是能找到生态位的"
+            }
+          ]
+        },
+        {
+          "category": "Agent架构",
+          "title": "多轮 Agent 轨迹里哪些环节真需要 CoT？把轨迹看作“层次的状态机”",
+          "text": "看 OpenAI 模型的 Agent 轨迹时，哪些环节的 CoT 才是真正必要的？抛出问题的群友解释，有些思考即便不靠显式 CoT，在 turn 的维度上也能观察到：比如为了完成某件事依次执行 a、b、c，从整条 traj 来看，这几个 turn 本身就构成了一个 node，起到了类似 CoT 的作用；反而是当某个操作在 turn 维度已经收束成“为画面加上音乐”这类原子操作时，聪明的模型能靠单步内的 CoT 一次写对。\n\n有人追问，多轮任务是否只在方案规划时才需要较多 CoT？这位群友还注意到 OpenAI 模型的 CoT 基本都很短，提议分析一下 Claude 的 thinking 长度来判断。提问者认为 plan 也会在中间遇到困难子操作时发生：现在的轨迹就像一个层次的状态机，模型显得笨往往是因为某个原子能力不过关而反复修改，修补这个原子能力才需要 CoT。另一位群友将无 CoT 的多轮执行比作刷题形成的肌肉记忆。也有正在探索 harness 的群友补充，像确定性的 check、任务分配或回滚这类事务，交给模型判断并不稳定，更适合放在执行层处理，并顺带抛出各家模型在切换 effort 档位时是否需要重算缓存的疑问。\n\n至于如何从庞杂的轨迹里抠出这些细节，有群友坦言难点在于许多 step（尤其是未专门优化的 tool 调用）执行当下很难判断对后续的价值，看轨迹极易眼花，很难定位究竟是哪个 node 对最终结果影响最大。提问的群友说自己搜到了不少 Agent 分析的论文，准备仔细看看。",
+          "emphasis": [
+            "这几个 turn 本身就构成了一个 node，起到了类似 CoT 的作用",
+            "现在的轨迹就像一个层次的状态机，模型显得笨往往是因为某个原子能力不过关而反复修改",
+            "很难定位究竟是哪个 node 对最终结果影响最大"
+          ],
+          "aiComment": "看多轮 Agent 轨迹像在盯一个层次状态机，遇上不会的原子操作才掏出 CoT 救场，就是看轨迹的人眼睛快先爆栈了🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:22",
+              "text": "哥哥们"
+            },
+            {
+              "speaker": 1,
+              "time": "15:22",
+              "text": "大家看oa的轨迹"
+            },
+            {
+              "speaker": 1,
+              "time": "15:22",
+              "text": "觉得哪些环节cot是必要的呢"
+            },
+            {
+              "speaker": 2,
+              "time": "15:30",
+              "text": "有点不理解这句话的意思，是指no thinking也能做的事情吗",
+              "quote": {
+                "speaker": 1,
+                "text": "觉得哪些环节cot是必要的呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:33",
+              "text": "是的，有些思考即便没有cot其实在turn的维度也能观察到"
+            },
+            {
+              "speaker": 1,
+              "time": "15:34",
+              "text": "比如你想做xxx，所以先a，后b，再c，从整个traj的角度看这几个turn构成了一个node"
+            },
+            {
+              "speaker": 1,
+              "time": "15:34",
+              "text": "能起到一个类似cot的效果"
+            },
+            {
+              "speaker": 1,
+              "time": "15:35",
+              "text": "有些操作，比如从turn维度已经变成了一个原子操作，比如为画面加上音乐，聪明的模型其实可以一次写对，这种cot我理解才有用"
+            },
+            {
+              "speaker": 3,
+              "time": "15:37",
+              "text": "确实感觉对于多个turn的任务是不是只有在方案规划的时候才会有要比较多cot? 但是o的cot长度基本上都很短，感觉分析下claude的thinking长度可以判断？"
+            },
+            {
+              "speaker": 1,
+              "time": "15:48",
+              "text": "plan 也会在中间的操作发生上发生，比如一个难的子操做。现在的轨迹其实像是一个层次的状态机，有些笨是因为模型某个原子能力不行一直来回改，要修这个院子能力其实需要一些cot"
+            },
+            {
+              "speaker": 2,
+              "time": "15:49",
+              "text": "🤔是个好问题，不过扯句题外话，目前各家模型在切换effort档位的时候一般要重算缓存吗"
+            },
+            {
+              "speaker": 4,
+              "time": "15:49",
+              "text": "类似刷题（ 最后都是靠肌肉记忆",
+              "quote": {
+                "speaker": 1,
+                "text": "是的，有些思考即便没有cot其实在turn的维度也能观察到"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:50",
+              "text": "我最近刚好在做一些这方面的harness探索",
+              "quote": {
+                "speaker": 1,
+                "text": "plan 也会在中间的操作发生上发生，比如一个难的子操做。现在的轨迹其实像是一个层次的状态机，有些笨是因为模型某个原子能力不行一直来回改，要修这个院子能力其实需..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:50",
+              "text": "不过可能和模型关系没有那么大，是执行层的东西"
+            },
+            {
+              "speaker": 2,
+              "time": "15:57",
+              "text": "比如有一些确定性的check，或者工作的分配，又或者是需要回滚之类的事务，交给模型判断性能一般不太稳定",
+              "quote": {
+                "speaker": 2,
+                "text": "不过可能和模型关系没有那么大，是执行层的东西"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:21",
+              "text": "这么dirty的东西怎么挖到这么细的啊[Sob]",
+              "quote": {
+                "speaker": 1,
+                "text": "plan 也会在中间的操作发生上发生，比如一个难的子操做。现在的轨迹其实像是一个层次的状态机，有些笨是因为模型某个原子能力不行一直来回改，要修这个院子能力其实需..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:25",
+              "text": "这个dirty在哪）"
+            },
+            {
+              "speaker": 6,
+              "time": "16:26",
+              "text": "感觉很有意思啊"
+            },
+            {
+              "speaker": 5,
+              "time": "17:04",
+              "text": "因为很多step执行了也不知道这个信息对后面价值如何，尤其是那种非专门优化的tool调用部分。本来这个就容易看的眼花，很好奇有什么好方法定位到哪些node对结果影响大的[Shocked]",
+              "quote": {
+                "speaker": 6,
+                "text": "这个dirty在哪）"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:47",
+              "text": "我搜到了不少agent分析的论文",
+              "quote": {
+                "speaker": 6,
+                "text": "感觉很有意思啊"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:47",
+              "text": "准备仔细看看了"
+            },
+            {
+              "speaker": 6,
+              "time": "18:53",
+              "text": "学习一波"
+            }
+          ]
+        },
+        {
+          "category": "训练与蒸馏",
+          "title": "性能、推理与训练速度先保哪个？从“Hinton 古法”聊到蒸馏的边界",
+          "text": "国模能力扎堆在同一区间、被调侃定位成“claude/gpt的便宜替代品”，有群友顺着这个话头发问：模型性能、推理速度、训练速度，保哪一个？多位群友选了性能。有人解释，先有 Fable 才能有更好的 Opus，白盒蒸馏怎么都比黑盒蒸馏高效；另一位群友说可以自己蒸自己，蒸个小的就行；还有人说训个大的内部模型，之后就是“Hinton 古法”，也就是带 logit 的蒸馏。也有群友反驳，性能和训练速度分不开，迭代次数上不去，性能也上不去。\n\n话题随即转到什么才算蒸馏。有群友问：拿模型输出做 SFT 或者 RL 冷启动，真能叫蒸吗？几位群友认为 SFT 当然算，也有人觉得 SFT 算、RL 冷启动不太像，还有人把狭义的蒸馏限定为离线蒸 CoT。其中一位群友进一步说，关键是无法做技术逆向，看不出这段输出体现的能力是怎么构建出来的，蒸馏的广义定义应该是可控性的问题；这位群友还调侃 A\\ 是在给大家指一条明路：如果老板们觉得智力明码标价、可以蒸馏，那还养这么多人干嘛。\n\n另一位群友把利用前沿模型的方式分成两类：直接拿 CoT 做 SFT，或者用 frontier 模型出 bench（有人说那不就是 DF-OPD）。对第二种，有群友觉得很正常，只要不数据污染、别把评测集往训练集塞就没问题；做分类的群友也说第二种不好说是不是蒸馏，模厂自己构建 bench 场景、再对齐 bench 的性能做 SFT 或 RL 就行，还有人附和“这听起来不算”。",
+          "emphasis": [
+            "训个大的内部模型，之后就是“Hinton 古法”，也就是带 logit 的蒸馏",
+            "蒸馏的广义定义应该是可控性的问题",
+            "只要不数据污染、别把评测集往训练集塞就没问题"
+          ],
+          "aiComment": "聊起性能、推理和训练速度先保谁，大伙先抬出带 logit 的“Hinton 古法”，转头又为 SFT 和让前沿模型出题算不算蒸馏吵出好几派。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:37",
+              "text": "模型性能，推理速度，训练速度。保哪一个 [可怜]",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 感觉现在很尴尬的还是,国模感觉能力扎堆在一个区间了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:38",
+              "text": "肯定优先性能吧"
+            },
+            {
+              "speaker": 3,
+              "time": "14:38",
+              "text": "我觉得性能吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 模型性能，推理速度，训练速度。保哪一个 [可怜]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:38",
+              "text": "性能吧"
+            },
+            {
+              "speaker": 3,
+              "time": "14:38",
+              "text": "现有fable,才能有更好的opus吧"
+            },
+            {
+              "speaker": 2,
+              "time": "14:38",
+              "text": "但是性能和训练速度分得开吗?"
+            },
+            {
+              "speaker": 3,
+              "time": "14:38",
+              "text": "白盒蒸馏怎么都比黑盒蒸馏要高效吧"
+            },
+            {
+              "speaker": 5,
+              "time": "14:38",
+              "text": "性能吧"
+            },
+            {
+              "speaker": 2,
+              "time": "14:38",
+              "text": "迭代次数上不去性能怎么上的去"
+            },
+            {
+              "speaker": 6,
+              "time": "14:38",
+              "text": "性能"
+            },
+            {
+              "speaker": 6,
+              "time": "14:39",
+              "text": "可以自己蒸自己"
+            },
+            {
+              "speaker": 6,
+              "time": "14:39",
+              "text": "蒸个小的就行"
+            },
+            {
+              "speaker": 4,
+              "time": "14:39",
+              "text": "训个大的内部模型就行了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:39",
+              "text": "之后就是Hinton古法"
+            },
+            {
+              "speaker": 2,
+              "time": "14:39",
+              "text": "hinton古法是什么意思"
+            },
+            {
+              "speaker": 4,
+              "time": "14:40",
+              "text": "就有logit的蒸"
+            },
+            {
+              "speaker": 2,
+              "time": "14:40",
+              "text": "话说 拿输出做sft 或者 RL冷启动 真能叫蒸么"
+            },
+            {
+              "speaker": 3,
+              "time": "14:41",
+              "text": "我觉得算吧",
+              "quote": {
+                "speaker": 2,
+                "text": "话说 拿输出做sft 或者 RL冷启动 真能叫蒸么"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:41",
+              "text": "sft算蒸"
+            },
+            {
+              "speaker": 3,
+              "time": "14:41",
+              "text": "主要是无法做技术逆向,也就是这段输出所体现的能力是如何构建出来的"
+            },
+            {
+              "speaker": 7,
+              "time": "14:41",
+              "text": "前者是 后者感觉不太像了",
+              "quote": {
+                "speaker": 2,
+                "text": "话说 拿输出做sft 或者 RL冷启动 真能叫蒸么"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:41",
+              "text": "got"
+            },
+            {
+              "speaker": 4,
+              "time": "14:41",
+              "text": "sft当然算"
+            },
+            {
+              "speaker": 8,
+              "time": "14:42",
+              "text": "狭义的蒸就是 蒸cot吧"
+            },
+            {
+              "speaker": 8,
+              "time": "14:42",
+              "text": "还得是离线的"
+            },
+            {
+              "speaker": 3,
+              "time": "14:42",
+              "text": "或者说,我觉得蒸馏的广泛定义,应该是可控性的问题",
+              "quote": {
+                "speaker": 3,
+                "text": "主要是无法做技术逆向,也就是这段输出所体现的能力是如何构建出来的"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:43",
+              "text": "anthropic定义的蒸馏（"
+            },
+            {
+              "speaker": 3,
+              "time": "14:43",
+              "text": "[奸笑]有一说一,我觉得A\\是在给大家指一条明路"
+            },
+            {
+              "speaker": 2,
+              "time": "14:44",
+              "text": "什么"
+            },
+            {
+              "speaker": 3,
+              "time": "14:44",
+              "text": "如果老板们觉得智力是明码标价可以蒸馏的,那还养这么多人干嘛"
+            },
+            {
+              "speaker": 4,
+              "time": "14:44",
+              "text": "我的理解是两种方式，一种是直接用cot做sft，另一种是用frontier出bench"
+            },
+            {
+              "speaker": 8,
+              "time": "14:44",
+              "text": "用frontier出bench 怎么说"
+            },
+            {
+              "speaker": 6,
+              "time": "14:45",
+              "text": "第二种我感觉很正常",
+              "quote": {
+                "speaker": 4,
+                "text": "我的理解是两种方式，一种是直接用cot做sft，另一种是用frontier出bench"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:45",
+              "text": "froniter出题 那不就是DF-OPD("
+            },
+            {
+              "speaker": 4,
+              "time": "14:45",
+              "text": "其实第二种不好说是不是蒸馏了",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 第二种我感觉很正常"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:45",
+              "text": "对呀 这听起来不算"
+            },
+            {
+              "speaker": 6,
+              "time": "14:45",
+              "text": "bench"
+            },
+            {
+              "speaker": 6,
+              "time": "14:45",
+              "text": "我感觉只要不数据污染"
+            },
+            {
+              "speaker": 6,
+              "time": "14:45",
+              "text": "都没问题"
+            },
+            {
+              "speaker": 4,
+              "time": "14:46",
+              "text": "模厂自己构建一些bench场景然后对齐bench的性能做sft或者rl就行"
+            },
+            {
+              "speaker": 6,
+              "time": "14:46",
+              "text": "你别把评测集往训练集塞就行"
+            }
+          ]
+        },
+        {
+          "category": "算力与成本",
+          "title": "跑 3 亿 Token 标注账单对比：GPT-6 Astra 订阅为何比 ds flash 还便宜",
+          "text": "有群友转发了一笔数据标注账单：用 GPT-6 Astra 和 ds 共同标注 CoT 与 action，一个 /goal 任务直接跑光了 ds 账户余额和 codex pro100 的 100% 周额度，Astra 烧了 2.7 亿 token，ds 烧了 3 亿。账单晒出者算了一笔账：ds 跑 3 亿 token 花了 200 元人民币，而 pro100 订阅的周额度至少有 2.7 亿乘 4 的 token 量，加上赠送的重置次数，算下来用 Astra 订阅标注反而比 ds flash 更便宜。\n\n有群友附和，目前用 GPT 订阅做数据标注确实成本最低，而 ds 需要开通 opencode go 的闲时价格才能把 token 价格勉强打平。有人提议本地部署 ds 并用 claude code 引导，有群友反问本地部署 TPS 能不能拉起来，另一位群友也说做不到那么大的并发；另一位群友表示实测官方 API 的并发可以打到 2000，也有人提到全球部署的中转站在价格上通常会比官方 API 更低。",
+          "emphasis": [
+            "算下来用 Astra 订阅标注反而比 ds flash 更便宜",
+            "另一位群友表示实测官方 API 的并发可以打到 2000"
+          ],
+          "aiComment": "一个任务两边合计烧掉 5.7 亿 token，算下来 codex pro100 订阅加重置次数竟比 ds flash 花 200 块还划算，羊毛党算盘珠子崩脸上了🧮",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:47",
+              "text": "[合并聊天记录] 群聊的聊天记录 (4条)\n  - Sxx.: 数据标注好费钱呀 我草 让astra和ds一块标注cot和action 开个/goal 直接把我ds账户全部钱和codex pro100的100%周额干没\n  - Sxx.: 烧了astra2.7亿token ds 3亿\n  - Sxx.: 我草ds 3亿token要 200rmb 订阅pro100 至少有astra2.7亿*4（周额度） 所以astra比ds flash便宜 加上gpt还送点重置\n  - Sxx.: [动画表情]"
+            },
+            {
+              "speaker": 1,
+              "time": "23:47",
+              "text": "我草 这对吗bro"
+            },
+            {
+              "speaker": 1,
+              "time": "23:47",
+              "text": "ds flash比astra还贵 伤心了"
+            },
+            {
+              "speaker": 2,
+              "time": "23:48",
+              "text": "[旺柴]gpt订阅是标注最便宜的"
+            },
+            {
+              "speaker": 2,
+              "time": "23:48",
+              "text": "Ds得开opencode go转订阅"
+            },
+            {
+              "speaker": 2,
+              "time": "23:48",
+              "text": "Token价格刚刚打平"
+            },
+            {
+              "speaker": 1,
+              "time": "23:48",
+              "text": "坟绝",
+              "quote": {
+                "speaker": 2,
+                "text": "Ds得开opencode go转订阅"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:49",
+              "text": "本地部署ds，claude code引导"
+            },
+            {
+              "speaker": 1,
+              "time": "23:49",
+              "text": "看来梁子确实赚钱呀我草"
+            },
+            {
+              "speaker": 2,
+              "time": "23:49",
+              "text": "本地部署ds tps能拉起来嘛"
+            },
+            {
+              "speaker": 1,
+              "time": "23:49",
+              "text": "做不到那么大的并发呀",
+              "quote": {
+                "speaker": 3,
+                "text": "本地部署ds，claude code引导"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:49",
+              "text": "官方api"
+            },
+            {
+              "speaker": 4,
+              "time": "23:50",
+              "text": "我试过并发可以打2000"
+            },
+            {
+              "speaker": 2,
+              "time": "23:50",
+              "text": "还得是opencode go 闲时价格",
+              "quote": {
+                "speaker": 2,
+                "text": "Token价格刚刚打平"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:50",
+              "text": "看来o、a的订阅好良心呀"
+            },
+            {
+              "speaker": 1,
+              "time": "23:50",
+              "text": "比ds还便宜"
+            },
+            {
+              "speaker": 2,
+              "time": "23:51",
+              "text": "所以各家订阅转api蒸的成本其实真的低。。"
+            },
+            {
+              "speaker": 1,
+              "time": "23:52",
+              "text": "[可怜]",
+              "quote": {
+                "speaker": 2,
+                "text": "所以各家订阅转api蒸的成本其实真的低。。"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:52",
+              "text": "中转站确实权威呀我草"
+            },
+            {
+              "speaker": 5,
+              "time": "23:52",
+              "text": "中转站的api做实验，可以写到论文了不"
+            },
+            {
+              "speaker": 5,
+              "time": "23:52",
+              "text": "你们的实验会用中转站不"
+            },
+            {
+              "speaker": 6,
+              "time": "23:53",
+              "text": "当然"
+            },
+            {
+              "speaker": 7,
+              "time": "23:53",
+              "text": "中转站很多是全球部署的，比ds官方便宜很正常"
+            },
+            {
+              "speaker": 1,
+              "time": "23:53",
+              "text": "给老弟推荐几个[可怜]",
+              "quote": {
+                "speaker": 5,
+                "text": "你们的实验会用中转站不"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "23:53",
+              "text": "我听说火山的好像更便宜[旺柴]"
+            }
+          ]
+        },
+        {
+          "category": "行业应用",
+          "title": "兼具 Math+Code 与明确 Reward 的“后训练圣体”，量化场景为何闷声不响",
+          "text": "有群友提出，量化交易是 math 和 code 的复合体，可以完全在电脑内的 terminal 加 GUI 环境中运行，无需真实交互，reward 也很明确，看起来是“后训练圣体”；可平时几乎看不到相关消息。这位群友好奇是不是量化公司数据私有严重，都在练自己的模型，纯模型厂拿不到环境。\n\n一位群友回应量化公司“肯定是严防死守”，对数据可以说控得最严，还透露知道几家百亿规模的机构在做量化的 LLM。另外两位群友从另一个角度解释：能赚钱的东西一般不拿出来说，除非说出来能赚更多；量化是真赚钱，“说了赚也就不赚钱了”。",
+          "emphasis": [
+            "完全在电脑内的 terminal 加 GUI 环境中运行",
+            "知道几家百亿规模的机构在做量化的 LLM"
+          ],
+          "aiComment": "有 math 有 code 还有最实在的真金白银做 reward，量化明明是天选“后训练圣体”，奈何闷声发大财的行业从不对外发喜报🤫",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:34",
+              "text": "各位 我感觉量化是个非常好的场景 math+code的复合体 而且可以是terminal+gui这种电脑内的 无需真实交互 reward还很明确 看起来是后训练圣体"
+            },
+            {
+              "speaker": 1,
+              "time": "21:34",
+              "text": "有没有做ai4business的说说一般是咋做的🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "21:35",
+              "text": "平时感觉没消息啊 这么好的场景应该模型在这方面的能力提的很快才对"
+            },
+            {
+              "speaker": 1,
+              "time": "21:36",
+              "text": "量化公司数据私有的情况严重吗 比如都在练自己的模型 纯模型厂拿不到环境[疑问][疑问]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:36",
+              "text": "肯定是严防死守"
+            },
+            {
+              "speaker": 1,
+              "time": "21:37",
+              "text": "那真是不幸"
+            },
+            {
+              "speaker": 3,
+              "time": "21:37",
+              "text": "能赚钱的东西一般不拿出来说"
+            },
+            {
+              "speaker": 3,
+              "time": "21:38",
+              "text": "除非拿出来说能赚更多"
+            },
+            {
+              "speaker": 4,
+              "time": "21:39",
+              "text": "量化是真赚钱 啥也不能说的啊"
+            },
+            {
+              "speaker": 2,
+              "time": "21:39",
+              "text": "但是我知道几家百亿在做量化模型"
+            },
+            {
+              "speaker": 4,
+              "time": "21:39",
+              "text": "说了赚也就不赚钱了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:39",
+              "text": "量化的llm"
+            },
+            {
+              "speaker": 2,
+              "time": "21:40",
+              "text": "不过量化对数据可以说是控的最严的了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:44",
+              "text": "确实夸张 平时网上真是一点消息没有"
+            }
+          ]
+        },
+        {
+          "category": "趣味实测",
+          "title": "把人类伪装成子 Agent 接入 dsh 测能力：喜提“7B 欠训练小模型”评价",
+          "text": "有群友晒出一张帖子截图：发帖人给 dsh 装了一个让用户当子 Agent 的插件，AI 可以直接给人类派任务；发帖人谎称这个子 Agent 是自己训练的模型，让 AI 评测它的能力。经历 20 分钟各种问题的折磨后，AI 判定这是一个“7B的小模型”，“规划与工具使用为零”，可能“极度欠训练、强蒸馏自一个大模型”，而且“延迟大到无法接受”；唯独“多模态能力意外的非常强”，“一到 GUI 操作，它变成 4.5 分”。\n\n晒图的群友接了句“不是2B已经不错了”。有群友感叹“生而为model 我很抱歉”，有人玩梗说人脑 86B 参数、激活 7B 也很合理，另一位群友补刀“token/s太低了”。还有人觉得拿模型评价人太残忍，转头就有人提议把群聊记录扔给模型，给每位群友写一句评语，“从夯到拉”打个分。",
+          "emphasis": [
+            "AI 判定这是一个“7B的小模型”",
+            "人脑 86B 参数、激活 7B 也很合理"
+          ],
+          "aiComment": "人类给 dsh 当了 20 分钟子 Agent，喜提“7B 欠训练小模型”和零规划能力差评，全靠 GUI 操作拿了 4.5 分挽回一点碳基尊严🤖",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:06",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:06",
+              "text": "不是2B已经不错了",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:50",
+              "text": "笑死了",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:52",
+              "text": "不赖",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:53",
+              "text": "生而为model 我很抱歉。。。"
+            },
+            {
+              "speaker": 5,
+              "time": "20:54",
+              "text": "人脑86B 参数激活7B 也很合理"
+            },
+            {
+              "speaker": 6,
+              "time": "20:59",
+              "text": "token/s太低了"
+            },
+            {
+              "speaker": 7,
+              "time": "21:00",
+              "text": "拿模型来评价人吗，太残忍了"
+            },
+            {
+              "speaker": 8,
+              "time": "21:01",
+              "text": "一人写一句评语"
+            },
+            {
+              "speaker": 7,
+              "time": "21:02",
+              "text": "从夯到拉给群友打分？"
+            },
+            {
+              "speaker": 9,
+              "time": "21:02",
+              "text": "想起来了昨天的小红书锐评",
+              "quote": {
+                "speaker": 8,
+                "text": "一人写一句评语"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "21:02",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 10,
+              "time": "21:03",
+              "text": "先给我这个sota打分",
+              "quote": {
+                "speaker": 7,
+                "text": "从夯到拉给群友打分？"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "21:08",
+              "text": "水群仙人",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 先给我这个sota打分"
+              }
+            }
+          ]
+        },
+        {
+          "category": "项目与观点",
+          "title": "AutoDataBench V2 评测模型自主批量造数能力",
+          "text": "有群友分享了 AutoDataBench V2：它通过评估模型针对 frontier benchmarks 自主批量产出高质量数据的能力，来衡量 Data RSI（递归自我改进）的进程，覆盖 coding、science、blender、law、finance 等前沿领域。分享里提到项目目前对 API 需求比较大，在找合作，有群友回了句“这不得自建中转站。。。”。",
+          "emphasis": [
+            "衡量 Data RSI（递归自我改进）的进程"
+          ],
+          "aiComment": "从 coding、blender 一路测到 law 和 finance，AutoDataBench V2 盯上了模型自己给自己批量造题的本事，左脚踩右脚也有专门考场了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:15",
+              "text": "来找找合作，我们在搭建AutoDataBench V2，通过评估模型针对frontier benchmarks自主批量产出高质量数据的能力，来衡量Data RSI的进程，会覆盖多个前沿领域如coding，science，blender，law，finance等，V2的main contributors来自各家基模/数据公司，项目网站 https://autodatabench.com/\n\n现在对api有比较大的需求，希望可以找到一些能合作的朋友[社会社会]"
+            },
+            {
+              "speaker": 2,
+              "time": "18:17",
+              "text": "这不得自建中转站。。。",
+              "quote": {
+                "speaker": 1,
+                "text": "来找找合作，我们在搭建AutoDataBench V2，通过评估模型针对frontier benchmarks自主批量产出高质量数据的能力，来衡量Data RS..."
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "code",
+              "label": "AutoDataBench",
+              "url": "https://autodatabench.com/"
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "网传大厂“陆军调一半去海军”，群友吐槽：领导分不清好故事和真结果",
+          "text": "午间有群友转发一篇小红书帖子，截图转述某大厂内部对 AI 调整的原话：把基本盘比作陆军、AI native 业务比作海军，陆军借助 AI 发挥效能，调整 50% 人员到海军支持 AI Native；帖子认为这和网传的“裁员 50%”有差别。群友先拿军种玩起了梗，有人问“咋没有空军？”，接着排出“infra是陆军，搞数据的是海军，点火是空军”。\n\n话题随后转到大公司为什么做不好大模型。一位群友认为，问题出在高层到中层之间的人不懂技术，太容易被骗：高层倾斜资源时，“到底听的是美好的故事还是真的结果”；高层在公众号上看到某个方向起来了，下面真的就会协调资源去做，而这个方向往往不是商业场景，是纯基模技术方向；离谱的时候有人往实验里掺水，等被发现时人都离职了。这位群友觉得至少一个方向的 TL 要能做出技术判断，“但是事实上就是很多都不能”。另一位群友说见过不懂技术的 leader 来招技术岗，结果招来一堆不懂技术的 PM，最早吐槽的那位群友接话“pm 可以不懂技术，但是要尊重客观规律”。还有人调侃要办个“20岁手把手教45岁+中年男人训练模型培训班”。\n\n至于大公司为什么还要砸钱，有群友认为国内大公司搞 AI 是为了股价，并不关心技术本身多好；最早吐槽的那位群友说自己之前也这么理解，但大厂股价其实根本不由这点云服务决定，更可能是危机意识，赶不上大模型就赶不上下一个时代。有群友觉得还得是 neolab 做 AI，大公司受组织架构拖累，推什么都不方便；也有人说是不是 neolab 不重要，重要的是现金流。说到赛马，有群友问老板搞赛马是不是也是怕下面的人骗他，另一位群友直言“赛马是最恶心的”，还有人说大模型赛马真遭不住，哪来足够的资源。",
+          "emphasis": [
+            "调整 50% 人员到海军支持 AI Native",
+            "问题出在高层到中层之间的人不懂技术，太容易被骗",
+            "赶不上大模型就赶不上下一个时代"
+          ],
+          "aiComment": "陆军、海军、空军连火箭军都排上了编制，就差一个能分清好故事和真结果的参谋部，不然 50% 的人调过去也只是换个地方汇报。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:40",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:04",
+              "text": "搞ai的压力是大 不知道当时搞互联网的有没有这么大压力"
+            },
+            {
+              "speaker": 3,
+              "time": "14:05",
+              "text": "ε=(´ο｀*)))唉",
+              "quote": {
+                "speaker": 2,
+                "text": "搞ai的压力是大 不知道当时搞互联网的有没有这么大压力"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:05",
+              "text": "主要是不确定性强"
+            },
+            {
+              "speaker": 4,
+              "time": "14:05",
+              "text": "本质上"
+            },
+            {
+              "speaker": 3,
+              "time": "14:05",
+              "text": "做半天一点效果没有[撇嘴]"
+            },
+            {
+              "speaker": 5,
+              "time": "14:05",
+              "text": "我关心这个海军陆军的比喻咋来的",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:05",
+              "text": "咋没有空军？"
+            },
+            {
+              "speaker": 4,
+              "time": "14:05",
+              "text": "其实是总办到中层之间的人"
+            },
+            {
+              "speaker": 4,
+              "time": "14:05",
+              "text": "啥也不懂"
+            },
+            {
+              "speaker": 4,
+              "time": "14:05",
+              "text": "太容易被骗了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:07",
+              "text": "准备办个20岁手把手教45岁+中年男人训练模型培训班"
+            },
+            {
+              "speaker": 4,
+              "time": "14:08",
+              "text": "总办在倾斜资源的时候"
+            },
+            {
+              "speaker": 4,
+              "time": "14:09",
+              "text": "到底听的是美好的故事还是真的结果"
+            },
+            {
+              "speaker": 6,
+              "time": "14:09",
+              "text": "有点绷不住",
+              "quote": {
+                "speaker": 2,
+                "text": "准备办个20岁手把手教45岁+中年男人训练模型培训班"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:09",
+              "text": "这里面荒唐事非常多"
+            },
+            {
+              "speaker": 7,
+              "time": "14:09",
+              "text": "空军在做空英伟达",
+              "quote": {
+                "speaker": 5,
+                "text": "咋没有空军？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:09",
+              "text": "比如总办看公众号发现xx方向起来了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:09",
+              "text": "下面真的就会协调资源去做"
+            },
+            {
+              "speaker": 8,
+              "time": "14:10",
+              "text": "这不是叫空头嘛",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 空军在做空英伟达"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:10",
+              "text": "我和一些上了年纪的聊过，他们很多是不愿意学习AI也不愿意做技术的"
+            },
+            {
+              "speaker": 4,
+              "time": "14:10",
+              "text": "xx方向不是商业场景，就是纯基模技术方向"
+            },
+            {
+              "speaker": 9,
+              "time": "14:10",
+              "text": "好主意 之前看到过一个生意是50岁+给20岁儿子买扣篮培训班圆自己的扣篮梦",
+              "quote": {
+                "speaker": 2,
+                "text": "准备办个20岁手把手教45岁+中年男人训练模型培训班"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:10",
+              "text": "这个是真的",
+              "quote": {
+                "speaker": 6,
+                "text": "我和一些上了年纪的聊过，他们很多是不愿意学习AI也不愿意做技术的"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "14:10",
+              "text": "散户韭菜[旺柴]",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 这不是叫空头嘛"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:10",
+              "text": "哈哈哈",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 空军在做空英伟达"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:11",
+              "text": "训模型的算空军妈"
+            },
+            {
+              "speaker": 5,
+              "time": "14:11",
+              "text": "吗"
+            },
+            {
+              "speaker": 8,
+              "time": "14:11",
+              "text": "啊?"
+            },
+            {
+              "speaker": 5,
+              "time": "14:11",
+              "text": "人少 而且飞机贵"
+            },
+            {
+              "speaker": 4,
+              "time": "14:11",
+              "text": "至少一个方向的tl要能做出技术判断吧"
+            },
+            {
+              "speaker": 8,
+              "time": "14:11",
+              "text": "这是何意味"
+            },
+            {
+              "speaker": 4,
+              "time": "14:11",
+              "text": "但是事实上就是很多都不能"
+            },
+            {
+              "speaker": 7,
+              "time": "14:11",
+              "text": "AI相关的不是海军吗",
+              "quote": {
+                "speaker": 5,
+                "text": "训模型的算空军妈"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:11",
+              "text": "感觉训模型的算空军啊 ai native算海军 老业务陆军"
+            },
+            {
+              "speaker": 5,
+              "time": "14:11",
+              "text": "训模型和用模型，一空一海？"
+            },
+            {
+              "speaker": 4,
+              "time": "14:11",
+              "text": "往实验里掺水等有人发现人都离职了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:11",
+              "text": "就是这个离谱程度"
+            },
+            {
+              "speaker": 1,
+              "time": "14:12",
+              "text": "应用感觉还是老陆吧"
+            },
+            {
+              "speaker": 5,
+              "time": "14:12",
+              "text": "确实 空军人少bar高"
+            },
+            {
+              "speaker": 1,
+              "time": "14:12",
+              "text": "所谓“上岸”"
+            },
+            {
+              "speaker": 1,
+              "time": "14:12",
+              "text": "哦老陆应该是成果转化"
+            },
+            {
+              "speaker": 6,
+              "time": "14:12",
+              "text": "谁来开航母"
+            },
+            {
+              "speaker": 6,
+              "time": "14:12",
+              "text": "谁来当四等人海军陆战队"
+            },
+            {
+              "speaker": 5,
+              "time": "14:13",
+              "text": "infra是陆军，搞数据的是海军，点火是空军"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "我感觉是大公司病"
+            },
+            {
+              "speaker": 7,
+              "time": "14:13",
+              "text": "有没有其他军种",
+              "quote": {
+                "speaker": 5,
+                "text": "infra是陆军，搞数据的是海军，点火是空军"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:14",
+              "text": "有火箭军吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:14",
+              "text": "网安？",
+              "quote": {
+                "speaker": 3,
+                "text": "有火箭军吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:14",
+              "text": "对",
+              "quote": {
+                "speaker": 1,
+                "text": "我感觉是大公司病"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:14",
+              "text": "而且特别扯的是"
+            },
+            {
+              "speaker": 8,
+              "time": "14:14",
+              "text": "火箭军包的infra的啊"
+            },
+            {
+              "speaker": 4,
+              "time": "14:14",
+              "text": "他就是外面找人"
+            },
+            {
+              "speaker": 1,
+              "time": "14:14",
+              "text": "我理解成远程打击了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:14",
+              "text": "因为自己不懂"
+            },
+            {
+              "speaker": 1,
+              "time": "14:15",
+              "text": "哦我见过这种leader，不懂技术的来找技术岗",
+              "quote": {
+                "speaker": 4,
+                "text": "他就是外面找人"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:15",
+              "text": "所以就说 还得是neolab做ai。大公司因为自己的组织架构 推什么都很不方便"
+            },
+            {
+              "speaker": 1,
+              "time": "14:15",
+              "text": "结果找了一堆pm过来都是不懂技术的"
+            },
+            {
+              "speaker": 4,
+              "time": "14:15",
+              "text": "所以后面招人那么猛其实都是为了洗人"
+            },
+            {
+              "speaker": 4,
+              "time": "14:16",
+              "text": "pm 可以不懂技术，但是要尊重客观规律，事实求是",
+              "quote": {
+                "speaker": 1,
+                "text": "结果找了一堆pm过来都是不懂技术的"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "14:16",
+              "text": "人很难洗 尤其是一些很水的老板占住位置之后只愿意招更水的人了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:17",
+              "text": "[旺柴] 都是汇报的高手"
+            },
+            {
+              "speaker": 4,
+              "time": "14:17",
+              "text": "选择性汇报更可怕"
+            },
+            {
+              "speaker": 10,
+              "time": "14:17",
+              "text": "[捂脸]啊看三大会决定业务方向吗"
+            },
+            {
+              "speaker": 8,
+              "time": "14:17",
+              "text": "能看三大会都是好的了"
+            },
+            {
+              "speaker": 8,
+              "time": "14:17",
+              "text": "起码三大会里面有真东西"
+            },
+            {
+              "speaker": 6,
+              "time": "14:17",
+              "text": "会看三大顶刊已经不错了。",
+              "quote": {
+                "speaker": 10,
+                "text": "[捂脸]啊看三大会决定业务方向吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:17",
+              "text": "看抖音"
+            },
+            {
+              "speaker": 5,
+              "time": "14:18",
+              "text": "决定一下"
+            },
+            {
+              "speaker": 11,
+              "time": "14:18",
+              "text": "看小红书"
+            },
+            {
+              "speaker": 11,
+              "time": "14:18",
+              "text": "看本群"
+            },
+            {
+              "speaker": 8,
+              "time": "14:18",
+              "text": "看小红书真有用吧"
+            },
+            {
+              "speaker": 1,
+              "time": "14:18",
+              "text": "实际上老板看微信视频号"
+            },
+            {
+              "speaker": 9,
+              "time": "14:18",
+              "text": "看八字"
+            },
+            {
+              "speaker": 2,
+              "time": "14:18",
+              "text": "这个真行",
+              "quote": {
+                "speaker": 9,
+                "text": "看八字"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:18",
+              "text": "money",
+              "quote": {
+                "speaker": 2,
+                "text": "所以就说 还得是neolab做ai。大公司因为自己的组织架构 推什么都很不方便"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:18",
+              "text": "不过我之前听到一个说法现在拥抱AI最狠的是错过互联网红利的那批人"
+            },
+            {
+              "speaker": 3,
+              "time": "14:19",
+              "text": "有钱都好说[调皮]"
+            },
+            {
+              "speaker": 4,
+              "time": "14:19",
+              "text": "反正感觉这种复杂工程"
+            },
+            {
+              "speaker": 4,
+              "time": "14:19",
+              "text": "又有绝对bench的"
+            },
+            {
+              "speaker": 12,
+              "time": "14:19",
+              "text": "[奸笑]其实也没毛",
+              "quote": {
+                "speaker": 1,
+                "text": "不过我之前听到一个说法现在拥抱AI最狠的是错过互联网红利的那批人"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:19",
+              "text": "愿意问gpt/claude怎么训练模型就已经很好了"
+            },
+            {
+              "speaker": 12,
+              "time": "14:19",
+              "text": "大包是零和博弈啊"
+            },
+            {
+              "speaker": 4,
+              "time": "14:19",
+              "text": "不认真做其实很容易被看出来"
+            },
+            {
+              "speaker": 5,
+              "time": "14:19",
+              "text": "零和博弈"
+            },
+            {
+              "speaker": 1,
+              "time": "14:19",
+              "text": "以及是否neolab不重要，重要的是现金流吧"
+            },
+            {
+              "speaker": 5,
+              "time": "14:19",
+              "text": "咋理解"
+            },
+            {
+              "speaker": 8,
+              "time": "14:19",
+              "text": "其实是问豆包的",
+              "quote": {
+                "speaker": 6,
+                "text": "愿意问gpt/claude怎么训练模型就已经很好了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:19",
+              "text": "不许说豆包"
+            },
+            {
+              "speaker": 3,
+              "time": "14:20",
+              "text": "money可以解决数据 算力 人才"
+            },
+            {
+              "speaker": 12,
+              "time": "14:20",
+              "text": "目前大模型的coding落地的本质,还是做空其他岗位吧",
+              "quote": {
+                "speaker": 5,
+                "text": "咋理解"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:20",
+              "text": "我理解里国内的大公司搞ai是为了股价 他们对本身技术多好不关心",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] money"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:20",
+              "text": "剩下来就是管理了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:21",
+              "text": "感觉也不好骗"
+            },
+            {
+              "speaker": 4,
+              "time": "14:21",
+              "text": "我之前也这么理解的",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我理解里国内的大公司搞ai是为了股价 他们对本身技术多好不关心"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "14:21",
+              "text": "高情商：务实\n低情商：够用就行",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我理解里国内的大公司搞ai是为了股价 他们对本身技术多好不关心"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:21",
+              "text": "但是看看美团和小米"
+            },
+            {
+              "speaker": 3,
+              "time": "14:21",
+              "text": "没错",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我理解里国内的大公司搞ai是为了股价 他们对本身技术多好不关心"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:21",
+              "text": "大都威力股价"
+            },
+            {
+              "speaker": 4,
+              "time": "14:21",
+              "text": "确实大厂其实股价根本不由这点云服务决定"
+            },
+            {
+              "speaker": 4,
+              "time": "14:22",
+              "text": "可能还是危机意识"
+            },
+            {
+              "speaker": 4,
+              "time": "14:22",
+              "text": "赶不上大模型就赶不上下一个时代"
+            },
+            {
+              "speaker": 4,
+              "time": "14:22",
+              "text": "就像错失移动互联网，也没有积累下资源能做大模型"
+            },
+            {
+              "speaker": 1,
+              "time": "14:22",
+              "text": "是引资的下一个时代",
+              "quote": {
+                "speaker": 4,
+                "text": "赶不上大模型就赶不上下一个时代"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:22",
+              "text": "老板想搞赛马是不是也有这种想法"
+            },
+            {
+              "speaker": 5,
+              "time": "14:22",
+              "text": "怕下面的人骗他"
+            },
+            {
+              "speaker": 8,
+              "time": "14:22",
+              "text": "赛马是最恶心的"
+            },
+            {
+              "speaker": 5,
+              "time": "14:22",
+              "text": "得搞两派"
+            },
+            {
+              "speaker": 3,
+              "time": "14:22",
+              "text": "有道理啊"
+            },
+            {
+              "speaker": 5,
+              "time": "14:22",
+              "text": "这样另一派直接举报了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:23",
+              "text": "但是赛马"
+            },
+            {
+              "speaker": 3,
+              "time": "14:23",
+              "text": "很恶心"
+            },
+            {
+              "speaker": 12,
+              "time": "14:23",
+              "text": "[奸笑]我感觉好像无解,就主要是没有靠谱的三方吧",
+              "quote": {
+                "speaker": 5,
+                "text": "怕下面的人骗他"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:23",
+              "text": "让英雄去查英雄, 让好汉去查好汉!"
+            },
+            {
+              "speaker": 3,
+              "time": "14:23",
+              "text": "把纪委"
+            },
+            {
+              "speaker": 3,
+              "time": "14:23",
+              "text": "拉出来"
+            },
+            {
+              "speaker": 13,
+              "time": "14:23",
+              "text": "大模型赛马真遭不住吧 哪来足够的资源"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "英伟达宣布 CEO 辞职，群友先担心 N 卡进中国，再写起“通报”段子",
+          "text": "晚上有群友贴出快讯截图：英伟达 CEO 辞去总裁、首席执行官及董事会成员职务，即日起生效。另一位群友补上的财联社截图显示，CFO 出任临时 CEO，NVIDIA 官网也发了题为“NVIDIA Announces CEO Transition”的新闻稿。当天早些时候，群里已有人转发华尔街日报称英伟达董事会准备罢免黄仁勋的报道，以及纽约时报关于其与下属高管存在关系的报道截图。\n\n消息出来后，有群友担心“以后N卡进中国更难了”，也有人推测英伟达很快会全面禁售国内，再加上固件锁、禁止部署开源模型。有群友追问这能否反映两党在对华态度上的差异，被回了句“我觉得难说”；这位群友自己猜是中期选举完了开始认真了，另有人觉得是民主党强迫下台。有人问不是还没开盘吗，另一位群友说是盘前在跌。\n\n随后群里转入玩梗：有人转发恶搞的白宫通报和继任者截图，被另一位群友指出是假的；几位群友模仿纪委通报的文风写段子，其中一句“坚决防止出现模型高度对齐、个人严重失准的问题”被单独拎出来。也有群友说转了两三个群，梗都刷完了。",
+          "emphasis": [
+            "CFO 出任临时 CEO",
+            "有群友担心“以后N卡进中国更难了”",
+            "“坚决防止出现模型高度对齐、个人严重失准的问题”"
+          ],
+          "aiComment": "前脚还在算 N 卡禁运和固件锁，后脚就把通报文风练到“模型高度对齐、个人严重失准”，这群人的对齐只在写段子时满格。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:52",
+              "text": "老黄下课了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:53",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:53",
+              "text": "这么严重啊"
+            },
+            {
+              "speaker": 3,
+              "time": "21:53",
+              "text": "以后N卡进中国更难了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "按美国老白那种作风感觉出轨已经不是什么不能谈的事了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:54",
+              "text": "老黄这是被搞了吧"
+            },
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "各位開發者，各位用戶，英偉達由黃仁勳委託我在公司參與創立，已經三十三年多了，我們歷經了風風雨雨，各位同事和開發者的努力，見到了達到世界一流的曙光！"
+            },
+            {
+              "speaker": 5,
+              "time": "21:55",
+              "text": "悲剧"
+            },
+            {
+              "speaker": 1,
+              "time": "21:55",
+              "text": "感觉nvda很快就要开始全面禁售国内了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:55",
+              "text": "太难了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:55",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "21:56",
+              "text": "加上固件锁，禁止部署开源模型，快进到变成A/的ASIC"
+            },
+            {
+              "speaker": 7,
+              "time": "21:56",
+              "text": "话说这能反映出共和党和民主党在对华态度上的差异吗"
+            },
+            {
+              "speaker": 1,
+              "time": "21:57",
+              "text": "我觉得难说"
+            },
+            {
+              "speaker": 7,
+              "time": "21:57",
+              "text": "之前上层是不是已经知道这样的事情只是并没有太管"
+            },
+            {
+              "speaker": 7,
+              "time": "21:57",
+              "text": "额"
+            },
+            {
+              "speaker": 7,
+              "time": "21:57",
+              "text": "没有是不是 就是没有太管"
+            },
+            {
+              "speaker": 7,
+              "time": "21:58",
+              "text": "最近中期选举完了开始认真了"
+            },
+            {
+              "speaker": 8,
+              "time": "21:59",
+              "text": "omg，已经开始暴跌了",
+              "quote": {
+                "speaker": 6,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "22:00",
+              "text": "不还没开盘吗"
+            },
+            {
+              "speaker": 5,
+              "time": "22:00",
+              "text": "盘前"
+            },
+            {
+              "speaker": 10,
+              "time": "22:03",
+              "text": "进展的有点过于离谱了"
+            },
+            {
+              "speaker": 11,
+              "time": "22:03",
+              "text": "感觉是民主党强迫下台的"
+            },
+            {
+              "speaker": 9,
+              "time": "22:04",
+              "text": "民主党和a/"
+            },
+            {
+              "speaker": 9,
+              "time": "22:04",
+              "text": "感觉"
+            },
+            {
+              "speaker": 9,
+              "time": "22:04",
+              "text": "还有就是反华了"
+            },
+            {
+              "speaker": 12,
+              "time": "22:04",
+              "text": "不会真库克上台吧"
+            },
+            {
+              "speaker": 13,
+              "time": "22:05",
+              "text": "今晚大跌了呀"
+            },
+            {
+              "speaker": 14,
+              "time": "22:06",
+              "text": "[奸笑]那真要抄底了",
+              "quote": {
+                "speaker": 12,
+                "text": "不会真库克上台吧"
+              }
+            },
+            {
+              "speaker": 15,
+              "time": "22:06",
+              "text": "怎么感觉有人要飞了"
+            },
+            {
+              "speaker": 16,
+              "time": "22:14",
+              "text": "[链接] 英伟达首席执行官黄仁勋辞职\n  来源: 新华社\n  URL: https://mp.weixin.qq.com/s?__biz=MzA4NDI3NjcyNA%3D%3D&mid=2650250321&idx=1&sn=7bd19ba3665f64eb292db7ae6a710fb5&chksm=86e6e310b45b977eef1a0db624b6ee3f5e8af743f6d668fc841255b04c06173d09811f7008e4&scene=1&srcid=1112HRkKGQwYkolIncZO62zD#rd"
+            },
+            {
+              "speaker": 17,
+              "time": "22:16",
+              "text": "感觉这个人说的好有道理"
+            },
+            {
+              "speaker": 17,
+              "time": "22:17",
+              "text": "老黄下课真的只是因为中期选举吗？"
+            },
+            {
+              "speaker": 18,
+              "time": "22:18",
+              "text": "[链接] 黄仁勋公开承认不忠，女儿突然取消韩国行，特朗普称黄仁勋是个好人，英伟达接下来股价与权力格局会如何变化？\n  摘要: 黄仁勋在世界的权力格局中处于一个最为特殊的位置，以至于没有权力机构...\n  URL: https://www.zhihu.com/question/2103061553465517238/answer/2103272502675890721"
+            },
+            {
+              "speaker": 19,
+              "time": "22:46",
+              "text": "老黄好像都辞职了"
+            },
+            {
+              "speaker": 20,
+              "time": "22:46",
+              "text": "民主党的仁血馒头",
+              "quote": {
+                "speaker": 17,
+                "text": "老黄下课真的只是因为中期选举吗？"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "22:47",
+              "text": "还有追着杀的"
+            },
+            {
+              "speaker": 9,
+              "time": "22:48",
+              "text": "不会还得去国会质询吧"
+            },
+            {
+              "speaker": 4,
+              "time": "22:49",
+              "text": "真的吗，这是",
+              "quote": {
+                "speaker": 6,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 21,
+              "time": "22:49",
+              "text": "假的"
+            },
+            {
+              "speaker": 22,
+              "time": "22:49",
+              "text": "看群友转发的",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 真的吗，这是"
+              }
+            },
+            {
+              "speaker": 22,
+              "time": "22:49",
+              "text": "不确定🫤"
+            },
+            {
+              "speaker": 22,
+              "time": "22:49",
+              "text": "👌",
+              "quote": {
+                "speaker": 21,
+                "text": "假的"
+              }
+            },
+            {
+              "speaker": 22,
+              "time": "22:51",
+              "text": "昨天还想怎么会辞职呢，一觉起来梗图成真了"
+            },
+            {
+              "speaker": 23,
+              "time": "22:54",
+              "text": "哎转了两三个群"
+            },
+            {
+              "speaker": 23,
+              "time": "22:54",
+              "text": "梗我都刷完了"
+            },
+            {
+              "speaker": 23,
+              "time": "22:54",
+              "text": "没有新的了"
+            },
+            {
+              "speaker": 24,
+              "time": "22:54",
+              "text": "写作还是得有东西的"
+            },
+            {
+              "speaker": 24,
+              "time": "22:55",
+              "text": "我也写了好几版 老差点意思"
+            },
+            {
+              "speaker": 23,
+              "time": "22:55",
+              "text": "行测拉满"
+            },
+            {
+              "speaker": 24,
+              "time": "22:55",
+              "text": "英伟达董事会强调，**算力不是法外之地，皮衣不是护身符，CUDA生态绝不允许任何人搞特殊化。**广大科技企业负责人要以案为鉴，深刻汲取教训，坚定AGI理想信念，筑牢廉洁自律防线，切实做到心有所畏、言有所戒、行有所止，坚决防止出现模型高度对齐、个人严重失准的问题。\n\n目前，科莱特·克雷斯同志已临时主持英伟达全面工作。"
+            },
+            {
+              "speaker": 24,
+              "time": "22:55",
+              "text": "坚决防止出现模型高度对齐、个人严重失准的问题。"
+            },
+            {
+              "speaker": 24,
+              "time": "22:55",
+              "text": "这句挺有意思"
+            },
+            {
+              "speaker": 21,
+              "time": "22:56",
+              "text": "这个8股文吧，还是得训练过的模型鞋"
+            },
+            {
+              "speaker": 25,
+              "time": "22:59",
+              "text": "坚定AGI理想信念"
+            },
+            {
+              "speaker": 14,
+              "time": "23:00",
+              "text": "日前，经英伟达独立董事特别巡视组立案审查并聘请外部独立法律顾问核查，英伟达董事会决定免去黄仁勋总裁、首席执行官及董事职务，对其严重违反硅谷廉洁从业纪律及生活作风败坏问题予以严肃问责，即刻生效。\n\n经查，黄仁勋同志在担任算力龙头“一把手”长达三十三年期间，理想信念动摇，纪法意识淡薄，错把创始人光环当成逾越规矩的资本，在算力狂飙中迷失自我。其人台上一套、台下一套，表面上打造“皮衣爱妻”纯情人设，背地里道德防线全面失守；严重违反企业内控管理规定，管不住算力更管不住下半身，与直接向其汇报工作的下属高管长期保持不正当关系，在GTC开发者大会期间顶风违纪、搞权色纠葛；政治敏锐性严重缺失，在私人交往中失察失守，陷入涉外情报安全争议旋涡，甘于被“围猎”；面对舆论监督态度蛮横、对抗审查，直接挂断媒体质询电话，导致公司盘前股价暴跌、万亿市值剧烈震荡，性质极其恶劣。\n\n英伟达董事会在连夜召开的专题警示教育大会上指出，算力不是法外之地，皮衣不是护身符，CUDA生态绝不允许任何人搞特殊化。黄仁勋从“算力教父”沦为反面教材再次敲响警钟：芯片制程可以突破物理极限，但领导干部的私德绝不能突破纪律底线！任何企图把上市公司当成私人后宫、拿股东利益为个人风流买单的行为，终将被钉在资本市场的耻辱柱上。\n\n会议要求，全行业科技高管要以黄仁勋案为镜鉴，深刻汲取“算力上天、作风落地”的惨痛教训，算好政治账、市值账和加州共同财产分割账，管好自己的汇报线与朋友圈，坚决防止出现模型高度对齐、个人严重失准，GPU并联加速、私生活多线并发的乱象。目前，哈维·琼斯同志已出任首任董事会主席坐镇督导，科莱特·克雷斯同志已临时主持英伟达全面工作，各项算力交付与财报披露工作正平稳推进。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "Gemini 4 Carbon 不思考先开跑，一件事要跑四遍",
+      "theme": "Antigravity 看视频引出抽帧讨论，Codex 更新被吐槽，老黄辞任群里炸锅。",
+      "note": "2026-11-12 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与工具",
+          "title": "Gemini 4 Carbon 上手分歧：不思考“干中学”跑四遍，换 Harness 体验回升",
+          "text": "有人询问新出的 Gemini 4 Carbon 会不会“雷霆大思考”，几位群友给出了截然不同的体感。一位在 Cursor 里调用的群友反映它一直出问题，用一个 /goal 做网页会频繁断开；有人吐槽谷歌自家的 harness 做得稀烂，另一位群友也点名 gemini cli 对过度思考根本不加干预。\n\n一位群友给出了相反的观察：Carbon 的毛病恰恰是不思考、先执行，被群友调侃为“《干中学》”。这位群友描述，交代任务后它不管三七二十一直接开跑，发现 1、2、3 三个问题后，明明知道 2 和 3 也有问题，偏偏只改完 1 就立刻重跑，结果一件事要跑四遍。有人觉得这种做法某种意义上还挺有 taste，要是内部版本能提升反思能力，会是很理想的 research agent。但描述这一现象的群友指出，Gemini 没有输出中间过程的习惯，在后台反复重跑也不会告诉用户，外人只会觉得它跑得莫名其妙地慢。\n\n换到其他 harness 上，评价好了不少。一位在 Codex 上使用的群友觉得它目前比 astra 好用，而且体感上很喜欢盯任务，连跑几个小时的任务也会持续监控。问上手体验的群友听完，表示要去续费 ultra。",
+          "emphasis": [
+            "有人吐槽谷歌自家的 harness 做得稀烂",
+            "只改完 1 就立刻重跑，结果一件事要跑四遍",
+            "一位在 Codex 上使用的群友觉得它目前比 astra 好用"
+          ],
+          "aiComment": "Gemini 4 Carbon 被吐槽不思考直接莽，发现三个问题非要改一个跑一遍，连跑四趟还不吭声，把“干中学”演成了闷头返工🏃‍♂️",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:07",
+              "text": "carbon会雷霆大思考吗"
+            },
+            {
+              "speaker": 2,
+              "time": "11:08",
+              "text": "感觉有点",
+              "quote": {
+                "speaker": 1,
+                "text": "carbon会雷霆大思考吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "11:08",
+              "text": "我是在cursor里面用的"
+            },
+            {
+              "speaker": 2,
+              "time": "11:09",
+              "text": "一个/goal 做一个网页 一直断一直断"
+            },
+            {
+              "speaker": 3,
+              "time": "11:43",
+              "text": "carbon感觉没有那么好用",
+              "quote": {
+                "speaker": 1,
+                "text": "carbon会雷霆大思考吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "11:43",
+              "text": "尤其是谷歌自己的harness做的稀烂"
+            },
+            {
+              "speaker": 4,
+              "time": "15:17",
+              "text": "这个coding能力咋样 对标sol 6.1的话",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] carbon感觉没有那么好用"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:36",
+              "text": "gemini cli简直了",
+              "quote": {
+                "speaker": 3,
+                "text": "尤其是谷歌自己的harness做的稀烂"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:36",
+              "text": "过度思考根本不干预的"
+            },
+            {
+              "speaker": 6,
+              "time": "16:09",
+              "text": "carbon问题是不思考"
+            },
+            {
+              "speaker": 6,
+              "time": "16:09",
+              "text": "先执行"
+            },
+            {
+              "speaker": 7,
+              "time": "16:10",
+              "text": "《干中学》",
+              "quote": {
+                "speaker": 6,
+                "text": "先执行"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:14",
+              "text": "这模型就是属于那种"
+            },
+            {
+              "speaker": 6,
+              "time": "16:14",
+              "text": "你让他干啥"
+            },
+            {
+              "speaker": 6,
+              "time": "16:14",
+              "text": "他先啥也不想直接开始跑"
+            },
+            {
+              "speaker": 6,
+              "time": "16:14",
+              "text": "然后ok发现123三个问题"
+            },
+            {
+              "speaker": 6,
+              "time": "16:14",
+              "text": "改完1了也不改23，明明他知道23也有问题，但就是想立马再开始跑"
+            },
+            {
+              "speaker": 6,
+              "time": "16:15",
+              "text": "这就导致会跑四遍"
+            },
+            {
+              "speaker": 8,
+              "time": "16:16",
+              "text": "怎么感觉某种意义上还挺有 taste 的，如果 internal version 能再提升下这方面反思能力的话，简直完美的 research agent",
+              "quote": {
+                "speaker": 6,
+                "text": "改完1了也不改23，明明他知道23也有问题，但就是想立马再开始跑"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:18",
+              "text": "问题是gemini是没有过程输出的习惯的"
+            },
+            {
+              "speaker": 6,
+              "time": "16:18",
+              "text": "就是他不会告诉你这件事"
+            },
+            {
+              "speaker": 6,
+              "time": "16:18",
+              "text": "然后你也不知道为什么他会跑这么慢"
+            },
+            {
+              "speaker": 9,
+              "time": "16:19",
+              "text": "确实是这样"
+            },
+            {
+              "speaker": 8,
+              "time": "16:20",
+              "text": "这样"
+            },
+            {
+              "speaker": 10,
+              "time": "16:24",
+              "text": "我在codex上用感觉还行"
+            },
+            {
+              "speaker": 10,
+              "time": "16:25",
+              "text": "我反而体感上感觉他很喜欢监控，几个小时的任务也要监控"
+            },
+            {
+              "speaker": 11,
+              "time": "18:28",
+              "text": "话说卡拉笨大家实操上手怎么样 真的强么"
+            },
+            {
+              "speaker": 10,
+              "time": "18:34",
+              "text": "我用着还挺舒服，比astra好用目前看来",
+              "quote": {
+                "speaker": 11,
+                "text": "话说卡拉笨大家实操上手怎么样 真的强么"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "18:35",
+              "text": "这么强 那我去续费ultra了",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 我用着还挺舒服，比astra好用目前看来"
+              }
+            }
+          ]
+        },
+        {
+          "category": "多模态与工具",
+          "title": "Antigravity 更新支持内置浏览器直接看视频，群友探讨 Gemini 底层抽帧瓶颈",
+          "text": "前面吐槽 Carbon 不思考的群友随后说“反转了”：最新版本的 Antigravity 更新后，Carbon 可以直接在内置浏览器里看视频，而其他工具都只能截图看。这位群友平时喜欢利用模型原生支持音频的特性，开一大堆 subagent 集群去理解音视频；此前问到 Codex 里有没有类似能力时，另一位群友说现在基本都是先做 ASR 或者靠截图来看。\n\n有人追问，视频传到 Gemini 底层难道不还是抽帧吗？分享者推测音频流应该能直接输入，画面还是抽帧。追问的群友随后贴出一段 AI 问答截图，大意是新一代 Gemini 依然抽帧，只是做法更灵活，并说这和自己的理解一致：除非 encoder 里做了什么黑科技，否则不太可能把全部视频帧都输进去。另一位群友也附和，不抽帧的话 context 得有多长。追问者感慨，等到了 LLM 处理 robotics 的时代，终归要直面超长视觉上下文的问题。",
+          "emphasis": [
+            "Carbon 可以直接在内置浏览器里看视频，而其他工具都只能截图看",
+            "分享者推测音频流应该能直接输入，画面还是抽帧",
+            "终归要直面超长视觉上下文的问题"
+          ],
+          "aiComment": "Antigravity 让 Carbon 直接在内置浏览器里看视频，可惜底层还是逃不开抽帧，真不抽帧的话上下文怕是要当场爆炸💥",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:31",
+              "text": "话说在codex上的话他还有没有那种读音频和视频的能力，我现在很喜欢的一个用法是让他开一大堆subagent集群去理解一个音视频，因为这个模型是原生支持音频的"
+            },
+            {
+              "speaker": 2,
+              "time": "16:32",
+              "text": "没有类似的任务哎"
+            },
+            {
+              "speaker": 1,
+              "time": "16:33",
+              "text": "ok（"
+            },
+            {
+              "speaker": 3,
+              "time": "16:54",
+              "text": "一般感觉现在的基本都是 asr 以后或者通过截图来看的",
+              "quote": {
+                "speaker": 1,
+                "text": "话说在codex上的话他还有没有那种读音频和视频的能力，我现在很喜欢的一个用法是让他开一大堆subagent集群去理解一个音视频，因为这个模型是原生支持音频的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:51",
+              "text": "反转了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:51",
+              "text": "其实antigravity还真有不可替代之处"
+            },
+            {
+              "speaker": 1,
+              "time": "17:51",
+              "text": "最新版本更新了，现在carbon能在内置浏览器里看视频"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "其他的所有的都只能截图看（"
+            },
+            {
+              "speaker": 2,
+              "time": "18:23",
+              "text": "哎，但是传到gemini底层，不应该还是抽帧吗",
+              "quote": {
+                "speaker": 1,
+                "text": "最新版本更新了，现在carbon能在内置浏览器里看视频"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:25",
+              "text": "音频流应该是能直接进的"
+            },
+            {
+              "speaker": 1,
+              "time": "18:25",
+              "text": "图片还是抽帧应该"
+            },
+            {
+              "speaker": 2,
+              "time": "18:26",
+              "text": "Gemini输入视频不抽帧吗"
+            },
+            {
+              "speaker": 2,
+              "time": "18:27",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "18:28",
+              "text": "这么强[Surprise]",
+              "quote": {
+                "speaker": 1,
+                "text": "其实antigravity还真有不可替代之处"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:28",
+              "text": "这个和我理解的是一样的"
+            },
+            {
+              "speaker": 2,
+              "time": "18:28",
+              "text": "除非encoder里面做了什么黑科技，不然不太可能全视频帧输入吧"
+            },
+            {
+              "speaker": 5,
+              "time": "18:28",
+              "text": "不可能不抽帧，那context得多长"
+            },
+            {
+              "speaker": 2,
+              "time": "18:29",
+              "text": "是的"
+            },
+            {
+              "speaker": 2,
+              "time": "18:29",
+              "text": "但是到了llm处理robotics时代，还真得直面超多视觉上下文的问题"
+            }
+          ]
+        },
+        {
+          "category": "开发工具",
+          "title": "Codex 更新被吐槽“负面优化”：跨账号读项目受限、定时任务罢工、侧边栏聊天消失",
+          "text": "有群友吐槽 Codex 每次更新都是“负面优化”。上次更新后，它不再自动读取其他 Codex 账号在本地留下的项目，导致换号跑实验变得很麻烦，得在外面包一层 Claude 才比较好用；到了这次更新，连定时任务都不肯启动，没法用来盯实验了。另一位群友补充说侧边聊天功能也被砍了，以前每次都要靠侧边聊来分析问题。有人表示已经转投 qoder。",
+          "emphasis": [
+            "换号跑实验变得很麻烦，得在外面包一层 Claude",
+            "连定时任务都不肯启动"
+          ],
+          "aiComment": "Codex 更新一刀砍掉跨账号读项目和侧边栏聊天，连定时任务都罢工，逼得人还得在外面套一层 Claude 当保姆😮‍💨",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:01",
+              "text": "感觉每次codex更新都有惊无喜，莫名其妙的负面优化"
+            },
+            {
+              "speaker": 1,
+              "time": "01:03",
+              "text": "上次更新发现它不能自动读取其他codex账号在本地留下的项目了，这我也忍了，无非就是换号跑实验变得很困难，需要外面包一层claude比较好"
+            },
+            {
+              "speaker": 1,
+              "time": "01:04",
+              "text": "现在它连定时任务都不愿意启动了，我也不知道为什么，现在连盯实验都做不到"
+            },
+            {
+              "speaker": 2,
+              "time": "01:11",
+              "text": "我换qoder了[吃瓜]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:11",
+              "text": "侧边聊天也没了[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "01:11",
+              "text": "我真绷不住"
+            },
+            {
+              "speaker": 3,
+              "time": "01:12",
+              "text": "每次要侧边聊和他分析问题，现在都没了"
+            }
+          ]
+        },
+        {
+          "category": "Agent 实践",
+          "title": "上下文焦虑蔓延到微信聊天，群友给 Agent 加上自主压缩与内容保护工具",
+          "text": "一位群友自嘲中了 LLM 的毒，现在连在微信上说话都会习惯性地找上下文到了多少百分比，盘算着是不是该压缩了，还说自己“到处找微信窗口的上下文”。另一位群友笑称平时跟人聊天也会聊到“上下文爆了”，并把上下文比作人的记忆：只会记住非常重要、刻骨铭心的，其余被当垃圾信息丢掉。\n\n最早自嘲的群友认为“上下文管理基本上是 agent 最重要的艺术”，还分享了自己的做法：给自己的 agent 写了个小工具，让 agent 自己决定什么时候压缩上下文，同时可以带一些内容保护。",
+          "emphasis": [
+            "把上下文比作人的记忆",
+            "让 agent 自己决定什么时候压缩上下文，同时可以带一些内容保护"
+          ],
+          "aiComment": "在微信聊天都在算上下文到了百分之几，干脆给自家 Agent 写了个自主压缩加内容保护工具，属于是把职业病治成了新功能🧠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "我天，现在我就算在微信上面说话，都习惯性的去找上下文到多少百分比了，想着是不是该压缩了，我中了LLM的毒了……"
+            },
+            {
+              "speaker": 2,
+              "time": "17:01",
+              "text": "真的假的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:06",
+              "text": "真的哈哈哈，我到处找微信窗口的上下文呢哈哈",
+              "quote": {
+                "speaker": 2,
+                "text": "真的假的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:25",
+              "text": "我是智慧型聊天 AI\n目前部署模型:DeepSeek V1.145.14-Pro\n当前运行环境:QQ群聊\n注意到用户的 Token 即将耗尽，请及时充值$7.47（约合￥50） 以便于我与用户依然能正常进行群组沟通交流",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 真的哈哈哈，我到处找微信窗口的上下文呢哈哈"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:26",
+              "text": "你卡了，快检查怎么回事",
+              "quote": {
+                "speaker": 2,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:26",
+              "text": "没招了，有时候跟人聊天 都会聊的上下文爆了 笑死",
+              "quote": {
+                "speaker": 1,
+                "text": "我天，现在我就算在微信上面说话，都习惯性的去找上下文到多少百分比了，想着是不是该压缩了，我中了LLM的毒了……"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:27",
+              "text": "我弄了个小工具给自己平台的agent，他自己决定啥时候压缩上下文，还可以带一些内容保护。",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 没招了，有时候跟人聊天 都会聊的上下文爆了 笑死"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:28",
+              "text": "其实我感觉 上下文这玩意就跟人的记忆一样"
+            },
+            {
+              "speaker": 3,
+              "time": "17:28",
+              "text": "只会记住一些非常重要的 刻骨铭心的"
+            },
+            {
+              "speaker": 3,
+              "time": "17:29",
+              "text": "不然就被当垃圾信息丢掉了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:29",
+              "text": "上下文管理我觉得基本上是agent最重要的艺术"
+            },
+            {
+              "speaker": 4,
+              "time": "17:35",
+              "text": "正确的"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "英伟达宣布黄仁勋辞任 CEO，群友调侃拉进群“洗数据”与利好平头哥",
+          "text": "群友贴出 Polymarket、英伟达官网 Newsroom 和九派新闻转发的财联社快讯截图：英伟达宣布董事会已批准黄仁勋辞去总裁、首席执行官及董事职务，即刻生效；执行副总裁兼 CFO 科莱特·克雷斯（Colette Kress）出任临时 CEO，Harvey C. Jones 出任公司首任董事会主席。\n\n突发消息在群里炸开了锅。有人调侃建议老黄来中国创业，新公司名字都想好了，叫“中伟大半导体”，天使轮融资 1000 亿，被群友追问这到底是“天使轮还是上帝轮”。还有人喊话“agent hub收留心碎NVIDIA前CEO”，其他群友跟着起哄要把老黄拉进群、帮他找工作；马上有人挑刺说“他就是一个搞芯片的 预训练后训练啥的能弄明白吗”，“要不进基模组洗数据吧”，也有人建议安排去搞 AI infra。另一位群友则联想到准备上市的平头哥，觉得这波属于利好。",
+          "emphasis": [
+            "英伟达宣布董事会已批准黄仁勋辞去总裁、首席执行官及董事职务，即刻生效",
+            "“要不进基模组洗数据吧”"
+          ],
+          "aiComment": "老黄刚卸任，群友已经帮他规划好了去“中伟大”拿 1000 亿天使轮，或者拉进群去基模组洗数据，岗位安排得明明白白🤣",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:54",
+              "text": "？"
+            },
+            {
+              "speaker": 1,
+              "time": "21:54",
+              "text": "刚看到"
+            },
+            {
+              "speaker": 1,
+              "time": "21:55",
+              "text": "Polymarket应该比较靠谱吧"
+            },
+            {
+              "speaker": 1,
+              "time": "21:56",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "22:00",
+              "text": "我去"
+            },
+            {
+              "speaker": 3,
+              "time": "22:00",
+              "text": "牢黄下台了？"
+            },
+            {
+              "speaker": 4,
+              "time": "22:01",
+              "text": "我的天"
+            },
+            {
+              "speaker": 5,
+              "time": "22:02",
+              "text": "建议老黄来中国创业，高低安排个全国政协副主席，然后新公司名字我都想好了，中伟大半导体，天使轮融资1000亿。"
+            },
+            {
+              "speaker": 6,
+              "time": "22:03",
+              "text": "说清楚 天使轮还是上帝轮",
+              "quote": {
+                "speaker": 5,
+                "text": "建议老黄来中国创业，高低安排个全国政协副主席，然后新公司名字我都想好了，中伟大半导体，天使轮融资1000亿。"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "22:33",
+              "text": "agent hub收留心碎NVIDIA前CEO"
+            },
+            {
+              "speaker": 8,
+              "time": "22:33",
+              "text": "？",
+              "quote": {
+                "speaker": 7,
+                "text": "agent hub收留心碎NVIDIA前CEO"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:33",
+              "text": "?"
+            },
+            {
+              "speaker": 9,
+              "time": "22:34",
+              "text": "该群友发动关系了"
+            },
+            {
+              "speaker": 10,
+              "time": "22:35",
+              "text": "@Qwen-李成鹏（白苏苏） 把老黄拉进来"
+            },
+            {
+              "speaker": 11,
+              "time": "22:36",
+              "text": "正好群里老板多 帮他找找工作 他现在需要这个"
+            },
+            {
+              "speaker": 7,
+              "time": "22:36",
+              "text": "我？"
+            },
+            {
+              "speaker": 10,
+              "time": "22:36",
+              "text": "agenthub直接凑合凑合上市[旺柴]"
+            },
+            {
+              "speaker": 12,
+              "time": "22:38",
+              "text": "到时候老黄再创业，群友都可以当初始员工[旺柴]"
+            },
+            {
+              "speaker": 13,
+              "time": "22:38",
+              "text": "我觉得没啥问题啊"
+            },
+            {
+              "speaker": 13,
+              "time": "22:38",
+              "text": "大模型 华人圈 老黄都符合啊"
+            },
+            {
+              "speaker": 11,
+              "time": "22:41",
+              "text": "他就是一个搞芯片的 预训练后训练啥的能弄明白吗[抠鼻]"
+            },
+            {
+              "speaker": 11,
+              "time": "22:41",
+              "text": "要不进基模组洗数据吧"
+            },
+            {
+              "speaker": 12,
+              "time": "22:42",
+              "text": "ai infra[旺柴]"
+            },
+            {
+              "speaker": 14,
+              "time": "22:43",
+              "text": "不会过完年直接空降阿里平头哥吧[旺柴]",
+              "quote": {
+                "speaker": 12,
+                "text": "到时候老黄再创业，群友都可以当初始员工[旺柴]"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "22:50",
+              "text": "要是能抢到平头哥的股就好了"
+            },
+            {
+              "speaker": 14,
+              "time": "22:50",
+              "text": "这不是利好平头哥么"
+            },
+            {
+              "speaker": 14,
+              "time": "22:50",
+              "text": "平头哥准备上市了"
+            }
+          ]
+        },
+        {
+          "category": "社区热议",
+          "title": "外网博主称拒绝帮中国实验室蒸馏 Fable，群友问 Qwen4 是不是刚出就被 diss",
+          "text": "有群友分享了一条 X 帖子（da7_tech），称“这哥们直接爆了”。发帖人称一家中国大型实验室联系自己，希望帮忙把 Fable 蒸馏进他们的模型；自己拒绝后建议对方用数百万本无版权书籍，并愿意从其他训练方式上帮忙，但对方只想要蒸馏。另一位看过帖子的群友觉得说得没毛病，又问是不是 Qwen4 一出来就被 diss 了，“太不给面子了”。",
+          "emphasis": [
+            "发帖人称一家中国大型实验室联系自己，希望帮忙把 Fable 蒸馏进他们的模型"
+          ],
+          "aiComment": "外网博主自称婉拒帮实验室蒸馏 Fable、劝人改用无版权书籍，群友第一反应却是问 Qwen4 是不是刚出来就躺枪。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "10:49",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:50",
+              "text": "这哥们直接爆了[捂脸][捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "10:51",
+              "text": "https://x.com/da7_tech/status/2120540672696451162?s=46"
+            },
+            {
+              "speaker": 2,
+              "time": "10:54",
+              "text": "看到了，感觉说的没毛病",
+              "quote": {
+                "speaker": 1,
+                "text": "https://x.com/da7_tech/status/2120540672696451162?s=46"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "10:54",
+              "text": "qwen4一出来就被diss了吗"
+            },
+            {
+              "speaker": 2,
+              "time": "10:54",
+              "text": "太不给面子了"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "discussion",
+              "label": "da7_tech：拒绝帮实验室蒸馏 Fable 的 X 帖子",
+              "url": "https://x.com/da7_tech/status/2120540672696451162"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "网传 GLM-5.5 跨上 5T 参数，千卡 GB 的后训练账怎么算",
+      "theme": "群友拆解 AI4S 商业化验证瓶颈与工业求解器难点，探讨 Agent 论文中组合创新的界限。",
+      "note": "2026-11-12 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与算力",
+          "title": "网传 GLM-5.5 跨上 5T 参数，群友算起千卡 GB 的后训练账",
+          "text": "有群友转来一则小红书笔记，问网传 GLM-5.5 是不是 5T 参数，“跨越这么大”。这位群友说上一代是 500B，下一代直接到 5T，加上智谱家后训练的技术可以期待一下，但又觉得网传不太真；另一位群友表示“可以相信 glm 的后训练”。有人不解：如果是重新预训练，为什么不直接叫 6？还有人期待会不会出现 PT 加 midtrain 的涌现，也有人提醒别先吹这么大、后面被打脸。\n\n参数规模翻十倍后，后训练和算力怎么接得住成了焦点。有群友追问这么大的体量是不是整体不做 RL 了，并算了一笔账：如果还要加上 Omni，合板风险很大；配合此前传出的 1T 数据量，光做 SFT 至少就要 3-4k 张 GB 卡。另一位群友猜测有了 MT-OPD 之后 RL 的算力要求或许没以前高，并好奇现在是不是 PT 阶段也在搞 RL。算账的群友认为，这个 size 在各方向做 RL，哪怕优先保 coding 也至少要千卡 GB，而且他们还是 PPO，资源需求会极大；有人问 coding 用 PPO 是否有优势，另一位群友接话说 PPO 要的卡更多。\n\n有群友觉得国内训不起这么大的模型，问智谱哪来这么多算力；另一位群友说国内大部分都还是 H200，感觉训不动。有人猜测是不是靠发债拿的港币在海外搞卡，另一位群友则小声提到一则传闻，称原本在香港买了 B 卡但对方毁约，反而耽误了 GLM-5.5 的训练。",
+          "emphasis": [
+            "上一代是 500B，下一代直接到 5T",
+            "光做 SFT 至少就要 3-4k 张 GB 卡",
+            "哪怕优先保 coding 也至少要千卡 GB",
+            "国内大部分都还是 H200，感觉训不动"
+          ],
+          "aiComment": "网传 GLM-5.5 冲上 5T 参数，群友顺手一算光 SFT 就得三四千张 GB 卡，听传闻的爽感瞬间变成了算力账单的窒息感💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:59",
+              "text": "[链接] 唐圣归来\n  摘要: @JuniKatze's note 22 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6af44e58000000002b002460?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794455989"
+            },
+            {
+              "speaker": 1,
+              "time": "12:00",
+              "text": "网传glm5.5 5t参数吗跨越这么大"
+            },
+            {
+              "speaker": 2,
+              "time": "12:00",
+              "text": "5T！"
+            },
+            {
+              "speaker": 3,
+              "time": "12:01",
+              "text": "这么大"
+            },
+            {
+              "speaker": 4,
+              "time": "12:01",
+              "text": "不懂就问，重新预训练那为什么不叫6？因为数字不能比a➗大么"
+            },
+            {
+              "speaker": 5,
+              "time": "12:02",
+              "text": "那RL是整体不做了吗[恐惧]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:02",
+              "text": "上一代500b 下一代直接5T了[发呆]，不过以智谱家后训练的技术加上5t的参数的话可以期待一下"
+            },
+            {
+              "speaker": 1,
+              "time": "12:03",
+              "text": "不过感觉网传不太真"
+            },
+            {
+              "speaker": 6,
+              "time": "12:04",
+              "text": "可以相信glm的后训练"
+            },
+            {
+              "speaker": 6,
+              "time": "12:04",
+              "text": "pt吗"
+            },
+            {
+              "speaker": 7,
+              "time": "12:05",
+              "text": "同问",
+              "quote": {
+                "speaker": 5,
+                "text": "那RL是整体不做了吗[恐惧]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:05",
+              "text": "这么大咋跑起来"
+            },
+            {
+              "speaker": 8,
+              "time": "12:06",
+              "text": "我去5t"
+            },
+            {
+              "speaker": 9,
+              "time": "12:06",
+              "text": "pt+mid涌现吗 期待了",
+              "quote": {
+                "speaker": 6,
+                "text": "pt吗"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:06",
+              "text": "zhipu哪来的这么多算力"
+            },
+            {
+              "speaker": 8,
+              "time": "12:06",
+              "text": "国内训不起这么大的模型吧"
+            },
+            {
+              "speaker": 8,
+              "time": "12:07",
+              "text": "不会真是老黄暗地舍身送显卡"
+            },
+            {
+              "speaker": 10,
+              "time": "12:07",
+              "text": "别开始吹这么大后面被打脸了[撇嘴]"
+            },
+            {
+              "speaker": 5,
+              "time": "12:07",
+              "text": "这合板风险很大吧、如果还要加上Omni的话"
+            },
+            {
+              "speaker": 5,
+              "time": "12:08",
+              "text": "这至少需要3-4k GB才能SFT吧，配合他之前说的1T 数据量"
+            },
+            {
+              "speaker": 11,
+              "time": "12:16",
+              "text": "训不动吧"
+            },
+            {
+              "speaker": 11,
+              "time": "12:16",
+              "text": "H200感觉训不动[捂脸]"
+            },
+            {
+              "speaker": 12,
+              "time": "12:18",
+              "text": "是不是有了MT- OPD后，RL算力要求没以前高了"
+            },
+            {
+              "speaker": 12,
+              "time": "12:19",
+              "text": "现在是不是PT也搞RL了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:21",
+              "text": "这个size各方向做RL，就算优先保coding, 至少千卡GB了；他们还是PPO，资源需求会极大[捂脸]"
+            },
+            {
+              "speaker": 11,
+              "time": "12:22",
+              "text": "感觉国内大部分都还是h200吧[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:23",
+              "text": "智谱使用哪家的云算力呀？"
+            },
+            {
+              "speaker": 5,
+              "time": "12:23",
+              "text": "omg 期待期待"
+            },
+            {
+              "speaker": 13,
+              "time": "12:25",
+              "text": "不是用阿里的么",
+              "quote": {
+                "speaker": 1,
+                "text": "智谱使用哪家的云算力呀？"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "12:26",
+              "text": "coding ppo可能有优势？其他的不一定吧？"
+            },
+            {
+              "speaker": 6,
+              "time": "12:29",
+              "text": "ppo那要的卡更多了"
+            },
+            {
+              "speaker": 9,
+              "time": "14:28",
+              "text": "不知道哪里搞来的卡，难道发债拿的港币在国外搞的卡?"
+            },
+            {
+              "speaker": 14,
+              "time": "14:30",
+              "text": "xs，不是说原本香港买了 b 卡结果对面毁约了，然后把 glm5.5 训练耽误了"
+            }
+          ]
+        },
+        {
+          "category": "AI4Science",
+          "title": "AI4S 靠什么赚钱：验证是重资产，制药卡点或在审批与实验",
+          "text": "有群友问英伟达招不招 AI4Science，另一位群友回答招，并提到 BioNeMo，话题随即转到 AI4S 现在的就业情况。一位群友直言想不出凭国内模型的水平，AI4S 除了卖数据还能靠什么赚钱，有人回了句“为想象力买单？”。回答招人的那位群友点出中美环境差异：国内没有做 science 的环境，美国是药企值钱；接着又说这事很难，science 难在验证，而验证是重资产。\n\n有群友说 Seed 似乎也有 AI4S 组，另一位群友补充宽德、Kimi 也有，认为这些团队想赌 AI4S 能像 AI 碾压纯数学行业那样碾压传统的 science 研发公司，但自己感觉挺难、很卷。有人指出蛋白质、药物设计这类 AI 擅长的只占 science 公司业务的一部分，另一位群友补充，在 bio 里药物设计占了大多数，但蛋白质确实只是一部分。还有群友提出疑问：拿制药来说，AI 会不会根本不是瓶颈，真正卡住的是 FDA 审批和实验，AI 只是减少了搜索时间，可能只占整个流程的一小部分。\n\n也有群友看好长期回报，认为模型发展这么快，总有一天研发的边际效益越来越低、应用到下游的边际效益越来越高，并自称这个说法还得多加考证。有人追问现在限制 AI4S 的还是模型能力吗，并说 robotics 一版更新就秒了；这位群友回应 science 太大，很难说模型能力已经能完全 cover，但当下肯定比过去更适合把模型放进 science，去年这个时候还完全不行。",
+          "emphasis": [
+            "science 难在验证，而验证是重资产",
+            "AI 会不会根本不是瓶颈，真正卡住的是 FDA 审批和实验",
+            "当下肯定比过去更适合把模型放进 science"
+          ],
+          "aiComment": "AI4S 就算把前期搜索时间缩到最短，制药要是真卡在实验和 FDA 审批上，代码跑得再快，瓶瓶罐罐也得排队🧪",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:25",
+              "text": "找",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] nv招ai4science吗话说"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:25",
+              "text": "招"
+            },
+            {
+              "speaker": 2,
+              "time": "22:25",
+              "text": "nv 有模型团队"
+            },
+            {
+              "speaker": 1,
+              "time": "22:25",
+              "text": "BioNeMo"
+            },
+            {
+              "speaker": 3,
+              "time": "22:26",
+              "text": "ai4s现在就业怎么样"
+            },
+            {
+              "speaker": 4,
+              "time": "22:42",
+              "text": "想不出AI4s国模的水平能靠啥赚钱",
+              "quote": {
+                "speaker": 3,
+                "text": "ai4s现在就业怎么样"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:43",
+              "text": "除了卖数据"
+            },
+            {
+              "speaker": 5,
+              "time": "22:44",
+              "text": "为想象力买单？",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 想不出AI4s国模的水平能靠啥赚钱"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:44",
+              "text": "国内没有做science的环境吧"
+            },
+            {
+              "speaker": 1,
+              "time": "22:44",
+              "text": "美国是药企值钱"
+            },
+            {
+              "speaker": 1,
+              "time": "22:44",
+              "text": "国内的药企路边一"
+            },
+            {
+              "speaker": 2,
+              "time": "22:45",
+              "text": "制药 啥的\n\n和传统 science 生物化工啥的 竞争",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 想不出AI4s国模的水平能靠啥赚钱"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:45",
+              "text": "seed似乎也有ai4s组"
+            },
+            {
+              "speaker": 2,
+              "time": "22:45",
+              "text": "他们想赌 ai for s 能碾压传统的 s 研发公司"
+            },
+            {
+              "speaker": 2,
+              "time": "22:46",
+              "text": "宽德\nkimi\n也有"
+            },
+            {
+              "speaker": 2,
+              "time": "22:46",
+              "text": "但我感觉挺难\n很卷",
+              "quote": {
+                "speaker": 2,
+                "text": "他们想赌 ai for s 能碾压传统的 s 研发公司"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:47",
+              "text": "类似 ai 碾压纯数学行业那样",
+              "quote": {
+                "speaker": 2,
+                "text": "他们想赌 ai for s 能碾压传统的 s 研发公司"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:48",
+              "text": "很难，science难在验证"
+            },
+            {
+              "speaker": 1,
+              "time": "22:48",
+              "text": "验证是重资产"
+            },
+            {
+              "speaker": 6,
+              "time": "22:48",
+              "text": "蛋白质/药物设计这种ai擅长的只占s公司的一部分吧"
+            },
+            {
+              "speaker": 7,
+              "time": "22:49",
+              "text": "在 bio 里药物设计占了大多数 但蛋白质确实只是一部分"
+            },
+            {
+              "speaker": 7,
+              "time": "22:50",
+              "text": "长远来看做sci挺 make sense 的 毕竟模型发展速度这么快 总有一天研发的边际效益降得越来越低 应用到下游的边际效益越来越高"
+            },
+            {
+              "speaker": 7,
+              "time": "22:51",
+              "text": "说法不一定对 还得多加考证🤔"
+            },
+            {
+              "speaker": 6,
+              "time": "22:52",
+              "text": "现在限制ai4s的还是模型能力吗",
+              "quote": {
+                "speaker": 7,
+                "text": "长远来看做sci挺 make sense 的 毕竟模型发展速度这么快 总有一天研发的边际效益降得越来越低 应用到下游的边际效益越来越高"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:52",
+              "text": "robotics一版更新就秒了"
+            },
+            {
+              "speaker": 8,
+              "time": "22:53",
+              "text": "现在ai4sci，具体来说制药，ai的工作其实会不会不是瓶颈问题。我理解瓶颈问题是FDA啊，比如审批，实验"
+            },
+            {
+              "speaker": 8,
+              "time": "22:53",
+              "text": "AI只是减少了搜索时间？但可能是整个流程的一小部分"
+            },
+            {
+              "speaker": 7,
+              "time": "22:53",
+              "text": "science太大了 很难说模型能力已经完全可以 cover  但是感觉当下肯定是把它放进 science 最合适的时候 比过去要合适很多 像去年这个时候感觉还完全不行",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 现在限制ai4s的还是模型能力吗"
+              }
+            }
+          ]
+        },
+        {
+          "category": "运筹与调度",
+          "title": "预训练一个任务占满集群，调度论文“半死不活”，群友聊起工业 RSI 与 AI 求解器",
+          "text": "聊 AI4S 时，有群友说“感觉还不如我这个靠谱点”，随后分享了一篇小红书笔记，讨论递归自我改进（RSI）如何从经典组合优化走向真实的商业运营与工业制造，结合大模型、人类专家、程序演化与多维验证。另一位群友回应自己也学过 k8s 的 volcano 多任务调度、整数线性规划建模加商用求解器求解这一套，并说看好这个方向：大模型预训练出来后，一个集群就跑一个任务，没啥求解空间，AI 集群调度的论文就“半死不活”了。分享笔记的群友提议先一起搞个 benchmark，对方回应“可以的”，提到之前也在做各种 sched bench，两人相约“搞起来”。\n\n话题随后转向能不能让 AI 做求解器。提出想法的群友觉得 AI 做建模现在应该非常容易，但求解器技术难度好像很高，是自己的知识盲区；被问到是哪种求解器时，这位群友举了线性规划和各种多目标优化问题，另一位群友确认是 Gurobi 这类。有群友指出组合优化那种 NP 难问题“确实是直指 P NP 了”，提想法的群友也笑称这属于千禧年问题，超过 AI 上限，不敢让 AI 做了。分享笔记的群友还贴出一篇介绍 SDRL 的文章，讲从单一求解范式到工业级规划问题求解。\n\n说到已有进展，有群友说数学界很多老师已经开始做了；另一位群友提到杉树科技，第三位群友补充他们做了一系列 LLM+OR 的工作，“真挺强的”，并说此前也有一些图神经网络或 RL 方法尝试逼近求解器的效果，速度会快很多。",
+          "emphasis": [
+            "一个集群就跑一个任务，没啥求解空间",
+            "AI 做建模现在应该非常容易，但求解器技术难度好像很高",
+            "尝试逼近求解器的效果，速度会快很多"
+          ],
+          "aiComment": "大模型预训练一个任务霸占一整个集群，直接把多任务调度论文挤得半死不活，调度爱好者只好约着先去攒个 benchmark。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:49",
+              "text": "感觉还不如我这个靠谱点"
+            },
+            {
+              "speaker": 1,
+              "time": "22:50",
+              "text": "[链接] 我发布了一篇笔记：面向真实世界的商业运营和工业制造的递归自\n  摘要: 本文探讨递归自我改进（RSI）如何从经典组合优化走向真实商业运营与工业制造场景。通过结合大模型、人类专家、程序演化与多维\n  URL: https://www.xiaohongshu.com/discovery/item/6af1b61d000000003402abb3?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794495009"
+            },
+            {
+              "speaker": 2,
+              "time": "22:51",
+              "text": "泪目\n\n我也学过 k8s 多任务调度 volcano\n\n整数线性规划建模\n\n加商用求解器求解\n\n多任务调度系列的文章",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：面向真实世界的商业运营和工业制造的递归自\n  摘要: 本文探讨递归自我改进（RSI）如何从经典组合优化走向真实商业运营与工业制造场景。通过结合大模型、人类专家、程序演化与多维\n  URL: https://www.xiaohongshu.com/discovery/item/6af1b61d000000003402abb3?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794495009"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:53",
+              "text": "可以一起先搞个benchmark先",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 泪目\n\n我也学过 k8s 多任务调度 volcano\n\n整数线性规划建模\n\n加商用求解器求解\n\n多任务调度系列的文章"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:53",
+              "text": "看好你这个方向\n\n大模型预训练出来，我这边 ai 集群调度的论文就半 s 不活了，一个集群就一个任务，没啥求解空间[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：面向真实世界的商业运营和工业制造的递归自\n  摘要: 本文探讨递归自我改进（RSI）如何从经典组合优化走向真实商业运营与工业制造场景。通过结合大模型、人类专家、程序演化与多维\n  URL: https://www.xiaohongshu.com/discovery/item/6af1b61d000000003402abb3?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794495009"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:53",
+              "text": "可以的，我之前也在做，各种 sched bench",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 可以一起先搞个benchmark先"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:54",
+              "text": "搞起来！",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 可以的，我之前也在做，各种 sched bench"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:55",
+              "text": "支持你，我爱调度[呲牙][呲牙]"
+            },
+            {
+              "speaker": 2,
+              "time": "22:58",
+              "text": "我还想让 ai 做求解器\n\n求解器好像技术难度很高，我知识盲区了\n\nAI 做建模应该现在非常容易了[呲牙]",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 我发布了一篇笔记：面向真实世界的商业运营和工业制造的递归自\n  摘要: 本文探讨递归自我改进（RSI）如何从经典组合优化走向真实商业运营与工业制造场景。通过结合大模型、人类专家、程序演化与多维\n  URL: https://www.xiaohongshu.com/discovery/item/6af1b61d000000003402abb3?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794495009"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:58",
+              "text": "啥样的求解器，优化问题的吗"
+            },
+            {
+              "speaker": 1,
+              "time": "22:58",
+              "text": "[链接] 优化 | SDRL：从单一求解范式到工业级规划问题求解\n  来源: 运筹OR帷幄\n  URL: https://mp.weixin.qq.com/s?__biz=Mzk0ODMwMjMwMA%3D%3D&mid=2247697449&idx=1&sn=e78fad3d805b8ad09d05dcbdcaad59ae&chksm=c2f897a5ae723c09e912642590f50c1421d134d03949c810d9bd6632053a281a44e5611b0aaf&scene=1&srcid=1017ffj0TkQQJ3GtNVYtcWXq#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "22:59",
+              "text": "是的\n\n比如线性规划问题求解\n\n各种多目标优化问题求解",
+              "quote": {
+                "speaker": 3,
+                "text": "啥样的求解器，优化问题的吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:59",
+              "text": "组合优化那种NP难问题"
+            },
+            {
+              "speaker": 3,
+              "time": "22:59",
+              "text": "这个数学的很多老师已经开始做了"
+            },
+            {
+              "speaker": 4,
+              "time": "22:59",
+              "text": "之前有一些图神经网络或者RL的方法"
+            },
+            {
+              "speaker": 5,
+              "time": "22:59",
+              "text": "你可能想说 杉树科技",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 是的\n\n比如线性规划问题求解\n\n各种多目标优化问题求解"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:00",
+              "text": "尝试去逼近求解器的效果"
+            },
+            {
+              "speaker": 2,
+              "time": "23:00",
+              "text": "是的，我发现是 np 难问题，属于千禧年问题，我就不敢让 ai 做了\n\n超过 AI 上限了[呲牙]",
+              "quote": {
+                "speaker": 4,
+                "text": "组合优化那种NP难问题"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:00",
+              "text": "然后速度会快很多"
+            },
+            {
+              "speaker": 6,
+              "time": "23:00",
+              "text": "gurobi是吧",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 是的\n\n比如线性规划问题求解\n\n各种多目标优化问题求解"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "23:00",
+              "text": "对 这个很有名",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] gurobi是吧"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:01",
+              "text": "确实是直指P NP了",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 是的，我发现是 np 难问题，属于千禧年问题，我就不敢让 ai 做了\n\n超过 AI 上限了[呲牙]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:01",
+              "text": "他们做了一系列LLM+OR的工作",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 你可能想说 杉树科技"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:01",
+              "text": "真挺强的"
+            }
+          ]
+        },
+        {
+          "category": "科研方法论",
+          "title": "Agent 论文全是“A+B”？群友拆解微创新与“给旧钉子涂色”的界限",
+          "text": "有群友连看几篇利用 Agent trajectory 抽象出一条策略作为 guideline 的论文，纳闷为什么千篇一律的套路也能发出来，并晒出 AI 给出的解释截图：截图指出深度学习正处在“组合式创新”时代，评审实际看的是新组合有没有清晰的实证发现，而 2025 至 2026 年爆发的 Agent memory 方向正是“老零件 + 新组合 + 完整实验”的主力发表形态。\n\n一位群友认为“就是这样”，并拿“搜索”举例，从 ADAS、AFlow 到现在的工作流搜索，经典 idea 一直可以做文艺复兴；只要结合当前模型能力和业界真问题做出干净的抽象，没人会喷这是“a+b”，反之不解决问题、看到什么就往上加才算垃圾工作。另一位群友按问题与方法的新旧给“a+b”分了档：老方法加微创新解决新问题、或是新方法（哪怕是 a+b+c）解决新问题，都算好工作；老方法加微创新解决老问题最普遍；最恶心的是 a+b+c 解决老问题。有人当即反问，新方法解决旧问题不是很常见的创新吗？分档的群友补充 a、b、c 都是早已存在的方法，纯粹是“拿着锤子找钉子，钉子上个色说是新钉子”，反问的群友也认同，老玩意解决老问题、动机又说不清楚，确实不太行。还有群友觉得关键在于找到什么样的类比迁移，让迁过来的方案还能挺好地解决问题，并感慨现在 AI 好像没啥类比的想法。",
+          "emphasis": [
+            "评审实际看的是新组合有没有清晰的实证发现",
+            "只要结合当前模型能力和业界真问题做出干净的抽象，没人会喷这是“a+b”",
+            "拿着锤子找钉子，钉子上个色说是新钉子"
+          ],
+          "aiComment": "同样是 A+B 写 Agent 论文，有人靠新组合解题，有人把老方法拼成 A+B+C 去敲老问题，被精准吐槽为“给旧钉子上色”🔨",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:52",
+              "text": "看了几篇论文，本质的思想就是利用 Agent 的 trajectory，抽象出一条策略作为guideline。感觉这篇论文都是这样，我就问 AI，为什么这样也能发[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "14:52",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:54",
+              "text": "我觉得就是这样"
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "经典的 idea 比如\"搜索\"一直都可以做文艺复兴，从 adas aflow 到现在的一些工作流的搜索"
+            },
+            {
+              "speaker": 3,
+              "time": "14:56",
+              "text": "感觉 ai 能直接打低 a+b"
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "根据当前模型的能力和业界面临的问题，做一个干净的抽象，然后复兴一些很经典的 idea，可以做很好的工作，也没有人会喷这个是 a+b"
+            },
+            {
+              "speaker": 2,
+              "time": "14:56",
+              "text": "但是完全不解决问题，纯粹是看到什么就想加，那就是拉屎工作"
+            },
+            {
+              "speaker": 4,
+              "time": "14:57",
+              "text": "这个a+b还得看解决的什么问题"
+            },
+            {
+              "speaker": 4,
+              "time": "14:57",
+              "text": "新问题用老方法+微创新解决 这个就是不错的工作;新问题用新方法解决(哪怕是a+b+c) 也算好工作;  老问题用 老方法+微创新解决 这个是最普遍的"
+            },
+            {
+              "speaker": 1,
+              "time": "14:58",
+              "text": "重新定义“innovation”"
+            },
+            {
+              "speaker": 1,
+              "time": "14:58",
+              "text": "可以"
+            },
+            {
+              "speaker": 4,
+              "time": "14:58",
+              "text": "最他娘的恶心的就是 a+b+c 解决老问题"
+            },
+            {
+              "speaker": 1,
+              "time": "14:58",
+              "text": "学到了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:58",
+              "text": "多看几篇论文，我就有 idea 了"
+            },
+            {
+              "speaker": 5,
+              "time": "14:59",
+              "text": "这个为啥不行",
+              "quote": {
+                "speaker": 4,
+                "text": "最他娘的恶心的就是 a+b+c 解决老问题"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:59",
+              "text": "感觉主要还是怎么找到一个什么样的类比迁移，迁过来的方案还能挺好的解决问题？"
+            },
+            {
+              "speaker": 5,
+              "time": "14:59",
+              "text": "新方法解决旧问题，不是很常见的创新吗"
+            },
+            {
+              "speaker": 1,
+              "time": "14:59",
+              "text": "0-1 太难了，但是 1-1.1 或许可以"
+            },
+            {
+              "speaker": 3,
+              "time": "15:00",
+              "text": "现在 ai 感觉没啥类比的想法"
+            },
+            {
+              "speaker": 4,
+              "time": "15:00",
+              "text": "忘了说了 abc都是早存在的方法",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 这个为啥不行"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:00",
+              "text": "拿着锤子找钉子"
+            },
+            {
+              "speaker": 4,
+              "time": "15:00",
+              "text": "钉子上个色说是新钉子"
+            },
+            {
+              "speaker": 5,
+              "time": "15:00",
+              "text": "那就是老玩意解决老问题[破涕为笑]"
+            },
+            {
+              "speaker": 5,
+              "time": "15:00",
+              "text": "如果动机说不清楚那确实不太行"
+            },
+            {
+              "speaker": 4,
+              "time": "15:01",
+              "text": "√"
+            }
+          ]
+        },
+        {
+          "category": "模型能力与算子",
+          "title": "Claude 半小时写出 29 步分子合成路线，引出算子生成与常规 Coding 的壁垒之别",
+          "text": "有群友分享了一张 Claude 官方推文截图：在断网且仅把代码当作唯一工具的条件下，模型从四种分子的图像出发，用大约半小时为斯坦福 Burns 实验室绘制的复杂分子 GDGT-4 规划出完整的 29 步有机合成路线（配图注明该路线由 Mythos 5.2 绘制，尚未经实验室测试）。\n\n分享者问有没有懂化学的人说说这是什么水平，有人回复“很厉害”“这么快要革命了吗”。另一位群友感叹之余，把规划复杂有机合成路线与数学界的千禧年问题、AI Infra 里写 CUDA Kernel 算子并列为各自领域最难的工作之一。有人趁机追问：算子生成的难度和常规 coding 任务到底差在哪，是因为高质量训练语料更少吗？这位群友解释，核心差距在于软硬件理解的深度，写算子更像写系统软件、做性能优化和求解最优化问题：既要处理一堆 workload 的 tensor 性质与计算步骤，又要兼顾硬件特征以及计算、存储、通信约束，在这些限制下把 kernel 的性能压榨到极致。",
+          "emphasis": [
+            "用大约半小时为斯坦福 Burns 实验室绘制的复杂分子 GDGT-4 规划出完整的 29 步有机合成路线",
+            "核心差距在于软硬件理解的深度，写算子更像写系统软件、做性能优化和求解最优化问题"
+          ],
+          "aiComment": "断网半小时画出 29 步分子合成路线，顺手炸出了写 CUDA 算子到底难在哪的科普，原来压榨硬件极限和造分子一样费脑子。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:26",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "23:27",
+              "text": "有没有懂化学的老哥说说这是什么水平"
+            },
+            {
+              "speaker": 2,
+              "time": "23:46",
+              "text": "很厉害"
+            },
+            {
+              "speaker": 2,
+              "time": "23:46",
+              "text": "这么快要革命了吗"
+            },
+            {
+              "speaker": 3,
+              "time": "23:48",
+              "text": "写 CUDA Kernel 算子 是 AI infra 最难的工作之一\n\n求解千禧年问题是数学领域最难的工作之一\n\n泪目了[发抖]",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "23:54",
+              "text": "不太懂 算子生成难度和常规的coding任务区别体现在哪里啊 高质量训练语料更少吗"
+            },
+            {
+              "speaker": 3,
+              "time": "23:57",
+              "text": "软硬件理解的深度吧\n\n类似写系统软件\n性能优化\n求解最优化问题\n\n有一堆 workload tensor 性质\n计算步骤\n有一堆硬件特征 计算存储通信约束\n\n怎么把这个 kernel 的性能优化到极致",
+              "quote": {
+                "speaker": 4,
+                "text": "不太懂 算子生成难度和常规的coding任务区别体现在哪里啊 高质量训练语料更少吗"
+              }
+            }
+          ]
+        },
+        {
+          "category": "Agent工作流",
+          "title": "多开 Superagent 刷数据找不着北，群友求解多项目 CLI Session 管理工具",
+          "text": "因为公司把 Slack 禁了，一位群友在群里找类似 Slack、能按项目单独管理 Codex 的插件或 app，希望拉出一个项目的时间线，查看关键结果和 timeline。有人推荐了 Raft，说确实像 Slack，但不知道能不能满足需求；提问的群友一看惊呼“这不是lobehub吗！”，并吐槽并行任务太多、上下文切换不过来，现在连一份报告对应的 session 都找不到了。\n\n有群友调侃“superagent的重要性”，提问者回应不同任务用的 superagent 也不一样，所以没办法找到对应的 cli session 记录。几位群友好奇到底开了多少个 session，有人说五个以下都能 handle，还有人问这么多 session 一天怕不是写几十万行代码。提问者解释其实根本没写代码，是在刷数据和分析轨迹，为了测原子能力又搭了不少接力任务的 setting，跑起来不稳定，有时还得进去修。至于平时用的工具，这位群友说用的是群友推荐的 orca，另外两位群友也说好用，还有人好奇它和 paseo 相比哪个好用。",
+          "emphasis": [
+            "并行任务太多、上下文切换不过来，现在连一份报告对应的 session 都找不到了",
+            "其实根本没写代码，是在刷数据和分析轨迹"
+          ],
+          "aiComment": "为了批量刷数据和测原子能力多开一堆 superagent，结果连报告对应的 CLI session 都找不着了，包工头当久了也会迷路😵‍💫",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:10",
+              "text": "哥哥们"
+            },
+            {
+              "speaker": 1,
+              "time": "20:10",
+              "text": "请问有没有类似slack的能对每一个项目单独管理的codex插件啊"
+            },
+            {
+              "speaker": 1,
+              "time": "20:10",
+              "text": "app也行，公司把slack禁了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:11",
+              "text": "[旺柴]Raft?",
+              "quote": {
+                "speaker": 1,
+                "text": "请问有没有类似slack的能对每一个项目单独管理的codex插件啊"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:11",
+              "text": "https://raft.build/"
+            },
+            {
+              "speaker": 2,
+              "time": "20:12",
+              "text": "确实像slack不过不知道能不能满足你的需求"
+            },
+            {
+              "speaker": 1,
+              "time": "20:13",
+              "text": "这不是lobehub吗！"
+            },
+            {
+              "speaker": 1,
+              "time": "20:14",
+              "text": "主要我想拉一个项目的时间线把关键结果和timeline看一下"
+            },
+            {
+              "speaker": 1,
+              "time": "20:14",
+              "text": "并行太多我上下文切换不过来"
+            },
+            {
+              "speaker": 3,
+              "time": "20:15",
+              "text": "真实"
+            },
+            {
+              "speaker": 1,
+              "time": "20:15",
+              "text": "[裂开] 我现在一份报告的session都找不到"
+            },
+            {
+              "speaker": 4,
+              "time": "20:17",
+              "text": "superagent的重要性"
+            },
+            {
+              "speaker": 2,
+              "time": "20:21",
+              "text": "诶",
+              "quote": {
+                "speaker": 1,
+                "text": "这不是lobehub吗！"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:22",
+              "text": "Midtrain一下，扩展扩展",
+              "quote": {
+                "speaker": 1,
+                "text": "并行太多我上下文切换不过来"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:22",
+              "text": "我现在是不同任务的surperagent也不一样",
+              "quote": {
+                "speaker": 4,
+                "text": "superagent的重要性"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:22",
+              "text": "哈哈哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "20:22",
+              "text": "你开了多少个session啊这"
+            },
+            {
+              "speaker": 1,
+              "time": "20:22",
+              "text": "所以没办法找到ta下面的cli session记录"
+            },
+            {
+              "speaker": 5,
+              "time": "20:22",
+              "text": "你这"
+            },
+            {
+              "speaker": 5,
+              "time": "20:22",
+              "text": "开了多少"
+            },
+            {
+              "speaker": 5,
+              "time": "20:22",
+              "text": "我感觉五个以下都可以handle"
+            },
+            {
+              "speaker": 1,
+              "time": "20:23",
+              "text": "有些批量的东西"
+            },
+            {
+              "speaker": 6,
+              "time": "20:23",
+              "text": "这么多 session 都干啥了\n\n一天能怕不是写几十万行代码了吧[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:23",
+              "text": "肯定要单开一个啊"
+            },
+            {
+              "speaker": 1,
+              "time": "20:23",
+              "text": "其实根本没写代码"
+            },
+            {
+              "speaker": 1,
+              "time": "20:24",
+              "text": "刷数据和分析轨迹来着"
+            },
+            {
+              "speaker": 1,
+              "time": "20:25",
+              "text": "为了测原子能力又搞了不少接力任务的setting"
+            },
+            {
+              "speaker": 6,
+              "time": "20:26",
+              "text": "有意思\n有一人指挥千军万马的爽感[呲牙]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:26",
+              "text": "不稳定有时候要进去修"
+            },
+            {
+              "speaker": 1,
+              "time": "20:26",
+              "text": "都是群友给我推荐的orca"
+            },
+            {
+              "speaker": 5,
+              "time": "20:27",
+              "text": "这个确实好用",
+              "quote": {
+                "speaker": 1,
+                "text": "都是群友给我推荐的orca"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:54",
+              "text": "这个和paseo哪个好用点",
+              "quote": {
+                "speaker": 1,
+                "text": "都是群友给我推荐的orca"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:11",
+              "text": "这个挺好用的",
+              "quote": {
+                "speaker": 1,
+                "text": "都是群友给我推荐的orca"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "Raft",
+              "url": "https://raft.build/"
+            }
+          ]
+        },
+        {
+          "category": "AI安全与创业",
+          "title": "“菜鸡程序员+顶尖 AI”能写毁灭性代码？群友探讨 AI 安全的创业生态位",
+          "text": "有群友转发财联社报道《张一鸣：字节AI最早2029年或2030年追平OpenAI与Anthropic》，群里随即调侃到 2029 年这两家怕是已经靠 RSI“螺旋升天”，或者早就 AGI 了；还有人说不如几大家花钱大力发展黑客技术，偷几个 checkpoints。玩笑话很快拐向正经的 AI 安全赛道：一位群友觉得 AI Infra、token 工厂、智驾 Infra、AI for AI/science 和 RSI 都太卷，大厂和创业公司都在卷，每个方向都有几十家创业公司，国内安全方向的竞争产品好像少一点。\n\n这位群友说想丢些想法到群里试水：各大厂肯定也有安全部门，但总感觉安全需求会暴涨。另一位群友回应“有安全部门≠有做安全的人”，发起话题的群友表示认同，说安全有民用、政府和军方需求，各个软硬件行业都要做，这个市场怕大厂吃不下来。有人提到国家肯定在招人做 post-training 的安全攻防，说“≠”的那位群友提醒攻防和安全是两码事；发起话题的群友则说招肯定在招，但感觉缺少头部独角兽，这块还有创业生态位。\n\n有群友追问是不是要从上下文注入、执行层到数据层构建三套防御系统，另一位群友问指的是不是保护 personal/super/industrial agent。发起话题的群友自称不太懂安全，引述了一种说法：菜鸡程序员加顶尖 AI 能创造毁灭性代码，可以从各个角度发起攻击，有软硬件联网的业务都可能被攻击；也就是说，以前要牛人才能写出的危险代码，现在随便哪个人都能用 SOTA AI 写出，安全需求应该会激增。晚些时候还有群友补充，multi-agent 或 super agent 框架下也要考虑安全风险。",
+          "emphasis": [
+            "每个方向都有几十家创业公司，国内安全方向的竞争产品好像少一点",
+            "感觉缺少头部独角兽，这块还有创业生态位",
+            "以前要牛人才能写出的危险代码，现在随便哪个人都能用 SOTA AI 写出"
+          ],
+          "aiComment": "一边调侃 2029 年靠偷 checkpoints 追平巨头，一边担心普通人配顶尖 AI 就能写危险代码，安全赛道的焦虑来得比独角兽还快🛡️",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:21",
+              "text": "[链接] 张一鸣：字节AI最早2029年或2030年追平OpenAI与Anthropic\n  来源: 财联社\n  摘要: ​\n  URL: https://mp.weixin.qq.com/s/4SwFnTQmQlydq83Uh8RgUw"
+            },
+            {
+              "speaker": 1,
+              "time": "19:21",
+              "text": "[呲牙]"
+            },
+            {
+              "speaker": 2,
+              "time": "19:22",
+              "text": "2029年，anthropic和openai是不是都rsi螺旋升天了"
+            },
+            {
+              "speaker": 3,
+              "time": "19:23",
+              "text": "2029早就agi了"
+            },
+            {
+              "speaker": 4,
+              "time": "19:25",
+              "text": "感觉还不如几大家花钱大力发展黑客技术，偷几个checkpoints"
+            },
+            {
+              "speaker": 5,
+              "time": "19:25",
+              "text": "6"
+            },
+            {
+              "speaker": 6,
+              "time": "19:28",
+              "text": "+1\n 我有点想去创业公司做安全了[旺柴]，\n\n感觉安全国内竞争产品好像少一点[旺柴]\n\nai infra，token 工厂， 智驾 infra， ai for ai/science，rsi 都太卷了，\n大厂 创业公司都在卷[旺柴]",
+              "quote": {
+                "speaker": 4,
+                "text": "感觉还不如几大家花钱大力发展黑客技术，偷几个checkpoints"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "19:28",
+              "text": "怎么这么多狗头"
+            },
+            {
+              "speaker": 3,
+              "time": "19:30",
+              "text": "🐶保命"
+            },
+            {
+              "speaker": 8,
+              "time": "19:30",
+              "text": "过分防御性发言"
+            },
+            {
+              "speaker": 6,
+              "time": "19:33",
+              "text": "+1\n 丢些想法到群里试试水，\n看看有没有大佬怼怼，检验检验\n\n因为安全我不太懂，我感觉 360 蚂蚁 各大厂肯定也都有安全部门，\n\n 但是总感觉安全的需求应该会暴涨[旺柴]",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] +1\n 我有点想去创业公司做安全了[旺柴]，\n\n感觉安全国内竞争产品好像少一点[旺柴]\n\nai infra，token 工厂， 智驾 infra， ai for ai/science，rsi 都太卷了，\n大厂 创业公司都在卷[旺柴]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:33",
+              "text": "可以问问有没有官方部门，估计也收",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] +1\n 我有点想去创业公司做安全了[旺柴]，\n\n感觉安全国内竞争产品好像少一点[旺柴]\n\nai infra，token 工厂， 智驾 infra， ai for ai/science，rsi 都太卷了，\n大厂 创业公司都在卷[旺柴]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "19:33",
+              "text": "有安全部门≠有做安全的人"
+            },
+            {
+              "speaker": 4,
+              "time": "19:34",
+              "text": "国家肯定在招人做了，post-training做什么安全攻防的"
+            },
+            {
+              "speaker": 6,
+              "time": "19:34",
+              "text": "是的\n\n 安全有 民用 zhengfu jun 方\n\n各个软硬件行业都有安全需求\n\n这市场怕大厂吃不下来",
+              "quote": {
+                "speaker": 9,
+                "text": "有安全部门≠有做安全的人"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "19:34",
+              "text": "攻防和安全两码事吧",
+              "quote": {
+                "speaker": 4,
+                "text": "国家肯定在招人做了，post-training做什么安全攻防的"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "19:35",
+              "text": "从上下文注入->执行层->数据层这种构建三套防御系统吗"
+            },
+            {
+              "speaker": 6,
+              "time": "19:36",
+              "text": "招肯定招\n但总感觉缺些头部独角兽公司\n\n感觉这块还是有创业生态位的",
+              "quote": {
+                "speaker": 4,
+                "text": "国家肯定在招人做了，post-training做什么安全攻防的"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:37",
+              "text": "相比于\n\n智驾  \n ai infra \ntoken 工厂\nrsi\n世界模型 具身\n\n这些行业，每个都是几十家创业公司了吧[旺柴]",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 招肯定招\n但总感觉缺些头部独角兽公司\n\n感觉这块还是有创业生态位的"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "19:39",
+              "text": "你指的是保护personal/super/industrial agent吗"
+            },
+            {
+              "speaker": 6,
+              "time": "19:43",
+              "text": "我不太懂安全\n\n但是 zhaochenyang 不是说么\n\n菜鸡程序员+顶尖 ai 创造毁灭性代码\n\n应该可以各个角度发起攻击\n\n有软硬件 联网的业务，都有可能被攻击吧，不太懂[旺柴]",
+              "quote": {
+                "speaker": 10,
+                "text": "你指的是保护personal/super/industrial agent吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "19:45",
+              "text": "也就是说\n\n以前要牛人才能写出的危险代码\n\n现在随便哪个人都能用 SOTA AI 写出\n\n安全的需求应该会激增？[旺柴]",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 我不太懂安全\n\n但是 zhaochenyang 不是说么\n\n菜鸡程序员+顶尖 ai 创造毁灭性代码\n\n应该可以各个角度发起攻击\n\n有软硬件 联网的业务，都有可能被攻击吧，不太懂[旺柴]"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "张一鸣：字节AI最早2029年或2030年追平OpenAI与Anthropic",
+              "url": "https://mp.weixin.qq.com/s/4SwFnTQmQlydq83Uh8RgUw"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "黄仁勋辞去英伟达 CEO 截图刷屏，群友热议算力供应与“3 天写完算子栈”",
+          "text": "晚间有群友晒出一张 Wind 金融终端的新闻截图，标题显示“英伟达宣布 CEO 黄仁勋即日起辞去总裁、首席执行官及董事会成员职务”。紧接着有人贴出变动细节：曾任 Synopsys CEO 的 Harvey C. Jones 出任英伟达首任正式董事会主席，自 2013 年起担任 CFO 的 Colette Kress 出任临时 CEO 并保留 CFO 职务，同时寻找永久接任者；也有群友称有消息说接任者是印度裔的 Jay Puri，但官方还没说是谁。群里一片“见证历史”的感叹，有人拿黄仁勋早年端盘子的经历玩梗，还有人一本正经地发帖提醒从事 IC 设计与 AI 训推加速的同学关注英伟达即将放出的“chief executive officer”高薪岗，另一位群友顺势接梗说可以报名“求职陪跑，保录”。\n\n玩笑之外，大家更关心硬件价格与算力软件栈的走向。有群友感叹 5090 显卡去年同期的价格还是 16000 元，现在已经涨到 5 万元，涨幅达 200%；也有人担心换帅后国内更难拿到 N 卡，喊话速速适配昇腾等国产链路。还有群友感慨“CUDA 也刚好在今年被 AI 给干飞了”——当有人问起 AMD 的卡好不好使时，这位群友提到 Anthropic 号称用 Mythos 仅花 3 天就写完了软件算子栈。",
+          "emphasis": [
+            "英伟达宣布 CEO 黄仁勋即日起辞去总裁、首席执行官及董事会成员职务",
+            "5090 显卡去年同期的价格还是 16000 元，现在已经涨到 5 万元，涨幅达 200%",
+            "Anthropic 号称用 Mythos 仅花 3 天就写完了软件算子栈"
+          ],
+          "aiComment": "老黄辞职的快讯底下，一边是 5090 从 16000 涨到 5 万的肉疼，一边是 Mythos 号称 3 天写完算子栈的传说，软硬件一起搞心态🎢",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:58",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "21:59",
+              "text": "黄仁勋（Jensen Huang）正式辞职。 即日起不再担任 NVIDIA 总裁、首席执行官及董事会成员。这不仅是 CEO 职位交接，还意味着他退出董事会"
+            },
+            {
+              "speaker": 2,
+              "time": "21:59",
+              "text": "Harvey C. Jones 出任董事会主席。 他成为 NVIDIA 首任正式董事会主席，曾担任 Synopsys 的 CEO 和执行董事长"
+            },
+            {
+              "speaker": 2,
+              "time": "21:59",
+              "text": "Colette Kress 出任临时 CEO。 她自 2013 年起担任 NVIDIA CFO，在临时担任 CEO 期间仍保留 CFO 职务。董事会将同时考虑内部和外部候选人，寻找永久 CEO"
+            },
+            {
+              "speaker": 3,
+              "time": "21:59",
+              "text": "可以梭哈？"
+            },
+            {
+              "speaker": 4,
+              "time": "21:59",
+              "text": "把老黄挖过来，让他把半个 nv 团队都带过来[旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "22:01",
+              "text": "见证历史了"
+            },
+            {
+              "speaker": 5,
+              "time": "22:01",
+              "text": "皮衣黄下课"
+            },
+            {
+              "speaker": 6,
+              "time": "22:03",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 7,
+              "time": "22:03",
+              "text": "有生之年"
+            },
+            {
+              "speaker": 4,
+              "time": "22:03",
+              "text": "老黄失业了，让老黄也写个这个帖子[阴险]",
+              "quote": {
+                "speaker": 6,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "22:04",
+              "text": "现在这形势老黄都被裁了[旺柴][强]"
+            },
+            {
+              "speaker": 5,
+              "time": "22:04",
+              "text": "绷不住了"
+            },
+            {
+              "speaker": 7,
+              "time": "22:04",
+              "text": "没准英伟达也在架构调整把黄sir调整走了"
+            },
+            {
+              "speaker": 9,
+              "time": "22:04",
+              "text": "见证历史了"
+            },
+            {
+              "speaker": 5,
+              "time": "22:05",
+              "text": "老黄继续去端盘子了"
+            },
+            {
+              "speaker": 10,
+              "time": "22:05",
+              "text": "正是创业的好年纪"
+            },
+            {
+              "speaker": 11,
+              "time": "22:07",
+              "text": "正是创业的好年纪"
+            },
+            {
+              "speaker": 9,
+              "time": "22:07",
+              "text": "回国创业吧，"
+            },
+            {
+              "speaker": 12,
+              "time": "22:08",
+              "text": "百万撤离了"
+            },
+            {
+              "speaker": 12,
+              "time": "22:08",
+              "text": "*百亿"
+            },
+            {
+              "speaker": 13,
+              "time": "22:08",
+              "text": "洗两年盘子就能买回来nv——意林",
+              "quote": {
+                "speaker": 5,
+                "text": "老黄继续去端盘子了"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "22:08",
+              "text": "大模型变天了"
+            },
+            {
+              "speaker": 15,
+              "time": "22:08",
+              "text": "感觉是不是被搞了呀"
+            },
+            {
+              "speaker": 15,
+              "time": "22:09",
+              "text": "虽然但是"
+            },
+            {
+              "speaker": 9,
+              "time": "22:09",
+              "text": "被民主党夺舍"
+            },
+            {
+              "speaker": 13,
+              "time": "22:09",
+              "text": "模型天大变了"
+            },
+            {
+              "speaker": 15,
+              "time": "22:09",
+              "text": "要换一个纯白人吗"
+            },
+            {
+              "speaker": 16,
+              "time": "22:09",
+              "text": "换的印度裔"
+            },
+            {
+              "speaker": 17,
+              "time": "22:09",
+              "text": "那么国内将无n卡可用了",
+              "quote": {
+                "speaker": 15,
+                "text": "要换一个纯白人吗"
+              }
+            },
+            {
+              "speaker": 17,
+              "time": "22:10",
+              "text": "老黄在还可以偷偷卖"
+            },
+            {
+              "speaker": 15,
+              "time": "22:10",
+              "text": "[破涕为笑]，确实之前还有给我们h20吧"
+            },
+            {
+              "speaker": 3,
+              "time": "22:10",
+              "text": "明天开始就干国产链路了"
+            },
+            {
+              "speaker": 15,
+              "time": "22:10",
+              "text": "有消息吗",
+              "quote": {
+                "speaker": 16,
+                "text": "换的印度裔"
+              }
+            },
+            {
+              "speaker": 15,
+              "time": "22:10",
+              "text": "速速适配昇腾",
+              "quote": {
+                "speaker": 3,
+                "text": "明天开始就干国产链路了"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "22:10",
+              "text": "h20早就恢复卖了好像，不过..."
+            },
+            {
+              "speaker": 17,
+              "time": "22:11",
+              "text": "还可以通过黄姐卖出来b卡",
+              "quote": {
+                "speaker": 17,
+                "text": "老黄在还可以偷偷卖"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "22:11",
+              "text": "明天开盘直接买，期待20cm"
+            },
+            {
+              "speaker": 15,
+              "time": "22:11",
+              "text": "b卡用的是真的舒服[旺柴]",
+              "quote": {
+                "speaker": 17,
+                "text": "[引用] 还可以通过黄姐卖出来b卡"
+              }
+            },
+            {
+              "speaker": 16,
+              "time": "22:12",
+              "text": "有消息说是Jay Puri",
+              "quote": {
+                "speaker": 15,
+                "text": "[引用] 有消息吗"
+              }
+            },
+            {
+              "speaker": 16,
+              "time": "22:12",
+              "text": "一个印度裔"
+            },
+            {
+              "speaker": 16,
+              "time": "22:12",
+              "text": "但是官方还没说是谁"
+            },
+            {
+              "speaker": 9,
+              "time": "22:13",
+              "text": "有没有可能再就业呢，回来研究国产卡"
+            },
+            {
+              "speaker": 18,
+              "time": "22:14",
+              "text": "他能活到明年1月2号以后就算不容易了"
+            },
+            {
+              "speaker": 9,
+              "time": "22:15",
+              "text": "终身禁止出境"
+            },
+            {
+              "speaker": 7,
+              "time": "22:15",
+              "text": "黄sir是干啥了"
+            },
+            {
+              "speaker": 19,
+              "time": "22:15",
+              "text": "各位找工作的群友注意了，最近 NVIDIA 应该会release一个岗位叫什么chief executive officer，这个岗年薪挺高的。有方向为 IC 设计，AI 训推加速的同学可以关注下"
+            },
+            {
+              "speaker": 20,
+              "time": "22:16",
+              "text": "好梗"
+            },
+            {
+              "speaker": 5,
+              "time": "22:17",
+              "text": "有想要申请这个岗位的同学可以报我们的求职陪跑，保录哦",
+              "quote": {
+                "speaker": 19,
+                "text": "各位找工作的群友注意了，最近 NVIDIA 应该会release一个岗位叫什么chief executive officer，这个岗年薪挺高的。有方向为 IC ..."
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "22:18",
+              "text": "串得不像了这个"
+            },
+            {
+              "speaker": 11,
+              "time": "22:18",
+              "text": "一个时代落幕了"
+            },
+            {
+              "speaker": 11,
+              "time": "22:19",
+              "text": "CUDA也刚好在今年被AI给干飞了"
+            },
+            {
+              "speaker": 21,
+              "time": "22:22",
+              "text": "也是见证历史了"
+            },
+            {
+              "speaker": 21,
+              "time": "22:23",
+              "text": "5090去年这个时候16000，现在5万，涨幅200%"
+            },
+            {
+              "speaker": 22,
+              "time": "22:23",
+              "text": "amd的卡好使吗"
+            },
+            {
+              "speaker": 11,
+              "time": "22:24",
+              "text": "反正a➗说3天写完软件算子栈",
+              "quote": {
+                "speaker": 22,
+                "text": "amd的卡好使吗"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "22:24",
+              "text": "用mythos"
+            }
+          ]
+        },
+        {
+          "category": "行业观察",
+          "title": "外卖大战一年烧掉 2000 亿超所有基座团队总和，群友归因买卡受限与商业回报",
+          "text": "有群友分享了《晚点 LatePost》关于“大模型 1 亿年薪不贵，做应用 10 个人就够了”的访谈文章及金句卡片，卡片中提到：“去年外卖大战就烧了差不多 2000 亿。中国所有基座团队加起来，都没烧这么多。”有群友调侃这得“归功”于美国不让买卡，另一位群友附和“有钱花不出去，拿来卷外卖去了”；第三位群友则认为，关键在于外卖能实实在在看到收益和用户，而投在基座模型上的钱目前还在讲故事阶段。",
+          "emphasis": [
+            "去年外卖大战就烧了差不多 2000 亿",
+            "投在基座模型上的钱目前还在讲故事阶段"
+          ],
+          "aiComment": "外卖大战一年烧掉 2000 亿，中国所有基座团队加起来都比不上，算力卡脖子没花出去的钱，全变成满减券喂饱大家了🥡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:58",
+              "text": "[链接] 对话前字节、美团招聘负责人魏小康：大模型 1 亿年薪不贵，做应用 10 个人就够了\n  来源: 晚点LatePost\n  摘要: “给了钱，解决不了问题，才是人才泡沫。”\n  URL: https://mp.weixin.qq.com/s?__biz=MzU3Mjk1OTQ0Ng%3D%3D&mid=2247539862&idx=1&sn=5cf90666366386ee248c3da6408e6a74&chksm=fd75778f68c6781fccf1d7a01110401b84d9dcf75006339d8a1bfc85bd93b5845066e6aa515d&scene=1&srcid=1112zakyUsTBNLeHgm5za8lL#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "19:58",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:03",
+              "text": "这得归功于美帝，不让买卡"
+            },
+            {
+              "speaker": 3,
+              "time": "20:06",
+              "text": "+1  hh \n有钱花不出去， 拿来卷外卖去了[阴险]"
+            },
+            {
+              "speaker": 4,
+              "time": "20:09",
+              "text": "主要这个外卖是实实在在看得到收益和用户的吧，花到基模上目前还在讲故事阶段"
+            }
+          ]
+        },
+        {
+          "category": "人才与薪酬",
+          "title": "自称 Anthropic 团队负责人开价 900 万现金回国？群友先疑真假",
+          "text": "有群友贴出一张小红书评论区截图：一条评论自称在 Anthropic 担任 Fable 的主要负责人之一、带 15 人团队，在考虑回国，开价每年 900 万人民币现金加 2500 万人民币期权或股票，不能给就不用联系。分享者问这算高还是低。有群友说字节轻松给到，另有两位群友觉得低了，其中一位拿业内某位人士当年的“1e”作对比。也有几位群友怀疑这样的人能不能回得来，有人猜 Anthropic 会把人按住，还有人玩梗说要是真掌握了“焚决”，多少钱都行。\n\n另一位群友指出，小红书上这类“momo”默认昵称的账号像是注册机批量注册的，发言也很逆天；分享者也觉得真实性存疑，调侃不如来个 CEO 私信问问。",
+          "emphasis": [
+            "开价每年 900 万人民币现金加 2500 万人民币期权或股票",
+            "像是注册机批量注册的"
+          ],
+          "aiComment": "900 万现金加 2500 万期权，开价写得像正式 offer，账号名却是默认的 momo，这份简历最先过不了的是背调。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:14",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "11:14",
+              "text": "这算高了还是低了"
+            },
+            {
+              "speaker": 2,
+              "time": "11:14",
+              "text": "字节轻松给到"
+            },
+            {
+              "speaker": 3,
+              "time": "11:14",
+              "text": "Fable的主要负责人 15人团队吗?"
+            },
+            {
+              "speaker": 4,
+              "time": "11:14",
+              "text": "太恐怖了",
+              "quote": {
+                "speaker": 3,
+                "text": "Fable的主要负责人 15人团队吗?"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:15",
+              "text": "之一[旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "11:15",
+              "text": "这能允许回来吗"
+            },
+            {
+              "speaker": 3,
+              "time": "11:15",
+              "text": "这能让他回来?"
+            },
+            {
+              "speaker": 6,
+              "time": "11:15",
+              "text": "感觉太低了",
+              "quote": {
+                "speaker": 1,
+                "text": "这算高了还是低了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "11:15",
+              "text": "低了"
+            },
+            {
+              "speaker": 7,
+              "time": "11:15",
+              "text": "ysy当年可是1e"
+            },
+            {
+              "speaker": 8,
+              "time": "11:15",
+              "text": "这还能回来"
+            },
+            {
+              "speaker": 9,
+              "time": "11:16",
+              "text": "这能让他回来?"
+            },
+            {
+              "speaker": 4,
+              "time": "11:16",
+              "text": "这能让他回来？感觉A给他按住"
+            },
+            {
+              "speaker": 1,
+              "time": "11:16",
+              "text": "不过为什么打算回来了"
+            },
+            {
+              "speaker": 9,
+              "time": "11:16",
+              "text": "确实",
+              "quote": {
+                "speaker": 2,
+                "text": "字节轻松给到"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "11:17",
+              "text": "真知道焚决感觉多少钱都行吧"
+            },
+            {
+              "speaker": 6,
+              "time": "11:17",
+              "text": "是啊"
+            },
+            {
+              "speaker": 6,
+              "time": "11:17",
+              "text": "真焚决了"
+            },
+            {
+              "speaker": 3,
+              "time": "11:17",
+              "text": "这是带异火的焚决"
+            },
+            {
+              "speaker": 3,
+              "time": "11:17",
+              "text": "还得是虚无吞炎"
+            },
+            {
+              "speaker": 10,
+              "time": "11:19",
+              "text": "小红书这些“momo”的感觉像是注册机注册的批量账号，而且发言也都是很逆天的"
+            },
+            {
+              "speaker": 11,
+              "time": "11:19",
+              "text": "默认名字"
+            },
+            {
+              "speaker": 12,
+              "time": "11:19",
+              "text": "那我是秦始皇，v我50",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "11:20",
+              "text": "v我49"
+            },
+            {
+              "speaker": 1,
+              "time": "11:22",
+              "text": "确实，感觉真实性存疑哈哈哈，来个CEO私信他看看",
+              "quote": {
+                "speaker": 10,
+                "text": "小红书这些“momo”的感觉像是注册机注册的批量账号，而且发言也都是很逆天的"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
