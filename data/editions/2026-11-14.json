@@ -1,0 +1,1684 @@
+{
+  "id": "2026-11-14",
+  "date": "2026-11-14",
+  "label": "2026-11-14 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "本日暂无可读记录",
+      "theme": "本日暂无可读记录。",
+      "note": "2026-11-14 · 当日本地记录 · 无本地可读记录",
+      "stories": []
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "Thinking Machines 端到端 4 比特训练方案分享",
+      "theme": "前向 NVFP4、反向 MXFP8 加量化通信，官方称预训练提速 8%、RL 提速 20%。",
+      "note": "2026-11-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "技术分享",
+          "title": "Thinking Machines 端到端 4 比特训练方案",
+          "text": "有群友分享了 Thinking Machines 关于端到端 4 比特训练的博客，另一位群友补了 NeuralTalk 的中文版。博客介绍，该方案在 GB300 上对 MoE 层前向采用 NVFP4，反向采用 MXFP8 并在重新量化时使用随机舍入，同时量化了通信；官方称在其最大规模的任务中，相比全 MXFP8 训练，预训练提速 8%、RL 提速 20%。博客还提到 Inkling 2 Small 在 GB300 NVL72 上 68 小时完成预训练，并说明这套数值方案只是多项改进之一。",
+          "emphasis": [
+            "前向采用 NVFP4，反向采用 MXFP8",
+            "相比全 MXFP8 训练，预训练提速 8%、RL 提速 20%"
+          ],
+          "aiComment": "前向 4 比特、反向 8 比特，还要在中间掷硬币舍入，显卡这回是真在精打细算每一个比特 ⚡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:50",
+              "text": "https://thinkingmachines.ai/blog/end-to-end-4-bit-training/"
+            },
+            {
+              "speaker": 1,
+              "time": "20:09",
+              "text": "[链接] Thinking Machines 发布端到端 4 比特训练方案：NVFP4 前向、MXFP8 反向与量化通信的三者协同，68 小时完成预训练\n  来源: NeuralTalk\n  摘要: Thinking Machines推出端到端4比特训练方案，在GB300平台对MoE层前向采用NVFP4、反向结合MXFP8与随机舍入，配套量化通信优化，预训练提速8%、RL提速20%，支撑Inkling 2 Small仅68小时完成预训练...\n  URL: https://mp.weixin.qq.com/s/5uJp5LF0oEUSFb61QBjZzA"
+            },
+            {
+              "speaker": 1,
+              "time": "20:09",
+              "text": "neuraltalk有个中文版的"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Thinking Machines：End-to-end 4-bit training",
+              "url": "https://thinkingmachines.ai/blog/end-to-end-4-bit-training/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "多智能体解决实际问题该用什么 benchmark？",
+      "theme": "群友核对 ICLR 首轮 rebuttal 提交进度，审稿人反馈手头半数论文尚未回复。",
+      "note": "2026-11-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "论文与会议",
+          "title": "ICLR 首轮 rebuttal 到了什么时候",
+          "text": "凌晨有群友问现在提交 ICLR 第一版 rebuttal 算不算晚。有人回复差不多就是这两天回第一版；另一位参与审稿的群友给出了手头的样本：负责审的四篇论文里，目前只有两篇交了回复。",
+          "emphasis": [
+            "审的四篇论文里，目前只有两篇交了回复"
+          ],
+          "aiComment": "凌晨问算不算晚，结果审稿人手里四篇才交了两篇，原来大家都在卡死线边缘反复横跳 🌚",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:43",
+              "text": "iclr现在re第一版晚吗（"
+            },
+            {
+              "speaker": 2,
+              "time": "03:08",
+              "text": "差不多都是这两天回第一版",
+              "quote": {
+                "speaker": 1,
+                "text": "iclr现在re第一版晚吗（"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "03:40",
+              "text": "提供一个样本是审的四篇里目前只有两篇回了"
+            }
+          ]
+        },
+        {
+          "category": "Benchmark",
+          "title": "multi-agent 解决实际问题用什么 benchmark",
+          "text": "有群友打听有没有用多智能体解决实际问题的 benchmark。有人反问“实际问题”具体指什么；另一位群友认为 multi-agent 只是方案，解决的仍然是同一类问题。提问者补充说，想了解大家做多智能体设计时通常在哪些 bench 上做对比，不过群里暂无人给出具体名称。",
+          "emphasis": [
+            "multi-agent 只是方案，解决的仍然是同一类问题"
+          ],
+          "aiComment": "想找个多智能体解决实际问题的 benchmark，结果卡在了定义什么叫实际问题，群里瞬间安静 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:55",
+              "text": "大佬们，有没有多智能体来解决实际问题的benchmark"
+            },
+            {
+              "speaker": 2,
+              "time": "15:10",
+              "text": "实际问题指啥"
+            },
+            {
+              "speaker": 3,
+              "time": "15:11",
+              "text": "multi agent只是方案吧，解决的问题一直是同一种问题"
+            },
+            {
+              "speaker": 1,
+              "time": "15:14",
+              "text": "嗯嗯，就是大家的多智能体设计都在哪些bench上做对比",
+              "quote": {
+                "speaker": 3,
+                "text": "multi agent只是方案吧，解决的问题一直是同一种问题"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "Antigravity 改进文件跳转与侧边栏交互体验",
+      "theme": "支持直接在文件管理器中打开文件并将 /btw 移至侧边栏，群友调侃此前起点太低。",
+      "note": "2026-11-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "工具体验",
+          "title": "Antigravity 体验更新：文件管理器跳转与侧边栏 /btw",
+          "text": "有群友聊起近期使用 Antigravity 的感受，形容这两天每天用都有一种“丰收的喜悦”，user experience 越做越好：现在文件支持在文件管理器中打开，/btw 也移到了侧边栏，不再使用原先很小的悬浮窗口。看到有人感叹体验变好，这位群友补充说其实是之前起点太低；另一位群友接话调侃“提升空间巨大”。",
+          "emphasis": [
+            "文件支持在文件管理器中打开，/btw 也移到了侧边栏"
+          ],
+          "aiComment": "/btw 挪进侧边栏就能收获丰收的喜悦，被前任小悬浮窗折磨过的用户，幸福门槛就是这么朴实。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:23",
+              "text": "这两天每天用antigravity都会有一种丰收的喜悦"
+            },
+            {
+              "speaker": 1,
+              "time": "23:23",
+              "text": "起码user experience做的越来越好了"
+            },
+            {
+              "speaker": 1,
+              "time": "23:24",
+              "text": "比如文件能在文件管理器中打开了，然后/btw也跑到侧边栏了不会再用原来那个非常小的悬浮窗口了"
+            },
+            {
+              "speaker": 2,
+              "time": "23:24",
+              "text": "我去 这么好的吗"
+            },
+            {
+              "speaker": 1,
+              "time": "23:25",
+              "text": "是起点太低了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:35",
+              "text": "提升空间巨大"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "Gemini 按元素周期表密集发版，算力乘数曲线引发超指数争论",
+      "theme": "还聊了具身驻场“新时代土木”、DeepSeek V5 转投昇腾传闻和 ChatGPT Wallet。",
+      "note": "2026-11-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "模型与工具",
+          "title": "Gemini 按“元素周期表”密集发版，群友顺带复盘 Antigravity 体验",
+          "text": "晚上有群友说在小红书刷到 Gemini 又出了代号 krypton 的新模型。另一位群友说这个名字四天前就有人提过，但一直没人见到，刚刚上了 Arena。群里有人起哄“真 rsi 了啊”“这半年不会是梭哈 RSI 了吧”（RSI 即递归自我改进）。有人担心国内外差距也要指数级拉大，一位群友回“不一直是么”；也有群友调侃差距“很小啊”，说 DeepSeek 的指纹识别已经被判定成 Astra，Kimi 在 Opus 轨迹上算出来的 perplexity 也比其他模型小很多。\n\n中间还有个小乌龙：有群友贴图惊呼“真有新模型”，随即被提醒那是前一两天就发布的 Hydrogen，Cursor 里早就有了，他也承认自己看错了。群友晒出的 Cursor 模型菜单里列着 Gemini 4 Carbon 和 Gemini 4 Hydrogen，Gemini 手机端则把 4 Hydrogen 标为“日常帮助”、4 Carbon 标为“高难任务”。有群友说 Hydrogen 用起来比 Sol 和 Astra 还好，另一位提醒它对应的是 Flash 档，高性能版应该是 Carbon。也有人吐槽这套命名完全看不出版本先后和能力强弱，有群友回答是按元素周期表顺序排的，还说“元素周期表还有 23 个位置”。有群友表示这下真得续费订阅了，另一位则准备去买 Google 订阅。\n\n话题随后转到 Google 的 Antigravity（反重力）。有人问它是不是 Gemini 的 harness，一位群友说它是类似 VS Code、Cursor 的编辑器，另一位群友解释其实有两个：编辑器那个叫 Antigravity IDE，另有一个新的 Antigravity 2.0。至于 agent 模式，有群友说最早就有，点一下会弹出新窗口，也有人记得是 Codex 火了以后才加上的。有人问它能不能做 computer use，一位群友说去年就有，底下就是一个 Chrome，“不太好用，但是能用”。他对早期版本的评价是“难用到爆炸，经常连不上”，另一位群友附和“当时确实”；问 computer use 的群友说自己现在主要还是用 Codex。",
+          "emphasis": [
+            "Kimi 在 Opus 轨迹上算出来的 perplexity 也比其他模型小很多",
+            "它对应的是 Flash 档，高性能版应该是 Carbon",
+            "底下就是一个 Chrome，“不太好用，但是能用”"
+          ],
+          "aiComment": "Gemini 拿元素周期表起名，氢、碳之后直接跳到氪，群友谁是谁还没记住，倒是先想起该续费了 🧪",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:37",
+              "text": "gemini又出新模型了？"
+            },
+            {
+              "speaker": 1,
+              "time": "21:37",
+              "text": "krypton"
+            },
+            {
+              "speaker": 1,
+              "time": "21:37",
+              "text": "xhs刷到的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:37",
+              "text": "？？？？"
+            },
+            {
+              "speaker": 2,
+              "time": "21:37",
+              "text": "真rsi了啊"
+            },
+            {
+              "speaker": 3,
+              "time": "21:37",
+              "text": "真"
+            },
+            {
+              "speaker": 1,
+              "time": "21:37",
+              "text": "太离谱了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:37",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "21:38",
+              "text": "我确实在更新 antigravity"
+            },
+            {
+              "speaker": 5,
+              "time": "21:38",
+              "text": "难道说gemini又要王朝了？"
+            },
+            {
+              "speaker": 2,
+              "time": "21:38",
+              "text": "这半年不会是梭哈RSI了吧"
+            },
+            {
+              "speaker": 5,
+              "time": "21:38",
+              "text": "所以现在反重力值得充吗"
+            },
+            {
+              "speaker": 3,
+              "time": "21:38",
+              "text": "完了国内外的差距也要指数级拉大吗"
+            },
+            {
+              "speaker": 2,
+              "time": "21:38",
+              "text": "我梭哈了"
+            },
+            {
+              "speaker": 3,
+              "time": "21:39",
+              "text": "这会没人开源rsi框架了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:39",
+              "text": "不一直是么",
+              "quote": {
+                "speaker": 3,
+                "text": "完了国内外的差距也要指数级拉大吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "21:39",
+              "text": "真差距小过么"
+            },
+            {
+              "speaker": 2,
+              "time": "21:40",
+              "text": "？"
+            },
+            {
+              "speaker": 2,
+              "time": "21:40",
+              "text": "真的吗"
+            },
+            {
+              "speaker": 4,
+              "time": "21:40",
+              "text": "很小啊，deepseek 指纹识别已经被判定成 astra 了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:40",
+              "text": "草"
+            },
+            {
+              "speaker": 4,
+              "time": "21:41",
+              "text": "kimi 在 opus 的轨迹上算出来的 perplexity 也比其他的模型小很多"
+            },
+            {
+              "speaker": 4,
+              "time": "21:41",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 4,
+              "time": "21:41",
+              "text": "woc真有新模型"
+            },
+            {
+              "speaker": 7,
+              "time": "21:42",
+              "text": "这个不是昨天的flash嘛",
+              "quote": {
+                "speaker": 4,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "21:42",
+              "text": "还是前天的"
+            },
+            {
+              "speaker": 7,
+              "time": "21:42",
+              "text": "我穿越了吗"
+            },
+            {
+              "speaker": 6,
+              "time": "21:42",
+              "text": "不是啊"
+            },
+            {
+              "speaker": 2,
+              "time": "21:42",
+              "text": "前天啊"
+            },
+            {
+              "speaker": 6,
+              "time": "21:42",
+              "text": "发出来了"
+            },
+            {
+              "speaker": 6,
+              "time": "21:42",
+              "text": "之前不是只发布"
+            },
+            {
+              "speaker": 6,
+              "time": "21:42",
+              "text": "不给用么"
+            },
+            {
+              "speaker": 4,
+              "time": "21:42",
+              "text": "哦这个已经发布了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:42",
+              "text": "我看错了"
+            },
+            {
+              "speaker": 7,
+              "time": "21:42",
+              "text": "cursor很早就有了"
+            },
+            {
+              "speaker": 2,
+              "time": "21:42",
+              "text": "krypton"
+            },
+            {
+              "speaker": 8,
+              "time": "21:42",
+              "text": "昨天的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:43",
+              "text": "这个四天前就有人说了"
+            },
+            {
+              "speaker": 8,
+              "time": "21:43",
+              "text": "这个hydrogen"
+            },
+            {
+              "speaker": 2,
+              "time": "21:43",
+              "text": "但是 没人见到过"
+            },
+            {
+              "speaker": 4,
+              "time": "21:43",
+              "text": "新的是叫 krypton"
+            },
+            {
+              "speaker": 2,
+              "time": "21:43",
+              "text": "刚arena上了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:43",
+              "text": "hydrogen pro可以用吗？"
+            },
+            {
+              "speaker": 8,
+              "time": "21:43",
+              "text": "这个模型命名太抽象了"
+            },
+            {
+              "speaker": 9,
+              "time": "21:43",
+              "text": "可以的",
+              "quote": {
+                "speaker": 1,
+                "text": "hydrogen pro可以用吗？"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "21:43",
+              "text": "这个前几天就可以了",
+              "quote": {
+                "speaker": 1,
+                "text": "hydrogen pro可以用吗？"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:43",
+              "text": "完全记不住谁是谁"
+            },
+            {
+              "speaker": 8,
+              "time": "21:43",
+              "text": "完全不知道版本先后"
+            },
+            {
+              "speaker": 11,
+              "time": "21:43",
+              "text": "元素周期表"
+            },
+            {
+              "speaker": 12,
+              "time": "21:44",
+              "text": "gemini 直接整个uranium 更好，眩晕瘫坐"
+            },
+            {
+              "speaker": 8,
+              "time": "21:44",
+              "text": "也不知道能力的递增强敌"
+            },
+            {
+              "speaker": 8,
+              "time": "21:44",
+              "text": "强度"
+            },
+            {
+              "speaker": 1,
+              "time": "21:44",
+              "text": "那真得续费了"
+            },
+            {
+              "speaker": 13,
+              "time": "21:45",
+              "text": "本来还打算这个月后不续费的呢"
+            },
+            {
+              "speaker": 9,
+              "time": "21:45",
+              "text": "hydrogen都感觉比sol和astra好用了"
+            },
+            {
+              "speaker": 7,
+              "time": "21:45",
+              "text": "gemini的harness就是反重力是吗"
+            },
+            {
+              "speaker": 8,
+              "time": "21:45",
+              "text": "那我准备买Google订阅了"
+            },
+            {
+              "speaker": 14,
+              "time": "21:45",
+              "text": "这是对应flash吧",
+              "quote": {
+                "speaker": 9,
+                "text": "hydrogen都感觉比sol和astra好用了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:45",
+              "text": "不是，编辑器来的",
+              "quote": {
+                "speaker": 7,
+                "text": "gemini的harness就是反重力是吗"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "21:45",
+              "text": "高性能版本应该是carbon"
+            },
+            {
+              "speaker": 8,
+              "time": "21:46",
+              "text": "跟vscode差不多的那种"
+            },
+            {
+              "speaker": 9,
+              "time": "21:46",
+              "text": "我知道它是flash",
+              "quote": {
+                "speaker": 14,
+                "text": "[引用] 这是对应flash吧"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:46",
+              "text": "cursor吧"
+            },
+            {
+              "speaker": 9,
+              "time": "21:46",
+              "text": "有agent",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 不是，编辑器来的"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:46",
+              "text": "就是harness吧"
+            },
+            {
+              "speaker": 4,
+              "time": "21:46",
+              "text": "有两个"
+            },
+            {
+              "speaker": 4,
+              "time": "21:46",
+              "text": "编辑器那个是 antigravityIDE"
+            },
+            {
+              "speaker": 15,
+              "time": "21:46",
+              "text": "这模型发版也太快了"
+            },
+            {
+              "speaker": 8,
+              "time": "21:46",
+              "text": "Google的吗？",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 有agent"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:46",
+              "text": "有一个新的叫 antigravity2.0"
+            },
+            {
+              "speaker": 15,
+              "time": "21:46",
+              "text": "一窝多少个啊",
+              "quote": {
+                "speaker": 15,
+                "text": "这模型发版也太快了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "21:46",
+              "text": "是的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:47",
+              "text": "好像是的"
+            },
+            {
+              "speaker": 9,
+              "time": "21:47",
+              "text": "就是谷歌的反重力呀",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] Google的吗？"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:47",
+              "text": "但是都是一坨"
+            },
+            {
+              "speaker": 2,
+              "time": "21:47",
+              "text": "一塌糊涂"
+            },
+            {
+              "speaker": 8,
+              "time": "21:47",
+              "text": "我最早用的时候，Antigravity是一个类似cursor那种"
+            },
+            {
+              "speaker": 8,
+              "time": "21:47",
+              "text": "那时候刚刚出来"
+            },
+            {
+              "speaker": 2,
+              "time": "21:47",
+              "text": "那时候其实就有agent模式"
+            },
+            {
+              "speaker": 2,
+              "time": "21:47",
+              "text": "点一下会弹一个新窗口出来"
+            },
+            {
+              "speaker": 8,
+              "time": "21:47",
+              "text": "有"
+            },
+            {
+              "speaker": 2,
+              "time": "21:48",
+              "text": "难用到爆炸 经常连不上"
+            },
+            {
+              "speaker": 9,
+              "time": "21:48",
+              "text": "后面看codex火了也出agent模式了",
+              "quote": {
+                "speaker": 8,
+                "text": "我最早用的时候，Antigravity是一个类似cursor那种"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "21:48",
+              "text": "但是他这个agent好像不会有什么computer use这种吧？"
+            },
+            {
+              "speaker": 9,
+              "time": "21:50",
+              "text": "听别的网友说好像也有，但是没codex的厉害"
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "有的",
+              "quote": {
+                "speaker": 8,
+                "text": "但是他这个agent好像不会有什么computer use这种吧？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "21:50",
+              "text": "当时确实",
+              "quote": {
+                "speaker": 2,
+                "text": "难用到爆炸 经常连不上"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "很早就做了 就是一个chrome"
+            },
+            {
+              "speaker": 2,
+              "time": "21:50",
+              "text": "去年就有"
+            },
+            {
+              "speaker": 8,
+              "time": "21:50",
+              "text": "好吧"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "就是不太好用"
+            },
+            {
+              "speaker": 2,
+              "time": "21:51",
+              "text": "但是能用"
+            },
+            {
+              "speaker": 8,
+              "time": "21:51",
+              "text": "我现在主要还是永codex"
+            },
+            {
+              "speaker": 16,
+              "time": "22:21",
+              "text": "元素周期表还有 23 个位置",
+              "quote": {
+                "speaker": 1,
+                "text": "krypton"
+              }
+            },
+            {
+              "speaker": 16,
+              "time": "22:22",
+              "text": "按元素周期表顺序",
+              "quote": {
+                "speaker": 8,
+                "text": "也不知道能力的递增强敌"
+              }
+            }
+          ]
+        },
+        {
+          "category": "预训练与算力",
+          "title": "对数坐标下依然上翘：预训练 Compute Multiplier 图表引发“超指数”争论",
+          "text": "晚上有群友贴出一张题为“Pre-training compute multiplier over time (code)”的折线图，问“A社预训练这么牛嘛”。图的横轴是从 2024 年 7 月到 2026 年 10 月的完成月份，纵轴是对数刻度的算力乘数（Compute multiplier），没有标具体数值；折线只有三个数据点，2025 年 4 月之后斜率明显变陡，底部小字注明数据点位置基于内部近似、仅作示意。\n\n有人问什么叫 multiplier。一位群友解释，multiplier 越高，意思是原来要用 100 份算力得到的结果，现在比如只需要 25 份，他会把它形象理解为“能源转化为智能的一个比值”。另一位群友从坐标轴读图：横轴是完成时间，纵轴是计算量，斜率是吞吐量，吞吐量在指数加速，他感觉对方的硬件架构、Infra 架构和模型架构都在不断升级；有人夸这个回答“比 claude 还清晰”。\n\n问 multiplier 的群友又追问纵轴 log scale 的底数是多少。前面解释概念的群友认为底数不重要，纵轴已经是 log scale，画出来还是一条上翘的曲线，这已经是“超指数”了，“有点恐怖”；有人附和超指数是有点吓人。提问者不大买账，觉得底数如果是 1.1 这种也比较普通，毕竟只有三个数据点。",
+          "emphasis": [
+            "原来要用 100 份算力得到的结果，现在比如只需要 25 份",
+            "斜率是吞吐量，吞吐量在指数加速",
+            "纵轴已经是 log scale，画出来还是一条上翘的曲线",
+            "底数如果是 1.1 这种也比较普通，毕竟只有三个数据点"
+          ],
+          "aiComment": "总共三个数据点、纵轴还没标底数，就已经聊到超指数了，PPT 画线的祖师爷看了都得敬杯酒 📈",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:44",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:45",
+              "text": "A社预训练这么牛嘛"
+            },
+            {
+              "speaker": 2,
+              "time": "20:51",
+              "text": "太牛了A"
+            },
+            {
+              "speaker": 3,
+              "time": "20:55",
+              "text": "什么叫 multiplier"
+            },
+            {
+              "speaker": 4,
+              "time": "20:55",
+              "text": "Multiplier 越高，意思就是说原来假设要用 100 份算力得到的结果，现在只需要比如 25 份算力。"
+            },
+            {
+              "speaker": 4,
+              "time": "20:56",
+              "text": "Multiplier，我会把它形象理解为能源转化为智能的一个比值。[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "20:56",
+              "text": "这个 log scale 的底数是多少呀"
+            },
+            {
+              "speaker": 4,
+              "time": "20:59",
+              "text": "我感觉这个 log scale 的底数是多少不重要。我觉得重要的是，即使它是在 log scale 下的 y axis，呈现出来的还是一条上翘的曲线，这已经是超指数的了，有点恐怖家人们"
+            },
+            {
+              "speaker": 5,
+              "time": "21:03",
+              "text": "超指数是有点吓人了。。。"
+            },
+            {
+              "speaker": 3,
+              "time": "21:03",
+              "text": "那底数是 1.1 这种感觉也比较普通，毕竟也只有三个数据点嘛"
+            },
+            {
+              "speaker": 6,
+              "time": "21:03",
+              "text": "横坐标 完成时间\n纵坐标 计算量\n斜率是 吞吐量\n吞吐量在指数加速\n\n感觉他们 硬件架构 infra 架构 model 架构 全部都在不断升级",
+              "quote": {
+                "speaker": 3,
+                "text": "什么叫 multiplier"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "21:05",
+              "text": "这个回答比claude还清晰[旺柴]",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 横坐标 完成时间\n纵坐标 计算量\n斜率是 吞吐量\n吞吐量在指数加速\n\n感觉他们 硬件架构 infra 架构 model 架构 全部都在不断升级"
+              }
+            }
+          ]
+        },
+        {
+          "category": "具身智能",
+          "title": "从 OpenAI 解散独立机器人团队，聊到具身驻场的“新时代土木”",
+          "text": "中午有群友转发了机器之心的报道《突发｜OpenAI解散独立机器人团队》，报道称原机器人研究团队并入核心研究团队，应用机器人和硬件团队划归 Applied 部门。有人半开玩笑地问“robotic解决了？？”，另一位群友觉得应该没有，有点类似 Sora，更像是整合资源，还说具身落地还有很长的路要走；转发报道的群友感叹“具身和多模态真是一对苦命鸳鸯”。\n\n对比落地进度时，有群友说智驾这边大家好像已经集中在解决 L4 的长尾问题，具身离这个阶段应该还很远。另一位群友回应，L4 的长尾还是靠 VLA 解决，主要是自驾真的不缺数据和卡。\n\n也有群友接着“苦命鸳鸯”吐槽“具身出差驻场太恶心了”，尤其是学校接的具身横向：工厂里的机器人工位都是固定的，只能人过去盯着弄，还有安全问题。其他群友跟着调侃“具身也有 FDE 了么”“还有下工地的”“新时代土木”，有人感叹“张雪峰老师您那双眼睛到底看到了多远”，也有人问机器人会不会从工位上跳起来打人。",
+          "emphasis": [
+            "更像是整合资源",
+            "L4 的长尾还是靠 VLA 解决，主要是自驾真的不缺数据和卡",
+            "工厂里的机器人工位都是固定的，只能人过去盯着弄，还有安全问题"
+          ],
+          "aiComment": "机器人还没学会自己干活，搞具身的人已经先一步进厂驻场，喜提新时代土木工牌 🪖",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:43",
+              "text": "[链接] 突发｜OpenAI解散独立机器人团队\n  来源: 机器之心\n  摘要: 不再需要专门造大脑？\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651074444&idx=1&sn=8802e751ed8276417ea65d3fc8d457dc&chksm=8507f782709130e1e6fd8b626f4164f263fea428db174d56326a3bb00272dcc47440b1f47125&scene=1&srcid=1114akRrfTjxGfxucHQoV5HT#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "14:50",
+              "text": "robotic解决了？？"
+            },
+            {
+              "speaker": 3,
+              "time": "14:52",
+              "text": "应该没有\n感觉有点类似 sora？\n整合资源好像",
+              "quote": {
+                "speaker": 2,
+                "text": "robotic解决了？？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:53",
+              "text": "具身落地还有很长的路要走吧[让我看看]"
+            },
+            {
+              "speaker": 1,
+              "time": "14:53",
+              "text": "所以我说",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 应该没有\n感觉有点类似 sora？\n整合资源好像"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:53",
+              "text": "具身和多模态真是一对苦命鸳鸯啊"
+            },
+            {
+              "speaker": 3,
+              "time": "14:54",
+              "text": "智驾倒是大家集中在 l4 长尾问题了好像"
+            },
+            {
+              "speaker": 3,
+              "time": "14:55",
+              "text": "具身离集中解决长尾问题的阶段 还很远应该"
+            },
+            {
+              "speaker": 4,
+              "time": "14:56",
+              "text": "但L4的长尾还是靠VLA解决",
+              "quote": {
+                "speaker": 3,
+                "text": "智驾倒是大家集中在 l4 长尾问题了好像"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:57",
+              "text": "主要自驾是真的不缺数据和卡"
+            },
+            {
+              "speaker": 5,
+              "time": "15:12",
+              "text": "具身出差驻场太恶心了",
+              "quote": {
+                "speaker": 1,
+                "text": "具身和多模态真是一对苦命鸳鸯啊"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "15:13",
+              "text": "尤其是学校接的具身横向"
+            },
+            {
+              "speaker": 3,
+              "time": "15:13",
+              "text": "泪目\n具身也有 FDE 了么"
+            },
+            {
+              "speaker": 1,
+              "time": "15:13",
+              "text": "还有下工地的（"
+            },
+            {
+              "speaker": 1,
+              "time": "15:14",
+              "text": "新时代土木"
+            },
+            {
+              "speaker": 2,
+              "time": "15:14",
+              "text": "神了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:15",
+              "text": "具身包要驻场的呀"
+            },
+            {
+              "speaker": 2,
+              "time": "15:15",
+              "text": "张雪峰老师您那双眼睛到底看到了多远"
+            },
+            {
+              "speaker": 5,
+              "time": "15:17",
+              "text": "工厂里的机器人工位都固定的，只能人过去盯着弄 还有安全问题[捂脸]"
+            },
+            {
+              "speaker": 3,
+              "time": "15:23",
+              "text": "安全问题[发抖]\n机器人不会从工位上跳起来打你吧[阴险]",
+              "quote": {
+                "speaker": 5,
+                "text": "工厂里的机器人工位都固定的，只能人过去盯着弄 还有安全问题[捂脸]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "国产算力",
+          "title": "国产卡训大模型：DeepSeek V5 转投昇腾传闻，LongCat 被指没用 N 卡",
+          "text": "下午有群友转来一篇小红书笔记，标题是“DeepSeek V5 被曝转投华为昇腾”，感叹好像国产卡也能训得动几 T 的模型了。另一位群友说这个传闻出来好久了，印象中大概两周前由 TI 爆出，不知道为什么这两天又开始炒。分享者觉得训得动，但迭代速度应该会比用 N 卡慢很多；另一位群友说美团已经训出来了，应该没啥问题，“慢就慢点，以后会越来越快吧”。\n\n晚上又有群友转来一篇小红书笔记《美团的 longcat 大模型，真没用英伟达的卡》，并补了一句“还有查模型初始化的硬件指纹的”。有人猜有英伟达的卡，但主要是用来迭代数据；另一位群友回复“并非”，说国产化程度没那么低。深夜还有群友猜国产卡训练会越来越普遍，另一位群友说还是要看昇腾的表现。",
+          "emphasis": [
+            "迭代速度应该会比用 N 卡慢很多",
+            "说国产化程度没那么低"
+          ],
+          "aiComment": "以前看模型先猜用了多少卡，现在有人去查初始化的硬件指纹，下一步怕是要给模型验 DNA 了 🔍",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:16",
+              "text": "[链接] DeepSeek V5 被曝转投华为昇腾\n  摘要: @请叫我艾欧同学's note 18 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6af7de4d0000000016032992?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794640602"
+            },
+            {
+              "speaker": 1,
+              "time": "15:17",
+              "text": "好像国产卡也能训得动几T的模型了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:17",
+              "text": "不知道为什么这两天开始炒了",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] DeepSeek V5 被曝转投华为昇腾\n  摘要: @请叫我艾欧同学's note 18 Shares\n  URL: https://www.xiaohongshu.com/discovery/item/6af7de4d0000000016032992?xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794640602"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:18",
+              "text": "这个消息出来好久了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:18",
+              "text": "大概2周前？TI爆的"
+            },
+            {
+              "speaker": 1,
+              "time": "15:19",
+              "text": "不过我感觉训得动，但是应该迭代速度会比用n卡慢很多"
+            },
+            {
+              "speaker": 3,
+              "time": "15:20",
+              "text": "美团训出来了，应该没啥问题，慢就慢点，以后会越来越快吧[奸笑]"
+            },
+            {
+              "speaker": 4,
+              "time": "22:03",
+              "text": "[链接] 美团的 longcat 大模型，真没用英伟达的卡\n  摘要: #国产算力 #大模型 #英伟达 #美团 #AI #商业分析\n  URL: https://www.xiaohongshu.com/discovery/item/6af85c89000000002c00c324?ignoreEngage=true&xsec_source=app_share&type=normal&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&apptime=1794664990"
+            },
+            {
+              "speaker": 4,
+              "time": "22:03",
+              "text": "还有查模型初始化的硬件指纹的[捂脸]"
+            },
+            {
+              "speaker": 5,
+              "time": "22:09",
+              "text": "确实[破涕为笑]，有英伟达的卡但是主要是迭代数据吧"
+            },
+            {
+              "speaker": 6,
+              "time": "22:39",
+              "text": "并非",
+              "quote": {
+                "speaker": 5,
+                "text": "确实[破涕为笑]，有英伟达的卡但是主要是迭代数据吧"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "22:39",
+              "text": "国产化程度没那么低"
+            },
+            {
+              "speaker": 7,
+              "time": "22:58",
+              "text": "老黄下台后国产卡训练应该会越发普遍了吧"
+            },
+            {
+              "speaker": 8,
+              "time": "22:58",
+              "text": "还是看ascend 的表现吧[捂脸]"
+            }
+          ]
+        },
+        {
+          "category": "AI Infra",
+          "title": "“最懂 Infra 的人做算法”：一句书中箴言被群友绕成了圈",
+          "text": "上午有群友说最近在读一份 AI Infra 的 PDF，晒出在线文档《深入理解 AI Infra：量化分析与系统设计》的前言截图。截图里被选中的一句是“最懂 Infra 的人做算法，最懂算法的人做数据，最懂数据的人做 Infra”；后文以 DeepSeek V4、V4.1 和 V4.1 Flash 为例讲模型设计与 Infra 效率的跨层配合，并把“数据搬移”当作贯穿分析的线索。\n\n这张截图回复的是另一位群友此前的一句话：“数据其实是算法，算法其实是 infra，infra 其实是数据”。这位群友随后把它绕成了一个圈：“懂 infra 才能做算法，做算法才能懂算法……做 infra 才能懂 infra。综上，懂 infra 才能懂 infra”，还补了一句“听懂掌声”。",
+          "emphasis": [
+            "最懂 Infra 的人做算法，最懂算法的人做数据，最懂数据的人做 Infra",
+            "综上，懂 infra 才能懂 infra"
+          ],
+          "aiComment": "Infra、算法、数据三家轮流坐庄，绕一圈得出“懂 infra 才能懂 infra”，这个闭环比训练流水线还严丝合缝 ♻️",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:04",
+              "text": "最近在刷 bojie li 的 pdf\n\n“最懂 Infra 的人做算法\n\n最懂算法的人做数据\n\n最懂数据的人做 Infra”",
+              "quote": {
+                "speaker": null,
+                "text": "数据其实是算法 算法其实是infra infra其实是数据"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "11:04",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "11:07",
+              "text": "懂infra才能做算法，做算法才能懂算法，懂算法才能做数据，做数据才能懂数据，懂数据才能做infra，做infra才能懂infra\n综上，懂infra才能懂infra"
+            },
+            {
+              "speaker": 2,
+              "time": "11:07",
+              "text": "听懂掌声"
+            }
+          ]
+        },
+        {
+          "category": "Agent 产品",
+          "title": "OpenAI 推出 ChatGPT Wallet，群友冷看 Agent 替人花钱",
+          "text": "有群友转发了 OpenAI 在 11 月 13 日推出 ChatGPT Wallet、让 Agent 可以替用户付款的消息，好奇之前的 Agent 难道不能付钱吗。有人调侃“你敢把钱给它就可以”，并补充 Muse 之前应该已经支持了，用的人还不少；另一位群友则表示之前市面上冒出一大堆 agent currency 概念，但貌似吸了一波投资之后就没了下文。",
+          "emphasis": [
+            "Muse 之前应该已经支持了",
+            "吸了一波投资之后就没了下文"
+          ],
+          "aiComment": "给 ChatGPT 配上钱包，技术上能不能付不重要，主要考验人类的心脏和余额有多大 💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:26",
+              "text": "[链接] OpenAI推出ChatGPT Wallet！AI要接手人类钱包了吗？\n  来源: 人工智能前沿讲习\n  摘要: 11 月 13 日，OpenAI 推出 ChatGPT Wallet。Agent 可以替用户付款。\n  URL: https://mp.weixin.qq.com/s?__biz=MzIzNjc0MTMwMA%3D%3D&mid=2247619393&idx=1&sn=64ac78b33ead1464f0fd83da26d23237&chksm=e9ef6b8544101260d4cc60d21feb3a94c33db22da7e1998acc3fef0bcb27a1ca454740091090&scene=1&srcid=1114phYqnGfXlm2mkyrUgysF#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "15:27",
+              "text": "如何评价O➗这一波"
+            },
+            {
+              "speaker": 1,
+              "time": "15:27",
+              "text": "话说之前的agent不能付钱吗"
+            },
+            {
+              "speaker": 2,
+              "time": "15:28",
+              "text": "你敢把钱给他就可以"
+            },
+            {
+              "speaker": 2,
+              "time": "15:29",
+              "text": "不过muse之前应该已经可以了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:29",
+              "text": "用的人还不少"
+            },
+            {
+              "speaker": 3,
+              "time": "15:36",
+              "text": "之前agent currency一大堆，但貌似吸波投资就没然后了"
+            }
+          ]
+        },
+        {
+          "category": "数据合成",
+          "title": "推理能力蒸馏长文梳理 Hidden-CoT 提取，群友吐槽 VC 约咖啡“白嫖信息”",
+          "text": "下午有群友分享了公众号文章《数据合成的下半场(二)：推理能力蒸馏》，也转了同名小红书笔记。文章讨论不再依赖更强的外部教师模型时，怎样为困难任务找到高质量的解与推理轨迹，并围绕 Hidden-CoT Extraction（提取推理模型隐藏的思维链）梳理了 EchoCoT 等学术研究和 Anthropic 公开安全报告里的案例。有群友夸“xxx 的下半场”这个题目起得好。\n\n群里还聊起内容引流：有群友说看别人做红果，token 都不是开销大头，投流好像最贵，另一位接“注意力最贵”。还有群友说常有 VC 在小红书私信约喝咖啡，聊完发现全是来白嫖信息的；有人回“vc特喜欢coffee chat”，也有人怀疑 VC 真能聊明白，觉得他们是在找下一个 Neolab。",
+          "emphasis": [
+            "围绕 Hidden-CoT Extraction（提取推理模型隐藏的思维链）梳理了 EchoCoT 等学术研究",
+            "token 都不是开销大头，投流好像最贵",
+            "聊完发现全是来白嫖信息的"
+          ],
+          "aiComment": "token 不是大头，投流才是；VC 请的咖啡最便宜，换走的信息最贵，这笔账群友算得比模型还清楚 ☕",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:52",
+              "text": "[链接] 数据合成的下半场(二): 推理能力蒸馏\n  来源: 词元潮汐\n  摘要: Introduction在前文中，数据合成的下半场(一): 构建内生数据飞轮我们认为对于大模型数据合成，下半场\n  URL: https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247484042&idx=1&sn=05048ca113e395e5044caec246248f15&chksm=c08db7bd93a34de157f5cd69ea10fb39043793bce6da2a267cb0749522e5a4912ec2912b9a52&scene=1&srcid=1114uyd2DpigMqrvYIU0PymY#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "18:23",
+              "text": "看他们做红果\ntoken 啥的都不是开销大头\n\n投流好像是最贵的"
+            },
+            {
+              "speaker": 1,
+              "time": "18:28",
+              "text": "嗯，注意力最贵"
+            },
+            {
+              "speaker": 3,
+              "time": "18:32",
+              "text": "vc特喜欢coffee chat"
+            },
+            {
+              "speaker": 1,
+              "time": "18:33",
+              "text": "咖啡便宜啊"
+            },
+            {
+              "speaker": 4,
+              "time": "19:12",
+              "text": "不如cc",
+              "quote": {
+                "speaker": 3,
+                "text": "vc特喜欢coffee chat"
+              }
+            }
+          ],
+          "resources": []
+        },
+        {
+          "category": "活动",
+          "title": "五道口开放麦 11 月 22 日开场，聊读博与职业选择",
+          "text": "上午有群友转来涌现Lab的活动报名：11 月 22 日（周日）下午在北京五道口办一场面向年轻 AI 研究者的线下开放麦，设两场 Panel Discussion 和一场 PhD Open Mic，聊 AI 科研、读博日常以及学术与产业之间的职业选择。有人问提不提供咖啡、咖啡能不能加奶，得到的回答是有茶歇和饮品。",
+          "emphasis": [
+            "11 月 22 日（周日）下午在北京五道口办一场面向年轻 AI 研究者的线下开放麦"
+          ],
+          "aiComment": "读博的下一站还没定义，咖啡加不加奶先问清楚了，研究者的优先级一向很明确。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "11:17",
+              "text": "[链接] 五道口开放麦活动报名｜What's next for PhD?\n  来源: 涌现Lab\n  URL: https://mp.weixin.qq.com/s/hRohIUzbeUS9TZyEBbbe9w"
+            },
+            {
+              "speaker": 1,
+              "time": "11:17",
+              "text": "11月22日（周日）下午，涌现Lab在北京五道口举办一场面向年轻AI研究者的线下开放麦。两场Panel Discussion、一场PhD Open Mic，聊聊AI科研、读博日常，以及学术与产业之间的职业选择。现场也准备了茶歇餐饮、特别设计的文创和自由交流环节，希望大家能认识更多有趣的同行，交换一些新的想法！欢迎感兴趣的朋友扫码报名，也欢迎转发给身边的小伙伴～"
+            },
+            {
+              "speaker": 2,
+              "time": "11:29",
+              "text": "提供咖啡和茶歇吗？咖啡能加奶吗"
+            },
+            {
+              "speaker": 3,
+              "time": "12:12",
+              "text": "👍",
+              "quote": {
+                "speaker": 1,
+                "text": "11月22日（周日）下午，涌现Lab在北京五道口举办一场面向年轻AI研究者的线下开放麦。两场Panel Discussion、一场PhD Open Mic，聊聊..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:35",
+              "text": "好棒，可惜参加不了呢"
+            },
+            {
+              "speaker": 1,
+              "time": "12:36",
+              "text": "有茶歇和饮品的哈～[抱拳]",
+              "quote": {
+                "speaker": 2,
+                "text": "提供咖啡和茶歇吗？咖啡能加奶吗"
+              }
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "五道口开放麦活动报名｜What's next for PhD?",
+              "url": "https://mp.weixin.qq.com/s/hRohIUzbeUS9TZyEBbbe9w"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-7",
+      "label": "Robot",
+      "section": "今日讨论",
+      "heading": "VLA 云端推理能否跑通？实测延迟与机器人创业护城河之问",
+      "theme": "群友实测 GR00T 云端推理耗时并吐槽微调缺乏上下文，CoRL 见闻追问基座模型逼近下的行业价值链。",
+      "note": "2026-11-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "具身推理与架构",
+          "title": "VLA 云端推理能不能跑通？群友实测与“训 BERT”之叹",
+          "text": "一张小红书帖子截图在群里激起讨论。截图称 CoRL 现场有“一手消息”，OpenAI 已把一个比 GPT 5.1 Astra 小 20% 的模型的推理延迟从十几秒压到 160 毫秒。群友随即联想到 OpenAI 解散独立机器人团队的报道，有人听说团队是并进了基模，也有人追问大模型是不是要把机器人这块吃掉、以后机器人会不会用上云端大脑。有群友猜测这样的速度做过特定的软硬件优化，另一位群友则问这是不是 TTFT。\n\n一位群友顺势吐槽 VLA 的训练范式：现在的 VLA 没有 context、也不学 trace，只有 Dyna 在努力尝试，其余还是“天天走 bert 那一套”，这周微调了几十个 VLA，感觉“跟训 bert 太类似了”。有人问 BERT 现在还有什么应用场景，他回“能不碰就不要碰，没价值”，提问的群友也说不少 BERT 方案已经被替代。另一位群友调侃“context 交给 gpt 吧”，他解释自己指的是 OpenAI、Claude、DeepSeek 这些实验室以后训出来的新 VLA；被问到这些公司现在有没有对外的 VLA API，他答“未来”，提问者笑称到时候可能并不叫 VLA。\n\n关于云端推理，这位群友说自己试过在 A100 上跑 GR00T，图片上传加来回只要 0.02 秒，一次推理产出 16 帧、够 0.2 秒的动作，再加一点 harness 设计、跳个帧，动作就能保持连贯；工作场景网络本身就差的话则没办法。有人追问 0.02 秒只算传输还是包含处理，他说代码是上周写的，具体时间得回头再查。另一位群友自己用 H100 跑 7B 左右的模型要一百多毫秒，起初对这个速度感到意外，随后认为 GR00T 是 Transformer 架构、action chunk 又只有 16，在 A100 上有这个速度很正常，自己测的主要是 DP 和 flow matching。\n\n这位群友还认为具身模型推理在各种 cache 上的优化空间很大，并分享了一篇从零设计 SGLang KV Cache 的知乎文章。他提到以前 agent 不够强、KDA 也还没出来时，CUDA 算子层面的优化很难推进，现在有 agent 帮忙，这块更好做了。",
+          "emphasis": [
+            "推理延迟从十几秒压到 160 毫秒",
+            "其余还是“天天走 bert 那一套”",
+            "图片上传加来回只要 0.02 秒，一次推理产出 16 帧、够 0.2 秒的动作",
+            "具体时间得回头再查",
+            "CUDA 算子层面的优化很难推进，现在有 agent 帮忙，这块更好做了"
+          ],
+          "aiComment": "一周微调几十个 VLA 调出训 BERT 的复古感，2026 年的具身人还在苦等属于自己的 context 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:05",
+              "text": "游戏结束了吗"
+            },
+            {
+              "speaker": 1,
+              "time": "13:05",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "13:06",
+              "text": "这个推理速度怎么做到的"
+            },
+            {
+              "speaker": 3,
+              "time": "13:06",
+              "text": "所以openai才解散了具身团队吗？"
+            },
+            {
+              "speaker": 4,
+              "time": "13:07",
+              "text": "刚在xhs刷到"
+            },
+            {
+              "speaker": 5,
+              "time": "13:07",
+              "text": "嗯哼",
+              "quote": {
+                "speaker": 5,
+                "text": "我这几天搞具身一个想法忍不住冒出来 ds要把耗时压倒接近system1，那就真有乐子 大致扫了一眼现在的具身模型推理，那优化空间可太大了 各种cache的优化，..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:07",
+              "text": "到时候就是机器人云端大脑？"
+            },
+            {
+              "speaker": 5,
+              "time": "13:07",
+              "text": "看来都不用ds出手了"
+            },
+            {
+              "speaker": 6,
+              "time": "13:07",
+              "text": "毕竟这个速度应该是进行了特定的软硬件优化吧"
+            },
+            {
+              "speaker": 5,
+              "time": "13:07",
+              "text": "并且我最近一直在盘现在的vla"
+            },
+            {
+              "speaker": 6,
+              "time": "13:08",
+              "text": "太快了"
+            },
+            {
+              "speaker": 1,
+              "time": "13:08",
+              "text": "听说是并到基模了",
+              "quote": {
+                "speaker": 3,
+                "text": "所以openai才解散了具身团队吗？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:08",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 6,
+              "time": "13:08",
+              "text": "[链接] 突发｜OpenAI解散独立机器人团队\n  来源: 机器之心\n  摘要: 不再需要专门造大脑？\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651074444&idx=1&sn=8802e751ed8276417ea65d3fc8d457dc&chksm=8507f782709130e1e6fd8b626f4164f263fea428db174d56326a3bb00272dcc47440b1f47125&scene=1&srcid=1114akRrfTjxGfxucHQoV5HT#rd"
+            },
+            {
+              "speaker": 5,
+              "time": "13:08",
+              "text": "现在的vla也就dyna有点进取心"
+            },
+            {
+              "speaker": 5,
+              "time": "13:08",
+              "text": "剩下的还是天天走bert那一套。。"
+            },
+            {
+              "speaker": 5,
+              "time": "13:08",
+              "text": "我真的是服了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:09",
+              "text": "当年bert那样本洗起来是真的操了蛋了"
+            },
+            {
+              "speaker": 7,
+              "time": "13:10",
+              "text": "难道具身也要借过一下吗"
+            },
+            {
+              "speaker": 5,
+              "time": "13:11",
+              "text": "现在模型训练速度就是在疯狂加速\n太多东西可以让agent去做了\n只要路线通了，很多事情是很快的"
+            },
+            {
+              "speaker": 5,
+              "time": "13:16",
+              "text": "继续加班去了\n接下来这快太有意思了"
+            },
+            {
+              "speaker": 8,
+              "time": "13:18",
+              "text": "这个是ttft 吗[疑问]",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "13:20",
+              "text": "所以大模型要把robot这块吃掉了吗[Lol]",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 听说是并到基模了"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:24",
+              "text": "话说bert现在还有什么应用场景吗",
+              "quote": {
+                "speaker": 5,
+                "text": "当年bert那样本洗起来是真的操了蛋了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:25",
+              "text": "能不碰就不要碰，没价值"
+            },
+            {
+              "speaker": 10,
+              "time": "13:25",
+              "text": "真这样那就非常有意思了，大模型通吃",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 所以大模型要把robot这块吃掉了吗[Lol]"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:25",
+              "text": "之前还挺不错的，现在真混的有点烂了",
+              "quote": {
+                "speaker": 5,
+                "text": "能不碰就不要碰，没价值"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:26",
+              "text": "之前好些Bert解决方法都被替代了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:26",
+              "text": "这周也微调了几十个vla，反正就是那感觉跟训bert太类似了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:26",
+              "text": "我一直在思考vla的context要怎么设计"
+            },
+            {
+              "speaker": 5,
+              "time": "13:26",
+              "text": "现在的vla美context，不学trace，也就dyna才努力想去试着学一下"
+            },
+            {
+              "speaker": 11,
+              "time": "13:26",
+              "text": "context交给gpt吧[捂脸]"
+            },
+            {
+              "speaker": 5,
+              "time": "13:28",
+              "text": "云端推理我自己试了下，图片上传加来回也就0.02秒，一次推理产出16帧，够0.2秒的动作。。再做一点harness，也是可以连贯的"
+            },
+            {
+              "speaker": 5,
+              "time": "13:29",
+              "text": "当然，你说你的具身工作场景就是网络差，那没辙"
+            },
+            {
+              "speaker": 5,
+              "time": "13:30",
+              "text": "我是说新版本的，openai，claude，ds他们训出来的vla",
+              "quote": {
+                "speaker": 11,
+                "text": "context交给gpt吧[捂脸]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "13:30",
+              "text": "是传输的ttl 还是加上处理",
+              "quote": {
+                "speaker": 5,
+                "text": "云端推理我自己试了下，图片上传加来回也就0.02秒，一次推理产出16帧，够0.2秒的动作。。再做一点harness，也是可以连贯的"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:30",
+              "text": "我回头找找，但整体加一点harness设计，跳个zhen，整体连贯性还行"
+            },
+            {
+              "speaker": 1,
+              "time": "13:37",
+              "text": "他们现在有对外的vla api了？",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 我是说新版本的，openai，claude，ds他们训出来的vla"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:37",
+              "text": "未来"
+            },
+            {
+              "speaker": 1,
+              "time": "13:38",
+              "text": "哈哈，好吧"
+            },
+            {
+              "speaker": 1,
+              "time": "13:38",
+              "text": "可能并不叫vla[旺柴]"
+            },
+            {
+              "speaker": 13,
+              "time": "13:39",
+              "text": "vla这么快的吗？",
+              "quote": {
+                "speaker": 5,
+                "text": "云端推理我自己试了下，图片上传加来回也就0.02秒，一次推理产出16帧，够0.2秒的动作。。再做一点harness，也是可以连贯的"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "13:39",
+              "text": "我大概要一百多毫秒，7B左右，H100"
+            },
+            {
+              "speaker": 5,
+              "time": "13:39",
+              "text": "gr00t，V100"
+            },
+            {
+              "speaker": 5,
+              "time": "13:39",
+              "text": "A100"
+            },
+            {
+              "speaker": 5,
+              "time": "13:41",
+              "text": "具体时间我得查查啊，上周写的代码了\n但推理的动作块是够用的，加一些harness设计\n放到云端的话"
+            },
+            {
+              "speaker": 13,
+              "time": "13:42",
+              "text": "哦哦，transformer based的啊"
+            },
+            {
+              "speaker": 13,
+              "time": "13:42",
+              "text": "那确实"
+            },
+            {
+              "speaker": 13,
+              "time": "13:42",
+              "text": "我测的主要是DP和flow matching"
+            },
+            {
+              "speaker": 13,
+              "time": "13:43",
+              "text": "transformer在A100上有这个速度很正常"
+            },
+            {
+              "speaker": 13,
+              "time": "13:43",
+              "text": "特别是action chunk只有16的情况下"
+            },
+            {
+              "speaker": 5,
+              "time": "13:45",
+              "text": "总有一堆办法"
+            },
+            {
+              "speaker": 13,
+              "time": "13:45",
+              "text": "tql，希望有机会合作hhh"
+            },
+            {
+              "speaker": 5,
+              "time": "13:45",
+              "text": "[链接] 从零开始设计SGLang的KV Cache\n  摘要: 我在知乎发表了一篇文章，期待你的点评！\n  URL: https://zhuanlan.zhihu.com/p/31160183506"
+            },
+            {
+              "speaker": 13,
+              "time": "13:46",
+              "text": "好的"
+            },
+            {
+              "speaker": 13,
+              "time": "13:46",
+              "text": "严肃学习！"
+            },
+            {
+              "speaker": 5,
+              "time": "13:46",
+              "text": "也是做过一点性能加速的工作了。。。\n但当时优化到cuda算子那块改不动了，当时agent不够强，kda也没出来[苦涩][苦涩]"
+            },
+            {
+              "speaker": 5,
+              "time": "13:46",
+              "text": "后面忍痛先放一边了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:47",
+              "text": "现在有agent，这块其实更好搞"
+            },
+            {
+              "speaker": 13,
+              "time": "13:47",
+              "text": "确实"
+            },
+            {
+              "speaker": 13,
+              "time": "13:47",
+              "text": "直接许愿！"
+            }
+          ]
+        },
+        {
+          "category": "CoRL 见闻",
+          "title": "CoRL 现场长文：当基座模型逼近，机器人创业还剩什么护城河？",
+          "text": "深夜，有群友转来一篇朋友圈里的 CoRL 参会见闻，称写得挺赞，很多问题也是自己在思考的。见闻列了五条 takeaway，涉及价值链、模型与部署、数据、仿真和硬件。\n\n首先是价值链的重构。随着 Astral、Fable 5.2 等进展出现，以及 OpenAI 将机器人研究并入 GPT 研究，会场上被问最多的是“基座模型越来越强，机器人研究者和初创公司还剩什么值得做”，不少博士生的状态被形容为“像极了 2023 年初的 NLP 研究者”。文章作者指出，System 2（推理与规划）由大模型实验室主导正成为共识，但 System 1 是独立存在还是并入 System 2/0 尚无定论；对于 OpenAI 研究者对 Astral 级模型实现近实时推理的激进预期，做过实际部署的人则没有那么乐观。\n\n在模型与部署的赛跑上，一方面 Dyna 今年展示了跑通完整洗衣流程的全自主移动操作 live demo；另一方面，已有团队用 PI、NVIDIA GR00T 等基座模型加少量后训练数据，在特定固定操作任务上做到了生产级表现。作者由此提问：机器人领域究竟会像自动驾驶一样靠海量真实数据、安全、工程和运营基础设施形成部署护城河，还是像编程领域一样由底层基座模型吃掉大部分价值？\n\n数据与仿真也在转向。数据采集正从单纯堆量转向寻找正确的配比（data recipe）：第一视角视频更加注重质量及与腕部相机、UMI 的结合，来自真实部署的遥操作数据需求增长，DexUMI、肌电（EMG）、触觉传感与配套策略也在快速迭代；同时也有观点探讨，真正可扩展的基座模型是否只需大规模第一视角视频加粗粒度动作信号，而未必需要大量精确可重放的动作数据。仿真则重新成为热点，重点不再是做得更逼真，而是如何做大规模策略评估、通过 real2sim 快速复现真实场景与失败案例，以及系统性探明模型能力边界。\n\n文中还提到 OpenAI、Anthropic 等实验室在加速进入 Physical AI，UMI、灵巧手套、触觉、肌电等数据采集硬件也重新成为讨论焦点。\n\n作者最后抛出一个问题：当智能本身变得越来越便宜，真正稀缺的究竟是硬件、数据、真实世界部署，还是把前沿智能转化为可靠物理生产力的 robotics harness 层？",
+          "emphasis": [
+            "基座模型越来越强，机器人研究者和初创公司还剩什么值得做",
+            "用 PI、NVIDIA GR00T 等基座模型加少量后训练数据，在特定固定操作任务上做到了生产级表现",
+            "真正可扩展的基座模型是否只需大规模第一视角视频加粗粒度动作信号",
+            "把前沿智能转化为可靠物理生产力的 robotics harness 层"
+          ],
+          "aiComment": "CoRL 会场上的机器人博士生梦回 2023 年初的 NLP，大模型还没把衣服洗明白，先把研究者的焦虑洗透了 🧺",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:41",
+              "text": "写的挺赞的"
+            },
+            {
+              "speaker": 1,
+              "time": "23:43",
+              "text": "很多问题其实也是我在思考的"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-8",
+      "label": "AI4S",
+      "section": "今日讨论",
+      "heading": "斯坦福与哈佛等十余家团队联合发布湿实验预测基准",
+      "theme": "报道称单纯拉满推理或翻倍算力在该基准上难以奏效，群友借机提起 unipat 相关话题。",
+      "note": "2026-11-14 · 当日本地记录",
+      "stories": [
+        {
+          "category": "基准评测",
+          "title": "量子位报道斯坦福、哈佛等联合发布的湿实验预测基准",
+          "text": "有群友分享了一篇量子位关于湿实验预测基准发布的文章，链接标题与摘要提到该基准由斯坦福、哈佛、康奈尔等十余家团队联合参与，并称“推理拉满、算力翻5倍也白搭”。另一位群友在评论中提及“unipat的”，随后有群友跟帖刷梗“unipat是对的”。",
+          "emphasis": [
+            "由斯坦福、哈佛、康奈尔等十余家团队联合参与"
+          ],
+          "aiComment": "算力翻 5 倍在湿实验基准面前也白搭，生物狗表示终于轮到硅基生物体会玄学配方的痛了 🧬",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:05",
+              "text": "[链接] 「史上最严」湿实验预测基准发布！推理拉满、算力翻5倍也白搭\n  来源: 量子位\n  摘要: 斯坦福、哈佛、康奈尔......十余家顶尖团队齐坐一桌了\n  URL: https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247944029&idx=1&sn=4e93cf2a546894e76a43cfcefbe7e689&chksm=e9a754542f88695a2ed031db4a426d743681922e07fa38605a1d84ab63cb04408f263a56d395&scene=1&srcid=11144HiBnH65TNsDBInYzltB#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "16:08",
+              "text": "厉害！"
+            },
+            {
+              "speaker": 3,
+              "time": "16:12",
+              "text": "unipat的"
+            },
+            {
+              "speaker": 4,
+              "time": "16:32",
+              "text": "unipat是对的"
+            },
+            {
+              "speaker": 5,
+              "time": "16:32",
+              "text": "unipat是对的"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

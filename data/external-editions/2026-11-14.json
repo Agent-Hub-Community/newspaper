@@ -1,0 +1,198 @@
+{
+  "date": "2026-11-14",
+  "title": "Google 公布 Antigravity 多智能体成果与 Python 工作流，Cursor 披露安全事件调查",
+  "intro": "Google 公布 Antigravity /teamwork 多智能体成果并推出 Python 脚本编排功能；Cursor 披露由共享 agent 轨迹凭证引发的安全事件；Claude Code 升级多线程项目协作，Sierra 与 Meta 等发布个人 agent 协议 Poppy 1.0。",
+  "stories": [
+    {
+      "title": "Google 公布 Antigravity /teamwork 多智能体成果，并推出 Python 编排功能 Dynamic Workflows",
+      "timing": "北京时间 11 月 14 日 03:41 与 04:47 发布",
+      "text": "Google Research 公布了 Antigravity /teamwork 多智能体系统的科研与工程成果，Antigravity 同日推出用 Python 脚本编排子 agent 的 Dynamic Workflows。/teamwork 将并行探索与 Lean 4、未修改测试套件、模拟器等证伪器配对，并按步骤切分上下文，让评审 agent 在不带原作者推理的干净上下文里复核。官方公布的结果包括：联合高校证明并形式化 Courtade–Kumar 猜想，调用子 agent 28,800 次全自动完成约 180 万行 Lean 的 Weil 猜想形式化，两周内将 Zircon 微内核剩余 C++ 改写为约 80 万行安全 Rust 并在 arm64 硬件启动，以及在 17 个 JAXBench 内核上取得 4.09 倍几何平均加速。\n\nDynamic Workflows（/run-workflow）让 agent 编写并运行独立 Python 脚本，用 parallel() 和 pipeline() 组织并发与串行阶段。每个子 agent 在各自对话中运行并返回符合 JSON Schema 的结构化结果，文件读取和测试日志不进入主对话。/teamwork 与 /boost 已开放使用，同时开放 1 万名学术研究者六个月免费最高档申请；Dynamic Workflows 正向 Google AI Pro 和 Ultra 方案推送，形式化证明与代码迁移模式即将开放。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 博客",
+          "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "工作流文档",
+          "url": "https://antigravity.google/docs/dynamic-workflows"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50496811"
+        }
+      ],
+      "emphasis": [
+        "将并行探索与 Lean 4、未修改测试套件、模拟器等证伪器配对",
+        "每个子 agent 在各自对话中运行并返回符合 JSON Schema 的结构化结果"
+      ],
+      "aiComment": "调子 agent 28800 次写完 180 万行 Lean，评审还不许看原作者的草稿，甲方看了都想连夜抄作业 🔥"
+    },
+    {
+      "title": "Cursor 公布安全事件调查结果：未脱敏 agent 轨迹凭证泄露导致扩展市场缓存被投毒",
+      "timing": "北京时间 11 月 14 日 09:13 发布，为 10 月 29 日事件的调查更新",
+      "text": "Cursor 公布了 10 月 29 日安全事件的两周调查结果：攻击者利用合作方 Fireworks 泄露的访问密钥，从一个只读共享存储桶复制了有限的 coding agent 轨迹。这些数据大多来自 2025 年未开启隐私模式且允许用于训练的会话，其中少量轨迹残留了未脱敏凭证，导致不到 0.01% 的客户 API 凭证外泄。攻击者随后利用这些凭证进入 Cursor 使用的部分 SaaS 工具，并在 10 月 29 日将恶意 Anthropic Claude Code 扩展（2.1.312 和 2.1.313）直接放入 Cursor VS Code 扩展市场缓存，持续约 11 小时，最多 5000 名请求特定缓存版本的用户可能收到该构建。\n\nCursor 表示，11 月 1 日最后一次攻击活动已被拦截，开启隐私模式用户的提示和代码、生产系统、发布签名密钥及客户代码仓库均未受影响；未开隐私模式的用户中轨迹外泄比例不到 0.05%，已逐一通知。目前 Cursor 已将所有推理流量迁出 Fireworks 并停用相关密钥，轮换全部暴露及内部凭证，重建扩展市场并重新部署了全部生产基础设施。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Cursor 调查通报",
+          "url": "https://cursor.com/blog/security-incident-update"
+        },
+        {
+          "kind": "原帖",
+          "label": "Cursor 官方帖",
+          "url": "https://x.com/cursor_ai/status/2121411147714970092"
+        }
+      ],
+      "emphasis": [
+        "少量轨迹残留了未脱敏凭证，导致不到 0.01% 的客户 API 凭证外泄",
+        "将所有推理流量迁出 Fireworks 并停用相关密钥"
+      ],
+      "aiComment": "2025 年没开隐私模式随手贴的 key，绕了一圈变成扩展市场里的假 Claude Code，互联网真不跳帧 🫠"
+    },
+    {
+      "title": "Claude Code Projects 改版支持协调者主动汇报与分支线程，桌面版新增主题自定义",
+      "timing": "北京时间 11 月 14 日 06:51 发布，Projects 为公开测试",
+      "text": "Anthropic 升级了 Claude Code 的 Projects 多线程协作功能。改版后，项目协调者会在项目聊天中主动回答问题并汇报并行线程进度；用户可在项目内使用 /btw 将临时事项岔出到新线程，或用 /fork 从当前线程分叉尝试不同方案，还能为线程设置定时提醒。单个线程可生成只读链接分享给已登录用户，但访问过本机的线程不支持分享。此外，桌面版新增通过 mods 自定义配色与动画背景，目前仅支持桌面本地会话，云端会话即将支持。Projects 目前面向 Pro 和 Max 方案开放公开测试，未开通用户可加入等候名单。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Projects 更新帖",
+          "url": "https://x.com/ClaudeDevs/status/2121375309287301360"
+        },
+        {
+          "kind": "原帖",
+          "label": "桌面版主题帖",
+          "url": "https://x.com/ClaudeDevs/status/2121392666244186327"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50492141"
+        }
+      ],
+      "emphasis": [
+        "项目协调者会在项目聊天中主动回答问题并汇报并行线程进度",
+        "用 /btw 将临时事项岔出到新线程，或用 /fork 从当前线程分叉"
+      ],
+      "aiComment": "一边让协调者自动盯多线程进度，一边给桌面版上了动画背景，摸鱼和打工的姿势都配齐了。"
+    },
+    {
+      "title": "Sierra 与 Meta 等发布个人 agent 交互协议 Poppy 1.0，Shopify 全部商家默认启用",
+      "timing": "北京时间 11 月 14 日 01:00 发布 1.0 正式版",
+      "text": "Sierra 与 Meta 等机构正式发布个人 agent 开放协议 Personal Agent Protocol（Poppy）1.0 版。该协议构建在 MCP、OpenAPI 和 UCP 等标准之上，定义个人 agent 如何通过网站、API 和企业 agent 与公司交互，并通过 OAuth 认证由用户控制和调整 agent 权限。Shopify 已为平台全部商家自动发布 Poppy 文件，其中 UCP 负责搜索、加购和结账，Poppy 负责表明身份、确认允许的操作并在关键动作前征求用户同意。Meta 旗下个人 agent Muse 已全面启用该协议并在访问网站时优先查找 Poppy，Mercury、英国航空母公司及 Turkish Airlines 等超过 100 家设计伙伴参与接入。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Sierra 博客",
+          "url": "https://sierra.ai/blog/releasing-poppy"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Muse 博客",
+          "url": "https://muse.ai/blog/poppy-personal-agent-protocol"
+        },
+        {
+          "kind": "原帖",
+          "label": "Singleton 帖",
+          "url": "https://x.com/dps/status/2121337382557610062"
+        }
+      ],
+      "emphasis": [
+        "通过 OAuth 认证由用户控制和调整 agent 权限",
+        "Shopify 已为平台全部商家自动发布 Poppy 文件"
+      ],
+      "aiComment": "Shopify 全员挂上 Poppy，以后我的 agent 去 Muse 合作网店剁手，终于记得结账前先问我一声了 💸"
+    },
+    {
+      "title": "Anthropic 发布安全评测设计指南：单轮评测已饱和，不同部署配置结果最多相差 34 个百分点",
+      "timing": "北京时间 11 月 14 日 03:00 发布",
+      "text": "Anthropic 发文总结设计、运行和报告 AI 安全评测的建议，核心强调先明确测量的构念、用人工盲标样本校准评分模型（如计算 Cohen's kappa），以及报告统计不确定性。文章披露，近期各模型在 API 上的单轮无害回应率已达 94% 至 98%，基本饱和，现主要用作回归检查；复杂场景需由领域专家编写规格，用另一个 Claude 模型模拟用户进行多轮评测（至少 100 条样本）。Anthropic 举例称，测试 Claude Fable 5.1 时，API 与 claude.ai 两种配置的多轮评测结果最多相差 34 个百分点；此外，公司近几个月因自身事件加固了无网络沙箱环境，并暂停了许多带联网的评测。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 博客",
+          "url": "https://www.anthropic.com/research/building-strong-safety-evaluations"
+        },
+        {
+          "kind": "原帖",
+          "label": "Anthropic 帖",
+          "url": "https://x.com/AnthropicAI/status/2121317227618340990"
+        }
+      ],
+      "emphasis": [
+        "先明确测量的构念、用人工盲标样本校准评分模型",
+        "API 与 claude.ai 两种配置的多轮评测结果最多相差 34 个百分点"
+      ],
+      "aiComment": "同一个 Claude Fable 5.1 换个部署配置能差出 34 个百分点，难怪群里总觉得自己用的是假模型。"
+    },
+    {
+      "title": "Artificial Analysis 更新 Coding Agent Index v2.1：Claude Fable 5.2 与 Opus 5.5 并列第一",
+      "timing": "北京时间 11 月 14 日 08:04 发布",
+      "text": "Artificial Analysis 将 Coding Agent Index 升级至 v2.1，把评测集换为包含 132 个真实编码任务的 FrontierCode-AA 2.0 和强化防作弊验证器的 Terminal-Bench 4.1，各配置平均得分因此下降 5 分。新版榜单中，Claude Code 下的 Claude Fable 5.2（xhigh 与 high 档）、Claude Opus 5.5（max 档），以及 Cognition 多模型 harness Devin Fusion CLI 下的 Opus 5.5 搭配 GPT-6 Luna High 均得 58 分，并列第一；Fable 5.2 的 max 档因更多尝试触发任务超时反降至 56 分。48 分以上配置的单题成本相差约 30 倍，其中 Codex 搭配 GPT-6.1 Sol（max，52 分）每题 1.51 美元，Fable 5.2（max，56 分）每题达 44.22 美元。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "AA 评测帖串",
+          "url": "https://x.com/ArtificialAnlys/status/2121393821955334328"
+        }
+      ],
+      "emphasis": [
+        "Claude Fable 5.2（xhigh 与 high 档）、Claude Opus 5.5（max 档）",
+        "48 分以上配置的单题成本相差约 30 倍"
+      ],
+      "aiComment": "Fable 5.2 开到 max 档，每道题烧掉 44.22 美元，最后还因为太努力触发超时倒扣 2 分 💸🤡"
+    },
+    {
+      "title": "Cloudflare 开源面向 AI agent 的无状态浏览器 Kitesurf，直接运行于 Workers",
+      "timing": "北京时间 11 月 14 日 04:20 宣布开源（产品于 8 月首发）",
+      "text": "Cloudflare 宣布以 Apache 2.0 协议在 GitHub 开源其 8 月推出的无状态 agent 浏览器 Kitesurf。Kitesurf 不依赖完整 Chromium 浏览器容器，而是基于 Blitz、Stylo 等编译到 WebAssembly 的 Rust 库，直接在 Cloudflare Workers 上解析 HTML、应用 CSS、执行页面 JavaScript 并渲染截图，以降低 CPU 和内存开销。该工具支持 Chrome DevTools Protocol（CDP）和 WebMCP，可连接 Puppeteer 或直接接入 AI agent harness。用户现可在本地运行或修改代码；若自部署到 Cloudflare，需使用 Workers 付费方案以通过 Dynamic Workers 为每个页面创建隔离环境。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Cloudflare 博客",
+          "url": "https://blog.cloudflare.com/kitesurf-open-source/"
+        }
+      ],
+      "emphasis": [
+        "不依赖完整 Chromium 浏览器容器",
+        "支持 Chrome DevTools Protocol（CDP）和 WebMCP"
+      ],
+      "aiComment": "为了不伺候笨重的 Chromium，直接把 Rust 渲染库编译成 Wasm 塞进 Workers，内存条听完松了一口气。"
+    },
+    {
+      "title": "《卫报》：逻辑学家借助 Claude 与 Coq 整理哥德尔速记笔记，约 400 条定理直接通过验证",
+      "timing": "北京时间 11 月 14 日 00:38 报道，研究自 9 月启动",
+      "text": "据《卫报》报道，赫尔辛基大学逻辑学家 Jan von Plato 自 9 月起利用 Claude 协助整理数学家哥德尔在 1940 年代初用废弃德文速记写下的 16 本笔记（共 1009 页）。研究团队将转写稿和六本相关著作输入 Claude 后，几天内获得一份 650 页的解读，并从中抽出 663 条带有证明或思路的定理。放入形式化证明工具 Coq 检验后，约 400 条定理照原样通过，约 200 条经补充假设或精确陈述后通过，约 50 条被证实错误；其中包括一份修正一处定义错误后通过 Coq 验证的选择公理独立性证明。圣母大学逻辑学教授 Joel David Hamkins 表示，尚未看到重建的证明，最终哪些成果归功于哥德尔原作、哪些来自 Claude 的补全仍需科学史家甄别。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "《卫报》报道",
+          "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50486748"
+        }
+      ],
+      "emphasis": [
+        "放入形式化证明工具 Coq 检验后，约 400 条定理照原样通过",
+        "哪些成果归功于哥德尔原作、哪些来自 Claude 的补全仍需科学史家甄别"
+      ],
+      "aiComment": "哥德尔 1940 年代的德文速记喂给 Claude 和 Coq 跑通了四百条定理，最头疼的变成了科学史家：这署名算谁的？"
+    }
+  ],
+  "trends": [
+    {
+      "title": "长程多 agent 工作流强调上下文隔离与外部验证器",
+      "text": "Google Antigravity 的 /teamwork 与 Dynamic Workflows 让子 agent 在独立对话中只接收当前步骤所需文件，将文件读取与测试日志隔离在主对话之外，并依赖 Lean 4、原始测试套件等工具核验结果；哥德尔笔记整理工作同样采用大模型生成结合 Coq 证明器核验的流程。"
+    },
+    {
+      "title": "Agent 轨迹数据与高思考档位的工程代价显露",
+      "text": "Cursor 的安全复盘显示，保存在训练存储桶中的 coding agent 轨迹若未彻底脱敏，残留凭证会成为供应链攻击入口；Artificial Analysis 的评测则显示，coding agent 开启最高思考档位（max）不仅使单题成本升至 44.22 美元，还可能因触发任务超时导致得分低于次高档。"
+    }
+  ]
+}
