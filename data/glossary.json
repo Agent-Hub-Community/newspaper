@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "through": "2026-11-08",
+  "through": "2026-11-15",
   "terms": [
     {
       "term": "A社",
@@ -13,7 +13,8 @@
         "a➗",
         "a畜",
         "ant",
-        "人类学"
+        "人类学",
+        "A圣"
       ],
       "meaning": "Anthropic 的代称；“A\\”取自它的标志，“人类学”是名字直译，“a÷”“a畜”是戏谑写法。",
       "category": "代号",
@@ -37,7 +38,9 @@
     {
       "term": "OA两家",
       "variants": [
-        "OA 两家"
+        "OA 两家",
+        "o/a",
+        "oa家"
       ],
       "meaning": "OpenAI 和 Anthropic 两家公司的合称。",
       "category": "缩写",
@@ -88,7 +91,10 @@
     },
     {
       "term": "肥波",
-      "variants": [],
+      "variants": [
+        "F5.2",
+        "fable52"
+      ],
       "meaning": "Claude Fable 的谐音叫法。",
       "category": "代号",
       "refersTo": "Claude Fable"
@@ -122,7 +128,10 @@
       "term": "astra",
       "variants": [
         "6astra",
-        "6.1astra"
+        "6.1astra",
+        "g6astra",
+        "6ast",
+        "atrash"
       ],
       "meaning": "OpenAI GPT-6 Astra 模型的简称。",
       "category": "代号",
@@ -135,7 +144,8 @@
         "5.6sol",
         "6.1sol",
         "6sol",
-        "gpt5.6sol"
+        "gpt5.6sol",
+        "6.2sol"
       ],
       "meaning": "OpenAI GPT-5.6 Sol 或 GPT-6.1 Sol 模型的简称，比 Astra 便宜。",
       "category": "代号",
@@ -186,7 +196,9 @@
     },
     {
       "term": "seed",
-      "variants": [],
+      "variants": [
+        "西德"
+      ],
       "meaning": "字节跳动 Seed 大模型团队的简称。",
       "category": "代号",
       "refersTo": "ByteDance Seed"
@@ -208,7 +220,9 @@
     {
       "term": "鹅厂",
       "variants": [
-        "藤子"
+        "藤子",
+        "tx",
+        "鹅子"
       ],
       "meaning": "腾讯的俗称。",
       "category": "代号",
@@ -243,7 +257,8 @@
       "term": "lc",
       "variants": [
         "longcat",
-        "长猫"
+        "长猫",
+        "龙猫"
       ],
       "meaning": "LongCat 的缩写，美团的大模型。",
       "category": "缩写",
@@ -289,7 +304,8 @@
     {
       "term": "xhs",
       "variants": [
-        "🍠"
+        "🍠",
+        "小红薯"
       ],
       "meaning": "小红书的拼音缩写，🍠 也指小红书。",
       "category": "缩写",
@@ -310,7 +326,8 @@
         "TB-Science",
         "tb4",
         "terminalbench",
-        "tb sci"
+        "tb sci",
+        "tbs"
       ],
       "meaning": "Terminal-Bench 的缩写，终端任务 agent 评测集。",
       "category": "缩写",
@@ -867,7 +884,8 @@
     {
       "term": "3A",
       "variants": [
-        "5A"
+        "5A",
+        "AAA"
       ],
       "meaning": "“A”指一篇 CCF-A 类论文，3A 即三篇。",
       "category": "行话"
@@ -943,7 +961,9 @@
         "严肃star",
         "严肃支持",
         "ysxx",
-        "严肃upvote"
+        "严肃upvote",
+        "严肃转发",
+        "严肃阅读"
       ],
       "meaning": "群里对别人分享的论文或项目的固定捧场回复。",
       "category": "梗"
@@ -965,7 +985,8 @@
         "防御写作",
         "叠甲",
         "无脑防御",
-        "防御性语句"
+        "防御性语句",
+        "过度防御"
       ],
       "meaning": "模型写作时堆砌限定、免责和正反套话。",
       "category": "梗"
@@ -1079,7 +1100,8 @@
     {
       "term": "华子",
       "variants": [
-        "🌸"
+        "🌸",
+        "菊花厂"
       ],
       "meaning": "华为的昵称。",
       "category": "代号",
@@ -1119,8 +1141,10 @@
     },
     {
       "term": "sd2.5",
-      "variants": [],
-      "meaning": "字节跳动视频生成模型 Seedance 2.5 的缩写。",
+      "variants": [
+        "seeddance"
+      ],
+      "meaning": "字节跳动视频生成模型 Seedance 2.5 的缩写，seeddance 是常见误拼。",
       "category": "缩写",
       "refersTo": "Seedance 2.5"
     },
@@ -1627,7 +1651,8 @@
       "term": "carbon",
       "variants": [
         "Gemini 4 Carbon",
-        "gemini4 carbon"
+        "gemini4 carbon",
+        "卡拉笨"
       ],
       "meaning": "Google Gemini 4 Carbon 模型的简称。",
       "category": "代号",
@@ -1813,6 +1838,220 @@
       "meaning": "人形机器人的全身控制，负责平衡与全身动作协调。",
       "category": "缩写",
       "refersTo": "Whole-Body Control"
+    },
+    {
+      "term": "可牢德",
+      "variants": [],
+      "meaning": "Claude 的谐音戏称。",
+      "category": "代号",
+      "refersTo": "Claude",
+      "keyword": "Claude"
+    },
+    {
+      "term": "哥破特",
+      "variants": [],
+      "meaning": "GPT 的谐音戏称。",
+      "category": "代号",
+      "refersTo": "OpenAI GPT"
+    },
+    {
+      "term": "Claude小姐",
+      "variants": [
+        "claude大小姐"
+      ],
+      "meaning": "对 Anthropic Claude 模型的拟人化戏称。",
+      "category": "代号",
+      "refersTo": "Claude"
+    },
+    {
+      "term": "qwhen",
+      "variants": [],
+      "meaning": "Qwen 的戏谑写法，调侃新版本迟迟不发。",
+      "category": "代号",
+      "refersTo": "Qwen",
+      "keyword": "Qwen"
+    },
+    {
+      "term": "Qoduck",
+      "variants": [],
+      "meaning": "Qoder 中匿名上线的模型代号，后确认为 Qwen4-Max。",
+      "category": "代号",
+      "refersTo": "Qwen4-Max",
+      "keyword": "Qwen4-Max"
+    },
+    {
+      "term": "nv",
+      "variants": [
+        "nvda"
+      ],
+      "meaning": "英伟达的缩写，nvda 是其股票代码。",
+      "category": "缩写",
+      "refersTo": "NVIDIA",
+      "keyword": "NVIDIA"
+    },
+    {
+      "term": "N卡",
+      "variants": [],
+      "meaning": "英伟达生产的 GPU 显卡。",
+      "category": "代号",
+      "refersTo": "NVIDIA GPU"
+    },
+    {
+      "term": "hydrogen",
+      "variants": [
+        "gemini-4-hydrogen"
+      ],
+      "meaning": "Google Gemini 4 系列 Flash 档新模型的代号。",
+      "category": "代号",
+      "refersTo": "Gemini 4 Hydrogen"
+    },
+    {
+      "term": "krypton",
+      "variants": [],
+      "meaning": "Google Gemini 新模型的代号，沿用化学元素命名。",
+      "category": "代号",
+      "refersTo": "Gemini Krypton"
+    },
+    {
+      "term": "酒馆",
+      "variants": [],
+      "meaning": "SillyTavern 一类角色扮演聊天前端，常用来测模型文笔。",
+      "category": "代号",
+      "refersTo": "SillyTavern"
+    },
+    {
+      "term": "rp",
+      "variants": [],
+      "meaning": "roleplay 的缩写，让模型做角色扮演。",
+      "category": "缩写",
+      "refersTo": "roleplay"
+    },
+    {
+      "term": "弹k",
+      "variants": [
+        "弹kyc",
+        "跳kyc"
+      ],
+      "meaning": "订阅或使用时被平台要求做 KYC 身份验证。",
+      "category": "行话",
+      "refersTo": "KYC 验证"
+    },
+    {
+      "term": "养号",
+      "variants": [],
+      "meaning": "新账号先低档正常使用一段时间，降低封号风险。",
+      "category": "行话"
+    },
+    {
+      "term": "低价区",
+      "variants": [],
+      "meaning": "订阅价格较低的国家或地区账号，用来便宜买 AI 订阅。",
+      "category": "行话"
+    },
+    {
+      "term": "血轮眼",
+      "variants": [],
+      "meaning": "靠人工肉眼逐条判断大量轨迹或数据的能力，取自《火影忍者》。",
+      "category": "梗"
+    },
+    {
+      "term": "雕花",
+      "variants": [
+        "雕花测试"
+      ],
+      "meaning": "Agent 长程任务中偏离主线，在小细节上反复打磨。",
+      "category": "梗"
+    },
+    {
+      "term": "白模",
+      "variants": [],
+      "meaning": "没有贴图材质的粗模，用来先排好场景、动作和镜头。",
+      "category": "行话",
+      "refersTo": "blockout"
+    },
+    {
+      "term": "赛马",
+      "variants": [],
+      "meaning": "公司让多个团队同时做同一方向、按结果择优的机制。",
+      "category": "行话"
+    },
+    {
+      "term": "炼钢炉",
+      "variants": [
+        "大炼钢铁"
+      ],
+      "meaning": "各业务线各自重复建立的基座模型团队，类比大炼钢铁。",
+      "category": "行话"
+    },
+    {
+      "term": "总办",
+      "variants": [],
+      "meaning": "腾讯总裁办公室，即公司最高管理层。",
+      "category": "行话",
+      "refersTo": "腾讯总裁办"
+    },
+    {
+      "term": "neolab",
+      "variants": [],
+      "meaning": "新兴的独立 AI 研究型实验室，与大厂内部模型团队相对。",
+      "category": "行话"
+    },
+    {
+      "term": "灰测",
+      "variants": [
+        "灰度"
+      ],
+      "meaning": "灰度测试，新模型正式发布前先对部分用户开放。",
+      "category": "行话",
+      "refersTo": "灰度测试"
+    },
+    {
+      "term": "cns",
+      "variants": [],
+      "meaning": "Cell、Nature、Science 三本顶级期刊的合称。",
+      "category": "缩写",
+      "refersTo": "Cell、Nature、Science"
+    },
+    {
+      "term": "code2paint",
+      "variants": [
+        "code to paint"
+      ],
+      "meaning": "让模型写代码逐笔或逐像素生成绘画作品。",
+      "category": "行话"
+    },
+    {
+      "term": "a+b",
+      "variants": [
+        "a+b+c"
+      ],
+      "meaning": "把已有方法简单拼接组合来发论文的做法。",
+      "category": "行话"
+    },
+    {
+      "term": "洗数据",
+      "variants": [],
+      "meaning": "清洗、过滤训练数据，常和“造数据”连用。",
+      "category": "行话",
+      "refersTo": "data cleaning"
+    },
+    {
+      "term": "closeAI",
+      "variants": [],
+      "meaning": "OpenAI 的戏称，调侃它不再开源。",
+      "category": "代号",
+      "refersTo": "OpenAI",
+      "keyword": "OpenAI"
+    },
+    {
+      "term": "O哥",
+      "variants": [
+        "O\\"
+      ],
+      "meaning": "OpenAI 的戏谑叫法；“O\\”仿照 Anthropic 的“A\\”写法。",
+      "category": "代号",
+      "refersTo": "OpenAI",
+      "keyword": "OpenAI"
     }
   ]
 }

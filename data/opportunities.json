@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "through": "2026-11-08",
+  "through": "2026-11-15",
   "items": [
     {
       "id": "scinetics-ai4s",
@@ -281,6 +281,10 @@
         {
           "date": "2026-10-19",
           "group": "group-3"
+        },
+        {
+          "date": "2026-11-10",
+          "group": "group-6"
         }
       ]
     },
@@ -436,6 +440,83 @@
         {
           "date": "2026-10-28",
           "group": "group-3"
+        }
+      ]
+    },
+    {
+      "id": "huawei-noah-llm-agent-intern",
+      "kind": "hiring",
+      "title": "LLM Agent 算法实习生",
+      "org": "华为诺亚方舟实验室基模团队",
+      "summary": "基座模型团队招收 LLM Agent 方向算法实习生，提供算力资源。",
+      "roles": [
+        "intern"
+      ],
+      "topics": [
+        "LLM Agent",
+        "基座模型"
+      ],
+      "links": [],
+      "shares": [
+        {
+          "date": "2026-11-09",
+          "group": "group-3"
+        },
+        {
+          "date": "2026-11-09",
+          "group": "group-5"
+        }
+      ]
+    },
+    {
+      "id": "bath-reliable-ai-scientists-phd",
+      "kind": "hiring",
+      "title": "博士项目：Building Reliable AI Scientists",
+      "org": "University of Bath",
+      "summary": "巴斯大学在 FindAPhD 发布的博士项目，研究方向为构建可靠的 AI Scientist。",
+      "roles": [
+        "phd"
+      ],
+      "location": "英国巴斯",
+      "topics": [
+        "AI Scientist",
+        "科研 Agent"
+      ],
+      "links": [
+        {
+          "kind": "docs",
+          "url": "https://www.findaphd.com/phds/project/building-reliable-ai-scientists?p202284="
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-12",
+          "group": "group-5"
+        }
+      ]
+    },
+    {
+      "id": "emergence-lab-wudaokou-open-mic",
+      "kind": "event",
+      "title": "五道口开放麦：What's next for PhD?",
+      "org": "涌现Lab",
+      "summary": "面向年轻 AI 研究者的线下活动，含两场 Panel Discussion 和一场 PhD Open Mic，聊 AI 科研、读博与职业选择。",
+      "location": "北京",
+      "event_date": "2026-11-22",
+      "topics": [
+        "读博",
+        "职业发展"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s/hRohIUzbeUS9TZyEBbbe9w"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-14",
+          "group": "group-5"
         }
       ]
     }

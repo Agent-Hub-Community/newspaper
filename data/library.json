@@ -1,7 +1,1130 @@
 {
   "version": 1,
-  "through": "2026-11-08",
+  "through": "2026-11-15",
   "items": [
+    {
+      "id": "pear",
+      "title": "PEAR: Post-training Engine for Agentic Robotics",
+      "summary": "MIT 韩松团队只在仿真中做 RL，让 Qwen3.8-27B 直接操作未见过的双臂真机，30 次测试成功 18 次，可在 RTX 5090 上本地运行。",
+      "type": "paper",
+      "topics": [
+        "multimodal-embodied",
+        "training"
+      ],
+      "keywords": [
+        "PEAR",
+        "robot use",
+        "机器人操作",
+        "Qwen",
+        "sim-to-real",
+        "LIBERO",
+        "on-device"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651074568&idx=1&sn=faca5cd72985ada871e24f3ab7f7b10e&chksm=85170d2fa51bf842f3467ad1f9dd40cd3dbaf93374ae3db759397e2c0e69152ab34043cbee61"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-15",
+          "group": "group-4",
+          "avatar": "009f44958744ddb3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "programmable-design-of-functional",
+      "title": "Programmable design of functional proteins from natural language",
+      "summary": "用 160 亿参数的 Pinal 模型按自然语言描述直接设计功能蛋白，实验验证了酶活性，并在无需迭代优化时提高了 CO2 固定产物产量。",
+      "type": "paper",
+      "topics": [
+        "research-agents",
+        "models"
+      ],
+      "keywords": [
+        "Pinal",
+        "蛋白质设计",
+        "AI4Protein",
+        "AI4S",
+        "Nature",
+        "科学发现"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://doi.org/10.1038/s41586-026-11205-z"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/westlake-repl/Denovo-Pinal"
+        },
+        {
+          "kind": "demo",
+          "url": "https://www.denovo-pinal.com/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-15",
+          "group": "group-8",
+          "avatar": "90d2dc39093acf28.jpg"
+        }
+      ]
+    },
+    {
+      "id": "article-38b04f95",
+      "title": "数据合成的下半场(二): 推理能力蒸馏",
+      "summary": "讨论在没有更强 teacher 时如何为困难任务找到高质量解与推理轨迹，并梳理推理蒸馏中轨迹重组和精炼的做法。",
+      "type": "article",
+      "topics": [
+        "data-environments",
+        "training"
+      ],
+      "keywords": [
+        "data synthesis",
+        "distillation",
+        "reasoning trace",
+        "DeepSeek-R1",
+        "SFT",
+        "verifier"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247484042&idx=1&sn=05048ca113e395e5044caec246248f15&chksm=c08db7bd93a34de157f5cd69ea10fb39043793bce6da2a267cb0749522e5a4912ec2912b9a52"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-14",
+          "group": "group-5",
+          "avatar": "f7ef15ed99b53c5b.jpg"
+        }
+      ]
+    },
+    {
+      "id": "end-to-end-4-bit-training",
+      "title": "End-to-End 4-Bit Training",
+      "summary": "Thinking Machines 介绍在 GB300 上端到端 4 比特训练大模型的配方，组合 BF16、MXFP8 和 NVFP4，并覆盖块缩放反向传播、随机舍入和量化通信。",
+      "type": "article",
+      "topics": [
+        "systems",
+        "training"
+      ],
+      "keywords": [
+        "Thinking Machines",
+        "4-bit training",
+        "低精度训练",
+        "NVFP4",
+        "MXFP8",
+        "GB300",
+        "pretraining"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://thinkingmachines.ai/blog/end-to-end-4-bit-training"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s/5uJp5LF0oEUSFb61QBjZzA"
+      ],
+      "shares": [
+        {
+          "date": "2026-11-14",
+          "group": "group-2",
+          "avatar": "2bf47bf765aa0eb2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "science-prediction-universe-spu",
+      "title": "Science Prediction Universe (SPU)",
+      "summary": "让模型在实验前预测隐藏的湿实验结果，含 116 个任务、4207 个湿实验，覆盖化学、材料、生物和医学。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "research-agents"
+      ],
+      "keywords": [
+        "SPU",
+        "湿实验",
+        "AI4S",
+        "科学任务",
+        "UniPat AI",
+        "GPT-6 Astra",
+        "Claude Opus 5.5"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247944029&idx=1&sn=4e93cf2a546894e76a43cfcefbe7e689&chksm=e9a754542f88695a2ed031db4a426d743681922e07fa38605a1d84ab63cb04408f263a56d395"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-14",
+          "group": "group-8",
+          "avatar": "90d2dc39093acf28.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sglang-kv-cache",
+      "title": "从零开始设计SGLang的KV Cache",
+      "summary": "从零讲解 SGLang 推理框架中 KV Cache 的设计思路。",
+      "type": "article",
+      "topics": [
+        "systems"
+      ],
+      "keywords": [
+        "SGLang",
+        "KV cache",
+        "LLM inference",
+        "MLSys"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://zhuanlan.zhihu.com/p/31160183506"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-14",
+          "group": "group-7",
+          "avatar": "d9ef7a5c179af720.jpg"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-api",
+      "title": "DeepSeek 发布全家桶应用 API",
+      "summary": "DeepSeek 在 API 中开放联网搜索、深度思考搜索、文件输入、阅读链接和安全校验，并提供 OCR、ASR、TTS 等独立接口。",
+      "type": "tool",
+      "topics": [
+        "models",
+        "coding-agents"
+      ],
+      "keywords": [
+        "DeepSeek",
+        "DeepSeek API",
+        "web search",
+        "tool calling",
+        "OCR",
+        "TTS"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzk0OTYwNzc3NQ%3D%3D&mid=2247485910&idx=1&sn=529f50ba3b37e39319dad1faf7a122cf&chksm=c2b21ecf19034d2039444e34071d27e625c9a31d0e38b02d87bf1c0e50b6fdf9c2a1e2f4c9e0"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s/78KBHc4-4N5b2vfL9SkutQ?click_id=2091924870",
+        "https://mp.weixin.qq.com/s/78KBHc4-4N5b2vfL9SkutQ"
+      ],
+      "shares": [
+        {
+          "date": "2026-11-13",
+          "group": "group-3",
+          "avatar": "2bf47bf765aa0eb2.jpg"
+        },
+        {
+          "date": "2026-11-13",
+          "group": "group-5",
+          "avatar": "bcd8a0e494a6a2e7.jpg"
+        }
+      ]
+    },
+    {
+      "id": "justrua",
+      "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
+      "summary": "在同一框架里沿 harness、动作接口、经验复用和场景几何四条轴拆解 GPT-6 Astra 操控机械臂的设计，精简 harness 把 RoboDojo 得分从 29.7 提到 50.3。",
+      "type": "paper",
+      "topics": [
+        "multimodal-embodied",
+        "coding-agents",
+        "evaluation"
+      ],
+      "keywords": [
+        "robot use",
+        "RoboDojo",
+        "GPT-6 Astra",
+        "agent harness",
+        "机械臂",
+        "消融实验"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2611.16009"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/ZefanW/JustRUA"
+        },
+        {
+          "kind": "project",
+          "url": "https://zefanw.github.io/JustRUA/zh"
+        },
+        {
+          "kind": "demo",
+          "url": "https://huggingface.co/spaces/ZefanW/robodojo-replay-explorer"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-13",
+          "group": "group-4",
+          "avatar": "c3691f678e363732.jpg"
+        }
+      ]
+    },
+    {
+      "id": "learning-to-discover-at-test-time",
+      "title": "Learning to Discover at Test Time",
+      "summary": "在测试时对 LLM 继续做强化学习，让模型利用针对单个科学问题积累的经验搜索新的最优解，对比 AlphaEvolve 这类冻结模型的搜索方法。",
+      "type": "paper",
+      "topics": [
+        "research-agents",
+        "training"
+      ],
+      "keywords": [
+        "test-time training",
+        "test-time compute",
+        "AlphaEvolve",
+        "算法发现",
+        "科学发现",
+        "RSI"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2601.16175"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-13",
+          "group": "group-5",
+          "avatar": "f7ef15ed99b53c5b.jpg"
+        }
+      ]
+    },
+    {
+      "id": "rsi-30b-moe",
+      "title": "邱锡鹏、刘鹏飞团队挑战大模型预训练RSI，三个月炼出30B MoE模型！",
+      "summary": "介绍邱锡鹏、刘鹏飞团队用三个月训练出 30B MoE 模型、尝试预训练阶段递归自我改进的工作，相关 SFT 数据集已开源。",
+      "type": "article",
+      "topics": [
+        "training",
+        "research-agents"
+      ],
+      "keywords": [
+        "RSI",
+        "pretraining",
+        "MoE",
+        "SFT",
+        "automated AI research"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MjM5ODExNDA2MA%3D%3D&mid=2450022072&idx=1&sn=169871ca23018bb90f8ce34cde026970&chksm=b01317d5df89c03df9844f43ad126181cc2ab6077a3daa522b27489b4dfd7544f328f5081daa"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-13",
+          "group": "group-5",
+          "avatar": "bc1b40e90e01dd87.jpg"
+        }
+      ]
+    },
+    {
+      "id": "verl-agent-issue-267",
+      "title": "verl-agent issue #267: Potential validation aggregation issue for Bamboogle",
+      "summary": "指出 verl-agent 在 Search QA 验证时按批次取未加权平均计算成功率，可能让 Bamboogle 等小验证集的指标失真，关系到 GiGPO 结果复现。",
+      "type": "code",
+      "topics": [
+        "training",
+        "evaluation"
+      ],
+      "keywords": [
+        "verl-agent",
+        "GiGPO",
+        "verl",
+        "agentic RL",
+        "Bamboogle",
+        "复现"
+      ],
+      "links": [
+        {
+          "kind": "docs",
+          "url": "https://github.com/langfengQ/verl-agent/issues/267"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-13",
+          "group": "group-5",
+          "avatar": "61bbeb854da3a87b.jpg"
+        }
+      ]
+    },
+    {
+      "id": "article-63dffbb8",
+      "title": "对话前字节、美团招聘负责人魏小康：大模型 1 亿年薪不贵，做应用 10 个人就够了",
+      "summary": "访谈回顾 2024 到 2026 年国内大模型人才争夺的起落，讨论顶尖人才定价、基座模型岗位收缩和 AI 应用团队规模。",
+      "type": "article",
+      "topics": [
+        "industry"
+      ],
+      "keywords": [
+        "人才市场",
+        "AI 招聘",
+        "大模型公司",
+        "AI 应用",
+        "组织规模"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s/kR_M-sK6IirIxUpWqoj9eg"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s?__biz=MzU3Mjk1OTQ0Ng%3D%3D&mid=2247539862&idx=1&sn=5cf90666366386ee248c3da6408e6a74&chksm=fd75778f68c6781fccf1d7a01110401b84d9dcf75006339d8a1bfc85bd93b5845066e6aa515d"
+      ],
+      "shares": [
+        {
+          "date": "2026-11-12",
+          "group": "group-3",
+          "avatar": "fa3ecd5ea3ccb8e1.jpg"
+        },
+        {
+          "date": "2026-11-12",
+          "group": "group-5",
+          "avatar": "40ddd60a70a3e15d.jpg"
+        }
+      ]
+    },
+    {
+      "id": "raft",
+      "title": "Raft: Agent-native workspace for humans and AI agents",
+      "summary": "提供人和 AI agent 共用的团队聊天工作区，agent 以队友身份参与频道、讨论串和任务。",
+      "type": "tool",
+      "topics": [
+        "multi-agent",
+        "coding-agents"
+      ],
+      "keywords": [
+        "Raft",
+        "human-agent collaboration",
+        "团队协作",
+        "agent workspace"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://raft.build/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-12",
+          "group": "group-5",
+          "avatar": "3ad339b9767bf5be.jpg"
+        }
+      ]
+    },
+    {
+      "id": "scientisttwo",
+      "title": "ScientistTwo: Pioneering the Human Knowledge Frontier with Autonomous AI",
+      "summary": "Google Cloud AI Research 的自主科研系统，在 107 个研究问题中有 86 个超过人类 SOTA，生成的论文经过代码复现与引用核查。",
+      "type": "paper",
+      "topics": [
+        "research-agents"
+      ],
+      "keywords": [
+        "AI scientist",
+        "automated AI research",
+        "科学发现",
+        "reward hacking",
+        "Google"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://scientist-two.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-12",
+          "group": "group-8",
+          "avatar": "529072f9e943b01e.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sdrl",
+      "title": "SDRL：从单一求解范式到工业级规划问题求解",
+      "summary": "介绍 SDRL 方法，讨论如何从单一求解范式扩展到工业级规划问题的求解。",
+      "type": "article",
+      "topics": [
+        "training",
+        "industry"
+      ],
+      "keywords": [
+        "SDRL",
+        "组合优化",
+        "运筹优化",
+        "规划问题"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzk0ODMwMjMwMA%3D%3D&mid=2247697449&idx=1&sn=e78fad3d805b8ad09d05dcbdcaad59ae&chksm=c2f897a5ae723c09e912642590f50c1421d134d03949c810d9bd6632053a281a44e5611b0aaf"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-12",
+          "group": "group-5",
+          "avatar": "f7ef15ed99b53c5b.jpg"
+        }
+      ]
+    },
+    {
+      "id": "vibevideobench",
+      "title": "VibeVideoBench: Evaluating Multimodal Agents on Code-Driven Video Generation",
+      "summary": "评测多模态 agent 用代码在 60 分钟内做出带声音的完整视频，含 239 道任务、9 个 agent 系统和约 1.3 万条任务专属 rubric 检查。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "coding-agents",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "视频生成",
+        "code-driven video",
+        "rubric",
+        "multimodal agent",
+        "Kling"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://vibevideobench.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-12",
+          "group": "group-1",
+          "avatar": "817ae012be0284d7.jpg"
+        },
+        {
+          "date": "2026-11-12",
+          "group": "group-2",
+          "avatar": "8568ffd72615f20c.jpg"
+        }
+      ]
+    },
+    {
+      "id": "blenderforge",
+      "title": "BlenderForge：这次，我们在 blender 里构建了一个完整真实的世界",
+      "summary": "介绍 BlenderForge 数据：从完整写实的 Blender 场景出发，把专家指导模型修改场景的过程一并记录进数据。",
+      "type": "dataset",
+      "topics": [
+        "data-environments",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "BlenderForge",
+        "Blender",
+        "3D 场景",
+        "专家反馈"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzU4MDcxNTc3OA%3D%3D&mid=2247484412&idx=1&sn=6b7fdc57d0f8085de74b1c3f8a8ff6ac&chksm=fc06d8cdb9fe48803ff0f79aada2d3c026b276c7ddd4e03737fe20e22456b8a75a2c3f42a8f3"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-11",
+          "group": "group-3",
+          "avatar": "5dc4aa0fa6a38e34.jpg"
+        }
+      ]
+    },
+    {
+      "id": "dnavit",
+      "title": "dNaViT: Discrete Codes are General-Purpose Visual Representations",
+      "summary": "提出原生分辨率的离散视觉 Transformer，用同一套离散词表同时支持图像理解、重建、生成和编辑，代码随 LongCat-Next 仓库开源。",
+      "type": "paper",
+      "topics": [
+        "multimodal-embodied",
+        "models"
+      ],
+      "keywords": [
+        "dNaViT",
+        "LongCat-Next",
+        "离散视觉表征",
+        "visual tokenizer",
+        "统一多模态",
+        "Meituan LongCat"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://huggingface.co/papers/2611.12426"
+        },
+        {
+          "kind": "code",
+          "url": "https://github.com/meituan-longcat/LongCat-Next"
+        },
+        {
+          "kind": "project",
+          "url": "https://lixiaotong97.github.io/dNaViT"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-11",
+          "group": "group-5",
+          "avatar": "8ea9762581cda8d7.jpg"
+        }
+      ]
+    },
+    {
+      "id": "introducing-ernie-5-5-flash-preview",
+      "title": "Introducing ERNIE 5.5 Flash Preview",
+      "summary": "百度发布 ERNIE 5.5 Flash Preview，总参数 280B、激活 14B，支持 1M token 上下文，提升编程、agent 任务和深度研究能力，权重将以 Apache 2.0 开源。",
+      "type": "model",
+      "topics": [
+        "models"
+      ],
+      "keywords": [
+        "ERNIE",
+        "Baidu",
+        "MoE",
+        "long context",
+        "open-weight",
+        "deep research"
+      ],
+      "links": [
+        {
+          "kind": "model",
+          "url": "https://ernie.baidu.com/release/ernie-5-5-flash-preview"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-11",
+          "group": "group-3",
+          "avatar": "e005c204fec8fd33.jpg"
+        }
+      ]
+    },
+    {
+      "id": "llm-bench-code-bench",
+      "title": "LLM Bench（code_bench）",
+      "summary": "追踪主流大模型在编程复刻和开发场景 OCR 两类任务上的评测成绩，提供交互榜单以及成本与 token 对比。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "coding-agents"
+      ],
+      "keywords": [
+        "code_bench",
+        "OCR Bench",
+        "代码生成",
+        "API pricing"
+      ],
+      "links": [
+        {
+          "kind": "leaderboard",
+          "url": "https://snnh.github.io/code_bench"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-11",
+          "group": "group-3",
+          "avatar": "80fbddf5da73a55c.jpg"
+        }
+      ]
+    },
+    {
+      "id": "qwen4-max",
+      "title": "连干229轮没人管，Qwen4-Max预览版成事了吗？",
+      "summary": "用一套自建题库实测 Qwen4-Max 预览版的一次生成、前端、3D 与 Blender 建模和长程任务，其中一道机关题连续自主执行 229 轮。",
+      "type": "article",
+      "topics": [
+        "models",
+        "evaluation",
+        "coding-agents"
+      ],
+      "keywords": [
+        "Qwen4-Max",
+        "Qwen",
+        "Blender",
+        "前端设计",
+        "long-horizon",
+        "模型实测"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=Mzg2OTA1OTAxNA%3D%3D&mid=2247492852&idx=1&sn=cf0c21368250f843a45a3ab7f453bc37&chksm=cfb122194f049f29a51ae92cb6b9a4af936ab3376bcf4d8b57bab074647c230fc150faf0f9a7"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-11",
+          "group": "group-3",
+          "avatar": "80fbddf5da73a55c.jpg"
+        }
+      ]
+    },
+    {
+      "id": "vibeprevisbench",
+      "title": "VibePrevisBench: Evaluating Agentic Coding for 4D Scene Generation in Blender",
+      "summary": "评测 coding agent 能否根据剧本、照片或实拍素材在 Blender 中写代码搭出可执行的 4D 白模场景，用隐藏真值和 VLM judge 打分。",
+      "type": "benchmark",
+      "topics": [
+        "evaluation",
+        "coding-agents",
+        "multimodal-embodied"
+      ],
+      "keywords": [
+        "Blender",
+        "4D scene",
+        "previs",
+        "视频生成",
+        "LLM-as-judge",
+        "Kling"
+      ],
+      "links": [
+        {
+          "kind": "project",
+          "url": "https://vibeprevisbench.github.io/"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-11",
+          "group": "group-3",
+          "avatar": "a52ab8a4dff94d73.jpg"
+        },
+        {
+          "date": "2026-11-12",
+          "group": "group-1",
+          "avatar": "817ae012be0284d7.jpg"
+        },
+        {
+          "date": "2026-11-12",
+          "group": "group-2",
+          "avatar": "8568ffd72615f20c.jpg"
+        }
+      ]
+    },
+    {
+      "id": "anti-defensive-writing",
+      "title": "anti-defensive-writing",
+      "summary": "提供一个 Codex skill，用来删掉文本里的防御性写法、让行文更直接。",
+      "type": "code",
+      "topics": [
+        "research-tools",
+        "coding-agents"
+      ],
+      "keywords": [
+        "agent skills",
+        "Codex",
+        "防御性写作",
+        "论文写作"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/Kiterlin/anti-defensive-writing"
+        }
+      ],
+      "aliases": [
+        "https://github.com/Kiterlin/anti-defens"
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-5",
+          "avatar": "1adbe900b35d44f5.jpg"
+        }
+      ]
+    },
+    {
+      "id": "anti-defensive-writing-skill",
+      "title": "anti-defensive-writing-Skill",
+      "summary": "提供阻止学术论文防御性写作的写作原则 Skill 和中英文 prompt 包，可挂到 coding agent 上约束写作风格。",
+      "type": "code",
+      "topics": [
+        "research-tools",
+        "coding-agents"
+      ],
+      "keywords": [
+        "agent skills",
+        "论文写作",
+        "防御性写作",
+        "prompt"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-5",
+          "avatar": "1adbe900b35d44f5.jpg"
+        }
+      ]
+    },
+    {
+      "id": "claude-telemetry-audit",
+      "title": "Claude 三端遥测与隐私审计：Desktop · Claude Code · Android",
+      "summary": "逆向 Claude Desktop、Claude Code CLI 和 Android 客户端，逐项列出上报的设备标识与环境信息，并附关闭方法和可复验的检索命令。",
+      "type": "article",
+      "topics": [
+        "safety",
+        "coding-agents"
+      ],
+      "keywords": [
+        "Claude Code",
+        "Claude",
+        "privacy",
+        "遥测",
+        "逆向分析"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/B1anYu/claude-telemetry-audit"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-3",
+          "avatar": "e005c204fec8fd33.jpg"
+        }
+      ]
+    },
+    {
+      "id": "fable-5-2-one-shot-game-experiment",
+      "title": "Fable 5.2 one-shot game experiment",
+      "summary": "用 Fable 5.2 无人工反馈一次生成含模型、音效和贴图的网页游戏，耗时 8 小时，约 270 万输出 token，按 API 价约 550 美元。",
+      "type": "article",
+      "topics": [
+        "models",
+        "coding-agents"
+      ],
+      "keywords": [
+        "Fable 5.2",
+        "Claude",
+        "one-shot",
+        "game generation",
+        "API pricing",
+        "long-horizon"
+      ],
+      "links": [
+        {
+          "kind": "post",
+          "url": "https://x.com/felixrieseberg/status/2119925633564463609"
+        }
+      ],
+      "aliases": [
+        "https://x.com/felixrieseberg/status/2119925633564463609?a=bqTe7jJG3JpACz8QR18"
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-1",
+          "avatar": "97f2a4264300ad06.jpg"
+        }
+      ]
+    },
+    {
+      "id": "formalizing-fermat-s-last-theorem",
+      "title": "Formalizing Fermat's Last Theorem",
+      "summary": "Anthropic 发布费马大定理首个完整的计算机检验证明，Claude 用 11 天基本自主地写成 Lean 证明，并讨论形式化验证对数学研究的意义。",
+      "type": "article",
+      "topics": [
+        "research-agents",
+        "models"
+      ],
+      "keywords": [
+        "Lean",
+        "autoformalization",
+        "数学证明",
+        "Anthropic",
+        "Fermat's Last Theorem"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-3",
+          "avatar": "a3c3710aba9409b6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "nemo-rl-grpo",
+      "title": "nemo_rl.algorithms.grpo — NeMo-RL",
+      "summary": "NeMo-RL 中 GRPO 算法模块的 API 文档，含按消息级配置 advantage 惩罚等训练选项。",
+      "type": "code",
+      "topics": [
+        "training"
+      ],
+      "keywords": [
+        "NeMo",
+        "GRPO",
+        "advantage",
+        "credit assignment"
+      ],
+      "links": [
+        {
+          "kind": "docs",
+          "url": "https://docs.nvidia.com/nemo/rl/latest/apidocs/nemo_rl/nemo_rl.algorithms.grpo.html"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-3",
+          "avatar": "2bf47bf765aa0eb2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "openrsi-sglang-omni",
+      "title": "OpenRSI × SGLang-Omni: Scaling RSI for AI Infra",
+      "summary": "让 agent 在独立 verifier 校验下持续优化 SGLang-Omni 推理性能，覆盖 8 个语音与 omni 模型，已有 14 个 PR 被上游合入。",
+      "type": "article",
+      "topics": [
+        "research-agents",
+        "systems"
+      ],
+      "keywords": [
+        "RSI",
+        "OpenRSI",
+        "SGLang",
+        "SGLang-Omni",
+        "verifier",
+        "inference throughput",
+        "automated AI research"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://index.openrsi.foundation/blog/2026/openrsi-sglang-omni"
+        },
+        {
+          "kind": "post",
+          "url": "https://x.com/OpenRSI/status/2119869682929066288"
+        }
+      ],
+      "aliases": [
+        "https://www.linkedin.com/feed/update/urn:li:activity:7525657367661674496"
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-1",
+          "avatar": "570c53267293efda.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tetra-1-preview",
+      "title": "Tetra-1 Preview",
+      "summary": "SimpleX 推出的生物推理模型，把三维分子结构纳入大模型推理过程，预览版开放在线申请试用。",
+      "type": "model",
+      "topics": [
+        "research-agents",
+        "models"
+      ],
+      "keywords": [
+        "AI4Science",
+        "生物学",
+        "分子结构",
+        "SimpleX"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://simplexfoundry.com/tetra-1"
+        },
+        {
+          "kind": "demo",
+          "url": "https://simplexfoundry.com/tetra-1/apply"
+        }
+      ],
+      "aliases": [
+        "https://mp.weixin.qq.com/s?__biz=MzY5NTQ3NzU1OQ%3D%3D&mid=2247483763&idx=1&sn=a02dd4d363db176701fc77e431073616&chksm=f5fd26ef7f8a622e950812656eabc77e89890756041dee10ddacb4b96876e549d2a75760f7c2"
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-8",
+          "avatar": "90d2dc39093acf28.jpg"
+        },
+        {
+          "date": "2026-11-10",
+          "group": "group-8",
+          "avatar": "4daf510562f6ef62.jpg"
+        }
+      ]
+    },
+    {
+      "id": "the-alberta-plan-for-ai-research",
+      "title": "The Alberta Plan for AI Research",
+      "summary": "阐述 Sutton 等人在 Alberta 推进的 AI 研究路线，围绕持续学习、与环境交互的智能体和基于经验的规划给出长期研究计划。",
+      "type": "paper",
+      "topics": [
+        "industry",
+        "training"
+      ],
+      "keywords": [
+        "Alberta Plan",
+        "Richard Sutton",
+        "continual learning",
+        "强化学习",
+        "研究路线"
+      ],
+      "links": [
+        {
+          "kind": "paper",
+          "url": "https://arxiv.org/abs/2208.11173"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-10",
+          "group": "group-3",
+          "avatar": "fa3ecd5ea3ccb8e1.jpg"
+        }
+      ]
+    },
+    {
+      "id": "article-f32add24",
+      "title": "面向真实世界的商业运营和工业制造的递归自进化(RSI)",
+      "summary": "讨论递归自我改进如何从经典组合优化走向商业运营与工业制造，结合大模型、人类专家、程序演化和多维验证应对模糊目标与动态扰动。",
+      "type": "article",
+      "topics": [
+        "research-agents",
+        "industry"
+      ],
+      "keywords": [
+        "RSI",
+        "组合优化",
+        "程序演化",
+        "工业制造"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://mp.weixin.qq.com/s?__biz=MzkyNTE4MjYwNw%3D%3D&mid=2247484032&idx=1&sn=2b05d7d3e51c1639129c882488186a62&chksm=c0d453db9041804135e3f3b3ead8656a80b29dfd004e903c40edeb6f074b6829e0c53f30e81e"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-09",
+          "group": "group-5",
+          "avatar": "f7ef15ed99b53c5b.jpg"
+        }
+      ]
+    },
+    {
+      "id": "independent-assessment-of-ai-r-d",
+      "title": "Independent Assessment of AI R&D Acceleration at Anthropic in October 2026",
+      "summary": "METR 以高权限访问评估截至 2026 年 10 月 AI 对 Anthropic 内部研发的加速程度，估计模型能力进步速度约为过去的 1.9 倍。",
+      "type": "article",
+      "topics": [
+        "research-agents",
+        "safety",
+        "industry"
+      ],
+      "keywords": [
+        "METR",
+        "Anthropic",
+        "automated AI research",
+        "RSI",
+        "AI R&D acceleration"
+      ],
+      "links": [
+        {
+          "kind": "article",
+          "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-09",
+          "group": "group-6",
+          "avatar": "622272b446c0ed95.jpg"
+        }
+      ]
+    },
+    {
+      "id": "superaris",
+      "title": "SuperARIS",
+      "summary": "基于 ARIS（Auto Research In Sleep）的多 agent 常驻科研工作台，在多窗格 CLI 中协同 Claude Code、Codex 和 Gemini，一条命令启动。",
+      "type": "code",
+      "topics": [
+        "research-agents",
+        "multi-agent",
+        "coding-agents"
+      ],
+      "keywords": [
+        "ARIS",
+        "Claude Code",
+        "Codex",
+        "Gemini CLI",
+        "automated AI research",
+        "AI 辅助科研"
+      ],
+      "links": [
+        {
+          "kind": "code",
+          "url": "https://github.com/wanshuiyin/SuperARIS"
+        },
+        {
+          "kind": "project",
+          "url": "https://wanshuiyin.github.io/SuperARIS"
+        }
+      ],
+      "shares": [
+        {
+          "date": "2026-11-09",
+          "group": "group-2",
+          "avatar": "2b4746424943bf83.jpg"
+        }
+      ]
+    },
     {
       "id": "article-f4bd1426",
       "title": "如果未来被AI裁员，可以等政府发钱吗？",
@@ -2246,6 +3369,10 @@
       ],
       "links": [
         {
+          "kind": "model",
+          "url": "https://huggingface.co/meituan-longcat/LongCat-2.5"
+        },
+        {
           "kind": "article",
           "url": "https://mp.weixin.qq.com/s/c6IkevuKYuORnfkppABkkQ"
         }
@@ -2255,9 +3382,16 @@
           "date": "2026-11-02",
           "group": "group-3",
           "avatar": "02376efad2b85638.jpg"
+        },
+        {
+          "date": "2026-11-09",
+          "group": "group-5",
+          "avatar": "f72ed7fd850f0165.jpg"
         }
       ],
-      "aliases": []
+      "aliases": [
+        "https://mp.weixin.qq.com/s/EGLDrPxND-xGTyStJIDXrw"
+      ]
     },
     {
       "id": "personal-agent-ai",

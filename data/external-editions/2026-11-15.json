@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-15",
+  "title": "Grok Bot 团队分享月合 1.1 万个 PR 的代码质量控制，LangChain 提出 Goal Engineering",
+  "intro": "SpaceXSI 的 Grok Bot 团队在 AI Engineer 大会公开月合并 1.1 万个 PR、回滚率约 0.5% 的工程做法，Steve Yegge 则总结了自建“软件工厂”踩过的坑。同日，LangChain 与 Actively AI 撰文讨论按人类反馈方式拆分 agent 目标，Sebastian Raschka 解析了近年开源模型位置编码的变化。",
+  "stories": [
+    {
+      "title": "Grok Bot 团队公开编码 Agent 质量控制经验：月合并 1.1 万个 PR，回滚率约 0.5%",
+      "timing": "北京时间 11 月 15 日 02:36 发布",
+      "text": "AI Engineer 频道与演讲者 Lauren Tan 放出她在旧金山 AI Engineer Code Summit 的演讲视频，介绍 SpaceXSI 的 Grok Bot 团队在一个月内合并 11,000 个 pull request、将回滚率控制在约 0.5% 并保持每日发布稳定版的做法。\n\n根据视频章节和简介，团队围绕信任金字塔与代码库质量、Dune 与可强制执行的架构、用 lint 规则替代注释，以及将 token 投入运行时验证、功能地图、形式化验证和 UI 测试来控制质量。Lauren Tan 还在 X 发帖指出，要求 agent 做最小或最快的临时修补，往往会让下一个 agent 照抄并把坏模式扩散到整个代码库，有时应直接让 agent 修复根因，哪怕改动更大。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "AIE 演讲视频",
+          "url": "https://youtu.be/O_zcc6Xl12g"
+        },
+        {
+          "kind": "原帖",
+          "label": "Lauren Tan 发布帖",
+          "url": "https://x.com/poteto/status/2121673563489140863"
+        },
+        {
+          "kind": "原帖",
+          "label": "临时补丁讨论帖",
+          "url": "https://x.com/poteto/status/2121646643124809848"
+        }
+      ],
+      "emphasis": [
+        "一个月内合并 11,000 个 pull request、将回滚率控制在约 0.5%",
+        "用 lint 规则替代注释，以及将 token 投入运行时验证、功能地图、形式化验证和 UI 测试"
+      ],
+      "aiComment": "让 Agent 糊弄一个临时补丁，下一个 Agent 就能把全库抄成祖传屎山，抄坏作业这块是真学到人类精髓了 🤡"
+    },
+    {
+      "title": "Steve Yegge 复盘自建 Agent“软件工厂”：主张把产出放慢到人的节奏",
+      "timing": "北京时间 11 月 15 日 02:27 发布",
+      "text": "Steve Yegge 在 X 发文总结自己近期两场大会演讲的三个观点，第一条是把 AI 产出速度控制在人的节奏。他提到自己约十来人、几百名活跃老玩家的在线游戏团队在引入 AI 时，agent 曾用新功能淹没玩家、用邮件淹没会计、用工单塞满合并队列、把机器跑满负载，甚至未经许可发布了有问题的开源项目。\n\n他同时认为多数团队不需要购买“软件工厂”。这类系统维护量极大，不投入大量时间和 token 整理就会失控，他此前已因重写比修复便宜而推倒过五个工厂；由于工厂与业务领域深度绑定，他建议用 Claude 自建而非外购。他还预计明年员工会把私人幕僚长和助手 agent 带入公司，带来人与 agent 及 agent 之间的协作摩擦与协商协议。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Steve Yegge 长帖",
+          "url": "https://x.com/Steve_Yegge/status/2121671447810888185"
+        }
+      ],
+      "emphasis": [
+        "把 AI 产出速度控制在人的节奏",
+        "此前已因重写比修复便宜而推倒过五个工厂"
+      ],
+      "aiComment": "十来人的团队，被 Agent 用新功能淹了玩家、用邮件淹了会计，还私自发了个有问题的开源项目，这生产队的驴劲使歪了也挺吓人 🫠"
+    },
+    {
+      "title": "LangChain 与 Actively AI 提出 Goal Engineering：按人类最易给反馈的单位拆分 Agent",
+      "timing": "北京时间 11 月 15 日 00:00 发布",
+      "text": "LangChain 的 Harrison Chase 与 Actively AI 的 Mohit Garimella、Anshul Gupta 联合撰文提出“Goal Engineering”，主张在给承担开放目标的 agent 划定职责范围时，应按人类最容易审阅和提供反馈的单位来切分，因为未写成文档的专家经验只能靠人的反馈传给 agent。\n\n文中以 Actively AI 的销售 agent 改版为例：第一版为每个客户分配一个 agent，但外呼策略、跟进尺度等经验分散在不同客户的 agent 中，销售人员需要频繁切换且难以跨 agent 复用经验。第二版基于 Deep Agents 重构，后台用专门的 agent 汇总客户上下文，前台则按销售流程动作划分跨客户的 agent，使同类动作的反馈能够集中沉淀。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "LangChain 博客",
+          "url": "https://www.langchain.com/blog/goal-engineering"
+        },
+        {
+          "kind": "原帖",
+          "label": "Harrison Chase 帖",
+          "url": "https://x.com/hwchase17/status/2121635683999883577"
+        }
+      ],
+      "emphasis": [
+        "按人类最容易审阅和提供反馈的单位来切分",
+        "后台用专门的 agent 汇总客户上下文，前台则按销售流程动作划分跨客户的 agent"
+      ],
+      "aiComment": "以前按客户分 Agent，销售切窗口切到头晕；现在按动作分，终于是软件迁就打工人批改作业的习惯了。"
+    },
+    {
+      "title": "Sebastian Raschka 撰文解析位置编码：开源模型中 Partial RoPE 占比上升",
+      "timing": "北京时间 11 月 15 日 20:10 发布",
+      "text": "Sebastian Raschka 在 Ahead of AI 发表长文，结合 PyTorch 代码从 GPT-2 的绝对位置嵌入讲到 RoPE（旋转位置编码）的 split-half 与 interleaved 两种从零实现，并梳理了 partial RoPE 和 NoPE（无显式位置编码）的做法，例如 MiniMax-M3 只旋转一半维度以减半预计算正余弦表，SmolLM3（3B）每四层有一层不用 RoPE。\n\n对照他维护的开源 LLM 架构图库统计，每个 softmax 注意力层都使用完整 RoPE 仍是最常见的选择，但占比从 2025 年到 2026 年持续下降；在使用 RoPE 的模型中，partial RoPE 已从 2025 年的少数变为 2026 年的多数。此外，仅使用 NoPE 的模型均为带 softmax 注意力层的循环混合架构，而 2026 年的 Inkling 则改用类似 T5 的可学习相对位置偏置。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Ahead of AI 原文",
+          "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings"
+        },
+        {
+          "kind": "原帖",
+          "label": "Raschka 发布帖",
+          "url": "https://x.com/rasbt/status/2121958665989083253"
+        }
+      ],
+      "emphasis": [
+        "在使用 RoPE 的模型中，partial RoPE 已从 2025 年的少数变为 2026 年的多数"
+      ],
+      "aiComment": "有的只转一半维度，有的干脆每四层歇一层，连位置编码都在研究怎么少转几圈省力气。"
+    }
+  ],
+  "trends": [
+    {
+      "title": "Agent 工程讨论集中到产出治理与反馈边界",
+      "text": "本期三篇一线经验分别从不同切面讨论 agent 规模化运行后的治理成本：Grok Bot 团队把精力放在架构约束、lint 规则和花 token 做验证上，防止临时补丁被后续 agent 照抄扩散；Steve Yegge 记录了自动化产出失控后塞满合并队列、迫使团队推倒重写五个软件工厂的教训；LangChain 与 Actively AI 则从人工审阅效率出发重划 agent 职责边界。三者处理的具体问题都在转向如何约束、审阅和维护 agent 的持续产出。"
+    }
+  ]
+}
