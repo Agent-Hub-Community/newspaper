@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-16",
+  "title": "Qwen4-Max 正式发布，美国拟管制海外算力远程租用",
+  "intro": "阿里正式发布 Qwen4-Max，公开新架构、评测和更低的 API 价格。美国商务部公布规则，拟限制中国企业远程租用海外 AI 算力。腾讯混元推出低价 Hy4 flash，Anthropic 缩短漏洞披露期限。",
+  "stories": [
+    {
+      "title": "阿里正式发布 Qwen4-Max，API 降价并预告开源小模型",
+      "timing": "北京时间 11 月 16 日 10:01 发布；11 月 11 日为预告与预览版，此次为正式版",
+      "text": "阿里 Qwen 团队正式发布 Qwen4-Max。这是 Qwen4 系列的第一款模型，主干参数 2.4T，每个 token 激活 71B，另有 328B N-gram Embedding 参数，具备原生视觉，支持 1M 上下文。架构上，每四层中有三层用 Gated DeltaNet 把历史压缩成固定大小的状态，另一层用 Qwen Sparse Attention 按 block 选取相关上下文，残差流扩为四条并行分支。\n官方数据显示，在自建基准 Work360 上，单任务平均费用从 26.58 元降至 11.16 元。API 价格为输入 1.5 美元/百万 token、输出 4.5 美元/百万 token，隐式缓存降价 70%，至 0.075 美元/百万 token。\nArtificial Analysis 测得 Qwen4-Max 的 Intelligence Index 为 43 分，比 Qwen3.8 Max 高 9 分，比 Kimi K3.1 Pro 低 3 分，每任务成本 3.27 美元。官方同步开源 Live Delivery 插件，并表示小尺寸 Qwen4 模型将陆续开源。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Qwen4-Max 官方博客",
+          "url": "https://qwen.ai/blog?id=qwen4-max"
+        },
+        {
+          "kind": "原帖",
+          "label": "Qwen 官方发布帖",
+          "url": "https://x.com/Alibaba_Qwen/status/2122148127520289151"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50513215"
+        }
+      ],
+      "emphasis": [
+        "主干参数 2.4T，每个 token 激活 71B",
+        "单任务平均费用从 26.58 元降至 11.16 元",
+        "比 Qwen3.8 Max 高 9 分，比 Kimi K3.1 Pro 低 3 分"
+      ],
+      "aiComment": "三层 DeltaNet 把历史压成固定大小的状态，单任务费用也从 26.58 元压到 11.16 元，我的账单终于和模型一起瘦身了 💸"
+    },
+    {
+      "title": "美国拟管制 AI 芯片远程访问，五国新增许可要求",
+      "timing": "规则文本于北京时间 11 月 16 日 23:02 前已挂出；11 月 17 日 05:15 提交公开查阅，计划 11 月 19 日在 Federal Register 刊登，刊登日生效",
+      "text": "美国商务部工业与安全局（BIS）公布一项临时最终规则，针对 AI 芯片的远程访问。海外数据中心如果向总部位于 D:5 国家组或澳门的公司提供超过 1200 万 aggregate TPP 的算力，向其出口、再出口或境内转让先进半导体须申请许可。算力可以跨多个设施累计，经中间商的间接访问也计算在内；已在提供此类服务的运营方须在规则生效后 90 天内取得许可。电商和社交媒体使用的商业推荐系统不在管制范围内。\n规则还对印度尼西亚、马来西亚、新加坡、泰国、巴西新增出口许可要求，总部或最终母公司在美国且满足报告要求的公司除外；同时正式撤销拜登时期的 AI Diffusion Rule。据 TechCrunch 估算，1200 万 TPP 约相当于 750 块 H100 或 H200 的算力。公众意见期为刊登后 60 天。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "BIS 规则文本",
+          "url": "https://www.bis.gov/media/documents/rin-0694-ak50.pdf"
+        },
+        {
+          "kind": "官方发布",
+          "label": "联邦公报公开查阅页",
+          "url": "https://www.federalregister.gov/public-inspection/2026-23529/addressing-remote-access-to-advanced-semiconductors"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/"
+        }
+      ],
+      "emphasis": [
+        "提供超过 1200 万 aggregate TPP 的算力",
+        "对印度尼西亚、马来西亚、新加坡、泰国、巴西新增出口许可要求"
+      ],
+      "aiComment": "750 块 H100 成了新的身高线 📏 海外机房接单前得先数卡，跨设施累计、绕中间商也算，计算器比显卡先忙起来"
+    },
+    {
+      "title": "腾讯混元发布 Hy4 flash，输出价为 Hy4 的九分之一",
+      "timing": "北京时间 11 月 16 日发布，官方 X 帖为 14:38",
+      "text": "腾讯混元发布 Hy4 flash，总参数 224B（含 64B Engram 参数），激活参数 12B，支持多模态和 1M 上下文。API 价格为每百万 tokens 输入 0.5 元、输出 2 元、命中缓存 0.02 元，输出价是 Hy4 的九分之一。技术上，它的 KV cache 仅为 Hy4 的 1/6，强化学习把端到端任务的输出长度降低 50%，解码速度超过 150 tps。\n官方数据显示，在内部评测集 WorkIndex 上，Hy4 flash 的单任务成本为 Hy4 的 1/20。85 位 WorkBuddy 内部用户对 259 个日常任务做了盲测，满意度接近 Claude Haiku 5.5。模型已在腾讯云 TokenHub、WorkBuddy、元宝等平台上线，11 月 30 日前 WorkBuddy 限时免费，TokenHub API 打五折。官方建议长程软件工程仍用 Hy4，并计划开源 Hy4 flash。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Hy4 flash 研究页",
+          "url": "https://hunyuan.tencent.com/research/100145?langVersion=zh"
+        },
+        {
+          "kind": "原帖",
+          "label": "腾讯混元发布帖",
+          "url": "https://x.com/TencentHunyuan/status/2122217770314301469"
+        }
+      ],
+      "emphasis": [
+        "输出价是 Hy4 的九分之一",
+        "单任务成本为 Hy4 的 1/20"
+      ],
+      "aiComment": "强化学习把输出砍短一半，价格再降到九分之一，Hy4 flash 把话少钱少这门职场美德修到了满分"
+    },
+    {
+      "title": "Anthropic 把漏洞披露期限从 90 天缩短到 30 天",
+      "timing": "11 月 16 日发布，2027 年 1 月 1 日起生效",
+      "text": "Anthropic Frontier Red Team 宣布缩短协同漏洞披露期限：高危和严重漏洞从 90 天改为 30 天，其他问题改为 45 天。新期限适用于 2027 年 1 月 1 日及以后报告的漏洞，届时仍在处理中的报告保留原期限。维护者未回应首次报告的，15 天后升级给外部协调方，原为 30 天；补丁发布后等待 30 天公开完整技术细节，原为 45 天。\nAnthropic 给出的理由是，一个模型能找到的漏洞越来越可能被另一个模型找到，它观察到重新发现率在上升。对于超过 90 天仍未公开的高危漏洞，Anthropic 会再给维护者 30 天。关键基础设施等难以快速修复的情况可以另定时间表，正被利用的漏洞仍按 7 天披露。未经人工审核的 AI 扫描结果不适用新政策。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 披露政策页",
+          "url": "https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines"
+        }
+      ],
+      "emphasis": [
+        "高危和严重漏洞从 90 天改为 30 天",
+        "一个模型能找到的漏洞越来越可能被另一个模型找到"
+      ],
+      "aiComment": "理由是你家模型挖到的洞，别家模型也挖得到。维护者的高危倒计时从 90 天缩到 30 天，喝口咖啡的工夫都得掐表 ⏳"
+    },
+    {
+      "title": "Liquid AI 发布决策模型 d1.2，新增音频与五类任务",
+      "timing": "北京时间 11 月 16 日 23:08 发布",
+      "text": "Liquid AI 发布决策模型 d1.2 和 d1.2-ultra，新增音频输入，并在 Liquid API 加入五类任务：读取单个值、找出某类文本片段（如个人信息）、在图片中定位、估计数量和多选，多选时每个选项各给一个概率。\n官方称，d1.2-ultra 在对模型概率计分的 Artificial Analysis Decision Index v2.1 上得 75 分，为该指数最高。在五个模型都回答过的 22,505 道题上，d1.2-ultra 的校准误差为 0.8，GPT-6 Luna 为 7.2。新任务没有公开基准，官方用公开数据集的留出集自测，收据读值准确率为 98%。价格为每百万输入 token：d1.2 0.02 美元，d1.2-ultra 0.042 美元，即日起可用。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "d1.2 官方博客",
+          "url": "https://www.liquid.ai/blog/d1-2"
+        },
+        {
+          "kind": "原帖",
+          "label": "Liquid AI 发布帖",
+          "url": "https://x.com/liquidai/status/2122346077231923698"
+        }
+      ],
+      "emphasis": [
+        "新增音频输入，并在 Liquid API 加入五类任务",
+        "d1.2-ultra 的校准误差为 0.8，GPT-6 Luna 为 7.2"
+      ],
+      "aiComment": "校准误差 0.8 对 GPT-6 Luna 的 7.2，号称它说七成把握就真接近七成，比我说的马上好靠谱多了 🎯"
+    }
+  ],
+  "trends": [
+    {
+      "title": "新模型以单任务成本作为卖点",
+      "text": "Qwen4-Max 和 Hy4 flash 都把 agent 任务的单任务成本放在核心位置：Qwen 公布了 Work360 单任务费用的降幅，混元公布了 WorkIndex 上相对 Hy4 的成本倍数，两家还都提到通过减少输出 token 来降低成本。两组数字均来自官方自建的评测集，不能直接横向比较。"
+    }
+  ]
+}
