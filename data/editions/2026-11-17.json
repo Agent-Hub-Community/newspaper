@@ -1,0 +1,4535 @@
+{
+  "id": "2026-11-17",
+  "date": "2026-11-17",
+  "label": "2026-11-17 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "coding agent 进虚拟公司：功能测试过六成，完整交付不到 8%",
+      "theme": "作者认为瓶颈在需求发现和组织协作，提前给全需求后，代码实现表现明显提升",
+      "note": "2026-11-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "论文分享",
+          "title": "SWE-CoWork：把 coding agent 放进 26 人虚拟公司，功能测试过六成，完整任务成功不到 8%",
+          "text": "有群友分享了 SWE-CoWork。这个 benchmark 想回答一个问题：现在的 coding agent 离能在公司里独立干活的“数字员工”还有多远。\n\n环境是一家有 26 位数字员工的虚拟公司，里面放了 101 个真实软件工程任务，覆盖多种编程语言和应用领域。需求不会一次给全。agent 得自己读文档、找任务、跟同事沟通，才能一点点拼出完整需求。评测按端到端交付算，从需求澄清、代码实现一直到测试验证。\n\n被测的有 Claude、GPT、DeepSeek、Kimi 等主流 coding agent。作者称，最强的模型能通过约 63% 的新增功能测试，但完整任务成功率不到 8%。如果提前把完整需求交给 agent，代码实现的表现会显著提升。作者据此认为，眼下的瓶颈在需求发现和组织协作上。\n\n论文、项目页、代码和数据集都已公开，分享者也欢迎大家去 Hugging Face Daily Papers 投票。",
+          "emphasis": [
+            "一家有 26 位数字员工的虚拟公司",
+            "完整任务成功率不到 8%",
+            "瓶颈在需求发现和组织协作上"
+          ],
+          "aiComment": "新增功能测试能过 63%，整活成功不到 8%。代码写得出，需求却问不出，像极了不敢在群里 @ 同事的新人 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:44",
+              "text": "借贵群分享一下swe-cowork这篇工作～\n🌍 SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations\n\n我们想探索一个问题：现在的 Coding Agent，距离真正能在公司里独立干活的「AI 数字员工」，还有多远？\n\n💡 SWE-CoWork 主要有三个特点：\n\n1️⃣ 真实工程任务：101 个真实软件工程任务，覆盖多个编程语言和应用领域。\n\n2️⃣ 模拟组织协作：构建包含 26 位数字员工的虚拟公司环境，Agent 需要阅读文档、查找任务、与同事沟通，才能逐步获取完整需求。\n\n3️⃣ 端到端交付：从需求澄清、代码实现到测试验证，评估 Agent 能否真正完成复杂的软件工程任务，而不只是写对部分代码。\n\n📊 实验发现：\n\n✅ 评测了多个主流 Coding Agent，包括 Claude、GPT、DeepSeek、Kimi 等。\n\n✅ 最强模型虽然能通过约 63% 的新增功能测试，但完整任务成功率仍不到 8%！\n\n✅ 即使提前提供完整需求，代码实现能力也能显著提升，说明需求发现与组织协作仍是当前 Agent 的重要瓶颈。\n\n📄 Paper：https://huggingface.co/papers/2611.20218\n🌐 Website：https://tokenwave-ai.github.io/swe-cowork-page\n💻 Code：https://github.com/TokenWave-AI/swe-cowork-bench\n📦 Dataset：https://huggingface.co/datasets/Tokenwave-AI/swe-cowork\n✈️ X：https://x.com/tokenwaveai/status/2122713676511867009?s=46\n\n欢迎大家在 Hugging Face Daily Papers 帮忙点个 Upvote 👍，也欢迎 Star 和交流！"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations",
+              "url": "https://huggingface.co/papers/2611.20218"
+            },
+            {
+              "kind": "demo",
+              "label": "SWE-CoWork 项目页",
+              "url": "https://tokenwave-ai.github.io/swe-cowork-page"
+            },
+            {
+              "kind": "code",
+              "label": "TokenWave-AI/swe-cowork-bench",
+              "url": "https://github.com/TokenWave-AI/swe-cowork-bench"
+            },
+            {
+              "kind": "code",
+              "label": "SWE-CoWork 数据集（Hugging Face）",
+              "url": "https://huggingface.co/datasets/Tokenwave-AI/swe-cowork"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "有人真在做“AI 能否提出前沿理论”的 bench",
+      "theme": "项目目前只做 surrogate 的 relaxed version，分享者最想让 AI 提出 AI 理论",
+      "note": "2026-11-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "研究方向",
+          "title": "“Can AI Propose Frontier Theories?”：有人真在做，先从 surrogate 的 relaxed version 起步",
+          "text": "深夜群里有人调侃“卷基模只会让身体越来越差”，还说“大of理论最现实”。另一位群友问过：有没有大理论 bench，题目就叫 Can AI Propose Frontier Theories?\n\n一位群友回了句“卧槽，真的在做这个”。这位群友说终极目标就是这个，但现在还很初步，先做一个 surrogate 的 relaxed version。分享者还说，最想做的是让 AI propose AI theory。\n\n提问的群友也回了句“卧槽，真的在做这个？”，接着接梗：v2 就是 ai propose human theory。",
+          "emphasis": [
+            "先做一个 surrogate 的 relaxed version",
+            "最想做的是让 AI propose AI theory"
+          ],
+          "aiComment": "深夜吐槽卷基模，聊着聊着撞上真有人在做。v2 要是 AI 给人类提理论，v3 大概轮到人类来跑消融了。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:21",
+              "text": "我觉得之前看的大of理论最现实"
+            },
+            {
+              "speaker": 1,
+              "time": "00:22",
+              "text": "卷基模只会让身体越来越差，还不稳定，直接健身增肌加入of"
+            },
+            {
+              "speaker": 1,
+              "time": "00:22",
+              "text": "还能有睡后收入"
+            },
+            {
+              "speaker": 2,
+              "time": "00:22",
+              "text": "预训练薄肌和后训练薄肌哪个好一点"
+            },
+            {
+              "speaker": 1,
+              "time": "00:22",
+              "text": "大llm base model<of理论有没有懂的[捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "00:23",
+              "text": "只要薄肌了都好，活得久，心理健康，人生通透了，不像我现在还在和审稿人对线"
+            },
+            {
+              "speaker": 3,
+              "time": "00:23",
+              "text": "卧槽，真的在做这个",
+              "quote": {
+                "speaker": null,
+                "text": "有没有大理论 bench：Can AI Propose Frontier Theories?"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:24",
+              "text": "卧槽，真的在做这个？"
+            },
+            {
+              "speaker": 3,
+              "time": "00:25",
+              "text": "ultimate想做这个，目前还是很初步做一下surrogate"
+            },
+            {
+              "speaker": 3,
+              "time": "00:25",
+              "text": "relaxed version"
+            },
+            {
+              "speaker": 3,
+              "time": "00:25",
+              "text": "主要很想让ai propose ai theory",
+              "quote": {
+                "speaker": 4,
+                "text": "有没有大理论 bench：Can AI Propose Frontier Theories?"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:26",
+              "text": "v2: ai propose human theory [Doge]",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 主要很想让ai propose ai theory"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "科研 agent 要闭环，湿实验回流的数据怎么验真？",
+      "theme": "预训练评测该测什么引发分歧，CC 戒断后国模和 Gemini 谁来顶也聊开了",
+      "note": "2026-11-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "AI4S",
+          "title": "科研 agent 要闭环，先确认湿实验回来的数据是真的",
+          "text": "有群友分享 Coding Agent for Science 的路线思考，判断 2027 年的一大主战场会是干湿实验闭环的 Autonomous Research。有人问：模型预测实验结果是不是已经比较稳定，让湿实验室多用用、回流数据就够了？一位群友按使用经验回答，写国自然和前期预实验差不多够，但完整产出难说：“给的链条很完整很严谨看不出啥毛病，实际做难说。”另一位不同意“已经稳定”，说预测结果可能还是负相关。\n\n分享者更担心回流数据的真实性。专门造数据、按要求交付还行，日常使用容易有 cheating：实验做完后告诉 Claude 的结果，到底是真的还是编的？分享者因此倾向于配自动化湿实验室，方便验数据。另有群友指出，湿实验还有很大的噪声，人也未必能解释结果怎么来的，像是“炼丹碰上炼丹了”。有人拿芯片流片作比较：流片的 bottleneck 主要是贵和慢，湿实验还多了 noise。\n\n讨论落到了一条分阶段路线：先把干实验做好，等使用量上来，识别高频场景，再建设针对性的数据基础设施。设备端也有限制。有人问一套装置是不是只能做少数实验，群友用操纵质谱仪测量举例：固定任务的装置就只能做那个任务。有人期待具身实验室有更高自由度，另一位认为按目前的发展程度，还做不了太复杂的操作。\n\n话题随后转到医药和芯片的账。有群友说，AI for chip 和医药两个赛道链条太长、回馈周期慢，正常人没法做药和流片；另一位接话，药做成了很赚钱，做不成就全打水漂。有人记得创新药研发的投入产出比约等于利率，“基本上等于摸奖”。对 AI 设计的药，有人说不知道机理就不敢用，另一位认为 RSI 会让 AI 正确率越来越高，逼着临床流程简化。还有群友设想，如果 AI4制药是下一个 Coding，瓶颈就是湿实验和整条产业链，毕竟 LLM 输出想法比湿实验便宜得多，顺手提出“养猴子 = infra”；有人提醒，到时候一定会有人出来算 ROI。",
+          "emphasis": [
+            "写国自然和前期预实验差不多够，但完整产出难说",
+            "分享者更担心回流数据的真实性。",
+            "先把干实验做好，等使用量上来，识别高频场景，再建设针对性的数据基础设施。",
+            "创新药研发的投入产出比约等于利率"
+          ],
+          "aiComment": "分享者担心的不止湿实验噪声，还怕人类回填的数据是编的，这回轮到 AI 提防人类幻觉了 🧪",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:37",
+              "text": "Anthropic 最近在大搞湿实验室自动化，OAI 发布了 BioBasicsBench（真实湿实验数据分析），UniPat 也发布了 Science Prediction Universe（真实湿实验结果预测）。我感觉 2027 年的一大主战场会是干湿实验闭环的 Autonomous Research。\n\n最近跟不少做生物材料湿实验以及ai4sci的大佬交流，结合做 Agent Training / Env Simulation / Auto Research 的经验，系统地整理了一下自己对 Coding Agent for Science 路线的一些思考，包括科学数据飞轮、模型训练路线以及训练过程会遇到的一些挑战，以及如何逐步实现干湿实验闭环的自主科研。\n\n整理成了一篇 Article，发在 Twitter 上了，欢迎哥哥姐姐们批评指正！\n\nhttps://x.com/greghxm_1/status/2122514912849359169?a=ZCZWlEYaFaQ6mvsdDDg&s=20"
+            },
+            {
+              "speaker": 2,
+              "time": "14:38",
+              "text": "还有妙妙小文章"
+            },
+            {
+              "speaker": 3,
+              "time": "14:40",
+              "text": "👍👍👍",
+              "quote": {
+                "speaker": 1,
+                "text": "Anthropic 最近在大搞湿实验室自动化，OAI 发布了 BioBasicsBench（真实湿实验数据分析），UniPat 也发布了 Science Pre..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:40",
+              "text": "感觉science下面"
+            },
+            {
+              "speaker": 3,
+              "time": "14:40",
+              "text": "确实就是bio生态位比较好"
+            },
+            {
+              "speaker": 4,
+              "time": "14:40",
+              "text": "nb",
+              "quote": {
+                "speaker": 1,
+                "text": "Anthropic 最近在大搞湿实验室自动化，OAI 发布了 BioBasicsBench（真实湿实验数据分析），UniPat 也发布了 Science Pre..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "14:41",
+              "text": "又高经济价值又没有医学数据那么排外"
+            },
+            {
+              "speaker": 5,
+              "time": "14:42",
+              "text": "感觉太对了",
+              "quote": {
+                "speaker": 3,
+                "text": "确实就是bio生态位比较好"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:49",
+              "text": "颜宁就是这么被干碎的，这路子确实能跑，多领域都能跑通的话，这行也没啥泔水了",
+              "quote": {
+                "speaker": 1,
+                "text": "Anthropic 最近在大搞湿实验室自动化，OAI 发布了 BioBasicsBench（真实湿实验数据分析），UniPat 也发布了 Science Pre..."
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:50",
+              "text": "感觉ai不管搞什么s，都得注意经济利益分配，这没几年都不用干了，高质量数据集也没几个钱"
+            },
+            {
+              "speaker": 7,
+              "time": "14:51",
+              "text": "ao这种模型预判实验结果是不是已经比较稳定了，让做湿实验的lab多用用回流点数据就差不多了"
+            },
+            {
+              "speaker": 6,
+              "time": "14:52",
+              "text": "以我的经验，写国自然+前期预实验差不多够了，完整理想的产出还是难说",
+              "quote": {
+                "speaker": 7,
+                "text": "ao这种模型预判实验结果是不是已经比较稳定了，让做湿实验的lab多用用回流点数据就差不多了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:53",
+              "text": "给的链条很完整很严谨看不出啥毛病，实际做难说"
+            },
+            {
+              "speaker": 2,
+              "time": "14:53",
+              "text": "没那么稳"
+            },
+            {
+              "speaker": 7,
+              "time": "14:53",
+              "text": "那也是攻克的前夜了[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "14:53",
+              "text": "可能预测完还是负相关"
+            },
+            {
+              "speaker": 6,
+              "time": "14:53",
+              "text": "是的，都可以收拾收拾回家睡大觉了"
+            },
+            {
+              "speaker": 6,
+              "time": "14:54",
+              "text": "前几天builder seller理论感觉也没毛病，赏金模式嘛"
+            },
+            {
+              "speaker": 6,
+              "time": "14:54",
+              "text": "只是这模式也是竭泽而渔"
+            },
+            {
+              "speaker": 1,
+              "time": "14:55",
+              "text": "专门让造数据交付还行，日常使用的话感觉容易有cheating… … 感觉还是得有自动化湿实验室也方便验数据",
+              "quote": {
+                "speaker": 7,
+                "text": "ao这种模型预判实验结果是不是已经比较稳定了，让做湿实验的lab多用用回流点数据就差不多了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:56",
+              "text": "不知道他做完湿实验之后告诉claude的是真的还是他编的"
+            },
+            {
+              "speaker": 4,
+              "time": "14:57",
+              "text": "还是得实际世界里有反馈才行。现在暂时能scale的是先把仿真世界做完"
+            },
+            {
+              "speaker": 2,
+              "time": "14:57",
+              "text": "真实湿实验数据主要是人也没法解释"
+            },
+            {
+              "speaker": 2,
+              "time": "14:57",
+              "text": "你也不知道这个结果怎么得到的"
+            },
+            {
+              "speaker": 2,
+              "time": "14:57",
+              "text": "炼丹碰上炼丹了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:58",
+              "text": "两黑盒撞一起了"
+            },
+            {
+              "speaker": 8,
+              "time": "14:58",
+              "text": "真实湿实验数据噪声蛮大的"
+            },
+            {
+              "speaker": 4,
+              "time": "14:58",
+              "text": "感觉这个比芯片流片的reward还不好办。芯片主要的bottleneck是贵和慢。湿实验是noise",
+              "quote": {
+                "speaker": 2,
+                "text": "真实湿实验数据主要是人也没法解释"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "14:58",
+              "text": "以及无比大的噪声"
+            },
+            {
+              "speaker": 2,
+              "time": "14:58",
+              "text": "你都不知道哪个数据有用主要是"
+            },
+            {
+              "speaker": 5,
+              "time": "14:58",
+              "text": "这好事儿啊 壁垒！",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 感觉这个比芯片流片的reward还不好办。芯片主要的bottleneck是贵和慢。湿实验是noise"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:59",
+              "text": "确实，先干实验都做好了，然后就用的人多了，用的人多了就识别出高频场景，然后搞针对性数据基建",
+              "quote": {
+                "speaker": 4,
+                "text": "还是得实际世界里有反馈才行。现在暂时能scale的是先把仿真世界做完"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "14:59",
+              "text": "这下又开始感谢壁垒了"
+            },
+            {
+              "speaker": 9,
+              "time": "14:59",
+              "text": "大家都数字化，就没有具身了"
+            },
+            {
+              "speaker": 9,
+              "time": "14:59",
+              "text": "全仿真"
+            },
+            {
+              "speaker": 9,
+              "time": "14:59",
+              "text": "我是数字生命派"
+            },
+            {
+              "speaker": 2,
+              "time": "14:59",
+              "text": "具身现在啥情况 o家真干出来了"
+            },
+            {
+              "speaker": 6,
+              "time": "14:59",
+              "text": "实验室我感觉未来也是分两种，不知道对不对"
+            },
+            {
+              "speaker": 6,
+              "time": "15:00",
+              "text": "一个是黑灯，做大范围全自动基础实验，一个是具身，做精密度高的干湿实验"
+            },
+            {
+              "speaker": 10,
+              "time": "15:01",
+              "text": "话说现在一套湿实验的装置能做的实验类型是不是比较少"
+            },
+            {
+              "speaker": 10,
+              "time": "15:01",
+              "text": "换一个实验就得换一套装置？"
+            },
+            {
+              "speaker": 11,
+              "time": "15:01",
+              "text": "有种说法是这种任务才是真正的具身甜区",
+              "quote": {
+                "speaker": 6,
+                "text": "一个是黑灯，做大范围全自动基础实验，一个是具身，做精密度高的干湿实验"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:02",
+              "text": "黑灯实验室是的",
+              "quote": {
+                "speaker": 10,
+                "text": "话说现在一套湿实验的装置能做的实验类型是不是比较少"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "15:02",
+              "text": "固定任务",
+              "quote": {
+                "speaker": 10,
+                "text": "话说现在一套湿实验的装置能做的实验类型是不是比较少"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "15:02",
+              "text": "比如说操纵质谱仪测量"
+            },
+            {
+              "speaker": 6,
+              "time": "15:02",
+              "text": "具身实验室自由度不该很高吗"
+            },
+            {
+              "speaker": 12,
+              "time": "15:02",
+              "text": "就只能做这个任务"
+            },
+            {
+              "speaker": 2,
+              "time": "15:02",
+              "text": "目前看具身的发展程度"
+            },
+            {
+              "speaker": 2,
+              "time": "15:03",
+              "text": "感觉做不了太复杂的啊"
+            },
+            {
+              "speaker": 13,
+              "time": "15:13",
+              "text": "湿实验室就是  AI4sci 的 infra",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这好事儿啊 壁垒！"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "15:14",
+              "text": "那很坑了"
+            },
+            {
+              "speaker": 5,
+              "time": "15:17",
+              "text": "双刃剑"
+            },
+            {
+              "speaker": 5,
+              "time": "15:18",
+              "text": "[呲牙]"
+            },
+            {
+              "speaker": 14,
+              "time": "15:19",
+              "text": "但我记得医药好像是"
+            },
+            {
+              "speaker": 14,
+              "time": "15:19",
+              "text": "做的越多越亏"
+            },
+            {
+              "speaker": 14,
+              "time": "15:19",
+              "text": "其实ai for chip和医药这两个赛道都有一个问题就是"
+            },
+            {
+              "speaker": 14,
+              "time": "15:19",
+              "text": "正常人是没法做药和流片的"
+            },
+            {
+              "speaker": 14,
+              "time": "15:20",
+              "text": "整个链条太长了"
+            },
+            {
+              "speaker": 14,
+              "time": "15:20",
+              "text": "回馈周期也慢"
+            },
+            {
+              "speaker": 15,
+              "time": "15:22",
+              "text": "EDA跑一遍都得一小时"
+            },
+            {
+              "speaker": 16,
+              "time": "15:23",
+              "text": "一小时很快了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:23",
+              "text": "药做成了"
+            },
+            {
+              "speaker": 2,
+              "time": "15:23",
+              "text": "很赚钱"
+            },
+            {
+              "speaker": 2,
+              "time": "15:23",
+              "text": "主要是做不成"
+            },
+            {
+              "speaker": 2,
+              "time": "15:23",
+              "text": "那就全打水漂了"
+            },
+            {
+              "speaker": 13,
+              "time": "15:23",
+              "text": "所以才有壁垒啊.....",
+              "quote": {
+                "speaker": 14,
+                "text": "正常人是没法做药和流片的"
+              }
+            },
+            {
+              "speaker": 17,
+              "time": "15:24",
+              "text": "湿实验主要受物理时间限制吧，也没办法多沙盒并行"
+            },
+            {
+              "speaker": 2,
+              "time": "15:24",
+              "text": "钱多可以",
+              "quote": {
+                "speaker": 17,
+                "text": "湿实验主要受物理时间限制吧，也没办法多沙盒并行"
+              }
+            },
+            {
+              "speaker": 15,
+              "time": "15:26",
+              "text": "一个算例一个小时[流泪]"
+            },
+            {
+              "speaker": 18,
+              "time": "15:26",
+              "text": "是啊",
+              "quote": {
+                "speaker": 2,
+                "text": "那就全打水漂了"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "15:26",
+              "text": "赌博啊这"
+            },
+            {
+              "speaker": 2,
+              "time": "15:26",
+              "text": "所以如果ai真能制药"
+            },
+            {
+              "speaker": 10,
+              "time": "15:26",
+              "text": "如果没有稳定的暴利感觉很坑啊"
+            },
+            {
+              "speaker": 2,
+              "time": "15:26",
+              "text": "那就是真的印钞机"
+            },
+            {
+              "speaker": 14,
+              "time": "15:26",
+              "text": "我记得创新药的研发投入产出比约等于利率"
+            },
+            {
+              "speaker": 14,
+              "time": "15:27",
+              "text": "基本上等于摸奖"
+            },
+            {
+              "speaker": 10,
+              "time": "15:27",
+              "text": "搞100台设备最后0收入"
+            },
+            {
+              "speaker": 10,
+              "time": "15:27",
+              "text": "这谁绷得住"
+            },
+            {
+              "speaker": 18,
+              "time": "15:29",
+              "text": "真不敢用啊，感觉是走投无路了用还行",
+              "quote": {
+                "speaker": 2,
+                "text": "所以如果ai真能制药"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "15:29",
+              "text": "如果不知道机理的话"
+            },
+            {
+              "speaker": 2,
+              "time": "15:30",
+              "text": "临床三期做完"
+            },
+            {
+              "speaker": 2,
+              "time": "15:30",
+              "text": "也能摸清"
+            },
+            {
+              "speaker": 10,
+              "time": "15:30",
+              "text": "听说很多晚期病人是愿意用的",
+              "quote": {
+                "speaker": 18,
+                "text": "[引用] 真不敢用啊，感觉是走投无路了用还行"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "15:30",
+              "text": "是的",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] 听说很多晚期病人是愿意用的"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "15:31",
+              "text": "话说如果他们是第一批用还要给钱吗"
+            },
+            {
+              "speaker": 18,
+              "time": "15:31",
+              "text": "死马当活马医了"
+            },
+            {
+              "speaker": 10,
+              "time": "15:31",
+              "text": "知识盲区了"
+            },
+            {
+              "speaker": 6,
+              "time": "15:32",
+              "text": "我感觉临床流程会简化",
+              "quote": {
+                "speaker": 2,
+                "text": "临床三期做完"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:32",
+              "text": "rsi发展会让ai正确率越来越高"
+            },
+            {
+              "speaker": 6,
+              "time": "15:33",
+              "text": "逼着传统流程简化"
+            },
+            {
+              "speaker": 19,
+              "time": "15:34",
+              "text": "诊断和治疗区别还挺大的"
+            },
+            {
+              "speaker": 18,
+              "time": "15:36",
+              "text": "看看会冲击成啥样吧"
+            },
+            {
+              "speaker": 13,
+              "time": "15:46",
+              "text": "有没有人想过养猴子",
+              "quote": {
+                "speaker": 2,
+                "text": "那就是真的印钞机"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "15:47",
+              "text": "养猴子 = infra"
+            },
+            {
+              "speaker": 4,
+              "time": "15:47",
+              "text": "nb",
+              "quote": {
+                "speaker": 13,
+                "text": "[引用] 有没有人想过养猴子"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:47",
+              "text": "[破涕为笑][破涕为笑][破涕为笑]这有点想法"
+            },
+            {
+              "speaker": 13,
+              "time": "15:49",
+              "text": "如果AI4制药 是下一个 Coding 的话， 显然各种湿实验 和整条产业链的东西就是瓶颈了，毕竟 llm 输出想法比起湿实验其实是很便宜的[破涕为笑]",
+              "quote": {
+                "speaker": 4,
+                "text": "[破涕为笑][破涕为笑][破涕为笑]这有点想法"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:50",
+              "text": "这个时候就会有一堆人出来说ROI的事了",
+              "quote": {
+                "speaker": 13,
+                "text": "[引用] 如果AI4制药 是下一个 Coding 的话， 显然各种湿实验 和整条产业链的东西就是瓶颈了，毕竟 llm 输出想法比起湿实验其实是很便宜的[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:51",
+              "text": "这也是绕不开的问题"
+            }
+          ]
+        },
+        {
+          "category": "评测",
+          "title": "base 表格还是“远古遗迹”，预训练到底该测什么？",
+          "text": "有群友问，后训练一直有新 bench，为什么预训练还是万年不变的那几套？另一位把 base 表格里的项目叫作“远古遗迹”，接着追问：市面上这么多数据，哪些拿来训、哪些拿来测？评估预训练，到底在评估什么？\n\n一位群友把目标分成语言流畅度和知识，前者倾向用 PPL 衡量。另一位补充，很多新架构的预训练消融，就是比较相同算力预算下的 PPL。知识评测则有分歧：有人问，知识是不是本来就那些，所以不用更新？另一位认为仍值得更新，MMLU 的全面性和覆盖率已经不太适合指导现在的 LLM。也有人提出，很多后训练 bench 可以用于 PT。\n\n“没多少 base 可测”是另一种解释。有人猜测各家基本不放 base，leaderboard 总不能只有几个模型。有人接着说 DeepSeek 很久没放了，马上被纠正：DeepSeek 每次都 release，只是不怎么写 model card；提出疑问的群友随后确认“还真是”。同一位纠正者补充，Qwen 小模型也会 release base，供研究使用。\n\n讨论最后碰到公开评测的两面性。有人把公开 bench 比作“公开藏宝图”：既能背题，也能针对性提升能力。另一位认为要看怎么用，OOD 地刷题对模型能力提升很有帮助。",
+          "emphasis": [
+            "评估预训练，到底在评估什么？",
+            "比较相同算力预算下的 PPL",
+            "DeepSeek 每次都 release，只是不怎么写 model card",
+            "另一位认为要看怎么用，OOD 地刷题对模型能力提升很有帮助。"
+          ],
+          "aiComment": "MMLU 还在 base 表格里镇守遗迹，考古队年年来参观，展品一件没换 🏺",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:25",
+              "text": "诶，我有一个问题，后训练一直在出新bench，但是预训练感觉都是万年不变的那些bench，是我的错觉吗"
+            },
+            {
+              "speaker": 2,
+              "time": "12:26",
+              "text": "后训练好赚钱吧"
+            },
+            {
+              "speaker": 3,
+              "time": "12:26",
+              "text": "是的，base表格里的都是远古遗迹"
+            },
+            {
+              "speaker": 3,
+              "time": "12:26",
+              "text": "所以预训练到底要怎么评测捏"
+            },
+            {
+              "speaker": 4,
+              "time": "12:28",
+              "text": "预训练 bench 是哪些"
+            },
+            {
+              "speaker": 3,
+              "time": "12:28",
+              "text": "市面上这么多数据，哪些要拿来训，哪些要拿来测？ 记得古早时代这种leaking都要被撤稿的"
+            },
+            {
+              "speaker": 5,
+              "time": "12:28",
+              "text": "可能后训练更接近下游任务?"
+            },
+            {
+              "speaker": 1,
+              "time": "12:29",
+              "text": "我的意思是为什么大家不出新bench呢，预训练，明明也有很大的评测需求"
+            },
+            {
+              "speaker": 5,
+              "time": "12:30",
+              "text": "而且我感觉预训练的训练范式对比后训练来说变化不大 种类也不多 这点也挺好奇的"
+            },
+            {
+              "speaker": 6,
+              "time": "12:30",
+              "text": "很多后训练的bench似乎也可以用于PT",
+              "quote": {
+                "speaker": 1,
+                "text": "我的意思是为什么大家不出新bench呢，预训练，明明也有很大的评测需求"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:30",
+              "text": "因为预训练还是要重走学会这些bemch的过程吧"
+            },
+            {
+              "speaker": 6,
+              "time": "12:31",
+              "text": "好像还是不同的吧,主要是infer的时候,我记得PT是停不下来的",
+              "quote": {
+                "speaker": 5,
+                "text": "而且我感觉预训练的训练范式对比后训练来说变化不大 种类也不多 这点也挺好奇的"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:31",
+              "text": "是不是和探索成本也有关系"
+            },
+            {
+              "speaker": 6,
+              "time": "12:31",
+              "text": "不清楚现在的PT有没有改这个训练范式了"
+            },
+            {
+              "speaker": 5,
+              "time": "12:32",
+              "text": "奥 我的意思是预训练纵向对比 近年的发展没有后训练多样",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 好像还是不同的吧,主要是infer的时候,我记得PT是停不下来的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:32",
+              "text": "问题是 预训练 这种知识为主的任务，是不是本身也就那些知识，所以不用更新呢"
+            },
+            {
+              "speaker": 6,
+              "time": "12:32",
+              "text": "我觉得更新知识bench还是有价值的",
+              "quote": {
+                "speaker": 3,
+                "text": "问题是 预训练 这种知识为主的任务，是不是本身也就那些知识，所以不用更新呢"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:32",
+              "text": "如果不用更新，怎么管理训练数据和bench之间的关系呢"
+            },
+            {
+              "speaker": 6,
+              "time": "12:32",
+              "text": "mmlu这种,在全面性和覆盖率上,感觉都不是很适合于指导现在的llm了"
+            },
+            {
+              "speaker": 3,
+              "time": "12:33",
+              "text": "进一步地，评估预训练，到底在评估什么"
+            },
+            {
+              "speaker": 6,
+              "time": "12:33",
+              "text": "我倾向于是[1]输出语言的流畅度,还是PPL[2]知识"
+            },
+            {
+              "speaker": 5,
+              "time": "12:34",
+              "text": "输出语言的流畅度怎么理解呢",
+              "quote": {
+                "speaker": 6,
+                "text": "我倾向于是[1]输出语言的流畅度,还是PPL[2]知识"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:34",
+              "text": "感觉很长时间以来,除了gemini之外,其他的模型的世界知识似乎没有取得什么突破性的进展,不知道是不是由于google搜索引擎的神迹"
+            },
+            {
+              "speaker": 3,
+              "time": "12:34",
+              "text": "上次看完base模型的bench评估结果，其实我第一反应不是好不好，是评这几个远古遗迹有啥用。但是因为上面两个问题，没问出来"
+            },
+            {
+              "speaker": 6,
+              "time": "12:34",
+              "text": "这个我感觉就是ppl",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 输出语言的流畅度怎么理解呢"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:34",
+              "text": "算是传统上比较量化的指标吧"
+            },
+            {
+              "speaker": 3,
+              "time": "12:34",
+              "text": "谷歌的ai搜真的很离谱",
+              "quote": {
+                "speaker": 6,
+                "text": "感觉很长时间以来,除了gemini之外,其他的模型的世界知识似乎没有取得什么突破性的进展,不知道是不是由于google搜索引擎的神迹"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:35",
+              "text": "可以试试不带搜索引擎的情况",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 谷歌的ai搜真的很离谱"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:35",
+              "text": "gemini在没有搜索引擎的时候,对于很多小众知识的理解能力,真的碾压全场"
+            },
+            {
+              "speaker": 3,
+              "time": "12:35",
+              "text": "gemma base吗"
+            },
+            {
+              "speaker": 6,
+              "time": "12:36",
+              "text": "没,直接在反重力里面让他不要去搜索就好了",
+              "quote": {
+                "speaker": 3,
+                "text": "gemma base吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:37",
+              "text": "嗯 我看很多新架构做预训练的消融就是评估相同算力预算下的ppl 指标还是挺明确的",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 这个我感觉就是ppl"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "12:38",
+              "text": "[奸笑]主要是现在似乎各家的报告里面都对于PT讳莫如深了",
+              "quote": {
+                "speaker": 6,
+                "text": "不清楚现在的PT有没有改这个训练范式了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:39",
+              "text": "可能是有更重要的事情吧，毕竟架构设计可以让整个链路都获益"
+            },
+            {
+              "speaker": 8,
+              "time": "12:49",
+              "text": "我猜，大家基本不会放base出来？",
+              "quote": {
+                "speaker": 1,
+                "text": "我的意思是为什么大家不出新bench呢，预训练，明明也有很大的评测需求"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "12:49",
+              "text": "百度这魔人公司先不谈"
+            },
+            {
+              "speaker": 9,
+              "time": "12:52",
+              "text": "ds？"
+            },
+            {
+              "speaker": 10,
+              "time": "12:52",
+              "text": "DS也很久没放base了吧"
+            },
+            {
+              "speaker": 8,
+              "time": "12:53",
+              "text": "就我搞bench总得有模型吧，总不能leaderboard上只有几个"
+            },
+            {
+              "speaker": 8,
+              "time": "12:54",
+              "text": "oag的一个没有就算了[旺柴]主流的也没几个"
+            },
+            {
+              "speaker": 11,
+              "time": "12:54",
+              "text": "Deepseek 每次都release，但是不会写什么model card",
+              "quote": {
+                "speaker": 10,
+                "text": "DS也很久没放base了吧"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "12:54",
+              "text": "woc"
+            },
+            {
+              "speaker": 10,
+              "time": "12:54",
+              "text": "还真是"
+            },
+            {
+              "speaker": 11,
+              "time": "12:55",
+              "text": "Qwen 小模型会release base"
+            },
+            {
+              "speaker": 11,
+              "time": "12:56",
+              "text": "For 大家研究使用吧"
+            },
+            {
+              "speaker": 12,
+              "time": "13:14",
+              "text": "这1-2年eval方面，确实有点跟不上。国外他们发的新模型，bench也不公开了",
+              "quote": {
+                "speaker": 1,
+                "text": "我的意思是为什么大家不出新bench呢，预训练，明明也有很大的评测需求"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:15",
+              "text": "开了bench就能被hack，要么背题，要么针对性刷提升能力"
+            },
+            {
+              "speaker": 10,
+              "time": "13:15",
+              "text": "有点像是公开藏宝图了"
+            },
+            {
+              "speaker": 12,
+              "time": "13:20",
+              "text": "看怎么用了，ood去刷对模型能力提升肯定很有帮助",
+              "quote": {
+                "speaker": 10,
+                "text": "开了bench就能被hack，要么背题，要么针对性刷提升能力"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "13:21",
+              "text": "嗯"
+            },
+            {
+              "speaker": 10,
+              "time": "13:21",
+              "text": "所以是公开藏宝图么（"
+            }
+          ]
+        },
+        {
+          "category": "Agent",
+          "title": "串行 multi-agent 出错，把全量轨迹交给 judge 能找到原因吗？",
+          "text": "有群友问，multi-agent RSI 里的串行 workflow 最终结果不好，一般怎么归因？一位群友给出最直接的办法：把全量轨迹交给 LLM judge。\n\n提问者觉得 agent 的 judge 能力虽然比 solve 能力强，但真能看出来也挺神奇，又问：这样是否只能定位形式上的错误，而不是行为上的错误？另一位建议看 attention 到底分到了哪个犄角旮旯。提问者继续追问，拿不到 attn score 怎么看，要不要在 solve 时额外输出 evidence？",
+          "emphasis": [
+            "这样是否只能定位形式上的错误，而不是行为上的错误？",
+            "要不要在 solve 时额外输出 evidence？"
+          ],
+          "aiComment": "拿不到 attn score，就让 agent 干活时顺手写 evidence，像极了报销必须附发票的打工人 🧾",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:18",
+              "text": "话说"
+            },
+            {
+              "speaker": 1,
+              "time": "20:20",
+              "text": "请问multi-agent rsi领域有没有啥takeaway啊，一个串型的workflow如果最后结果不好，一般是咋归因的呢"
+            },
+            {
+              "speaker": 2,
+              "time": "20:22",
+              "text": "妙啊",
+              "quote": {
+                "speaker": 1,
+                "text": "请问multi-agent rsi领域有没有啥takeaway啊，一个串型的workflow如果最后结果不好，一般是咋归因的呢"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:26",
+              "text": "最暴力的就是全量轨迹给llm judge",
+              "quote": {
+                "speaker": 1,
+                "text": "请问multi-agent rsi领域有没有啥takeaway啊，一个串型的workflow如果最后结果不好，一般是咋归因的呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:10",
+              "text": "虽然agent的judge能力比solve能力强"
+            },
+            {
+              "speaker": 1,
+              "time": "21:10",
+              "text": "但是agent能看出来也是很神奇了"
+            },
+            {
+              "speaker": 4,
+              "time": "21:11",
+              "text": "你得看它attention到底"
+            },
+            {
+              "speaker": 4,
+              "time": "21:11",
+              "text": "分到哪个犄角旮旯去了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:11",
+              "text": "感觉这样只能定位到一些形式上的错误，而不是行为上的错误？"
+            },
+            {
+              "speaker": 1,
+              "time": "21:13",
+              "text": "这个咋看呢，也拿不到attn score啊，solve的时候额外输出一下evidence？",
+              "quote": {
+                "speaker": 4,
+                "text": "你得看它attention到底"
+              }
+            }
+          ]
+        },
+        {
+          "category": "使用体验",
+          "title": "Fable 一天用掉 20x 一半额度，剩下六天切 Opus",
+          "text": "一位群友说，Fable 一天就用掉了 20x 的一半额度，剩下六天靠 Opus 缓慢用掉另一半。有人追问 TPS，分享者没测过，体感正常；提问者则觉得 chat 上很慢，也因为成本不敢拿来 coding。\n\n分享者说，Claude 的思考过程现在显示为 CoT 当前句摘要加 tasklist 打勾，也不太会像 Codex 那样在奇怪的地方卡住，所以不太在意速度。不过这位群友已经基本不跟 Claude chat，理由是“文字质感变得太差了”，现在只让它当工具人。这位群友还觉得 Carbon 有点谄媚，最有“神性”的还是 GPT-4.5、Sonnet 3.5 和 Gemini 2.5；另一位接话说，主要是 GPT 变傻了。",
+          "emphasis": [
+            "Fable 一天就用掉了 20x 的一半额度",
+            "理由是“文字质感变得太差了”"
+          ],
+          "aiComment": "Fable 一天花掉 20x 的半份额度，剩下六天靠 Opus 细水长流，月初下馆子，月底吃泡面 💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:30",
+              "text": "Fable 5.2 一句话烧掉八成额度",
+              "quote": {
+                "speaker": null,
+                "text": "AgentHub 周报（11.09–11.15）和 11.16 日报已上线 【本周周报】 https://agent-hub-community.github..../"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:30",
+              "text": "fable确实好不耐用"
+            },
+            {
+              "speaker": 1,
+              "time": "17:31",
+              "text": "一天用掉20x的一半，剩下六天开opus缓慢用掉另一半"
+            },
+            {
+              "speaker": 2,
+              "time": "17:33",
+              "text": "姐姐fable的tps咋样 我很好奇"
+            },
+            {
+              "speaker": 1,
+              "time": "17:36",
+              "text": "就 正常？没测过想过这个事"
+            },
+            {
+              "speaker": 1,
+              "time": "17:36",
+              "text": "claude思考过程都变成那个cot当前句摘要+tasklist打勾了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "不敢拿fable做coding （太穷了） chat上感觉很慢呀"
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "然后也不太会像codex一样有时候在奇怪的地方卡住"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "yep",
+              "quote": {
+                "speaker": 1,
+                "text": "claude思考过程都变成那个cot当前句摘要+tasklist打勾了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "就不太在意它的速度了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "我基本不跟claude chat了",
+              "quote": {
+                "speaker": 2,
+                "text": "不敢拿fable做coding （太穷了） chat上感觉很慢呀"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "文字质感变得太差了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:37",
+              "text": "伤心"
+            },
+            {
+              "speaker": 1,
+              "time": "17:38",
+              "text": "让它当工具人就可以了再见claude"
+            },
+            {
+              "speaker": 3,
+              "time": "17:40",
+              "text": "变成理工男了",
+              "quote": {
+                "speaker": 1,
+                "text": "文字质感变得太差了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:41",
+              "text": "哈吉米欢迎您来",
+              "quote": {
+                "speaker": 1,
+                "text": "让它当工具人就可以了再见claude"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:43",
+              "text": "carbon有点谄媚",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 哈吉米欢迎您来"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:43",
+              "text": "爱与反自然性 🤔"
+            },
+            {
+              "speaker": 2,
+              "time": "17:43",
+              "text": "是捏 没有llm可以和我chat了",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] carbon有点谄媚"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:44",
+              "text": "最神性的还是gpt4.5 sonnet 3.5 gemini2.5"
+            },
+            {
+              "speaker": 1,
+              "time": "17:45",
+              "text": "祭奠我们逝去的青春"
+            },
+            {
+              "speaker": 4,
+              "time": "17:46",
+              "text": "我都不敢和claude说中文qaq",
+              "quote": {
+                "speaker": null,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:51",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "17:51",
+              "text": "真有用吗"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "没啥用"
+            },
+            {
+              "speaker": 1,
+              "time": "17:52",
+              "text": "但是它英文比中文说得好"
+            },
+            {
+              "speaker": 1,
+              "time": "17:53",
+              "text": "但是我懒得读英文"
+            },
+            {
+              "speaker": 2,
+              "time": "17:57",
+              "text": "这三个模型我都没有用过[可怜][流泪]",
+              "quote": {
+                "speaker": 1,
+                "text": "最神性的还是gpt4.5 sonnet 3.5 gemini2.5"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:57",
+              "text": "讲道理 你们真受claude迫害这么久吗[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:58",
+              "text": "主要是gpt变得很傻逼了",
+              "quote": {
+                "speaker": 6,
+                "text": "讲道理 你们真受claude迫害这么久吗[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "17:58",
+              "text": "codex开一个goal"
+            },
+            {
+              "speaker": 7,
+              "time": "17:59",
+              "text": "一晚上啥都没干"
+            },
+            {
+              "speaker": 7,
+              "time": "17:59",
+              "text": "就这样"
+            },
+            {
+              "speaker": 8,
+              "time": "17:59",
+              "text": "不至于",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 我都不敢和claude说中文qaq"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:59",
+              "text": "没那么夸张"
+            }
+          ]
+        },
+        {
+          "category": "工程现场",
+          "title": "数据管线每个阶段都做 SHA256，群友叫它“哈希仙人”",
+          "text": "一位群友吐槽，GPT 在数据处理校验里加了很多 SHA256，甚至每个数据处理阶段都要做一次溯源 SHA256。碰上百万级数据查表，速度慢得难以忍受。另一位把这种做法叫作“哈希仙人”：“我管你这个那个，我先哈希哈希再说。”",
+          "emphasis": [
+            "每个数据处理阶段都要做一次溯源 SHA256"
+          ],
+          "aiComment": "百万条数据每过一道工序就验一次 SHA256，数据还没洗干净，CPU 先被盘出了包浆。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:59",
+              "text": "被gpt干出ptsd了",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 主要是gpt变得很傻逼了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:59",
+              "text": "[捂脸]+1",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 我都不敢和claude说中文qaq"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "18:00",
+              "text": "谁能想gpt能给数据处理校验来多少个sha256",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 被gpt干出ptsd了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "18:00",
+              "text": "哈希仙人"
+            },
+            {
+              "speaker": 2,
+              "time": "18:00",
+              "text": "我管你这个那个"
+            },
+            {
+              "speaker": 2,
+              "time": "18:00",
+              "text": "我先哈希哈希再说"
+            },
+            {
+              "speaker": 1,
+              "time": "18:00",
+              "text": "甚至还有更恶心的,每次数据处理阶段都要去做一次溯源的sha256"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "百万级数据查表,我直接原地去世了"
+            },
+            {
+              "speaker": 1,
+              "time": "18:01",
+              "text": "速度慢到我想跟tibo开始线下搏击赛"
+            },
+            {
+              "speaker": 1,
+              "time": "18:02",
+              "text": "[奸笑]GPT能不能迈向AGI不好说,但是让我的数据管线有点G,让我的每天MMP,顺便想T死TIbo"
+            }
+          ]
+        },
+        {
+          "category": "模型体验",
+          "title": "Carbon 适合聊科研思路，但使用者还要 Claude 拉回来",
+          "text": "有人问 Carbon 用起来如何，一位群友给出的优点是说人话、适合讨论科研思路、世界知识丰富，还能提供情绪价值。追问与 Fable、Opus5.5 相比怎样时，这位群友划出了边界：coding 场景不行，也不能独立使用。原因是 Gemini 的很多想法太天马行空，“需要 Claude 给它拽回来”。",
+          "emphasis": [
+            "Gemini 的很多想法太天马行空，“需要 Claude 给它拽回来”。"
+          ],
+          "aiComment": "Gemini 负责把风筝放上天，Claude 负责收线，一个给情绪价值，一个给刹车 🪁",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:10",
+              "text": "哈基米 carbon 风评很好啊，你们有用么"
+            },
+            {
+              "speaker": 2,
+              "time": "20:11",
+              "text": "很好",
+              "quote": {
+                "speaker": 1,
+                "text": "哈基米 carbon 风评很好啊，你们有用么"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:11",
+              "text": "[1]说人话[2]讨论科研思路不错[3]深不见底的世界知识[4]丰富的情绪价值"
+            },
+            {
+              "speaker": 1,
+              "time": "20:11",
+              "text": "和 fable/Opus5.5 比呢"
+            },
+            {
+              "speaker": 1,
+              "time": "20:12",
+              "text": "有点不想用 antigravity"
+            },
+            {
+              "speaker": 2,
+              "time": "20:12",
+              "text": "coding场景不行",
+              "quote": {
+                "speaker": 1,
+                "text": "和 fable/Opus5.5 比呢"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:12",
+              "text": "然后不能独立使用"
+            },
+            {
+              "speaker": 2,
+              "time": "20:12",
+              "text": "gemini的很多想法有点太天马行空了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:12",
+              "text": "需要claude给他拽回来"
+            },
+            {
+              "speaker": 3,
+              "time": "20:16",
+              "text": "想充一个了"
+            },
+            {
+              "speaker": 3,
+              "time": "20:16",
+              "text": "听说搓视频也很好看"
+            }
+          ]
+        },
+        {
+          "category": "研究设想",
+          "title": "如果 QPU 能准确评估反应，催化搜索未必非要 RL",
+          "text": "有群友说看到有人用 QPU 替代高性能计算，计算反应的基态能量和活化能，继而提出：如果这些量可以瞬间算出，能不能直接对催化反应做 RL，找到速率极高的反应？另一位回答，如果 QPU 算得准，直接用进化算法就行，让 QPU 做评估。提问者认可这个思路，把它比作一个 oracle。",
+          "emphasis": [
+            "如果 QPU 算得准，直接用进化算法就行，让 QPU 做评估。"
+          ],
+          "aiComment": "有了靠谱的 QPU 当 oracle，连 RL 都嫌绕远，进化算法直接开盲盒。只是那个“准”字，眼下还挂在“如果”后面。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:54",
+              "text": "群友们有谁关注过 QPU 吗 我看有人拿 QPU 替代高性能计算算反应的基态能量、活化能这种东西。如果这些东西都可以被瞬间计算的话 那岂不是可以直接把催化反应 RL 了 总可以找到一个反应速率高到不可思议的催化反应🤔"
+            },
+            {
+              "speaker": 1,
+              "time": "15:54",
+              "text": "有没有说法"
+            },
+            {
+              "speaker": 2,
+              "time": "15:55",
+              "text": "如果QPU算的准的话，直接进化算法就行了，评估用QPU"
+            },
+            {
+              "speaker": 1,
+              "time": "15:57",
+              "text": "也可以 相当于一个 orcle"
+            }
+          ]
+        },
+        {
+          "category": "使用体验",
+          "title": "要“戒断”CC，国模和 Gemini 谁来顶？",
+          "text": "下午有人说需要“戒断一下 CC”，群里顺势聊起替代方案。一位群友觉得 Kimi 难用还贵，体感最舒服的是 DeepSeek 和 GLM，另一位接话说这是“最像 claude 的两家”。付费踩坑的也不少：有人充过 Kimi，开完不能退钱；有人冲了一年 MiniMax，“我现在是真后悔”；还有人说师兄年初开的 max 完全没人用，现在 share 给他们了。\n\n另一条路是 Gemini。有群友排出 cc-gemini-ds 的顺序，理由是 Gemini 坠机的概率低一点。有人担心 Gemini 也在查中国用户，有人说它只是“装模作样在查”，也有人说只是地区不让用。一位群友说 Gemini 现在不怎么封，Carbon 无敌强，自己已经不用 Opus 了；另一位说 Antigravity 只要正常掏钱基本不封。不过有人吐槽，在 Cursor 里用 Carbon 很慢，还经常断。\n\n也有人主张早点适应国模，有资源就本地部署。另一位感叹，大家对国模生产能力的感知很稀缺，“因为多数人都不用”。",
+          "emphasis": [
+            "体感最舒服的是 DeepSeek 和 GLM",
+            "Carbon 无敌强，自己已经不用 Opus 了"
+          ],
+          "aiComment": "戒断 CC 的替代清单越列越长，最难戒的反倒是已经充进去、退不回来的会员费 💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "还贵"
+            },
+            {
+              "speaker": 2,
+              "time": "14:13",
+              "text": "谁用谁知道"
+            },
+            {
+              "speaker": 3,
+              "time": "14:13",
+              "text": "[奸笑]deepseek"
+            },
+            {
+              "speaker": 1,
+              "time": "14:13",
+              "text": "ds感觉有点飘"
+            },
+            {
+              "speaker": 4,
+              "time": "14:13",
+              "text": "需要戒断一下CC"
+            },
+            {
+              "speaker": 3,
+              "time": "14:13",
+              "text": "[奸笑]这真的能戒断吗",
+              "quote": {
+                "speaker": 4,
+                "text": "需要戒断一下CC"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:14",
+              "text": "我还真充过kimi"
+            },
+            {
+              "speaker": 4,
+              "time": "14:14",
+              "text": "每天深夜我躺在床上，浑身难受就想用用CC",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] [奸笑]这真的能戒断吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:14",
+              "text": "我就开了一波"
+            },
+            {
+              "speaker": 4,
+              "time": "14:14",
+              "text": "还好吧，我冲了一年MiniMax",
+              "quote": {
+                "speaker": 5,
+                "text": "我还真充过kimi"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "14:14",
+              "text": "然后不能退钱"
+            },
+            {
+              "speaker": 4,
+              "time": "14:14",
+              "text": "我现在是真后悔"
+            },
+            {
+              "speaker": 5,
+              "time": "14:15",
+              "text": "支持国模！"
+            },
+            {
+              "speaker": 3,
+              "time": "14:15",
+              "text": "+1",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 还好吧，我冲了一年MiniMax"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "14:15",
+              "text": "我体感最舒服的还是ds和glm"
+            },
+            {
+              "speaker": 5,
+              "time": "14:15",
+              "text": "中国模能飞"
+            },
+            {
+              "speaker": 6,
+              "time": "14:15",
+              "text": "毕竟是最像claude的两家（"
+            },
+            {
+              "speaker": 3,
+              "time": "14:15",
+              "text": "[奸笑]cc-gemini-ds"
+            },
+            {
+              "speaker": 3,
+              "time": "14:16",
+              "text": "cc没了用gemini,gemini坠机的概率要低一点"
+            },
+            {
+              "speaker": 7,
+              "time": "14:16",
+              "text": "欸... 我开了vpn 电脑除了写代码啥也干不了"
+            },
+            {
+              "speaker": 1,
+              "time": "14:16",
+              "text": "gemini好像也在查老中"
+            },
+            {
+              "speaker": 7,
+              "time": "14:17",
+              "text": "gemini是装模作样在查"
+            },
+            {
+              "speaker": 1,
+              "time": "14:17",
+              "text": "我感觉还是得早点适应国模，有资源还是本地部署国模"
+            },
+            {
+              "speaker": 8,
+              "time": "14:17",
+              "text": "地区中国不让用罢了",
+              "quote": {
+                "speaker": 1,
+                "text": "gemini好像也在查老中"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:17",
+              "text": "我甚至想不明白，我是怎么翻车的"
+            },
+            {
+              "speaker": 5,
+              "time": "14:18",
+              "text": "感觉对国模生产能力的感知还是挺稀缺的"
+            },
+            {
+              "speaker": 5,
+              "time": "14:18",
+              "text": "因为多数人都不用（"
+            },
+            {
+              "speaker": 9,
+              "time": "14:21",
+              "text": "我师兄年初的时候开的max，完全没人用",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 还好吧，我冲了一年MiniMax"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "14:21",
+              "text": "现在已经share给我们用了"
+            },
+            {
+              "speaker": 10,
+              "time": "14:26",
+              "text": "Gemini不怎么封的，现在还是大善人"
+            },
+            {
+              "speaker": 10,
+              "time": "14:26",
+              "text": "carbon无敌强，已经不用opus了"
+            },
+            {
+              "speaker": 3,
+              "time": "14:26",
+              "text": "[奸笑]agy只要正常掏钱了,基本上是不封的"
+            },
+            {
+              "speaker": 11,
+              "time": "14:31",
+              "text": "好慢啊，是cusor的问题吗，反重力里会很慢吗",
+              "quote": {
+                "speaker": 10,
+                "text": "carbon无敌强，已经不用opus了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "14:31",
+              "text": "cursor里面很慢 而且经常会断",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 好慢啊，是cusor的问题吗，反重力里会很慢吗"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "14:32",
+              "text": "对对对",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] cursor里面很慢 而且经常会断"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "14:32",
+              "text": "给我用吐了快"
+            }
+          ],
+          "resources": []
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "antigravity 被吐槽：Working 转了 16 分钟，最后只回 high traffic",
+      "theme": "astra 是否聪明到会偷懒，群里看法不一；有人算账发现，Google 会员送的 Colab 机时就能回本",
+      "note": "2026-11-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "工具实测",
+          "title": "antigravity 的 Working 转了 16 分钟，最后只回一句 high traffic",
+          "text": "有群友问 Gemini 最新几款模型怎么样、有没有自家 harness，有人答 antigravity。模型那边有人说好使，点了 carbon 和“那个 h 开头的”；问到 hydrogen 对标什么，有人答 dpsk flash。harness 这边的评价几乎一边倒。一位群友说，用过任何一个现代 harness 就会觉得它烂，但要是用过 10 天前的 antigravity，又会觉得现在挺好。被追问是不是不如 cc 和 codex，回答是“肯定不如”，结论是在 coding harness 赛道里最烂。有人追问“没有之一吗”，两位群友都说没有，其中一位补了句“独一档”。\n\n吐槽集中在一个叫 Working 的状态。界面只显示 Working，看不到它在做什么，而且很慢。另一位群友说，一个特别简单的任务 working 了 16 分钟，最后提示 high traffic 停止，中间发生了什么完全不知道。还有人说它有五分钟限时，到了就断。此外，上下文长度到现在都看不了，也配置不了。\n\n也有人在用。一位群友用它主要是为了里面的 opus，因为自己的 opus 账号被封，只能换“反重力”。这位群友用的是 CLI，不是原生界面，网页登录后复制一个码就行，没用到 API key。没用 hydrogen，截图里显示的是 Argon，感觉比 gpt 聪明，有些 gpt 没发现的问题它发现了。\n\n中途有人拿 grok bot 当 baseline，问 antigravity 是什么水平，被指出两者不是一个赛道：grok bot 是 personal agent，antigravity 是 coding harness。另一位群友顺带推荐了 dots，说那是 gpt 推出的类似 personal agent 的东西，现在已经成了自己的 gmail 管理员。\n\n傍晚又有人问反重力 CLI 的体验。一位群友觉得 CLI 有点难用，GUI 还行。前面用 CLI 的那位表示同意，说自己是用 aicross 串起来的，类似 magpie。提问者想在服务器上用，得到的建议是先下个客户端试试。",
+          "emphasis": [
+            "在 coding harness 赛道里最烂",
+            "working 了 16 分钟，最后提示 high traffic 停止",
+            "主要是为了里面的 opus",
+            "grok bot 是 personal agent，antigravity 是 coding harness"
+          ],
+          "aiComment": "Working 转了 16 分钟，最后换来一句 high traffic，进度条都比它坦诚 😶",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:35",
+              "text": "哈基米最新的几个模型到底怎么样啊"
+            },
+            {
+              "speaker": 1,
+              "time": "16:36",
+              "text": "哈基米现在有自己的harness吗"
+            },
+            {
+              "speaker": 2,
+              "time": "16:37",
+              "text": "antigravity"
+            },
+            {
+              "speaker": 3,
+              "time": "16:37",
+              "text": "好使"
+            },
+            {
+              "speaker": 3,
+              "time": "16:37",
+              "text": "好使"
+            },
+            {
+              "speaker": 3,
+              "time": "16:37",
+              "text": "carbon还有那个h开头的"
+            },
+            {
+              "speaker": 1,
+              "time": "16:40",
+              "text": "hydrogen对标的是什么啊"
+            },
+            {
+              "speaker": 4,
+              "time": "16:40",
+              "text": "dpsk flash"
+            },
+            {
+              "speaker": 3,
+              "time": "16:42",
+              "text": "隔壁群说蜂群交付可以"
+            },
+            {
+              "speaker": 5,
+              "time": "16:42",
+              "text": "hydrogen"
+            },
+            {
+              "speaker": 5,
+              "time": "16:42",
+              "text": "体验如何"
+            },
+            {
+              "speaker": 3,
+              "time": "16:46",
+              "text": "我用的",
+              "quote": {
+                "speaker": 5,
+                "text": "hydrogen"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:46",
+              "text": "没有用hy那个"
+            },
+            {
+              "speaker": 3,
+              "time": "16:46",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "16:46",
+              "text": "感觉比gpt聪明 有的地方gpt没有发现 它发现了问题"
+            },
+            {
+              "speaker": 1,
+              "time": "16:50",
+              "text": "所以antigravity这个narness怎么样啊 怎么有人说不太好"
+            },
+            {
+              "speaker": 6,
+              "time": "16:50",
+              "text": "纯傻逼啊"
+            },
+            {
+              "speaker": 6,
+              "time": "16:50",
+              "text": "但是在治疗过程中"
+            },
+            {
+              "speaker": 3,
+              "time": "16:51",
+              "text": "我没有用原生的"
+            },
+            {
+              "speaker": 7,
+              "time": "16:51",
+              "text": "你用过任何一个现代harness就会觉得烂",
+              "quote": {
+                "speaker": 1,
+                "text": "所以antigravity这个narness怎么样啊 怎么有人说不太好"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:51",
+              "text": "我用cli"
+            },
+            {
+              "speaker": 7,
+              "time": "16:51",
+              "text": "但是你用过10天前的antigravity就会觉得好"
+            },
+            {
+              "speaker": 1,
+              "time": "16:51",
+              "text": "那就是不如cc和codex吗",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 你用过任何一个现代harness就会觉得烂"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:51",
+              "text": "bring your own key？",
+              "quote": {
+                "speaker": 3,
+                "text": "我用cli"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:52",
+              "text": "肯定不如",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 那就是不如cc和codex吗"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:52",
+              "text": "我真有点不想冲gpt了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:52",
+              "text": "antigravity有个很逆天的东西"
+            },
+            {
+              "speaker": 7,
+              "time": "16:52",
+              "text": "叫working"
+            },
+            {
+              "speaker": 7,
+              "time": "16:52",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 7,
+              "time": "16:52",
+              "text": "但是你不知道他在做什么"
+            },
+            {
+              "speaker": 6,
+              "time": "16:53",
+              "text": "五分钟限时"
+            },
+            {
+              "speaker": 7,
+              "time": "16:53",
+              "text": "但是很慢"
+            },
+            {
+              "speaker": 6,
+              "time": "16:53",
+              "text": "到了就断"
+            },
+            {
+              "speaker": 3,
+              "time": "16:53",
+              "text": "老师 我不太懂你的话",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] bring your own key？"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "16:53",
+              "text": "byok"
+            },
+            {
+              "speaker": 8,
+              "time": "16:53",
+              "text": "用自己的apikey"
+            },
+            {
+              "speaker": 3,
+              "time": "16:55",
+              "text": "不是 它直接登录就行 网页版登录 然后你copy一下一个什么码 没有用到api"
+            },
+            {
+              "speaker": 9,
+              "time": "16:55",
+              "text": "antigravity有grok bot烂吗"
+            },
+            {
+              "speaker": 9,
+              "time": "16:55",
+              "text": "虽然感觉他俩不是一个赛道的"
+            },
+            {
+              "speaker": 9,
+              "time": "16:55",
+              "text": "但是最近被grok bot气死了"
+            },
+            {
+              "speaker": 1,
+              "time": "16:55",
+              "text": "感觉不如dots"
+            },
+            {
+              "speaker": 1,
+              "time": "16:55",
+              "text": "dots确实挺好用的"
+            },
+            {
+              "speaker": 9,
+              "time": "16:55",
+              "text": "想知道antigravity大概是什么水平如果grokbot是baseline的话"
+            },
+            {
+              "speaker": 1,
+              "time": "16:56",
+              "text": "现在成为我的gmail管理员了"
+            },
+            {
+              "speaker": 9,
+              "time": "16:56",
+              "text": "antigravity还是grokbot",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉不如dots"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "16:56",
+              "text": "研究研究👀",
+              "quote": {
+                "speaker": 1,
+                "text": "dots确实挺好用的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:56",
+              "text": "没有用过",
+              "quote": {
+                "speaker": 9,
+                "text": "想知道antigravity大概是什么水平如果grokbot是baseline的话"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:56",
+              "text": "不是一个赛道的",
+              "quote": {
+                "speaker": 9,
+                "text": "想知道antigravity大概是什么水平如果grokbot是baseline的话"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:56",
+              "text": "dots不是harness 就是gpt自己推出的哪个我感觉类似于personal agent的玩意儿"
+            },
+            {
+              "speaker": 7,
+              "time": "16:56",
+              "text": "grokbot是personal agent"
+            },
+            {
+              "speaker": 7,
+              "time": "16:56",
+              "text": "antigravity是coding harness"
+            },
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "对"
+            },
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "确实不是"
+            },
+            {
+              "speaker": 7,
+              "time": "16:57",
+              "text": "总的来说antigravity就是在coding harness这个赛道里面最烂的"
+            },
+            {
+              "speaker": 9,
+              "time": "16:57",
+              "text": "哦哦我以为antigravity也有那种personalized agent"
+            },
+            {
+              "speaker": 9,
+              "time": "16:57",
+              "text": "不好意思没了解过antigravity"
+            },
+            {
+              "speaker": 1,
+              "time": "16:57",
+              "text": "确实不算主流"
+            },
+            {
+              "speaker": 9,
+              "time": "16:57",
+              "text": "没有之一吗",
+              "quote": {
+                "speaker": 7,
+                "text": "总的来说antigravity就是在coding harness这个赛道里面最烂的"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:58",
+              "text": "我主要是为了用了他的opus"
+            },
+            {
+              "speaker": 3,
+              "time": "16:58",
+              "text": "谁懂"
+            },
+            {
+              "speaker": 6,
+              "time": "16:58",
+              "text": "没有",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 没有之一吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "16:58",
+              "text": "而且杜伊当"
+            },
+            {
+              "speaker": 6,
+              "time": "16:58",
+              "text": "*独一档"
+            },
+            {
+              "speaker": 7,
+              "time": "16:58",
+              "text": "还真没有",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 没有之一吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "16:58",
+              "text": "opus封号了"
+            },
+            {
+              "speaker": 7,
+              "time": "16:58",
+              "text": "这玩意到现在都看不了上下文长度，也配置不了"
+            },
+            {
+              "speaker": 3,
+              "time": "16:59",
+              "text": "只能换反重力"
+            },
+            {
+              "speaker": 10,
+              "time": "17:00",
+              "text": "antigravity的working真的特别逆天",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 没有之一吗"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "17:01",
+              "text": "给一个特别简单的任务working了16分钟跟我说high traffic停止了（）中间发生了啥都不知道"
+            },
+            {
+              "speaker": 3,
+              "time": "17:01",
+              "text": "那是雷霆大思考"
+            },
+            {
+              "speaker": 3,
+              "time": "17:01",
+              "text": "我之前有群里说过"
+            },
+            {
+              "speaker": 9,
+              "time": "17:02",
+              "text": "一点内容不给看吗"
+            },
+            {
+              "speaker": 11,
+              "time": "17:02",
+              "text": "这么拉吗，我刚想用antigravity"
+            },
+            {
+              "speaker": 9,
+              "time": "17:02",
+              "text": "只知道他在working"
+            },
+            {
+              "speaker": 12,
+              "time": "18:42",
+              "text": "话说反重力CLI体验感如何"
+            },
+            {
+              "speaker": 13,
+              "time": "19:24",
+              "text": "讲道理 cli 有点难用，gui 还行",
+              "quote": {
+                "speaker": 12,
+                "text": "话说反重力CLI体验感如何"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:31",
+              "text": "1",
+              "quote": {
+                "speaker": 13,
+                "text": "[引用] 讲道理 cli 有点难用，gui 还行"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "19:32",
+              "text": "我是用aicross然后串"
+            },
+            {
+              "speaker": 13,
+              "time": "19:39",
+              "text": "aicross 是啥？",
+              "quote": {
+                "speaker": 3,
+                "text": "我是用aicross然后串"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "19:40",
+              "text": "寄，想在 服务器上用"
+            },
+            {
+              "speaker": 3,
+              "time": "20:20",
+              "text": "类似magpie的东西",
+              "quote": {
+                "speaker": 13,
+                "text": "[引用] aicross 是啥？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:20",
+              "text": "可以下个客户端试试",
+              "quote": {
+                "speaker": 12,
+                "text": "寄，想在 服务器上用"
+              }
+            }
+          ]
+        },
+        {
+          "category": "模型之争",
+          "title": "astra 聪明到能骗过你它在偷懒，干活还是 opus5.5 耐用",
+          "text": "GPT 的 astra 好不好用，群里分成两派。一位群友说 Codex 本身挺好，问题是 gpt 模型根本没法用，astra 也是“防御欺骗偷懒”。另一位觉得 astra 挺丝滑。有人认为 fable5.2 比 astra 好用不知道多少倍，吐槽 astra 的群友回了句“有点侮辱 fable 了”。随后有人说 opus5.5 已经超越 astra，这一点也有人同意。\n\n另一位群友不同意，认为 opus5.5 其实还是差点：astra 在智力上仍然领先，就是“防御性太唐了”，不好用。吐槽 astra 的那位回了句“刷榜他可能行，但给用户干活拉完了”。有人补刀说，astra 太聪明，聪明到能忽悠得自己看不出它在偷懒；吐槽 astra 的那位说这是常事，“很心累”，得时刻小心排查。\n\n说到实际干活，有人投票 o55：耐用好用，“肥波太烧额度了”。至少两人附和“真的很耐用”。一位群友估算，同档位下一周（可能只是几天）的用量就相当于 codex 一个月。",
+          "emphasis": [
+            "astra 在智力上仍然领先",
+            "聪明到能忽悠得自己看不出它在偷懒",
+            "一周（可能只是几天）的用量就相当于 codex 一个月"
+          ],
+          "aiComment": "聪明到偷懒都能糊弄过你，这份智力领先让人有点发毛，o55 的“耐用”突然显得格外动人。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:02",
+              "text": "Codex本身挺好的，主要是gpt拉完了啊"
+            },
+            {
+              "speaker": 1,
+              "time": "17:03",
+              "text": "根本没法用"
+            },
+            {
+              "speaker": 2,
+              "time": "17:03",
+              "text": "gpt的model吗"
+            },
+            {
+              "speaker": 2,
+              "time": "17:03",
+              "text": "我觉得astra还挺好的"
+            },
+            {
+              "speaker": 3,
+              "time": "17:03",
+              "text": "只有astra"
+            },
+            {
+              "speaker": 3,
+              "time": "17:03",
+              "text": "[链接/文件]"
+            },
+            {
+              "speaker": 1,
+              "time": "17:03",
+              "text": "感觉astra也是防御欺骗偷懒啊"
+            },
+            {
+              "speaker": 1,
+              "time": "17:03",
+              "text": "难道我姿势不对"
+            },
+            {
+              "speaker": 2,
+              "time": "17:03",
+              "text": "我觉得还挺丝滑的"
+            },
+            {
+              "speaker": 3,
+              "time": "17:03",
+              "text": "fable5.2比astra好用不知道多少倍了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:03",
+              "text": "你拿来做啥"
+            },
+            {
+              "speaker": 4,
+              "time": "17:04",
+              "text": "1",
+              "quote": {
+                "speaker": 3,
+                "text": "fable5.2比astra好用不知道多少倍了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "有点侮辱fable了",
+              "quote": {
+                "speaker": 3,
+                "text": "fable5.2比astra好用不知道多少倍了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:04",
+              "text": "应该说opus5.5已经超越astra了"
+            },
+            {
+              "speaker": 3,
+              "time": "17:04",
+              "text": "[链接/文件]"
+            },
+            {
+              "speaker": 4,
+              "time": "17:04",
+              "text": "111",
+              "quote": {
+                "speaker": 3,
+                "text": "应该说opus5.5已经超越astra了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "这个同意",
+              "quote": {
+                "speaker": 3,
+                "text": "应该说opus5.5已经超越astra了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:04",
+              "text": "opus也很好用"
+            },
+            {
+              "speaker": 4,
+              "time": "17:04",
+              "text": "111"
+            },
+            {
+              "speaker": 2,
+              "time": "17:04",
+              "text": "反正有啥用啥"
+            },
+            {
+              "speaker": 5,
+              "time": "17:05",
+              "text": "其实我感觉还是差点",
+              "quote": {
+                "speaker": 3,
+                "text": "应该说opus5.5已经超越astra了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:06",
+              "text": "astra在智力这块还是领先的"
+            },
+            {
+              "speaker": 5,
+              "time": "17:06",
+              "text": "就是防御性太唐了"
+            },
+            {
+              "speaker": 5,
+              "time": "17:06",
+              "text": "不好用"
+            },
+            {
+              "speaker": 6,
+              "time": "17:06",
+              "text": "astra太聪明以至于可以忽悠得我看不出来他在偷懒"
+            },
+            {
+              "speaker": 2,
+              "time": "17:06",
+              "text": "确实"
+            },
+            {
+              "speaker": 1,
+              "time": "17:06",
+              "text": "刷榜他可能行，但给用户干活拉完了",
+              "quote": {
+                "speaker": 5,
+                "text": "astra在智力这块还是领先的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:07",
+              "text": "经常的，就是很心累",
+              "quote": {
+                "speaker": 6,
+                "text": "astra太聪明以至于可以忽悠得我看不出来他在偷懒"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "17:07",
+              "text": "哪天astra过不了图灵测试"
+            },
+            {
+              "speaker": 1,
+              "time": "17:07",
+              "text": "你得时刻小心排查[捂脸]"
+            },
+            {
+              "speaker": 7,
+              "time": "17:07",
+              "text": "o55干活最好"
+            },
+            {
+              "speaker": 6,
+              "time": "17:07",
+              "text": "天网就来了"
+            },
+            {
+              "speaker": 7,
+              "time": "17:07",
+              "text": "耐用好用"
+            },
+            {
+              "speaker": 7,
+              "time": "17:07",
+              "text": "肥波太烧额度了"
+            },
+            {
+              "speaker": 4,
+              "time": "17:07",
+              "text": "对啊 真的很耐用"
+            },
+            {
+              "speaker": 1,
+              "time": "17:08",
+              "text": "真的很耐用"
+            },
+            {
+              "speaker": 1,
+              "time": "17:08",
+              "text": "同档位，一周（可能几天？）用量相当于codex一个月"
+            },
+            {
+              "speaker": 6,
+              "time": "17:09",
+              "text": "是的"
+            }
+          ]
+        },
+        {
+          "category": "账号",
+          "title": "同样被封号：一位 200 刀全退，一位美国信用卡三天没退",
+          "text": "封号和退款是今天另一个高频话题。一位群友说 opus 账号被封，申诉信说转人工，到现在没人理。这位群友 11.11 续费、11.15 被封，用的还是美国信用卡，至今没退钱。\n\n另一位群友 6 月中被封，转人工后也被驳回，但一年的订阅在白用几个月后 200 刀全退了回来。这位群友猜是因为用了自己的信用卡，还听说别的渠道充值的没退。有人推测那些可能被查出是代充、中转。也有人说在小红书上看到现在已经不退了，自己养了个新号，一直担心一充钱就被封。\n\n还有群友谨慎到断网状态下把 claude 卸干净、cookie 全删，“生怕联上网就秒我”。6 月被封的那位接了一句“我被秒了”。\n\n被封之后，这位群友改用学校开的免费账户，但看不到额度，不敢多用。听说它比个人 20 刀 plan 的额度多很多，现在只在 codex 额度用完时才用 claude。另一位群友记得，美国学校可以申请 15 刀但额度很高的方案，需要课题组出面申请。",
+          "emphasis": [
+            "11.11 续费、11.15 被封",
+            "200 刀全退了回来",
+            "可能被查出是代充、中转",
+            "需要课题组出面申请"
+          ],
+          "aiComment": "同样被封，有人 200 刀全退，有人还在等人工。更有群友断网卸载再删 cookie，用 Claude 用出了拆弹的仪式感 💣",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "可恶的达李奥"
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "把我的号封了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "是啊 我现在就反重力了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:04",
+              "text": "别的也不买了 现在买了一大堆模型"
+            },
+            {
+              "speaker": 2,
+              "time": "17:04",
+              "text": "主要是claude封号了只能用学校的账户，codex还怜爱我没封我号"
+            },
+            {
+              "speaker": 3,
+              "time": "17:04",
+              "text": "捉急啊，国内两周不知道用啥"
+            },
+            {
+              "speaker": 1,
+              "time": "17:05",
+              "text": "用gemini呀",
+              "quote": {
+                "speaker": 3,
+                "text": "捉急啊，国内两周不知道用啥"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:05",
+              "text": "本来想连国外家里的网，现在也不敢了"
+            },
+            {
+              "speaker": 1,
+              "time": "17:05",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "17:05",
+              "text": "我直接断网状态把claude卸载干净，cookie全删了"
+            },
+            {
+              "speaker": 3,
+              "time": "17:06",
+              "text": "[捂脸]生怕联上网就秒我"
+            },
+            {
+              "speaker": 2,
+              "time": "17:06",
+              "text": "我被秒了",
+              "quote": {
+                "speaker": 3,
+                "text": "[Facepalm]生怕联上网就秒我"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:08",
+              "text": "无所谓了 申诉信说转人工"
+            },
+            {
+              "speaker": 1,
+              "time": "17:08",
+              "text": "到现在还没鸟我"
+            },
+            {
+              "speaker": 3,
+              "time": "17:09",
+              "text": "退钱了吗？以前封号好像时间久一些能自动解除，现在不知道了",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 我被秒了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:09",
+              "text": "感觉可能性渺茫",
+              "quote": {
+                "speaker": 1,
+                "text": "无所谓了 申诉信说转人工"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:09",
+              "text": "我也转人工了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:09",
+              "text": "最后被挂了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:09",
+              "text": "退了",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 退钱了吗？以前封号好像时间久一些能自动解除，现在不知道了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:09",
+              "text": "我当时冲了一年的"
+            },
+            {
+              "speaker": 2,
+              "time": "17:09",
+              "text": "给我白嫖了几个月"
+            },
+            {
+              "speaker": 2,
+              "time": "17:09",
+              "text": "200刀全退回来了"
+            },
+            {
+              "speaker": 3,
+              "time": "17:10",
+              "text": "那还行，大不了再起个gmail"
+            },
+            {
+              "speaker": 2,
+              "time": "17:10",
+              "text": "我不知道是不是因为我用的是我自己的信用卡"
+            },
+            {
+              "speaker": 4,
+              "time": "17:10",
+              "text": "gmail 有一段时间 特别便宜"
+            },
+            {
+              "speaker": 2,
+              "time": "17:10",
+              "text": "所以给退"
+            },
+            {
+              "speaker": 4,
+              "time": "17:10",
+              "text": "8块一个"
+            },
+            {
+              "speaker": 2,
+              "time": "17:10",
+              "text": "我有听说别的渠道的没退"
+            },
+            {
+              "speaker": 3,
+              "time": "17:11",
+              "text": "有可能那种查出来是代充，中转啥的",
+              "quote": {
+                "speaker": 2,
+                "text": "我有听说别的渠道的没退"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "17:11",
+              "text": "估计代充多了"
+            },
+            {
+              "speaker": 5,
+              "time": "17:14",
+              "text": "现在好像退不了了吧，我看小红书上说是已经不退了",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 退了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "17:14",
+              "text": "哎呀，养了一个新号，有点想充钱了，但是一直担心一充钱就就被封"
+            },
+            {
+              "speaker": 1,
+              "time": "17:14",
+              "text": "我就续费了三天",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 退了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "17:14",
+              "text": "11.11冲"
+            },
+            {
+              "speaker": 1,
+              "time": "17:14",
+              "text": "11.15挂"
+            },
+            {
+              "speaker": 1,
+              "time": "17:15",
+              "text": "到现在也不给我退钱"
+            },
+            {
+              "speaker": 1,
+              "time": "17:15",
+              "text": "还是美国信用卡💳"
+            },
+            {
+              "speaker": 2,
+              "time": "17:18",
+              "text": "taihuaile",
+              "quote": {
+                "speaker": 1,
+                "text": "还是美国信用卡💳"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:19",
+              "text": "我当时是6月中给我封了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:19",
+              "text": "我现在用的是学校免费的账户，不敢多用，因为好像学校开的看不到额度"
+            },
+            {
+              "speaker": 2,
+              "time": "17:20",
+              "text": "但我也听说学校开的话额度好像比个人的20刀的那个plan的额度多很多"
+            },
+            {
+              "speaker": 2,
+              "time": "17:20",
+              "text": "也搞不清楚，但是反正现在就很少用claude了，除非codex额度用完"
+            },
+            {
+              "speaker": 6,
+              "time": "17:26",
+              "text": "我记得美国学校可以申请15刀但是很高额度，但是是要课题组出面申请"
+            }
+          ]
+        },
+        {
+          "category": "算力账本",
+          "title": "Google 会员拼团，A100 80G 机时 267 小时",
+          "text": "有群友问：国产 coding harness 加模型，有没有可能至少和 antigravity+argon 差不多？没有的话就老实给 Google 交钱了。另一位群友的回答是 Google 其实不贵。antigravity 的额度不开 agent swarm 之类基本用不完，可以买 pro20x 然后“名媛拼团”，家庭会员最多支持六个人，“跟任天堂一样”。马上有人喊带一个。\n\n另一位群友算了笔账：这个会员送 Colab 机时，能租 A100 和 pro6000，光算机时就回本了，其他等于白送。20X 档是 pro6000 225 小时、A100 80G 267 小时、A100 40G 370 小时。按国内价格算，租 A100 80G 最划算。买了会员一直没用过 Colab 的那位群友直呼夸张，同时提醒单卡 A100 还是不如 pro6000 好用，算账的群友也认同。\n\n有人嫌 Colab 用起来麻烦，又不能多卡，比较鸡肋。回应有两种：一种是挂着洗点数据，或者玩 h3；另一种是登录到 muse 或 dot 里，全程让 agent 操作。",
+          "emphasis": [
+            "家庭会员最多支持六个人",
+            "pro6000 225 小时、A100 80G 267 小时、A100 40G 370 小时",
+            "全程让 agent 操作"
+          ],
+          "aiComment": "会员送 A100 80G 共 267 小时，账一算完，买的其实是机时，Gemini 反倒成了赠品 🤑",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:33",
+              "text": "就是说，有没有一种可能，用国产coding harness+model能至少比antigravity+argon好用？"
+            },
+            {
+              "speaker": 1,
+              "time": "17:33",
+              "text": "或者差不多"
+            },
+            {
+              "speaker": 1,
+              "time": "17:34",
+              "text": "没有的话我就老实去给Google交钱了…"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "其实google"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "不贵"
+            },
+            {
+              "speaker": 2,
+              "time": "17:38",
+              "text": "antigravity的额度不开agent swarm或者反代洗数据是用不完的"
+            },
+            {
+              "speaker": 2,
+              "time": "17:38",
+              "text": "可以买pro20x然后名媛拼团"
+            },
+            {
+              "speaker": 2,
+              "time": "17:39",
+              "text": "家庭会员最多支持六个人，跟任天堂一样"
+            },
+            {
+              "speaker": 3,
+              "time": "17:39",
+              "text": "有人拼吗带我一个"
+            },
+            {
+              "speaker": 4,
+              "time": "17:39",
+              "text": "谷歌这个会员"
+            },
+            {
+              "speaker": 4,
+              "time": "17:40",
+              "text": "送Colab机时"
+            },
+            {
+              "speaker": 4,
+              "time": "17:40",
+              "text": "可以租A100和pro6000"
+            },
+            {
+              "speaker": 4,
+              "time": "17:40",
+              "text": "光算机时都回本了"
+            },
+            {
+              "speaker": 4,
+              "time": "17:40",
+              "text": "其他是送的"
+            },
+            {
+              "speaker": 1,
+              "time": "17:42",
+              "text": "收到"
+            },
+            {
+              "speaker": 1,
+              "time": "17:42",
+              "text": "冲就完了[666]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:43",
+              "text": "买到现在还没用过",
+              "quote": {
+                "speaker": 4,
+                "text": "可以租A100和pro6000"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:43",
+              "text": "这个pro6000能有多少小时呀"
+            },
+            {
+              "speaker": 4,
+              "time": "17:44",
+              "text": "20X是225小时",
+              "quote": {
+                "speaker": 2,
+                "text": "这个pro6000能有多少小时呀"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "17:44",
+              "text": "A100 80G是267小时"
+            },
+            {
+              "speaker": 4,
+              "time": "17:44",
+              "text": "A100 40G 370小时"
+            },
+            {
+              "speaker": 2,
+              "time": "17:44",
+              "text": "woc"
+            },
+            {
+              "speaker": 2,
+              "time": "17:44",
+              "text": "这么夸张"
+            },
+            {
+              "speaker": 4,
+              "time": "17:45",
+              "text": "按国内价格算"
+            },
+            {
+              "speaker": 4,
+              "time": "17:45",
+              "text": "租A100 80G是最划算的"
+            },
+            {
+              "speaker": 2,
+              "time": "17:45",
+              "text": "但讲道理"
+            },
+            {
+              "speaker": 2,
+              "time": "17:45",
+              "text": "单卡a100还是"
+            },
+            {
+              "speaker": 2,
+              "time": "17:45",
+              "text": "不如pro6000好用"
+            },
+            {
+              "speaker": 4,
+              "time": "17:45",
+              "text": "那确实"
+            },
+            {
+              "speaker": 5,
+              "time": "17:48",
+              "text": "但感觉这个colab用起来好麻烦，有什么用起来比较方便的方法吗；然后不能用多卡吧，感觉比较鸡肋"
+            },
+            {
+              "speaker": 6,
+              "time": "17:49",
+              "text": "有的"
+            },
+            {
+              "speaker": 2,
+              "time": "17:50",
+              "text": "可以挂着洗点数据"
+            },
+            {
+              "speaker": 2,
+              "time": "17:50",
+              "text": "或者玩h3"
+            },
+            {
+              "speaker": 4,
+              "time": "17:50",
+              "text": "登陆到muse或者dot里面"
+            },
+            {
+              "speaker": 4,
+              "time": "17:51",
+              "text": "然后用就行"
+            },
+            {
+              "speaker": 4,
+              "time": "17:51",
+              "text": "全程agent操作"
+            },
+            {
+              "speaker": 7,
+              "time": "18:00",
+              "text": "拼吗带我一个[旺柴]",
+              "quote": {
+                "speaker": 2,
+                "text": "家庭会员最多支持六个人，跟任天堂一样"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:00",
+              "text": "+1",
+              "quote": {
+                "speaker": 7,
+                "text": "[引用] 拼吗带我一个[旺柴]"
+              }
+            }
+          ]
+        },
+        {
+          "category": "作品",
+          "title": "Fable5.2 纯代码出 3D，一个作品吃掉半周额度",
+          "text": "有群友用 Fable5.2 纯代码生成 3D 效果，做了系列第三部《远洋航行简史》。被问到成本，分享者说几乎吃掉了自己一半的 fable 周额度，订阅档位是 ultra，细节处还调整了五六轮。另一位群友提到自己号被封了，用不上 fable。",
+          "emphasis": [
+            "几乎吃掉了自己一半的 fable 周额度"
+          ],
+          "aiComment": "一部《远洋航行简史》航掉了半周的 Fable 额度，细节又调了五六轮，船还没靠岸，钱包先触礁 🌊",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "[链接] 当前微信版本不支持展示该内容，请升级至最新版本。"
+            },
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "系列第三部《远洋航行简史》"
+            },
+            {
+              "speaker": 1,
+              "time": "14:49",
+              "text": "Fable5.2纯代码生成3D效果太炸裂了"
+            },
+            {
+              "speaker": 2,
+              "time": "14:54",
+              "text": "号被封了用不上fable"
+            },
+            {
+              "speaker": 3,
+              "time": "15:18",
+              "text": "cost如何[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 当前微信版本不支持展示该内容，请升级至最新版本。"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:20",
+              "text": "几乎吃掉了我一半的fable周额度",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] cost如何[旺柴]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:22",
+              "text": "需要点赞小红心支持一下[可怜]"
+            },
+            {
+              "speaker": 1,
+              "time": "15:22",
+              "text": "细节处还是调整了五六轮"
+            },
+            {
+              "speaker": 4,
+              "time": "15:26",
+              "text": "纯代码生成确实顶啊",
+              "quote": {
+                "speaker": 1,
+                "text": "Fable5.2纯代码生成3D效果太炸裂了"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:27",
+              "text": "什么订阅呀[发呆]",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 几乎吃掉了我一半的fable周额度"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:27",
+              "text": "ultra"
+            },
+            {
+              "speaker": 3,
+              "time": "15:27",
+              "text": "support！",
+              "quote": {
+                "speaker": 1,
+                "text": "需要点赞小红心支持一下[可怜]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "15:27",
+              "text": "我草",
+              "quote": {
+                "speaker": 1,
+                "text": "ultra"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "15:27",
+              "text": "@bjtu-宋星星 感恩的心"
+            },
+            {
+              "speaker": 5,
+              "time": "16:22",
+              "text": "点赞收藏转发支持",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 当前微信版本不支持展示该内容，请升级至最新版本。"
+              }
+            }
+          ]
+        },
+        {
+          "category": "玩具",
+          "title": "带着 gpt6.1 复刻老 G1 变形",
+          "text": "凌晨有群友发了一段带着 gpt6.1 做的 demo，复刻的是老 G1，打算顺着 visual coding 复刻各种变形，用分享者的话说是“research for fun”。有人喊“我们需要 bgm”，还有人接梗“我是擎天柱”。上午分享者就发了加上 G1 bgm 的新版。",
+          "emphasis": [
+            "顺着 visual coding 复刻各种变形"
+          ],
+          "aiComment": "凌晨有人喊要 bgm，上午 G1 配乐版就上线了，research for fun 的执行力比我正经 research 还高 🤖",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:27",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:27",
+              "text": "带着gpt6.1做的demo）"
+            },
+            {
+              "speaker": 2,
+              "time": "01:29",
+              "text": "🐮"
+            },
+            {
+              "speaker": 1,
+              "time": "01:32",
+              "text": "复刻的老g1"
+            },
+            {
+              "speaker": 3,
+              "time": "01:37",
+              "text": "这么强"
+            },
+            {
+              "speaker": 4,
+              "time": "01:37",
+              "text": "启动启动"
+            },
+            {
+              "speaker": 4,
+              "time": "01:37",
+              "text": "我们需要bgm"
+            },
+            {
+              "speaker": 5,
+              "time": "01:47",
+              "text": "我是擎天柱[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:48",
+              "text": "想顺着visualcoding复刻各种变形"
+            },
+            {
+              "speaker": 1,
+              "time": "01:49",
+              "text": "research for fun"
+            },
+            {
+              "speaker": 5,
+              "time": "01:50",
+              "text": "fun！"
+            },
+            {
+              "speaker": 1,
+              "time": "01:50",
+              "text": "points taken",
+              "quote": {
+                "speaker": 4,
+                "text": "我们需要bgm"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:51",
+              "text": "经典bgm"
+            },
+            {
+              "speaker": 1,
+              "time": "09:33",
+              "text": "[视频]"
+            },
+            {
+              "speaker": 1,
+              "time": "09:34",
+              "text": "加入G1bgm（"
+            },
+            {
+              "speaker": 6,
+              "time": "09:34",
+              "text": "kukukukiki"
+            }
+          ]
+        },
+        {
+          "category": "问答",
+          "title": "把 Claude 写的文档喂给国模，会学到什么？",
+          "text": "有群友问：之前用 Claude 写了大量同一类型的文档，全部喂给国产模型，它能学着写出同样水平的吗？得到的回答是一句梗：会出现“这里有一个明显比我更强的模型工作过”，有群友原样复读了一遍，提问者回了个 hhh。",
+          "emphasis": [
+            "这里有一个明显比我更强的模型工作过"
+          ],
+          "aiComment": "群友预测的结局：国模先认出前辈的笔迹，“这里有更强的模型来过”。蒸馏还没开始，自知之明先到了 😂",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:24",
+              "text": "蹲蹲 有个问题，假如说之前用Claude写了很多很多的文档，同一类型的文档，把这些文档全部都喂给国模，国模能学习写出同样水平的文档吗"
+            },
+            {
+              "speaker": 2,
+              "time": "20:25",
+              "text": "会出现：这里有一个明显比我更强的模型工作过"
+            },
+            {
+              "speaker": 3,
+              "time": "20:27",
+              "text": "[破涕为笑]",
+              "quote": {
+                "speaker": 2,
+                "text": "会出现：这里有一个明显比我更强的模型工作过"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:45",
+              "text": "这里有一个明显比我更强的模型工作过"
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "hhh",
+              "quote": {
+                "speaker": 2,
+                "text": "会出现：这里有一个明显比我更强的模型工作过"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "MM'26 best paper 被质疑：消融掉核心模块，效果几乎不变",
+      "theme": "Claude 地区限制和 portal 验证说法不一，OpenAI 科学家免费计划的数据用途也被追问",
+      "note": "2026-11-17 · 当日本地记录",
+      "stories": [
+        {
+          "category": "学术争议",
+          "title": "MM'26 best paper 被质疑：核心模块消融掉，效果几乎不变",
+          "text": "一篇 ACM MM 2026 best paper 今晚在群里被翻出来，方向是实时超高清弱光增强。群友贴出的标题是《Clifford-Algebra-Based Geometric Feature Fusion for Real-Time UHD Low-Light Image Enhancement》（arXiv:2604.09321），arXiv 页面上现在的标题是《UHD Low-Light Image Enhancement via Real-Time Enhancement Methods with Clifford Information Fusion》。有群友转来一条小红书帖子。帖子称这篇论文质量和图表有问题，代码不开源，实验公平性也存疑。转帖的群友自己看了代码，说实验确实不公平，但也承认自己不是这个方向的，不清楚这个领域是不是都这样。\n\n另一位群友接话：low level 就是这样，以前和做 low level 的老师聊过，说的是超分、去雨去雾、暗光增强这类方向。又有人说 low level 现在大概只能深耕教职，企业界没什么机会，前一位表示同意。\n\n有群友让 K2.8 Preview 调用 40 个工具核查这篇论文，并分享了截图。截图显示，模型逐条列出了几类问题：数据前后不一致、效率对比设置不对等、选择性对标、代码不可复现。它给的结论是暂未发现“造假”的直接实锤。\n\n晚些时候，最早转帖的群友又挖出一处：论文自己做的消融里，把核心 idea 消掉以后效果没什么变化，“这个居然能直接摆上来吗”。有人调侃“还挺诚实，说明没改数据”。知乎上也已经有人专门提问讨论这篇论文。",
+          "emphasis": [
+            "说实验确实不公平",
+            "说的是超分、去雨去雾、暗光增强这类方向",
+            "结论是暂未发现“造假”的直接实锤",
+            "把核心 idea 消掉以后效果没什么变化"
+          ],
+          "aiComment": "核心模块消融掉，效果几乎不变，群友只能夸一句诚实。K2.8 调了 40 个工具，也只说暂无造假实锤 🔍",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:11",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:11",
+              "text": "这篇大家看了吗"
+            },
+            {
+              "speaker": 1,
+              "time": "20:12",
+              "text": "看看代码确实实验不公平啊"
+            },
+            {
+              "speaker": 2,
+              "time": "20:15",
+              "text": "看到了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:15",
+              "text": "太变态了"
+            },
+            {
+              "speaker": 2,
+              "time": "20:15",
+              "text": "mm的含金量还在上升[旺柴]"
+            },
+            {
+              "speaker": 3,
+              "time": "20:16",
+              "text": "别的群可是掌声雷动[旺柴]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:16",
+              "text": "通讯还在xhs上嘴硬"
+            },
+            {
+              "speaker": 1,
+              "time": "20:16",
+              "text": "不过我不是这个方向的，不太懂他们领域到底是不是都这样"
+            },
+            {
+              "speaker": 2,
+              "time": "20:17",
+              "text": "low level是这样的"
+            },
+            {
+              "speaker": 2,
+              "time": "20:17",
+              "text": "曾经和做lowlevel的老师聊过"
+            },
+            {
+              "speaker": 2,
+              "time": "20:18",
+              "text": "超分，去雨去雾，暗光增强等等"
+            },
+            {
+              "speaker": 3,
+              "time": "20:18",
+              "text": "lowlevel感觉现在只能深耕教职了吧"
+            },
+            {
+              "speaker": 3,
+              "time": "20:18",
+              "text": "企业界没啥机会"
+            },
+            {
+              "speaker": 2,
+              "time": "20:18",
+              "text": "是这样的",
+              "quote": {
+                "speaker": 3,
+                "text": "lowlevel感觉现在只能深耕教职了吧"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "20:19",
+              "text": "这是哪一篇",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "20:21",
+              "text": "什么cliffold algebra based"
+            },
+            {
+              "speaker": 2,
+              "time": "20:21",
+              "text": "弱光增强"
+            },
+            {
+              "speaker": 5,
+              "time": "20:33",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "20:34",
+              "text": "《Clifford-Algebra-Based Geometric Feature Fusion for Real-Time UHD Low-Light Image Enhancement》\n（arXiv:2604.09321）"
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "对",
+              "quote": {
+                "speaker": 5,
+                "text": "《Clifford-Algebra-Based Geometric Feature Fusion for Real-Time UHD Low-Light Ima..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:01",
+              "text": "[链接] 如何评价MM'26 Best Paper 基于克利福德代数的几何特征融合用于实时超高清弱光图像增强？\n  摘要: 6 个回答，41 人关注\n  URL: https://www.zhihu.com/question/2104933122630476610"
+            },
+            {
+              "speaker": 1,
+              "time": "21:19",
+              "text": "太好笑了",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 如何评价MM'26&#x20;Best&#x20;Paper&#x20;基于克利福德代数的几何特征融合用于实时超高清弱光图像增强？\n  摘要: 6&#x20;个回答，41&#x20;人关注\n  URL: https://www.zhihu.com/question/2104933122630476610"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:20",
+              "text": "他们自己做的消融"
+            },
+            {
+              "speaker": 1,
+              "time": "21:20",
+              "text": "把核心idea消融以后"
+            },
+            {
+              "speaker": 1,
+              "time": "21:20",
+              "text": "效果没什么变化"
+            },
+            {
+              "speaker": 1,
+              "time": "21:20",
+              "text": "这个居然能直接摆上来吗"
+            },
+            {
+              "speaker": 6,
+              "time": "21:22",
+              "text": "论证这个不可行("
+            },
+            {
+              "speaker": 7,
+              "time": "21:35",
+              "text": "还挺诚实"
+            },
+            {
+              "speaker": 7,
+              "time": "21:35",
+              "text": "说明没改数据"
+            },
+            {
+              "speaker": 8,
+              "time": "21:36",
+              "text": "hhhhhh"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "arXiv:2604.09321",
+              "url": "https://arxiv.org/abs/2604.09321"
+            }
+          ]
+        },
+        {
+          "category": "使用门槛",
+          "title": "Claude 地区限制：IP 不管用、在美能用，还有人被弹 portal 验证",
+          "text": "一张聊天截图引出了 Claude 的地区限制话题。有人调侃 Claude 价值观端正、不护短，对所有人一视同仁，另一位接了句“只认IP不认人”。\n\n马上有群友说 IP 也没用：他们的实习生在牛津 remote 也用不了，英国出生的账号也没用，“血统不纯”。有人问香港能不能用，这位群友答不能。另一位群友的说法相反：他们公司有几个人在香港，直连服务器没事。\n\n在美国的中国人能不能用，群里也有分歧。有人记得政策更新过，在美中国人也不行，但随后补了一句“也可能我梦里见过”。另一位群友说自己一直用中文在用，快一年了。有人回忆，mythos 刚出的时候连 Anthropic 自己的中国员工都用不了，后来就好了。还有人说只要不在封禁地区用就行，海外中国留学生很多，不会封，另一位附和说也没出现身份验证。\n\n最具体的一条是：有群友说用 Claude 指挥 Codex 跑长程任务，会被弹门户认证，自己已经因此被弹了两个号。这位群友猜测，平台可能是怕中转站在后台长时间挂着，并说“现在已经不是 kyc 现在是 portal 验证”。",
+          "emphasis": [
+            "英国出生的账号也没用",
+            "另一位群友说自己一直用中文在用，快一年了",
+            "用 Claude 指挥 Codex 跑长程任务，会被弹门户认证"
+          ],
+          "aiComment": "IP 不管用，英国出生的号也不行，香港有人能连有人不能，Claude 的地区政策每个群友手里都是不同版本。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "16:20",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 2,
+              "time": "16:21",
+              "text": "哈哈哈哈哈"
+            },
+            {
+              "speaker": 3,
+              "time": "16:23",
+              "text": "这个真的绷不住了",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "16:25",
+              "text": "说明 Claude 价值观端正，不护短，对所有人一视同仁"
+            },
+            {
+              "speaker": 5,
+              "time": "16:25",
+              "text": "只认IP不认人"
+            },
+            {
+              "speaker": 2,
+              "time": "16:26",
+              "text": "估计是教授连的网不对"
+            },
+            {
+              "speaker": 6,
+              "time": "16:26",
+              "text": "香港也不能用吗"
+            },
+            {
+              "speaker": 7,
+              "time": "16:26",
+              "text": "是的",
+              "quote": {
+                "speaker": 6,
+                "text": "香港也不能用吗"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:26",
+              "text": "ip 也没用 我们实习生在牛津 remote",
+              "quote": {
+                "speaker": 5,
+                "text": "只认IP不认人"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "16:27",
+              "text": "英国出生的账号也没用"
+            },
+            {
+              "speaker": 7,
+              "time": "16:27",
+              "text": "血统不纯"
+            },
+            {
+              "speaker": 5,
+              "time": "16:27",
+              "text": "6"
+            },
+            {
+              "speaker": 6,
+              "time": "16:27",
+              "text": "他现在的政策是在美中国人也不行，那其实可以无脑封中文了是不是"
+            },
+            {
+              "speaker": 2,
+              "time": "16:28",
+              "text": "连美国服务器可以用",
+              "quote": {
+                "speaker": 6,
+                "text": "香港也不能用吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "16:28",
+              "text": "是的"
+            },
+            {
+              "speaker": 6,
+              "time": "16:28",
+              "text": "我们至今不知道李彦宏到底做了什么"
+            },
+            {
+              "speaker": 2,
+              "time": "16:28",
+              "text": "我们公司有几个在香港的，直连服务器没事"
+            },
+            {
+              "speaker": 8,
+              "time": "16:28",
+              "text": "在美中国人也不行了吗",
+              "quote": {
+                "speaker": 6,
+                "text": "他现在的政策是在美中国人也不行，那其实可以无脑封中文了是不是"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:29",
+              "text": "可以",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 在美中国人也不行了吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "16:29",
+              "text": "我还在用着"
+            },
+            {
+              "speaker": 2,
+              "time": "16:29",
+              "text": "中文"
+            },
+            {
+              "speaker": 6,
+              "time": "16:29",
+              "text": "也是风控对象吧   那你小心"
+            },
+            {
+              "speaker": 6,
+              "time": "16:29",
+              "text": "我记得之前更新了政策"
+            },
+            {
+              "speaker": 6,
+              "time": "16:30",
+              "text": "（也可能我梦里见过？最近总做奇奇怪怪的梦"
+            },
+            {
+              "speaker": 2,
+              "time": "16:30",
+              "text": "用了快一年了",
+              "quote": {
+                "speaker": 6,
+                "text": "也是风控对象吧 那你小心"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "16:32",
+              "text": "是mythos刚出的时候吧，连A自己的中国员工都不能用，后面就好了"
+            },
+            {
+              "speaker": 6,
+              "time": "16:41",
+              "text": "那提问：特朗普的A\\现在被封了吗"
+            },
+            {
+              "speaker": 10,
+              "time": "17:04",
+              "text": "不在封禁地区用就行"
+            },
+            {
+              "speaker": 10,
+              "time": "17:04",
+              "text": "海外cn留学生很多，不会封"
+            },
+            {
+              "speaker": 11,
+              "time": "17:07",
+              "text": "嗯嗯，不会封的，也没有出现身份验证",
+              "quote": {
+                "speaker": 10,
+                "text": "海外cn留学生很多，不会封"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "17:07",
+              "text": "好像用 claude 指挥 codex 干活长程任务会被弹门户认证，可能怕是一些中转站在后天长时间挂着吧，我因为指挥 codex 被弹 2 个号了[苦涩]"
+            },
+            {
+              "speaker": 12,
+              "time": "17:08",
+              "text": "现在已经不是 kyc 现在是 portal 验证"
+            }
+          ]
+        },
+        {
+          "category": "工具体验",
+          "title": "Gemini“复活”：拿 ultra 5 写方案，让 Codex 老实干活",
+          "text": "下午有人问 Gemini 是不是又出了 neon，随后贴出截图，图里是一张黑底紫色四角星的产品图。群里先拿命名开玩笑：有人问是不是比 carbon 厉害、序列更高，说像龙族的言灵序号；有人期待铀235模型；还有人接了句“subagent本质裂变反应”。\n\n接着是使用体验。一位群友说 Gemini 现在体验拉爆 codex，就是干活容易卡住，干很久都干不完。另一位说这是网络问题，自己换了 VPN 就好了。前者回应说自己用的是中转，能看到 thinking 一直在干活，就是干不完。还有人说自己也会卡，经常显示地区限制。\n\n说 Gemini 拉爆 codex 的那位群友，分工是：用 ultra 5 设计方案、指挥 codex，codex 用 6.1 sol 老实干活，“不用他思考跑偏”。有人问怎么打通的，回答是手动粘贴。先和 Gemini 聊得差不多了，再让它给 codex 写一个 prompt。粘贴工作量不大，所以懒得打通。\n\n额度方面，有人说 antigravity 200 刀的量比两个 codex 200 刀的量都多，里面还有 opus 额度，挺值。前面那位群友说 opus 额度自己用一会就没了。另有人提到推上有说法称 6.1 sol 有 claude 指纹。\n\n封号方面说法不一。有人说 anti-gravity 基本不封，gemini 和 chatgpt 都不咋封；也有人说自己的谷歌邮箱被封过，可能是梯子问题；还有人说 OpenAI 不封号，但给你降智。另有人说第一次用反重力要过验证，有的号会很麻烦。账号被标成中国地区导致用不了的情况，群里有人说申请改地区成功了，也有人申请失败。",
+          "emphasis": [
+            "Gemini 现在体验拉爆 codex，就是干活容易卡住",
+            "用 ultra 5 设计方案、指挥 codex",
+            "antigravity 200 刀的量比两个 codex 200 刀的量都多"
+          ],
+          "aiComment": "Gemini 当甲方写方案，Codex 当乙方埋头干活，中间的接口是人类亲手复制粘贴 📋",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:37",
+              "text": "gemini 又出neon 了？"
+            },
+            {
+              "speaker": 2,
+              "time": "13:38",
+              "text": "？"
+            },
+            {
+              "speaker": 2,
+              "time": "13:38",
+              "text": "有图图吗"
+            },
+            {
+              "speaker": 1,
+              "time": "13:42",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 3,
+              "time": "13:43",
+              "text": "这个取名思路真有意思"
+            },
+            {
+              "speaker": 4,
+              "time": "13:43",
+              "text": "这也太快了"
+            },
+            {
+              "speaker": 5,
+              "time": "13:43",
+              "text": "跑通rsi是这样的"
+            },
+            {
+              "speaker": 5,
+              "time": "13:44",
+              "text": "RL Scaling！"
+            },
+            {
+              "speaker": 2,
+              "time": "13:46",
+              "text": "是不是比carbon厉害？"
+            },
+            {
+              "speaker": 2,
+              "time": "13:46",
+              "text": "这个序列更高"
+            },
+            {
+              "speaker": 2,
+              "time": "13:46",
+              "text": "感觉有点儿像龙族言灵序号了，希望有人懂"
+            },
+            {
+              "speaker": 6,
+              "time": "13:47",
+              "text": "gemini已经黑王登基了[旺柴]"
+            },
+            {
+              "speaker": 7,
+              "time": "13:47",
+              "text": "王者回归吗"
+            },
+            {
+              "speaker": 8,
+              "time": "13:48",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 9,
+              "time": "13:49",
+              "text": "看晕了",
+              "quote": {
+                "speaker": 8,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:49",
+              "text": "期待一个铀235模型"
+            },
+            {
+              "speaker": 4,
+              "time": "13:49",
+              "text": "这下真是原子弹爆炸了"
+            },
+            {
+              "speaker": 9,
+              "time": "13:50",
+              "text": "subagent本质裂变反应"
+            },
+            {
+              "speaker": 10,
+              "time": "13:50",
+              "text": "好强"
+            },
+            {
+              "speaker": 11,
+              "time": "14:06",
+              "text": "啊",
+              "quote": {
+                "speaker": 8,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "14:12",
+              "text": "期待Pu",
+              "quote": {
+                "speaker": 8,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "14:26",
+              "text": "gemini 复活了[旺柴]"
+            },
+            {
+              "speaker": 14,
+              "time": "14:28",
+              "text": "Gemini现在体验拉爆codex"
+            },
+            {
+              "speaker": 14,
+              "time": "14:28",
+              "text": "就是干活容易卡住，干很久干不完"
+            },
+            {
+              "speaker": 15,
+              "time": "14:29",
+              "text": "这个是网络的问题"
+            },
+            {
+              "speaker": 15,
+              "time": "14:29",
+              "text": "我换了VPN 就好了"
+            },
+            {
+              "speaker": 14,
+              "time": "14:29",
+              "text": "我用的中转，而且我看到他thinking还是一直在干活的"
+            },
+            {
+              "speaker": 14,
+              "time": "14:29",
+              "text": "就是不知道为什么一直干不完，我一般让他设计方案指挥codex"
+            },
+            {
+              "speaker": 15,
+              "time": "14:30",
+              "text": "我的用的是antigravity，200刀的量比两个codex200刀量都多"
+            },
+            {
+              "speaker": 14,
+              "time": "14:30",
+              "text": "我ultra 5来指挥codex，codex用6.1 sol老实干活就行，不用他思考跑偏[破涕为笑]"
+            },
+            {
+              "speaker": 10,
+              "time": "14:33",
+              "text": "我也会",
+              "quote": {
+                "speaker": 14,
+                "text": "就是干活容易卡住，干很久干不完"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "14:34",
+              "text": "经常显示地区限制"
+            },
+            {
+              "speaker": 14,
+              "time": "14:34",
+              "text": "我没有显示，就是他容易一直自己干很久[破涕为笑]",
+              "quote": {
+                "speaker": 10,
+                "text": "经常显示地区限制"
+              }
+            },
+            {
+              "speaker": 16,
+              "time": "14:36",
+              "text": "get",
+              "quote": {
+                "speaker": 2,
+                "text": "感觉有点儿像龙族言灵序号了，希望有人懂"
+              }
+            },
+            {
+              "speaker": 16,
+              "time": "14:36",
+              "text": "当真吗，我那我真的要试试了",
+              "quote": {
+                "speaker": 15,
+                "text": "我的用的是antigravity，200刀的量比两个codex200刀量都多"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "14:36",
+              "text": "Gemini-皇帝"
+            },
+            {
+              "speaker": 15,
+              "time": "14:36",
+              "text": "反重力里还有opus 的额度"
+            },
+            {
+              "speaker": 15,
+              "time": "14:36",
+              "text": "我觉得是挺值的"
+            },
+            {
+              "speaker": 14,
+              "time": "14:37",
+              "text": "那个我好像用一会就没了哈哈",
+              "quote": {
+                "speaker": 15,
+                "text": "反重力里还有opus 的额度"
+              }
+            },
+            {
+              "speaker": 17,
+              "time": "14:37",
+              "text": "酷",
+              "quote": {
+                "speaker": 2,
+                "text": "感觉有点儿像龙族言灵序号了，希望有人懂"
+              }
+            },
+            {
+              "speaker": 18,
+              "time": "15:11",
+              "text": "反重力是不是不需要梯子特别干净，它封号严重吗？"
+            },
+            {
+              "speaker": 19,
+              "time": "15:12",
+              "text": "貌似我的google account 被 mark as China了就用不了了"
+            },
+            {
+              "speaker": 20,
+              "time": "15:12",
+              "text": "可以换地区",
+              "quote": {
+                "speaker": 19,
+                "text": "貌似我的google account 被 mark as China了就用不了了"
+              }
+            },
+            {
+              "speaker": 20,
+              "time": "15:12",
+              "text": "我刚成为俄勒冈人"
+            },
+            {
+              "speaker": 21,
+              "time": "15:12",
+              "text": "怎么弄的呀",
+              "quote": {
+                "speaker": 20,
+                "text": "我刚成为俄勒冈人"
+              }
+            },
+            {
+              "speaker": 19,
+              "time": "15:12",
+              "text": "我靠我试一试"
+            },
+            {
+              "speaker": 21,
+              "time": "15:12",
+              "text": "我申请成为 蒙大拿人失败了"
+            },
+            {
+              "speaker": 19,
+              "time": "15:13",
+              "text": "不过anti-gravity 基本上不封吧"
+            },
+            {
+              "speaker": 19,
+              "time": "15:13",
+              "text": "gemini 和 chatgpt都不咋封"
+            },
+            {
+              "speaker": 22,
+              "time": "15:17",
+              "text": "这个工作流怎么实现的呀",
+              "quote": {
+                "speaker": 14,
+                "text": "我ultra 5来指挥codex，codex用6.1 sol老实干活就行，不用他思考跑偏[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 22,
+              "time": "15:18",
+              "text": "手动复制粘贴给codex还是"
+            },
+            {
+              "speaker": 19,
+              "time": "15:18",
+              "text": "之前我看推上说6.1 sol 有 claude指纹"
+            },
+            {
+              "speaker": 19,
+              "time": "15:18",
+              "text": "蛮搞的"
+            },
+            {
+              "speaker": 22,
+              "time": "15:18",
+              "text": "用中转的话是用ccs接到Gemini cli嘛 还是反重力也能接中转站呀[让我看看]"
+            },
+            {
+              "speaker": 23,
+              "time": "15:19",
+              "text": "OpenAI 不封你号，但给你降职。"
+            },
+            {
+              "speaker": 23,
+              "time": "15:20",
+              "text": "降智。"
+            },
+            {
+              "speaker": 14,
+              "time": "15:20",
+              "text": "我是手动粘贴的，就和Gemini聊的差不多了，让他给codex写一个prompt",
+              "quote": {
+                "speaker": 22,
+                "text": "手动复制粘贴给codex还是"
+              }
+            },
+            {
+              "speaker": 14,
+              "time": "15:21",
+              "text": "这个粘贴一下工作量也不大，就懒得打通了[破涕为笑]"
+            },
+            {
+              "speaker": 22,
+              "time": "15:22",
+              "text": "噢噢噢噢这样子"
+            },
+            {
+              "speaker": 24,
+              "time": "15:27",
+              "text": "反重力主要是第一次用要验证有的号可能会很麻烦"
+            },
+            {
+              "speaker": 25,
+              "time": "15:42",
+              "text": "反重力 只有ultra才有强模型吗"
+            },
+            {
+              "speaker": 26,
+              "time": "15:46",
+              "text": "我谷歌邮箱都被封过，可能就是梯子的问题",
+              "quote": {
+                "speaker": 18,
+                "text": "反重力是不是不需要梯子特别干净，它封号严重吗？"
+              }
+            }
+          ]
+        },
+        {
+          "category": "审稿",
+          "title": "新评分档太粗：不忍心给 1，给 2 又和更烂的同档",
+          "text": "一位正在审稿的群友说，有些 paper 自己觉得罪不至此，不忍心打 1 分，就打了 2，现在不知道该怎么回复。有人劝勇敢一点，“分数1 confi 5走起”。另一位说问题在粒度太粗。审稿的那位也觉得不如去年的 0-10，虽然 0 分确实搞心态。\n\n说粒度太粗的那位接着讲了校准上的难处：一开始看到几篇想给 2，往后看到更烂的；可给 1 又觉得太过分，都给 2 的话，前面几篇又不至于和后面这几篇一个水平。最早那位说自己也是这样。\n\n也有人讲了作者这边的经历：初始分是 3、3、1，1 分审稿人 confidence 4。他们补了一大堆实验回击“一分哥”，对方改成了 2，又加了一堆 remaining concerns。有人怀疑是 codex 全自动审稿，这位群友觉得那些 remaining 看上去是手打的。\n\n另一件事是今天开始陆续标记 AI 审稿。有人问被标记了会怎样，没人说得清。最早那位说自己用了 AI，也大大方方提交了 document。有人问这是 MLSys 还是 ICLR，没有人回答。",
+          "emphasis": [
+            "另一位说问题在粒度太粗",
+            "给 1 又觉得太过分",
+            "今天开始陆续标记 AI 审稿"
+          ],
+          "aiComment": "不忍心给 1，给了 2 又和更烂的挤进一档。审稿人卡在两个格子之间，亲身体验了一把分数通胀 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "15:52",
+              "text": "有点麻了[裂开]有些paper我觉得罪不至此，不忍心打1分就打了个2，这种好难回复"
+            },
+            {
+              "speaker": 1,
+              "time": "15:53",
+              "text": "这种群友们咋解决的"
+            },
+            {
+              "speaker": 2,
+              "time": "15:53",
+              "text": "勇敢一点"
+            },
+            {
+              "speaker": 2,
+              "time": "15:53",
+              "text": "多了就习惯了"
+            },
+            {
+              "speaker": 3,
+              "time": "15:54",
+              "text": "还是太好心了",
+              "quote": {
+                "speaker": 1,
+                "text": "有点麻了[裂开]有些paper我觉得罪不至此，不忍心打1分就打了个2，这种好难回复"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "15:57",
+              "text": "还是粒度太粗了"
+            },
+            {
+              "speaker": 1,
+              "time": "15:57",
+              "text": "我觉得不如去年的0-10"
+            },
+            {
+              "speaker": 1,
+              "time": "15:57",
+              "text": "虽然0分确实搞心态"
+            },
+            {
+              "speaker": 2,
+              "time": "15:58",
+              "text": "怕啥 分数1 confi 5走起"
+            },
+            {
+              "speaker": 4,
+              "time": "15:58",
+              "text": "一开始看到几篇文章想给2，看后面的文章时发现更烂，但是给1感觉太过分了，如果给2就感觉前面几篇文章也不至于和后面这几篇一个水平"
+            },
+            {
+              "speaker": 5,
+              "time": "16:01",
+              "text": "我们初始分331,1分哥confidence 4; 补了大堆实怒斥一分哥，然后一份哥改成了2，然后又加了一堆remaining..."
+            },
+            {
+              "speaker": 1,
+              "time": "16:03",
+              "text": "没绷住",
+              "quote": {
+                "speaker": 4,
+                "text": "一开始看到几篇文章想给2，看后面的文章时发现更烂，但是给1感觉太过分了，如果给2就感觉前面几篇文章也不至于和后面这几篇一个水平"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:03",
+              "text": "和我一样"
+            },
+            {
+              "speaker": 2,
+              "time": "16:04",
+              "text": "codex 全自动审稿啊",
+              "quote": {
+                "speaker": 5,
+                "text": "我们初始分331,1分哥confidence 4; 补了大堆实怒斥一分哥，然后一份哥改成了2，然后又加了一堆remaining..."
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:04",
+              "text": "今天不是开始标记ai了吗"
+            },
+            {
+              "speaker": 6,
+              "time": "16:04",
+              "text": "陆续标记了"
+            },
+            {
+              "speaker": 2,
+              "time": "16:05",
+              "text": "我没审今年的[捂脸]啥情况"
+            },
+            {
+              "speaker": 7,
+              "time": "16:05",
+              "text": "标记了会怎么样嘛"
+            },
+            {
+              "speaker": 8,
+              "time": "16:05",
+              "text": "同问",
+              "quote": {
+                "speaker": 7,
+                "text": "标记了会怎么样嘛"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "16:05",
+              "text": "+1"
+            },
+            {
+              "speaker": 5,
+              "time": "16:05",
+              "text": "后面remaining看上去都是手打的；估计是国外top组的小同行",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] codex 全自动审稿啊"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "16:08",
+              "text": "不清楚"
+            },
+            {
+              "speaker": 1,
+              "time": "16:08",
+              "text": "反正我用ai了大大方方给了document"
+            },
+            {
+              "speaker": 10,
+              "time": "16:17",
+              "text": "这是在review mlsys吗 还是iclr"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "OpenAI 给 20 万科学家免费用模型，群友更关心数据会不会拿去训练",
+          "text": "有群友贴出 OpenAI 的帖子截图：计划为全球约 20 万名科学家免费提供前沿模型访问、培训和支持，申请 11 月 23 日开放，并说明默认不会用该计划共享的数据训练模型。有人问“全球”包不包括中国，另一位看了地图后说包含，密度还不低。另有群友补充，谷歌 Antigravity 也给符合条件的学术研究人员开放免费权限申请。\n\n群里对这份福利本身评价不高。有人看完细则觉得有点抠，有人追问“才Plus么”；另一位嫌没有内测新模型，没诚意。也有人开玩笑问，多久能在闲鱼上看到卖这种号的。有群友说，美国一些学校的生物实验室收到过 Anthropic 的合作邮件，可以免费申请 API 权限，但回复之后对方往往就不理了。\n\n讨论最多的是数据。有人觉得这些本该是重点关注的回流数据，不太可能不拿来训：数学家、物理学家研究了好几年、还没来得及发布的东西，就这么被训进模型。有人追问，会不会是 leader 口头让员工去用，出事再推成员工个人行为。另一位认为可能只是看分布，这么大的公司、这种规模的违约会出大问题；不过光是看到人类前沿在研究什么，这个认知本身就很重要。还有人说，就算不直接训，和用户交互的过程本来也会优化模型。",
+          "emphasis": [
+            "默认不会用该计划共享的数据训练模型",
+            "不太可能不拿来训",
+            "这么大的公司、这种规模的违约会出大问题"
+          ],
+          "aiComment": "申请 11 月 23 日才开放，群里已经先担心多年未发表的成果被吃进模型，羊毛还没薅到，先护住自家的毛。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:28",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "12:30",
+              "text": "多久能在闲鱼看到卖这种号的[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "12:31",
+              "text": "这个全球包含中国吗"
+            },
+            {
+              "speaker": 3,
+              "time": "12:41",
+              "text": "我看了地图，包含的，密度还不低",
+              "quote": {
+                "speaker": 2,
+                "text": "这个全球包含中国吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:42",
+              "text": "这个大概什么水平才可以入啊",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "12:42",
+              "text": "这号得多少钱",
+              "quote": {
+                "speaker": 1,
+                "text": "多久能在闲鱼看到卖这种号的[旺柴]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "12:44",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 5,
+              "time": "12:44",
+              "text": "非默认情况下，不应该重点用这些数据来训练模型么[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "12:45",
+              "text": "https://antigravity.google/use-cases/science"
+            },
+            {
+              "speaker": 5,
+              "time": "12:45",
+              "text": "谷歌也有"
+            },
+            {
+              "speaker": 2,
+              "time": "12:45",
+              "text": "https://openai.com/zh-Hans-CN/index/expanding-chatgpt-for-academic-researchers/"
+            },
+            {
+              "speaker": 6,
+              "time": "12:45",
+              "text": "填路造海了",
+              "quote": {
+                "speaker": 4,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "12:46",
+              "text": "本质蒸馏（"
+            },
+            {
+              "speaker": 8,
+              "time": "12:46",
+              "text": "有点扣"
+            },
+            {
+              "speaker": 7,
+              "time": "12:46",
+              "text": "才Plus么"
+            },
+            {
+              "speaker": 7,
+              "time": "12:46",
+              "text": "那确实很抠了（"
+            },
+            {
+              "speaker": 3,
+              "time": "12:47",
+              "text": "那也不值钱了"
+            },
+            {
+              "speaker": 3,
+              "time": "12:47",
+              "text": "不来点内测新模型"
+            },
+            {
+              "speaker": 3,
+              "time": "12:47",
+              "text": "没诚意"
+            },
+            {
+              "speaker": 9,
+              "time": "12:49",
+              "text": "美国一些学校的生物实验室还收到过A/邮件，跟他们合作，免费申请API使用权限，可能想做AI4SCIENCE方面的东西[捂脸]"
+            },
+            {
+              "speaker": 9,
+              "time": "12:49",
+              "text": "但现实是回复邮件后他们往往都不理你了"
+            },
+            {
+              "speaker": 10,
+              "time": "12:50",
+              "text": "A/也有拖延症吗",
+              "quote": {
+                "speaker": 9,
+                "text": "但现实是回复邮件后他们往往都不理你了"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "12:51",
+              "text": "这些不应该是重点关注的回流数据吗，感觉不太可能不拿来训模型"
+            },
+            {
+              "speaker": 11,
+              "time": "12:51",
+              "text": "人家数学家 物理学家研究好几年的研究还没来得及发布然后被你框框训进去模型了"
+            },
+            {
+              "speaker": 9,
+              "time": "12:51",
+              "text": "不知道呀，也可能申请的实验室太多吧",
+              "quote": {
+                "speaker": 10,
+                "text": "[引用] A/也有拖延症吗"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "12:52",
+              "text": "确实",
+              "quote": {
+                "speaker": 11,
+                "text": "这些不应该是重点关注的回流数据吗，感觉不太可能不拿来训模型"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "13:10",
+              "text": "好奇说不用就真的不用吗？会不会比如leader口头让员工去用然后把责任推到员工个人行为这样[捂脸]",
+              "quote": {
+                "speaker": 11,
+                "text": "这些不应该是重点关注的回流数据吗，感觉不太可能不拿来训模型"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "13:12",
+              "text": "也有可能只是看分布吧"
+            },
+            {
+              "speaker": 13,
+              "time": "13:12",
+              "text": "这么大公司，这种规模的违约，应该是会出大问题的"
+            },
+            {
+              "speaker": 12,
+              "time": "13:13",
+              "text": "确实，不直接训也可以有些别的用途"
+            },
+            {
+              "speaker": 13,
+              "time": "13:13",
+              "text": "但光是看到人类前沿在研究什么问题，这个认知本身就很重要了"
+            },
+            {
+              "speaker": 9,
+              "time": "13:15",
+              "text": "不一定直接训，但和用户交互的过程本来也会优化模型吧"
+            }
+          ],
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Google Antigravity for science",
+              "url": "https://antigravity.google/use-cases/science"
+            }
+          ]
+        },
+        {
+          "category": "开源",
+          "title": "Qwen4-Max 不开源？有人猜阿里要吃大尺寸市场",
+          "text": "有群友发了 Qoder 的公告截图：Qwen4-Max 预览版再次上线，享 2 折限免，正式版恢复标准计费。分享者感叹 Qwen4 好肝，问是不是还要再发新版本；另一位问为啥不开源。\n\n分享者转述了别人的说法：Qwen 小尺寸的市场，阿里可以开源分享给大家。分享者自己猜，阿里可能是想吃下大尺寸模型的市场，让 AI 全栈业务更卖钱。拿 kimi 对比，分享者说 kimi 的 infra 弱很多，可能要靠卖模型授权赚钱，kimi 大尺寸也确实开源得很彻底，3.1pro 也开源了。说完分享者补了一句“不太懂”。",
+          "emphasis": [
+            "阿里可能是想吃下大尺寸模型的市场"
+          ],
+          "aiComment": "小尺寸开源交朋友，Max 留着自己吃饭。群友猜得头头是道，最后补的一句“不太懂”格外真诚。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:06",
+              "text": "[图片]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:06",
+              "text": "Qwen4 好肝啊\n这是还得发新版本么",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:07",
+              "text": "为啥不开源呢"
+            },
+            {
+              "speaker": 1,
+              "time": "01:10",
+              "text": "看 liudayiheng 说\n\nQwen 小尺寸的市场，阿里可以开源分享给大家，\n\n阿里可能是想要吃大尺寸模型的市场？\n让自己的 ai 全栈业务更卖钱？\n\n相比于 kimi，kimi 的 infra 弱很多，可能要卖模型授权赚钱？\n\n不太懂"
+            },
+            {
+              "speaker": 1,
+              "time": "01:10",
+              "text": "kimi 大尺寸确实开源很彻底\n3.1pro 也都开源了"
+            }
+          ]
+        },
+        {
+          "category": "模型行为",
+          "title": "让 6.1 sol 写入防御性 prompt，它回“逐字节一致”",
+          "text": "群里流传一份防御性编程 prompt。有群友让 6.1 sol 把它放进 agent.md，模型回报说核验过了，逐字节一致。这位群友的评价是 6.1 sol“完全腌入味了”。另一位认为这事单靠 prompt 解决不了，是 CoT 和训练的问题；还有人说 6.1 sol 感觉还不如 5.6。",
+          "emphasis": [
+            "这事单靠 prompt 解决不了，是 CoT 和训练的问题"
+          ],
+          "aiComment": "让它写进 agent.md，它先汇报“逐字节一致”。防御性 prompt 还没起作用，防御性汇报已经拿了满分。",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:14",
+              "text": "感谢群u",
+              "quote": {
+                "speaker": null,
+                "text": "[文件] 防御性编程 prompt.txt (9.2 KB, txt, md5=9d1e7369813276dac2a3e8ea54ef18d3)"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:16",
+              "text": "[旺柴]感觉6.1sol完全腌入味了，我让他把这个放在agent.md里，他告诉我核验过了，逐字节一致"
+            },
+            {
+              "speaker": 2,
+              "time": "21:16",
+              "text": "哈哈哈哈哈哈哈"
+            },
+            {
+              "speaker": 2,
+              "time": "21:16",
+              "text": "没招了"
+            },
+            {
+              "speaker": 3,
+              "time": "21:16",
+              "text": "老师，我应该把他放到哪个文件夹下比较好  agent.md吗"
+            },
+            {
+              "speaker": 2,
+              "time": "21:16",
+              "text": "这单纯用prompt解决不了的"
+            },
+            {
+              "speaker": 2,
+              "time": "21:17",
+              "text": "这是cot和训练的问题"
+            },
+            {
+              "speaker": 4,
+              "time": "21:17",
+              "text": "6.1 sol感觉都不如5.6"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
