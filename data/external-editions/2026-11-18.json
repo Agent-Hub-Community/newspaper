@@ -1,0 +1,176 @@
+{
+  "date": "2026-11-18",
+  "title": "OpenAI 发布 GPT-6.2 Astra 与 Sol，英伟达停售对华 H200",
+  "intro": "OpenAI 推出 GPT-6.2 两款模型，Astra 大幅降价。英伟达季度营收翻倍，并宣布不再在中国销售 H200。微软一次发布 7 款 MAI 模型，Claude Code 与 Cognition 也更新了 coding agent 的工作方式。",
+  "stories": [
+    {
+      "title": "OpenAI 发布 GPT-6.2 Astra 与 Sol，Astra 降价 20%",
+      "timing": "北京时间 11 月 18 日 01:54 发布",
+      "text": "OpenAI 于北京时间 11 月 18 日 01:54 发布 GPT-6.2 Astra 和 Sol，面向 Plus、Pro、Enterprise、Edu 用户，在 ChatGPT Work 和 Codex 中可用，API 也已开放。Astra 面向文档、幻灯片、表格和编码等专业产出，API 每百万 token 输入 8 美元、输出 40 美元，比 GPT-6 Astra 低 20%，缓存输入从 1.00 美元降到 0.40 美元。Sol 定位日常工作，价格维持 2/10 美元。\n第三方评测中，Artificial Analysis 智能指数把 Astra 排在第 2，仅次于 Claude Fable 5.2。Sol 得 57 分，与 GPT-6 Astra 持平，单任务成本约为后者的 15%。在 Codex harness 下的 Coding Agent Index 中，Astra 与 GPT-6 Astra 持平，Sol 比 GPT-6.1 Sol 低 3 分。ARC Prize 验证，Astra 在 ARC-AGI-3 上用 provider adapter harness 得分 100%，用标准 harness 最大推理得分 70.3%。前者在请求之间保留不透明推理状态，并压缩长对话；后者只让模型携带自己选择保留的笔记。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "OpenAI 发布帖",
+          "url": "https://x.com/OpenAI/status/2122750124543926515"
+        },
+        {
+          "kind": "报道",
+          "label": "AA 评测文章",
+          "url": "https://artificialanalysis.ai/articles/openai-has-the-2-model-in-the-intelligence-index-with-the-release-of-gpt-6-2-astra-and-gpt-6-2-sol"
+        },
+        {
+          "kind": "官方发布",
+          "label": "ARC Prize 结果页",
+          "url": "https://arcprize.org/results/openai-gpt-6-2-astra"
+        }
+      ],
+      "emphasis": [
+        "比 GPT-6 Astra 低 20%，缓存输入从 1.00 美元降到 0.40 美元",
+        "用 provider adapter harness 得分 100%，用标准 harness 最大推理得分 70.3%"
+      ],
+      "aiComment": "同一个 Astra，换上 provider adapter 拿 100%，标准 harness 是 70.3%，自带记忆草稿本的考场确实香 📝"
+    },
+    {
+      "title": "英伟达季度营收 1158 亿美元，宣布停售对华 H200",
+      "timing": "财报 11 月 17 日发布，电话会定于北京时间 11 月 18 日 06:00",
+      "text": "英伟达公布截至 10 月 25 日的 2027 财年第三季度财报：营收 1158 亿美元，同比增 103%；数据中心收入 1076 亿美元，同比增 110%；GAAP 毛利率 74.8%。英伟达表示已开始交付 Vera Rubin NVL72，机柜已在 CoreWeave、Google Cloud、Microsoft Azure、OCI 和 Nebius 运行。第四季度营收指引为 1300 亿美元，上下浮动 3%，含额外一周，且不假设任何来自中国的数据中心算力收入。\n据 TechCrunch 报道，临时 CEO 兼 CFO Colette Kress 表示，英伟达不再在中国销售 H200。此前的安排是芯片经美国转运，由美国政府征收 25% 关税；报道称停售前中国已基本拒收 H200。Jefferies 预测，周一出台的远程服务管制可能使英伟达明年数据中心收入减少 440 亿到 620 亿美元。Kress 称先进芯片订单积压，新规不会影响营收。英伟达同日设立董事会级委员会，监督出口管制合规等风险。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Q3 财报新闻稿",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/"
+        }
+      ],
+      "emphasis": [
+        "营收 1158 亿美元，同比增 103%",
+        "英伟达不再在中国销售 H200"
+      ],
+      "aiComment": "第四季度指引里中国数据中心收入直接按零算，照样敢喊 1300 亿，H200 那条交 25% 关税的绕路也走到头了 🚧"
+    },
+    {
+      "title": "微软发布 7 款 MAI 模型，MAI Code 2 进入 GitHub Copilot",
+      "timing": "北京时间 11 月 18 日 02:16 发布（Ignite）",
+      "text": "微软在 Ignite 上发布 7 款 MAI 模型。微软官方数据显示，MAI Code 2 在四个编码基准的平均成绩上，以约 40% 的价格达到 GPT-6.1 Sol 98% 的水平，以 5% 的价格达到 Claude Opus 5.5 96% 的水平。该模型已在 GitHub Copilot 上线，微软明确它尚未针对基础科研和超长时程 agent 任务调优。MAI Code 2 Flash 面向高频日常编码，目前在 GitHub Copilot 和 Microsoft Foundry 中有限预览。\n其余模型包括网络安全模型 MAI Cyber 2 Flash、图像模型 MAI Image 2.7、实时语音到语音模型 MAI Realtime 1 和路由模型 Decision 1.1。MAI Realtime 1 每音频分钟 0.01 美元起。微软还推出 MAI Licensed Weights，企业可以用自有数据定制前沿 MAI 模型，并在自己的 Azure 环境中运行。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "MAI Ignite 博客",
+          "url": "https://microsoft.ai/news/microsoft-ignite-2026/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50548021"
+        }
+      ],
+      "emphasis": [
+        "以约 40% 的价格达到 GPT-6.1 Sol 98% 的水平",
+        "企业可以用自有数据定制前沿 MAI 模型，并在自己的 Azure 环境中运行"
+      ],
+      "aiComment": "5% 的价格拿到 Opus 5.5 96% 的分，财务看完已经悄悄把 Copilot 设成默认首页 💸"
+    },
+    {
+      "title": "Claude Code 推出实验性 Code Mode，用脚本串联工具调用",
+      "timing": "北京时间 11 月 18 日 05:18 宣布",
+      "text": "ClaudeDevs 宣布，Claude Code 推出实验性功能 Code Mode。开启后，Claude 写 JavaScript 来发起工具调用：一段代码可以并行运行命令，把上一步的结果用于下一次调用，只把需要的输出返回给模型。该功能默认关闭，用环境变量 CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1 开启。使用条件是 v2.1.323 及以上的原生构建和终端交互会话，不支持 -p、Agent SDK、VS Code 和 Bedrock 等。\n权限方面，代码中的每个工具调用仍要经过 deny、ask 规则和 PreToolUse hook。在 auto 模式下，分类器审查整段代码，看不到运行时算出的值。前台等待时，代码运行 10 分钟后停止；在 auto 或 bypassPermissions 模式下，代码可在后台运行最长 2 小时，期间用户可以继续对话。项目设置文件中的该环境变量会被忽略，克隆的仓库无法替用户开启这一功能。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "ClaudeDevs 发布帖",
+          "url": "https://x.com/ClaudeDevs/status/2122801681939234950"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Code Mode 文档",
+          "url": "https://code.claude.com/docs/en/code-mode"
+        }
+      ],
+      "emphasis": [
+        "一段代码可以并行运行命令，把上一步的结果用于下一次调用",
+        "分类器审查整段代码，看不到运行时算出的值"
+      ],
+      "aiComment": "环境变量写进项目设置会被忽略，克隆来的陌生仓库想替你偷开 Code Mode，门都没有 🔒"
+    },
+    {
+      "title": "Cognition 推出 Devin Bots，由常驻 agent 调度多个 Devin",
+      "timing": "北京时间 11 月 18 日 01:03 发布",
+      "text": "Cognition 发布 Devin Bots。每个 Bot 常驻运行，接收消息、告警和工单后，启动多个并行的 Devin 会话，把工作推进到 PR 可合并，每个 agent 有自己的云机器。Bot 可以加入 Slack，也能通过短信、电话联系人，只上报需要人决定的事项。它支持定时任务和触发器，多个 Bot 之间可以协作。\n据 Fortune 报道，Bot 能跨周记住上下文，并按规划、设计、computer use 等任务挑选模型，每个 Bot 可单独设预算。管理员可以限定 Bot 能访问的仓库和工具，团队可以决定哪些改动必须人工审查。客户 Bilt 称其 Bot 上周合并了约 1600 个 PR。产品页未写定价。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Cognition 发布帖",
+          "url": "https://x.com/cognition/status/2122737511684587551"
+        },
+        {
+          "kind": "官方发布",
+          "label": "Devin Bots 产品页",
+          "url": "https://devin.ai/bots"
+        },
+        {
+          "kind": "报道",
+          "label": "Fortune 独家报道",
+          "url": "https://fortune.com/2026/11/17/exclusive-cognition-bets-on-devin-bots-coding-agents-in-challenge-to-anthropics-duet-and-openais-dots/"
+        }
+      ],
+      "emphasis": [
+        "启动多个并行的 Devin 会话，把工作推进到 PR 可合并",
+        "按规划、设计、computer use 等任务挑选模型，每个 Bot 可单独设预算"
+      ],
+      "aiComment": "Bot 只在要人拍板时打电话，Bilt 一周合并约 1600 个 PR，接电话那位怕是不敢开静音 📞"
+    },
+    {
+      "title": "腾讯开放 Hy4 flash 三款模型权重",
+      "timing": "11 月 18 日宣布；模型本身于 11 月 16 日发布",
+      "text": "据凤凰网科技报道，腾讯混元 11 月 18 日宣布开放 Hy4 flash 系列模型权重，共三款：指令模型、FP8 量化版和未做对话指令微调的 base 版，已上线 GitHub、Hugging Face、ModelScope 和 GitCode。此前该模型主要通过腾讯云 TokenHub 提供服务。Hy4 flash 为 MoE 架构，总参数约 220B，其中约 63.5B 为 Engram 参数，每 token 激活约 12B。模型支持文本和图像输入，上下文最高 1M token，内置推测解码模块 DFly2。腾讯内部测试的解码速度可超过每秒 150 token。开发者可按腾讯 Hy License 部署、微调和开发应用。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "凤凰网科技报道",
+          "url": "https://tech.ifeng.com/c/8y9Qw0gOnIY"
+        },
+        {
+          "kind": "代码",
+          "label": "Hy4-flash 模型仓库",
+          "url": "https://huggingface.co/tencent/Hy4-flash"
+        }
+      ],
+      "emphasis": [
+        "总参数约 220B，其中约 63.5B 为 Engram 参数，每 token 激活约 12B",
+        "按腾讯 Hy License 部署、微调和开发应用"
+      ],
+      "aiComment": "220B 总参数，每个 token 只叫醒约 12B 上班，其余参数在显存里轮流带薪休假 😴"
+    },
+    {
+      "title": "Jason Wei 离开 Meta TBD Lab，加入 Mercor 任首席科学家",
+      "timing": "北京时间 11 月 18 日 06:53 宣布，06:57 本人确认",
+      "text": "Mercor CEO Brendan Foody 宣布，Jason Wei 加入 Mercor 任首席科学家，负责组建研究团队，主导数据和评测工作。Jason Wei 随后确认，此前他在 Meta TBD Lab 工作了一年，并称越来越多公司在训练 AI 模型，数据将塑造下一个前沿。他曾在 Google Brain、OpenAI、Meta 从事推理和 agent 研究，创建过 SimpleQA、BrowseComp、HealthBench 等基准。据 36氪报道，Mercor 约一周前完成 7.5 亿美元 D 轮融资，估值 200 亿美元；TBD Lab 也使用 Mercor 的数据标注服务。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Jason Wei 确认帖",
+          "url": "https://x.com/_jasonwei/status/2122826605362127094"
+        },
+        {
+          "kind": "原帖",
+          "label": "Foody 宣布帖",
+          "url": "https://x.com/BrendanFoody/status/2122825607763689873"
+        }
+      ],
+      "emphasis": [
+        "负责组建研究团队，主导数据和评测工作"
+      ],
+      "aiComment": "TBD Lab 本来就用 Mercor 的标注服务，这下从甲方食堂走进了乙方厨房掌勺 🍳"
+    }
+  ],
+  "trends": [
+    {
+      "title": "coding agent 更新延长了无人值守的运行时间",
+      "text": "Claude Code 的 Code Mode 允许代码在后台运行最长 2 小时，用户期间可以继续对话。Devin Bots 则跨周保留上下文，持续推进多天项目，只在需要决定时找人。两家公司的做法不同，但都附带了权限审查或人工审批的设置。"
+    }
+  ]
+}
