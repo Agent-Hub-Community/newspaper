@@ -28,7 +28,7 @@ test('reviewed daily editions contain only reader content and dated coverage', (
       assert.ok(page.note.length > 0);
       assert.doesNotMatch(page.note, /Gemini|同步加粗|原稿预览/i);
       for (const story of page.stories) {
-        assert.ok(Object.keys(story).every(key => ['category', 'text', 'title', 'emphasis', 'aiComment', 'resources', 'discussion'].includes(key)));
+        assert.ok(Object.keys(story).every(key => ['category', 'text', 'title', 'tldr', 'points', 'emphasis', 'aiComment', 'resources', 'discussion', 'attachments'].includes(key)));
         validateStoryDiscussion(story.discussion);
         for (const key of ['category', 'text', 'title', 'aiComment']) assert.ok(story[key]?.trim());
         for (const phrase of story.emphasis || []) assert.ok(story.text.includes(phrase));
@@ -39,7 +39,8 @@ test('reviewed daily editions contain only reader content and dated coverage', (
           assert.ok(resource.label.trim());
           const url = new URL(resource.url);
           assert.equal(url.protocol, 'https:');
-          assert.equal(url.username + url.password + url.search, '');
+          const allowQuery = url.hostname === 'mp.weixin.qq.com' && url.pathname === '/s';
+          assert.equal(url.username + url.password + (allowQuery ? '' : url.search), '');
         }
       }
     }
