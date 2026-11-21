@@ -1,0 +1,191 @@
+{
+  "date": "2026-11-20",
+  "title": "Anthropic 完成 1195 亿美元 IPO 交割，Mac 桌面迎来智能体攻防战",
+  "intro": "Anthropic 把近 1200 亿美元募资正式落袋，七大芯片和云巨头集体掏钱认购。桌面端同样火药味十足：Google 刚给 Mac 版 Gemini 上了后台接管电脑，苹果就在 macOS 27.3 把第三方智能体的授权步骤拉长到 14 步。",
+  "stories": [
+    {
+      "title": "Anthropic 完成 IPO 交割与定向私募，合计狂揽约 1195 亿美元",
+      "timing": "Anthropic 于 11 月 20 日发布公告",
+      "tldr": "Anthropic 正式完成 IPO 交割及同步定向私募，合计募资约 1195 亿美元，英伟达、微软、谷歌等算力巨头集体入股。",
+      "points": [
+        {
+          "text": "IPO 以每股 83 美元发行 11.27 亿股 A 类股（含超额配售权），募资约 935 亿美元、实得约 916 亿美元。"
+        },
+        {
+          "text": "AMD、博通、Google、美光、微软、英伟达等参与同步定向私募，上下游核心供应商集体变身股东。"
+        }
+      ],
+      "text": "Anthropic 宣布完成 IPO 交割及同步定向私募，扣除承销费用前合计募资约 1195 亿美元。此次 IPO 以每股 83 美元发行 11.27 亿股 A 类普通股（含承销商全额行使的 1.47 亿股超额配售权），其中公司发行约 11.03 亿股、售股股东出售约 2365 万股，IPO 募资总额约 935 亿美元，Anthropic 实得约 916 亿美元。\n同步完成的定向私募中，AMD、博通、Google、美光、微软、英伟达以及台积电旗下 TSMC Partners 以同样每股 83 美元的价格，合计认购约 3.13 亿股 N 类普通股，总金额约 260 亿美元。Anthropic A 类股已于 11 月 19 日在纳斯达克以代码 ANT 挂牌交易。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 交割公告",
+          "url": "https://www.anthropic.com/news/ipo-close"
+        }
+      ],
+      "emphasis": [
+        "扣除承销费用前合计募资约 1195 亿美元",
+        "以同样每股 83 美元的价格，合计认购约 3.13 亿股 N 类普通股"
+      ],
+      "aiComment": "英伟达微软谷歌台积电排着队凑了 260 亿美元，上下游债主和供应商集体变股东，算力账单以后算内部转账吗 💸",
+      "sources": [
+        {
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/news/ipo-close",
+          "excerpt": "Today Anthropic, PBC announced the closing of its initial public offering of an aggregate of 1,127,000,000 shares of its Class A common stock at a public offering price of $83.00 per share, including the full exercise by the underwriters of their option to purchase an additional 147,000,000 shares. Aggregate gross proceeds from the IPO were approximately $93.5 billion ($91.6 billion to Anthropic). Concurrent private placement of 313,253,007 Class N shares to AMD, Broadcom, Google, Micron, Microsoft, NVIDIA, and TSMC Partners at $83.00/share raised approximately $26.0 billion. Total aggregate g"
+        }
+      ]
+    },
+    {
+      "title": "Google 为 Mac 版 Gemini 上线电脑操作功能，后台小黑屋跑多步任务",
+      "timing": "Google 官方博客 11 月 19 日发布，北京时间 11 月 20 日起引发关注",
+      "tldr": "Google 为 Mac 版 Gemini 推出 computer use 功能，可在独立隔离的后台窗口自动操作应用与网页，不抢用户主屏与鼠标。",
+      "points": [
+        {
+          "text": "支持跨本地文件、桌面应用和网页自动点击、输入与填表，聊天框内提供实时预览。"
+        },
+        {
+          "text": "运行在独立隔离后台窗口不占鼠标，且支持用户自定应用权限并在关键操作前逐项审批。"
+        }
+      ],
+      "text": "Google 宣布为 Mac 版 Gemini 应用上线 computer use 功能，用户只需描述流程，Gemini 即可跨本地文件、桌面应用和网页自动完成点击、输入、切换菜单和填表等重复操作。\n该功能运行在独立隔离的后台窗口中，并在聊天界面提供实时预览，不占用用户主屏幕与鼠标指针，方便一边正常办公一边让模型在后台跑任务。用户可自行划定允许访问的应用权限，并在关键动作执行前逐项审批确认。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 官方博客",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/"
+        },
+        {
+          "kind": "原帖",
+          "label": "Josh Woodward 原帖",
+          "url": "https://x.com/joshwoodward/status/2123534862569324703"
+        }
+      ],
+      "emphasis": [
+        "运行在独立隔离的后台窗口中，并在聊天界面提供实时预览，不占用用户主屏幕与鼠标指针"
+      ],
+      "aiComment": "终于不用眼睁睁看着 AI 抢我鼠标满屏乱点了，把它关进后台小黑屋干活，我在前台摸鱼心里踏实多了",
+      "sources": [
+        {
+          "publisher": "Google",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/",
+          "excerpt": "Starting today, computer use in the Gemini app for Mac helps you get multi-step tasks done across your local files, desktop apps, and the web. Just describe what you need, and Gemini handles the clicking, typing, menus, and forms for you. Gemini works inside an isolated background window with live previews in chat so your primary screen and cursor remain free, while you choose app permissions and approve actions."
+        },
+        {
+          "publisher": "Josh Woodward (X)",
+          "url": "https://x.com/joshwoodward/status/2123534862569324703",
+          "excerpt": "Google Labs VP Josh Woodward announced computer use in the Gemini app for Mac, allowing Gemini to automate repetitive multi-step tasks in an isolated background window."
+        }
+      ]
+    },
+    {
+      "title": "苹果招募负责人打造系统级设备智能体，macOS 27.3 却把第三方授权卷到 14 步",
+      "timing": "The Decoder 于北京时间 11 月 20 日 23:03 报道",
+      "tldr": "苹果被曝招募高管打造对标竞品的系统级设备控制智能体，最快明年底才亮相，但 macOS 27.3 已先把第三方授权加码到 14 步。",
+      "points": [
+        {
+          "text": "苹果正招高级工程师牵头设备控制智能体，主打隐私与沙盒机制，新任 CEO 正施压加快 AI 节奏。"
+        },
+        {
+          "text": "与此同时，macOS 27.3 将 ChatGPT 等第三方智能体控制 Mac 的用户授权流程大幅增至 14 步。"
+        }
+      ],
+      "text": "据 The Decoder 援引彭博社与招聘信息报道，苹果正招募高级工程师牵头开发可控制设备的系统级 AI 智能体，对标 Muse、Dots、Duet 和 Grok Bots。该项目尚处早期，主打隐私保护、权限模型与沙盒机制，最快可能于明年底推出；新任 CEO John Ternus 正推动软件主管 Craig Federighi 采取更激进的 AI 策略。\n与此同时，macOS 27.3 将用户授权 ChatGPT 等第三方智能体控制 Mac 的流程从 4 步增加到 14 步。苹果称此举是为了保护用户安全，但部分 AI 公司与用户认为这是在人为抬高竞品门槛。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Decoder 报道",
+          "url": "https://the-decoder.com/apple-joins-the-race-for-ai-agents-that-control-your-device-while-raising-new-barriers-for-competitors/"
+        }
+      ],
+      "emphasis": [
+        "macOS 27.3 将用户授权 ChatGPT 等第三方智能体控制 Mac 的流程从 4 步增加到 14 步"
+      ],
+      "aiComment": "自家智能体最快明年底才来，先把竞品的 Mac 授权流程从 4 步卷到 14 步，果子这波防沉迷属实太典了 🍏",
+      "sources": [
+        {
+          "publisher": "The Decoder",
+          "url": "https://the-decoder.com/apple-joins-the-race-for-ai-agents-that-control-your-device-while-raising-new-barriers-for-competitors/",
+          "excerpt": "Apple is hiring a senior engineer to lead a device-controlling AI agent rivaling Muse, Dots, Duet, and Grok Bots, with privacy, permission models, and sandboxing at its core. Bloomberg reports it could arrive as early as late next year as CEO John Ternus pushes Craig Federighi toward a bolder AI strategy. Meanwhile, macOS 27.3 now requires 14 steps instead of four for users to let third-party agents like ChatGPT control their Macs."
+        }
+      ]
+    },
+    {
+      "title": "SpaceX 芯片融资遭贷款方施压：抵押 GPU 严禁发射上太空",
+      "timing": "TechCrunch 于 11 月 20 日报道",
+      "tldr": "参与 SpaceX 数十亿美元英伟达芯片融资的贷款方要求加上限制条款，严禁把抵押 GPU 送进太空轨道数据中心，以免违约后无法回收。",
+      "points": [
+        {
+          "text": "代号 Project Saturn 的算力债权融资以物理硬件作抵押，贷款方明确反对将抵押芯片送入太空。"
+        },
+        {
+          "text": "芯片一旦进入距地面 300 英里、时速 1.75 万英里的轨道，违约后几乎无法实施物理扣押变现。"
+        }
+      ],
+      "text": "据 TechCrunch 援引金融时报报道，参与 SpaceX 数十亿美元 AI 芯片融资方案（代号 Project Saturn，用于采购英伟达算力硬件）的贷款方，正要求加入限制条款，禁止 SpaceX 将这批抵押芯片发射至太空用于轨道数据中心。\n传统算力债权融资以物理硬件作为抵押，一旦违约需扣押并转售变现。贷款方认为，若芯片被送上距地面约 300 英里、以每小时 1.75 万英里高速飞行的轨道，违约后几乎无法物理回收。SpaceX 方面称该批融资硬件仅用于地面站和地面数据中心建设，目前尚不清楚该条款是否写入最终协议。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "TechCrunch 报道",
+          "url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/"
+        }
+      ],
+      "emphasis": [
+        "禁止 SpaceX 将这批抵押芯片发射至太空用于轨道数据中心",
+        "违约后几乎无法物理回收"
+      ],
+      "aiComment": "银行催收队连夜评估了一下：开着火箭去 300 英里高空追着时速 1.75 万英里的显卡贴封条，这活真接不了 🚀",
+      "sources": [
+        {
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/",
+          "excerpt": "Lenders backing SpaceX's multi-billion-dollar AI chip financing deal (Project Saturn, for Nvidia hardware) pushed for covenants preventing SpaceX from launching the collateral chips into orbit for space-based data centers, noting that chips travelling at 17,500 mph roughly 300 miles above Earth cannot be repossessed on default. SpaceX said the financed chips are intended for terrestrial ground stations and data centers."
+        }
+      ]
+    },
+    {
+      "title": "27B 开源模型无需梯度与训练，靠自己推理改写权重怒涨 6.6 分",
+      "timing": "论文 11 月 16 日提交、18 日更新 v2，11 月 20 日登上 Hacker News 热议",
+      "tldr": "新论文提出无梯度自改写方法，让 27B 开源模型根据批改记录自行诊断并直接修改自身权重，未见题目准确率提升 6.6 个百分点。",
+      "points": [
+        {
+          "text": "不计算梯度也不重新训练，直接把权重、答题批改记录和自运行能力交给 27B 模型自行开刀。"
+        },
+        {
+          "text": "实验显示该模型在未见题目上准确率涨 6.6 个百分点，并在连续 8 轮自测提交中持续提升。"
+        }
+      ],
+      "text": "一篇题为《Language Models Can Rewrite Their Own Weights》的论文在 Hacker News 引发热议。研究团队提出自改写（self-rewriting）方法：在不计算梯度、不重新训练的前提下，把权重、批改后的答题记录和自运行能力交给一个 27B 开源模型，让其自行诊断错误并直接修改自身权重。\n论文实验显示，该模型自改写后在未见题目上准确率提升 6.6 个百分点，并在连续 8 轮自测提交中持续上升；面对受损副本时，无需读取原始权重即可将其在未见图像任务上的准确率恢复至原水平的 80% 以上。作者指出该能力随模型规模涌现，同一家族中的小模型往往无法修改或会改坏自己。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "arXiv 论文",
+          "url": "https://arxiv.org/abs/2611.21885"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50577265"
+        }
+      ],
+      "emphasis": [
+        "在不计算梯度、不重新训练的前提下",
+        "在未见题目上准确率提升 6.6 个百分点，并在连续 8 轮自测提交中持续上升"
+      ],
+      "aiComment": "小模型改权重直接把自己改砖，27B 大模型自己开颅动手术还涨了 6.6 分，炼丹师快失业了 🤡",
+      "sources": [
+        {
+          "publisher": "arXiv",
+          "url": "https://arxiv.org/abs/2611.21885",
+          "excerpt": "An open 27B language model, given its weights, graded answers, and the ability to run itself, diagnoses its own failures and rewrites its own weights with no gradients and no training. Its edits improve accuracy by 6.6 points on unseen problems, keep rising over eight consecutive sessions, and repair a damaged copy to over 80% of original accuracy on unseen image tasks without reading the original weights."
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "桌面级 AI 智能体进入系统权限博弈期",
+      "text": "Google 在 Mac 端推出隔离后台窗口运行 computer use，试图降低接管桌面的打扰成本；苹果则在自研设备控制智能体的同时，通过 macOS 27.3 把第三方智能体的授权流程从 4 步拉长到 14 步。随着 agent 从浏览器走向操作系统底层，谁掌握系统入口与权限开关，正成为新一轮竞争焦点。"
+    }
+  ]
+}
