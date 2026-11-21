@@ -12,7 +12,7 @@ function render(text, emphasis) {
   window.renderDigest({ date: '2026-09-22', pages: [{
     id: 'group-1', label: '一群', stories: [{ title: '标题', text, emphasis }],
   }] }, () => {}, { weeks: [], topics: [] }, 'group-1');
-  return window.document.querySelector('.brief-body > p');
+  return window.document.querySelector('.brief-full-text > p');
 }
 test('emphasis preserves text and wraps exact spans in reading order within the total budget', () => {
   const text = '用户需要申请商务号码才能代打电话，当前仍在等待审核。';

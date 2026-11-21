@@ -40,6 +40,7 @@ test('embed catalog is skipped when CLOUDFLARE_ACCOUNT_ID is absent or --skip-em
 
 test('missing environment and inconsistent options fail before any step', () => {
   assert.throws(() => plan([], {}), /FEEDBACK_API_URL/);
+  assert.deepEqual(names(plan(['--daily-batch', 'scratch/b', '--skip-build'], {})), ['import daily batch']);
   assert.throws(() => plan(['--external-selection', 's.json']), /needs --external-draft/);
   assert.throws(() => parseReleaseArgs(['--daily', 'x']), /Unknown option/);
 });

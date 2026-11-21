@@ -21,7 +21,7 @@ test('daily groups preserve editorial order with identical article structure', (
   assert.equal(document.querySelectorAll('.featured-discussion').length, 0);
   assert.deepEqual([...document.querySelectorAll('.brief')].map(n => n.className), ['brief', 'brief', 'brief', 'brief']);
   assert.deepEqual([...document.querySelectorAll('.brief h2')].map(n => n.textContent), stories.map(s => s.title));
-  assert.deepEqual([...document.querySelectorAll('.brief-body > p')].map(n => n.textContent), stories.map(s => s.text));
+  assert.deepEqual([...document.querySelectorAll('.brief-full-text > p')].map(n => n.textContent), stories.map(s => s.text));
   assert.equal(document.querySelectorAll('.brief-comment').length, 4);
   assert.equal(document.querySelectorAll('.brief-title').length, 4);
   assert.equal(render('group-1', 'digest', 1).document.querySelectorAll('.brief').length, 1);

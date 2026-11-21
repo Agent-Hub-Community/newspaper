@@ -14,30 +14,32 @@ import { parseArgs } from 'node:util';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const USAGE = 'Usage: node scripts/release.mjs [--daily-batch DIR] [--external-draft FILE [--external-selection FILE]] '
-  + '[--weekly-reader DIR] [--skip-embed] [--dry-run]';
+  + '[--weekly-reader DIR] [--skip-build] [--skip-embed] [--dry-run]';
 
 export function parseReleaseArgs(argv) {
   const { values } = parseArgs({ args: argv, strict: true, options: {
     'daily-batch': { type: 'string' }, 'external-draft': { type: 'string' }, 'external-selection': { type: 'string' },
     'weekly-reader': { type: 'string' }, 'sql-out': { type: 'string' },
     'skip-d1': { type: 'boolean', default: false }, 'skip-embed': { type: 'boolean', default: false },
+    'skip-build': { type: 'boolean', default: false },
     'dry-run': { type: 'boolean', default: false },
   } });
   return {
     dailyBatch: values['daily-batch'], externalDraft: values['external-draft'],
     externalSelection: values['external-selection'], weeklyReader: values['weekly-reader'],
     sqlOut: values['sql-out'], skipD1: values['skip-d1'], skipEmbed: values['skip-embed'],
+    skipBuild: values['skip-build'],
     dryRun: values['dry-run'],
   };
 }
 
 // Builds the ordered step list; throws before anything runs when options or environment are incomplete.
 export function buildReleasePlan(options, env = {}) {
-  const { dailyBatch, externalDraft, externalSelection, weeklyReader, skipD1, skipEmbed } = options;
+  const { dailyBatch, externalDraft, externalSelection, weeklyReader, skipD1, skipEmbed, skipBuild } = options;
   if (externalSelection && !externalDraft) throw new Error('--external-selection needs --external-draft');
   const shouldEmbed = !skipEmbed && Boolean(env.CLOUDFLARE_ACCOUNT_ID);
-  const shouldRegisterStories = !skipD1 && Boolean(env.WRANGLER_BIN);
-  const required = ['FEEDBACK_API_URL'];
+  const shouldRegisterStories = !skipBuild && !skipD1 && Boolean(env.WRANGLER_BIN);
+  const required = skipBuild ? [] : ['FEEDBACK_API_URL'];
   const missing = required.filter(name => !env[name]);
   if (missing.length) throw new Error(`Missing environment variables: ${missing.join(', ')}`);
   const sqlOut = options.sqlOut || path.join(dailyBatch || 'scratch', 'feedback-catalog.sql');
@@ -47,7 +49,7 @@ export function buildReleasePlan(options, env = {}) {
   if (externalDraft) steps.push({ name: 'import external report',
     argv: ['node', 'scripts/import-external-report.mjs', externalDraft, ...(externalSelection ? [externalSelection] : [])] });
   if (weeklyReader) steps.push({ name: 'import weekly', argv: ['node', 'scripts/import-reviewed-weekly.mjs', weeklyReader] });
-  steps.push(build);
+  if (!skipBuild) steps.push(build);
   if (shouldEmbed) steps.push({ name: 'embed catalog', argv: ['node', 'scripts/embed-catalog.mjs'] });
   // Keep registering story IDs in D1 so POST /opens (per-topic discussion open telemetry) continues to record new stories.
   if (shouldRegisterStories) {
