@@ -8,6 +8,7 @@
 |---|---|
 | 弄清静态站怎么构建、页面怎么切路由、按需加载怎么跑 | [架构说明](architecture.md) |
 | 改页面样式、讨论抽屉、卡片或长图导出 | [界面规则](ui.md)、[测试说明](testing.md) |
+| 新建或校验特殊日子、节日与知识专题主题插件 | [主题插件标准](theme-standard.md)、[`site/skins/README.md`](../site/skins/README.md) |
 | 改站内搜索、黑话别名扩展或 Worker 查询接口 | [搜索与词表](search.md)、[`feedback/README.md`](../feedback/README.md) |
 | 看懂或校验 `data/` 底下各个 JSON 的字段 | [数据格式](data-format.md)、[读者内容规则](editorial.md) |
 | 把审好的日报／周报入库并推上线（维护者） | [入库与发布](publishing.md)、[外部资讯导入](external-news.md) |
@@ -21,6 +22,7 @@
 | [`data-format.md`](data-format.md) | `data/` 下日报、讨论节选、外部资讯、周报、活跃榜快照、资料库、机会、黑话、同义词和语义向量的 JSON 结构 |
 | [`editorial.md`](editorial.md) | 网站端对读者内容的要求：缺稿处理、重点下划线、AI 锐评、原始讨论节选、隐私与头像规则 |
 | [`ui.md`](ui.md) | 刊头、单双列断点、讨论浮窗、链接卡片、活跃榜、保存长图、节日皮肤与明暗模式 |
+| [`theme-standard.md`](theme-standard.md) | Theme Pack v2 主题插件正式标准：三级分层、槽位与护栏、字数预算、CLI 脚手架与体检工具 |
 | [`search.md`](search.md) | BM25 词面检索、黑话与同义词扩展规则、词表维护、Workers AI 语义检索 |
 | [`publishing.md`](publishing.md) | 从 `scratch/` 批次目录到本地预览、正式入库、D1 登记、语义向量更新、GitHub Pages 部署与线上核对 |
 | [`external-news.md`](external-news.md) | 外部资讯候选、稿件与审核记录的 schema、导入命令与页面展示映射 |

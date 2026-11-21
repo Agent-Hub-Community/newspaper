@@ -1,8 +1,26 @@
-# 资料库审核规范
+# 资料库审核与入库规范
 
-每周随周报更新资料库时，审核 agent 和编辑按这份规范处理 `scratch/library/candidates.json` 里的候选链接。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 从群聊里捞出，带着前后几句聊天上下文，只放在被 Git 忽略的 `scratch/` 下。
+每周随周报更新资料库时，审核 agent 和编辑按这份规范处理 `scratch/library/candidates.json` 里的候选链接；平时也支持通过命令行工具 `scripts/library-cli.mjs` 或网页端「+ 推荐资料」快速增补单条与批量资料。候选由 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 从群聊里捞出，带着前后几句聊天上下文，只放在被 Git 忽略的 `scratch/` 下。
 
 类型、主题和链接种类的合法枚举值定义在 [`lib/library.mjs`](../../lib/library.mjs)，审完后的组装入库步骤见[入库与发布](../publishing.md#资料库机会与黑话每周随周报更新)。
+
+## 快速入库与日常维护工作流
+
+除每周批量审核外，日常新增与维护统一使用 `scripts/library-cli.mjs`（所有写入都会自动执行 URL 规范化、按 `resourceKey` 去重合并、关键词别名检查与 `normalizeLibrary` 校验）：
+
+| 场景 | 命令 / 入口 | 说明 |
+|---|---|---|
+| 单条快速收录 | `node scripts/library-cli.mjs add <url> [选项]` | 抓取 arXiv / GitHub / 网页元数据，自动规范化链接并检测重复；若与已有条目共享 `resourceKey` 则合并链接与分享记录，否则创建新条目写入 `data/library.json`。 |
+| 同步日报与周报 | `node scripts/library-cli.mjs sync-editions` | 扫描已发布日报与周报中的 `resources` 链接，找出尚未收录的新资料，快速补录并建立群聊讨论回链。 |
+| 批量导入 | `node scripts/library-cli.mjs import <file>` | 从 JSON / 列表文件批量导入多条资料，统一完成去重合并、字段校验与规范化。 |
+| 解析投稿 Issue | `node scripts/library-cli.mjs parse-issue <issue>` | 解析来自网页端「+ 推荐资料」生成的 GitHub Issue 正文，转换为标准条目草稿或直接入库。 |
+| 全库体检 | `node scripts/library-cli.mjs doctor` | 检查 `data/library.json` 与 `data/library-avatars/` 的一致性：重复 `resourceKey`、非规范链接、未归并的关键词别名、`through` 覆盖日期及未引用头像。 |
+
+### 网页端「+ 推荐资料」投稿流程
+
+1. 读者或群友在资料库页面点击顶部的 **「+ 推荐资料」** 按钮，在弹窗中填写链接、标题、一句话简介、类型与主题。
+2. 提交后会带着预填好的结构化内容跳转到 GitHub Issue 页面，无需克隆仓库即可投稿。
+3. 维护者按本文的「收什么、拒什么」与「各字段怎么写」核实原链接后，运行 `node scripts/library-cli.mjs parse-issue` 合入 `data/library.json`，再跑 `node scripts/library-cli.mjs doctor` 与 `node --test test/library.test.mjs` 确认全绿即可发布。
 
 ## 候选文件里有什么
 

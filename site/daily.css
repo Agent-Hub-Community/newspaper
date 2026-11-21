@@ -238,6 +238,99 @@ body[data-view="digest"] .brief { display: flex; flex-direction: column; content
 }
 body[data-view="digest"] .brief .brief-takeaway { margin-top: 18px; font: 600 17px/1.8 var(--serif); color: var(--ink); }
 body[data-view="digest"] .brief-takeaway > span { font-size: 11px; }
+
+/* Page-top quick-scan strip & TLDR-first card layout */
+body[data-view="digest"] .digest-tldr-strip {
+  margin: 0 0 24px; padding: 14px 18px 16px; border: 1px solid color-mix(in srgb, var(--rule) 75%, transparent);
+  border-radius: 10px; background: color-mix(in srgb, var(--ink) 2.5%, var(--paper));
+}
+body[data-view="digest"] .tldr-strip-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px;
+}
+body[data-view="digest"] .tldr-strip-title {
+  font: 700 12px/1.5 var(--sans); letter-spacing: .04em; color: var(--accent);
+}
+body[data-view="digest"] .tldr-mode-switch {
+  display: inline-flex; padding: 2px; border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 7%, var(--paper)); gap: 2px;
+}
+body[data-view="digest"] .tldr-mode-btn {
+  padding: 4px 12px; border: 0; border-radius: 999px; background: transparent;
+  color: var(--muted); font: 600 12px/1.4 var(--sans); cursor: pointer; transition: background-color 140ms ease, color 140ms ease;
+}
+body[data-view="digest"] .tldr-mode-btn[aria-pressed="true"] {
+  background: var(--paper); color: var(--ink); box-shadow: 0 1px 3px rgb(0 0 0 / 12%);
+}
+body[data-view="digest"] .tldr-strip-list {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 6px 14px;
+  margin: 0; padding: 0; list-style: none;
+}
+body[data-view="digest"] .tldr-strip-list a {
+  display: flex; align-items: baseline; gap: 8px; padding: 5px 8px; border-radius: 6px;
+  color: var(--ink); text-decoration: none; font: 500 13px/1.45 var(--sans);
+  transition: background-color 140ms ease;
+}
+@media (hover: hover) { body[data-view="digest"] .tldr-strip-list a:hover { background: color-mix(in srgb, var(--ink) 6%, var(--paper)); } }
+body[data-view="digest"] .tldr-strip-num {
+  flex: none; font: 700 11px/1.4 var(--sans); color: var(--accent); font-variant-numeric: tabular-nums;
+}
+body[data-view="digest"] .tldr-strip-text {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+body[data-view="digest"] .brief-title-btn {
+  display: block; width: 100%; padding: 0; border: 0; background: none; color: inherit;
+  font: inherit; text-align: left; cursor: pointer; transition: color 140ms ease;
+}
+@media (hover: hover) { body[data-view="digest"] .brief-title-btn:hover { color: var(--accent); } }
+body[data-view="digest"] .brief-tldr {
+  margin: 0 0 12px; padding: 10px 13px; border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--paper));
+  border-left: 3px solid var(--accent);
+  font: 500 15px/1.7 var(--sans) !important; color: var(--ink); max-width: none !important;
+}
+body[data-view="digest"] .brief-tldr-tag {
+  display: inline-block; margin-right: 8px; padding: 1px 6px; border-radius: 4px;
+  background: var(--accent); color: var(--paper); font: 700 10px/1.5 var(--sans);
+  letter-spacing: .04em; vertical-align: 1px;
+}
+body[data-view="digest"] .brief-points {
+  margin: 0 0 12px; padding: 0; list-style: none; display: grid; gap: 7px;
+}
+body[data-view="digest"] .brief-points li {
+  position: relative; padding-left: 14px; font: 14px/1.65 var(--sans); color: var(--ink);
+}
+body[data-view="digest"] .brief-points li::before {
+  content: ""; position: absolute; left: 2px; top: 9px; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--accent); opacity: .75;
+}
+body[data-view="digest"] .brief-cite-list { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 6px; vertical-align: baseline; }
+body[data-view="digest"] .brief-cite-chip {
+  display: inline-flex; align-items: center; padding: 1px 7px; border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
+  border-radius: 999px; background: color-mix(in srgb, var(--accent) 8%, var(--paper));
+  color: var(--accent); font: 600 11px/1.5 var(--sans); cursor: pointer; font-variant-numeric: tabular-nums;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+@media (hover: hover) {
+  body[data-view="digest"] .brief-cite-chip:hover {
+    background: color-mix(in srgb, var(--accent) 16%, var(--paper)); border-color: var(--accent);
+  }
+}
+body[data-view="digest"] .digest-stories.is-tldr-mode .brief.has-tldr:not(.is-expanded) .brief-full-text { display: none; }
+body[data-view="digest"] .digest-stories.is-tldr-mode .brief.has-tldr .brief-full-text { margin-top: 12px; padding-top: 12px; border-top: 1px dashed color-mix(in srgb, var(--rule) 65%, transparent); }
+body[data-view="digest"] .brief-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; }
+body[data-view="digest"] .brief-actions .discussion-trigger { margin-top: 0; flex: 1 1 220px; }
+body[data-view="digest"] .brief-expand-btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 14px;
+  border: 1px solid color-mix(in srgb, var(--rule) 80%, transparent); border-radius: 6px; background: transparent;
+  color: var(--muted); font: 500 13px/1.4 var(--sans); cursor: pointer; white-space: nowrap;
+  transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+@media (hover: hover) {
+  body[data-view="digest"] .brief-expand-btn:hover { color: var(--ink); border-color: var(--muted); background: color-mix(in srgb, var(--ink) 4%, var(--paper)); }
+}
+body[data-view="digest"] .digest-stories:not(.is-tldr-mode) .brief-expand-btn { display: none; }
+.capture-stage .digest-tldr-strip, .capture-stage .brief-expand-btn, .capture-stage .brief-cite-chip { display: none !important; }
+.capture-stage .digest-stories.is-tldr-mode .brief.has-tldr .brief-full-text { display: block !important; }
 body[data-view="digest"] .lead-figure { margin: 0; padding: 16px 0 20px; border: 0; border-top: 1px solid var(--rule); }
 body[data-view="digest"] .lead-figure figcaption { display: flex; align-items: center; justify-content: space-between; padding: 0 0 12px; gap: 4px 20px; font: 11px/1.75 var(--sans); }
 body[data-view="digest"] .lead-figure h2 { font: 700 18px/1.5 var(--serif); color: var(--ink); }

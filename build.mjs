@@ -9,7 +9,8 @@ import { mergeDraftEditions } from './lib/draft-editions.mjs';
 import { mergeExternalEditions } from './lib/external-editions.mjs';
 import { feedbackId } from './lib/feedback-id.mjs';
 import { createHash } from 'node:crypto';
-import { loadSkins, resolveThemeRelated } from './site/skins/build.mjs';
+import { loadSkins, renderThemeSocialCard, resolveThemeRelated } from './site/skins/build.mjs';
+import { writeThemesPage } from './lib/themes-render.mjs';
 import { writeRoutePages } from './lib/route-pages.mjs';
 import { writeRedirectPages } from './lib/redirect-pages.mjs';
 import { buildIconBundle } from './lib/icons.mjs';
@@ -74,7 +75,7 @@ if (draftExternalIndex >= 0) {
     ? JSON.parse(await readFile(path.resolve(selectionFile), 'utf8'))
     : null;
   validateExternalDraft(external, selection);
-  draftExternal = readerReport(external);
+  draftExternal = readerReport(external, selection);
 }
 const externalDirectory = path.join(dataDir, 'external-editions');
 const externalReports = await Promise.all((await readdir(externalDirectory))
@@ -189,9 +190,18 @@ for (const asset of skins.assets) {
   const bytes = await readFile(asset.source);
   const version = createHash('sha256').update(bytes).digest('hex').slice(0, 16);
   await mkdir(path.dirname(path.join(out, asset.file)), { recursive: true });
-  await writeFile(path.join(out, asset.file), bytes);
+  await writeFile(path.join(out, asset.file), asset.isScript ? minifyJs(bytes.toString('utf8')) : bytes);
   const plugin = data.skins.plugins.find(plugin => plugin.id === asset.plugin);
-  plugin[asset.key] += `?v=${version}`;
+  if (asset.key === 'widgetFile' && plugin.widget) plugin.widget.file += `?v=${version}`;
+  else plugin[asset.key] += `?v=${version}`;
+}
+for (const plugin of data.skins.plugins) {
+  const socialSvg = renderThemeSocialCard(plugin);
+  const socialFile = `skins/${plugin.id}/social-card.svg`;
+  const version = createHash('sha256').update(socialSvg).digest('hex').slice(0, 16);
+  await mkdir(path.dirname(path.join(out, socialFile)), { recursive: true });
+  await writeFile(path.join(out, socialFile), socialSvg);
+  plugin.socialCard = `${socialFile}?v=${version}`;
 }
 for (const file of new Set(weeklyReports.flatMap(issue => issue.rank?.groups.flatMap(group =>
   group.leaders.map(leader => leader.avatar).filter(Boolean)) || []))) {
@@ -230,7 +240,7 @@ await writeFile(path.join(out, 'link-previews.js'), linkPreviewsJs);
 const linkPreviewsVersion = createHash('sha256').update(linkPreviewsJs).digest('hex').slice(0, 16);
 // Loaded only when exporting from file://, where canvas cannot read local images.
 const exportFiles = new Set([
-  ...skins.assets.map(asset => asset.file),
+  ...skins.assets.filter(asset => !asset.isScript).map(asset => asset.file),
   ...Object.values(data.activity?.avatars || {}),
   ...weeklyReports.flatMap(issue => issue.rank?.groups.flatMap(group => group.leaders.map(leader => leader.avatar).filter(Boolean)) || []),
   ...data.digests.flatMap(issue => issue.pages.map(page => page.figure?.src).filter(Boolean)),
@@ -406,4 +416,5 @@ const counts = await searchCounts(entries, vocabulary, glossary.terms.map(entry 
 await writeFile(path.join(out, 'hub.json'), `${JSON.stringify(hubSummary({ data, library, glossary, opportunities, searchable: entries.length }), null, 1)}\n`);
 await writeGlossaryFiles(out, { glossary, counts, publicBuild, feedbackEndpoint, weeklyHref });
 await writeSearchFiles(out, { entries, vocabulary, publicBuild, weeklyHref, feedbackEndpoint });
+await writeThemesPage(out, { themes: data.skins, weeklyHref, publicBuild, feedbackEndpoint });
 console.log(JSON.stringify({ digests: editions.length, first: data.coverage.first, last: data.coverage.last }));

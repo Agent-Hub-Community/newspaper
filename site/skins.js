@@ -114,6 +114,8 @@
   }
 
   let activeSkin = null;
+  let activeWidgetCleanup = null;
+  const widgetLoads = new Map();
   let currentContext = {
     pageKind: detectPageKind(document),
     editionDate: null,
@@ -159,6 +161,29 @@
     return `${base}${sep}${key}=${encodeURIComponent(preview)}${hash ? `#${hash}` : ''}`;
   };
 
+  function loadWidgetModule(skin) {
+    const registry = window.AgentHubThemeWidgets || (window.AgentHubThemeWidgets = {});
+    if (registry[skin.id]) return Promise.resolve(registry[skin.id]);
+    if (!skin.widget?.file) return Promise.resolve(null);
+    if (!widgetLoads.has(skin.id)) {
+      widgetLoads.set(skin.id, new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = resolveAsset(skin.widget.file);
+        script.onload = () => resolve(registry[skin.id] || null);
+        script.onerror = () => { widgetLoads.delete(skin.id); script.remove(); reject(new Error('Widget load failed')); };
+        document.head.append(script);
+      }));
+    }
+    return widgetLoads.get(skin.id);
+  }
+
+  function unmountActiveWidget() {
+    if (typeof activeWidgetCleanup === 'function') {
+      try { activeWidgetCleanup(); } catch {}
+    }
+    activeWidgetCleanup = null;
+  }
+
   function openStoryDialog(skin) {
     if (!skin?.story || !document.body) return;
     let dialog = document.getElementById('theme-story-dialog');
@@ -166,6 +191,7 @@
       dialog = document.createElement('dialog');
       dialog.id = 'theme-story-dialog';
       dialog.setAttribute('aria-labelledby', 'theme-story-title');
+      dialog.addEventListener('close', unmountActiveWidget);
       dialog.addEventListener('click', event => {
         if (event.target !== dialog || !dialog.getBoundingClientRect) return;
         const r = dialog.getBoundingClientRect();
@@ -175,6 +201,7 @@
       });
       document.body.append(dialog);
     }
+    unmountActiveWidget();
     const { story } = skin;
     const factsHtml = story.facts?.length
       ? `<dl class="theme-story-facts">${story.facts.map(f => `<div class="theme-story-fact"><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join('')}</dl>`
@@ -184,18 +211,23 @@
     const relatedHeading = hasCurrentRelated
       ? '各群相关讨论'
       : (skin.knowledge?.related?.heading || '各群相关讨论');
-    const relatedHtml = relatedItems.length
-      ? `<section class="theme-story-related" aria-label="${esc(relatedHeading)}">` +
-        `<h3>${esc(relatedHeading)}</h3>` +
-        `<ul>${relatedItems.map(item => `<li><a href="${esc(resolveThemeHref(item.href))}"><span class="theme-related-meta">${item.current ? '<em class="theme-related-live">当期</em>' : ''}${esc(item.groupLabel)} · ${esc(formatShortDate(item.date))}</span><span class="theme-related-title">${esc(item.title)}</span><span class="theme-related-arrow" aria-hidden="true">→</span></a></li>`).join('')}</ul>` +
-        `</section>`
-      : '';
     const linksHtml = story.links?.length
       ? `<div class="theme-story-links">${story.links.map(l => {
         const href = resolveThemeHref(l.href);
         const external = /^https?:\/\//i.test(l.href);
         return `<a href="${esc(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(l.label)} <span aria-hidden="true">→</span></a>`;
       }).join('')}</div>`
+      : '';
+    const relatedHtml = relatedItems.length
+      ? `<section class="theme-story-related" aria-label="${esc(relatedHeading)}">` +
+        `<div class="theme-story-related-head"><h3>${esc(relatedHeading)}</h3>${linksHtml}</div>` +
+        `<ul>${relatedItems.map(item => `<li><a href="${esc(resolveThemeHref(item.href))}"><span class="theme-related-meta">${esc(item.groupLabel)} · ${esc(formatShortDate(item.date))}</span><span class="theme-related-title">${esc(item.title)}</span><span class="theme-related-arrow" aria-hidden="true">→</span></a></li>`).join('')}</ul>` +
+        `</section>`
+      : (linksHtml ? `<div class="theme-story-links-standalone">${linksHtml}</div>` : '');
+    const widgetHtml = skin.widget
+      ? `<section class="theme-story-widget-wrap" aria-label="${esc(skin.widget.title)}">` +
+        `<div class="theme-story-widget-slot" data-widget-slot="${esc(skin.id)}"><p class="theme-widget-loading">正在加载互动彩蛋…</p></div>` +
+        `${skin.widget.hint ? `<p class="theme-widget-hint">${esc(skin.widget.hint)}</p>` : ''}</section>`
       : '';
     const artHtml = skin.image
       ? `<img class="theme-story-art" src="${esc(resolveAsset(skin.image))}" alt="${esc(skin.artAlt || '')}">`
@@ -207,13 +239,25 @@
     dialog.innerHTML =
       `<div class="theme-story-head"${ambientAttr}><div class="theme-story-head-main"><div class="theme-story-head-meta"><span class="theme-story-kicker">${esc(story.kicker)}</span>${sealHtml}</div><h2 id="theme-story-title">${esc(story.title)}</h2></div>` +
       `${artHtml}<button type="button" class="theme-story-close" aria-label="关闭说明" title="关闭">×</button></div>` +
-      `<div class="theme-story-body"><div class="theme-story-spread${relatedItems.length ? '' : ' is-single'}">` +
-      `<div class="theme-story-copy">${story.body.map(p => `<p>${esc(p)}</p>`).join('')}${factsHtml}${linksHtml}</div>` +
-      `${relatedHtml}</div>` +
-      `<div class="theme-story-foot"><span>Agent Hub 特别主题 · ${esc(skin.name)}</span><a href="${esc(resetPreviewHref())}">切回常规样式</a></div></div>`;
+      `<div class="theme-story-body"><div class="theme-story-spread${skin.widget ? '' : ' is-single'}">` +
+      `<div class="theme-story-copy">${story.body.map(p => `<p>${esc(p)}</p>`).join('')}${factsHtml}</div>` +
+      `${widgetHtml ? `<div class="theme-story-aside">${widgetHtml}</div>` : ''}</div>` +
+      `${relatedHtml}` +
+      `<div class="theme-story-foot"><span>Agent Hub 特别主题 · ${esc(skin.name)}</span><div class="theme-story-foot-links"><a href="${esc(resolveAsset('themes/'))}">主题档案馆 →</a><a href="${esc(resetPreviewHref())}">切回常规样式</a></div></div></div>`;
     dialog.querySelector('.theme-story-close')?.addEventListener('click', () => dialog.close());
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
+
+    if (skin.widget) {
+      const slot = dialog.querySelector('[data-widget-slot]');
+      const reducedMotion = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      loadWidgetModule(skin).then(mod => {
+        if (!mod?.mount || !slot || !dialog.open) return;
+        activeWidgetCleanup = mod.mount(slot, { skin, reducedMotion });
+      }).catch(() => {
+        if (slot) slot.innerHTML = '';
+      });
+    }
   }
 
   storyBtn.addEventListener('click', () => openStoryDialog(activeSkin));
@@ -249,7 +293,7 @@
       ? `<div class="theme-banner-related" aria-label="${esc(bannerRelatedHeading)}">` +
         `<span class="theme-banner-related-label">${esc(bannerRelatedHeading)}</span>` +
         `<div class="theme-banner-related-list">${relatedItems.map(item =>
-          `<a class="theme-related-chip" href="${esc(resolveThemeHref(item.href))}" title="${esc(item.title)}"><span class="theme-related-chip-group">${item.current ? '<em class="theme-related-live">当期</em>' : ''}${esc(item.groupLabel)} · ${esc(formatShortDate(item.date))}</span><span class="theme-related-chip-title">${esc(item.title)}</span></a>`
+          `<a class="theme-related-chip" href="${esc(resolveThemeHref(item.href))}" title="${esc(item.title)}"><span class="theme-related-chip-group">${esc(item.groupLabel)} · ${esc(formatShortDate(item.date))}</span><span class="theme-related-chip-title">${esc(item.title)}</span></a>`
         ).join('')}</div></div>`
       : '';
     banner.innerHTML =
@@ -391,6 +435,7 @@
 
   window.AgentHubSkins = {
     selectSkin,
+    active() { return activeSkin; },
     sync(context) { update(context); },
     syncContent() { syncStoryHighlights(activeSkin); syncChromeTouchpoints(activeSkin); },
     openStory() { openStoryDialog(activeSkin); },

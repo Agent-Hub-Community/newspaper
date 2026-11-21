@@ -9,10 +9,12 @@ import { parseHTML } from 'linkedom';
 import {
   contrastRatio,
   loadThemes,
+  renderThemeSocialCard,
   resolveThemeRelated,
   validateEditions,
   validateScopedCss,
   validateSvgSafety,
+  validateWidgetSafety,
 } from '../lib/themes.mjs';
 
 const loaded = await loadThemes();
@@ -75,8 +77,9 @@ test('selection priority honors ?theme= preview > live campaign > edition archiv
   const select = (preview, iso, ctx = {}) =>
     context.window.AgentHubSkins.selectSkin(loaded.data, preview, Date.parse(iso), ctx)?.id || null;
 
-  // Outside any campaign, edition binding activates only on that edition's date
+  // Outside any campaign, edition binding activates only on bound edition dates
   assert.equal(select(null, '2026-12-10T12:00:00+08:00', { editionDate: '2026-11-20', pageKind: 'daily' }), 'riemann-proof');
+  assert.equal(select(null, '2026-12-10T12:00:00+08:00', { editionDate: '2026-11-21', pageKind: 'daily' }), 'riemann-proof');
   assert.equal(select(null, '2026-12-10T12:00:00+08:00', { editionDate: '2026-11-18', pageKind: 'daily' }), null);
   // Active campaign beats edition binding
   assert.equal(select(null, '2026-10-02T12:00:00+08:00', { editionDate: '2026-11-20', pageKind: 'daily' }), 'national-day');
@@ -140,6 +143,7 @@ test('resolveThemeRelated auto-curates cross-group discussions and respects Lati
       date: '2026-11-20',
       pages: [
         { id: 'group-2', label: '二群', stories: [{ title: '黎曼猜想 Lean 证明刷屏群聊', text: '当天群友第一时间复现编译校验。' }] },
+        { id: 'external', label: '外部资讯', stories: [{ title: 'Lean 社区联合认证黎曼猜想形式化证明', text: '多款独立校验器通过检查。' }] },
       ],
     },
     {
@@ -160,10 +164,40 @@ test('resolveThemeRelated auto-curates cross-group discussions and respects Lati
   resolveThemeRelated(sample, fakeEditions);
   const plugin = sample.plugins.find(p => p.id === 'riemann-proof');
   const items = plugin.knowledge.relatedItems;
-  assert.equal(items.length, 4, 'matches 4 distinct groups and excludes "clean" false positive');
+  assert.equal(items.length, 5, 'matches 5 distinct sections including external and excludes "clean" false positive');
   assert.equal(items[0].date, '2026-11-20', 'same-day / campaign-window discussion leads first');
   assert.equal(items[0].current, true, 'same-day discussion is flagged as current');
+  assert.ok(items.some(item => item.groupId === 'external' && item.href === 'daily/2026-11-20/external/#topic-1'), 'includes external news section');
   assert.ok(items.every(item => !item.title.includes('Clean')));
-  assert.deepEqual(new Set(items.map(i => i.groupId)).size, 4, 'diversifies across groups');
+  assert.deepEqual(new Set(items.map(i => i.groupId)).size, 5, 'diversifies across sections');
   assert.equal(items[0].href.startsWith('daily/'), true);
+});
+
+test('riemann-proof widget validates safely, computes real Riemann zeros accurately, and social card renders clean SVG', async () => {
+  const plugin = loaded.data.plugins.find(p => p.id === 'riemann-proof');
+  assert.equal(plugin.widget?.file, 'skins/riemann-proof/widget.js');
+  assert.throws(() => validateWidgetSafety('eval("1")'), /disallowed/i);
+  assert.throws(() => validateWidgetSafety('const u = "https://evil.test";'), /external/i);
+  assert.throws(() => validateWidgetSafety('a'.repeat(30000)), /limit/i);
+
+  const widgetSource = await readFile(new URL('../site/skins/riemann-proof/widget.js', import.meta.url), 'utf8');
+  const ctx = { window: {} };
+  vm.runInNewContext(widgetSource, ctx);
+  const { zetaHalf } = ctx.window.AgentHubThemeWidgets['riemann-proof'];
+  for (const t of [14.1347251, 21.0220396, 25.0108576, 30.4248761, 32.9350616]) {
+    assert.ok(zetaHalf(t).abs < 1e-4, `|zeta(1/2 + i*${t})| should vanish, got ${zetaHalf(t).abs}`);
+  }
+  assert.ok(zetaHalf(10.0).abs > 0.5, 'non-zero away from zeros');
+
+  const socialSvg = renderThemeSocialCard(plugin);
+  validateSvgSafety(socialSvg, 'social-card.svg');
+  assert.match(socialSvg, /175,187/);
+});
+
+test('v1 skins auto-extract previewColors without hardcoded fallbacks', () => {
+  for (const id of ['mid-autumn', 'national-day']) {
+    const plugin = loaded.data.plugins.find(p => p.id === id);
+    assert.ok(plugin?.previewColors?.bandBg?.startsWith('#'), `${id} extracts bandBg`);
+    assert.ok(plugin?.previewColors?.bandAccent?.startsWith('#'), `${id} extracts bandAccent`);
+  }
 });

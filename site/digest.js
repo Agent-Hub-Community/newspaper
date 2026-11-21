@@ -28,11 +28,31 @@
     return { paper: 'paper', arxiv: 'paper', article: 'article', wechat: 'article', official: 'article', code: 'code',
       github: 'code', repo: 'code', demo: 'demo', discussion: 'messages' }[resource.kind] || 'link';
   }
-  function discussionTrigger(messagesOrMeta, index) {
-    if (window.AgentHubDiscussion?.trigger) return window.AgentHubDiscussion.trigger(messagesOrMeta, index);
+  const readMoreIcon = '<svg class="discussion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>';
+  function discussionTrigger(messagesOrMeta, index, hasTldr = false) {
+    if (window.AgentHubDiscussion?.trigger && !hasTldr) return window.AgentHubDiscussion.trigger(messagesOrMeta, index);
     const count = Array.isArray(messagesOrMeta) ? messagesOrMeta.length : messagesOrMeta.count;
     const speakers = Array.isArray(messagesOrMeta) ? new Set(messagesOrMeta.map(m => m.speaker)).size : messagesOrMeta.speakers;
-    return `<button type="button" class="discussion-trigger" id="discussion-${index + 1}" data-discussion-index="${index}" aria-haspopup="dialog" aria-label="查看原始讨论，${count} 条消息，${speakers} 位群友">${msgIcon}<span class="discussion-trigger-label">原始讨论</span><span class="discussion-trigger-meta">${count} 条 · ${speakers} 人</span>${rightIcon}</button>`;
+    const label = hasTldr ? '展开全文' : '原始讨论';
+    return `<button type="button" class="discussion-trigger${hasTldr ? ' is-detail-trigger' : ''}" id="discussion-${index + 1}" data-discussion-index="${index}" aria-haspopup="dialog" aria-label="查看原始讨论，${count} 条消息，${speakers} 位群友">${msgIcon}<span class="discussion-trigger-label">${label}</span><span class="discussion-trigger-meta">${count} 条 · ${speakers} 人</span>${rightIcon}</button>`;
+  }
+  function externalTrigger(story, index) {
+    const srcCount = Array.isArray(story.sources) ? story.sources.length : 0;
+    const linkCount = Array.isArray(story.resources) ? story.resources.length : 0;
+    const meta = srcCount ? `${srcCount} 篇一手来源` : linkCount ? `${linkCount} 个来源` : '深度详读';
+    return `<button type="button" class="discussion-trigger is-detail-trigger is-external-trigger" id="discussion-${index + 1}" data-discussion-index="${index}" aria-haspopup="dialog" aria-label="展开详读，${esc(story.title)}">${readMoreIcon}<span class="discussion-trigger-label">展开详读与来源</span><span class="discussion-trigger-meta">${esc(meta)}</span>${rightIcon}</button>`;
+  }
+  function storyPoints(story, index, external) {
+    if (!Array.isArray(story.points) || !story.points.length) return '';
+    return `<ul class="brief-points" aria-label="核心要点">${story.points.map(point => {
+      const text = typeof point === 'string' ? point : point?.text;
+      if (!text) return '';
+      const refs = !external && Array.isArray(point?.refs) && hasDiscussion(story) ? point.refs : [];
+      const chips = refs.slice(0, 3).map(ref =>
+        `<button type="button" class="brief-cite-chip" data-discussion-index="${index}" data-cite-index="${ref}" title="跳到原讨论第 ${ref} 条">↗ #${ref}</button>`
+      ).join('');
+      return `<li><span class="brief-point-text">${esc(text)}</span>${chips ? `<span class="brief-cite-list">${chips}</span>` : ''}</li>`;
+    }).join('')}</ul>`;
   }
   function storyResources(story) {
     const icons = { paper: 'file-text', article: 'book-open', code: 'code-xml', demo: 'play', discussion: 'messages-square' };
@@ -248,6 +268,17 @@
         </div></div>` : ''}
       </div>
     </dialog>` : '';
+    const hasTldr = !isOverview && !weekly && stories.some(s => typeof s.tldr === 'string' && s.tldr.trim());
+    const tldrStrip = !isOverview && !weekly && stories.length >= 2 ? `<nav class="digest-tldr-strip${hasTldr ? ' has-tldr' : ''}" aria-label="本版速览目录">
+      <div class="tldr-strip-head">
+        <span class="tldr-strip-title">本版速览 · ${stories.length} ${external ? '条资讯' : '个话题'}</span>
+        ${hasTldr ? `<div class="tldr-mode-switch" role="group" aria-label="阅读模式">
+          <button type="button" class="tldr-mode-btn" data-view-mode="tldr" aria-pressed="true">速览卡片</button>
+          <button type="button" class="tldr-mode-btn" data-view-mode="full" aria-pressed="false">全文展开</button>
+        </div>` : ''}
+      </div>
+      <ol class="tldr-strip-list">${stories.map((s, i) => `<li><a href="#topic-${i + 1}" data-topic-jump="topic-${i + 1}"><span class="tldr-strip-num">${String(i + 1).padStart(2, '0')}</span><span class="tldr-strip-text">${esc(s.title)}</span></a></li>`).join('')}</ol>
+    </nav>` : '';
     main.innerHTML = `
       <nav class="group-nav" aria-label="本期版面" data-page-count="${issue.pages.length}">
         ${!weekly && availablePages.length > 1 ? `<a class="overview-pill" href="${esc(pageHref('overview'))}" ${isOverview ? 'aria-current="page"' : ''} title="查看本日各群与外部资讯总览">总览</a>` : ''}
@@ -278,14 +309,22 @@
           <h1>${esc(page.heading)}</h1>
           <p class="digest-deck">${esc(page.theme || '等待收录')}</p>
         </header>`}
-        ${isOverview ? overviewBody : stories.length ? `<section class="digest-stories${!external && !weekly ? ' discussion-stories' : ''}" aria-label="${external ? '本期外部资讯' : '本期讨论观点'}">${stories.map((s, i) => `<article class="brief" id="topic-${i + 1}">
+        ${tldrStrip}
+        ${isOverview ? overviewBody : stories.length ? `<section class="digest-stories${!external && !weekly ? ' discussion-stories' : ''}${hasTldr ? ' is-tldr-mode' : ''}" aria-label="${external ? '本期外部资讯' : '本期讨论观点'}">${stories.map((s, i) => {
+          const storyHasTldr = Boolean(typeof s.tldr === 'string' && s.tldr.trim());
+          const canOpenDetail = (!external && !weekly && hasDiscussion(s)) || (external && !weekly);
+          return `<article class="brief${storyHasTldr ? ' has-tldr' : ''}" id="topic-${i + 1}">
           <div class="brief-copy"><header class="brief-title"><div class="brief-category"><span>${String(i + 1).padStart(2, '0')}</span>${esc(s.category)}</div>
-          <h2>${esc(s.title)}</h2></header><div class="brief-body"><p>${briefText(s)}</p>
+          <h2>${canOpenDetail && hasTldr ? `<button type="button" class="brief-title-btn" data-discussion-index="${i}">${esc(s.title)}</button>` : esc(s.title)}</h2></header><div class="brief-body">
+          ${storyHasTldr ? `<p class="brief-tldr"><span class="brief-tldr-tag">TL;DR</span>${esc(s.tldr)}</p>` : ''}
+          ${storyPoints(s, i, external)}
+          <div class="brief-full-text"><p>${briefText(s)}</p></div>
           ${s.takeaway ? `<p class="brief-takeaway"><span>讨论摘记</span>${esc(s.takeaway)}</p>` : ''}
           ${storyResources(s)}
           ${s.aiComment ? `<aside class="brief-comment" aria-label="Bot 锐评"><span class="brief-comment-label">Bot 锐评</span><p>${esc(s.aiComment)}</p></aside>` : ''}
-          <div class="brief-actions">${!external && !weekly && hasDiscussion(s) ? discussionTrigger(s.discussion || s.discussionMeta, i) : ''}</div></div></div>
-        </article>`).join('')}
+          <div class="brief-actions">${!external && !weekly && hasDiscussion(s) ? discussionTrigger(s.discussion || s.discussionMeta, i, storyHasTldr) : external && !weekly ? externalTrigger(s, i) : ''}</div></div></div>
+        </article>`;
+        }).join('')}
         </section>
           ${page.figure ? `<figure class="lead-figure" aria-labelledby="evidence-heading"><figcaption><h2 id="evidence-heading">论文依据</h2><a href="${esc(page.figure.url)}" target="_blank" rel="noopener noreferrer">${esc(page.figure.credit)}<i data-lucide="arrow-up-right"></i></a></figcaption><div class="evidence-body">${page.figure.src ? `<a href="${esc(page.figure.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(page.figure.src)}" alt="${esc(page.figure.alt)}" width="4086" height="1930" loading="lazy" decoding="async"></a>` : `<p>${esc(page.figure.alt)}</p>`}<p class="evidence-note">${esc(page.figure.caption)}</p></div></figure>` : ''}
         ` : papers.length ? `<div class="paper-list">${papers.map((p, i) => `<article>
@@ -309,20 +348,25 @@
       return null;
     };
     const needsLazyDiscussions = Boolean(!isOverview && !external && !weekly && issue.discussionVersion && stories.some(s => hasDiscussion(s) && !s.discussion?.length));
-    const discussionConfig = !isOverview && !external && !weekly && stories.some(hasDiscussion) ? {
+    const hasReaderPanel = (!isOverview && !external && !weekly && stories.some(hasDiscussion)) || (!isOverview && external && !weekly && stories.length > 0);
+    const discussionConfig = hasReaderPanel ? {
+      mode: external ? 'external' : 'group',
       section: page.label, back: '日报', total: stories.length,
+      ...(external && page.trends?.length ? { trends: page.trends } : {}),
       ...(needsLazyDiscussions ? {
         prefetch: () => loadIssueDiscussions(issue).catch(() => {}),
         ensureLoaded: () => loadIssueDiscussions(issue),
       } : {}),
       topic: index => {
         const story = stories[index];
-        if (!hasDiscussion(story)) return null;
-        const messages = storyMessages(index);
+        if (!story) return null;
+        if (!external && !hasDiscussion(story)) return null;
+        const messages = external ? [] : storyMessages(index);
         return {
-          title: story.title, messages, pending: !messages, category: story.category,
+          title: story.title, messages, pending: !external && !messages, category: story.category,
+          tldr: story.tldr, points: story.points,
           text: story.text, emphasis: story.emphasis, comment: story.aiComment,
-          resources: story.resources, feedbackId: story.feedbackId,
+          resources: story.resources, sources: story.sources, feedbackId: story.feedbackId,
         };
       },
     } : null;
@@ -350,9 +394,38 @@
           event.preventDefault();
           event.stopImmediatePropagation();
           const idx = Number(btn.dataset.discussionIndex);
-          warmPanel().then(() => window.AgentHubDiscussion?.open(idx));
+          const citeIdx = btn.dataset.citeIndex ? Number(btn.dataset.citeIndex) : null;
+          warmPanel().then(() => window.AgentHubDiscussion?.open(idx, 'push', citeIdx));
         });
       }
+    }
+    const storiesContainer = main.querySelector('.digest-stories');
+    for (const modeBtn of main.querySelectorAll('[data-view-mode]')) {
+      modeBtn.addEventListener('click', () => {
+        const isTldr = modeBtn.dataset.viewMode === 'tldr';
+        storiesContainer?.classList.toggle('is-tldr-mode', isTldr);
+        for (const other of main.querySelectorAll('[data-view-mode]')) {
+          other.setAttribute('aria-pressed', String(other === modeBtn));
+        }
+      });
+    }
+    for (const expandBtn of main.querySelectorAll('[data-expand-story]')) {
+      expandBtn.addEventListener('click', () => {
+        const card = expandBtn.closest('.brief');
+        if (!card) return;
+        const expanded = !card.classList.contains('is-expanded');
+        card.classList.toggle('is-expanded', expanded);
+        expandBtn.setAttribute('aria-expanded', String(expanded));
+        expandBtn.textContent = expanded ? '收起正文' : '本页展开全文';
+      });
+    }
+    for (const jumpLink of main.querySelectorAll('[data-topic-jump]')) {
+      jumpLink.addEventListener('click', event => {
+        event.preventDefault();
+        const target = document.getElementById(jumpLink.dataset.topicJump);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     }
     const sections = document.querySelector('#edition-sections');
     sections.replaceChildren(main.querySelector('.group-nav'));

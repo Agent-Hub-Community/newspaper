@@ -68,7 +68,18 @@
     const link = document.createElement('span');
     link.className = 'capture-link';
     link.textContent = `${location.host}${location.pathname}${location.hash}`;
-    copy.querySelector('#back-top').replaceWith(link);
+    const activeTheme = window.AgentHubSkins?.active?.();
+    if (activeTheme?.seal) {
+      const wrap = document.createElement('span');
+      wrap.className = 'capture-footer-meta';
+      const seal = document.createElement('span');
+      seal.className = 'capture-seal';
+      seal.textContent = `${activeTheme.seal.text}${activeTheme.seal.caption ? ` · ${activeTheme.seal.caption}` : ''}`;
+      wrap.append(seal, link);
+      copy.querySelector('#back-top').replaceWith(wrap);
+    } else {
+      copy.querySelector('#back-top').replaceWith(link);
+    }
     stage.append(copy);
     document.body.append(stage);
     try {

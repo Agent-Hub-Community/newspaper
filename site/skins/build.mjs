@@ -5,9 +5,11 @@ export {
   loadThemes as loadSkins,
   parseHexColor,
   relativeLuminance,
+  renderThemeSocialCard,
   resolveThemeRelated,
   validateCampaigns,
   validateEditions,
   validateScopedCss,
   validateSvgSafety,
+  validateWidgetSafety,
 } from '../../lib/themes.mjs';

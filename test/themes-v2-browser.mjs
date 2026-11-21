@@ -110,18 +110,32 @@ try {
   await page.screenshot({ path: path.join(output, 'daily-riemann-overview-1440.png') });
   await page.locator('.skin-story-trigger').click();
   await page.locator('#theme-story-dialog[open]').waitFor();
+  await page.locator('.rh-canvas').waitFor();
+  await page.locator('.rh-zero-btn').nth(1).click();
+  assert.match(await page.locator('[data-rh-t]').textContent(), /21\.0220/);
+  assert.match(await page.locator('[data-rh-abs]').textContent(), /零点/);
   await page.screenshot({ path: path.join(output, 'daily-riemann-story-dialog.png') });
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('#theme-story-dialog[open]').count(), 0);
   await page.locator('.theme-banner-close').click();
   assert.equal(await page.locator('#theme-knowledge-banner').isVisible(), false);
 
-  // Verify static pages (library, glossary, weekly) also render riemann-proof cleanly
+  // Verify Theme Archive Gallery (/newspaper/themes/) and social card SVG
+  await page.goto(`${origin}/newspaper/themes/?theme=riemann-proof`);
+  await page.locator('.theme-archive-card').first().waitFor();
+  assert.ok((await page.locator('.theme-archive-card').count()) >= 3, 'gallery lists all theme packs');
+  await page.screenshot({ path: path.join(output, 'themes-gallery-1440.png') });
+
+  // Verify static pages (library, glossary, weekly) also render riemann-proof cleanly with zero top gap
   for (const route of ['/newspaper/library/?theme=riemann-proof', '/newspaper/glossary/?theme=riemann-proof', '/newspaper/weekly/?theme=riemann-proof']) {
     await page.goto(`${origin}${route}`);
     await page.waitForFunction(() => document.body.dataset.skin === 'riemann-proof');
-    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
-    assert.equal(overflow, false, `${route}: no overflow`);
+    const layout = await page.evaluate(() => ({
+      overflow: document.documentElement.scrollWidth > innerWidth,
+      mastheadTop: document.querySelector('.masthead-brand').getBoundingClientRect().top,
+    }));
+    assert.equal(layout.overflow, false, `${route}: no overflow`);
+    assert.ok(layout.mastheadTop <= 1, `${route}: masthead flush with top (got ${layout.mastheadTop})`);
   }
   await page.screenshot({ path: path.join(output, 'library-riemann-light-1440.png') });
 
@@ -131,11 +145,13 @@ try {
   const homeCheck = await page.evaluate(() => ({
     pill: document.querySelector('.header-theme-pill')?.textContent?.trim(),
     ribbon: document.querySelector('.hub-theme-ribbon')?.textContent?.trim(),
+    specialJump: document.querySelector('.commons-special-jump')?.textContent?.trim(),
     humanColor: getComputedStyle(document.documentElement).getPropertyValue('--color-hand-human').trim(),
     machineColor: getComputedStyle(document.documentElement).getPropertyValue('--color-hand-machine').trim(),
   }));
   assert.equal(homeCheck.pill, '黎曼猜想特刊');
   assert.match(homeCheck.ribbon, /黎曼猜想特刊/);
+  assert.match(homeCheck.specialJump || '', /星点/);
   assert.equal(homeCheck.humanColor, '#f5cf7a');
   assert.equal(homeCheck.machineColor, '#8bb8ff');
   await page.screenshot({ path: path.join(output, 'home-riemann-hero-1440.png') });

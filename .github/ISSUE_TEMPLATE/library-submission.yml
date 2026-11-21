@@ -1,0 +1,98 @@
+name: 推荐资料到资料库 (Library Submission)
+description: 向 Agent Hub 资料库推荐论文、开源项目、Benchmark、数据集、模型、工具或深度文章
+title: "[资料推荐] "
+labels: ["library-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢推荐资料！提交前请确认：
+        - **不要包含微信群友昵称、微信号、截图或私人联系方式**（仓库是公开的）。
+        - 维护者会使用 `node scripts/library-cli.mjs parse-issue` 快速校验并合入资料库。
+
+  - type: input
+    id: url
+    attributes:
+      label: 主链接 (Primary URL)
+      description: 论文 (arXiv/OpenReview)、GitHub 仓库、Hugging Face 页面或原文地址
+      placeholder: https://arxiv.org/abs/2605.25624
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: 标题 (Title)
+      description: 资料的正式名称（保持原文语言，不超过 100 字）
+      placeholder: "Long-Horizon Analog Design Bench"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 类型 (Type)
+      options:
+        - paper (论文)
+        - code (开源项目)
+        - benchmark (Benchmark)
+        - dataset (数据集)
+        - model (模型)
+        - tool (工具与产品)
+        - article (文章与帖子)
+        - video (视频)
+    validations:
+      required: true
+
+  - type: input
+    id: topics
+    attributes:
+      label: 主题 (Topics，1-3 个，逗号分隔)
+      description: 可选：coding-agents, computer-use, training, data-environments, evaluation, research-agents, memory, multi-agent, safety, models, multimodal-embodied, systems, research-tools, industry
+      placeholder: evaluation, coding-agents
+    validations:
+      required: true
+
+  - type: input
+    id: keywords
+    attributes:
+      label: 关键词 (Keywords，3-12 个，逗号分隔)
+      description: 避免 AI / LLM / Agent 等过泛词汇
+      placeholder: OSWorld, RLVR, verifier
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 一句话简介 (Summary，中文 1-2 句，≤ 80 汉字)
+      description: 平实说明它是什么、解决什么问题或关键规模/结论，不使用“本文提出”“重磅”等套话
+      placeholder: 让 coding agent 用开源仿真器从零设计晶体管级模拟电路，含 50 道真实任务。
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra_links
+    attributes:
+      label: 补充链接 (Extra Links，可选)
+      description: 每行一条，格式 kind=url（如 code=https://github.com/... 或 data=https://huggingface.co/...）
+      placeholder: code=https://github.com/org/repo
+    validations:
+      required: false
+
+  - type: dropdown
+    id: group
+    attributes:
+      label: 来源群 (Group，可选)
+      options:
+        - ""
+        - group-1 (一群)
+        - group-2 (二群)
+        - group-3 (三群)
+        - group-4 (四群)
+        - group-5 (五群)
+        - group-6 (AI Safety)
+        - group-7 (Robot)
+        - group-8 (AI4S)
+    validations:
+      required: false

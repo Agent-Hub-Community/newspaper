@@ -2,10 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://agent-hub-community.github.io/newspaper/skins/theme.schema.json",
   "title": "Agent Hub Theme Pack v2",
-  "description": "Declarative special-day and knowledge-theme plugin contract for Agent Hub Newspaper and Community Homepage.",
+  "description": "Declarative special-day, milestone, and knowledge-theme plugin contract for Agent Hub Newspaper and Community Homepage.",
   "type": "object",
+  "additionalProperties": false,
   "required": ["version", "id", "kind", "name", "masthead", "palette"],
   "properties": {
+    "$schema": { "type": "string" },
     "version": { "const": 2 },
     "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
     "kind": { "enum": ["holiday", "milestone", "knowledge", "community"] },
@@ -13,17 +15,21 @@
     "summary": { "type": "string", "maxLength": 220 },
     "targets": {
       "type": "array",
-      "items": { "enum": ["daily", "weekly", "library", "glossary", "rank", "search", "agents", "home"] }
+      "items": { "enum": ["daily", "weekly", "library", "glossary", "rank", "search", "agents", "home"] },
+      "uniqueItems": true
     },
     "masthead": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["eyebrow", "label", "message"],
       "properties": {
-        "eyebrow": { "type": "string", "maxLength": 80 },
-        "label": { "type": "string", "maxLength": 40 },
-        "message": { "type": "string", "maxLength": 100 },
+        "eyebrow": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "label": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "message": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "footerNote": { "type": "string", "minLength": 1, "maxLength": 100 },
         "art": {
           "type": "object",
+          "additionalProperties": false,
           "required": ["file"],
           "properties": {
             "file": { "type": "string", "pattern": "^[a-z0-9-]+\\.(png|jpg|webp|svg)$" },
@@ -33,45 +39,62 @@
         },
         "ornament": {
           "type": "object",
+          "additionalProperties": false,
           "required": ["file"],
           "properties": {
             "file": { "type": "string", "pattern": "^[a-z0-9-]+\\.(png|jpg|webp|svg)$" }
           }
         },
+        "widget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["file"],
+          "properties": {
+            "file": { "type": "string", "pattern": "^[a-z0-9-]+\\.js$" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 40 },
+            "hint": { "type": "string", "maxLength": 120 }
+          }
+        },
         "seal": {
           "type": "object",
+          "additionalProperties": false,
           "required": ["text"],
           "properties": {
-            "text": { "type": "string", "maxLength": 24 },
+            "text": { "type": "string", "minLength": 1, "maxLength": 24 },
             "caption": { "type": "string", "maxLength": 24 }
           }
         },
         "story": {
           "type": "object",
+          "additionalProperties": false,
           "required": ["title", "body"],
           "properties": {
             "kicker": { "type": "string", "maxLength": 40 },
-            "title": { "type": "string", "maxLength": 100 },
-            "body": { "type": "array", "items": { "type": "string", "maxLength": 400 }, "minItems": 1 },
+            "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+            "body": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 400 }, "minItems": 1, "maxItems": 4 },
             "facts": {
               "type": "array",
+              "maxItems": 6,
               "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "required": ["label", "value"],
                 "properties": {
-                  "label": { "type": "string", "maxLength": 24 },
-                  "value": { "type": "string", "maxLength": 32 }
+                  "label": { "type": "string", "minLength": 1, "maxLength": 24 },
+                  "value": { "type": "string", "minLength": 1, "maxLength": 32 }
                 }
               }
             },
             "links": {
               "type": "array",
+              "maxItems": 4,
               "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "required": ["label", "href"],
                 "properties": {
-                  "label": { "type": "string", "maxLength": 40 },
-                  "href": { "type": "string" }
+                  "label": { "type": "string", "minLength": 1, "maxLength": 40 },
+                  "href": { "type": "string", "minLength": 1 }
                 }
               }
             }
@@ -81,6 +104,7 @@
     },
     "palette": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["scope", "light", "dark"],
       "properties": {
         "scope": { "enum": ["masthead-only", "masthead-and-accent", "full-paper"] },
@@ -90,6 +114,7 @@
     },
     "ambient": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "preset": { "enum": ["none", "critical-line", "stardust", "snow", "lantern"] },
         "region": { "const": "masthead" }
@@ -97,22 +122,26 @@
     },
     "knowledge": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "banner": {
           "type": "object",
+          "additionalProperties": false,
           "required": ["text"],
           "properties": {
-            "dismissible": { "type": "boolean" },
+            "dismissible": { "type": "boolean", "default": true },
             "placement": { "enum": ["overview-only", "all"], "default": "overview-only" },
             "kicker": { "type": "string", "maxLength": 32 },
-            "text": { "type": "string", "maxLength": 200 },
+            "text": { "type": "string", "minLength": 1, "maxLength": 200 },
             "links": {
               "type": "array",
+              "maxItems": 4,
               "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "required": ["label"],
                 "properties": {
-                  "label": { "type": "string", "maxLength": 36 },
+                  "label": { "type": "string", "minLength": 1, "maxLength": 36 },
                   "href": { "type": "string" },
                   "action": { "enum": ["open-story"] }
                 }
@@ -122,40 +151,53 @@
         },
         "highlight": {
           "type": "object",
+          "additionalProperties": false,
           "required": ["keywords"],
           "properties": {
             "badge": { "type": "string", "maxLength": 32 },
-            "keywords": { "type": "array", "items": { "type": "string", "maxLength": 40 } }
+            "keywords": { "type": "array", "items": { "type": "string", "maxLength": 40 }, "minItems": 1 }
           }
         },
         "related": {
           "type": "object",
+          "additionalProperties": false,
           "required": ["keywords"],
           "properties": {
             "heading": { "type": "string", "maxLength": 32 },
-            "keywords": { "type": "array", "items": { "type": "string", "maxLength": 40 } },
+            "keywords": { "type": "array", "items": { "type": "string", "maxLength": 40 }, "minItems": 1 },
             "limit": { "type": "integer", "minimum": 1, "maximum": 12 },
             "maxPerGroup": { "type": "integer", "minimum": 1, "maximum": 4 }
           }
+        },
+        "searchExamples": {
+          "type": "array",
+          "maxItems": 5,
+          "items": { "type": "string", "minLength": 1, "maxLength": 24 }
         }
       }
     },
     "home": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "eyebrow": { "type": "string", "maxLength": 80 },
         "badge": { "type": "string", "maxLength": 40 },
         "summary": { "type": "string", "maxLength": 160 },
         "href": { "type": "string" },
-        "accent": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bandBg": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "galaxyCore": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "galaxyArm": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "accent": { "$ref": "#/$defs/hexColor" },
+        "bandBg": { "$ref": "#/$defs/hexColor" },
+        "galaxyCore": { "$ref": "#/$defs/hexColor" },
+        "galaxyArm": { "$ref": "#/$defs/hexColor" },
+        "starKeywords": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 32 }
+        },
         "asciiHands": {
           "type": "object",
+          "additionalProperties": false,
           "properties": {
-            "humanColor": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-            "machineColor": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+            "humanColor": { "$ref": "#/$defs/hexColor" },
+            "machineColor": { "$ref": "#/$defs/hexColor" },
             "glyphBands": { "type": "array", "items": { "type": "string", "maxLength": 24 }, "minItems": 4 }
           }
         }
@@ -163,25 +205,31 @@
     }
   },
   "$defs": {
+    "hexColor": {
+      "type": "string",
+      "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+    },
     "modePalette": {
       "type": "object",
+      "additionalProperties": false,
       "required": ["bandBg", "bandInk", "bandMuted", "bandAccent", "bandRule"],
       "properties": {
-        "paper": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "surface": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "ink": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "muted": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "rule": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "accent": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "link": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "emphasis": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bandBg": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bandInk": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bandMuted": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bandAccent": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bandRule": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bannerBg": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
-        "bannerBorder": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" }
+        "paper": { "$ref": "#/$defs/hexColor" },
+        "surface": { "$ref": "#/$defs/hexColor" },
+        "ink": { "$ref": "#/$defs/hexColor" },
+        "muted": { "$ref": "#/$defs/hexColor" },
+        "rule": { "$ref": "#/$defs/hexColor" },
+        "accent": { "$ref": "#/$defs/hexColor" },
+        "link": { "$ref": "#/$defs/hexColor" },
+        "emphasis": { "$ref": "#/$defs/hexColor" },
+        "bandBg": { "$ref": "#/$defs/hexColor" },
+        "bandInk": { "$ref": "#/$defs/hexColor" },
+        "bandMuted": { "$ref": "#/$defs/hexColor" },
+        "bandAccent": { "$ref": "#/$defs/hexColor" },
+        "bandRule": { "$ref": "#/$defs/hexColor" },
+        "bandHover": { "$ref": "#/$defs/hexColor" },
+        "bannerBg": { "$ref": "#/$defs/hexColor" },
+        "bannerBorder": { "$ref": "#/$defs/hexColor" }
       }
     }
   }

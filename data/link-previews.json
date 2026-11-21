@@ -1,4 +1,7 @@
 {
+  "http://106.14.11.164/": {
+    "title": "Redirecting"
+  },
   "http://127.0.0.1:8080/v1": {
     "failed": true
   },
@@ -73,6 +76,11 @@
     "title": "本期各群与行业重点总览 · 2026.11.02–11.08 周报",
     "description": "Agent Hub 总览周报 2026-11-02 至 2026-11-08：本期各群与行业重点总览。一页速览本期 9 个版面的核心讨论与行业动态，点击任意卡片或话题即可进入对应版面深读。",
     "siteName": "Agent Hub"
+  },
+  "https://ai.36kr.com/ai-product-rank?tab=fresh": {
+    "title": "AI产品排行榜 | 36氪AI测评",
+    "description": "36氪AI测评AI产品排行榜每周更新AI产品热门榜、新鲜榜和点评榜，结合产品评分、上线更新、互动访问和真实用户反馈，展示TOP20 AI工具与AI软件排行，帮助用户快速了解热门AI应用和产品趋势。",
+    "siteName": "36氪AI测评 - 2026年AI软件推荐与深度测评"
   },
   "https://aleph-alpha.com/en/blog/scaling-pre-training-in-practice-a-hierarchical-approach": {
     "failed": true
@@ -418,6 +426,9 @@
     "description": "A speech deepfake detector estimates whether a recording is synthetic, but a forensic analyst also asks which system produced it, whether recordings share a source, and what evidence supports each conclusion. We present ",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/abs/2611.048": {
+    "failed": true
+  },
   "https://arxiv.org/abs/2611.04867": {
     "title": "One Assistant, Many Memories: Benchmarking Real-World Group Assistance When Recall Is Not Enough",
     "description": "The value of memory lies not only in recall but in using it to provide appropriate assistance. Recent benchmarks test memory use in personalisation and agentic tasks, but seldom evaluate assistance without fixed answers ",
@@ -453,6 +464,14 @@
     "description": "The release of GPT-6 Astra marks the emergence of a new paradigm in robotics: agentic robotics. Within weeks, frontier models with agentic harnesses matched or exceeded task-specific policies on many embodied benchmarks.",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/abs/2611.24731": {
+    "title": "HandWorldBench: A Unified Benchmark for Hand-Centric World Models",
+    "description": "Recent advances in world models are opening new possibilities for fine-grained embodied tasks, with hand-object interaction offering a particularly demanding setting. Modeling these interactions involves capturing how ha",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/html/2602.16839": {
+    "title": "Training Large Reasoning Models Efficiently via Progressive Thought Encoding"
+  },
   "https://arxiv.org/html/2610.15166v1": {
     "title": "ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling"
   },
@@ -477,6 +496,11 @@
   "https://arxiv.org/pdf/2602.11144": {
     "title": "GENIUS: Generative Fluid Intelligence Evaluation Suite",
     "description": "Unified Multimodal Models (UMMs) have shown remarkable progress in visual generation. Yet, existing benchmarks predominantly assess $\\textit{Crystallized Intelligence}$, which relies on recalling accumulated knowledge an",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2603.07267": {
+    "title": "How to Steal Reasoning Without Reasoning Traces",
+    "description": "Many large language models (LLMs) use reasoning to generate responses but do not reveal their full reasoning traces (a.k.a. chains of thought), instead outputting only final answers and brief reasoning summaries. To demo",
     "siteName": "arXiv.org"
   },
   "https://arxiv.org/pdf/2604.24658": {
@@ -663,6 +687,10 @@
   "https://easyslides.scansci.com/index.html?library=image#catalog": {
     "title": "EasySlides · 模板与案例展厅"
   },
+  "https://embodiedcity.github.io/HandWorldBench/": {
+    "title": "HandWorldBench — Hand-Centric World Models",
+    "description": "HandWorldBench: A Unified Benchmark for Hand-Centric World Models."
+  },
   "https://ernie.baidu.com/release/ernie-5-5-flash-preview/": {
     "title": "Introducing ERNIE 5.5 Flash Preview · ERNIE",
     "description": "ERNIE 5.5 Flash Preview has 280B total parameters, 14B active and a 1M-token context, with across-the-board improvements in coding, agentic tasks, knowledge work and deep research. The weights will be open-sourced under "
@@ -673,6 +701,14 @@
   },
   "https://fangcunleap.com/public/reports/fangcun_eval_deepseek_v4_1_flash_1017.pdf": {
     "failed": true
+  },
+  "https://fastrua.ai/blog/2026-11-code-mode/": {
+    "title": "ORA v0.1: Robot-use agents now write code, move smoothly, and reach 40% on RoboDojo · FastRUA",
+    "description": "Robot-use agents now write code, move smoothly, and reach 40% on RoboDojo."
+  },
+  "https://fastrua.ai/ora": {
+    "title": "ORA · Open Robot-Use Agents",
+    "description": "ORA: an open harness that connects open-weight language models to robots."
   },
   "https://fibona.ai/blog/fibona-": {
     "failed": true
@@ -754,6 +790,11 @@
     "description": "The offcial repo of \"Towards Agentic Robots: Model, Data, Environment, and Harness\" - chonghanqin/Awesome-Agentic-Robots",
     "siteName": "GitHub"
   },
+  "https://github.com/CocoSgt/riemann-hypothesis-lean": {
+    "title": "CocoSgt/riemann-hypothesis-lean: Mirror of Levent Alpöge's Lean proof of the Riemann Hypothesis (with Claude). All credit to Levent Alpöge. Source: alpo.ge",
+    "description": "Mirror of Levent Alpöge's Lean proof of the Riemann Hypothesis (with Claude). All credit to Levent Alpöge. Source: alpo.ge - CocoSgt/riemann-hypothesis-lean",
+    "siteName": "GitHub"
+  },
   "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm": {
     "title": "DAGroup-PKU/PyRUA-Lean at DataFarm",
     "description": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success but 65% Fewer Tokens - DAGroup-PKU/PyRUA-Lean",
@@ -794,6 +835,10 @@
     "description": "Fair verdicts for agent work: a benchmark and a harness for the verifiers LLM agents write. - DwanZhang-AI/verifier-suite",
     "siteName": "GitHub"
   },
+  "https://github.com/EmbodiedCity/HandWorldBench.code": {
+    "title": "EmbodiedCity/HandWorldBench.code",
+    "siteName": "GitHub"
+  },
   "https://github.com/ernie-research/ECHO": {
     "title": "ernie-research/ECHO: Official repository of ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction",
     "description": "Official repository of ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction - ernie-research/ECHO",
@@ -807,6 +852,11 @@
   "https://github.com/evolvent-ai/RSIGym": {
     "title": "evolvent-ai/RSIGym: RSIGym: A Flexible Environment for Recursive Self-Improvement",
     "description": "RSIGym: A Flexible Environment for Recursive Self-Improvement - evolvent-ai/RSIGym",
+    "siteName": "GitHub"
+  },
+  "https://github.com/fast-rua/ORA": {
+    "title": "fast-rua/ORA: ORA: Open Robot-Use Agents",
+    "description": "ORA: Open Robot-Use Agents.",
     "siteName": "GitHub"
   },
   "https://github.com/FibonaAI/fi": {
@@ -890,6 +940,16 @@
   "https://github.com/LARK-AI-Lab/Mosaic": {
     "title": "LARK-AI-Lab/Mosaic: Exploring Multi-Session Agentic Reinforcement Learning",
     "description": "Exploring Multi-Session Agentic Reinforcement Learning - LARK-AI-Lab/Mosaic",
+    "siteName": "GitHub"
+  },
+  "https://github.com/leanprover/lean4/pull/14807/": {
+    "title": "fix: make the kernel `is_prop` check require a sort by leodemoura · Pull Request #14807 · leanprover/lean4",
+    "description": "This PR fixes a soundness issue. TL;DR. The kernel&#39;s is_prop decided whether a term is a proposition by taking the weak head normal form of its inferred type and checking that the result is syn...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/LehengTHU/humanize-ml-paper": {
+    "title": "LehengTHU/humanize-ml-paper: Agent skill for writing ML conference papers (ICLR, NeurIPS, ICML) in the style of human-written papers that follow academic conven",
+    "description": "Agent skill for writing ML conference papers (ICLR, NeurIPS, ICML) in the style of human-written papers that follow academic conventions. - LehengTHU/humanize-ml-paper",
     "siteName": "GitHub"
   },
   "https://github.com/lisresearchgroup/math-rsi": {
@@ -1023,6 +1083,11 @@
     "description": "One Claude Code window, every Claude account you own. A macOS menu-bar app that hands heavy jobs to your other accounts. - OvOhao/relay",
     "siteName": "GitHub"
   },
+  "https://github.com/pingdotgg/t3code": {
+    "title": "pingdotgg/t3code: The best way to control Claude Code, Codex and more from any computer or phone",
+    "description": "The best way to control Claude Code, Codex and more from any computer or phone - pingdotgg/t3code",
+    "siteName": "GitHub"
+  },
   "https://github.com/Prefrontal-AI/latent-sparse-attention": {
     "title": "Prefrontal-AI/latent-sparse-attention: Code for Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention",
     "description": "Code for Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention - Prefrontal-AI/latent-sparse-attention",
@@ -1110,6 +1175,16 @@
     "title": "ShenYifanS/Awesome-Interactive-Omni",
     "siteName": "GitHub"
   },
+  "https://github.com/simplexai-labs/linger": {
+    "title": "simplexai-labs/linger: Linger is An Open-Source Personal Agent That Runs Fully on Your PC. We aim to break Big Tech’s grip on AI by bringing powerful local AI t",
+    "description": "Linger is An Open-Source Personal Agent That Runs Fully on Your PC. We aim to break Big Tech’s grip on AI by bringing powerful local AI to everyday computers through efficient model–harness co-des...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/simplexai-labs/PolyStrata": {
+    "title": "simplexai-labs/PolyStrata: Run large AI models on your own PC: Qwen3.8-Flash-Next on Strata's engine, and GLM 5.3 Flash, DeepSeek V4 Flash, LFM2.5, Qwen3.6, Orn",
+    "description": "Run large AI models on your own PC: Qwen3.8-Flash-Next on Strata&#39;s engine, and GLM 5.3 Flash, DeepSeek V4 Flash, LFM2.5, Qwen3.6, Ornith 1.5, Gemma 4, Tiel Coder and MiniCPM-V on a second engin...",
+    "siteName": "GitHub"
+  },
   "https://github.com/SingularGuyLeBorn/machine-stage": {
     "title": "SingularGuyLeBorn/machine-stage",
     "siteName": "GitHub"
@@ -1148,6 +1223,9 @@
     "description": "WorldCast: Exploring Intelligent Visual Generation in World State Prediction - teal024/WorldCast",
     "siteName": "GitHub"
   },
+  "https://github.com/Tencent/Gro": {
+    "failed": true
+  },
   "https://github.com/Tencent/GroupAssistBench": {
     "title": "Tencent/GroupAssistBench: One Assistant, Many Memories: Benchmarking Real-World Group Assistance When Recall Is Not Enough",
     "description": "One Assistant, Many Memories: Benchmarking Real-World Group Assistance When Recall Is Not Enough - Tencent/GroupAssistBench",
@@ -1181,6 +1259,9 @@
     "title": "ucsandman/discovery-loop: Subscription-powered Fable and Astra research for optimization solvers, with isolated experiments, independent verification and human-",
     "description": "Subscription-powered Fable and Astra research for optimization solvers, with isolated experiments, independent verification and human-reviewed evidence. - ucsandman/discovery-loop",
     "siteName": "GitHub"
+  },
+  "https://github.com/UniPat-AI/SPU%E5%B0%B1%E6%98%AF%E7%BB%99%E5%AE%9A%E5%AE%9E%E9%AA%8C%E6%9D%90%E6%96%99%E4%BB%A5%E5%90%8E%E4%B8%8D%E5%81%9A%E5%AE%9E%E9%AA%8C%E5%B0%B1%E5%8E%BB%E6%8E%A8%E6%B5%8B%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C(%E5%AE%9E%E9%AA%8C%E6%98%AF%E6%B9%BF%E5%AE%9E%E9%AA%8C)": {
+    "failed": true
   },
   "https://github.com/Vector-Wangel/XLeRobot": {
     "title": "Vector-Wangel/XLeRobot: XLeRobot: Practical Dual-Arm Mobile Home Robot for $660",
@@ -1269,6 +1350,11 @@
     "title": "zhongweixie/CoworkEnv-Lessons",
     "siteName": "GitHub"
   },
+  "https://github.com/ZIWU-AI/robotics-bench/": {
+    "title": "ZIWU-AI/robotics-bench: Evaluating AI agents on robotics: contributor-built cases in CPU,GPU simulation and real Robot, scored by replaying a sealed recording.",
+    "description": "Evaluating AI agents on robotics: contributor-built cases in CPU,GPU simulation and real Robot, scored by replaying a sealed recording. - ZIWU-AI/robotics-bench",
+    "siteName": "GitHub"
+  },
   "https://github.com/ziyan-wang98/BazaarBench": {
     "title": "ziyan-wang98/BazaarBench: BazaarBench: Delegation Safety in Decentralized C2C Marketplaces Run by LLM Agents",
     "description": "BazaarBench: Delegation Safety in Decentralized C2C Marketplaces Run by LLM Agents - ziyan-wang98/BazaarBench",
@@ -1282,6 +1368,9 @@
   "https://grid-robotics-official.github.io/agentic-robotics-roadmap/": {
     "title": "Envisioning Agentic Robotics · Grid Robotics",
     "description": "A framework, evaluation principles, and research roadmap for agentic robotics."
+  },
+  "https://gtashenzhen.com/": {
+    "title": "GTA Shenzhen"
   },
   "https://huggingface.co/beipo-ai/NorthCUA-Mini": {
     "title": "beipo-ai/NorthCUA-Mini · Hugging Face",
@@ -1335,6 +1424,10 @@
     "title": "PocketWorker - a zhongweixie Collection",
     "description": "PocketWorker_claweval"
   },
+  "https://huggingface.co/dataset": {
+    "title": "dataset (dataset)",
+    "description": "User profile of dataset on Hugging Face"
+  },
   "https://huggingface.co/datasets/antins-labs/VisSearch-Bench-v1": {
     "title": "antins-labs/VisSearch-Bench-v1 · Datasets at Hugging Face",
     "description": "Dataset with 204 rows (Image, Text). Explore, preview and download it on Hugging Face."
@@ -1342,6 +1435,18 @@
   "https://huggingface.co/datasets/Catherine1213/VerifierBench": {
     "title": "Catherine1213/VerifierBench · Datasets at Hugging Face",
     "description": "Dataset with 5.22k rows (Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/EmbodiedCity/HandWorldBench": {
+    "title": "EmbodiedCity/HandWorldBench · Datasets at Hugging Face",
+    "description": "Dataset with 500 rows (Image, Tabular, Text, Video). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus": {
+    "title": "EmbodiedCity/HandWorldBench-Corpus · Datasets at Hugging Face",
+    "description": "Dataset with 20k rows (Tabular, Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/FastRUA/ora-traces": {
+    "title": "FastRUA/ora-traces · Datasets at Hugging Face",
+    "description": "Dataset with 3.56k rows (Tabular, Text). Explore, preview and download it on Hugging Face."
   },
   "https://huggingface.co/datasets/HenryJ12/InvestorLastExam": {
     "title": "HenryJ12/InvestorLastExam · Datasets at Hugging Face",
@@ -1386,6 +1491,10 @@
   "https://huggingface.co/meituan-longcat/LongCat-2.5": {
     "title": "meituan-longcat/LongCat-2.5 · Hugging Face",
     "description": "Image-Text-to-Text model with 1.8T parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/papers/": {
+    "title": "Daily Papers - Hugging Face",
+    "description": "Your daily dose of AI research from AK"
   },
   "https://huggingface.co/papers/2609.27334": {
     "title": "Paper page - Just-in-Time Memory: Learning to Curate Task-Adaptive Memory for LLM Agents",
@@ -1662,6 +1771,11 @@
     "title": "Mosaic: Multi-Session Agentic Reinforcement Learning",
     "description": "Better agents need more than longer contexts. They need to learn how to use their sessions."
   },
+  "https://lehengthu.github.io/blog/2026/paper-skill-ai-detection/": {
+    "title": "The Art of Writing: Agents with Well-Curated Skills Can Cheat AI Detectors",
+    "description": "We distilled the writing practices of human-written papers that follow academic conventions into an academic-writing skill. An agent equipped with the skill can write fluent, logical prose with a lower AI detection rate ",
+    "siteName": "Leheng Sheng"
+  },
   "https://linux.do/t/topic/2774454": {
     "failed": true
   },
@@ -1750,6 +1864,10 @@
     "title": "自动化科研指数提升超图染色问题下界",
     "siteName": "微信公众平台"
   },
+  "https://mp.weixin.qq.com/s/c7DBK-7rztXkNW8AnNXvMw": {
+    "title": "ACL'26 best paper | 为什么大模型总觉得事情做完了？",
+    "siteName": "微信公众平台"
+  },
   "https://mp.weixin.qq.com/s/Dwc9oqE6-inihwls43gevg": {
     "title": "自动化科研闭合40余年编码核心开放问题",
     "siteName": "微信公众平台"
@@ -1766,6 +1884,11 @@
   "https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x": {
     "title": "Anthropic Subscriptions Offer 5x+ More Value Than OpenAI",
     "description": "Limit testing every AI subscription plan from Anthropic, OpenAI, Meta, SpaceXSI, MiniMax, Moonshot, Z.ai, Cursor, and Cognition"
+  },
+  "https://nginx2root.com/": {
+    "title": "NGINX2Root by Xint — From nginx visitor to root of the server host",
+    "description": "Xint discovered five nginx vulnerabilities, including CVE-2026-123007. From unauthenticated RCE to host root, chained with a kernel exploit.",
+    "siteName": "NGINX2Root"
   },
   "https://no-518.github.io/tactile-eta/": {
     "title": "Tactile-ETA · Tactile In-Context Learning",
@@ -1819,6 +1942,11 @@
   },
   "https://oriera-engine.github.io/engine/": {
     "title": "OriEra — AI-Native World Engine"
+  },
+  "https://pangzhengboyin.com/": {
+    "title": "庞征博引 · 想学的，慢慢都会",
+    "description": "庞征博引是把想学的东西写成连载的 AI 学习工具。说出想学什么，它会先了解你的基础，再把主题写成一篇篇 5–10 分钟能读完的文章；边读边问，接下来学什么跟着你走。",
+    "siteName": "庞征博引"
   },
   "https://penguin.ooo/": {
     "title": "PenguinHarness",
@@ -2078,6 +2206,11 @@
     "description": "Opus 5.5纯代码生成随便做做的，试试手感，但真的感觉不错，虽然修改了8次，人工把控了一些节奏能产出6分多钟的视频非常强了, 视频播放量 91408、弹幕量 197、点赞数 3108、投硬币枚数 1103、收藏人数 3357、转发人数 1726, 视频作者 铼夏LAYccc, 作者简介 正在学习各种骚操作，相关视频：Opus5.5生成短片《当我让claude展示她的所有知识》，「AI 被提问时，脑子里到底在想什么？」我让 Claud",
     "siteName": "哔哩哔哩"
   },
+  "https://www.bilibili.com/video/BV1JY4w6kEAe?vd_source=f1f7743d4ee949df45eff3ff2147dd21": {
+    "title": "【全网首发】Claude防封号独家指南！前后花了5万元！小白保姆级教程【包含对话铺垫/IP DNS/订阅方式/历史记录清除】_哔哩哔哩_bilibili",
+    "description": "视频内已经将所有的网站进行打码，没有吐露任何网址，也没有推广违规AI服务简介无推广内容视频中演示网站有正规ICP备案与ICP许可, 视频播放量 147747、弹幕量 79、点赞数 3112、投硬币枚数 1141、收藏人数 6812、转发人数 1062, 视频作者 Gemini3-, 作者简介 ，相关视频：如何长期稳定使用Claude订阅，原理+实操教学，Claude(Code)桌面APP，保姆级全攻略，一期视频精通，顶级Agent软件长",
+    "siteName": "哔哩哔哩"
+  },
   "https://www.biorxiv.org/content/10.64898/2026.03.19.712954v1": {
     "failed": true
   },
@@ -2101,6 +2234,10 @@
     "title": "Introducing LFM3: Every Modality for Specialized Intelligence | Blog",
     "description": "LFM3 is Liquid AI’s new open-weight model family: 2B-class text, vision, audio, omni, and decision models built to fine-tune and run fast on any device.",
     "siteName": "Liquid AI"
+  },
+  "https://www.micro1.ai/personal-agent-bench": {
+    "title": "PersonalAgentBench",
+    "description": "We put leading personal AI agents to the test with complex everyday tasks."
   },
   "https://www.nature.com/articles/d41586-026-02804-x?code=806f0d1a-fa32-4693-a187-0f90088df82e&error=cookies_not_supported": {
     "title": "The Einstein test: what happens when AI tries to rediscover relativity?",
@@ -2191,6 +2328,11 @@
     "description": "I've recently been exploring Coding Agents for Science. Here are my thoughts on building a scalable scientific data flywheel, from assisting existing scientific workflows to autonomous research with closed-loop dry and w",
     "siteName": "X"
   },
+  "https://x.com/haoailab/status/2123214025580536251": {
+    "title": "Hao AI Lab 的帖子",
+    "description": "Releasing ORA v0.1, our open harness for zero-shot robot use! On DeepSeek V4.1-Flash, compared with ORA October’s preview: - RoboDojo: 5.2% → 39.9%, - RoboTwin: 71.5% → 79.6%. 🌐 Code https://t.co/M3ZAFAZOs9 pic.twitter.",
+    "siteName": "X"
+  },
   "https://x.com/haochen_shi3/status/2115871363001135262?a=tmaS7BQ2qFKs6woBIy4&s=20": {
     "title": "Haochen shi 的帖子",
     "description": "Can recursive models think differently, not just longer? Input-Conditioned Search (ICS) changes their update maps at test time with no extra training. ICS achieves the highest mean Acc across six tasks with up to two ord",
@@ -2232,6 +2374,11 @@
   "https://x.com/RichardSocher/status/2112944385415426249?s=20": {
     "title": "Richard Socher 的帖子",
     "description": "Introducing Flint, @Recursive_SI ’s first model: a fast local coding model built with our automated research system, the Eureka Machine. • Best-in-class fast local coding • Up to 2x faster than comparable models: 125+ to",
+    "siteName": "X"
+  },
+  "https://x.com/ruihan_mit/status/2123218139433554110?a=sB": {
+    "title": "Ruihan Zhang 的帖子",
+    "description": "Fan of chain reactions? ✨🤖 Our team just built this entire @MuJoCo_Sim Rube Goldberg machine in a few hours—just by chatting with #Gemini 4 Hydrogen + our new Robotics plugin in @Antigravity from @GoogleDeepMind ! 🚀 Yo",
     "siteName": "X"
   },
   "https://x.com/techfren/status/2119924958134702276": {
@@ -2279,6 +2426,9 @@
     "description": "感受一下 Claude Fable 5.2 的顶级审美😭 这光影、配色和氛围感，真有《光遇》那味儿了好吧…… 有一说一，这审美 ChatGPT 得学十年🤣👌 pic.twitter.com/z2XTQdnQp6 &mdash; 兴雨 (@YxzRainy) November 9, 2026",
     "siteName": "X"
   },
+  "https://x.com/zhutianyang_/status/212323320929524": {
+    "failed": true
+  },
   "https://x.com/zuo_yuxin/status/2117635294115795134?a=XWAw0OD1Z9QRKDbK7q4&s=20": {
     "title": "Yuxin Zuo 的帖子",
     "description": "‼️ Can Qwen directly control the robot as well as GPT-6 Astra? 🚀 Introducing uni-robot-agent: a unified harness for Robot-Use Agents (RUAs), a first step toward RUA training and local deployment. We tested uni-robot-age",
@@ -2313,6 +2463,9 @@
     "failed": true
   },
   "https://zhuanlan.zhihu.com/p/2078125465248833927": {
+    "failed": true
+  },
+  "https://zhuanlan.zhihu.com/p/2084655794042283523": {
     "failed": true
   },
   "https://zhuanlan.zhihu.com/p/2095560295930508953": {

@@ -2,6 +2,20 @@
 (() => {
   'use strict';
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const decodeHtml = value => String(value ?? '').replace(/&(#x?[0-9a-f]+|quot|amp|lt|gt|apos|nbsp|mdash|ndash);/gi, (m, entity) => {
+    const lower = entity.toLowerCase();
+    if (lower === 'quot') return '"';
+    if (lower === 'amp') return '&';
+    if (lower === 'lt') return '<';
+    if (lower === 'gt') return '>';
+    if (lower === 'apos') return "'";
+    if (lower === 'nbsp') return ' ';
+    if (lower === 'mdash') return '—';
+    if (lower === 'ndash') return '–';
+    if (lower.startsWith('#x')) { const cp = Number.parseInt(lower.slice(2), 16); return Number.isFinite(cp) ? String.fromCodePoint(cp) : m; }
+    if (lower.startsWith('#')) { const cp = Number.parseInt(lower.slice(1), 10); return Number.isFinite(cp) ? String.fromCodePoint(cp) : m; }
+    return m;
+  });
   const rootPrefix = () => (typeof document !== 'undefined' && document.querySelector('meta[name="agenthub-root"]')?.content) || '';
   const asset = file => window.AgentHubRoutes?.asset(file) || `${rootPrefix()}${file}`;
   const paths = {
@@ -165,10 +179,11 @@
     const kindIcon = host === 'github.com' ? 'code' : (host === 'arxiv.org' || host === 'huggingface.co') ? 'paper' : 'link';
     const tone = host === 'github.com' ? 'code' : (host === 'arxiv.org' || host === 'huggingface.co') ? 'paper' : (host === 'x.com' || host === 'twitter.com') ? 'social' : 'web';
     const fallbackTitle = linkTitle(url);
-    const title = preview?.title || fallbackTitle;
-    const named = siteName(host) || preview?.siteName;
+    const title = decodeHtml(preview?.title) || fallbackTitle;
+    const named = siteName(host) || decodeHtml(preview?.siteName);
     const origin = named ? (named.toLowerCase() === host.toLowerCase() ? named : `${named} · ${host}`) : (fallbackTitle === host ? '网站' : host);
-    const desc = preview?.description ? `<span class="discussion-card-summary">${esc(preview.description)}</span>` : '';
+    const descText = decodeHtml(preview?.description || '');
+    const desc = descText ? `<span class="discussion-card-summary">${esc(descText)}</span>` : '';
     return `<a class="discussion-card is-unfurl" data-link-tone="${tone}" href="${esc(url.href)}" title="${esc(url.href)}" target="_blank" rel="noopener noreferrer"><span class="discussion-card-origin">${icon(kindIcon)}<span>${esc(origin)}</span>${icon('external')}</span><span class="discussion-card-title">${esc(title)}</span>${desc}</a>`;
   }
   function fileExtInfo(name) {
@@ -361,20 +376,102 @@
     }
     return html + esc(text.slice(end));
   }
-  function lead(item) {
+  function lead(item, topicIndex = 0, isExternal = false) {
+    const tldr = typeof item.tldr === 'string' && item.tldr.trim() ? item.tldr.trim() : '';
     const text = typeof item.text === 'string' ? item.text.trim() : '';
+    const points = Array.isArray(item.points) ? item.points.filter(p => typeof p === 'string' ? p.trim() : p?.text?.trim()) : [];
     const links = (Array.isArray(item.resources) ? item.resources : []).flatMap(resource => {
       const url = typeof resource?.url === 'string' ? safeUrl(resource.url) : null;
       return url?.protocol === 'https:' && typeof resource.label === 'string' && resource.label.trim()
         ? [{ url, label: resource.label.trim(), kind: resourceKind(resource) }] : [];
     });
-    return `${text ? `<div class="discussion-lead-text">${emphasize(text, item.emphasis).split(/\n\s*\n/).map(part => `<p>${part}</p>`).join('')}</div>` : ''}${
+    function citeChips(refs, inlineMode = false) {
+      return refs.map(ref => {
+        const msg = item.messages?.[ref - 1];
+        const chipLabel = msg ? `${msg.time} · ${speakerName(msg.speaker)}` : `#${ref}`;
+        return `<button type="button" class="discussion-cite-chip${inlineMode ? ' is-inline' : ''}" data-message-target="discussion-${topicIndex + 1}-message-${ref}" aria-label="跳转到原讨论第 ${ref} 条，${esc(chipLabel)}">↗ ${esc(chipLabel)}</button>`;
+      }).join('');
+    }
+    function matchPointToParagraph(pointText, paragraphs, fallbackIdx) {
+      if (paragraphs.length <= 1) return 0;
+      const tokens = [];
+      for (const m of pointText.matchAll(/[a-z0-9_.-]{2,}/gi)) tokens.push(m[0].toLowerCase());
+      const cjk = pointText.replace(/[^\u4e00-\u9fff]/g, '');
+      for (let i = 0; i < cjk.length - 1; i++) tokens.push(cjk.slice(i, i + 2));
+      let bestIdx = fallbackIdx;
+      let bestScore = -1;
+      for (let p = 0; p < paragraphs.length; p++) {
+        const hay = paragraphs[p].toLowerCase();
+        let score = 0;
+        for (const tok of tokens) {
+          if (hay.includes(tok)) score += tok.length >= 3 ? 2 : 1;
+        }
+        if (score > bestScore) { bestScore = score; bestIdx = p; }
+      }
+      return bestScore > 0 ? bestIdx : fallbackIdx;
+    }
+    let bodyHtml = '';
+    let weaveRefs = false;
+    if (text) {
+      const rawParas = text.split(/\n\s*\n/);
+      const paraRefs = rawParas.map(() => []);
+      if (!isExternal && points.length) {
+        const pointsWithRefs = points.filter(p => Array.isArray(p?.refs) && p.refs.length);
+        if (pointsWithRefs.length) {
+          weaveRefs = true;
+          pointsWithRefs.forEach((point, idx) => {
+            const pText = typeof point === 'string' ? point : point.text;
+            const fallbackIdx = Math.min(rawParas.length - 1, Math.round(idx * (rawParas.length - 1) / Math.max(1, pointsWithRefs.length - 1)));
+            const targetIdx = matchPointToParagraph(pText, rawParas, fallbackIdx);
+            for (const r of point.refs) {
+              if (!paraRefs[targetIdx].includes(r)) paraRefs[targetIdx].push(r);
+            }
+          });
+        }
+      }
+      const emphasizedParas = emphasize(text, item.emphasis).split(/\n\s*\n/);
+      bodyHtml = `<div class="discussion-lead-text">${emphasizedParas.map((part, idx) => {
+        const refs = paraRefs[idx] || [];
+        const chips = refs.length ? ` <span class="discussion-inline-cites">${citeChips(refs, true)}</span>` : '';
+        return `<p>${part}${chips}</p>`;
+      }).join('')}</div>`;
+    }
+    const pointsHtml = (isExternal || !weaveRefs) && points.length ? `<section class="discussion-lead-points" aria-label="核心要点"><p class="discussion-lead-label">${isExternal ? '关键信息' : '讨论要点与溯源'}</p><ul>${points.map(point => {
+      const pText = typeof point === 'string' ? point.trim() : point.text.trim();
+      const refs = !isExternal && Array.isArray(point?.refs) ? point.refs : [];
+      const chips = citeChips(refs, false);
+      return `<li><span class="discussion-point-copy">${esc(pText)}</span>${chips ? `<span class="discussion-cite-group">${chips}</span>` : ''}</li>`;
+    }).join('')}</ul></section>` : '';
+    return `${tldr ? `<div class="discussion-lead-tldr"><span class="discussion-lead-tldr-tag">TL;DR</span><p>${esc(tldr)}</p></div>` : ''}${pointsHtml}${bodyHtml}${
       typeof item.comment === 'string' && item.comment.trim() ? `<aside class="discussion-lead-comment" aria-label="Bot 锐评"><span>Bot 锐评</span><p>${esc(item.comment)}</p></aside>` : ''}${
       links.length ? `<section class="discussion-lead-resources" aria-label="相关资料"><p class="discussion-lead-label">相关资料</p>
         <ul class="discussion-lead-links">${links.map(({ url, label, kind }) => `<li><a href="${esc(url.href)}" target="_blank" rel="noopener noreferrer">
           <span class="discussion-lead-link-icon">${icon(kind)}</span>
           <span class="discussion-lead-link-text"><strong>${esc(label)}</strong> <small>${esc(url.hostname.replace(/^www\./, ''))}</small></span>${icon('external')}
         </a></li>`).join('')}</ul></section>` : ''}`;
+  }
+  function renderExternalSources(item, trends) {
+    const sources = Array.isArray(item.sources) ? item.sources.filter(s => s?.url && s?.excerpt) : [];
+    const cards = sources.length
+      ? `<div class="external-sources-list">${sources.map((src, i) => {
+          const url = safeUrl(src.url);
+          const host = url ? url.hostname.replace(/^www\./, '') : '';
+          return `<article class="external-source-card">
+            <header class="external-source-head">
+              <span class="external-source-num">${pad(i + 1)}</span>
+              <strong class="external-source-pub">${esc(src.publisher || host || '一手来源')}</strong>
+              ${url ? `<a class="external-source-open" href="${esc(url.href)}" target="_blank" rel="noopener noreferrer">阅读原文${icon('external')}</a>` : ''}
+            </header>
+            <p class="external-source-excerpt">${esc(src.excerpt)}</p>
+          </article>`;
+        }).join('')}</div>`
+      : (Array.isArray(item.resources) && item.resources.length
+          ? `<div class="external-sources-empty"><p>本期未收录一手全文摘录，可直接查看左侧核实链接。</p></div>`
+          : `<div class="external-sources-empty"><p>暂无附加来源摘录。</p></div>`);
+    const trendsHtml = Array.isArray(trends) && trends.length
+      ? `<section class="external-drawer-trends" aria-label="本期动向观察"><p class="discussion-lead-label">本期动向观察</p>${trends.map(t => `<article class="external-drawer-trend"><h4>${esc(t.title)}</h4><p>${esc(t.text)}</p></article>`).join('')}</section>`
+      : '';
+    return `${cards}${trendsHtml}`;
   }
   // weekly-render.mjs writes the same trigger markup into its static pages.
   function trigger(messagesOrMeta, index) {
@@ -414,12 +511,66 @@
       </header>
       <aside class="discussion-lead" aria-label="编辑导读"></aside>
       <section class="discussion-chat" aria-label="原始讨论">
+        <div class="discussion-resizer" role="separator" aria-orientation="vertical" aria-label="拖拽调整聊天栏宽度" title="拖拽调整宽度，双击恢复默认" tabindex="0"></div>
         <p class="discussion-chat-label">${icon('messages')}<span>原始讨论</span><span class="discussion-chat-meta"></span></p>
         <div class="discussion-dialog-body" tabindex="-1"></div>
         <button type="button" class="discussion-return" hidden>${icon('reply')}回到引用处</button>
       </section>`;
     body = dialog.querySelector('.discussion-dialog-body');
     returnButton = dialog.querySelector('.discussion-return');
+    const resizer = dialog.querySelector('.discussion-resizer');
+    const widthKey = 'agenthub-discussion-chat-width';
+    const clampChatWidth = px => {
+      const dialogW = dialog.getBoundingClientRect().width || window.innerWidth;
+      const maxW = Math.max(360, Math.min(580, Math.round(dialogW * 0.46)));
+      return Math.round(Math.max(300, Math.min(maxW, px)));
+    };
+    try {
+      const saved = Number(localStorage.getItem(widthKey));
+      if (Number.isFinite(saved) && saved >= 300) dialog.style.setProperty('--chat-width', `${saved}px`);
+    } catch {}
+    if (resizer) {
+      let dragging = false;
+      const applyWidth = px => {
+        const clamped = clampChatWidth(px);
+        dialog.style.setProperty('--chat-width', `${clamped}px`);
+        return clamped;
+      };
+      resizer.addEventListener('pointerdown', event => {
+        if (event.button !== 0) return;
+        dragging = true;
+        dialog.classList.add('is-resizing');
+        resizer.setPointerCapture?.(event.pointerId);
+        applyWidth(dialog.getBoundingClientRect().right - event.clientX);
+      });
+      resizer.addEventListener('pointermove', event => {
+        if (!dragging) return;
+        applyWidth(dialog.getBoundingClientRect().right - event.clientX);
+      });
+      const endDrag = event => {
+        if (!dragging) return;
+        dragging = false;
+        dialog.classList.remove('is-resizing');
+        resizer.releasePointerCapture?.(event.pointerId);
+        const current = parseInt(dialog.style.getPropertyValue('--chat-width'), 10);
+        if (Number.isFinite(current)) {
+          try { localStorage.setItem(widthKey, String(current)); } catch {}
+        }
+      };
+      resizer.addEventListener('pointerup', endDrag);
+      resizer.addEventListener('pointercancel', endDrag);
+      resizer.addEventListener('dblclick', () => {
+        dialog.style.removeProperty('--chat-width');
+        try { localStorage.removeItem(widthKey); } catch {}
+      });
+      resizer.addEventListener('keydown', event => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        const current = dialog.querySelector('.discussion-chat')?.getBoundingClientRect().width || 400;
+        const next = applyWidth(current + (event.key === 'ArrowLeft' ? 24 : -24));
+        try { localStorage.setItem(widthKey, String(next)); } catch {}
+      });
+    }
     document.body.append(dialog);
     dialog.addEventListener('cancel', event => { event.preventDefault(); requestClose(); });
     // Our own paths clean up synchronously. This queued event matters only when the platform closed
@@ -453,6 +604,7 @@
       if (control.dataset.forwardId) { openForwardModal(control.dataset.forwardId); return; }
       if (control.hasAttribute('data-discussion-close')) requestClose();
       else if (control.dataset.discussionStep) open(Number(control.dataset.discussionStep));
+      else if (control.classList.contains('discussion-cite-chip') && control.dataset.messageTarget) jumpToMessage(control.dataset.messageTarget, control);
       else if (control.classList.contains('discussion-quote')) followQuote(control);
       else if (control === returnButton && returnTo) {
         const quote = returnTo;
@@ -534,6 +686,18 @@
     if (typeof dialog.close === 'function') dialog.close(); else dialog.removeAttribute('open');
     finish();
   }
+  function jumpToMessage(targetId, sourceControl = null) {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    if (sourceControl && body.contains(sourceControl)) trackReturn(sourceControl);
+    else hideReturn();
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ block: 'center', behavior: reduceMotion() ? 'instant' : 'smooth' });
+    target.classList.remove('is-highlighted');
+    void target.offsetWidth;
+    target.classList.add('is-highlighted');
+    target.addEventListener('animationend', () => target.classList.remove('is-highlighted'), { once: true });
+  }
   function followQuote(quote) {
     if (!quote.dataset.messageTarget) {
       const expanded = quote.getAttribute('aria-expanded') !== 'true';
@@ -541,14 +705,7 @@
       quote.setAttribute('aria-label', expanded ? '收起完整引文' : '展开完整引文');
       return;
     }
-    const target = document.getElementById(quote.dataset.messageTarget);
-    trackReturn(quote);
-    target.focus({ preventScroll: true });
-    target.scrollIntoView({ block: 'center', behavior: reduceMotion() ? 'instant' : 'smooth' });
-    target.classList.remove('is-highlighted');
-    void target.offsetWidth;
-    target.classList.add('is-highlighted');
-    target.addEventListener('animationend', () => target.classList.remove('is-highlighted'), { once: true });
+    jumpToMessage(quote.dataset.messageTarget, quote);
   }
   const topic = index => Number.isInteger(index) && index >= 0 ? provider?.topic(index) || null : null;
   // The feedback worker counts how often each discussion is opened (public build only). A tab reports
@@ -572,39 +729,63 @@
   }
   function fill(index) {
     const item = topic(index);
+    const isExternal = provider?.mode === 'external';
+    dialog.classList.toggle('is-external-mode', isExternal);
     hideReturn();
-    const { count, speakers, span } = summary(item.messages);
-    dialog.querySelector('.discussion-dialog-kicker').textContent =
-      `${provider.section} · 话题 ${pad(index + 1)} / ${pad(provider.total)}${item.category ? ` · ${item.category}` : ''}`;
-    dialog.querySelector('#discussion-dialog-title').textContent = item.title;
-    dialog.querySelector('.discussion-dialog-meta').textContent = `${count} 条消息 · ${speakers} 位群友 · ${span}`;
-    dialog.querySelector('.discussion-chat-meta').textContent = `${count} 条 · ${speakers} 人 · ${span}`;
+    const chatLabelEl = dialog.querySelector('.discussion-chat-label');
+    if (isExternal) {
+      const srcCount = Array.isArray(item.sources) ? item.sources.length : 0;
+      const linkCount = Array.isArray(item.resources) ? item.resources.length : 0;
+      dialog.querySelector('.discussion-dialog-kicker').textContent =
+        `${provider.section} · ${pad(index + 1)} / ${pad(provider.total)}${item.category ? ` · ${item.category}` : ''}`;
+      dialog.querySelector('#discussion-dialog-title').textContent = item.title;
+      dialog.querySelector('.discussion-dialog-meta').textContent = srcCount ? `${srcCount} 篇一手来源摘录` : `${linkCount} 个核实来源`;
+      if (chatLabelEl) chatLabelEl.innerHTML = `${icon('article')}<span>一手来源与核实摘录</span><span class="discussion-chat-meta">${srcCount ? `${srcCount} 篇` : `${linkCount} 个链接`}</span>`;
+    } else {
+      const { count, speakers, span } = summary(item.messages);
+      dialog.querySelector('.discussion-dialog-kicker').textContent =
+        `${provider.section} · 话题 ${pad(index + 1)} / ${pad(provider.total)}${item.category ? ` · ${item.category}` : ''}`;
+      dialog.querySelector('#discussion-dialog-title').textContent = item.title;
+      dialog.querySelector('.discussion-dialog-meta').textContent = `${count} 条消息 · ${speakers} 位群友 · ${span}`;
+      if (chatLabelEl) chatLabelEl.innerHTML = `${icon('messages')}<span>原始讨论</span><span class="discussion-chat-meta">${count} 条 · ${speakers} 人 · ${span}</span>`;
+    }
     const previous = neighbor(index, -1), next = neighbor(index, 1);
-    const summaryHtml = lead(item);
+    const summaryHtml = lead(item, index, isExternal);
+    const unitLabel = isExternal ? '条资讯' : '个话题';
     const nextButton = next >= 0 ? `<button type="button" class="discussion-next" data-discussion-step="${next}">
-          <span class="discussion-next-label">下一个话题 · ${pad(next + 1)}</span><strong>${esc(topic(next).title)}</strong>${icon('right')}
+          <span class="discussion-next-label">下一${unitLabel} · ${pad(next + 1)}</span><strong>${esc(topic(next).title)}</strong>${icon('right')}
         </button>` : '';
     const actions = `<div class="discussion-dialog-actions">
-          ${previous >= 0 ? `<button type="button" data-discussion-step="${previous}">${icon('left')}上一个话题</button>` : '<span></span>'}
+          ${previous >= 0 ? `<button type="button" data-discussion-step="${previous}">${icon('left')}上一${unitLabel}</button>` : '<span></span>'}
           <button type="button" data-discussion-close>返回${esc(provider.back)}</button>
         </div>`;
     dialog.querySelector('.discussion-lead').innerHTML = `<div class="discussion-lead-body">${
       summaryHtml || '<p class="discussion-lead-empty">这条没有编辑摘要。</p>'}</div>
       <nav class="discussion-lead-nav" aria-label="切换话题">${nextButton}${actions}</nav>`;
-    body.innerHTML = `${summaryHtml ? `<details class="discussion-lead-inline">
-        <summary><span class="discussion-lead-inline-label">编辑导读</span><span class="discussion-lead-inline-hint">展开摘要与锐评</span>${icon('down')}</summary>
-        <div class="discussion-lead-body">${summaryHtml}</div>
-      </details>` : ''}
-      ${renderList(item.messages, `discussion-${index + 1}`)}
-      <p class="discussion-end">以上是全部 ${count} 条消息</p>
-      <footer class="discussion-dialog-footer">${nextButton}${actions}</footer>`;
+    if (isExternal) {
+      body.innerHTML = `${summaryHtml ? `<details class="discussion-lead-inline" open>
+          <summary><span class="discussion-lead-inline-label">资讯详情</span><span class="discussion-lead-inline-hint">展开正文与锐评</span>${icon('down')}</summary>
+          <div class="discussion-lead-body">${summaryHtml}</div>
+        </details>` : ''}
+        ${renderExternalSources(item, provider.trends)}
+        <footer class="discussion-dialog-footer">${nextButton}${actions}</footer>`;
+    } else {
+      const { count } = summary(item.messages);
+      body.innerHTML = `${summaryHtml ? `<details class="discussion-lead-inline">
+          <summary><span class="discussion-lead-inline-label">编辑导读与溯源</span><span class="discussion-lead-inline-hint">展开详读与锐评</span>${icon('down')}</summary>
+          <div class="discussion-lead-body">${summaryHtml}</div>
+        </details>` : ''}
+        ${renderList(item.messages, `discussion-${index + 1}`)}
+        <p class="discussion-end">以上是全部 ${count} 条消息</p>
+        <footer class="discussion-dialog-footer">${nextButton}${actions}</footer>`;
+    }
     for (const el of body.querySelectorAll('video, audio')) {
       el.muted = true;
       el.volume = 0.25;
     }
   }
   let pendingOpen = -1;
-  function open(index, historyMode = 'push') {
+  function open(index, historyMode = 'push', citeIndex = null) {
     const item = topic(index);
     if (!item) return;
     if (item.pending && typeof provider?.ensureLoaded === 'function') {
@@ -615,7 +796,7 @@
         if (provider !== targetProvider || pendingOpen !== index) return;
         pendingOpen = -1;
         const loaded = topic(index);
-        if (loaded && !loaded.pending) open(index, historyMode);
+        if (loaded && !loaded.pending) open(index, historyMode, citeIndex);
       }).catch(() => { pendingOpen = -1; });
       return;
     }
@@ -636,10 +817,14 @@
       document.documentElement.classList.add('discussion-reader-open');
     }
     // Restore after showing: a closed dialog has no layout, so scrollTop would not stick.
-    body.scrollTop = positions.get(`${provider.page}#${index}`) || 0;
     dialog.querySelector('.discussion-lead').scrollTop = 0;
+    if (Number.isInteger(citeIndex) && citeIndex >= 1 && provider?.mode !== 'external') {
+      jumpToMessage(`discussion-${index + 1}-message-${citeIndex}`);
+    } else {
+      body.scrollTop = positions.get(`${provider.page}#${index}`) || 0;
+      body.focus({ preventScroll: true });
+    }
     dialog.classList.toggle('is-scrolled', body.scrollTop > 48);
-    body.focus({ preventScroll: true });
     if (historyMode === 'none') return;
     const url = fileMode ? location.href : `${location.pathname}${location.search}#discussion-${index + 1}`;
     const state = { ...(history.state || {}), agentHubDiscussion: index + 1 };
@@ -696,7 +881,8 @@
     const control = event.target.closest?.('[data-discussion-index]');
     if (!control || !provider) return;
     event.preventDefault();
-    open(Number(control.dataset.discussionIndex));
+    const citeIndex = control.dataset.citeIndex ? Number(control.dataset.citeIndex) : null;
+    open(Number(control.dataset.discussionIndex), 'push', citeIndex);
   });
   Object.assign(api, { configure, open });
 })();

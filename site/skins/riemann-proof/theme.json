@@ -14,6 +14,11 @@
       "file": "doodle.svg",
       "alt": "复平面临界带与临界线 Re(s)=1/2 上的非平凡零点插画"
     },
+    "widget": {
+      "file": "widget.js",
+      "title": "临界线零点探索器",
+      "hint": "拖动虚部 t 或点击非平凡零点，观察 ζ(½ + it) 复平面轨迹穿过原点 (0, 0)。"
+    },
     "seal": {
       "text": "ζ(½+it)=0",
       "caption": "2026.11 特刊"
@@ -24,7 +29,7 @@
       "title": "当 1,700 万行 Lean 代码通过了黎曼猜想内核校验",
       "body": [
         "2026 年 11 月 20 日，Anthropic 数学家 Levent Alpöge 宣布在 Claude 协助下完成黎曼猜想（RH）与广义黎曼猜想（GRH）的候选形式化证明：全部以 Lean 代码公开，包含 175,187 个源文件、约 1,700 万行证明脚本（折合超过 25 万页数学文本）。",
-        "MIT 数论学家 Andrew Sutherland 等同行已在本地完成编译验证，确认该证明仅调用 Lean 3 条标准基础公理即可通过内核检查；而如何让人类数学家真正“读懂、消化并评议”这部由 AI 深度参与写成的巨著，正成为数学与 AI4Science 交汇处的历史性分水岭。"
+        "Lean 与 Mathlib 社区已发布联合认证声明，确认证明目标与 Mathlib 陈述一致、仅依赖 3 条标准公理并通过官方内核及多款独立校验器复核；如何让人类数学家真正“读懂、消化并评议”这部由 AI 深度参与写成的巨著，正成为数学与 AI4Science 交汇处的历史性分水岭。"
       ],
       "facts": [
         { "label": "Lean 源文件", "value": "175,187 个" },
@@ -111,6 +116,7 @@
     "bandBg": "#101b36",
     "galaxyCore": "#fff2cc",
     "galaxyArm": "#8bb8ff",
+    "starKeywords": ["数学", "验证", "形式化", "证明", "科研", "AI4Sci", "推理", "定理", "发现"],
     "asciiHands": {
       "humanColor": "#f5cf7a",
       "machineColor": "#8bb8ff",

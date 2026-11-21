@@ -155,3 +155,218 @@ test('every configured group can share, including groups added after the library
   assert.match(libraryMarkdown(result), /五群/);
   assert.throws(() => normalizeLibrary(library([item({ shares: [{ date: '2026-10-21', group: 'group-9', avatar: null }] })], '2026-10-22')));
 });
+
+test('normalizeLibrary computes derived activity and heat metrics without leaking private fields', () => {
+  const editions = [{
+    date: '2026-10-10',
+    pages: [{
+      id: 'group-2',
+      stories: [{ title: '热议讨论', text: '讨论这款工具。', resources: [{ kind: 'paper', url: 'https://arxiv.org/abs/2605.25624' }] }],
+    }],
+  }];
+  const weeklies = [{
+    start: '2026-10-06',
+    end: '2026-10-12',
+    pages: [{
+      id: 'group-1',
+      stories: [{ title: '周报汇总', text: '周报回顾。', resources: [{ kind: 'paper', url: 'https://arxiv.org/pdf/2605.25624v2' }] }],
+    }],
+  }];
+  const normalized = normalizeLibrary(library([
+    item({
+      id: 'hot-paper',
+      type: 'paper',
+      links: [
+        { kind: 'paper', url: 'https://arxiv.org/abs/2605.25624' },
+        { kind: 'code', url: 'https://github.com/example/hot-paper' },
+      ],
+      shares: [
+        { date: '2026-10-08', group: 'group-2', avatar: null },
+        { date: '2026-10-01', group: 'group-1', avatar: '0123456789abcdef.jpg' },
+        { date: '2026-10-11', group: 'group-1', avatar: 'fedcba9876543210.png' },
+      ],
+    }),
+    item({
+      id: 'single-link',
+      links: [{ kind: 'project', url: 'https://example.org/single' }],
+      shares: [{ date: '2026-10-05', group: 'group-3', avatar: null }],
+    }),
+  ], '2026-10-13'), editions, weeklies);
+
+  const byId = Object.fromEntries(normalized.items.map(entry => [entry.id, entry]));
+  assert.equal(byId['hot-paper'].first, '2026-10-01');
+  assert.equal(byId['hot-paper'].last, '2026-10-11');
+  assert.equal(byId['hot-paper'].groupCount, 2);
+  assert.equal(byId['hot-paper'].shareCount, 3);
+  assert.equal(byId['hot-paper'].discussionCount, 2);
+  // groupCount*3 + shareCount*2 + discussionCount*4 + (links.length > 1 ? 1 : 0) = 6 + 6 + 8 + 1 = 21
+  assert.equal(byId['hot-paper'].heat, 21);
+
+  assert.equal(byId['single-link'].first, '2026-10-05');
+  assert.equal(byId['single-link'].last, '2026-10-05');
+  assert.equal(byId['single-link'].groupCount, 1);
+  assert.equal(byId['single-link'].shareCount, 1);
+  assert.equal(byId['single-link'].discussionCount, 0);
+  // 1*3 + 1*2 + 0*4 + 0 = 5
+  assert.equal(byId['single-link'].heat, 5);
+
+  const json = libraryJson(normalized);
+  assert.doesNotMatch(JSON.stringify(json), /avatar|sender|wxid/);
+  assert.doesNotMatch(libraryMarkdown(normalized), /avatar|sender|wxid/);
+});
+
+test('rendered library page exposes workspace landmarks, enriched cards, and safe search payload', () => {
+  const editions = [{
+    date: '2026-10-12',
+    pages: [{
+      id: 'group-1',
+      stories: [{ title: 'CUA 论文热议', text: '深入讨论。', resources: [{ kind: 'paper', url: 'https://arxiv.org/abs/2605.25624' }] }],
+    }],
+  }];
+  const weeklies = [{
+    start: '2026-10-07',
+    end: '2026-10-13',
+    pages: [{
+      id: 'group-2',
+      stories: [{ title: '本周 CUA 精选', text: '周报汇总。', resources: [{ kind: 'paper', url: 'https://arxiv.org/abs/2605.25624' }] }],
+    }],
+  }];
+  const kws = Array.from({ length: 14 }, (_, i) => `kw-${String(i + 1).padStart(2, '0')}`);
+  const items = [
+    item({
+      id: 'hot-paper',
+      title: 'Hot Paper',
+      type: 'paper',
+      topics: ['computer-use', 'training'],
+      keywords: kws.slice(0, 12),
+      links: [
+        { kind: 'paper', url: 'https://arxiv.org/abs/2605.25624' },
+        { kind: 'code', url: 'https://github.com/example/hot-paper' },
+      ],
+      shares: [
+        { date: '2026-10-10', group: 'group-1', avatar: '0123456789abcdef.jpg' },
+        { date: '2026-10-12', group: 'group-2', avatar: null },
+      ],
+    }),
+    item({
+      id: 'bench-one',
+      title: 'Bench One',
+      type: 'benchmark',
+      topics: ['evaluation'],
+      keywords: kws.slice(0, 12),
+      links: [{ kind: 'leaderboard', url: 'https://example.org/bench' }],
+      shares: [{ date: '2026-10-09', group: 'group-1', avatar: null }],
+    }),
+    item({
+      id: 'extra-kw-item',
+      title: 'Extra KW Item',
+      type: 'code',
+      topics: ['coding-agents'],
+      keywords: kws.slice(0, 12),
+      links: [{ kind: 'code', url: 'https://github.com/example/extra' }],
+      shares: [{ date: '2026-09-20', group: 'group-3', avatar: null }],
+    }),
+    item({
+      id: 'kw-overflow-1',
+      title: 'KW Overflow 1',
+      type: 'tool',
+      topics: ['research-tools'],
+      keywords: [...kws.slice(12, 14), 'unique-kw'],
+      links: [{ kind: 'project', url: 'https://example.org/ov1' }],
+      shares: [{ date: '2026-09-18', group: 'group-3', avatar: null }],
+    }),
+    item({
+      id: 'kw-overflow-2',
+      title: 'KW Overflow 2',
+      type: 'tool',
+      topics: ['research-tools'],
+      keywords: [...kws.slice(12, 14), 'unique-kw-2'],
+      links: [{ kind: 'project', url: 'https://example.org/ov2' }],
+      shares: [{ date: '2026-09-17', group: 'group-3', avatar: null }],
+    }),
+    item({
+      id: 'kw-overflow-3',
+      title: 'KW Overflow 3',
+      type: 'tool',
+      topics: ['research-tools'],
+      keywords: [...kws.slice(12, 14), 'unique-kw-3'],
+      links: [{ kind: 'project', url: 'https://example.org/ov3' }],
+      shares: [{ date: '2026-09-16', group: 'group-3', avatar: null }],
+    }),
+  ];
+  const normalized = normalizeLibrary(library(items, '2026-10-13'), editions, weeklies);
+  const html = renderLibraryPage(normalized, { dailyHref: '../', weeklyHref: '../' });
+  const { document } = parseHTML(html);
+
+  // SVG sprite symbols
+  for (const id of ['i-e', 'i-bm', 'i-chat', 'i-plus', 'i-dl', 'i-info']) {
+    assert.ok(document.querySelector(`symbol#${id}`), `missing sprite symbol #${id}`);
+  }
+
+  // Heading actions & search shell
+  assert.ok(document.querySelector('#library-saved-toggle'));
+  assert.ok(document.querySelector('#library-saved-count[hidden]'));
+  assert.ok(document.querySelector('#library-submit-open.is-primary'));
+  assert.ok(document.querySelector('#library-search'));
+  assert.ok(document.querySelector('#library-search-clear[hidden]'));
+  assert.ok(document.querySelector('#library-suggest[hidden]'));
+  assert.ok(document.querySelector('#library-explain[hidden]'));
+
+  // Quick research lenses
+  const lenses = [...document.querySelectorAll('.lenses .lens')].map(el => el.dataset.lens);
+  assert.deepEqual(lenses, ['all', 'recent', 'hot', 'paper-code', 'benchmarks', 'saved']);
+  assert.ok(document.querySelector('#lens-saved-count'));
+
+  // Topic tooltips, keyword quick search + KEYWORDS_SHOWN=12, discussed filter in more-filters
+  const cuaChip = document.querySelector('[data-row="topic"] button[data-value="computer-use"]');
+  assert.ok(cuaChip.getAttribute('title').includes('GUI'));
+  assert.ok(document.querySelector('[data-row="keyword"] .keyword-controls #keyword-filter-input'));
+  assert.ok(document.querySelector('[data-row="keyword"] #keyword-matches[hidden]'));
+  assert.equal(document.querySelectorAll('[data-row="keyword"] .chips button[data-filter="keyword"].is-extra').length, 2);
+  assert.ok(document.querySelector('[data-row="keyword"] .chips-more[aria-expanded="false"]'));
+  assert.ok(document.querySelector('.more-filters [data-row="discussed"] button[data-value="1"]'));
+
+  // Toolbar controls, atlas, dialogs, toast
+  assert.deepEqual([...document.querySelectorAll('.library-sort button')].map(b => b.dataset.sortBy), ['recent', 'heat', 'active', 'relevance']);
+  assert.ok(document.querySelector('.library-sort button[data-sort-by="relevance"]').hasAttribute('hidden'));
+  assert.deepEqual([...document.querySelectorAll('.view-switch button')].map(b => b.dataset.viewMode), ['cards', 'list', 'atlas']);
+  assert.ok(document.querySelector('#library-export-toggle'));
+  assert.deepEqual([...document.querySelectorAll('#library-export-menu button')].map(b => b.dataset.export), ['markdown', 'bibtex', 'download-md', 'share-url']);
+  const atlas = document.querySelector('#library-atlas');
+  assert.ok(atlas && atlas.hasAttribute('hidden'));
+  assert.equal(atlas.nextElementSibling.tagName, 'OL');
+  assert.ok(document.querySelector('dialog#library-detail'));
+  assert.ok(document.querySelector('dialog#library-submit'));
+  assert.ok(document.querySelector('#library-toast[hidden]'));
+
+  // Enhanced entry card
+  const hotCard = document.querySelector('li.entry#hot-paper');
+  assert.equal(hotCard.dataset.last, '2026-10-12');
+  assert.equal(hotCard.dataset.heat, '19');
+  assert.equal(hotCard.dataset.discussed, '1');
+  assert.equal(hotCard.dataset.hot, '1');
+  assert.equal(hotCard.querySelector('.entry-type').dataset.type, 'paper');
+  assert.equal(hotCard.querySelectorAll('.entry-badge').length, 2);
+  assert.ok(hotCard.querySelector('.entry-save[data-save-id="hot-paper"]'));
+  assert.match(hotCard.querySelector('.entry-discussion').textContent, /群聊摘要 · 2/);
+  assert.match(hotCard.querySelector('.entry-detail-btn[data-detail-id="hot-paper"]').textContent, /详情 · 相关 \d+/);
+
+  // Enriched #library-search-data payload (no private fields)
+  const rawPayload = document.querySelector('#library-search-data').textContent;
+  assert.doesNotMatch(rawPayload, /avatar|sender|wxid/);
+  const payload = JSON.parse(rawPayload);
+  assert.equal(payload.repoUrl, 'https://github.com/Agent-Hub-Community/newspaper');
+  assert.ok(payload.types.paper && payload.topics['computer-use'] && payload.linkKinds.code && payload.groups['group-1']);
+  assert.ok(Array.isArray(payload.keywords) && payload.keywords.length === 17);
+  const hotPayload = payload.items.find(entry => entry.id === 'hot-paper');
+  assert.equal(hotPayload.first, '2026-10-10');
+  assert.equal(hotPayload.last, '2026-10-12');
+  assert.deepEqual(hotPayload.groups, ['group-1', 'group-2']);
+  assert.equal(hotPayload.shareCount, 2);
+  assert.equal(hotPayload.heat, 19);
+  assert.equal(hotPayload.discussions.length, 2);
+  assert.equal(hotPayload.discussions[0].kind, 'weekly');
+  assert.equal(hotPayload.discussions[0].from, '2026-10-07');
+  assert.match(hotPayload.discussions[0].href, /^\.\.\/weekly\/2026-10-07\/2026-10-13\/group-2\/#topic-1$/);
+  assert.ok(hotPayload.related.length > 0);
+});
