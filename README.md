@@ -7,13 +7,13 @@ Agent Hub 是聊 LLM Agent 研究与工程的中文社群。这个仓库把各�
 - 线上阅读：<https://agent-hub-community.github.io/newspaper/>
 - 社群主页：<https://agent-hub-community.github.io/>
 
-In English: AgentHub Daily is the community newspaper of Agent Hub, a Chinese-language group of researchers and engineers working on LLM agents. It publishes daily group digests, outside AI news, weekly reviews, a curated resource library, and a glossary of community slang. Raw chat logs never enter this repository; this repo holds the static site, reviewed reader data, build scripts, and a Cloudflare Worker for votes and public search APIs.
+In English: AgentHub Daily is the community newspaper of Agent Hub, a Chinese-language group of researchers and engineers working on LLM agents. It publishes daily group digests (with TL;DR scan cards, full-screen split-pane reader, inline message citations, and Bot commentary), outside AI news, weekly reviews, a curated resource library, and a glossary of community slang. Raw chat logs never enter this repository; this repo holds the static site, reviewed reader data, build scripts, and a Cloudflare Worker for telemetry and public search APIs.
 
 ## 站里有什么
 
 | 栏目 | 内容 | 入口 |
 |---|---|---|
-| 日报 | 每个群一版当日讨论选编（一群到五群，以及当日有实质讨论的 AI Safety、Robot、AI4S 专项群），外加一版外部资讯与一页全版总览 `overview`。每条带重点下划线、AI 锐评、相关资料卡片和匿名原始讨论节选 | 首页默认打开最新一期；总览如 [`daily/2026-10-25/overview/`](https://agent-hub-community.github.io/newspaper/daily/2026-10-25/overview/)，单版如 [`daily/2026-10-25/group-2/`](https://agent-hub-community.github.io/newspaper/daily/2026-10-25/group-2/) |
+| 日报 | 每个群一版当日讨论选编（一群到五群，以及当日有实质讨论的 AI Safety、Robot、AI4S 专项群），外加一版外部资讯与一页全版总览 `overview`。支持顶部 `本版速览` 目录、`速览卡片 / 全文展开` 切换、全屏「左大详情 + 右聊天记录」分栏阅读（中缝可拖拽调宽）、正文穿插消息溯源跳转、重点下划线、`Bot 锐评` 与相关资料卡片 | 首页默认打开最新一期；总览如 [`daily/2026-11-21/overview/`](https://agent-hub-community.github.io/newspaper/daily/2026-11-21/overview/)，单版如 [`daily/2026-11-21/group-1/`](https://agent-hub-community.github.io/newspaper/daily/2026-11-21/group-1/) |
 | 周报 | 按北京时间自然周回顾综合群（一群到五群）、垂类专项群（AI Safety、Robot、AI4S）与行业动向，配全刊总览 `overview` 与各群独立周榜 | [`weekly/`](https://agent-hub-community.github.io/newspaper/weekly/)、[`weekly/2026-10-19/2026-10-25/overview/`](https://agent-hub-community.github.io/newspaper/weekly/2026-10-19/2026-10-25/overview/) |
 | 资料库 | 群里分享过、过了几个月还有参考价值的论文、代码、评测基准、数据集、模型与工具；页底的“机会”区收招聘、活动和征稿 | [`library/`](https://agent-hub-community.github.io/newspaper/library/) |
 | 群聊黑话 | 群里常冒出来的缩写、模型外号、梗和行话对照表 | [`glossary/`](https://agent-hub-community.github.io/newspaper/glossary/) |
@@ -25,26 +25,18 @@ In English: AgentHub Daily is the community newspaper of Agent Hub, a Chinese-la
 
 ## 一期日报是怎么做出来的
 
-前面的微信消息导出、图片解码、调模型写初稿和主编审稿，都在旁边的流程仓库 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 里跑；审完定稿后，才交给本仓库构建网页并发布。
+前面的微信消息导出、本地解图、并行出稿与本地预览，都在旁边的流程仓库 [bot-workflow](https://github.com/Agent-Hub-Community/bot-workflow) 里跑；确认预览后一键入库提交，推送 `main` 由本仓库的 GitHub Actions 自动跑测试、构建并部署。
 
 ```text
-bot-workflow（采集与写稿仓库）
-  采集       按北京时间整日导出各群消息，发言人换成化名
-    ↓
-  读图       解出群聊图片，调视觉模型写客观描述
-    ↓
-  写稿       模型按群写初稿，再补 AI 锐评、报头和重点下划线
-    ↓
-  审稿定稿   对照原话改错、审隐私、挂资料卡与讨论节选，校验写出终稿
-    ↓
-  外部资讯   抓取热榜与博客候选，点开原文核实后成稿
-    ↓
-  活跃榜     算各群与社区前三名，逐张肉眼审新头像
-    ↓
+bot-workflow（采集与编排仓库）
+  1. 采集解图   本地导出各群消息（最新期默认截到生成时刻）、纯本地解 .dat 图并转 WebP、算活跃榜；并行抓外部资讯候选
+       ↓
+  2. 并行出稿   Antigravity 并行 subagent 按群直读消息与关键图，一步产出含 TL;DR、溯源要点、正文与 Bot 锐评的定稿；外部资讯同步核实一手原文
+       ↓
+  3. 打包预览   自动挂载入选讨论里的图片/视频/文件附件与增量链接预览，生成本地预览站与发群导览草稿
+       ↓
 newspaper（本仓库）
-  本地预览   合成静态预览站，在手机和桌面宽度下检查排版
-    ↓
-  入库发布   写入 data/，更新语义向量与 D1 目录，推送 main 部署到 GitHub Pages
+  4. 入库发布   0 秒纯数据入库到 data/（支持多日 --no-push 合并），单次 push main 由 GitHub Actions 统一跑 npm test、公开构建与 GitHub Pages 部署
 ```
 
 具体的入库与部署步骤见[入库与发布](docs/publishing.md)，内容与审稿要求见[读者内容规则](docs/editorial.md)。
@@ -71,7 +63,7 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory output/preview
 浏览器打开 <http://127.0.0.1:8000/newspaper/> 即可（`output/` 已被 Git 忽略）。
 
 - 默认 `npm run build` 不带活跃榜；想在本地看活跃榜，跑 `npm run build -- --public`。
-- 本地构建不会往线上发任何浏览统计，点赞点踩也只记在浏览器本地。
+- 本地构建不会往线上发任何浏览或讨论打开统计。
 
 跑测试：
 
@@ -89,7 +81,7 @@ npm run test:browser     # 浏览器测试（需要本机装有 Chrome）
 | `data/` | 已审完公开的读者数据：日报、周报、外部资讯、资料库、机会、黑话、榜单快照和头像 |
 | `build.mjs` | 静态站构建入口（读 `data/` 和 `site/`，写出 `dist/`） |
 | `scripts/` | 维护脚本：批次预览、正式入库、D1 目录登记、语义向量更新、统计报表 |
-| `feedback/` | Cloudflare Worker + D1：点赞点踩、浏览与搜索统计、公开检索 API |
+| `feedback/` | Cloudflare Worker + D1：浏览与讨论打开统计、搜索统计、公开检索 API |
 | `test/` | 单元测试与 Playwright 浏览器测试 |
 | `bench/` | 检索接口的小型评测基准 |
 | `docs/` | 技术与维护文档，总目录见 [`docs/README.md`](docs/README.md) |
