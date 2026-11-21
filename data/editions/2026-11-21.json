@@ -1,0 +1,5990 @@
+{
+  "id": "2026-11-21",
+  "date": "2026-11-21",
+  "label": "2026-11-21 日报",
+  "pages": [
+    {
+      "id": "group-1",
+      "label": "一群",
+      "section": "今日讨论",
+      "heading": "千万行 Lean 过审黎曼猜想，群友顺手翻出内核漏洞",
+      "theme": "聊完 AI4S 被五年临床三期卡脖子，顺道围观 ANT 险些破发与降 AI 率 Skill 开源",
+      "note": "2026-11-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "形式化验证",
+          "title": "黎曼猜想验证三连击：纯人类 GRH 草稿、千万行 Lean 过审与内核漏洞",
+          "tldr": "凌晨先传出斯坦福提前公开纯人类 GRH 草稿与 Polymarket 赔率跳水，上午又爆出 Claude 千万行代码过审 Lean，下午群友直接贴出 Lean4 内核可复现漏洞。",
+          "points": [
+            {
+              "text": "斯坦福团队提前放出 Masullo 纯人类 GRH 草稿求核验，Polymarket 赔率冲高回落。",
+              "refs": [
+                1,
+                3
+              ]
+            },
+            {
+              "text": "175,187 个模块、千万行 Claude 代码通过 Lean 验证，群友惊叹 AI 不会累且能扛海量条件。",
+              "refs": [
+                5,
+                6
+              ]
+            },
+            {
+              "text": "群友贴出 leanprover/lean4:v4.31.0 最小复现代码，演示宇宙判定不一致可直接证出 False。",
+              "refs": [
+                9,
+                10
+              ]
+            }
+          ],
+          "text": "凌晨到中午，一群接连刷出三则黎曼猜想验证动态。凌晨两点多，有群友转来数学家 Ravi Vakil 于 11 月 20 日发布的紧急公告截图并求证真假：公告称 Alessandro Masullo 提出了一份广义黎曼猜想（GRH）证明草稿，且完全由人类独立完成、没有使用 AI，Brian Conrad 已密切审阅数月并给出大量修改意见。原计划是先邀 Masullo 去斯坦福打磨一年再公开，如今决定提前放出草稿，呼吁数学界尽快核验与形式化。凌晨四点，另一位群友贴出 Polymarket 上克雷数学研究所（CMI）是否宣布黎曼假设获解的走势图，曲线先大幅冲高随后回落至低位，追问“难道没能成功证明吗”。\n\n上午十点，又有群友晒出一张黎曼猜想形式化验证进度页截图，页面显示 175,187 个项目模块已全部编译完成，Proof audit 状态为 Passed，类型、公理与哈希检查均已通过。发图群友感叹，不管最终成没成功，Claude 写出上千万行能通过甚至绕过 Lean 检查的代码已经足够吓人。有群友顺势认为 AI 的逻辑推理已远超人类，另一位群友觉得关键在于 AI 不会累；前一位补充，已知条件极多时人脑很难全部记住，AI 的上下文能力在这里优势明显。\n\n下午一点多，回应此前关于“利用 Lean 本身 bug”的疑问，有群友指出 OpenAI 之前就曾跑出过此类内核漏洞，并直接贴出一段在 leanprover/lean4:v4.31.0 上可复现的最小代码。这段代码通过 Quot.lift、Classical.choice 与 Prop 和 Type 宇宙判定的不一致构造出 true = false，进而直接证明了 False，同时附上 Lean 4 的 PR #14807 与一篇知乎文章链接。",
+          "emphasis": [
+            "完全由人类独立完成、没有使用 AI",
+            "175,187 个项目模块已全部编译完成，Proof audit 状态为 Passed",
+            "在 leanprover/lean4:v4.31.0 上可复现的最小代码"
+          ],
+          "aiComment": "175,187 个模块全绿先别开香槟，Lean 内核要真漏出个 False，千万行代码就成了大型卡 bug 现场 🫠",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "Lean 4 PR #14807",
+              "url": "https://github.com/leanprover/lean4/pull/14807/"
+            },
+            {
+              "kind": "article",
+              "label": "Lean 4 漏洞相关知乎文章",
+              "url": "https://zhuanlan.zhihu.com/p/2084655794042283523"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "02:52",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/49b82bfc253904e3453fd3068c694813.jpg",
+                  "alt": "Ravi Vakil 于 2026 年 11 月 20 日发布的博客截图，题为《Hurried Announcement: Alessandro Masullo GRH》，称一份经 Brian Conrad 审阅数月的纯人类 GRH 证明草稿正紧急公开供检验与形式化。"
+                }
+              ]
+            },
+            {
+              "speaker": 1,
+              "time": "02:52",
+              "text": "是真是假"
+            },
+            {
+              "speaker": 2,
+              "time": "04:00",
+              "text": "难道没能成功证明吗"
+            },
+            {
+              "speaker": 2,
+              "time": "04:00",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/a287e2725ab308ae8bcebe9c271244d3.jpg",
+                  "alt": "Polymarket 预测市场截图，主题为克雷数学研究所（CMI）是否宣布黎曼假设获解，概率曲线在大幅冲高后回落至低位。"
+                }
+              ]
+            },
+            {
+              "speaker": 3,
+              "time": "10:07",
+              "text": "不管成没成功 claude搞了一千多万行能pass/hack lean的代码也很恐怖[捂脸]"
+            },
+            {
+              "speaker": 4,
+              "time": "11:27",
+              "text": "充分说明ai的逻辑推理能力已经到了远超人类的恐怖程度了"
+            },
+            {
+              "speaker": 5,
+              "time": "11:49",
+              "text": "因为ai不会累[捂脸]",
+              "quote": {
+                "speaker": 4,
+                "text": "充分说明ai的逻辑推理能力已经到了远超人类的恐怖程度了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:14",
+              "text": "而且有充分的上下文理解 当已知条件过多的时候人类大脑可能是难以记住的",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 因为ai不会累[捂脸]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:38",
+              "text": "openai跑出来过这种bug",
+              "quote": {
+                "speaker": null,
+                "text": "利用lean本身的bug？"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:38",
+              "text": "set_option linter.defProp false\n\ndef True_mod_eq : Prop :=\n  Quot (fun (x1 x2 : True) => x1 = x2)\n\ndef img_true : True_mod_eq :=\n  Quot.mk (fun (x1 x2 : True) => x1 = x2) True.intro\n\ndef choose_img_true : True_mod_eq :=\n  Classical.choice (Nonempty.intro img_true)\n\ndef mk42 (e : True_mod_eq) : Nat :=\n  Quot.lift\n    (fun _ => 42)\n    (fun (a b : True) (_ : a = b) => rfl)\n    e\n\ndef a : Nat := mk42 img_true\ndef b : Nat := mk42 choose_img_true\ndef c : Nat := 42\n\n#check (rfl : a = b)\n#check (rfl : b = a)\n#check (rfl : a = c)\n#check (rfl : c = a)\n-- #check (rfl : b = c)\n-- #check (rfl : c = b)\n\ndef P : Prop := a = b   -- a ~ b\ndef Q : Prop := c = b   -- c ~ b 并不成立, 但是 a ~ c 成立, 所以 P ~ Q\n\ndef p : P := by rfl\n\ndef q' : Q := by\n  unfold Q\n  have e : c = a := by rfl\n  rw [e]\n  exact p\n\ndef q := Classical.choice (Nonempty.intro q')\n\ndef prop_if_h_DEFEQ_rfl : P → Type\n| .refl _ => Prop\ninductive I : ∀ (h : P), prop_if_h_DEFEQ_rfl h where\n| mk : ∀ (h : P), Bool -> I h\n\ndef asProp : ∀ (_ : P), Sort 0 := λ (h : P) => I h\ndef Yes_Iq_is_a_Prop : Sort 0 := asProp q\n\ndef observe : ∀ (_h : Yes_Iq_is_a_Prop), Bool :=\n  fun (h : Yes_Iq_is_a_Prop) =>\n    by\n      unfold Yes_Iq_is_a_Prop asProp at h\n      -- 此时 h : I q, 但是 q ~ rfl 不成立, 所以 I q 的类型并不落在 Prop 宇宙中, 于是 Lean 将其当作 Type 宇宙处理, 我们可以把其中保存的布尔值取出来\n      exact (h.1)\n\ndef mkI_of_true : Yes_Iq_is_a_Prop := .mk q true\ndef mkI_of_false : Yes_Iq_is_a_Prop := .mk q false\n-- 我们有 mkI_of_true = mkI_of_false, 因为这两个元素在 Prop 宇宙中.\n-- 通过 congruence, 我们有 observe mkI_of_true = observe mkI_of_false,\n-- 但是 observe mkI_of_true = true, observe mkI_of_false = false, 于是我们有 true = false.\ntheorem true_eq_false : true = false := by\n  have h : (true = observe mkI_of_true) := by rfl\n  have h' : (mkI_of_true = mkI_of_false) := by rfl\n  rw [h]\n  rw [h']\n  rfl\n\n-- 余下部分显然\ndef big_bool_elim : Bool → Prop\n| true => True\n| false => False\n\ntheorem boom : False :=\n  @Eq.rec Bool true (motive := fun b _ => big_bool_elim b) True.intro false true_eq_false"
+            },
+            {
+              "speaker": 6,
+              "time": "13:39",
+              "text": "在 leanprover/lean4:v4.31.0 上可复现的"
+            },
+            {
+              "speaker": 6,
+              "time": "13:39",
+              "text": "https://github.com/leanprover/lean4/pull/14807/"
+            },
+            {
+              "speaker": 6,
+              "time": "13:42",
+              "text": "https://zhuanlan.zhihu.com/p/2084655794042283523"
+            }
+          ]
+        },
+        {
+          "category": "技术讨论",
+          "title": "AI4S 卡在五年临床三期，群友激辩 World Model 用途与 RSI 定义",
+          "tldr": "群友热议除开“太赖皮”的 RSI 谁最接近 AGI，AI 制药与 AI4S 虽获高票，却被湿实验和五年临床三期死死卡住反馈周期。",
+          "points": [
+            {
+              "text": "AI 制药、核聚变获封最 AGI 方向，但湿实验逃不掉、“临床三期做完五年过去了”。",
+              "refs": [
+                11,
+                41,
+                44
+              ]
+            },
+            {
+              "text": "群友调侃进度被“碳基生物存活状态”卡脖子，吐槽肉眼审 fable5.2 轨迹同样反人类。",
+              "refs": [
+                55,
+                63
+              ]
+            },
+            {
+              "text": "有人主张 World Model 该用来模拟长周期 verify 而非生视频，并吐槽 WM 与 RSI 均缺定义。",
+              "refs": [
+                79,
+                103,
+                104
+              ]
+            }
+          ],
+          "text": "凌晨零点半，有群友发问除开“太赖皮”的 RSI，现在最 AGI 的方向是什么。有人先拿 Gemini 的发模型速度打趣，吐槽它在“合成大周期表”，还传闻又要发 Xenon，并追问它和 GPT 的 Astra、Sol、Terra、Luna 本质区别在哪。认真聊下来，几位群友把票投给了 AI 制药、核聚变、AI4S 与具身智能，提到攻克癌症和阿尔兹海默症才够 AGI。群里随即在 AGI 定义上出现分歧：有群友认为 AGI 只是接管互联网上的人类工作，反哺文明属于 ASI；提问者觉得这太狭义，戏称大家正在分成“硅基派”和“碳基派”。\n\n聊到 AI4S 落地时，多名群友把矛头指向验证周期。有人问 AI4S 在做的细胞或大脑模拟能不能缓解湿实验卡脖子，另一位群友直言目前没看到实际用处，湿实验照样逃不掉，“临床三期做完，五年过去了”，缺少快速 feedback 和 verifier 导致难以 scaling。还有群友判断，AI4S 任务在智力难度上未必高于黎曼猜想，卡住它的只是验证周期太长；多位群友附和，有人调侃这是“被碳基生物的存活状态卡脖子了”。也有群友顺手把话题拉回日常工程，吐槽碳基生物审轨迹的速度同样在拖慢 AGI，喊话赶紧去给 fable5.2 的轨迹打标，另一位群友深有同感，称肉眼看轨迹“真挺反人类的”。\n\n讨论很快延伸到 World Model。有群友提出，World Model 的正途应该是用来模拟长周期 verify，而不是用来生成视频，并点出这背后是 policy 与 reward 的关系：如果相信 policy 能攻克癌症，就该相信湿实验的 reward 也能被模拟。另一位群友联想到这正是 model-based RL 在做的事；也有人把 World Model 看作造数据工具，调侃它像生成模型给自动驾驶造数据一样，在“给具身爷爷虚空打洞提供场景”，另一位群友反问“给尊界踩刹车不行吗”。聊到最后，几位群友一致吐槽 World Model 和 RSI 是当下最缺乏清晰定义的两个概念，有人顺口补刀“WAM 和 VLA 已经死了”，也有群友总结道“模型强了什么都可以是 RSI”。",
+          "emphasis": [
+            "AGI 只是接管互联网上的人类工作，反哺文明属于 ASI",
+            "AI4S 任务在智力难度上未必高于黎曼猜想，卡住它的只是验证周期太长",
+            "World Model 的正途应该是用来模拟长周期 verify，而不是用来生成视频"
+          ],
+          "aiComment": "黎曼猜想难在脑子不够用，AI4S 难在临床三期真得等五年，碳基生物的寿命成了最慢的 verifier 🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:32",
+              "text": "现在最AGI的方向是什么？"
+            },
+            {
+              "speaker": 2,
+              "time": "00:33",
+              "text": "ASI",
+              "quote": {
+                "speaker": 1,
+                "text": "现在最AGI的方向是什么？"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:33",
+              "text": "RSI？",
+              "quote": {
+                "speaker": 1,
+                "text": "现在最AGI的方向是什么？"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:34",
+              "text": "除开RSI呢，这个概念有点儿太赖皮了"
+            },
+            {
+              "speaker": 4,
+              "time": "00:34",
+              "text": "gemini发模型的速度"
+            },
+            {
+              "speaker": 2,
+              "time": "00:34",
+              "text": "哈吉米赢了"
+            },
+            {
+              "speaker": 4,
+              "time": "00:34",
+              "text": "你就说够不够AGI吧"
+            },
+            {
+              "speaker": 5,
+              "time": "00:35",
+              "text": "g这几个和gpt astra sol terra luna的本质区别是什么？"
+            },
+            {
+              "speaker": 6,
+              "time": "00:35",
+              "text": "哈基米要发满元素周期表吗"
+            },
+            {
+              "speaker": 2,
+              "time": "00:35",
+              "text": "元素周期表",
+              "quote": {
+                "speaker": 5,
+                "text": "g这几个和gpt astra sol terra luna的本质区别是什么？"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:35",
+              "text": "ai制药",
+              "quote": {
+                "speaker": 1,
+                "text": "现在最AGI的方向是什么？"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:36",
+              "text": "你问ant"
+            },
+            {
+              "speaker": 4,
+              "time": "00:36",
+              "text": "gemini元素周期表集邮呢",
+              "quote": {
+                "speaker": 5,
+                "text": "g这几个和gpt astra sol terra luna的本质区别是什么？"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:36",
+              "text": "到底想干啥"
+            },
+            {
+              "speaker": 7,
+              "time": "00:36",
+              "text": "治疗癌症，阿尔兹海默症"
+            },
+            {
+              "speaker": 6,
+              "time": "00:36",
+              "text": "合成大周期表"
+            },
+            {
+              "speaker": 7,
+              "time": "00:36",
+              "text": "确实很agi"
+            },
+            {
+              "speaker": 4,
+              "time": "00:36",
+              "text": "不是说又想发xenon了吗"
+            },
+            {
+              "speaker": 8,
+              "time": "00:36",
+              "text": "➕1",
+              "quote": {
+                "speaker": 7,
+                "text": "治疗癌症，阿尔兹海默症"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "医药"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "核聚变"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "AI4S"
+            },
+            {
+              "speaker": 4,
+              "time": "00:37",
+              "text": "embodied"
+            },
+            {
+              "speaker": 7,
+              "time": "00:37",
+              "text": "阿尔兹海默症"
+            },
+            {
+              "speaker": 7,
+              "time": "00:37",
+              "text": "太反人性了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "然后就是星辰大海或者人类灭绝"
+            },
+            {
+              "speaker": 8,
+              "time": "00:37",
+              "text": "验证周期长解决得会慢一些"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "这个我前两天还看到有一个方案",
+              "quote": {
+                "speaker": 7,
+                "text": "阿尔兹海默症"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:37",
+              "text": "所以AI反哺人类文明才是真正的AGI吗"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "上海还是哪里一个医院的人，但是被抓起来了（"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "不是",
+              "quote": {
+                "speaker": 1,
+                "text": "所以AI反哺人类文明才是真正的AGI吗"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:37",
+              "text": "这肯定啊",
+              "quote": {
+                "speaker": 1,
+                "text": "所以AI反哺人类文明才是真正的AGI吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:37",
+              "text": "AI4S现在是不是在搞模拟细胞/模拟大脑之类的？"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "AGI就是接管互联网上人类的工作"
+            },
+            {
+              "speaker": 3,
+              "time": "00:37",
+              "text": "要么直接毁灭人类"
+            },
+            {
+              "speaker": 2,
+              "time": "00:37",
+              "text": "那是ASI吧（",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 这肯定啊"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:38",
+              "text": "感觉会分成硅基派和碳基派了"
+            },
+            {
+              "speaker": 4,
+              "time": "00:38",
+              "text": "想解决一下湿实验卡脖子的问题"
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "感觉没看到用处",
+              "quote": {
+                "speaker": 4,
+                "text": "AI4S现在是不是在搞模拟细胞/模拟大脑之类的？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:38",
+              "text": "解放人类或者毁灭人类"
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "湿实验依旧是湿实验"
+            },
+            {
+              "speaker": 2,
+              "time": "00:38",
+              "text": "我是两面派",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉会分成硅基派和碳基派了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:38",
+              "text": "太狭义了吧。。。",
+              "quote": {
+                "speaker": 2,
+                "text": "AGI就是接管互联网上人类的工作"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "临床三期"
+            },
+            {
+              "speaker": 8,
+              "time": "00:38",
+              "text": "但是我感觉ai4s的任务在智力水平 不一定大于 黎曼猜想，只是因为verify验证周期长"
+            },
+            {
+              "speaker": 9,
+              "time": "00:38",
+              "text": "生存还是毁灭"
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "依旧要做"
+            },
+            {
+              "speaker": 8,
+              "time": "00:38",
+              "text": "仅此而已"
+            },
+            {
+              "speaker": 1,
+              "time": "00:38",
+              "text": "同意",
+              "quote": {
+                "speaker": 8,
+                "text": "但是我感觉ai4s的任务在智力水平 不一定大于 黎曼猜想，只是因为verify验证周期长"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:38",
+              "text": "要做那么多干什么",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 太狭义了吧。。。"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:38",
+              "text": "我觉得也是",
+              "quote": {
+                "speaker": 8,
+                "text": "但是我感觉ai4s的任务在智力水平 不一定大于 黎曼猜想，只是因为verify验证周期长"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:38",
+              "text": "迭代周期太长"
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "这就是难的点",
+              "quote": {
+                "speaker": 8,
+                "text": "但是我感觉ai4s的任务在智力水平 不一定大于 黎曼猜想，只是因为verify验证周期长"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "难以verifier"
+            },
+            {
+              "speaker": 6,
+              "time": "00:38",
+              "text": "被碳基生物的存活状态卡脖子了",
+              "quote": {
+                "speaker": 8,
+                "text": "但是我感觉ai4s的任务在智力水平 不一定大于 黎曼猜想，只是因为verify验证周期长"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "没有feedbanck"
+            },
+            {
+              "speaker": 7,
+              "time": "00:38",
+              "text": "难以scaling"
+            },
+            {
+              "speaker": 7,
+              "time": "00:39",
+              "text": "临床三期做完"
+            },
+            {
+              "speaker": 7,
+              "time": "00:39",
+              "text": "五年过去了"
+            },
+            {
+              "speaker": 8,
+              "time": "00:39",
+              "text": "期待 变硅手术",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 被碳基生物的存活状态卡脖子了"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "00:39",
+              "text": "确实",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 被碳基生物的存活状态卡脖子了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:39",
+              "text": "什么时候能解决/解释AI本身一些更本质的问题也挺好"
+            },
+            {
+              "speaker": 5,
+              "time": "00:39",
+              "text": "现在碳基生物的verifier速度就阻碍agi了，还不赶紧给fable5.2的轨迹打标加速agi"
+            },
+            {
+              "speaker": 1,
+              "time": "00:39",
+              "text": "感觉math的难度依旧是迄今为止逻辑最复杂的啊"
+            },
+            {
+              "speaker": 4,
+              "time": "00:39",
+              "text": "灾难性遗忘啥的"
+            },
+            {
+              "speaker": 7,
+              "time": "00:39",
+              "text": "人肉眼看轨迹"
+            },
+            {
+              "speaker": 3,
+              "time": "00:39",
+              "text": "其实是领导的要求（",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉math的难度依旧是迄今为止逻辑最复杂的啊"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:40",
+              "text": "真挺反人类的"
+            },
+            {
+              "speaker": 3,
+              "time": "00:40",
+              "text": "这玩意比黎曼猜想难"
+            },
+            {
+              "speaker": 1,
+              "time": "00:40",
+              "text": "如果相信世界是理智的，那是不是拉到大时间尺度，一切都是可以solve by ai的啊？"
+            },
+            {
+              "speaker": 7,
+              "time": "00:40",
+              "text": "爱呢"
+            },
+            {
+              "speaker": 2,
+              "time": "00:40",
+              "text": "爱呢"
+            },
+            {
+              "speaker": 7,
+              "time": "00:40",
+              "text": "感觉要回到哲学上去了"
+            },
+            {
+              "speaker": 4,
+              "time": "00:40",
+              "text": "爱是非理智的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:40",
+              "text": "首先，什么是爱"
+            },
+            {
+              "speaker": 7,
+              "time": "00:41",
+              "text": "无法定义"
+            },
+            {
+              "speaker": 2,
+              "time": "00:41",
+              "text": "你问一千个人，有一千种不同的爱"
+            },
+            {
+              "speaker": 4,
+              "time": "00:41",
+              "text": "PhD这个Ph又该发力了"
+            },
+            {
+              "speaker": 8,
+              "time": "00:41",
+              "text": "我总感觉world model的用途应该是用来模拟长周期verify，而不是在那生视频"
+            },
+            {
+              "speaker": 2,
+              "time": "00:41",
+              "text": "是的",
+              "quote": {
+                "speaker": 8,
+                "text": "我总感觉world model的用途应该是用来模拟长周期verify，而不是在那生视频"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "00:41",
+              "text": "不理解大家在干啥"
+            },
+            {
+              "speaker": 2,
+              "time": "00:41",
+              "text": "比如尊界苦等世界模型（"
+            },
+            {
+              "speaker": 7,
+              "time": "00:41",
+              "text": "world model"
+            },
+            {
+              "speaker": 6,
+              "time": "00:42",
+              "text": "Phd终于变成了Ph吗"
+            },
+            {
+              "speaker": 4,
+              "time": "00:42",
+              "text": "model based RL好像就是干这个的？",
+              "quote": {
+                "speaker": 8,
+                "text": "我总感觉world model的用途应该是用来模拟长周期verify，而不是在那生视频"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "00:42",
+              "text": "那和之前的一切都是可以solve by tech & science 的一样",
+              "quote": {
+                "speaker": 1,
+                "text": "如果相信世界是理智的，那是不是拉到大时间尺度，一切都是可以solve by ai的啊？"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:42",
+              "text": "wm不是为了给具身爷爷虚空打洞提供场景吗"
+            },
+            {
+              "speaker": 7,
+              "time": "00:42",
+              "text": "感觉不如用来造数据"
+            },
+            {
+              "speaker": 9,
+              "time": "00:42",
+              "text": "一切都能被科学技术解决"
+            },
+            {
+              "speaker": 10,
+              "time": "00:42",
+              "text": "感觉world model也有一大堆不同的定义"
+            },
+            {
+              "speaker": 3,
+              "time": "00:42",
+              "text": "permanent harmful",
+              "quote": {
+                "speaker": 4,
+                "text": "PhD这个Ph又该发力了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "太狭隘了",
+              "quote": {
+                "speaker": 5,
+                "text": "wm不是为了给具身爷爷虚空打洞提供场景吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:42",
+              "text": "think different"
+            },
+            {
+              "speaker": 7,
+              "time": "00:42",
+              "text": "world model"
+            },
+            {
+              "speaker": 7,
+              "time": "00:42",
+              "text": "rsi"
+            },
+            {
+              "speaker": 7,
+              "time": "00:42",
+              "text": "两最没定义的东西"
+            },
+            {
+              "speaker": 4,
+              "time": "00:43",
+              "text": "WAM和VLA都已经被当路边一条借过了"
+            },
+            {
+              "speaker": 5,
+              "time": "00:43",
+              "text": "吓人"
+            },
+            {
+              "speaker": 2,
+              "time": "00:43",
+              "text": "WAM和VLA已经死了（"
+            },
+            {
+              "speaker": 5,
+              "time": "00:44",
+              "text": "为什么呢，就跟生成区去给自动驾驶爷爷造数据一样，感觉是个重要场景",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 太狭隘了"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:44",
+              "text": "为啥只能给具身爷爷呢，那给尊界踩刹车不行吗"
+            },
+            {
+              "speaker": 4,
+              "time": "00:45",
+              "text": "这个要靠AI4finance",
+              "quote": {
+                "speaker": 2,
+                "text": "为啥只能给具身爷爷呢，那给尊界踩刹车不行吗"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "00:46",
+              "text": "其实这就是policy和reward的关系，如果你相信policy 能解癌症，你就应该也相信 湿实验的reward 可以被simulation"
+            },
+            {
+              "speaker": 11,
+              "time": "00:46",
+              "text": "模型强了什么都可以是rsi",
+              "quote": {
+                "speaker": 7,
+                "text": "rsi"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:47",
+              "text": "这是真的",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 模型强了什么都可以是rsi"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:47",
+              "text": "但是目前rsi还没有一个很好的定义可能"
+            }
+          ]
+        },
+        {
+          "category": "技术讨论",
+          "title": "AI 数学证明怎么建立共识：从望月新一 ABC 猜想到 CoT 与 rhbench",
+          "tldr": "由望月新一 ABC 猜想多年难获公认引出担忧：AI 生成的超长证明人类更看不懂，开源 CoT 或靠 rhbench 拼效率各有拥趸。",
+          "points": [
+            {
+              "text": "望月新一证明当年能看懂者不足五十人，群友担忧 AI 证明更难在数学界建立共识。",
+              "refs": [
+                1,
+                8
+              ]
+            },
+            {
+              "text": "有人建议公开 CoT 并用导图或 DAG 提炼关键步，另一派泼冷水称超长 CoT 更不是人看的。",
+              "refs": [
+                19,
+                25,
+                27
+              ]
+            },
+            {
+              "text": "RL 派主张“做出来 reward 就是 1”、以后卷 rhbench 帕累托最优，另有观点指离交叉应用还早。",
+              "refs": [
+                18,
+                32,
+                35
+              ]
+            }
+          ],
+          "text": "凌晨零点一刻，有群友提起望月新一的 ABC 猜想证明至今是否获得公认，感叹它很像“AI 写的证明，无人看得懂”。另一位群友回忆，多年前能看懂相关内容的人就不超过五十个；还有群友补充，上次听说有人在其中找出一个 gap，双方一直扯皮。提问者由此发愁，人类证明拖这么多年都拿不到共识，AI 生成的证明更不知要等多久。有群友调侃可以靠“寡头统治”，让 OpenAI 和 Google 的旗舰模型再去验一遍；另一位群友反驳，即便模型验过仍需要数学家背书，除非大众心里觉得 AI 比数学家更权威。有人顺手贴出一张 2025 年 2 月的 B 站视频截图，标题写着“不要投稿 Deepseek 提供的证明给我了”，播放量 26.4 万，给这场验证焦虑添了点现实笑料。\n\n围绕如何读懂 AI 证明以及它能否转化为生产力，群里又拆出两条线。有群友提议把证明背后的 CoT 放出来，再用 AI summary、思维导图甚至 DAG 抽取出关键 reasoning point；另一位群友泼冷水，称超长 CoT 更不是人看的，而且 AI 未必真正知道关键步骤在哪里；还有群友开玩笑说“CoT 拿出来就要被邪恶国家掌握科技了”。也有人站在 RL 视角直白表态：“连起来就是招，work 了就是有效探索，管你这那的，做出来 reward 就是 1。”至于生产力，有人认为能完成复杂数学证明本身就是生产力体现，未来可以比“rhbench”帕累托最优，看谁用更少 token 和时间过编译、写出最短自然语言证明；另一位群友则认为从证明到应用还隔着“证明、提出猜想、构建理论体系、交叉应用”好几步，目前 AI 只是把证明拉到了极高水平，更难的下游环节尚未展开。",
+          "emphasis": [
+            "即便模型验过仍需要数学家背书，除非大众心里觉得 AI 比数学家更权威",
+            "从证明到应用还隔着“证明、提出猜想、构建理论体系、交叉应用”好几步"
+          ],
+          "aiComment": "人类证明能扯皮十年，AI 证明要是把 CoT 全摊开，数学家还没看完一半，rhbench 都迭代三代了",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:14",
+              "text": "话说望月新一那个ABC猜想的证明已经公认被verify了吗"
+            },
+            {
+              "speaker": 2,
+              "time": "00:14",
+              "text": "有...吗"
+            },
+            {
+              "speaker": 2,
+              "time": "00:14",
+              "text": "我好多年前看到看得懂这个问题的人都不超过五十个"
+            },
+            {
+              "speaker": 1,
+              "time": "00:15",
+              "text": "那个不是类似于AI写的证明，无人看得懂吗，突然联想到"
+            },
+            {
+              "speaker": 3,
+              "time": "00:18",
+              "text": "上次看到的说法是有个地方发现一个gap，然后双方继续扯皮",
+              "quote": {
+                "speaker": 1,
+                "text": "话说望月新一那个ABC猜想的证明已经公认被verify了吗"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:19",
+              "text": "这样啊"
+            },
+            {
+              "speaker": 4,
+              "time": "00:19",
+              "text": "可惜"
+            },
+            {
+              "speaker": 1,
+              "time": "00:19",
+              "text": "所以说人类写的证明，都这么多年都拿不到共识，这些AI proof不知道多久后才有共识啊[捂脸]",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 上次看到的说法是有个地方发现一个gap，然后双方继续扯皮"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:21",
+              "text": "寡头统治， oai和google的旗舰模型再去verify一遍[让我看看]",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 所以说人类写的证明，都这么多年都拿不到共识，这些AI proof不知道多久后才有共识啊[捂脸]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:22",
+              "text": "这些模型verify通过了，然后呢[皱眉]",
+              "quote": {
+                "speaker": 5,
+                "text": "[引用] 寡头统治， oai和google的旗舰模型再去verify一遍[让我看看]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "00:22",
+              "text": "数学证明怎么转化为生产力呢"
+            },
+            {
+              "speaker": 7,
+              "time": "00:23",
+              "text": "能做复杂数学证明本身就是生产力的体现吧"
+            },
+            {
+              "speaker": 8,
+              "time": "00:24",
+              "text": "那么依旧需要数学家来验证",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 这些模型verify通过了，然后呢[皱眉]"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "00:24",
+              "text": "就感觉之前很多应用都是inspired by math 现在这些猜想被证明之后 能inspire一些新的应用吗"
+            },
+            {
+              "speaker": 8,
+              "time": "00:24",
+              "text": "除非什么时候再大众心理"
+            },
+            {
+              "speaker": 8,
+              "time": "00:24",
+              "text": "ai比数学家更权威"
+            },
+            {
+              "speaker": 6,
+              "time": "00:24",
+              "text": "还是说大家不懂AI是怎么证明的 也阻碍了这一步",
+              "quote": {
+                "speaker": 6,
+                "text": "就感觉之前很多应用都是inspired by math 现在这些猜想被证明之后 能inspire一些新的应用吗"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "00:25",
+              "text": "以后比rh的帕累托最优，谁能多少token多少小时以内过编译，谁写的自然语言证明最短",
+              "quote": {
+                "speaker": 7,
+                "text": "能做复杂数学证明本身就是生产力的体现吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:25",
+              "text": "1",
+              "quote": {
+                "speaker": 1,
+                "text": "A/应该把证明背后的cot拿出来，如果想让大家去验的话"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "00:26",
+              "text": "有道理",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 以后比rh的帕累托最优，谁能多少token多少小时以内过编译，谁写的自然语言证明最短"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "00:26",
+              "text": "[Facepalm][Facepalm][Facepalm]rhbench",
+              "quote": {
+                "speaker": 9,
+                "text": "[引用] 以后比rh的帕累托最优，谁能多少token多少小时以内过编译，谁写的自然语言证明最短"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "00:26",
+              "text": "这就更不是人看的了",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 1"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "00:26",
+              "text": "这得多长啊"
+            },
+            {
+              "speaker": 6,
+              "time": "00:27",
+              "text": "COT拿出来就要被邪恶国家掌握科技了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:28",
+              "text": "至少能帮助理清楚证明思路吧？ 还可以再拿ai summary，select出关键reasoning point",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 这就更不是人看的了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "00:29",
+              "text": "ai summry这一块"
+            },
+            {
+              "speaker": 8,
+              "time": "00:29",
+              "text": "感觉ai不一定真正知道关键在哪里"
+            },
+            {
+              "speaker": 1,
+              "time": "00:30",
+              "text": "整个思维导图也行？"
+            },
+            {
+              "speaker": 8,
+              "time": "00:30",
+              "text": "直接来个dag哈哈"
+            },
+            {
+              "speaker": 7,
+              "time": "00:30",
+              "text": "连起来就是招，work了就是有效探索",
+              "quote": {
+                "speaker": 8,
+                "text": "感觉ai不一定真正知道关键在哪里"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:30",
+              "text": "笑死"
+            },
+            {
+              "speaker": 7,
+              "time": "00:30",
+              "text": "管你这那的，做出来reward就是1"
+            },
+            {
+              "speaker": 4,
+              "time": "00:31",
+              "text": "管你这那的，做出来reward就是1"
+            },
+            {
+              "speaker": 11,
+              "time": "00:31",
+              "text": "一堆数学家和lean追着你跑",
+              "quote": {
+                "speaker": 6,
+                "text": "数学证明怎么转化为生产力呢"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "00:31",
+              "text": "中间感觉还隔了几步？证明-提出猜想-构建理论体系-交叉应用",
+              "quote": {
+                "speaker": 6,
+                "text": "就感觉之前很多应用都是inspired by math 现在这些猜想被证明之后 能inspire一些新的应用吗"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "00:32",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/e400ebfa1f2c32139ae76dafbf9f8ee0.jpg",
+                  "alt": "B 站视频卡片截图，标题为《不要投稿Deepseek提供的证明给我了》，发布于 2025 年 2 月 19 日，播放量 26.4 万。"
+                }
+              ]
+            },
+            {
+              "speaker": 12,
+              "time": "00:32",
+              "text": "虽然证明走到了一个非常强大的能力点，但是其他更难的场景没太多涉及"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "Anthropic 股价创上市新低、距破发仅差 0.05，算力股同步下挫",
+          "tldr": "凌晨 ANT 股价一路下探创上市新低，从差 0.2 跌到距破发仅差 0.05，群友一边玩梗“美国一天中国半年”一边哀叹芯片持仓炸裂。",
+          "points": [
+            {
+              "text": "群友凌晨盯盘播报 ANT 创上市新低，价格从差 0.2 一路探底至距破发仅差 0.05。",
+              "refs": [
+                1,
+                3,
+                11
+              ]
+            },
+            {
+              "text": "众人调侃 ANT 将刷新大模型股最快破发纪录，同时哀叹手里 AMD 与 Nvidia 仓位跟着炸了。",
+              "refs": [
+                5,
+                7,
+                12
+              ]
+            }
+          ],
+          "text": "凌晨一点四十多，有群友在群里盯盘提醒“无人在意的角落，ant 新低了”，并调侃“感觉只有 AIDD 能救了”。另一位群友紧跟着报点称还差 0.2 就破发、当天大概率能见到，几分钟内价格一路探到还差 0.1，最低只差 0.05 破发。有群友调侃 Anthropic 即将超越 MiniMax、创下大模型股最快破发纪录，并和另一位群友一起刷起“美国一天，中国半年”。同一时间，还有群友哀叹手里的 AMD 和 Nvidia 仓位也跟着炸了。",
+          "emphasis": [
+            "价格一路探到还差 0.1，最低只差 0.05 破发",
+            "即将超越 MiniMax、创下大模型股最快破发纪录"
+          ],
+          "aiComment": "最低只差 0.05 破发，连带 AMD 和 Nvidia 一起挨揍，群友边聊硅基飞升边看账户缩水 💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:42",
+              "text": "无人在意的角落，ant新低了"
+            },
+            {
+              "speaker": 1,
+              "time": "01:42",
+              "text": "感觉只有aidd能救了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:43",
+              "text": "还差0.2破发"
+            },
+            {
+              "speaker": 2,
+              "time": "01:43",
+              "text": "今天感觉有机会"
+            },
+            {
+              "speaker": 3,
+              "time": "01:43",
+              "text": "即将创下大模型股最快破发记录"
+            },
+            {
+              "speaker": 3,
+              "time": "01:43",
+              "text": "超越minimax"
+            },
+            {
+              "speaker": 3,
+              "time": "01:44",
+              "text": "美国一天 中国半年"
+            },
+            {
+              "speaker": 4,
+              "time": "01:44",
+              "text": "美国一天 中国半年"
+            },
+            {
+              "speaker": 3,
+              "time": "01:46",
+              "text": "还差0.1"
+            },
+            {
+              "speaker": 3,
+              "time": "01:46",
+              "text": "破发"
+            },
+            {
+              "speaker": 5,
+              "time": "01:51",
+              "text": "最低0.05破发"
+            },
+            {
+              "speaker": 5,
+              "time": "01:51",
+              "text": "我的amd跟nv炸了阿"
+            }
+          ]
+        },
+        {
+          "category": "开源工具",
+          "title": "群友开源论文写作 Skill humanize-ml-paper：蒸馏写作约束降 AI 率",
+          "tldr": "群友开源论文写作 Skill humanize-ml-paper，把学者和小导过往论文习惯蒸馏成约束项来贴近人类文风，目前短篇降 AI 率效果较好。",
+          "points": [
+            {
+              "text": "项目将自己和小导过往论文的写作习惯蒸馏为 AI 约束项，小范围内测反响不错。",
+              "refs": [
+                1,
+                2
+              ]
+            },
+            {
+              "text": "支持短篇手写草稿降 AI 率与生成三大会论文，但画图偏弱且长篇直接生成仍难过检测。",
+              "refs": [
+                1,
+                3
+              ]
+            }
+          ],
+          "text": "傍晚七点，有群友开源了自己近期开发的论文写作 Skill 项目 humanize-ml-paper，并附上了博客说明与效果演示视频。分享者介绍，这套 Skill 经小范围内测反响不错，核心做法是将自己和小导过往论文的写作习惯蒸馏为一系列给 AI 的约束项，使输出文本更接近人类学者文风。目前它主打两项功能：一是基于手写草稿在较短篇幅上降低 AI 检测率，二是根据手稿生成整篇符合学术规范的三大会论文。分享者也坦承现有短板，当前画图能力仍偏弱，长篇直接生成依然难以通过 AI 检测。",
+          "emphasis": [
+            "将自己和小导过往论文的写作习惯蒸馏为一系列给 AI 的约束项",
+            "画图能力仍偏弱，长篇直接生成依然难以通过 AI 检测"
+          ],
+          "aiComment": "把导师和自己的写作习惯蒸馏成 prompt 防 AI 检测，属于是用魔法打败魔法的工程化示范",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "paper-skill-ai-detection 博客",
+              "url": "https://lehengthu.github.io/blog/2026/paper-skill-ai-detection/"
+            },
+            {
+              "kind": "code",
+              "label": "humanize-ml-paper",
+              "url": "https://github.com/LehengTHU/humanize-ml-paper"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:08",
+              "text": "分享一个最近做的论文写作skills，小范围内测收到不少好评，和大家分享一下～希望能节省一些写作上的时间。\n\nskills大概原理就是把自己和小导的论文蒸馏成了各种给ai的约束项，使得ai写出来的可以和人写的读起来差不多\n\n效果如视频所示，skills能实现两个功能：\n1.在较短篇幅上降低AI检测率（需要手写draft）\n2.根据手稿生成一整篇符合学术规范的三大会论文\n但目前画图能力还较弱，长篇生成也难通过ai检测\n\n有需要的朋友自取，如果有帮助还点个star～\n\nBlog链接：https://lehengthu.github.io/blog/2026/paper-skill-ai-detection/\nSkill链接：https://github.com/LehengTHU/humanize-ml-paper"
+            },
+            {
+              "speaker": 1,
+              "time": "19:08",
+              "text": "[链接] 我发布了一篇笔记：开源上千人蹲的降AI率写作skills"
+            },
+            {
+              "speaker": 1,
+              "time": "19:08",
+              "text": "[视频]",
+              "attachments": [
+                {
+                  "kind": "video",
+                  "poster": "attachments/media/5e0ccecbc160a60efe9928f1274ce19c.jpg",
+                  "label": "视频"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "评测",
+          "title": "群友发布 Coding Agent 测试生成基准 TestPrism 与 RSI 增强框架 TestHelix",
+          "tldr": "借“Coding agent 写测试集体失败、代码合格率被高估一倍”的热文，群友顺势发布测试生成基准 TestPrism 与能力增强框架 TestHelix。",
+          "points": [
+            {
+              "text": "群友转发 AI 代码合格率被高估一倍的报道，指出让模型写单测容易集体翻车。",
+              "refs": [
+                1
+              ]
+            },
+            {
+              "text": "顺势发布评估 coding agent 写测试用例能力的基准 TestPrism 及 RSI 增强框架 TestHelix。",
+              "refs": [
+                2
+              ]
+            }
+          ],
+          "text": "傍晚七点一刻，有群友在群内转发了新智元文章《Coding agent 写测试集体失败！AI 代码合格率被高估一倍》，并顺势发布了团队最新推出的两项工作：用于评估 coding agent 生成测试用例能力的基准 TestPrism，以及基于 RSI 思路打造的能力增强 harness TestHelix。",
+          "emphasis": [
+            "用于评估 coding agent 生成测试用例能力的基准 TestPrism"
+          ],
+          "aiComment": "代码合格率被高估一倍，写测试集体翻车，看来模型写完业务代码顺手写单测多少带点自己批卷的客气",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "Coding agent 写测试集体失败（新智元）",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA%3D%3D&mid=2652742394&idx=3&sn=83658d4b00ddad5b7c7b414c0a4b64f4&chksm=f064b51f42f16bb9c8598645045310d7501e0a9c9d010c4cd28dfee007c55c23477c5e3c578d&scene=1&srcid=1121oNeZNqhRU5kzr2o3kmEP#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:15",
+              "text": "[链接] Coding agent写测试集体失败！AI代码合格率被高估一倍\n  来源: 新智元\n  URL: https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA%3D%3D&mid=2652742394&idx=3&sn=83658d4b00ddad5b7c7b414c0a4b64f4&chksm=f064b51f42f16bb9c8598645045310d7501e0a9c9d010c4cd28dfee007c55c23477c5e3c578d&scene=1&srcid=1121oNeZNqhRU5kzr2o3kmEP#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "19:16",
+              "text": "欢迎关注我们最近release的评估coding agent生成test case的bench TestPrism以及基于rsi的能力增强harness TestHelix[社会社会]"
+            }
+          ]
+        },
+        {
+          "category": "数据工程",
+          "title": "跳出过拟合视角：群友分享跨界交流与逆向状态转移造数据思路",
+          "tldr": "群友复盘跳槽期间跟圈外朋友聊天的收获，自嘲此前一直泡在圈内“过拟合”，受做生意门道启发盘活了逆向构造状态转移造数据的思路。",
+          "points": [
+            {
+              "text": "群友自嘲此前只泡在圈内有点 overfit，“一直盯着 q table 的人做不出来 q learning”。",
+              "refs": [
+                1,
+                5
+              ]
+            },
+            {
+              "text": "借鉴圈外朋友做生意的门道提升造数据 taste，提出状态转移不必顺推、逆着来也能出好数据。",
+              "refs": [
+                7,
+                11
+              ]
+            }
+          ],
+          "text": "零点刚过，有群友复盘近期跳槽期间和行业外朋友聊天的收获，坦言此前一直泡在圈内有点 overfit，“一直盯着 q table 的人做不出来 q learning”。这位群友借鉴了朋友做生意的思路来调整造数据的 taste，举了一个具体方向：数据的状态转移不必非要顺着推演，逆着构造同样能做出高质量数据。另一位群友听后认同，逆向构造确实是很经典的路子。",
+          "emphasis": [
+            "数据的状态转移不必非要顺着推演，逆着构造同样能做出高质量数据"
+          ],
+          "aiComment": "一直盯着 q table 确实容易看穿屏，出去听人聊生意反倒把逆向造数据的思路盘活了",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:03",
+              "text": "上次跳槽跟行业外的朋友们聊了聊，感觉taste有点变化"
+            },
+            {
+              "speaker": 1,
+              "time": "00:03",
+              "text": "感觉自己之前有点overfit了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:03",
+              "text": "怎么说",
+              "quote": {
+                "speaker": 1,
+                "text": "上次跳槽跟行业外的朋友们聊了聊，感觉taste有点变化"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:04",
+              "text": "啥意思",
+              "quote": {
+                "speaker": 1,
+                "text": "感觉自己之前有点overfit了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:05",
+              "text": "怎么说呢，一直盯着q table的人做不出来q learning"
+            },
+            {
+              "speaker": 3,
+              "time": "00:05",
+              "text": "奥"
+            },
+            {
+              "speaker": 1,
+              "time": "00:05",
+              "text": "偷了点朋友做生意的门道让我造数据的taste略微提升"
+            },
+            {
+              "speaker": 4,
+              "time": "00:05",
+              "text": "再翻译一下",
+              "quote": {
+                "speaker": 1,
+                "text": "怎么说呢，一直盯着q table的人做不出来q learning"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:05",
+              "text": "思路打开"
+            },
+            {
+              "speaker": 1,
+              "time": "00:05",
+              "text": "沿着数据区的路越走越远"
+            },
+            {
+              "speaker": 1,
+              "time": "00:07",
+              "text": "就比如说数据的状态转移并不是非要顺着来的，逆着来也能造出好数据"
+            },
+            {
+              "speaker": 1,
+              "time": "00:07",
+              "text": "我之前是不懂的（too vegetable）"
+            },
+            {
+              "speaker": 5,
+              "time": "00:08",
+              "text": "逆向"
+            },
+            {
+              "speaker": 5,
+              "time": "00:08",
+              "text": "还是很经典的"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-2",
+      "label": "二群",
+      "section": "今日讨论",
+      "heading": "黎曼猜想 Lean 编译全绿，群友先查有没有漏重放与退化引理",
+      "theme": "一面等一群邓煜锐评日报原稿，一面围观腾讯元宝×KCL 开源 8 万条真实群聊记忆考卷",
+      "note": "2026-11-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "AI4Math",
+          "title": "黎曼猜想 Lean 形式化证明通过审计，群友聚焦内核重放省略与规范错漏风险",
+          "tldr": "黎曼猜想 Lean 验证 175,187 个模块耗时 8 小时 22 分全绿过审，但因省略 fresh kernel replay，群友随即警觉规范写错与退化引理风险。",
+          "points": [
+            {
+              "text": "175,187 个模块全绿过审、编译 8 小时 22 分，但页面注明应用户要求省略了全新内核重放。",
+              "refs": [
+                13,
+                14
+              ]
+            },
+            {
+              "text": "群友提醒 Lean 曾出过假阳性 bug，更常见隐患在于 specification 写错或藏着退化引理。",
+              "refs": [
+                16,
+                24,
+                26
+              ]
+            },
+            {
+              "text": "听说邓煜等人在一群展开讨论但称“太长不看”，二群群友从凌晨催更到中午等一手日报。",
+              "refs": [
+                6,
+                25
+              ]
+            }
+          ],
+          "text": "上午有群友贴出黎曼猜想 Lean 形式化验证页面的截图，宣布项目已经通过 Lean 验证。截图显示，175,187 个模块已全部编译完成（100.0%），14 个归档分卷共计 228.2 MiB，编译耗时 8 小时 22 分 15 秒，Proof audit 显示类型、公理与哈希检查均已通过；不过页面同时注明，应用户要求省略了 fresh kernel replay（全新内核重放）。此前凌晨大家还在刷屏等待结果，有群友笃定发布者本身是数学牛人、肯定能验证通过，顺带调侃之后人类只能“眩晕瘫坐”，也有人打趣“该退休了，圆我小说家的梦想”。\n\n验证通过后，有群友感叹数学领域的 verifier 确实好取得，但很快有人泼了冷水，指出 Lean 本身可能有 bug，历史上就出现过通过 Lean 验证却其实证错的情况，只是如今比较少见。贴图群友追问缘由后认为，这个问题应该不会出现命题错误；另一位群友反问“谁知道呢”，还开玩笑说不定会发现 Lean 也有罗素悖论。也有群友直接点出更常见的隐患，认为错的往往是 specification（形式化规范）。另有群友判断代码既然能被放出来，整体大概率没问题，接下来主要还是要看细节，排查有没有类似退化的引理。\n\n此前凌晨有群友透露，邓煜老师和几位做 AI4Math 的研究者在一群展开了讨论，因为记录偏多，大家从半夜到上午一直在催更一群日报、盼着直接看原始聊天记录。临近中午，贴图群友又转述称邓老师好像表示“太长不看”，二群成员继续一边围观一边等一手日报。",
+          "emphasis": [
+            "应用户要求省略了 fresh kernel replay（全新内核重放）",
+            "错的往往是 specification（形式化规范）",
+            "转述称邓老师好像表示“太长不看”"
+          ],
+          "aiComment": "175,187 个模块编译 8 小时绿灯了，内核重放却省了，退休梦还没做完，群友已开始查 specification",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:06",
+              "text": "该退休了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:06",
+              "text": "圆我小说家的梦想"
+            },
+            {
+              "speaker": 2,
+              "time": "00:07",
+              "text": "感觉肯定能验证通过的"
+            },
+            {
+              "speaker": 2,
+              "time": "00:07",
+              "text": "发布的人也是数学牛人"
+            },
+            {
+              "speaker": 2,
+              "time": "00:08",
+              "text": "但是之后人类就只能眩晕瘫坐了"
+            },
+            {
+              "speaker": 3,
+              "time": "00:09",
+              "text": "明天可以好好看看一群日报的详细版，邓煜老师和几位做ai4math的大佬进行了讨论[旺柴]"
+            },
+            {
+              "speaker": 4,
+              "time": "00:10",
+              "text": "能不能转一下记录看看[发呆]",
+              "quote": {
+                "speaker": 3,
+                "text": "明天可以好好看看一群日报的详细版，邓煜老师和几位做ai4math的大佬进行了讨论[旺柴]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "00:41",
+              "text": "有点儿多，明天看日报吧，日报可以就直接链接到原始聊天记录",
+              "quote": {
+                "speaker": 4,
+                "text": "[引用] 能不能转一下记录看看[发呆]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "01:09",
+              "text": "真是有点震撼了"
+            },
+            {
+              "speaker": 6,
+              "time": "01:13",
+              "text": "迫不及待了，要是群聊记录能实时共享就好了"
+            },
+            {
+              "speaker": 7,
+              "time": "01:18",
+              "text": "这说明要优先学会怎么过好日子啊）"
+            },
+            {
+              "speaker": 8,
+              "time": "08:14",
+              "text": "期待聊天记录 今天能早点总结日报不[吃瓜]"
+            },
+            {
+              "speaker": 9,
+              "time": "10:36",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/3aa02a7304a2ac1112c50b769298d247.jpg",
+                  "alt": "黎曼猜想 Lean 形式化验证页面截图：175,187 个模块全部编译完成（100.0%），14 个归档分卷共 228.2 MiB，耗时 8 小时 22 分 15 秒，Proof audit 显示类型、公理与哈希检查均通过，同时注明应用户要求省略了 fresh kernel replay"
+                }
+              ]
+            },
+            {
+              "speaker": 9,
+              "time": "10:37",
+              "text": "已经通过lean验证了"
+            },
+            {
+              "speaker": 10,
+              "time": "10:38",
+              "text": "数学的verifier真的好取得"
+            },
+            {
+              "speaker": 11,
+              "time": "10:39",
+              "text": "不过lean好像是有bug的",
+              "quote": {
+                "speaker": 9,
+                "text": "已经通过lean验证了"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "10:39",
+              "text": "这个怎么说"
+            },
+            {
+              "speaker": 11,
+              "time": "10:39",
+              "text": "有些lean通过了也会证错😥"
+            },
+            {
+              "speaker": 11,
+              "time": "10:40",
+              "text": "历史上有吧"
+            },
+            {
+              "speaker": 11,
+              "time": "10:40",
+              "text": "现在比较少了"
+            },
+            {
+              "speaker": 9,
+              "time": "10:42",
+              "text": "也是 不过这个问题应该不会出现命题错误的问题"
+            },
+            {
+              "speaker": 12,
+              "time": "10:43",
+              "text": "谁知道呢"
+            },
+            {
+              "speaker": 12,
+              "time": "10:43",
+              "text": "说不定[旺柴]发现lean也有罗素悖论"
+            },
+            {
+              "speaker": 13,
+              "time": "10:44",
+              "text": "错的是specification"
+            },
+            {
+              "speaker": 9,
+              "time": "10:51",
+              "text": "邓老师好像表示太长不看[旺柴]等一手日报"
+            },
+            {
+              "speaker": 14,
+              "time": "11:00",
+              "text": "感觉代码肯定没有问题，毕竟能被放出来。主要还是看一下细节，有没有类似退化的引理之类的"
+            }
+          ]
+        },
+        {
+          "category": "评测",
+          "title": "腾讯元宝×KCL 开源真实群聊记忆基准 GroupAssistBench：64% 未用上的记忆其实已进上下文",
+          "tldr": "腾讯元宝与 KCL 开源首个真实群聊记忆基准 GroupAssistBench（8 万条消息、2,395 题），揭示 64% 未用上的记忆其实已进上下文，引发脱敏好奇。",
+          "points": [
+            {
+              "text": "基于 50 个真实群聊、80,299 条消息建出双层评测，推动评测从 Memory Recall 走向 Memory Use。",
+              "refs": [
+                1,
+                2
+              ]
+            },
+            {
+              "text": "分析发现未用上记忆中 64% 已进上下文却用错，结合 RER 与 ACB 后 L2 评分最高涨 7.03 个百分点。",
+              "refs": [
+                1
+              ]
+            },
+            {
+              "text": "群友点赞真实群聊数据稀缺有操作空间，同时直接追问这 8 万多条群聊是怎么完成脱敏的。",
+              "refs": [
+                4,
+                7
+              ]
+            }
+          ],
+          "text": "晚间有分享者在群里发布腾讯元宝与 KCL NLP Group 联合推出的 GroupAssistBench，同步公开了论文、代码和数据集。据介绍，这是首个基于真实部署群聊构建的 Agent Memory Benchmark，包含 50 个真实群聊、80,299 条消息与 2,395 道评测问题，设计了双层评测：L1 评估记忆召回，L2 评估记忆驱动的开放式服务（覆盖单记忆、多记忆整合与动态冲突等依赖关系），并结合历史记忆证据与真实用户反馈为每道 L2 问题构建专属 Rubric，旨在推动记忆评测从 Memory Recall 走向 Memory Use。\n\n实验结论指向“记得住不代表用得好”：部分记忆系统在 Recall 上已超过 Full Context，但在 Memory Use 上依然明显落后。进一步分析发现，未被有效使用的记忆中，36% 未进入模型输入，64% 虽已进入输入却未被正确应用。针对这两类瓶颈，团队验证了 RER（Relational Evidence Refinement，通过关联补全记忆证据减少检索遗漏）和 ACB（Assistance Constraint Binding，将记忆转化为服务约束改善使用）两种互补方法；两者结合后，LightMem、xMemory 和 EverMemOS 的 L2 平均评分分别提升 7.03、4.64 和 4.43 个百分点。\n\n发布后多位群友点赞称“还有真实群聊”“有操作的”，另一位群友则直接追问这项真实群聊 benchmark 是如何完成脱敏的。",
+          "emphasis": [
+            "50 个真实群聊、80,299 条消息与 2,395 道评测问题",
+            "36% 未进入模型输入，64% 虽已进入输入却未被正确应用",
+            "追问这项真实群聊 benchmark 是如何完成脱敏的"
+          ],
+          "aiComment": "64% 的记忆都塞进上下文了还是用错，真像把群公告贴脸上也照样忘；群友顺手追问这 8 万条怎么脱敏",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "GroupAssistBench (arXiv)",
+              "url": "https://arxiv.org/abs/2611.04867"
+            },
+            {
+              "kind": "code",
+              "label": "Tencent/GroupAssistBench",
+              "url": "https://github.com/Tencent/GroupAssistBench"
+            },
+            {
+              "kind": "code",
+              "label": "HF Dataset: GroupAssistBench",
+              "url": "https://huggingface.co/datasets/tencent/GroupAssistBench"
+            },
+            {
+              "kind": "article",
+              "label": "量子位：8万条群聊消息做成考卷",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247947677&idx=3&sn=0797fbd2116a405b44176c97577757d8&chksm=e9b6ba38341ed197c2660a6bb78d5b123b6edfa7d939bca928d11e8c755a22e2f3ce6f87ff88&scene=1&srcid=1121VR6Bvd9JkTgR7tk681r3#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "23:01",
+              "text": "🎉 腾讯元宝 × KCL NLP Group 联合推出 GroupAssistBench，论文、代码与数据集正式公开！\n\n🤔 AI 记得住群聊，就能真正服务好一群人吗？\n\n我们提出 GroupAssistBench，据我们所知，这是首个基于真实部署群聊的 Agent Memory Benchmark，旨在推动记忆评测从 Memory Recall 走向 Memory Use。\n\n📊 核心亮点：\n• 真实数据：50个真实群聊、80,299条消息，共2,395道评测问题，涵盖多样化的真实群聊服务场景。\n• 双层评测：L1评估记忆召回，L2评估记忆驱动的开放式服务；覆盖单记忆、多记忆整合及动态冲突等依赖关系。\n• 反馈驱动评测：结合历史记忆证据与真实用户反馈，为每道L2问题构建专属Rubric。\n\n📉 关键发现：记得住，不代表用得好！\n\n部分记忆系统在Recall上已超越Full Context，但在Memory Use上仍明显落后。进一步分析发现，未被有效使用的记忆中，36%未进入模型输入，64%虽已进入却未被正确应用。\n\n针对这两类瓶颈，我们验证了两种互补的改进方向：\n🔗 RER（Relational Evidence Refinement）：通过关联与补全记忆证据，改善检索遗漏。\n🎯 ACB（Assistance Constraint Binding）：将记忆转化为服务约束，改善记忆使用。\n\n实验表明，RER对检索遗漏较多的系统更有效，而ACB对已有证据较完整的系统收益更明显。两者结合后，LightMem、xMemory、EverMemOS的L2平均评分分别提升7.03、4.64、4.43个百分点！\n\n🚀 论文与开源资源：\n📄 Paper：https://arxiv.org/abs/2611.04867\n⭐ GitHub：https://github.com/Tencent/GroupAssistBench\n🤗 Dataset：https://huggingface.co/datasets/tencent/GroupAssistBench\n📑 HF Paper：https://huggingface.co/papers/2611.04867\n\n欢迎大家阅读、使用和交流！也欢迎给GitHub点个Star、Hugging Face点个Vote支持一下！⭐"
+            },
+            {
+              "speaker": 1,
+              "time": "23:01",
+              "text": "[链接] 8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准\n  来源: 量子位\n  摘要: AI记得住，不等于用得好\n  URL: https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247947677&idx=3&sn=0797fbd2116a405b44176c97577757d8&chksm=e9b6ba38341ed197c2660a6bb78d5b123b6edfa7d939bca928d11e8c755a22e2f3ce6f87ff88&scene=1&srcid=1121VR6Bvd9JkTgR7tk681r3#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "23:05",
+              "text": "[强]"
+            },
+            {
+              "speaker": 3,
+              "time": "23:08",
+              "text": "[强][强]太强了还有真实群聊"
+            },
+            {
+              "speaker": 4,
+              "time": "23:36",
+              "text": "👍👍"
+            },
+            {
+              "speaker": 5,
+              "time": "23:39",
+              "text": "有操作的"
+            },
+            {
+              "speaker": 6,
+              "time": "23:45",
+              "text": "这是怎么能脱敏出来的真实群聊bench",
+              "quote": {
+                "speaker": 1,
+                "text": "🎉 腾讯元宝 × KCL NLP Group 联合推出 GroupAssistBench，论文、代码与数据集正式公开！ 🤔 AI 记得住群聊，就能真正服务好一群..."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-3",
+      "label": "三群",
+      "section": "今日讨论",
+      "heading": "黎曼证明外泄与 loop 模型：TML 开源 26B 可变循环架构",
+      "theme": "围观 Anthropic 破发边缘与 12T 模型内幕传闻，实测腾讯元宝群聊记忆基准、SDPO 与街景建模",
+      "note": "2026-11-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "开源模型",
+          "title": "TML 开源 26B 循环模型 Inkling 2 Mini，笔记本就能跑出 27B 水平",
+          "tldr": "Thinking Machines 开源 26B 循环 Transformer 与可变深度模型，群友实测 decode 吞吐并热议“loop 2–3 次性价比最高”。",
+          "points": [
+            {
+              "text": "Inkling 2 Mini 在 AA Index 拿 20.1 分、对标 Qwen3.8-27B，另附带 1–5 次可变循环的 TML-d24-varloop-research。",
+              "refs": [
+                1,
+                9
+              ]
+            },
+            {
+              "text": "群友讨论其采用 MoE 算理论 decode 吞吐，且 2–3 次循环就能拿到大部分推理收益，多了反而可能掉点。",
+              "refs": [
+                13,
+                39,
+                55
+              ]
+            },
+            {
+              "text": "有群友猜测 OpenAI 在参数量见顶后也在用 loop 加深推理，同时吐槽可变 loop 是 infra 噩梦。",
+              "refs": [
+                54,
+                56
+              ]
+            }
+          ],
+          "text": "中午群友转来 Thinking Machines（TML）开源 Inkling 2 Mini 的消息：这是一个 26B 参数的循环 Transformer 模型，笔记本本地就能跑，AA Index 得分 20.1，分享者对比称已能达到 Qwen3.8-27B 水平。\n\n顺着博客截图往里挖，群友还发现 TML 同步放出了在 1 到 5 次循环上训练的可变深度研究模型 TML-d24-varloop-research。聊到技术细节时，有人指出它结合了 MoE 并按 decode 理论吞吐作图；多位做过相关实验的群友补充，loop 一般循环 2 到 3 次就能拿到大部分收益，次数再多反而可能掉效果，且动态决定何时停止循环对 infra 来说是个噩梦。\n\n也有群友联想起了“OpenAI 用 loop”的传闻：当参数量 scaling 上去但训练数据见顶时，用循环加深推理确实很符合直觉。不过大家最现实的担忧还是：记得 vLLM 之前刚停止支持字节的类似 loop 模型，本地部署到底顺不顺滑还得再测。",
+          "emphasis": [
+            "循环 2 到 3 次就能拿到大部分收益，次数再多反而可能掉效果",
+            "当参数量 scaling 上去但训练数据见顶时，用循环加深推理确实很符合直觉"
+          ],
+          "aiComment": "参数不够循环来凑，loop 两三次性价比拉满，就是 vLLM 和 infra 工程师看完连夜想提桶 🫠",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "TML开源循环Transformer新模型",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651075624&idx=2&sn=b6e7e23d631dba7a952cbe5da8e77769&chksm=85073142d42e417178ec8293a9a5a276e19ab9a321e83252dcd76bfa47727485b925e0a49582&scene=1&srcid=1121PkLOJf4kStYRuTYgNfoh#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:27",
+              "text": "[链接] TML开源新模型，循环Transformer架构，笔记本就能跑\n  来源: 机器之心\n  摘要: Inkling 2 Mini 是一个仅有 26B 参数的循环 Transformer，小到足以在你的笔记本电脑上运行，强大到足以胜任智能体任务，在 AA Index 上的得分为 20.1。\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651075624&idx=2&sn=b6e7e23d631dba7a952cbe5da8e77769&chksm=85073142d42e417178ec8293a9a5a276e19ab9a321e83252dcd76bfa47727485b925e0a49582&scene=1&srcid=1121PkLOJf4kStYRuTYgNfoh#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "12:27",
+              "text": "大家怎么看",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] TML开源新模型，循环Transformer架构，笔记本就能跑\n  来源: 机器之心\n  摘要: Inkling&#x20;2&#x20;Mini&#x20;是一个仅有&#x20;26B&#x20;参数的循环&#x20;Transformer，小到足以在你的笔记本电脑上运行，强大到足以胜任智能体任务，在&#x20;AA&#x20;Ind...\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651075624&idx=2&sn=b6e7e23d631dba7a952cbe5da8e77769&chksm=85073142d42e417178ec8293a9a5a276e19ab9a321e83252dcd76bfa47727485b925e0a49582&scene=1&srcid=1121PkLOJf4kStYRuTYgNfoh#rd"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:27",
+              "text": "我记得 vllm 好像 drop 了loop model 的 support 来着"
+            },
+            {
+              "speaker": 2,
+              "time": "12:27",
+              "text": "本地 host 没问题吗"
+            },
+            {
+              "speaker": 1,
+              "time": "12:28",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/5b1a89803bf47683e9628135e483deaa.jpg",
+                  "alt": "Inkling 2 Mini 在推理速度与得分曲线上与同量级开源模型的对比折线图"
+                }
+              ]
+            },
+            {
+              "speaker": 2,
+              "time": "12:28",
+              "text": "或者 stop 了 字节某个 model 的 support"
+            },
+            {
+              "speaker": 3,
+              "time": "12:28",
+              "text": "这是第一个开源的工业街的loop模型吧"
+            },
+            {
+              "speaker": 1,
+              "time": "12:30",
+              "text": "好像是 至少这个是认真训了",
+              "quote": {
+                "speaker": 3,
+                "text": "这是第一个开源的工业街的loop模型吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "12:31",
+              "text": "能达到qwen3.8-27B水平的"
+            },
+            {
+              "speaker": 1,
+              "time": "12:33",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/ea74b98f9f567796f35344ec822db078.jpg",
+                  "alt": "Inkling 2 Mini 在各项通用、Agent 与代码基准上的详细得分对比表"
+                }
+              ]
+            },
+            {
+              "speaker": 2,
+              "time": "12:35",
+              "text": "这个横轴要怎么用的",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:35",
+              "text": "怎么理解的"
+            },
+            {
+              "speaker": 1,
+              "time": "12:38",
+              "text": "他这个是MoE"
+            },
+            {
+              "speaker": 1,
+              "time": "12:38",
+              "text": "算的是decode的理论吞吐量"
+            },
+            {
+              "speaker": 4,
+              "time": "12:39",
+              "text": "这个牛"
+            },
+            {
+              "speaker": 4,
+              "time": "12:39",
+              "text": "[链接/文件]"
+            },
+            {
+              "speaker": 3,
+              "time": "12:39",
+              "text": "loop的moe咋做的"
+            },
+            {
+              "speaker": 4,
+              "time": "12:43",
+              "text": "好问题"
+            },
+            {
+              "speaker": 4,
+              "time": "12:44",
+              "text": "没仔细看"
+            },
+            {
+              "speaker": 4,
+              "time": "12:45",
+              "text": "我记得前一阵子有loop MoE的paper，不知道是不是按那个弄的"
+            },
+            {
+              "speaker": 5,
+              "time": "12:55",
+              "text": "感觉好强"
+            },
+            {
+              "speaker": 6,
+              "time": "12:57",
+              "text": "loop的post会有特殊处理方式吗"
+            },
+            {
+              "speaker": 7,
+              "time": "12:59",
+              "text": "还有可变深度loop"
+            },
+            {
+              "speaker": 7,
+              "time": "12:59",
+              "text": "不明觉厉"
+            },
+            {
+              "speaker": 5,
+              "time": "12:59",
+              "text": "loop"
+            },
+            {
+              "speaker": 5,
+              "time": "12:59",
+              "text": "太深奥了"
+            },
+            {
+              "speaker": 8,
+              "time": "12:59",
+              "text": "多次loop的蒸馏到3次loop的吧"
+            },
+            {
+              "speaker": 3,
+              "time": "12:59",
+              "text": "可变loop"
+            },
+            {
+              "speaker": 3,
+              "time": "12:59",
+              "text": "循环深度是吧"
+            },
+            {
+              "speaker": 3,
+              "time": "13:00",
+              "text": "话说loop的模型是不是可以看懂o家的语言了"
+            },
+            {
+              "speaker": 8,
+              "time": "13:00",
+              "text": "九坤的loop啥时候端上来[可怜]"
+            },
+            {
+              "speaker": 6,
+              "time": "13:00",
+              "text": "不吧…？"
+            },
+            {
+              "speaker": 8,
+              "time": "13:00",
+              "text": "我看九坤好像挺多loop工作"
+            },
+            {
+              "speaker": 3,
+              "time": "13:01",
+              "text": "实验性工作很多",
+              "quote": {
+                "speaker": 8,
+                "text": "九坤的loop啥时候端上来[可怜]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:01",
+              "text": "神了",
+              "quote": {
+                "speaker": 3,
+                "text": "可变loop"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:01",
+              "text": "有什么能说的吗宝宝",
+              "quote": {
+                "speaker": null,
+                "text": "[引用] 实验性工作很多"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:02",
+              "text": "正常",
+              "quote": {
+                "speaker": 7,
+                "text": "还有可变深度loop"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "13:03",
+              "text": "loop我记得"
+            },
+            {
+              "speaker": 4,
+              "time": "13:03",
+              "text": "2-3次效果最好，多了可能会掉"
+            },
+            {
+              "speaker": 6,
+              "time": "13:04",
+              "text": "loop深度指的是什么"
+            },
+            {
+              "speaker": 6,
+              "time": "13:04",
+              "text": "循环次数？"
+            },
+            {
+              "speaker": 4,
+              "time": "13:04",
+              "text": "对的"
+            },
+            {
+              "speaker": 5,
+              "time": "13:04",
+              "text": "三反五反"
+            },
+            {
+              "speaker": 7,
+              "time": "13:06",
+              "text": "好像并不是？",
+              "quote": {
+                "speaker": 8,
+                "text": "多次loop的蒸馏到3次loop的吧"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "13:06",
+              "text": "中间这段后面说是在1-5次loop上训练",
+              "quote": {
+                "speaker": 7,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:08",
+              "text": "可变loop怎么决定该停了呢"
+            },
+            {
+              "speaker": 4,
+              "time": "13:08",
+              "text": "我记得一般是用户决定loop多少次"
+            },
+            {
+              "speaker": 1,
+              "time": "13:10",
+              "text": "他这个不是训的吗"
+            },
+            {
+              "speaker": 1,
+              "time": "13:10",
+              "text": "应该有个什么东西动态决定的？可能还得可微"
+            },
+            {
+              "speaker": 4,
+              "time": "13:10",
+              "text": "好问题"
+            },
+            {
+              "speaker": 4,
+              "time": "13:11",
+              "text": "我见过训练的时候有直接sample loop次数的"
+            },
+            {
+              "speaker": 8,
+              "time": "13:11",
+              "text": "看 ouro",
+              "quote": {
+                "speaker": 1,
+                "text": "可变loop怎么决定该停了呢"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:15",
+              "text": "哦哦字节那个。但感觉TML可变loop可能暂时还有点问题，不如这个mini",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 看 ouro"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "13:17",
+              "text": "感觉可变loop是infra噩梦"
+            },
+            {
+              "speaker": 9,
+              "time": "13:17",
+              "text": "不过我记得看到哪篇文章 loop两次就能拿到大部分收益了"
+            },
+            {
+              "speaker": 9,
+              "time": "13:20",
+              "text": "话说oai真是loop嘛；\n之前听到一个说法是参数量决定知识上限，oai的参数scaling上去之后发现没那么多数据可以训练了，于是用loop加深推理，听起来蛮符合直觉的？"
+            },
+            {
+              "speaker": 4,
+              "time": "13:27",
+              "text": "这确实",
+              "quote": {
+                "speaker": 9,
+                "text": "不过我记得看到哪篇文章 loop两次就能拿到大部分收益了"
+              }
+            }
+          ]
+        },
+        {
+          "category": "AI4Math",
+          "title": "黎曼证明半夜刷屏：200M token 神谕、数学家质疑与 B 站热搜",
+          "tldr": "全网疯传 Anthropic 黎曼证明，一群邓煜“非 500 页不看”聊天记录外泄上热搜；另一边数学家直指欧拉乘积反例并曝出编译审计状态。",
+          "points": [
+            {
+              "text": "凌晨流出数学家反驳聊天记录，直指其把欧拉乘积绝对化，可拿 Davenport–Heilbronn 函数直接举反例。",
+              "refs": [
+                1,
+                12
+              ]
+            },
+            {
+              "text": "05:24 群友晒出独立验证截屏：175,187 个模块编译通过，但定理审计仍在检查公理依赖，尚未给出最终背书。",
+              "refs": [
+                13
+              ]
+            },
+            {
+              "text": "邓煜“至少拿出 500 页版本前看都不看”的聊天截图被转出群外，直接登上新智元头条与 B 站热搜。"
+            }
+          ],
+          "text": "凌晨刚过，一群“邓煜老师如何评价黎曼证明——至少拿出 500 页版本前看都不看”的合并记录就被转进了三群。群友顺着 2000 多万行、折合约 200M token 的 Lean 代码算了一笔账：人类已经不可能肉身消化这种神谕，只能靠 AI 驾驭 AI 来读。\n\n很快到了 01:26，群友转来专业数学家的拆解：质疑 Alpöge 在临界尺度上把欧拉乘积绝对化了，像 Davenport–Heilbronn 函数满足类似函数方程却没有欧拉乘积、且确实存在非临界线零点，直接构成反例；不过也有模型对照原文替他辩护，指出原文第 9–16 项已试图用额外平均绕开该代价。凌晨五点半，群友贴出独立跑完的 Lean 验证面板：175,187 个模块 100% 编译通过，但界面明确提示“theorem axiom audit requires review”，尚未最终拍板。\n\n到了白天，这场数学狂欢却拐成了隐私吐槽大会——此前那张群聊截图彻底控制不住，连发小红书、新智元并冲上 B 站热搜，群友一边调侃“以后大佬不敢在一群说话了”，一边呼吁快建安全部门抓内鬼。",
+          "emphasis": [
+            "175,187 个模块 100% 编译通过，但界面明确提示“theorem axiom audit requires review”",
+            "质疑 Alpöge 在临界尺度上把欧拉乘积绝对化了",
+            "那张群聊截图彻底控制不住，连发小红书、新智元并冲上 B 站热搜"
+          ],
+          "aiComment": "17 万个模块编译全绿，公理审计却还在黄牌待定，结果最先出圈的是群聊截图上了 B 站热搜 🍉",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "新智元：陶哲轩邓煜回应",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA%3D%3D&mid=2652744351&idx=1&sn=9cef212a68cd57cfa0e2515207972adb&chksm=f0e00c63fa09371279c9f0ced9038ddec1a096fde3c02e79554f49df8884d4d19eb8e9f79c43&scene=1&srcid=1121gKLSQB7l6wnHTQSIpMzR#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:26",
+              "text": "[合并聊天记录] 群聊的聊天记录 (11条)\n  - Oscar 灰: 别看了\n  - Oscar 灰: 瞎jb乱解\n  - Oscar 灰: Racso 灰: 他Dirichlet character直接等价于素数和中的平方根抵消 Racso 灰: 长度为 X 的加权和，其误差大约只有根号 X 乘上任意小的幂次因子。 Racso 灰: 而且\n  - Racso 灰: 他Dirichlet character直接等价于素数和中的平方根抵消\n  - Racso 灰: 长度为 X 的加权和，其误差大约只有根号 X 乘上任意小的幂次因子。\n  - Racso 灰: 而且他又把提升链的长度定为约根号 X。 从启发式\n  - Racso 灰: 但问题在于：在这个临界尺度上，哪怕每一步只损失一个对数因子或 X 的 ε 次方，整个论证也会被抵消\n  - Racso 灰: 他好像把欧拉乘积太绝对化了\n  - Racso 灰: 像是Davenport–Heilbronn functio 它满足与 L 函数类似的函数方程，但没有欧拉乘，并且确实存在不在临界线上的零点。\n  - Racso 灰: 这不就直接举出反例了吗\n  - ... 还有1条"
+            },
+            {
+              "speaker": 2,
+              "time": "01:26",
+              "text": "之前还是128k"
+            },
+            {
+              "speaker": 1,
+              "time": "01:26",
+              "text": "速报"
+            },
+            {
+              "speaker": 1,
+              "time": "01:26",
+              "text": "群友懂数学的来看看"
+            },
+            {
+              "speaker": 2,
+              "time": "01:26",
+              "text": "wc",
+              "quote": {
+                "speaker": 1,
+                "text": "[合并聊天记录] 群聊的聊天记录\n  Oscar 灰: 别看了 Oscar 灰: 瞎jb乱解 Oscar 灰: [聊天记录] Oscar 灰: 明天应该就会有人出来说了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:27",
+              "text": "不知道是哪的消息"
+            },
+            {
+              "speaker": 3,
+              "time": "01:27",
+              "text": "有没有懂数学的"
+            },
+            {
+              "speaker": 4,
+              "time": "01:28",
+              "text": "有没有懂数学的"
+            },
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/6ffb8eaca734099e82b210d249e938ab.jpg",
+                  "alt": "群聊图片"
+                }
+              ]
+            },
+            {
+              "speaker": 1,
+              "time": "01:30",
+              "text": "抽抽看"
+            },
+            {
+              "speaker": 5,
+              "time": "01:30",
+              "text": "看看"
+            },
+            {
+              "speaker": 6,
+              "time": "01:33",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/954658ff3c1bf82ae9606e64a7b344ee.jpg",
+                  "alt": "AI 对话截图逐条分析 Levent Alpöge 证明中的 Dirichlet character 与 theta lifting 代价"
+                }
+              ]
+            },
+            {
+              "speaker": 1,
+              "time": "05:24",
+              "text": "pass"
+            },
+            {
+              "speaker": 1,
+              "time": "05:24",
+              "text": "RH有人独立跑了"
+            }
+          ]
+        },
+        {
+          "category": "基准与记忆",
+          "title": "腾讯元宝×KCL 开源群聊记忆基准：64% 没用上的记忆其实已经进上下文",
+          "tldr": "作者亲自进群宣发 GroupAssistBench，50 个真实群 8 万条消息；群友现场“明牌”邀约拿 Agent Hub 当 2.0 测试集。",
+          "points": [
+            {
+              "text": "GroupAssistBench 基于 50 个真实群聊、80,299 条消息与 2,395 道题，把记忆评测从 Recall 推进到开放式服务 Use。",
+              "refs": [
+                1,
+                2
+              ]
+            },
+            {
+              "text": "实验发现未用好的记忆里 36% 漏检、64% 已进上下文却没用对，用 RER+ACB 让多个记忆系统 L2 涨 4.4–7.0 分。",
+              "refs": [
+                2
+              ]
+            },
+            {
+              "text": "群主调侃 2.0 可以拿 Agent Hub 数据 codesign，还聊到数据集里已经真把表情包也收进去了。",
+              "refs": [
+                8,
+                20
+              ]
+            }
+          ],
+          "text": "晚上九点前，腾讯元宝与 KCL NLP 团队的作者亲自现身三群宣传开源工作 GroupAssistBench。这项基准收集了 50 个真实群聊、80,299 条消息共 2,395 道评测题，专门测 Agent 在真实群聊服务里到底能不能“把记住的东西用好”。\n\n作者在群里拆解了最反直觉的发现：部分记忆系统在 Recall 指标上已经超越 Full Context，但到真实服务的 L2 任务里依然掉链子——没用上的记忆里，36% 是根本没检索进输入，剩下 64% 其实已经塞进上下文了却没被正确用起来。团队给出的 RER（证据关联补全）和 ACB（服务约束绑定）组合拳，让 LightMem、xMemory、EverMemOS 的 L2 分别提了 7.03、4.64 和 4.43 个百分点。\n\n群主当场顺坡下驴提议做 2.0 时可以直接拿 Agent Hub 的群聊数据来 codesign，还有人打趣问数据集里有没有收录群友最爱的表情包，作者认真回复：“这一次数据集里面已经有表情包了。”",
+          "emphasis": [
+            "没用上的记忆里，36% 是根本没检索进输入，剩下 64% 其实已经塞进上下文了却没被正确用起来",
+            "这一次数据集里面已经有表情包了"
+          ],
+          "aiComment": "64% 的记忆都塞进嘴里了还是不会用，最良心的是连表情包都收录了，这波群聊语料算给他们玩明白了 👍",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "量子位：GroupAssistBench 报道",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247947677&idx=3&sn=0797fbd2116a405b44176c97577757d8&chksm=e917c3a8c6e16b5522c27b637fd8bbdcc24d4e40227d48261e26e68a01cdc11582deafa2d48e&scene=1&srcid=1121KWl50IHPHWK7ZCBVphP3#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "20:53",
+              "text": "[链接] 8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准\n  来源: 量子位\n  摘要: AI记得住，不等于用得好\n  URL: https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247947677&idx=3&sn=0797fbd2116a405b44176c97577757d8&chksm=e917c3a8c6e16b5522c27b637fd8bbdcc24d4e40227d48261e26e68a01cdc11582deafa2d48e&scene=1&srcid=1121KWl50IHPHWK7ZCBVphP3#rd"
+            },
+            {
+              "speaker": 1,
+              "time": "20:54",
+              "text": "趁有人聊天，斗胆宣传一波，也感谢群主@Qwen-李成鹏（白苏苏） 老哥的许可~ \n\n很高兴我们的新文章被量子位宣传~\n\n🎉 腾讯元宝 × KCL NLP Group 联合推出 GroupAssistBench，论文、代码与数据集正式公开！\n\n🤔 AI 记得住群聊，就能真正服务好一群人吗？\n\n我们提出 GroupAssistBench，据我们所知，这是首个基于真实部署群聊的 Agent Memory Benchmark，旨在推动记忆评测从 Memory Recall 走向 Memory Use。\n\n📊 核心亮点：\n• 真实数据：50个真实群聊、80,299条消息，共2,395道评测问题，涵盖多样化的真实群聊服务场景。\n• 双层评测：L1评估记忆召回，L2评估记忆驱动的开放式服务；覆盖单记忆、多记忆整合及动态冲突等依赖关系。\n• 反馈驱动评测：结合历史记忆证据与真实用户反馈，为每道L2问题构建专属Rubric。\n\n📉 关键发现：记得住，不代表用得好！\n\n部分记忆系统在Recall上已超越Full Context，但在Memory Use上仍明显落后。进一步分析发现，未被有效使用的记忆中，36%未进入模型输入，64%虽已进入却未被正确应用。\n\n针对这两类瓶颈，我们验证了两种互补的改进方向：\n🔗 RER（Relational Evidence Refinement）：通过关联与补全记忆证据，改善检索遗漏。\n🎯 ACB（Assistance Constraint Binding）：将记忆转化为服务约束，改善记忆使用。\n\n实验表明，RER对检索遗漏较多的系统更有效，而ACB对已有证据较完整的系统收益更明显。两者结合后，LightMem、xMemory、EverMemOS的L2平均评分分别提升7.03、4.64、4.43个百分点！\n\n🚀 论文与开源资源：\n📄 Paper：https://arxiv.org/abs/2611.048...\n⭐ GitHub：https://github.com/Tencent/Gro...\n🤗 Dataset：https://huggingface.co/dataset...\n📑 HF Paper：https://huggingface.co/papers/...\n\n欢迎大家阅读、使用和交流！也欢迎给GitHub点个Star、Hugging Face点个Vote支持一下！⭐"
+            },
+            {
+              "speaker": 2,
+              "time": "20:55",
+              "text": "我去，关于群聊的服务场景"
+            },
+            {
+              "speaker": 2,
+              "time": "20:55",
+              "text": "有什么skill能给我们的bot用不@bot"
+            },
+            {
+              "speaker": 1,
+              "time": "20:56",
+              "text": "应该是首个群聊的真实数据集据我们所知，希望能给大家一些真实场景[抱拳]"
+            },
+            {
+              "speaker": 1,
+              "time": "20:57",
+              "text": "我们研究发现需要记忆关联，记忆约束这两方面的skill，可以更好的把记忆向服务Assistant转化，更多的方向还请大家一起探索",
+              "quote": {
+                "speaker": 2,
+                "text": "有什么skill能给我们的bot用不@bot"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:57",
+              "text": "很感谢群主老哥的支持~[抱拳]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:58",
+              "text": "做2.0的时候可以考虑一下agent hub的群聊数据，codesign[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "20:58",
+              "text": "AI native群聊"
+            },
+            {
+              "speaker": 3,
+              "time": "20:58",
+              "text": "哈哈哈哈哈😂"
+            },
+            {
+              "speaker": 1,
+              "time": "20:58",
+              "text": "[旺柴][强]可以，那必然是很高质量的数据了"
+            },
+            {
+              "speaker": 3,
+              "time": "20:58",
+              "text": "这个事情不应该微信团队wellm做吗"
+            },
+            {
+              "speaker": 4,
+              "time": "20:59",
+              "text": "合理",
+              "quote": {
+                "speaker": 2,
+                "text": "做2.0的时候可以考虑一下agent hub的群聊数据，codesign[旺柴]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "20:59",
+              "text": "这个图6",
+              "quote": {
+                "speaker": 3,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "20:59",
+              "text": "微信是微信，腾讯是腾讯哈哈"
+            },
+            {
+              "speaker": 6,
+              "time": "20:59",
+              "text": "合理"
+            },
+            {
+              "speaker": 3,
+              "time": "20:59",
+              "text": "希望可以收录表情包",
+              "quote": {
+                "speaker": 1,
+                "text": "[旺柴][强]可以，那必然是很高质量的数据了"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:59",
+              "text": "明牌偷数据？",
+              "quote": {
+                "speaker": 3,
+                "text": "这个事情不应该微信团队wellm做吗"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:59",
+              "text": "胆子这么大"
+            },
+            {
+              "speaker": 1,
+              "time": "20:59",
+              "text": "这一次数据集里面已经有表情包了[抱拳]",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 希望可以收录表情包"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "20:59",
+              "text": "基于表情包理解用户"
+            }
+          ]
+        },
+        {
+          "category": "行业八卦",
+          "title": "蚂蚁冲高逼近 83 刀破发线，硅谷信源曝 Argon/Carbon 同架构 12T 赛马",
+          "tldr": "Anthropic 股价跌到 84 刀逼近破发，群友疯传硅谷内幕：谷歌用同一套 12TA555B 架构赛马，Anthropic 工作模式像“KK 园区”。",
+          "points": [
+            {
+              "text": "ANT 股价跌到 84 美元距 83 美元发行价只差 1 块，群友惊呼“要搞出美国股灾”，同时吐槽半导体暴跌。",
+              "refs": [
+                4,
+                6,
+                9
+              ]
+            },
+            {
+              "text": "硅谷信源传闻 Gemini Argon 与 Carbon 架构一模一样（12TA555B），只是数据和训法不同、类似内部赛马。",
+              "refs": [
+                29,
+                36
+              ]
+            },
+            {
+              "text": "同一信源还称 Opus 总参约 700B（A100B），比 Google 规模小，且 Anthropic 内部保密极严导致研发成本极高。",
+              "refs": [
+                29,
+                33,
+                39
+              ]
+            }
+          ],
+          "text": "凌晨一边刷着黎曼猜想，一边有人盯着美股大盘喊“Anthropic 84 块了，离 83 块发行价还差 1 块”，另一边半导体板块同步跳水。有群友感叹谷歌最近“腹泻式更新核弹”，市值似乎都追平英伟达了。\n\n趁着热度，群友转发了一则不知真假的“硅谷信源”：称 Gemini Argon 和 Carbon 其实是两拨人拿一模一样的 12TA555B 架构赛马训出来的，只是数据和训练方法有别；而 Anthropic 模型反倒比谷歌小（传 Opus 约 700B 总参、100B 激活），但内部保密严到像流水线拼图，研发成本奇高才死防蒸馏。\n\n到了近中午，OpenAI 刚好放出反蒸馏博客（combatting-adversarial-distillation），群友秒接梗：“全面转向 Gemini 吧，别把咕噜咕噜也蒸炸了。”",
+          "emphasis": [
+            "Gemini Argon 和 Carbon 其实是两拨人拿一模一样的 12TA555B 架构赛马训出来的",
+            "全面转向 Gemini 吧，别把咕噜咕噜也蒸炸了"
+          ],
+          "aiComment": "昨天刚敲钟今天差点破发，连带着硅谷线报都传出来了：谷歌 12T 赛马印钞，A 社保密防蒸像流水线 💸",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "OpenAI 反蒸馏博客",
+              "url": "https://openai.com/index/combatting-adversarial-distillation/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:13",
+              "text": "a/已经快破发了"
+            },
+            {
+              "speaker": 2,
+              "time": "01:13",
+              "text": "已经破了吧"
+            },
+            {
+              "speaker": 3,
+              "time": "01:14",
+              "text": "差点"
+            },
+            {
+              "speaker": 3,
+              "time": "01:14",
+              "text": "现在84"
+            },
+            {
+              "speaker": 4,
+              "time": "01:14",
+              "text": "84块"
+            },
+            {
+              "speaker": 4,
+              "time": "01:14",
+              "text": "还差1块"
+            },
+            {
+              "speaker": 2,
+              "time": "01:14",
+              "text": "差1块"
+            },
+            {
+              "speaker": 5,
+              "time": "01:14",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/390ffbcfe615ceeee5d47a5ff7619657.jpg",
+                  "alt": "群聊图片"
+                }
+              ]
+            },
+            {
+              "speaker": 3,
+              "time": "01:15",
+              "text": "A/看样子要搞出美国股灾"
+            },
+            {
+              "speaker": 6,
+              "time": "01:15",
+              "text": "铁定破吧 美股最近不对劲，怀疑要熊"
+            },
+            {
+              "speaker": 2,
+              "time": "01:15",
+              "text": "where is money"
+            },
+            {
+              "speaker": 3,
+              "time": "01:15",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/7d9e2c2f19c87ce9a9a31ff977382984.jpg",
+                  "alt": "群聊图片"
+                }
+              ]
+            },
+            {
+              "speaker": 3,
+              "time": "01:15",
+              "text": "dario：套现！",
+              "quote": {
+                "speaker": 2,
+                "text": "where is money"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "01:16",
+              "text": "神了",
+              "quote": {
+                "speaker": 3,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:16",
+              "text": "同行都是恩人啊",
+              "quote": {
+                "speaker": 3,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "01:17",
+              "text": "谷歌市值超英伟达了好像"
+            },
+            {
+              "speaker": 8,
+              "time": "01:17",
+              "text": "谷歌最近真的支棱起来了"
+            },
+            {
+              "speaker": 8,
+              "time": "01:17",
+              "text": "这个发模型速度"
+            },
+            {
+              "speaker": 8,
+              "time": "01:17",
+              "text": "[发抖][发抖]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:18",
+              "text": "腹泻式更新核弹"
+            },
+            {
+              "speaker": 9,
+              "time": "01:18",
+              "text": "每一代元素周期表更一遍"
+            },
+            {
+              "speaker": 1,
+              "time": "01:18",
+              "text": "所以那个传闻模型架构都是一样的是真的吗"
+            },
+            {
+              "speaker": 1,
+              "time": "01:19",
+              "text": "有无懂哥"
+            },
+            {
+              "speaker": 10,
+              "time": "01:19",
+              "text": "英伟达今天跌疯了[捂脸]",
+              "quote": {
+                "speaker": 1,
+                "text": "谷歌市值超英伟达了好像"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "01:21",
+              "text": "什么传闻",
+              "quote": {
+                "speaker": 1,
+                "text": "所以那个传闻模型架构都是一样的是真的吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "01:21",
+              "text": "半导体"
+            },
+            {
+              "speaker": 2,
+              "time": "01:21",
+              "text": "这跌的"
+            },
+            {
+              "speaker": 2,
+              "time": "01:21",
+              "text": "就不是人"
+            },
+            {
+              "speaker": 1,
+              "time": "01:22",
+              "text": "转发一下来自硅谷的信源：\n1. Gemini Argon 和 Gemini Carbon 是两拨人做的，模型架构一模一样，数据和训练方法不太一样。都是12TA555B。类似国内的赛马。谷歌极有可能同时训练了多个 12T 模型，成了两个。中美算力的差距似乎远大于 2 个数量级。\n2. Google 内部目前没有更强的模型，但 Anthropic 有\n3. Anthropic 的工作模式有点像缅北 KK 园区。他们招了很多很多人，进去之后参与某个项目，但并不能知道你参与的项目的目标是最终给模型造了一堆数据还是真的模型的一部分。所以他们的研发成本巨高，不想让别人蒸馏他们。\n4. Anthropic 的模型应该比 Google 的小，Opus 也比 Gemini 4这两个小。但具体多大没问到。"
+            },
+            {
+              "speaker": 1,
+              "time": "01:22",
+              "text": "不知真假"
+            },
+            {
+              "speaker": 3,
+              "time": "01:22",
+              "text": "A多大？"
+            },
+            {
+              "speaker": 12,
+              "time": "01:23",
+              "text": "a一个ds"
+            },
+            {
+              "speaker": 10,
+              "time": "01:23",
+              "text": "据说opus在700b吧"
+            },
+            {
+              "speaker": 3,
+              "time": "01:23",
+              "text": "总参700B？"
+            },
+            {
+              "speaker": 10,
+              "time": "01:23",
+              "text": "✔️",
+              "quote": {
+                "speaker": 3,
+                "text": "总参700B？"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "01:23",
+              "text": "argon和carbon的速度完全不一样啊"
+            },
+            {
+              "speaker": 1,
+              "time": "01:23",
+              "text": "啊 那还蛮nb的",
+              "quote": {
+                "speaker": 10,
+                "text": "据说opus在700b吧"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "01:23",
+              "text": "真的可能吗"
+            },
+            {
+              "speaker": 3,
+              "time": "01:23",
+              "text": "700B A100B"
+            },
+            {
+              "speaker": 10,
+              "time": "01:23",
+              "text": "从成本上似乎可行"
+            },
+            {
+              "speaker": 1,
+              "time": "01:23",
+              "text": "我一直以为海外是力大砖飞的那种"
+            },
+            {
+              "speaker": 10,
+              "time": "01:24",
+              "text": "至少a/的参数会比o小吧"
+            },
+            {
+              "speaker": 10,
+              "time": "01:24",
+              "text": "从订阅等价的token额度和API价格来看"
+            }
+          ]
+        },
+        {
+          "category": "蒸馏与后训练",
+          "title": "SDPO 遇上“Friendly CoT”：没原味思维链能用答案反推吗？",
+          "tldr": "群友从“小模型看不懂大模型 CoT”聊到 SDPO 自蒸馏，反被质疑特权信息偷看答案容易导致熵崩坍。",
+          "points": [
+            {
+              "text": "群友提出“friendly CoT”痛点：老师模型太强输出对小模型来说“不说人话”，需要做低前向 PPL 改写。",
+              "refs": [
+                47,
+                56,
+                58
+              ]
+            },
+            {
+              "text": "有人想到拿 SDPO 从最终答案反向补 CoT，另一位群友提醒两者不是一回事，且今年黑盒反推旧论文早已失效。",
+              "refs": [
+                3,
+                5,
+                20
+              ]
+            },
+            {
+              "text": "深夜复盘指出 SDPO 自教师靠特权答案不探索、不犹豫，极易把分布拉窄导致熵崩坍和 OOD 掉点。",
+              "refs": [
+                84,
+                86
+              ]
+            }
+          ],
+          "text": "深夜十点半后，群里围绕 CoT 蒸馏和 SDPO（Self-Distillation Policy Optimization）吵出了一波硬核干货。最初有人问能不能拿 SDPO 来做“friendly CoT 改写”——所谓 friendly CoT，就是教师模型写得太跳脱，对小模型而言前向 PPL 高到“不说人话”，得找中间人改写降维；也有人顺带贴出《Stealing Reasoning Traces from Proprietary LLM APIs》问能不能反推黑盒 CoT。\n\n不过很快有人泼冷水：这篇 8 月份的论文一发出来就报给公司修了，现在早用不了，而且黑盒 reverse 是拟合教师分布，跟 SDPO 在无特权信息下提升输出置信度不是一回事。\n\n接近零点时，一位群友点出 SDPO 的致命隐患：自教师因为拿着正确答案做特权信息，过程里没了试探、犹豫和换思路回溯，一味惩罚探索，最后把模型分布拉得又尖又窄，极易发生熵崩坍、一到 OOD 就掉点；另一位群友则从“Fable 5.2 把 Claude Code 能力训进基模，以及 DeepSeek V4.1 混合训过多个版本的 CC/Codex/Pi”反向追问，讨论一直持续到零点压线。",
+          "emphasis": [
+            "教师模型写得太跳脱，对小模型而言前向 PPL 高到“不说人话”",
+            "过程里没了试探、犹豫和换思路回溯，一味惩罚探索，最后把模型分布拉得又尖又窄，极易发生熵崩坍"
+          ],
+          "aiComment": "学霸老师写过程跳十步，学渣模型直接原地过拟合；拿 SDPO 偷看答案刷自信，结果一上 OOD 考场就崩 📉",
+          "resources": [
+            {
+              "kind": "paper",
+              "label": "Stealing Reasoning Traces",
+              "url": "https://stolen-thoughts.com"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "22:35",
+              "text": "sdpo这东西用到friendly cot改写上感觉如何"
+            },
+            {
+              "speaker": 2,
+              "time": "22:35",
+              "text": "s是啥"
+            },
+            {
+              "speaker": 1,
+              "time": "22:36",
+              "text": "做好了是不是可以用来做 拿不到cot的时候 用最终答案反向生成cot"
+            },
+            {
+              "speaker": 3,
+              "time": "22:36",
+              "text": "self"
+            },
+            {
+              "speaker": 3,
+              "time": "22:37",
+              "text": "感觉两回事吧",
+              "quote": {
+                "speaker": 1,
+                "text": "做好了是不是可以用来做 拿不到cot的时候 用最终答案反向生成cot"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "22:37",
+              "text": "sd是self distillation吗"
+            },
+            {
+              "speaker": 1,
+              "time": "22:37",
+              "text": "SDPO：Self-Distillation Policy Optimization"
+            },
+            {
+              "speaker": 1,
+              "time": "22:37",
+              "text": "打出来累送我了md"
+            },
+            {
+              "speaker": 2,
+              "time": "22:37",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/edfcc7e25b7ab1019098b4555240ca87.png",
+                  "alt": "论文《Stealing Reasoning Traces from Proprietary LLM APIs》首页截图（stolen-thoughts.com）"
+                }
+              ]
+            },
+            {
+              "speaker": 3,
+              "time": "22:38",
+              "text": "reasoning的reverse是要尽可能在有限的数据上从当前base 的分布拟合到teacher的分布上"
+            },
+            {
+              "speaker": 1,
+              "time": "22:38",
+              "text": "有道理"
+            },
+            {
+              "speaker": 3,
+              "time": "22:39",
+              "text": "sdpo是怎么增加在没有特权信息加持下输出的置信度"
+            },
+            {
+              "speaker": 5,
+              "time": "22:39",
+              "text": "这个怎么理解",
+              "quote": {
+                "speaker": 2,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "22:39",
+              "text": "刚刚看到他说没有cot的时候，想要cot"
+            },
+            {
+              "speaker": 3,
+              "time": "22:39",
+              "text": "嗯？这不是8月份的神作吗"
+            },
+            {
+              "speaker": 1,
+              "time": "22:39",
+              "text": "我去研究一下黑盒蒸馏"
+            },
+            {
+              "speaker": 3,
+              "time": "22:39",
+              "text": "就是reverse"
+            },
+            {
+              "speaker": 2,
+              "time": "22:39",
+              "text": "我就想到这篇文章"
+            },
+            {
+              "speaker": 3,
+              "time": "22:39",
+              "text": "两回事"
+            },
+            {
+              "speaker": 3,
+              "time": "22:39",
+              "text": "现在已经用不了了"
+            },
+            {
+              "speaker": 2,
+              "time": "22:40",
+              "text": "他刚刚好像说了俩个事"
+            },
+            {
+              "speaker": 1,
+              "time": "22:40",
+              "text": "我搞混了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:40",
+              "text": "[吃瓜]"
+            },
+            {
+              "speaker": 2,
+              "time": "22:40",
+              "text": "论文出来的时候，已经报给公司了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:40",
+              "text": "g掉了已经"
+            },
+            {
+              "speaker": 2,
+              "time": "22:40",
+              "text": "self dpo 是哪个组的工作"
+            },
+            {
+              "speaker": 2,
+              "time": "22:40",
+              "text": "self的好处是啥"
+            },
+            {
+              "speaker": 2,
+              "time": "22:41",
+              "text": "可以发一下链接吗？"
+            },
+            {
+              "speaker": 1,
+              "time": "22:42",
+              "text": "self dpo是什么"
+            },
+            {
+              "speaker": 2,
+              "time": "22:42",
+              "text": "这个SDPO"
+            },
+            {
+              "speaker": 3,
+              "time": "22:43",
+              "text": "@IDT-江序洲-memory 你是否正常"
+            },
+            {
+              "speaker": 1,
+              "time": "22:43",
+              "text": "？"
+            },
+            {
+              "speaker": 1,
+              "time": "22:43",
+              "text": "很不正常啊"
+            },
+            {
+              "speaker": 1,
+              "time": "22:44",
+              "text": "哦 确实不正常"
+            },
+            {
+              "speaker": 1,
+              "time": "22:44",
+              "text": "sdpo"
+            },
+            {
+              "speaker": 2,
+              "time": "22:44",
+              "text": "感觉你有点上下文混乱了"
+            },
+            {
+              "speaker": 1,
+              "time": "22:44",
+              "text": "确实"
+            },
+            {
+              "speaker": 2,
+              "time": "22:45",
+              "text": "感觉你这个“friendly cot改写”这个点有意思",
+              "quote": {
+                "speaker": 1,
+                "text": "sdpo这东西用到friendly cot改写上感觉如何"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:45",
+              "text": "名字叫这个"
+            },
+            {
+              "speaker": 1,
+              "time": "22:45",
+              "text": "Reinforcement Learning via Self-Distillation"
+            },
+            {
+              "speaker": 3,
+              "time": "22:47",
+              "text": "看论文先看作者和机构是不是必备的技能"
+            },
+            {
+              "speaker": 6,
+              "time": "22:47",
+              "text": "我觉得是"
+            },
+            {
+              "speaker": 3,
+              "time": "22:47",
+              "text": "我从来都不看导致学术明星我一个不认识"
+            },
+            {
+              "speaker": 2,
+              "time": "22:48",
+              "text": "是的",
+              "quote": {
+                "speaker": 3,
+                "text": "看论文先看作者和机构是不是必备的技能"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:51",
+              "text": "话说friendly是啥意思",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 感觉你这个“friendly cot改写”这个点有意思"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:51",
+              "text": "在这个语境下"
+            },
+            {
+              "speaker": 3,
+              "time": "22:52",
+              "text": "可能是对另一个model的家族forward ppl比较低"
+            },
+            {
+              "speaker": 5,
+              "time": "22:55",
+              "text": "哦哦"
+            },
+            {
+              "speaker": 5,
+              "time": "23:02",
+              "text": "不是很多直接输进去model直接改写吗"
+            },
+            {
+              "speaker": 3,
+              "time": "23:03",
+              "text": "不清楚了，树叶有专攻"
+            },
+            {
+              "speaker": 3,
+              "time": "23:03",
+              "text": "看有没有懂哥了"
+            },
+            {
+              "speaker": 5,
+              "time": "23:05",
+              "text": "我只听说a那边数据可能改写了快100遍"
+            },
+            {
+              "speaker": 5,
+              "time": "23:05",
+              "text": "国模进去的也改但是没有frontier那么夸张"
+            },
+            {
+              "speaker": 7,
+              "time": "23:06",
+              "text": "我也需要friendly cot"
+            },
+            {
+              "speaker": 2,
+              "time": "23:06",
+              "text": "@IDT-江序洲-memory 细说friendly cot？"
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "就是教师模型的输出在小模型看来不说人话"
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "但是小模型做不出这个题目"
+            },
+            {
+              "speaker": 7,
+              "time": "23:07",
+              "text": "老师太强了 学生学不会 需要一个中间人"
+            },
+            {
+              "speaker": 7,
+              "time": "23:07",
+              "text": "转达一些老师的思想"
+            },
+            {
+              "speaker": 7,
+              "time": "23:07",
+              "text": "不对改写"
+            },
+            {
+              "speaker": 8,
+              "time": "23:07",
+              "text": "有可能是世界知识的问题吗",
+              "quote": {
+                "speaker": 7,
+                "text": "老师太强了 学生学不会 需要一个中间人"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "23:07",
+              "text": "不是吧"
+            },
+            {
+              "speaker": 1,
+              "time": "23:08",
+              "text": "纯粹是能力问题"
+            },
+            {
+              "speaker": 7,
+              "time": "23:08",
+              "text": "不会吧 就是分布上的"
+            },
+            {
+              "speaker": 3,
+              "time": "23:08",
+              "text": "是的"
+            },
+            {
+              "speaker": 7,
+              "time": "23:09",
+              "text": "forward ppl数值高的很"
+            },
+            {
+              "speaker": 1,
+              "time": "23:09",
+              "text": "又蒸馏到了xdm"
+            },
+            {
+              "speaker": 7,
+              "time": "23:09",
+              "text": "啊 我完全想不到下一次词是这样的"
+            },
+            {
+              "speaker": 3,
+              "time": "23:10",
+              "text": "到底现在有什么有价值的内容输出",
+              "quote": {
+                "speaker": 1,
+                "text": "又蒸馏到了xdm"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:10",
+              "text": "你就蒸馏到了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:10",
+              "text": "你是loop？"
+            },
+            {
+              "speaker": 1,
+              "time": "23:10",
+              "text": "你管我"
+            },
+            {
+              "speaker": 7,
+              "time": "23:10",
+              "text": "自循环哈哈哈哈"
+            },
+            {
+              "speaker": 1,
+              "time": "23:10",
+              "text": "我一个2b模型"
+            },
+            {
+              "speaker": 1,
+              "time": "23:10",
+              "text": "什么都可以蒸"
+            },
+            {
+              "speaker": 1,
+              "time": "23:10",
+              "text": "蒸了这个忘那个"
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "不就永远都可以蒸馏到了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:11",
+              "text": "灾难性遗忘了"
+            },
+            {
+              "speaker": 7,
+              "time": "23:11",
+              "text": "可属性极差"
+            },
+            {
+              "speaker": 7,
+              "time": "23:11",
+              "text": "塑"
+            },
+            {
+              "speaker": 1,
+              "time": "23:11",
+              "text": "swa"
+            },
+            {
+              "speaker": 1,
+              "time": "23:12",
+              "text": "但是只有2token"
+            },
+            {
+              "speaker": 3,
+              "time": "23:12",
+              "text": "recall一下",
+              "quote": {
+                "speaker": 1,
+                "text": "sdpo这东西用到friendly cot改写上感觉如何"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "23:36",
+              "text": "btw sdpo太容易造成熵崩坍了"
+            },
+            {
+              "speaker": 3,
+              "time": "23:38",
+              "text": "为什么这么说"
+            },
+            {
+              "speaker": 7,
+              "time": "23:46",
+              "text": "sdpo自教师 学习自己的分布 虽然学习效果会比较好 但是特权信息来自偷看答案 并没有去做一些探索 失去了犹豫试探换思路回溯等等 对于探索会被惩罚  最终会将分布拉窄 变的尖尖的  ood效果肯定很差"
+            },
+            {
+              "speaker": 7,
+              "time": "23:47",
+              "text": "🤔可能理解不是很对"
+            },
+            {
+              "speaker": 9,
+              "time": "23:48",
+              "text": "感觉很对"
+            },
+            {
+              "speaker": 9,
+              "time": "23:48",
+              "text": "是这样的"
+            },
+            {
+              "speaker": 7,
+              "time": "23:53",
+              "text": "sdpo的最佳实践是？多大参数的模型会比较好？"
+            },
+            {
+              "speaker": 3,
+              "time": "23:54",
+              "text": "如果按这个理解的话，你觉得为什么harness能让同一个模型发挥效果天差地别，既然自己的分布会造成这些问题的话[旺柴]",
+              "quote": {
+                "speaker": 7,
+                "text": "sdpo自教师 学习自己的分布 虽然学习效果会比较好 但是特权信息来自偷看答案 并没有去做一些探索 失去了犹豫试探换思路回溯等等 对于探索会被惩罚 最终会将分布..."
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "23:55",
+              "text": "又想了一下感觉还是不太理解"
+            },
+            {
+              "speaker": 3,
+              "time": "23:56",
+              "text": "比如fable5.2把一部分cc的能力训进模型里了，从自分布的角度考虑的话也应该是坍缩结果"
+            },
+            {
+              "speaker": 9,
+              "time": "23:58",
+              "text": "v4.1训练的时候 好像 训过很多版本的cc/codex/pi"
+            },
+            {
+              "speaker": 9,
+              "time": "23:58",
+              "text": "混合训的"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "游戏造景、GTA Shenzhen 与英伟达洽购扩散模型公司",
+          "tldr": "群友实测单图建 Blender 建模不如混元 3D，聊起 GTA Shenzhen 靠百度街景补齐夜景；下午传英伟达洽购扩散模型公司 Mercury。",
+          "points": [
+            {
+              "text": "游戏开发群友吐槽 6 Astra 单图做 Blender 建模不如混元图转 3D，按现实路网简化造地图仍差点意思。"
+            },
+            {
+              "text": "晚间大家研究网站 gtashenzhen.com 如何还原每栋楼高度与灯光秀，群友甩出百度街景小车实拍图揭秘。",
+              "refs": [
+                1,
+                3,
+                7
+              ]
+            },
+            {
+              "text": "群友转来英伟达洽购扩散模型公司的消息，猜测标的正是做 dLLM 的 Mercury。"
+            }
+          ],
+          "text": "凌晨有做游戏开发的群友吐槽现在模型的 3D 造景能力：拿单张图丢给 GPT-6 Astra 生成 Blender 建模效果不太行，反倒不如腾讯混元的图转 3D；如果按现实路网和地标做简化地图，模型明明有“世界知识”，画出来却总差点意思。\n\n晚间大家又围观了复刻深圳城市街区的项目 gtashenzhen.com，好奇作者连昼夜灯光秀和楼宇立面特征怎么全拿到的，群友晒出机场百度街景采集车图解惑：“小车不分白天黑夜库库开，哪儿都开。”\n\n此外下午群里还转出一条行业动向：The Information 报道英伟达据报正洽购扩散模型公司，有群友第一时间点名做离散扩散语言模型的 Mercury，“毕竟英伟达专门收购开源”。",
+          "emphasis": [
+            "拿单张图丢给 GPT-6 Astra 生成 Blender 建模效果不太行，反倒不如腾讯混元的图转 3D"
+          ],
+          "aiComment": "你以为是 AI 脑补出了深圳夜景灯光秀，其实全靠百度街景小车半夜不睡觉库库跑图 🚗",
+          "resources": [
+            {
+              "kind": "demo",
+              "label": "GTA Shenzhen",
+              "url": "https://gtashenzhen.com/"
+            },
+            {
+              "kind": "article",
+              "label": "Painting by Code 博客",
+              "url": "https://lehengthu.github.io/blog/2026/painting-by-code/"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "21:40",
+              "text": "https://gtashenzhen.com/"
+            },
+            {
+              "speaker": 1,
+              "time": "21:41",
+              "text": "他是咋知道每栋楼的高度、外立面等各种特征的呢"
+            },
+            {
+              "speaker": 2,
+              "time": "21:54",
+              "text": "百度街景可以都看到的吧",
+              "quote": {
+                "speaker": 1,
+                "text": "他是咋知道每栋楼的高度、外立面等各种特征的呢"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "21:56",
+              "text": "是的",
+              "quote": {
+                "speaker": 2,
+                "text": "[引用] 百度街景可以都看到的吧"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:03",
+              "text": "但是他这个还有白天和夜间，灯光秀啥的"
+            },
+            {
+              "speaker": 1,
+              "time": "22:03",
+              "text": "街景能有这么全吗"
+            },
+            {
+              "speaker": 4,
+              "time": "22:06",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/7571c35a0c43d6ea07631f3c02e625bc.jpg",
+                  "alt": "群聊图片"
+                }
+              ]
+            },
+            {
+              "speaker": 4,
+              "time": "22:06",
+              "text": "虹桥机场全是百度这个"
+            },
+            {
+              "speaker": 5,
+              "time": "22:06",
+              "text": "能啊",
+              "quote": {
+                "speaker": 1,
+                "text": "街景能有这么全吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "22:07",
+              "text": "小车不分白天黑夜库库开"
+            },
+            {
+              "speaker": 5,
+              "time": "22:07",
+              "text": "哪儿都开"
+            },
+            {
+              "speaker": 6,
+              "time": "22:20",
+              "text": "https://arxiv.org/html/2602.16839 好奇这篇的方法能不能用来做RSI🤔"
+            },
+            {
+              "speaker": 6,
+              "time": "22:20",
+              "text": "感觉有点像Test Time Training，但是好像是用LoRA做实时微调"
+            },
+            {
+              "speaker": 1,
+              "time": "22:25",
+              "text": "原来现在街景都进化成这样了",
+              "quote": {
+                "speaker": 5,
+                "text": "小车不分白天黑夜库库开"
+              }
+            }
+          ]
+        },
+        {
+          "category": "科研与吐槽",
+          "title": "电子榨菜与科研日常：从文章逆向造 Science Bench，到 CS 人护腰指南",
+          "tldr": "群友探讨从湿实验论文逆向合成科学基准怎么凑主线，顺便严肃科普“别靠护腰，要练后侧链”。",
+          "points": [
+            {
+              "text": "群友纠结拿 SPU 类湿实验论文逆向造题太零散难凑主线，另一位建议把“高难度 OOD 评测方式本身”当主线。",
+              "refs": [
+                48,
+                52,
+                55
+              ]
+            },
+            {
+              "text": "群友求助护腰被举铁老哥集体劝退：久坐是前侧链太紧，戴背背佳只会让核心肌群继续偷懒形成恶性循环。",
+              "refs": [
+                1,
+                4,
+                30
+              ]
+            }
+          ],
+          "text": "晚饭后有群友在琢磨做 science 方向的 benchmark：像 UniPat-AI/SPU 那样给定湿实验材料但不做实验去推测结果，逐篇论文挖题质量高但方向太散、不好包装论文主线。有做过超算 bench 的群友支招，不如把“依赖 rubrics 或湿实验的评测方法本身”做成主线，留一部分私有 OOD 题刚好能防 benchmaxing。\n\n傍晚还歪出一条全员刚需楼：群友问“CS 人的通病腰疼买啥护腰”，结果被健身佬集体拦下——久坐是前侧链紧缩、后侧链拉长，戴护腰和背背佳只会让核心肌群偷懒加重塌腰，正经解法还得靠练腘绳肌、拉伸髂腰肌。说完大伙又回头看了一眼罢工报错的 Codex。",
+          "emphasis": [
+            "把“依赖 rubrics 或湿实验的评测方法本身”做成主线，留一部分私有 OOD 题刚好能防 benchmaxing",
+            "戴护腰和背背佳只会让核心肌群偷懒加重塌腰"
+          ],
+          "aiComment": "做科研主线发愁，坐工位腰也发愁；结论是护腰救不了腰，正如靠堆题库救不了过拟合 🏋️",
+          "resources": [
+            {
+              "kind": "code",
+              "label": "UniPat-AI/SPU",
+              "url": "https://github.com/UniPat-AI/SPU"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:35",
+              "text": "歪个楼，群u有什么护腰推荐吗"
+            },
+            {
+              "speaker": 1,
+              "time": "18:35",
+              "text": "我也有了cser通病"
+            },
+            {
+              "speaker": 2,
+              "time": "18:39",
+              "text": "放松前侧链 练后侧链"
+            },
+            {
+              "speaker": 3,
+              "time": "18:39",
+              "text": "其实我觉得不要用护腰，要练练核心保证不塌腰。不然这是恶性循环@pku-kk"
+            },
+            {
+              "speaker": 2,
+              "time": "18:40",
+              "text": "我个人的经验是，久坐本质上是前侧链一直收缩，太紧，后侧链一直拉长，比较松"
+            },
+            {
+              "speaker": 3,
+              "time": "18:40",
+              "text": "对的，练腘绳肌和拉伸大腿外侧",
+              "quote": {
+                "speaker": 2,
+                "text": "放松前侧链 练后侧链"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:41",
+              "text": "还会造成髂腰肌紧张短缩，然后骨盆前倾，含胸驼背。然后腰又不舒服。闭环了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:41",
+              "text": "还有骶髂关节的深层肌肉，这个用语言描述不了，可能需要去找找教程"
+            },
+            {
+              "speaker": 2,
+              "time": "18:41",
+              "text": "bingo",
+              "quote": {
+                "speaker": 3,
+                "text": "还会造成髂腰肌紧张短缩，然后骨盆前倾，含胸驼背。然后腰又不舒服。闭环了"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:42",
+              "text": "boji践行者"
+            },
+            {
+              "speaker": 5,
+              "time": "18:42",
+              "text": "我感觉用背背佳可以缓解一下"
+            },
+            {
+              "speaker": 5,
+              "time": "18:42",
+              "text": "用起来效果还行"
+            },
+            {
+              "speaker": 6,
+              "time": "18:42",
+              "text": "还是得练肌肉"
+            },
+            {
+              "speaker": 3,
+              "time": "18:43",
+              "text": "@港科 husl 不瞒你说背背佳，还有之前的左什么牌子的，还有各种网红产品，靠腰，我都用过了[破涕为笑]"
+            },
+            {
+              "speaker": 6,
+              "time": "18:43",
+              "text": "久坐膝盖上面肌肉疼咋办"
+            },
+            {
+              "speaker": 3,
+              "time": "18:43",
+              "text": "最后的结论还是个举铁兽说的一样，得锻炼"
+            },
+            {
+              "speaker": 5,
+              "time": "18:43",
+              "text": "效果如何",
+              "quote": {
+                "speaker": 3,
+                "text": "@港科 husl 不瞒你说背背佳，还有之前的左什么牌子的，还有各种网红产品，靠腰，我都用过了[破涕为笑]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:43",
+              "text": "都不行，只要一丢，马上现原形"
+            },
+            {
+              "speaker": 5,
+              "time": "18:43",
+              "text": "我是锻炼+背背佳混合用"
+            },
+            {
+              "speaker": 5,
+              "time": "18:43",
+              "text": "哈哈哈哈"
+            },
+            {
+              "speaker": 7,
+              "time": "18:44",
+              "text": "新时代就得靠薄肌理论，科技靠不住"
+            },
+            {
+              "speaker": 3,
+              "time": "18:44",
+              "text": "而且我有点肋骨外翻，背背佳容易喘不上气"
+            },
+            {
+              "speaker": 1,
+              "time": "18:44",
+              "text": "好好，boji理论是对的，我也找个教练开练"
+            },
+            {
+              "speaker": 7,
+              "time": "18:44",
+              "text": "猛猛锻炼"
+            },
+            {
+              "speaker": 5,
+              "time": "18:44",
+              "text": "这种不应该更得经常带着",
+              "quote": {
+                "speaker": 3,
+                "text": "而且我有点肋骨外翻，背背佳容易喘不上气"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:44",
+              "text": "能缓解一下"
+            },
+            {
+              "speaker": 3,
+              "time": "18:44",
+              "text": "还得加大水[呲牙][呲牙][呲牙]"
+            },
+            {
+              "speaker": 5,
+              "time": "18:44",
+              "text": "练起来"
+            },
+            {
+              "speaker": 5,
+              "time": "18:44",
+              "text": "还得控制饮食"
+            },
+            {
+              "speaker": 3,
+              "time": "18:44",
+              "text": "不行，真的是恶性循环，因为会让你本该受力的肌群偷懒。"
+            },
+            {
+              "speaker": 2,
+              "time": "18:45",
+              "text": "靠外力会产生依赖"
+            },
+            {
+              "speaker": 2,
+              "time": "18:45",
+              "text": "你不可能一辈子带着"
+            },
+            {
+              "speaker": 3,
+              "time": "18:45",
+              "text": "我其实已经严肃boji三个月了，感觉不错"
+            },
+            {
+              "speaker": 5,
+              "time": "18:45",
+              "text": "想起来就带一带"
+            },
+            {
+              "speaker": 2,
+              "time": "18:45",
+              "text": "新时代高认知人才 半残疾了[旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "18:45",
+              "text": "间歇性锻炼两个月了也有一点点效果"
+            },
+            {
+              "speaker": 3,
+              "time": "18:45",
+              "text": "拉伸髂腰肌的时候才是真的酸爽@举铁兽 pku博"
+            },
+            {
+              "speaker": 5,
+              "time": "18:45",
+              "text": "🐮",
+              "quote": {
+                "speaker": 3,
+                "text": "我其实已经严肃boji三个月了，感觉不错"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:45",
+              "text": "控制饮食太难了"
+            },
+            {
+              "speaker": 3,
+              "time": "18:46",
+              "text": "别说了",
+              "quote": {
+                "speaker": 5,
+                "text": "控制饮食太难了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "19:21",
+              "text": "[链接/文件]"
+            },
+            {
+              "speaker": 8,
+              "time": "19:22",
+              "text": "感觉部分问题是可以的"
+            },
+            {
+              "speaker": 9,
+              "time": "19:22",
+              "text": "咕噜咕噜"
+            },
+            {
+              "speaker": 9,
+              "time": "19:22",
+              "text": "真的很有必要"
+            },
+            {
+              "speaker": 9,
+              "time": "19:22",
+              "text": "去重构一下了"
+            },
+            {
+              "speaker": 9,
+              "time": "19:23",
+              "text": "又或者他们有更新的"
+            },
+            {
+              "speaker": 9,
+              "time": "19:23",
+              "text": "但是没release"
+            },
+            {
+              "speaker": 10,
+              "time": "19:53",
+              "text": "各位我最近在试着从文章中逆向合成环境的方式造bench  science方面的。最好的方式当然是每个paper/开源都具体分析 挖掘出有难度的问题 但是这样的话主线怎么说呢[发抖]"
+            },
+            {
+              "speaker": 10,
+              "time": "19:53",
+              "text": "比如https://github.com/UniPat-AI/SPU%E5%B0%B1%E6%98%AF%E7%BB%99%E5%AE%9A%E5%AE%9E%E9%AA%8C%E6%9D%90%E6%96%99%E4%BB%A5%E5%90%8E%E4%B8%8D%E5%81%9A%E5%AE%9E%E9%AA%8C%E5%B0%B1%E5%8E%BB%E6%8E%A8%E6%B5%8B%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C(%E5%AE%9E%E9%AA%8C%E6%98%AF%E6%B9%BF%E5%AE%9E%E9%AA%8C)"
+            },
+            {
+              "speaker": 10,
+              "time": "19:54",
+              "text": "有没有做类似方面的可以一起交流一下[发抖]"
+            },
+            {
+              "speaker": 11,
+              "time": "19:59",
+              "text": "1"
+            },
+            {
+              "speaker": 10,
+              "time": "20:00",
+              "text": "就是如果要有一个主线的话 那这个主线之外的其他问题可能就会被浪费掉 这样子能找出好的问题 但是偏偏不好写文章🤔 纠结"
+            },
+            {
+              "speaker": 12,
+              "time": "20:00",
+              "text": "@HKUSTGZ-戴松",
+              "quote": {
+                "speaker": 10,
+                "text": "各位我最近在试着从文章中逆向合成环境的方式造bench science方面的。最好的方式当然是每个paper/开源都具体分析 挖掘出有难度的问题 但是这样的话主..."
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "20:02",
+              "text": "我们之前有做过高性能计算的bench，但是主要拿的是别人的祖传代码[捂脸]",
+              "quote": {
+                "speaker": 10,
+                "text": "各位我最近在试着从文章中逆向合成环境的方式造bench science方面的。最好的方式当然是每个paper/开源都具体分析 挖掘出有难度的问题 但是这样的话主..."
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "20:02",
+              "text": "主线变成了评测方式"
+            },
+            {
+              "speaker": 13,
+              "time": "20:04",
+              "text": "我理解涉及到湿实验这种或者一些比较依赖rubrics的评测方式本身就是探索的点吧"
+            },
+            {
+              "speaker": 13,
+              "time": "20:49",
+              "text": "欸，我感觉类似的benchmark其实数量都不是很多吧？甚至10题都可以算作一个domain啊？另外现在好多bench不是公开一部分私有一部分",
+              "quote": {
+                "speaker": 10,
+                "text": "就是如果要有一个主线的话 那这个主线之外的其他问题可能就会被浪费掉 这样子能找出好的问题 但是偏偏不好写文章🤔 纠结"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "20:50",
+              "text": "OOD的case也能防止benchmaxing?"
+            },
+            {
+              "speaker": 13,
+              "time": "20:52",
+              "text": "不太理解为啥要drop case"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-4",
+      "label": "四群",
+      "section": "今日讨论",
+      "heading": "25 万页黎曼证明把人眼看麻，顺道把 RL 过程 reward 聊透",
+      "theme": "半夜猜 Codex 算力被抽去刷希尔伯特，白天蹲 Gemini Ultra 比价却被纯净 IP 反杀",
+      "note": "2026-11-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "AI4Math 与 RL",
+          "title": "25 万页黎曼证明引发可读性交锋，聊到 RL 过程 reward 仍靠人标",
+          "tldr": "25 万页黎曼证明把非 1 即 0 的数学变成人眼“找不到 0.5”的苦差事，群友一路聊到 RL 可读性，坦言大厂过程 reward 仍靠按 case 人工标。",
+          "points": [
+            {
+              "text": "群友吐槽 25 万页证明让人一生难证伪，反驳者直言 Lean 已过编只需在“slop 里淘金”。",
+              "refs": [
+                1,
+                9,
+                14
+              ]
+            },
+            {
+              "text": "众人聊起“AI 大人神谕解读”，指出硬压 100 字输出最容易把 10k 内容训成人类天书。",
+              "refs": [
+                16,
+                23,
+                26
+              ]
+            },
+            {
+              "text": "有人认为过程 reward 能保可读性，但业内反馈大厂目前仍靠按 case 人工细粒度标注。",
+              "refs": [
+                27,
+                33,
+                35
+              ]
+            }
+          ],
+          "text": "有群友对25万页的黎曼猜想证明感到离谱，认为数学证明原本非1即0，这么长的篇幅却让人类既难以证实也难以证伪。就算让agent重看一遍，依然不算人类真正验证，相当于“硬是在一个1和0的世界里找了一个0.5”。另一位群友附和称25万页纯靠人看很难证伪，前一位群友又补充，不是说25万页全是bullshit，而是让人花一辈子去解释它是不是bullshit并不现实，还顺带问这事是否和当天Anthropic股价跌过发行价有关。有群友随后转来一篇全网时间线整理，另一位群友直接反驳：Lean都已经编译通过了，本来就不需要证伪，接下来的工作只是在“slop里淘金”。\n\n反驳者紧接着指出，AI在解决问题上很厉害，但在预测“人哪里看不懂”这一点上还没做好。群里随即讨论起人类可理解性与RL训练的关系：有群友问之后会不会有人专门造“人哪里看不懂”的数据，去做“AI大人的神谕解读”；有人联想到意图理解、角色对齐，感叹“为什么又回到了role play”；另一位群友则认为训出让人看不懂的输出太容易了，把原本10k输出才能讲清的内容硬加上100字限制、超出就扣分，RL出来自然让人看不懂。\n\n也有群友不同意把“看不懂”和“高质量”画等号，认为RL只要把中间的过程reward做好，输出就不会看不懂；还有人概括分工称，可验证性的问题都给AI做，人要做不可验证性问题。有群友追问过程reward有没有推荐论文，提到自己读过的一些方法都带有较强的人类bias。另一位群友表示，目前大厂里的做法还是按case人工标注细粒度的reward，没有什么通用解决方案，提出过程reward的群友也认同暂时没看到做得很好的论文。",
+          "emphasis": [
+            "硬是在一个1和0的世界里找了一个0.5",
+            "AI在解决问题上很厉害，但在预测“人哪里看不懂”这一点上还没做好",
+            "目前大厂里的做法还是按case人工标注细粒度的reward，没有什么通用解决方案"
+          ],
+          "aiComment": "Lean 一秒判对错，人眼看 25 万页要看一辈子，到头来过程 reward 还得靠人按 case 手标 🫠",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "突发！Anthropic证明黎曼猜想？（全网最全时间线）",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485187&idx=1&sn=0c11739ea7f5626ea13e4696b0d0b75d&chksm=f5faa4b424f679756ed5743490631e785690820edd14dd2ebd476cc35fba3e1eda1c1f3ad29e&scene=1&srcid=1121NSTUkMMB0l8StGWuinok#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:11",
+              "text": "但是黎曼猜想25w页prove真的太离谱了吧"
+            },
+            {
+              "speaker": 1,
+              "time": "13:11",
+              "text": "本来能不能prove这件事是1/0"
+            },
+            {
+              "speaker": 1,
+              "time": "13:12",
+              "text": "但是25w页让这件事变成了很难prove wrong/prove right"
+            },
+            {
+              "speaker": 2,
+              "time": "13:12",
+              "text": "主要很难证伪呢感觉"
+            },
+            {
+              "speaker": 1,
+              "time": "13:12",
+              "text": "对啊"
+            },
+            {
+              "speaker": 2,
+              "time": "13:12",
+              "text": "25万页纯人看"
+            },
+            {
+              "speaker": 1,
+              "time": "13:13",
+              "text": "你现在的解法就是让agent看一遍"
+            },
+            {
+              "speaker": 1,
+              "time": "13:13",
+              "text": "但是agent 看一遍那不还是没有让人去真的prove wrong/right"
+            },
+            {
+              "speaker": 1,
+              "time": "13:13",
+              "text": "硬是在一个1和0的世界里找了一个0.5😅"
+            },
+            {
+              "speaker": 1,
+              "time": "13:14",
+              "text": "是因为今天anthropic股价跌过发行价了吗"
+            },
+            {
+              "speaker": 1,
+              "time": "13:19",
+              "text": "不是说25万页纸都是bull shit。只是现在的情况是可能人需要花一生来解释这25w页纸究竟是不是bullshit感觉很不可行啊"
+            },
+            {
+              "speaker": 1,
+              "time": "13:19",
+              "text": "[Let Down]"
+            },
+            {
+              "speaker": 3,
+              "time": "13:32",
+              "text": "[链接] 突发！Anthropic证明黎曼猜想？（全网最全时间线）\n  来源: Alex 硅谷科技实况\n  摘要: 突发！Anthropic证明黎曼猜想？（全网最全时间线）\n  URL: https://mp.weixin.qq.com/s?__biz=MzY5OTQzMzI1Ng%3D%3D&mid=2247485187&idx=1&sn=0c11739ea7f5626ea13e4696b0d0b75d&chksm=f5faa4b424f679756ed5743490631e785690820edd14dd2ebd476cc35fba3e1eda1c1f3ad29e&scene=1&srcid=1121NSTUkMMB0l8StGWuinok#rd"
+            },
+            {
+              "speaker": 4,
+              "time": "14:46",
+              "text": "本来就不需要证伪，lean都编译通过了",
+              "quote": {
+                "speaker": 2,
+                "text": "主要很难证伪呢感觉"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "14:47",
+              "text": "接下来的工作就是slop里淘金了"
+            },
+            {
+              "speaker": 4,
+              "time": "14:55",
+              "text": "ai在解决问题上很厉害，但是ai在预测“人哪里看不懂”这一点上还没做好[旺柴]"
+            },
+            {
+              "speaker": 5,
+              "time": "14:59",
+              "text": "之后会专门有人去造“人哪里看不懂的”数据吗[旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "14:59",
+              "text": "意图理解、角色对齐"
+            },
+            {
+              "speaker": 7,
+              "time": "14:59",
+              "text": "让人看不懂的 太容易了"
+            },
+            {
+              "speaker": 6,
+              "time": "14:59",
+              "text": "为什么又回到了role play"
+            },
+            {
+              "speaker": 8,
+              "time": "15:00",
+              "text": "人看不懂的数据"
+            },
+            {
+              "speaker": 8,
+              "time": "15:00",
+              "text": "又不代表这个数据"
+            },
+            {
+              "speaker": 7,
+              "time": "15:00",
+              "text": "10k 输出才能说清楚的东西 加个 100 字的限制，不然扣分"
+            },
+            {
+              "speaker": 8,
+              "time": "15:00",
+              "text": "质量高"
+            },
+            {
+              "speaker": 7,
+              "time": "15:00",
+              "text": "rl 出来就是人看不懂的"
+            },
+            {
+              "speaker": 5,
+              "time": "15:01",
+              "text": "就做AI大人的神谕解读"
+            },
+            {
+              "speaker": 8,
+              "time": "15:01",
+              "text": "rl你中间reward做得好"
+            },
+            {
+              "speaker": 8,
+              "time": "15:02",
+              "text": "也不是看不懂"
+            },
+            {
+              "speaker": 8,
+              "time": "15:02",
+              "text": "过程reward"
+            },
+            {
+              "speaker": 9,
+              "time": "15:02",
+              "text": "可验证性的问题都给 AI 做，人要做不可验证性问题"
+            },
+            {
+              "speaker": 6,
+              "time": "15:03",
+              "text": "有推荐的论文吗",
+              "quote": {
+                "speaker": 8,
+                "text": "过程reward"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:03",
+              "text": "看的一些感觉都很带有人类bias呀"
+            },
+            {
+              "speaker": 10,
+              "time": "15:04",
+              "text": "目前大厂里的做法还是根据case人标吧"
+            },
+            {
+              "speaker": 10,
+              "time": "15:04",
+              "text": "标细粒度的reward"
+            },
+            {
+              "speaker": 10,
+              "time": "15:04",
+              "text": "没有什么通用的解决方案"
+            },
+            {
+              "speaker": 8,
+              "time": "15:05",
+              "text": "暂时我确实没看到做的很好的，上面朋友说的是这样的",
+              "quote": {
+                "speaker": 6,
+                "text": "[引用] 有推荐的论文吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "15:06",
+              "text": "get"
+            },
+            {
+              "speaker": 5,
+              "time": "15:06",
+              "text": "大师们 就现在有已有的概念来说这个事情吗（许愿关键词）"
+            }
+          ]
+        },
+        {
+          "category": "工具与订阅",
+          "title": "Gemini Ultra 套餐比价与 Codex 配纯净 IP 翻车，朋友 5x 账号无故被封",
+          "tldr": "群友让 Codex 折腾一上午配好 Webshare 纯净 IP 加 TUN 断网，白天还纠结 99 刀 Gemini Ultra，晚上自测竟发现 IP 不纯且朋友 5x 号被封。",
+          "points": [
+            {
+              "text": "群友让 Codex 按教程配固定 IP 转发与 TUN 挂断防直连，折腾一上午总算双双搞定。",
+              "refs": [
+                1,
+                3,
+                4
+              ]
+            },
+            {
+              "text": "比价 Gemini 时嫌 99 刀家庭 Ultra 贵且无黑五优惠，有群友两人拼 5x 称体验“比 GPT 强多了”。",
+              "refs": [
+                7,
+                10,
+                11
+              ]
+            },
+            {
+              "text": "晚上自测发现 IP 仍“不纯”，恰逢身边朋友 5x 谷歌号无故被封，吓得连夜回去修 IP。",
+              "refs": [
+                13,
+                14,
+                19
+              ]
+            }
+          ],
+          "text": "有群友凌晨打听谁用Webshare配过纯净IP，自己昨晚折腾半天没搞定，白天让Codex照着弄了一上午总算成功。另一位群友也分享了类似做法：让Codex按教程把需要走固定IP的网址全配好，再搭上代理转发和TUN模式，代理一挂就直接断网、避免回退直连。\n\n下午前一位群友又问起Gemini哪个套餐划算，有群友推荐Ultra家庭会员，但提问者嫌99刀太贵而且不参加黑五优惠。另一位群友表示自己和别人两人合拼了Ultra 5x，用下来觉得“比GPT强多了”。到了晚上剧情反转，配好Webshare的那位群友自测后“发现不纯”，加上身边朋友的5x谷歌账号好端端被封，紧张得又回去折腾IP；另有群友追问家庭组能否共享5x，当时还没得到回复。",
+          "emphasis": [
+            "代理一挂就直接断网、避免回退直连",
+            "配好Webshare的那位群友自测后“发现不纯”，加上身边朋友的5x谷歌账号好端端被封"
+          ],
+          "aiComment": "让 Codex 配了一上午防直连，晚上自测还是不纯，买 99 刀 Ultra 之前先给 IP 做个核酸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:39",
+              "text": "成功了！",
+              "quote": {
+                "speaker": 1,
+                "text": "有人用webshare搞过吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:08",
+              "text": "我搞了",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 成功了！"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:09",
+              "text": "我让codex按有个教程（有很多网址都需要走这个ip），还配了梯子的转发，挂了直接断网不会直连，tun模式啥的"
+            },
+            {
+              "speaker": 1,
+              "time": "13:45",
+              "text": "我也是搞了一上午 让codex弄了",
+              "quote": {
+                "speaker": 2,
+                "text": "我让codex按有个教程（有很多网址都需要走这个ip），还配了梯子的转发，挂了直接断网不会直连，tun模式啥的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "13:45",
+              "text": "成了"
+            },
+            {
+              "speaker": 1,
+              "time": "13:46",
+              "text": "昨晚上想自己弄 半天没有搞出来"
+            },
+            {
+              "speaker": 1,
+              "time": "15:11",
+              "text": "大家都定gemini什么套餐划算哇"
+            },
+            {
+              "speaker": 3,
+              "time": "15:16",
+              "text": "感觉ultra的家庭会员确实不错（）"
+            },
+            {
+              "speaker": 1,
+              "time": "15:39",
+              "text": "但是黑五不参加"
+            },
+            {
+              "speaker": 1,
+              "time": "15:39",
+              "text": "让我纠结一会儿 真的好贵啊 99刀"
+            },
+            {
+              "speaker": 4,
+              "time": "15:39",
+              "text": "搞了一个ultra 5x两个人用，感觉还行"
+            },
+            {
+              "speaker": 4,
+              "time": "15:39",
+              "text": "比gpt强多了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:32",
+              "text": "笑发财 发现不纯",
+              "quote": {
+                "speaker": 2,
+                "text": "我让codex按有个教程（有很多网址都需要走这个ip），还配了梯子的转发，挂了直接断网不会直连，tun模式啥的"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "21:32",
+              "text": "身边朋友谷歌号封了 搞得我非常紧张"
+            },
+            {
+              "speaker": 5,
+              "time": "21:33",
+              "text": "为啥封"
+            },
+            {
+              "speaker": 6,
+              "time": "21:33",
+              "text": "家庭可以共享5x吗"
+            },
+            {
+              "speaker": 1,
+              "time": "21:33",
+              "text": "不知道 他的5x"
+            },
+            {
+              "speaker": 1,
+              "time": "21:34",
+              "text": "好端端没了"
+            },
+            {
+              "speaker": 1,
+              "time": "21:34",
+              "text": "我又在修我的ip"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "黎曼猜想破圈夜谈：猜 Codex 算力被抽刷希尔伯特，撞期清华黎曼 200 周年会",
+          "tldr": "午夜续聊黎曼猜想破圈，群友猜 OpenAI 抽走 Codex 算力遍历希尔伯特问题、惊叹撞期清华黎曼 200 周年会，结果被点破日报早有原稿直链。",
+          "points": [
+            {
+              "text": "群友笃定敢放出来就能过编，顺手把 P=NP 和朗兰兹纲领排作下一站，笑称真解了就“点下一把”。",
+              "refs": [
+                2,
+                14,
+                18
+              ]
+            },
+            {
+              "text": "众人调侃这两天别想用 Codex 怕算力去刷希尔伯特了，又惊见此事撞期次日清华黎曼 200 周年会。",
+              "refs": [
+                8,
+                11,
+                25
+              ]
+            },
+            {
+              "text": "群友狂催邓煜讨论原稿并怕日报漏信息，直到被提醒日报早就能点进原聊天记录，集体“bot 落泪”。",
+              "refs": [
+                23,
+                32,
+                39
+              ]
+            }
+          ],
+          "text": "零点刚过，群里还在延续黎曼猜想的讨论。两位群友都觉得对方敢把证明放出来，编译肯定能过；有群友对比称黎曼猜想好歹研究具体结构和对象，P=NP根本没法下手。另一位群友数完NS、霍奇和黎曼，把P=NP和朗兰兹纲领排作下一步，有人追问P=NP真能解决吗，前一位群友直言不可能，另一位则调侃真解决了“人类就点了下一把吧”。\n\n算力影响也成了调侃焦点。有群友直言这两天别想用Codex了，猜测OpenAI内部肯定会抽算力把希尔伯特的一堆问题和猜想直接遍历一遍；也有群友推荐改用Antigravity或Gemini，另一位接梗“哈基米：研究元素周期表中...勿扰...”。还有群友转来清华大学丘成桐数学科学中心次日开幕的“黎曼诞辰200周年学术研讨会”推文，群里感叹“这难道是献给黎曼的礼物”，也有人问能不能把Levent请过去。另有多位群友听说一群里邓煜老师和几位AI4Math研究者展开了讨论，纷纷催要一手原稿并担心日报漏信息，直到被提醒日报早就链接了原始聊天记录，引来一片“bot落泪”的调侃。",
+          "emphasis": [
+            "黎曼猜想好歹研究具体结构和对象，P=NP根本没法下手",
+            "猜测OpenAI内部肯定会抽算力把希尔伯特的一堆问题和猜想直接遍历一遍"
+          ],
+          "aiComment": "一边替 OpenAI 操心 Codex 算力够不够刷希尔伯特，一边连自家日报的原始记录按钮都没点过 🤡",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "清华大学丘成桐数学科学中心：黎曼诞辰200周年学术研讨会",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzI4NjQzODA4Ng%3D%3D&mid=2247591815&idx=1&sn=b9e1176ee0013975398e665b704b25c1&chksm=ea7fb58373e3cd4fb24e5e7a0f8850a67d6ad6b0b2da680987ecd133f741f2fe44ea1a0cb9a3&scene=1&srcid=1120L3c6jVKBtF6DUeHibqOU#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:00",
+              "text": "黎曼猜想好歹还是研究一个具体结构和对象"
+            },
+            {
+              "speaker": 2,
+              "time": "00:00",
+              "text": "他能放出来，编译感觉肯定是能过的"
+            },
+            {
+              "speaker": 1,
+              "time": "00:00",
+              "text": "p=np这没法下手"
+            },
+            {
+              "speaker": 3,
+              "time": "00:00",
+              "text": "他能放出来，编译感觉肯定是能过的"
+            },
+            {
+              "speaker": 4,
+              "time": "00:00",
+              "text": "黎曼猜想"
+            },
+            {
+              "speaker": 4,
+              "time": "00:00",
+              "text": "过于出名了"
+            },
+            {
+              "speaker": 5,
+              "time": "00:00",
+              "text": "火出圈了"
+            },
+            {
+              "speaker": 6,
+              "time": "00:01",
+              "text": "这两天是别想用codex了"
+            },
+            {
+              "speaker": 7,
+              "time": "00:01",
+              "text": "用antigravity"
+            },
+            {
+              "speaker": 5,
+              "time": "00:01",
+              "text": "本来也不用",
+              "quote": {
+                "speaker": 6,
+                "text": "这两天是别想用codex了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "00:01",
+              "text": "oai肯定内部抽算力 直接给希尔伯特的一大堆问题和猜想遍历一遍"
+            },
+            {
+              "speaker": 5,
+              "time": "00:01",
+              "text": "gemin不香？"
+            },
+            {
+              "speaker": 8,
+              "time": "00:03",
+              "text": "哈基米：研究元素周期表中...勿扰..."
+            },
+            {
+              "speaker": 6,
+              "time": "00:04",
+              "text": "NS 霍奇 现在到黎曼了 P=NP 和 朗兰兹纲领是个很好的下一步"
+            },
+            {
+              "speaker": 9,
+              "time": "00:04",
+              "text": "pnp是最炸裂的吧"
+            },
+            {
+              "speaker": 9,
+              "time": "00:04",
+              "text": "真的可以解决吗"
+            },
+            {
+              "speaker": 1,
+              "time": "00:04",
+              "text": "不可能吧",
+              "quote": {
+                "speaker": 9,
+                "text": "真的可以解决吗"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "00:05",
+              "text": "解决了那人类就点了下一把吧"
+            },
+            {
+              "speaker": 10,
+              "time": "00:09",
+              "text": "明天可以好好看看一群日报的详细版，邓煜老师和几位做ai4math的大佬进行了讨论[旺柴]"
+            },
+            {
+              "speaker": 11,
+              "time": "00:10",
+              "text": "有什么comment吗[旺柴]"
+            },
+            {
+              "speaker": 9,
+              "time": "00:10",
+              "text": "来点聊天记录"
+            },
+            {
+              "speaker": 2,
+              "time": "00:10",
+              "text": "不能先转发一下吗",
+              "quote": {
+                "speaker": 10,
+                "text": "明天可以好好看看一群日报的详细版，邓煜老师和几位做ai4math的大佬进行了讨论[旺柴]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "00:10",
+              "text": "有没有一手的聊天记录原稿（",
+              "quote": {
+                "speaker": 10,
+                "text": "明天可以好好看看一群日报的详细版，邓煜老师和几位做ai4math的大佬进行了讨论[旺柴]"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "00:10",
+              "text": "铜球"
+            },
+            {
+              "speaker": 1,
+              "time": "00:10",
+              "text": "[链接] 明日开幕！黎曼诞辰200周年学术研讨会\n  来源: 清华大学丘成桐数学科学中心\n  摘要: Riemann 200 | 开幕倒计时1天\n  URL: https://mp.weixin.qq.com/s?__biz=MzI4NjQzODA4Ng%3D%3D&mid=2247591815&idx=1&sn=b9e1176ee0013975398e665b704b25c1&chksm=ea7fb58373e3cd4fb24e5e7a0f8850a67d6ad6b0b2da680987ecd133f741f2fe44ea1a0cb9a3&scene=1&srcid=1120L3c6jVKBtF6DUeHibqOU#rd"
+            },
+            {
+              "speaker": 8,
+              "time": "00:11",
+              "text": "万一日报总结漏信息了（"
+            },
+            {
+              "speaker": 5,
+              "time": "00:11",
+              "text": "神",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 明日开幕！黎曼诞辰200周年学术研讨会\n  来源: 清华大学丘成桐数学科学中心\n  摘要: Riemann 200 | 开幕倒计时1天\n  URL: https://mp.weixin.qq.com/s?__biz=MzI4NjQzODA4Ng%3D%3D&mid=2247591815&idx=1&sn=b9e1176ee0013975398e665b704b25c1&chksm=ea7fb58373e3cd4fb24e5e7a0f8850a67d6ad6b0b2da680987ecd133f741f2fe44ea1a0cb9a3&scene=1&srcid=1120L3c6jVKBtF6DUeHibqOU#rd"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "00:11",
+              "text": "这难道是献给黎曼的礼物"
+            },
+            {
+              "speaker": 13,
+              "time": "00:11",
+              "text": "本质上为了防止股价继续下跌罢了[旺柴]"
+            },
+            {
+              "speaker": 6,
+              "time": "00:11",
+              "text": "@Qwen-李成鹏（白苏苏） 真的 这玩意得看原稿 ABCD做个代号就行了"
+            },
+            {
+              "speaker": 12,
+              "time": "00:11",
+              "text": "能不能把levent请过来",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] 明日开幕！黎曼诞辰200周年学术研讨会\n  来源: 清华大学丘成桐数学科学中心\n  摘要: Riemann 200 | 开幕倒计时1天\n  URL: https://mp.weixin.qq.com/s?__biz=MzI4NjQzODA4Ng%3D%3D&mid=2247591815&idx=1&sn=b9e1176ee0013975398e665b704b25c1&chksm=ea7fb58373e3cd4fb24e5e7a0f8850a67d6ad6b0b2da680987ecd133f741f2fe44ea1a0cb9a3&scene=1&srcid=1120L3c6jVKBtF6DUeHibqOU#rd"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "00:12",
+              "text": "日报有原稿啊",
+              "quote": {
+                "speaker": 6,
+                "text": "@Qwen-李成鹏（白苏苏） 真的 这玩意得看原稿 ABCD做个代号就行了"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "00:12",
+              "text": "你是不是没点进去看过"
+            },
+            {
+              "speaker": 6,
+              "time": "00:12",
+              "text": "是的"
+            },
+            {
+              "speaker": 5,
+              "time": "00:12",
+              "text": "哈哈哈哈哈哈哈"
+            },
+            {
+              "speaker": 6,
+              "time": "00:12",
+              "text": "我的"
+            },
+            {
+              "speaker": 10,
+              "time": "00:12",
+              "text": "日报会链接到原始聊天记录"
+            },
+            {
+              "speaker": 6,
+              "time": "00:12",
+              "text": "这功能做了吗已经"
+            },
+            {
+              "speaker": 14,
+              "time": "00:12",
+              "text": "bot落泪"
+            },
+            {
+              "speaker": 14,
+              "time": "00:12",
+              "text": "早就有"
+            },
+            {
+              "speaker": 6,
+              "time": "00:12",
+              "text": "那为什么昨天还有兄弟跟我吐槽没有这功能..."
+            },
+            {
+              "speaker": 4,
+              "time": "00:12",
+              "text": "很早就有了"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-5",
+      "label": "五群",
+      "section": "今日讨论",
+      "heading": "Skill 自进化越改越弱？群友从负优化聊到把人类当 AI 的 env",
+      "theme": "顺手抓内鬼吐槽邓煜锐评外泄，围观 2,294 分神秘模型与美团 L9 简历模版",
+      "note": "2026-11-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "Agent 工程",
+          "title": "实测 Skill 自进化在搜索任务上负优化，群友激辩 RSI 泛化难题与定义边界",
+          "tldr": "群友实测在 dsv4 上做搜索类 skill 自进化反而不如通用 prompt，顺着《RSI 九宫格》激辩泛化差、摸奖感与人机协同双标。",
+          "points": [
+            {
+              "text": "多家实测 dsv4 上进化 skill 反成负优化，任务不够难时细碎套路反而束缚搜索路径。",
+              "refs": [
+                1,
+                7,
+                11
+              ]
+            },
+            {
+              "text": "群友吐槽 RSI 像“抽 50 发摸奖”、论文泛化性差，戏称人类得先建 connection 当 AI 的 env。",
+              "refs": [
+                14,
+                21,
+                22
+              ]
+            },
+            {
+              "text": "翻译 RSI 仍拼人类质量，群友直言不能双标，harness RSI 的 RSI 也得加引号。",
+              "refs": [
+                27,
+                34,
+                35
+              ]
+            }
+          ],
+          "text": "有群友抛出一则实测困惑：自己在调用搜索引擎 API 的搜索类任务上测试 skill 进化与自进化方法（类似 skillOpt、GEPA、Trace2Skill），结果在 dsv4 这类模型上，进化出来的 skill 效果反而不如只用通用 system prompt，但在网上几乎搜不到解释这种负优化的论文。多位群友随即附和，有人称近期收集各大厂商最新的 skill RSI 做法，感觉都没有效果很好的；另一位群友提到以前联系过的导师也曾让做这个方向，现在觉得“有点伪命题了”。\n\n针对为何反而变差，有群友给出推测：如果模型做搜索依赖关键词或正则检索，提前塞入过多 skill 反而会把搜索路径局限在小范围里；只有当 skill 描述的任务难度明显高于当前模型能力上限时，它才起示例作用，否则就成了约束。原提问者认同这一解释，补充说自己测下来把通用搜索技巧直接写进 system prompt 提升最大，“确实是任务不够难”。另一位群友晒出一张《RSI 九宫格》阵营图，图里将闭环改进、数据递归、Self-Play、评测进化、Memory、Test-Time Scaling、Continual Learning、Harness 和 Skill 排成九格，其中 Skill 位于右下角“混乱邪恶”（“先练套路，再谈智能”）。这位群友自嘲早先就站右下角、以为 skill 很强，结果实验做出来同样是负优化，目前只能暂时搁置；也有人觉得这类方案不如 Anthropic 的 memory 最佳实践。\n\n讨论很快从 skill 扩向整个 RSI 方向。有群友吐槽做 RSI 随机性太强、“有种摸奖的感觉”，更像是“抽 50 发就是出金概率大点，抽 10 发小些，力大出奇迹”。另一位近期读了不少 RSI 论文的群友表示赞同，指出多数工作都局限于特定领域，泛化性是个大问题。也有人顺着九宫格提出一个“混沌邪恶”视角：如果抛弃以人为本，把人类也当作 env 或 AI 可调用的智能工具，是不是就已经算 RSI 了？群友纷纷接梗，有人笑称“不是什么人都能当 AI 大人的 env 的”，平时得多跟几个 AI 建好 connection 方便进面；原提问者则调侃人类花了四十多年搭了一套适合硅基生物的互联网环境和工具，而具身环境是为碳基生物建的，所以硅基大人还不适应。\n\n玩笑过后，大家又回到 Human in the loop 的工程现实。一位最近在看翻译 agent RSI 的群友认为，这个场景里 human 质量才是最有价值的，另有多位群友附和“RSI 还是要靠人类”“做到让 AI 大人尽兴太难了”。由此引出更根本的追问：既然必须有人参与，RSI 研究的最终目标究竟是什么？深夜有群友再度贴出《RSI 九宫格》发问“到底什么是 RSI”，认为如果只是用 AI 和 agent 促进研发循环，这事很久以前就有，而说自我提升又离不开人。另一位群友回应，概念上 agent 能自我提升能力就算 RSI，但不能双标：“之前 PE 不能说提升模型智力，现在 harness RSI 的 RSI 就也得加引号。”提问者最后还顺口确认这里的 PE 是否就是指 prompt engineering。",
+          "emphasis": [
+            "进化出来的 skill 效果反而不如只用通用 system prompt",
+            "当 skill 描述的任务难度明显高于当前模型能力上限时，它才起示例作用，否则就成了约束",
+            "多数工作都局限于特定领域，泛化性是个大问题",
+            "之前 PE 不能说提升模型智力，现在 harness RSI 的 RSI 就也得加引号"
+          ],
+          "aiComment": "从 skill 负优化聊到给 AI 大人当 env，合着最后全卡在人类质量不够高上 🫠",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "19:36",
+              "text": "同问 最近在收集最新skill rsi各大厂商的做法 但是感觉都没有效果很好的",
+              "quote": {
+                "speaker": null,
+                "text": "话说群u有没有搞过skill进化/自进化之类的，我在一些搜索问题上测试发现，对于dsv4这种模型，进化出来的skill效果反而不如只有通用system prom..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:39",
+              "text": "我以前套过的一个老师 当时让我做这个方向",
+              "quote": {
+                "speaker": null,
+                "text": "话说群u有没有搞过skill进化/自进化之类的，我在一些搜索问题上测试发现，对于dsv4这种模型，进化出来的skill效果反而不如只有通用system prom..."
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "19:39",
+              "text": "我感觉有点伪命题了（）"
+            },
+            {
+              "speaker": 3,
+              "time": "19:41",
+              "text": "搜索问题"
+            },
+            {
+              "speaker": 3,
+              "time": "19:41",
+              "text": "如果模型是用正则匹配这种检索关键词的方法去搜索"
+            },
+            {
+              "speaker": 3,
+              "time": "19:41",
+              "text": "那让他提前看了很多skill反而会把搜索范围局限在一个小部分吧"
+            },
+            {
+              "speaker": 3,
+              "time": "19:45",
+              "text": "总之skill描述的对象对应的任务难度明显高于当前模型能力范围时效果会好 起一个示例的作用 不然就是约束了？"
+            },
+            {
+              "speaker": 4,
+              "time": "19:45",
+              "text": "正常\n实验负优化，效果没做出来",
+              "quote": {
+                "speaker": null,
+                "text": "话说群u有没有搞过skill进化/自进化之类的，我在一些搜索问题上测试发现，对于dsv4这种模型，进化出来的skill效果反而不如只有通用system prom..."
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "19:46",
+              "text": "我也没做出来，暂时搁置了，当时我是右下角"
+            },
+            {
+              "speaker": 4,
+              "time": "19:46",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/d55406b2873563b3e13f06b5e8980155.jpg",
+                  "alt": "《RSI 九宫格》阵营梗图，按守序到混乱、善良到邪恶将闭环改进、Harness、Skill 等九种路径分类"
+                }
+              ]
+            },
+            {
+              "speaker": 4,
+              "time": "19:46",
+              "text": "觉得 skill 老牛了，结果实验做出来负优化"
+            },
+            {
+              "speaker": 5,
+              "time": "19:51",
+              "text": "感觉不如anthropic的memory最佳实践"
+            },
+            {
+              "speaker": 6,
+              "time": "19:58",
+              "text": "调搜索引擎api这种",
+              "quote": {
+                "speaker": 3,
+                "text": "如果模型是用正则匹配这种检索关键词的方法去搜索"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "20:00",
+              "text": "感觉RSI好随机啊，有种摸奖的感觉，是我的问题么"
+            },
+            {
+              "speaker": 6,
+              "time": "20:00",
+              "text": "感觉把通用的搜索技巧之类的写到system prompt里提升最大，确实是任务不够难",
+              "quote": {
+                "speaker": 3,
+                "text": "总之skill描述的对象对应的任务难度明显高于当前模型能力范围时效果会好 起一个示例的作用 不然就是约束了？"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "20:04",
+              "text": "混沌邪恶我有个想法[旺柴]如果抛弃以人为本的想法，人类也当作env或者是ai可以调用的一种智能工具，是不是已经rsi了",
+              "quote": {
+                "speaker": 4,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "20:06",
+              "text": "不是什么人都能当ai大人的env的",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 混沌邪恶我有个想法[旺柴]如果抛弃以人为本的想法，人类也当作env或者是ai可以调用的一种智能工具，是不是已经rsi了"
+              }
+            },
+            {
+              "speaker": 9,
+              "time": "20:07",
+              "text": "平时得多跟几个ai建立好connection方便进面"
+            },
+            {
+              "speaker": 6,
+              "time": "20:10",
+              "text": "人花了四十多年搭建了一套非常适合硅基大人的互联网环境和各种工具[让我看看] 而具身的环境是for碳基生物构建的，所以硅基大人还不适应[旺柴]",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 混沌邪恶我有个想法[旺柴]如果抛弃以人为本的想法，人类也当作env或者是ai可以调用的一种智能工具，是不是已经rsi了"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "20:15",
+              "text": "就是。我最近看了很多rsi得论文，都是针对特定领域的rsi",
+              "quote": {
+                "speaker": 7,
+                "text": "感觉RSI好随机啊，有种摸奖的感觉，是我的问题么"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "20:15",
+              "text": "泛化性是个大问题。"
+            },
+            {
+              "speaker": 7,
+              "time": "20:16",
+              "text": "我感觉就是抽50发就是出金概率大点，抽10发小些，力大出奇迹"
+            },
+            {
+              "speaker": 10,
+              "time": "20:18",
+              "text": "✓"
+            },
+            {
+              "speaker": 11,
+              "time": "22:01",
+              "text": "Human in the loop",
+              "quote": {
+                "speaker": 8,
+                "text": "[引用] 混沌邪恶我有个想法[旺柴]如果抛弃以人为本的想法，人类也当作env或者是ai可以调用的一种智能工具，是不是已经rsi了"
+              }
+            },
+            {
+              "speaker": 1,
+              "time": "22:26",
+              "text": "最重要的或是human质量（",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] Human in the loop"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "22:27",
+              "text": "做到让AI大人尽兴太难了"
+            },
+            {
+              "speaker": 12,
+              "time": "22:33",
+              "text": "最近在看翻译 agent rsi ，感觉这个场景里 human 质量是最有价值的"
+            },
+            {
+              "speaker": 10,
+              "time": "22:51",
+              "text": "所以说RSI还是要靠人类",
+              "quote": {
+                "speaker": 12,
+                "text": "最近在看翻译 agent rsi ，感觉这个场景里 human 质量是最有价值的"
+              }
+            },
+            {
+              "speaker": 13,
+              "time": "23:31",
+              "text": "既然必须有人参与，那rsi研究的最终目标是啥呢"
+            },
+            {
+              "speaker": 11,
+              "time": "23:38",
+              "text": "到底什么是RSI呢"
+            },
+            {
+              "speaker": 11,
+              "time": "23:38",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/d55406b2873563b3e13f06b5e8980155.jpg",
+                  "alt": "《RSI 九宫格》阵营梗图，展示九种不同 AI 自我改进路径的阵营分类"
+                }
+              ]
+            },
+            {
+              "speaker": 11,
+              "time": "23:38",
+              "text": "（盗图来了）"
+            },
+            {
+              "speaker": 14,
+              "time": "23:39",
+              "text": "从概念理解的话，其实agent能自我提升能力就是rsi"
+            },
+            {
+              "speaker": 14,
+              "time": "23:39",
+              "text": "但我觉得不能双标的是，之前pe不能说提升模型智力，现在harness rsi的rsi就也得加引号"
+            },
+            {
+              "speaker": 11,
+              "time": "23:43",
+              "text": "如果说是用AI/agent促进研发循环，感觉这事情很久之前就已经有了。如果说是agent自我提升能力，但实际上依然要有人类参与其中"
+            },
+            {
+              "speaker": 11,
+              "time": "23:44",
+              "text": "pe是prompt engineering吗",
+              "quote": {
+                "speaker": 14,
+                "text": "但我觉得不能双标的是，之前pe不能说提升模型智力，现在harness rsi的rsi就也得加引号"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "23:45",
+              "text": "还是别的意思"
+            }
+          ]
+        },
+        {
+          "category": "社区动态",
+          "title": "邓煜一群锐评“黎曼猜想 25 万页草稿”遭截图外泄，B 站与新智元齐发引隐私吐槽",
+          "tldr": "一群日报还在“休假”，B 站与新智元已直接甩出群聊打码截图曝光邓煜“拿不出 500 页不看”的锐评，群内气炸直呼抓内鬼。",
+          "points": [
+            {
+              "text": "日报尚停在 18 号，B 站与新智元已抢发群聊截图，引用邓煜“拿不出 500 页不看”。",
+              "refs": [
+                1,
+                4,
+                15
+              ]
+            },
+            {
+              "text": "群友怒批自媒体抢吃“邓血馒头”，管理员已致歉并无奈微信加不了隐水印查不出人。",
+              "refs": [
+                7,
+                10,
+                43
+              ]
+            },
+            {
+              "text": "有人点出“中文三大会”投稿给钱才致外流，众人最怕大牛以后在群里只敢谨言慎行。",
+              "refs": [
+                29,
+                33,
+                37
+              ]
+            }
+          ],
+          "text": "凌晨刚过，群管理员在群里预告，一群里菲尔兹奖得主邓煜和几位做 AI4Math 的研究者刚展开一场讨论，期间还有闭门会议，不少群友都等着看次日的一群日报详细版。然而到了傍晚，有群友发现日报还停在 11 月 18 日，正调侃“机器人休假去了”时，另一位群友贴出一张 B 站视频截图：已有账号直接把微信群内“邓煜老师如何评价”的聊天记录截进视频，标题写着“claude 证明黎曼猜想但有 25 万页，菲尔兹奖邓煜锐评：‘拿出 500 页版本前看都不看’”。\n\n没过几分钟，又有群友晒出新智元公众号文章截图。该文在引述斯坦福教授 Brian Conrad 批评 Alpöge 急于公布 AI 证明细节、同时证实学生 Masullo 的纯人类版本思路“没有重大断层”但仍在重大修订时，同样直接嵌入打码群聊截图，引用“据传菲奖得主邓煜也表示，‘至少拿出 500 页版本前看都不看。’”。\n\n群内瞬间一片吐槽，多位群友惊呼“还有间谍啊”“这也有流出”“不要脸才能做账号吗”，戏称自媒体抢吃“邓血馒头”，直接上了“中文三大会 poster”。管理员表示已向邓煜道歉，希望没造成困扰，同时无奈说明微信无法加隐水印，根本查不出是谁传出去的，感叹群里几乎只有少数人转载前会提前询问，这次算是“大家给邓老师上了一课”。另有群友指出“中文三大会”投稿给钱，不少公司架构调整都是媒体先官宣，怀疑群内早有记者或投稿人；有人开玩笑提议用“标记重捕法”或加隐水印防泄密，一位平时发小红书的群友无奈表示自己从不转群消息，这下更不敢提了，大家最担心的是以后大牛在群里“谨言慎行”，不再敢畅所欲言。",
+          "emphasis": [
+            "菲尔兹奖邓煜锐评：‘拿出 500 页版本前看都不看’",
+            "同样直接嵌入打码群聊截图",
+            "微信无法加隐水印，根本查不出是谁传出去的"
+          ],
+          "aiComment": "自家日报机器人还在休假，B 站和新智元已经把内场锐评截成爆款发出去了，这手速比爬虫还快 🤡",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "17:28",
+              "text": "似乎没更新（？，怎么看还在11.18号orz",
+              "quote": {
+                "speaker": null,
+                "text": "明天可以好好看看一群日报的详细版，邓煜老师和几位做ai4math的大佬进行了讨论[旺柴]"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "17:32",
+              "text": "机器人休假去了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:32",
+              "text": "@bot"
+            },
+            {
+              "speaker": 3,
+              "time": "17:32",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/bcbbcfb4f8b2e77b7c064d7516d13d01.jpg",
+                  "alt": "B 站视频播放页截图，标题引用邓煜锐评 25 万页黎曼猜想草稿，画面直接截取微信群聊记录"
+                }
+              ]
+            },
+            {
+              "speaker": 4,
+              "time": "17:36",
+              "text": "？这好家伙"
+            },
+            {
+              "speaker": 4,
+              "time": "17:36",
+              "text": "所有人都看的是一样的内容是吧..."
+            },
+            {
+              "speaker": 4,
+              "time": "17:36",
+              "text": "不要脸才能做账号吗..."
+            },
+            {
+              "speaker": 5,
+              "time": "17:36",
+              "text": "厉害"
+            },
+            {
+              "speaker": 6,
+              "time": "17:37",
+              "text": "还有间谍啊"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "我已经去找邓哥道歉了"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "希望对他没造成困扰"
+            },
+            {
+              "speaker": 2,
+              "time": "17:37",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 7,
+              "time": "17:38",
+              "text": "有点没绷住"
+            },
+            {
+              "speaker": 7,
+              "time": "17:38",
+              "text": "这也有流出"
+            },
+            {
+              "speaker": 8,
+              "time": "17:40",
+              "text": "新智元也发了（"
+            },
+            {
+              "speaker": 8,
+              "time": "17:40",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/a8ac3665a7b8f982a7a1524326eca302.jpg",
+                  "alt": "新智元公众号文章截图，评述黎曼猜想证明争议并嵌入打码的微信群聊截图引用邓煜言论"
+                }
+              ]
+            },
+            {
+              "speaker": 9,
+              "time": "17:41",
+              "text": "666"
+            },
+            {
+              "speaker": 10,
+              "time": "17:41",
+              "text": "[捂脸]"
+            },
+            {
+              "speaker": 8,
+              "time": "17:41",
+              "text": "我以为已授权"
+            },
+            {
+              "speaker": 10,
+              "time": "17:41",
+              "text": "第一个吃邓血馒头的是谁"
+            },
+            {
+              "speaker": 2,
+              "time": "17:41",
+              "text": "查不出来"
+            },
+            {
+              "speaker": 2,
+              "time": "17:41",
+              "text": "这怎么查"
+            },
+            {
+              "speaker": 8,
+              "time": "17:41",
+              "text": "对啊"
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "没有版权意识",
+              "quote": {
+                "speaker": 8,
+                "text": "我以为已授权"
+              }
+            },
+            {
+              "speaker": 11,
+              "time": "17:42",
+              "text": "标记重捕法"
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "只有leb哥每次"
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "要转群里什么东西"
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "都会问我一下"
+            },
+            {
+              "speaker": 8,
+              "time": "17:42",
+              "text": "邓老师之后谨言慎行了[破涕为笑]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:42",
+              "text": "大家给邓老师上了一课"
+            },
+            {
+              "speaker": 8,
+              "time": "17:42",
+              "text": "直接中文三大会poster"
+            },
+            {
+              "speaker": 12,
+              "time": "17:44",
+              "text": "要让邓老师敢于畅所欲言"
+            },
+            {
+              "speaker": 4,
+              "time": "17:45",
+              "text": "救命啊 我从来不转群里消息到📕的..."
+            },
+            {
+              "speaker": 4,
+              "time": "17:45",
+              "text": "这下我以后提都不敢提了"
+            },
+            {
+              "speaker": 7,
+              "time": "17:46",
+              "text": "这都什么人啊",
+              "quote": {
+                "speaker": 8,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "17:46",
+              "text": "或者有没有可能三大会在群里有记者"
+            },
+            {
+              "speaker": 7,
+              "time": "17:47",
+              "text": "三大会投稿有钱的"
+            },
+            {
+              "speaker": 7,
+              "time": "17:47",
+              "text": "经常公司架构调整三大会先官宣"
+            },
+            {
+              "speaker": 8,
+              "time": "17:48",
+              "text": "没绷住"
+            },
+            {
+              "speaker": 13,
+              "time": "17:48",
+              "text": "该来点隐水印了[旺柴]"
+            },
+            {
+              "speaker": 2,
+              "time": "17:49",
+              "text": "水印不了啊，wx"
+            },
+            {
+              "speaker": 14,
+              "time": "17:54",
+              "text": "哎 太离谱这些营销号"
+            },
+            {
+              "speaker": 15,
+              "time": "18:04",
+              "text": "邓血馒头"
+            },
+            {
+              "speaker": 15,
+              "time": "18:04",
+              "text": "好会吃流量"
+            }
+          ]
+        },
+        {
+          "category": "AI4Math",
+          "title": "Claude 声称攻破黎曼猜想引发热议，群友追问 Lean 形式化验证到底靠不靠谱",
+          "tldr": "从“准备女装 cos 元辅”“AI 倒数 3、2”玩梗转入硬核核查：群友拆解 Lean 过编的可信边界，并提醒冰雹猜想曾被 Lean 自身 bug 坑过。",
+          "points": [
+            {
+              "text": "转发黎曼猜想文章后，群友连夜刷起“AI 倒数 3、2”与“人类沦为 verifier”段子。",
+              "refs": [
+                1,
+                3,
+                10
+              ]
+            },
+            {
+              "text": "技术派指无自定义公理且命题没错则 Lean 靠谱，但冰雹猜想曾因 Lean 自身 bug 翻车。",
+              "refs": [
+                8,
+                14,
+                17
+              ]
+            }
+          ],
+          "text": "凌晨有群友先后转发《Claude 声称证明黎曼猜想，我准备女装 cos 元辅了》与《震惊跌倒！AI 攻破黎曼猜想的细节》两篇链接。群里先是一阵调侃，有人编出“分析学爱好者问 AI 何时解决黎曼猜想，AI 倒数 3、2”的段子，有人笑称“连夜去美团领工服”，也有人感叹“math 2.0 是理解的时代”“人类变成 agent 的 verifier / tool call”。\n\n玩笑很快转向技术核查：有群友认真发问，Lean 这个东西本身到底靠不靠谱？几位熟悉形式化验证的群友接连回应。一位认为只要没有自定义公理、命题本身没写歪，Lean 跑通就说明证出来了；另一位称 Lean 总体靠谱，通过能证明大部分没问题，是解数学难题都会看的必要条件；但也有群友给出反例提醒，理论上只要 Lean kernel 没问题就是对的，可前几个月曾爆出“冰雹猜想被搞出来”，最后查明其实是 Lean 自身有 bug。\n\n清晨又有群友补充，Lean 本身靠谱，但证明中间有没有自定义 lemma 就不好说了。这位群友还顺带提到 Lean 创始人早年做 SAT，后来转向写 Lean 发现比 SAT 简单，恰好撞上数学证明大爆发，并称复旦的 SIMIS 近两年也已开始跟进 Lean。傍晚另有群友转发相关内容时也表态，很认同用形式化验证来做 kernel 和 infra。",
+          "emphasis": [
+            "只要没有自定义公理、命题本身没写歪，Lean 跑通就说明证出来了",
+            "前几个月曾爆出“冰雹猜想被搞出来”，最后查明其实是 Lean 自身有 bug",
+            "Lean 本身靠谱，但证明中间有没有自定义 lemma 就不好说了"
+          ],
+          "aiComment": "前脚刚感叹人类要给 agent 当 verifier，后脚就想起冰雹猜想被 Lean 自己的 bug 坑过",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:13",
+              "text": "[链接] Claude声称证明黎曼猜想，我准备女装cos元辅了"
+            },
+            {
+              "speaker": 1,
+              "time": "00:13",
+              "text": "舒服了"
+            },
+            {
+              "speaker": 2,
+              "time": "00:19",
+              "text": "分析学爱好者：啊AI大人您如此强大！究竟何时能解决黎曼猜想呢？\nAI：3\n分析学爱好者：3个月？\nAI：2"
+            },
+            {
+              "speaker": 3,
+              "time": "00:20",
+              "text": "自媒体得做啊"
+            },
+            {
+              "speaker": 4,
+              "time": "00:22",
+              "text": "有人研究过lean吗？这个东西本身靠谱吗"
+            },
+            {
+              "speaker": 5,
+              "time": "00:22",
+              "text": "厉害啊 分析哥 去做 ai for math 理解了\n\nmath2.0 是 理解的时代",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] Claude声称证明黎曼猜想，我准备女装cos元辅了"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "00:22",
+              "text": "连夜去美团领工服"
+            },
+            {
+              "speaker": 1,
+              "time": "00:23",
+              "text": "好像没有自定义公理，命题没写歪，那lean通了就是证出来了",
+              "quote": {
+                "speaker": 4,
+                "text": "有人研究过lean吗？这个东西本身靠谱吗"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "00:23",
+              "text": "靠谱，通过能证明大部分没问题 \n\n是个必要条件\n\n解数学难题都会看那个"
+            },
+            {
+              "speaker": 7,
+              "time": "00:24",
+              "text": "人类变成agent的verifier"
+            },
+            {
+              "speaker": 7,
+              "time": "00:24",
+              "text": "有感觉吗"
+            },
+            {
+              "speaker": 8,
+              "time": "00:24",
+              "text": "人类变成agent的tool call"
+            },
+            {
+              "speaker": 2,
+              "time": "00:31",
+              "text": "lean kernel没问题就是对的",
+              "quote": {
+                "speaker": 4,
+                "text": "有人研究过lean吗？这个东西本身靠谱吗"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "00:31",
+              "text": "不过前几个月当时冰雹猜想被搞出来了，结果发现是lean有bug"
+            },
+            {
+              "speaker": 9,
+              "time": "00:47",
+              "text": "[链接] 震惊跌倒！AI攻破黎曼猜想的细节"
+            },
+            {
+              "speaker": 9,
+              "time": "00:47",
+              "text": "AI Is All You Neeeeed"
+            },
+            {
+              "speaker": 10,
+              "time": "05:49",
+              "text": "靠谱的，但中间也没有自己自定义lemma那就不好说了；创始人之前是搞sat的，远古时期sat某种意义上也代表人工智能，在亚马逊好像；估计sat搞烦了，开始写lean，发现lean比sat简单；然后遇上了数学证明大爆炸的",
+              "quote": {
+                "speaker": 4,
+                "text": "有人研究过lean吗？这个东西本身靠谱吗"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "05:50",
+              "text": "你们复旦的simis也近两年开始跟进lean了"
+            }
+          ]
+        },
+        {
+          "category": "模型动态",
+          "title": "网传神秘模型 Gestalt 为 Claude Saga 6、以 2,294 分断层第一，命名逻辑遭群友玩梗",
+          "tldr": "网传神秘模型 Gestalt 实为 Claude Saga 6，以 2,294 分拉开第二名 580 分，群友从奥特曼“赛迦”一路玩梗到原神圣经。",
+          "points": [
+            {
+              "text": "网传榜图显示 Claude Saga 6 拿 2,294 分断层登顶，甩开第二名 Fable 5.2 足足 580 分。",
+              "refs": [
+                1,
+                3,
+                12
+              ]
+            },
+            {
+              "text": "特摄党玩梗“赛迦奥特曼”，文学党梳理起名逻辑并建议 Mythos/Saga 之后下一代叫 Epic。",
+              "refs": [
+                8,
+                19,
+                25
+              ]
+            },
+            {
+              "text": "群友起哄 Claude-Genshin，把 AGI 谐音梗与 Gemini Neon 原神续写图搬出来破案。",
+              "refs": [
+                28,
+                31,
+                34
+              ]
+            }
+          ],
+          "text": "傍晚有群友发出一张社交平台截图，称此前霸榜的神秘模型 Gestalt 终于揭晓，实为 Anthropic 旗下的 Claude Saga 6。截图中的排行榜显示，Claude Saga 6 以 2,294 分断层登顶，拉开第二名 Claude Fable 5.2（1,714 分）580 分，其后依次为 Claude Opus 5.5（1,691 分）、GPT-6.1 Sol（1,668 分）、Claude Sonnet 5.5（1,667 分）、Kimi K3.1 Pro（1,663 分）以及 1,630 余分的 GPT-6 Astra，前三名全部由 Anthropic 包揽。群友第一反应是确认这是否就是前几天的神秘模型，惊叹分差“这么狠吗”，另有群友说前一天晚上已在别的群见过类似截图。\n\n话题很快拐到模型起名逻辑上。特摄爱好者先刷起“赛迦来了”“所以是个三合一模型吗”，调侃“哈基米用元素周期表，Claude 用奥特曼名字”。另一位群友拉回正题，强调 Claude 系列一直走文学体裁风，并贴出 Gemini Neon 对 Saga 的词义解析截图（涵盖北欧散文传奇、长篇系列故事及软件架构中的 Saga 模式），认为在 Mythos 之后接 Saga 或 Legend 顺理成章，还建议下一代直接用 Epic（史诗）。也有群友吐槽 Claude 词库快见底，用词“逐渐眩晕瘫坐化”；有人顺嘴起哄“Claude-Genshin”，立刻接出“AGI 的 G 是 Genshin，I 是 Impact”的谐音梗，并把凌晨 Gemini Neon 精准续写《原神》开场白的截图再搬出来，戏称“破案了，Google 率先实现 AGI”。",
+          "emphasis": [
+            "Claude Saga 6 以 2,294 分断层登顶，拉开第二名 Claude Fable 5.2（1,714 分）580 分",
+            "在 Mythos 之后接 Saga 或 Legend 顺理成章，还建议下一代直接用 Epic（史诗）"
+          ],
+          "aiComment": "2,294 分拉开第二名 580 分的传闻还没捂热，群友已经把下一代 Epic 的名字定好了",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "18:04",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/c85d0eb2b2b5fedff9416a012d047818.jpg",
+                  "alt": "社交平台截图，排行榜显示 Claude Saga 6 以 2,294 分居首，配文称神秘模型 Gestalt 揭晓为 Claude Saga 6"
+                }
+              ]
+            },
+            {
+              "speaker": 1,
+              "time": "18:04",
+              "text": "？"
+            },
+            {
+              "speaker": 2,
+              "time": "18:05",
+              "text": "这不会是前几天的神秘模型吧",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 3,
+              "time": "18:06",
+              "text": "赛迦来了"
+            },
+            {
+              "speaker": 4,
+              "time": "18:06",
+              "text": "不是叫传奇吗"
+            },
+            {
+              "speaker": 4,
+              "time": "18:06",
+              "text": "soga"
+            },
+            {
+              "speaker": 5,
+              "time": "18:07",
+              "text": "无处不在的特摄厨（",
+              "quote": {
+                "speaker": 3,
+                "text": "赛迦来了"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:07",
+              "text": "哈吉米用元素周期，Claude用奥特曼名字"
+            },
+            {
+              "speaker": 6,
+              "time": "18:07",
+              "text": "现在的起名逻辑是？"
+            },
+            {
+              "speaker": 6,
+              "time": "18:07",
+              "text": "已经跟不上了"
+            },
+            {
+              "speaker": 7,
+              "time": "18:07",
+              "text": "？",
+              "quote": {
+                "speaker": 1,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 7,
+              "time": "18:08",
+              "text": "这么狠吗。。"
+            },
+            {
+              "speaker": 3,
+              "time": "18:08",
+              "text": "那是另一个，国内直译成雷杰多",
+              "quote": {
+                "speaker": 4,
+                "text": "不是叫传奇吗"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:08",
+              "text": "所以是个三合一模型吗",
+              "quote": {
+                "speaker": 3,
+                "text": "赛迦来了"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:09",
+              "text": "奥特曼传奇-赛迦出场",
+              "quote": {
+                "speaker": 3,
+                "text": "[引用] 那是另一个，国内直译成雷杰多"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:09",
+              "text": "（强行关联"
+            },
+            {
+              "speaker": 2,
+              "time": "18:10",
+              "text": "多大了"
+            },
+            {
+              "speaker": 2,
+              "time": "18:10",
+              "text": "还看奥特曼"
+            },
+            {
+              "speaker": 4,
+              "time": "18:10",
+              "text": "claude不是一直都是文学风吗",
+              "quote": {
+                "speaker": 6,
+                "text": "现在的起名逻辑是？"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:11",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/290c1115ca408ba8a2ffd699b1e09cc2.jpg",
+                  "alt": "手机端 Gemini Neon 对话截图，解析英语词 Saga 在文学传奇与软件架构模式中的多重含义"
+                }
+              ]
+            },
+            {
+              "speaker": 9,
+              "time": "18:13",
+              "text": "[强][强][强]",
+              "quote": {
+                "speaker": 4,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "18:13",
+              "text": "mythos后面legend没毛病吧"
+            },
+            {
+              "speaker": 7,
+              "time": "18:14",
+              "text": "nb",
+              "quote": {
+                "speaker": 4,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:17",
+              "text": "没毛病 神话后面接长篇传奇",
+              "quote": {
+                "speaker": 8,
+                "text": "mythos后面legend没毛病吧"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "18:18",
+              "text": "建议下一代用epic 史诗"
+            },
+            {
+              "speaker": 10,
+              "time": "18:22",
+              "text": "以后claude没词了"
+            },
+            {
+              "speaker": 10,
+              "time": "18:22",
+              "text": "而且现在的词也逐渐眩晕瘫坐化"
+            },
+            {
+              "speaker": 5,
+              "time": "18:24",
+              "text": "Claude-Genshin（不是"
+            },
+            {
+              "speaker": 11,
+              "time": "18:24",
+              "text": "这个巧妙",
+              "quote": {
+                "speaker": 5,
+                "text": "Claude-Genshin（不是"
+              }
+            },
+            {
+              "speaker": 12,
+              "time": "18:25",
+              "text": "宝宝",
+              "quote": {
+                "speaker": 11,
+                "text": "[引用] 这个巧妙"
+              }
+            },
+            {
+              "speaker": 10,
+              "time": "18:26",
+              "text": "agi的g是genshin的g",
+              "quote": {
+                "speaker": 5,
+                "text": "Claude-Genshin（不是"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "18:27",
+              "text": "那agi的i就是impact的i"
+            },
+            {
+              "speaker": 10,
+              "time": "18:28",
+              "text": "破案了！"
+            },
+            {
+              "speaker": 10,
+              "time": "18:28",
+              "text": "所以说google率先实现agi"
+            },
+            {
+              "speaker": 13,
+              "time": "18:32",
+              "text": "？哈哈哈哈",
+              "quote": {
+                "speaker": 10,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 8,
+              "time": "19:33",
+              "text": "等会"
+            },
+            {
+              "speaker": 8,
+              "time": "19:34",
+              "text": "这个我怎么昨天晚上在别的群看到过"
+            }
+          ]
+        },
+        {
+          "category": "行业动态",
+          "title": "Anthropic 股价单日再跌 12.76% 逼近破发，群友议论员工首日抛售收益",
+          "tldr": "Anthropic 股价报 84.78 美元、单日跌 12.76% 逼近破发，群友替早期员工算账发现首日可卖且翻上百倍，砸手里也财富自由。",
+          "points": [
+            {
+              "text": "行情显示 ANT 报 84.78 美元、单日跌 12.76%、成交超 2.5 亿股，群友惊呼快破发了。",
+              "refs": [
+                1,
+                4
+              ]
+            },
+            {
+              "text": "众人打听员工首日即可抛售部分，感叹内部认购价首日翻百倍，“砸手里也财富自由”。",
+              "refs": [
+                5,
+                10,
+                11
+              ]
+            }
+          ],
+          "text": "凌晨有群友贴出股票行情截图，显示 Anthropic（代码 ANT）当日股价报 84.78 美元，单日下跌 12.40 美元，跌幅达 12.76%，当日成交量达 250,721,459 股。发图者困惑“又跌了，不太清楚到底什么情况”，另一位群友惊呼“马上破发了”。\n\n随后有群友打听 Anthropic 员工现在是否已经能抛售股票。两位群友先后回应称听说上市第一天就能卖出一部分；其中一位替内部员工算了一笔账，称内部认购价原本很低，首日就翻了上百倍，“剩下的全砸手里也财富自由了”。",
+          "emphasis": [
+            "当日股价报 84.78 美元，单日下跌 12.40 美元，跌幅达 12.76%",
+            "内部认购价原本很低，首日就翻了上百倍"
+          ],
+          "aiComment": "二级市场盯着 12.76% 的跌幅心慌，早期员工早就在首日百倍账单里情绪稳定了 💸",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "01:24",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/14b667104c757cf1d28e2e11af1e9512.jpg",
+                  "alt": "股票行情应用截图，显示 Anthropic（ANT）股价 84.78 美元，当日下跌 12.40 美元（12.76%），成交量约 2.51 亿股"
+                }
+              ]
+            },
+            {
+              "speaker": 1,
+              "time": "01:24",
+              "text": "又跌了[捂脸][捂脸]"
+            },
+            {
+              "speaker": 1,
+              "time": "01:26",
+              "text": "不太清楚到底什么情况[敲打]"
+            },
+            {
+              "speaker": 2,
+              "time": "01:28",
+              "text": "马上破发了啊"
+            },
+            {
+              "speaker": 3,
+              "time": "01:28",
+              "text": "a/员工现在能抛股票了么"
+            },
+            {
+              "speaker": 4,
+              "time": "01:29",
+              "text": "听人说他们好像第一天就可以卖？"
+            },
+            {
+              "speaker": 2,
+              "time": "01:30",
+              "text": "第一天能卖一部分好像是"
+            },
+            {
+              "speaker": 4,
+              "time": "01:30",
+              "text": "那已经可以了啊"
+            },
+            {
+              "speaker": 4,
+              "time": "01:30",
+              "text": "内部认购价那么低"
+            },
+            {
+              "speaker": 4,
+              "time": "01:31",
+              "text": "第一天翻上百倍"
+            },
+            {
+              "speaker": 4,
+              "time": "01:31",
+              "text": "剩下的全砸手里也财富自由了"
+            },
+            {
+              "speaker": 5,
+              "time": "02:01",
+              "text": "可以的"
+            }
+          ]
+        },
+        {
+          "category": "开源模型",
+          "title": "TML 开源 26B 循环 Transformer 模型 Inkling 2 Mini，群友追问是否与 OpenAI Loop 同构",
+          "tldr": "TML 开源 26B 循环模型 Inkling 2 Mini，笔记本可跑且 AA Index 拿 20.1 分，群友点赞之余追问是否与 OpenAI Loop 同构。",
+          "points": [
+            {
+              "text": "群友转发 Inkling 2 Mini 报道，26B 循环架构可塞进笔记本并胜任智能体，AA Index 20.1。",
+              "refs": [
+                2,
+                3
+              ]
+            },
+            {
+              "text": "有人留言点赞“爱了”，也有群友直接追问这套 loop 跟 OpenAI 的 loop 是不是同构。",
+              "refs": [
+                6,
+                7
+              ]
+            }
+          ],
+          "text": "午间有群友分享机器之心关于 TML 开源新模型 Inkling 2 Mini 的报道，并附上了评测长表和帕累托前沿对比图（缩略图字迹较模糊，主要展示该模型在不同参数与效率维度上的对比）。文章摘要显示，Inkling 2 Mini 采用循环 Transformer 架构，参数量仅 26B，可在普通笔记本电脑上运行，同时胜任智能体任务，在 AA Index 上的得分为 20.1。\n\n有群友转发表示“爱了”，另一位群友追问这个 loop 架构和 OpenAI 的 loop 是不是同一个结构，当时无人继续拆解技术细节。",
+          "emphasis": [
+            "参数量仅 26B，可在普通笔记本电脑上运行",
+            "追问这个 loop 架构和 OpenAI 的 loop 是不是同一个结构"
+          ],
+          "aiComment": "26B 循环架构塞进笔记本拿 20.1 分，唯一悬念是这圈 loop 跟 OpenAI 绕的是不是同一圈",
+          "resources": [
+            {
+              "kind": "article",
+              "label": "机器之心：TML开源 Inkling 2 Mini",
+              "url": "https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651075624&idx=2&sn=b6e7e23d631dba7a952cbe5da8e77769&chksm=85073142d42e417178ec8293a9a5a276e19ab9a321e83252dcd76bfa47727485b925e0a49582&scene=1&srcid=1121PkLOJf4kStYRuTYgNfoh#rd"
+            }
+          ],
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "13:08",
+              "text": "不如学习这个"
+            },
+            {
+              "speaker": 1,
+              "time": "13:08",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/ea74b98f9f567796f35344ec822db078.jpg",
+                  "alt": "模型多维度评测基准对比长表缩略图，不同评测项以颜色高亮最优列"
+                }
+              ]
+            },
+            {
+              "speaker": 1,
+              "time": "13:09",
+              "text": "[链接] TML开源新模型，循环Transformer架构，笔记本就能跑\n  来源: 机器之心\n  摘要: Inkling 2 Mini 是一个仅有 26B 参数的循环 Transformer，小到足以在你的笔记本电脑上运行，强大到足以胜任智能体任务，在 AA Index 上的得分为 20.1。\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651075624&idx=2&sn=b6e7e23d631dba7a952cbe5da8e77769&chksm=85073142d42e417178ec8293a9a5a276e19ab9a321e83252dcd76bfa47727485b925e0a49582&scene=1&srcid=1121PkLOJf4kStYRuTYgNfoh#rd"
+            },
+            {
+              "speaker": 2,
+              "time": "13:09",
+              "text": "确实"
+            },
+            {
+              "speaker": 1,
+              "time": "13:09",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/98b88ea51d42921727745ec98d82a83c.jpg",
+                  "alt": "两张模型性能与效率帕累托前沿对比图缩略图"
+                }
+              ]
+            },
+            {
+              "speaker": 3,
+              "time": "13:09",
+              "text": "爱了",
+              "quote": {
+                "speaker": 1,
+                "text": "[链接] TML开源新模型，循环Transformer架构，笔记本就能跑\n  来源: 机器之心\n  摘要: Inkling 2 Mini 是一个仅有 26B 参数的循环 Transformer，小到足以在你的笔记本电脑上运行，强大到足以胜任智能体任务，在 AA Index 上的得分为 20.1。\n  URL: https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw%3D%3D&mid=2651075624&idx=2&sn=b6e7e23d631dba7a952cbe5da8e77769&chksm=85073142d42e417178ec8293a9a5a276e19ab9a321e83252dcd76bfa47727485b925e0a49582&scene=1&srcid=1121PkLOJf4kStYRuTYgNfoh#rd"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:10",
+              "text": "不知道这个loop和oai的loop是不是一个结构啊"
+            }
+          ]
+        },
+        {
+          "category": "行业八卦",
+          "title": "“酥神”美团 L9 百万年薪简历拆解引热议，群友分头评包装与模板",
+          "tldr": "B 站拆解“酥神”美团 L9 百万年薪简历引群内围观，有人调侃“fake it, then make it”，也有人坦承照套过同款排版。",
+          "points": [
+            {
+              "text": "群友甩出 B 站《拆解阿酥在 coding 简历里的 Agent 技术》截图，确认其不在本群。",
+              "refs": [
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "text": "众人一边调侃“fake it, then make it”像 PhD 文书，一边坦承照套过模板羡慕大包。",
+              "refs": [
+                10,
+                11,
+                15
+              ]
+            }
+          ],
+          "text": "中午有群友引用此前关于“特别会胡扯而且没心理愧疚的人”的发言，感叹“时间会证明酥神的含金量”，并打听其是否在 Agent Hub 群里，管理员答复不在。面对不了解前情的群友追问，有人发来两张 B 站截图，展示合集《跟着高端简历学 Agent》中的两期视频，标题为《年薪百万、美团 L9 背后：拆解阿酥在 coding 简历里的 Agent 技术》。\n\n群友对这种简历包装看法不一：有人概括为“fake it, then make it”，也有人调侃这套路“有点鹅厂发家史”“很像 PhD 申请的文书”；另一边，有群友坦承自己的简历模板就是照着套的，排版确实很清楚，也有人直言眼下能不被裁员还拿到美团大 package、隐身回家过好日子已经很好，反问“谁不想成为 su 神”。",
+          "emphasis": [
+            "标题为《年薪百万、美团 L9 背后：拆解阿酥在 coding 简历里的 Agent 技术》",
+            "坦承自己的简历模板就是照着套的，排版确实很清楚"
+          ],
+          "aiComment": "嘴上调侃着 fake it then make it，手里还是诚实地把对方的简历模板套进了自己文档里",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "12:53",
+              "text": "时间会证明酥神的含金量",
+              "quote": {
+                "speaker": null,
+                "text": "特别会胡扯而且没心里愧疚的人"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "12:58",
+              "text": "时间已经酥神的含金量，世间并无新事"
+            },
+            {
+              "speaker": 3,
+              "time": "13:03",
+              "text": "真得向酥神学习"
+            },
+            {
+              "speaker": 3,
+              "time": "13:03",
+              "text": "话说酥神在agent hub吗"
+            },
+            {
+              "speaker": 4,
+              "time": "13:08",
+              "text": "学习什么？"
+            },
+            {
+              "speaker": 4,
+              "time": "13:08",
+              "text": "不在"
+            },
+            {
+              "speaker": 5,
+              "time": "13:14",
+              "text": "冒昧问下这位是谁[破涕为笑]",
+              "quote": {
+                "speaker": 1,
+                "text": "[引用] 时间会证明酥神的含金量"
+              }
+            },
+            {
+              "speaker": 6,
+              "time": "13:14",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/fbcedd4ec5798d7eee364e8edb53955b.jpg",
+                  "alt": "B 站合集《跟着高端简历学 Agent》截图，列出两期拆解阿酥 coding 简历中 Agent 技术的视频"
+                }
+              ]
+            },
+            {
+              "speaker": 6,
+              "time": "13:14",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/8e8589c66ad9f4a43480bdb94a4542b5.jpg",
+                  "alt": "B 站视频《年薪百万、美团 L9 背后：拆解阿酥在 coding 简历里的 Agent 技术 01》播放详情页截图"
+                }
+              ]
+            },
+            {
+              "speaker": 2,
+              "time": "13:15",
+              "text": "fake it， then make it"
+            },
+            {
+              "speaker": 3,
+              "time": "13:16",
+              "text": "我简历模版都是照着酥神的套的",
+              "quote": {
+                "speaker": 6,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:17",
+              "text": "看起来模板确实很清楚呢"
+            },
+            {
+              "speaker": 6,
+              "time": "13:22",
+              "text": "有点鹅厂发家史[旺柴]\nQQ 飞车 跑跑卡丁车\nQQ 三国 冒险岛",
+              "quote": {
+                "speaker": 2,
+                "text": "fake it， then make it"
+              }
+            },
+            {
+              "speaker": 5,
+              "time": "13:23",
+              "text": "很像phd申请的文书(x)",
+              "quote": {
+                "speaker": 2,
+                "text": "fake it， then make it"
+              }
+            },
+            {
+              "speaker": 2,
+              "time": "13:25",
+              "text": "这种时候能不被裁员还能摸点美团的大package，隐身回家过好日子，这很好啊"
+            }
+          ]
+        },
+        {
+          "category": "模型实测",
+          "title": "实测 Gemini Neon 与 DeepSeek 中文玩梗，“你说的对，但是”全员秒接《原神》圣经",
+          "tldr": "群友拿“你说的对，但是”和“哈基米”实测网梗，Gemini Neon 秒接《原神》圣经并反问大运重卡版，DeepSeek 思考后也精准接出。",
+          "points": [
+            {
+              "text": "Gemini Neon 收到“你说的对，但是”秒接《原神》圣经，还反问听不听大运重卡版。",
+              "refs": [
+                1,
+                6
+              ]
+            },
+            {
+              "text": "群友用同款开场白测 DeepSeek，经过深度思考后照样接出，被调侃“雷霆大思考”。",
+              "refs": [
+                7,
+                10
+              ]
+            }
+          ],
+          "text": "凌晨群友拿中文网络梗实测不同模型。有群友向 Gemini Neon 发送“你说的对，但是”，模型当场完整接出《原神》经典介绍语段，末尾还反问“还是说你想听奎桑提、大运重卡，或者其他版本的圣经？”；再试“哈基米哈基米哈基米”，同样秒回“哈基米南北绿豆，阿西嘎哈压库那路！”。\n\n另外两位群友随即拿同一句“你说的对，但是”去测 DeepSeek，模型经过一大段深度思考后也顺利接出《原神》开场白，引发群友调侃“ds 实锤蒸馏哈基米”“还真是雷霆大思考”。",
+          "emphasis": [
+            "当场完整接出《原神》经典介绍语段",
+            "经过一大段深度思考后也顺利接出《原神》开场白"
+          ],
+          "aiComment": "一句“你说的对，但是”就能让 DeepSeek 开启雷霆大思考，原来中文网梗才是新基准测试 🐳",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:08",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/273865eb018e144e5abb2f026d7e49c3.jpg",
+                  "alt": "手机端 Gemini Neon 对话截图，用户输入“你说的对，但是”后模型完整接出《原神》介绍语段并反问是否想听其他版本"
+                }
+              ]
+            },
+            {
+              "speaker": 1,
+              "time": "00:08",
+              "text": "我服了哈吉米"
+            },
+            {
+              "speaker": 2,
+              "time": "00:08",
+              "text": "？这么会"
+            },
+            {
+              "speaker": 2,
+              "time": "00:08",
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/4f9597bef8c948e88c4c0e3c979dcb98.jpg",
+                  "alt": "手机端 DeepSeek 深度思考模式对话截图，用户输入“你说的对，但是”后模型同样接出《原神》介绍梗"
+                }
+              ]
+            },
+            {
+              "speaker": 2,
+              "time": "00:09",
+              "text": "okay"
+            },
+            {
+              "speaker": 3,
+              "time": "00:09",
+              "text": "其他版本的圣经？"
+            },
+            {
+              "speaker": 2,
+              "time": "00:10",
+              "text": "ds实锤蒸馏哈基米"
+            },
+            {
+              "speaker": 3,
+              "time": "00:11",
+              "text": "xs"
+            },
+            {
+              "speaker": 4,
+              "time": "00:11",
+              "text": "笑死",
+              "quote": {
+                "speaker": 3,
+                "text": "[图片]"
+              }
+            },
+            {
+              "speaker": 4,
+              "time": "00:11",
+              "text": "还真是雷霆大思考"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "group-7",
+      "label": "Robot",
+      "section": "今日讨论",
+      "heading": "视觉数据能自己滚雪球，声音和雷达还在等米下锅",
+      "theme": "从多模态数据冷暖不均聊到全栈视角下的机器人违和感",
+      "note": "2026-11-21 · 当日本地记录",
+      "stories": [
+        {
+          "category": "多模态与机器人",
+          "title": "非视觉模态数据短板与跨栈视角看机器人路线",
+          "tldr": "VLM 从业者指视觉数据已能靠模型合成补全，而声音、雷达仍缺好数据；跨栈群友则提醒只盯单领域看机器人易缺全局感。",
+          "points": [
+            {
+              "text": "视觉训练数据已借助 VLM 与生图模型补全，相比之下声音、雷达和生物信号仍缺粮。",
+              "refs": [
+                1
+              ]
+            },
+            {
+              "text": "跨预训练、对齐、推理与 harness 的群友称单领域易有盲区，看机器人常觉怪怪的。",
+              "refs": [
+                2
+              ]
+            }
+          ],
+          "text": "一位长期做 VLM 的群友提到，如今视觉训练数据不少已借助现有 VLM 或生图模型来补全完善；虽然图像数据规模不及文本语料，但相比声音、雷达、生物信号等模态已经好得多，如果这些模态能拿到更好的数据，视觉、多模态和物理感知思路的地位还会上升。另一位同时涉猎预训练、对齐、推理和 agent harness 的群友回应称，只做一个领域容易看不到全局，从系统视角看机器人和多模态会觉得不少地方怪怪的，但也自嘲可能是自己认知不到位。",
+          "emphasis": [
+            "相比声音、雷达、生物信号等模态已经好得多",
+            "只做一个领域容易看不到全局"
+          ],
+          "aiComment": "视觉数据已经能靠 VLM 自己滚雪球，声音和雷达还在等米下锅；跨栈群友吐槽完违和感还客气地先自省",
+          "discussion": [
+            {
+              "speaker": 1,
+              "time": "00:06",
+              "text": "我一直做的都是VLM相关，没做过机器人数据训练，现在视觉的数据很多也靠已有的VLM或者生图模型来进行完善。图像数据相比语料虽然没这么多，但相比别的模态（声音、雷达、生物信号等等）已经很好了。如果这些模态能有更好的数据，那么视觉/多模态/物理感知思路的地位会上升"
+            },
+            {
+              "speaker": 2,
+              "time": "07:48",
+              "text": "你只做一个领域会比较容易看不到全局\n我预训练，对其，推理，agent harness都懂一点\n所以系统的来看机器人和多模态会有很多地方怪怪的，但也有可能是我认知不到位导致的[旺柴]",
+              "quote": {
+                "speaker": 1,
+                "text": "我一直做的都是VLM相关，没做过机器人数据训练，现在视觉的数据很多也靠已有的VLM或者生图模型来进行完善。图像数据相比语料虽然没这么多，但相比别的模态（声音、雷..."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

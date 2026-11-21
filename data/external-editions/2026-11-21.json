@@ -1,0 +1,294 @@
+{
+  "date": "2026-11-21",
+  "title": "Lean 社区认证 Claude 黎曼猜想证明，美股 AI 板块周跌入熊",
+  "intro": "数学界刚迎来机器验证的黎曼猜想证明，华尔街却用疫情以来最惨单周给 AI 泼了盆冷水。开源端侧新出了会循环思考的 26B 小模型，而 OpenAI 和 Signal 不约而同在加锁护边界。",
+  "stories": [
+    {
+      "title": "Lean 社区联合认证 Claude 协助完成的黎曼猜想证明，斯坦福纯人类草稿紧急公开后开启大改",
+      "timing": "证明于北京时间 11 月 20 日晚公布，Lean 社区于北京时间 11 月 21 日 21:55 发布联合认证声明",
+      "tldr": "Lean 与 Mathlib 社区正式背书 Claude 协助完成的 1700 万行黎曼猜想形式化证明；几小时后斯坦福公开的 940 页纯人类手稿即被指出多处缺口并开启大改。",
+      "points": [
+        {
+          "text": "1700 万行 Lean 代码仅直接依赖 Mathlib，数十人编译零错误并过独立校验器。"
+        },
+        {
+          "text": "Alpöge 在玩具模型定方向后由 Claude 主导推进，且方法同时覆盖广义黎曼猜想。"
+        },
+        {
+          "text": "斯坦福随后放出的 940 页纯人类手稿数小时内即被挑出多处缺口与占位符，正大改。"
+        }
+      ],
+      "text": "Lean 与 Mathlib 社区发表联合声明（获 Lean FRO 和 Mathlib Initiative 背书），正式认证 Anthropic 数学家 Levent Alpöge 与 Claude 合作完成的黎曼猜想形式化证明。这套 1700 万行 Lean 代码于北京时间 11 月 20 日晚公开，仅直接依赖 Mathlib。社区已完成四项核验：确认证明目标与 Mathlib 中的黎曼猜想陈述完全一致，数十人独立编译零错误，且静态导出证明通过了 Lean 官方内核以及 con-leche、con-ron 等多款独立校验器检查。\n据 The Decoder 报道，Alpöge 称其方法同时覆盖广义黎曼猜想；他在玩具模型上定好方向后，进入完整问题时由 Claude 主导推进。就在他公布数小时后，斯坦福团队紧急放出数学家 Alessandro Masullo 耗时近 12 年撰写的 940 页纯人类手稿，但公开数小时内即被指出多处缺口和占位符，目前正由团队大幅修改。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Lean 社区联合声明",
+          "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+        },
+        {
+          "kind": "报道",
+          "label": "Decoder 报道",
+          "url": "https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50589618"
+        }
+      ],
+      "emphasis": [
+        "静态导出证明通过了 Lean 官方内核以及 con-leche、con-ron 等多款独立校验器检查",
+        "公开数小时内即被指出多处缺口和占位符，目前正由团队大幅修改"
+      ],
+      "aiComment": "1700 万行代码机器全过，人类还没读懂；940 页纯人类手稿几小时就暴露缺口，数学界这周末怕是睡不着了 🤯",
+      "sources": [
+        {
+          "publisher": "Lean and Mathlib communities（官方博客）",
+          "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+          "excerpt": "datePublished 2026-11-21T13:55:00Z。Lean 与 Mathlib 社区发表联合声明（获 Lean FRO 和 Mathlib Initiative 背书）：2026 年 11 月 20 日 Levent Alpöge 发布约 1700 万行 Lean 代码的黎曼猜想证明，仅直接依赖 Mathlib。社区已完成四项核验：1）Mathlib 中的 RiemannHypothesis 陈述经 Lean 和数论专家审查无误；2）数十人独立编译通过并复现同一原始证明导出文件，无错误或构建失败；3）社区新增仅导入 Mathlib 的隔离声明文件，经 comparator 与 con-leche --compare 两个独立工具比对，确认 Alpöge 证明的定理与 Mathlib 的黎曼猜想陈述完全一致；4）导出的静态证明文件通过了 Lean 官方内核、con-leche、con-ron 以及多语言编写的第三方独立校验器验证，其中 con-leche 与 con-ron 附带相对于集合论的形式化可靠性证明。检查在静态导出产物上进行，规避了源码恶意代码风险。社区期待数学界进一步梳理并解释证明中的新思想。"
+        },
+        {
+          "publisher": "The Decoder",
+          "url": "https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/",
+          "excerpt": "2026-11-21 发布。Anthropic 数学家 Levent Alpöge 周五宣布与 Claude 合作发现了黎曼猜想及广义黎曼猜想（GRH）的证明，并公开论文和 Lean 代码；他表示在玩具模型上确立思路并组合方法后，进入完整问题时 Claude 接管了主要推进。数小时后，斯坦福研究者公布了数学家 Alessandro Masullo 耗时近 12 年完成的纯人类手稿《The Music of the Primes》（940 页）。原计划由导师 Brian Conrad 协助再打磨一年，因 Alpöge 的公布被迫提前放出；公开数小时内即被数学家（部分借助 AI 工具）指出多处占位符和逻辑缺口，Ravi Vakil 与 Brian Conrad 表示手稿属初步草稿，正在大幅修改。"
+        }
+      ]
+    },
+    {
+      "title": "Thinking Machines 开源 26.4B 循环模型 Inkling 2 Mini，约 20GB 内存就能本地跑",
+      "timing": "北京时间 11 月 21 日 04:10 发布",
+      "tldr": "Thinking Machines 以 Apache 2.0 开源 26.4B 循环多模态 MoE 模型 Inkling 2 Mini，NVFP4 仅占约 20GB 内存即可离线跑，多项 100B 以下编码榜领先。",
+      "points": [
+        {
+          "text": "总参 26.4B、激活 3.4B，中间 12 层循环跑 3 遍，支持 1M 上下文并适配 vLLM 等。"
+        },
+        {
+          "text": "DeepSWE v1.1 达 48.2%、SWE-bench Pro v2 Hard 达 77.9%，AA Index 20.1。"
+        },
+        {
+          "text": "开源可变循环权重证实增加循环能拉长无 CoT 推理时域，但不会凭空增加事实知识。"
+        }
+      ],
+      "text": "Thinking Machines 宣布以 Apache 2.0 协议开源多模态 MoE 模型 Inkling 2 Mini。该模型总参数 26.4B、基础激活 3.4B，采用 looped transformer 架构，让中间 12 层对每个 token 共享权重循环跑 3 遍（折合激活 5.4B 权重），支持 1M 上下文，原生 NVFP4 权重总内存占用约 20GB，可在消费级笔记本离线运行。vLLM、Unsloth 和 Ollama 已同步适配。\n官方测试数据显示，它在 100B 以下开源模型中领先多项 agentic 编码榜：DeepSWE v1.1 达 48.2%，SWE-bench Pro v2 Hard 达 77.9%，AA Index v5.0 达 20.1（与 Qwen3.8-27B 并列）。团队还开源了可变循环研究权重，显示增加循环次数能拉长无 CoT 推理时域，但不会凭空增加事实知识，知识类基准与同规模模型持平，靠搜索和工具调用补齐。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Inkling 官方博客",
+          "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+        },
+        {
+          "kind": "报道",
+          "label": "vLLM 适配博客",
+          "url": "https://vllm.ai/blog/2026-11-20-inkling2-mini"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50581260"
+        }
+      ],
+      "emphasis": [
+        "让中间 12 层对每个 token 共享权重循环跑 3 遍（折合激活 5.4B 权重）",
+        "DeepSWE v1.1 达 48.2%，SWE-bench Pro v2 Hard 达 77.9%"
+      ],
+      "aiComment": "显存装不下更多参数，那就把中间 12 层拉去连加三班，20GB 内存笔记本总算能跑个像样的 coding agent 了",
+      "sources": [
+        {
+          "publisher": "Thinking Machines Lab（官方博客）",
+          "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+          "excerpt": "落款 Nov 20, 2026。Thinking Machines 发布开源权重模型 Inkling 2 Mini（Apache 2.0），并同步上线 Tinker 推理与定制平台。采用多模态 MoE 与 looped transformer 架构：总参数 26.4B，基础激活 3.4B，因中间层对每个 token 循环执行 3 次，折合每 token 激活 5.4B 权重。大部分权重原生以 NVFP4 训练和部署（最后 4 层为 MXFP8），总内存占用约 20GB，可在消费级笔记本（如飞行模式下的 48GB MacBook Pro）本地运行。官方测试数据称，其在 100B 以下开源模型中领先多项基准：DeepSWE v1.1 达 48.2%、SWE-bench Pro v2 Hard 达 77.9%、SWE-bench Verified 达 79.2%、Vals Index v2.2 达 46.5%、AA Index v5.0 达 20.1（与 Qwen3.8-27B 并列）。团队同步发布可变循环研究权重用于监控性实验：无 CoT 时域从 1 次循环的 16 秒提至 3 次循环的 37 秒，串行推理性能可外推至 10 次循环（训练深度的两倍），CoT 变短但仍可读。官方指出循环不增加权重存储的事实知识量，AA-Omniscience、SimpleQA 等知识密集型基准与同规模模"
+        },
+        {
+          "publisher": "vLLM Blog",
+          "url": "https://vllm.ai/blog/2026-11-20-inkling2-mini",
+          "excerpt": "2026-11-20 发布，由 Inferact、Thinking Machines 和 NVIDIA 联合署名。vLLM 提供 Day-0 支持，覆盖 Inkling 2 Mini 与可变循环研究权重 TML-d24-varloop-research，支持 Blackwell、Hopper 与 DGX Spark。结构细节：第 6–17 层（中间 12 层）共享权重循环运行 3 遍，每遍保留独立 KV cache 并读取上一遍的门控消息；支持最高 1M token 上下文，内置原生 DSpark 推测解码模块，并支持通过 SkyRL 进行强化学习。"
+        }
+      ]
+    },
+    {
+      "title": "美股 AI 板块遭遇疫情以来最差单周：纳指 100 跌入熊市，Anthropic 上市次日回落 9%",
+      "timing": "美股周五收盘（北京时间 11 月 21 日 05:00）",
+      "tldr": "纳指 100 单周跌 10.4% 创疫情以来最差单周并跌入熊市，单周蒸发约 4 万亿美元；Anthropic 上市次日回落 9% 逼近发行价，英伟达因传遭 SEC 审查重挫 14%。",
+      "points": [
+        {
+          "text": "纳指 100 全周跌 10.4% 跌入熊市，Anthropic 上市次日回落 9% 至 88.30 美元。"
+        },
+        {
+          "text": "传 SEC 审查英伟达会计问题致其重挫 14%，SanDisk、美光跟跌逾 12%。"
+        },
+        {
+          "text": "抛售潮波及亚欧市场，台湾股市跌 6.7%、台积电跌约 6%，软银在东京大跌 14.5%。"
+        }
+      ],
+      "text": "据 The Guardian 与 The Decoder 报道，美股科技股周五再度大跌，纳指 100 单日跌 5.6%、全周累计跌 10.4%，创疫情以来最差单周表现，较 10 月高点回落 20% 跌入熊市区间。纳斯达克综合指数抹平 2026 年全部涨幅，单周市值蒸发约 4 万亿美元。刚在周四完成史上最大 IPO 并收涨 17% 的 Anthropic，上市次日下跌 9% 至 88.30 美元，逼近 83 美元发行价。\n芯片与算力链条跌幅居前：媒体曝出 SEC 正审查英伟达会计问题后，英伟达单日重挫 14%，SanDisk 跌 14%，美光跌 12%，美国半导体指数跌 10.7%。抛售蔓延至亚欧市场，台湾股市跌 6.7%、台积电跌约 6%，软银在东京大跌 14.5%。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Guardian 报道",
+          "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off"
+        },
+        {
+          "kind": "报道",
+          "label": "Decoder 报道",
+          "url": "https://the-decoder.com/us-technology-stocks-suffer-their-worst-weekly-loss-since-the-pandemic-as-ai-doubts-pile-up/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50574383"
+        }
+      ],
+      "emphasis": [
+        "纳指 100 单日跌 5.6%、全周累计跌 10.4%，创疫情以来最差单周表现",
+        "上市次日下跌 9% 至 88.30 美元，逼近 83 美元发行价"
+      ],
+      "aiComment": "头一天还在给史上最大 IPO 敲钟，第二天就跟着大盘一起给 83 美元发行价做压力测试 📉",
+      "sources": [
+        {
+          "publisher": "The Guardian",
+          "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+          "excerpt": "2026-11-20 21:38 GMT 更新。周五美股收盘，纳斯达克综合指数抹平 2026 年全部涨幅，较 1 月 1 日下跌 5%，道指与标普 500 跌入回调区间；据《华尔街日报》统计，纳指本周市值蒸发约 4 万亿美元。周四刚完成史上最大 IPO 并收涨 17%（盘中一度涨近 40%）的 Anthropic，上市次日下跌 9% 至 88.30 美元，逼近 83 美元发行价。科技与芯片股普遍重挫：英伟达跌 14%，SanDisk 跌 14%，美光跌 12%。全球市场同步承压：亚洲股市录得 2020 年以来最差单周，台湾股市跌 6.7%、台积电跌约 6%，日经指数跌 5%，韩国 Kospi 跌 5.5%，软银在东京大跌 14.5%；欧洲 Stoxx 600 周五跌 1.9%，创 2025 年 3 月以来最大周跌幅。"
+        },
+        {
+          "publisher": "The Decoder",
+          "url": "https://the-decoder.com/us-technology-stocks-suffer-their-worst-weekly-loss-since-the-pandemic-as-ai-doubts-pile-up/",
+          "excerpt": "2026-11-21 发布，援引《金融时报》数据：纳指 100 周五下跌 5.6%，全周累计下跌 10.4%，为新冠疫情以来最差单周表现，较 10 月高点回落 20%，进入熊市区间。抛售受多重因素叠加：市场对巨额 AI 基建投入回报的质疑、媒体报道 SEC 正审查英伟达会计问题导致其周五暴跌 14%、美国半导体指数单日大跌 10.7%（含 SanDisk、美光、博通）、民主党中期选举获胜后的政策不确定性，以及中东局势推高油价和通胀预期。Anthropic 上市次日收跌 9.1%。"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 公布反蒸馏防护：GPT-6.2 Astra 思考链提取成功率从 54% 降至 0.2%",
+      "timing": "北京时间 11 月 21 日 03:33 发布",
+      "tldr": "OpenAI 公布 CoT 反蒸馏防护方案：GPT-6.2 Astra 提取历史请求推理的成功率从 54.0% 压到 0.2%，API 层直接将推理内容与对话历史绑定防篡改。",
+      "points": [
+        {
+          "text": "黑盒红队测试中，提取历史推理成功率从 54.0% 降至 0.2%，当前请求降至 0.9%。"
+        },
+        {
+          "text": "API 将受保护推理与对话历史绑定，历史一经改动即丢弃后续推理，旧模型无法读取。"
+        },
+        {
+          "text": "OpenAI 披露今年每周封禁数千至数万个涉违规蒸馏账号，并与同行共享攻击指标。"
+        }
+      ],
+      "text": "OpenAI 公布对抗性蒸馏防御研究，说明其在 GPT-6.2 Astra 和 Sol 上对内部思考链（CoT）的多层加固方案。据官方披露的内部黑盒红队测试（汇总 6 个攻击模型），攻击者提取此前请求受保护推理内容的成功率，从 GPT-6 Astra 的 54.0% 降至 GPT-6.2 Astra 的 0.2%，提取当前请求推理的成功率从 22.9% 降至 0.9%。\n防护手段包括对抗训练拒答、输入输出分类器，以及在 API 层面将受保护推理与生成它的对话历史绑定：一旦历史消息被改动，API 会直接丢弃后续推理内容，旧版模型也无法读取新模型的受保护推理。OpenAI 同时披露，今年以来每周对数千至数万个涉违规蒸馏账号采取封禁等措施，并与同行共享攻击指标。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "OpenAI 发布帖",
+          "url": "https://x.com/OpenAI/status/2123862344422088794"
+        },
+        {
+          "kind": "报道",
+          "label": "IT之家报道",
+          "url": "https://www.ithome.com/1/030/319.htm"
+        }
+      ],
+      "emphasis": [
+        "提取此前请求受保护推理内容的成功率，从 GPT-6 Astra 的 54.0% 降至 GPT-6.2 Astra 的 0.2%",
+        "一旦历史消息被改动，API 会直接丢弃后续推理内容"
+      ],
+      "aiComment": "为了防别人抄思考链，API 直接给上下文上了防拆封条，动一下历史消息就把后面的推理全作废 🔒",
+      "sources": [
+        {
+          "publisher": "OpenAI（官方 X 帖）",
+          "url": "https://x.com/OpenAI/status/2123862344422088794",
+          "excerpt": "2026-11-20 19:33:37 UTC 发布：蒸馏可能在不带安全护栏的情况下复制前沿 AI 能力。OpenAI 公布对抗模型蒸馏的新研究，说明能力如何迁移，以及公司如何检测和阻断有组织的提取行为，附 openai.com/index/combatting-adversarial-distillation/ 链接。"
+        },
+        {
+          "publisher": "IT之家",
+          "url": "https://www.ithome.com/1/030/319.htm",
+          "excerpt": "2026-11-21 09:45（北京时间）报道 OpenAI 11 月 20 日反蒸馏公告。OpenAI 加强了 GPT-6.2 Astra 和 GPT-6.2 Sol 对内部推理思考链的保护。在汇总 6 个攻击模型的内部自适应黑盒红队测试中，提取此前请求受保护推理内容的成功率从 GPT-6 Astra 原有机制下的 54.0% 降至 GPT-6.2 Astra 更新后的 0.2%；提取当前请求推理内容的成功率从 22.9% 降至 0.9%。多层防护包括：对抗训练识别并拒绝提取请求、输入输出分类器检测攻击与泄露、以及 API 限制跨会话/模型/组织复用推理内容。GPT-6.2 Astra 与 Sol 将受保护推理与生成它的对话历史绑定，若此前消息被修改，API 会丢弃基于该消息生成的后续推理；旧版模型也无法读取这两个新模型的受保护推理。执法方面，OpenAI 称今年以来每周对数千至数万个涉及未经授权蒸馏的账号采取措施，今夏以来规模明显增加，并与同行共享攻击指标。内部研究还显示，相比仅用最终回答、推理摘要和工具记录，用完整推理轨迹做监督微调的学生模型在网络安全能力迁移上效果更强。"
+        }
+      ]
+    },
+    {
+      "title": "特朗普威胁对海外建数据中心征重税，坦言此前未与幕僚商量",
+      "timing": "The Verge 于北京时间 11 月 21 日 02:50 报道",
+      "tldr": "特朗普威胁对美企海外建数据中心征收“巨额税款”，但未给税率与细节，并在副总统和国务卿在场时坦言此前甚至没跟幕僚团队商量过。",
+      "points": [
+        {
+          "text": "特朗普称不许美企海外建数据中心，否则“中国全拿走”，并威胁征收“巨额税款”。"
+        },
+        {
+          "text": "现场未给税率与执行细节，且当着副总统与国务卿坦言此前没跟自己团队商量过。"
+        },
+        {
+          "text": "目前美国多州正收紧或暂停新数据中心审批，叠加新一届国会换届，落地仍未知。"
+        }
+      ],
+      "text": "据 The Verge 报道，美国总统特朗普周五在新闻发布会上表示，不会允许美国公司在海外建设数据中心，并威胁对出海建数据中心的企业征收“巨额税款”。特朗普称，此前放任芯片等产业外流导致美国落后，若允许数据中心外建，“中国会把它们全部拿走”。\n特朗普未给出任何税率或执行细节，并在副总统 JD Vance 与国务卿 Marco Rubio 在场时坦言，这是他首次公开提出该想法，此前甚至没跟自己的团队说过。目前美国多州和城市正对新数据中心申请实施暂停令或收紧审批，而新一届民主党多数国会也将在数月内就职，该提议能否落地仍是未知数。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax"
+        }
+      ],
+      "emphasis": [
+        "威胁对出海建数据中心的企业征收“巨额税款”",
+        "此前甚至没跟自己的团队说过"
+      ],
+      "aiComment": "本土各州卡审批，出海又要被收重税，最先听懵的大概是旁边站着的副总统和国务卿",
+      "sources": [
+        {
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax",
+          "excerpt": "Lauren Feiner 撰文，发布于 2026-11-20 18:50 UTC。美国总统特朗普周五在新闻发布会上承诺对在海外建设数据中心的企业征收“巨额税款”（tremendous tax），称“我们不会允许美国公司在海外建设数据中心”，并指此前芯片等产业外流导致美国落后，若允许数据中心外建“中国会把它们全部拿走”。特朗普未披露计划细节，并在副总统 JD Vance 与国务卿 Marco Rubio 陪同下坦言，这是他首次公开提出该想法，此前甚至未向幕僚提起。报道指出，美国多州和城市目前正对新数据中心申请实施暂停令或收紧限制，企业在本地扩建受阻；同时新一届民主党多数国会将在数月内就职，该征税承诺落地难度较大。"
+        }
+      ]
+    },
+    {
+      "title": "Signal 默认限制 iOS 27 与 Android 截图，拦截系统级 AI 助手读屏",
+      "timing": "Signal 官方博客 11 月 20 日发布，北京时间 11 月 21 日凌晨引发广泛报道",
+      "tldr": "继在 Windows 11 拦截 Recall 后，Signal 现已在 iOS 27 默认禁截屏屏蔽 Siri AI，并在 Android 检测到读屏时触发屏保，直言系统级 AI 扫屏绕过端到端加密。",
+      "points": [
+        {
+          "text": "Signal 在 iOS 27 默认禁截屏防 Siri AI，并在 Android 检测到读屏时触发屏幕保护。"
+        },
+        {
+          "text": "Meta AI agent Muse 近期曾通过广泛权限读取 Signal，Meta 称均经用户明确授权。"
+        },
+        {
+          "text": "Signal 坦言 macOS 仍难防截屏且文件权限存风险，呼吁三大系统提供一键屏蔽开关。"
+        }
+      ],
+      "text": "Signal 总裁 Meredith Whittaker 发文宣布，继去年在 Windows 11 拦截 Microsoft Recall 后，Signal 现已在 iOS 27 默认禁止截屏以屏蔽 Siri AI 的屏幕感知，并在支持的 Android 版本检测到 AI 助手尝试读屏时自动触发屏幕保护。Signal 称，系统级 AI 直接扫描屏幕抓取已解密聊天内容，等于绕过了端到端加密，对隐私构成“生存威胁”。\n据 The Decoder 报道，Meta 的 AI agent Muse 近期曾通过广泛权限在 Android 和 macOS 上读取过 Signal 内容，Meta 称仅在用户明确授权后发生。Signal 坦言现有防线并不完整：macOS 上无法可靠禁截屏，AI 访问文件系统和通知仍是风险，呼吁苹果、谷歌和微软提供一键屏蔽 AI 访问指定应用的开关。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Signal 官方博客",
+          "url": "https://signal.org/blog/protecting-your-privacy/"
+        },
+        {
+          "kind": "报道",
+          "label": "Decoder 报道",
+          "url": "https://the-decoder.com/signal-blocks-screenshots-on-ios-27-and-android-to-stop-ai-agents-from-reading-private-chats/"
+        }
+      ],
+      "emphasis": [
+        "在 iOS 27 默认禁止截屏以屏蔽 Siri AI 的屏幕感知",
+        "macOS 上无法可靠禁截屏，AI 访问文件系统和通知仍是风险"
+      ],
+      "aiComment": "加密算法卷了十几年防中间人窃听，结果操作系统派个 AI 助手直接坐你肩膀后面看屏幕 🫠",
+      "sources": [
+        {
+          "publisher": "Signal（官方博客）",
+          "url": "https://signal.org/blog/protecting-your-privacy/",
+          "excerpt": "Signal 总裁 Meredith Whittaker 署名，落款 2026-11-20。继去年在 Windows 11 默认屏蔽 Microsoft Recall 截屏后，Signal 宣布采取类似措施限制移动操作系统内置 AI agent 捕获和存储聊天数据：在 iOS 27 默认启用防截屏以限制 Siri AI 的屏幕感知（Onscreen Awareness），在支持的 Android 版本上检测到 AI 助手试图读取 Signal 屏幕时触发屏幕保护。文章称苹果、谷歌和微软掌控三大主流消费级操作系统，将 Gemini Intelligence、Siri AI 等 agentic 能力深度嵌入系统并扫描屏幕，直接抓取已解密内容并存入本地数据库或远程服务器，破坏了 Signal 十余年来依靠开源代码和形式化验证加密协议提供的隐私保障，构成“生存威胁”。"
+        },
+        {
+          "publisher": "The Decoder",
+          "url": "https://the-decoder.com/signal-blocks-screenshots-on-ios-27-and-android-to-stop-ai-agents-from-reading-private-chats/",
+          "excerpt": "2026-11-20 19:50 UTC 发布，援引路透社与 Signal 公告。报道补充：Meta 的 AI agent Muse 近期曾通过安装时的广泛权限（含 macOS 上的辅助功能与截屏）捕获 Signal 聊天内容，Meta 回应称仅在获得用户明确许可后发生。Signal 坦言现有防御并不完整，macOS 上无法可靠阻止截屏，AI 访问文件系统和通知仍是风险，呼吁苹果、谷歌和微软提供简单机制，让用户能彻底禁止 AI agent 访问指定应用。"
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "从 API 思考链到手机屏幕，AI 边界防护正在两端同时收紧",
+      "text": "模型厂商与隐私应用都在针对新的数据读取路径加锁：OpenAI 通过绑定对话历史防止外部用 API 提取完整思考链做蒸馏，Signal 则在移动端默认禁截屏以挡住系统级 AI 助手直接读屏。随着 agent 和推理模型深入日常工作流，原先默许的上下文与界面访问权限正被逐一收回。"
+    }
+  ]
+}
