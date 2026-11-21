@@ -4,6 +4,36 @@
   const routes = window.AgentHubRoutes;
   const asset = file => window.AgentHubRoutes?.asset(file) || file;
   const isTopicalGroup = id => /^group-[6-9]$|^group-\d{2,}$/.test(String(id || ''));
+  const scriptLoads = new Map();
+  function loadLazyScript(name, version) {
+    if (!scriptLoads.has(name)) {
+      scriptLoads.set(name, new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = asset(`${name}${version ? `?v=${version}` : ''}`);
+        script.onload = () => resolve();
+        script.onerror = () => { scriptLoads.delete(name); script.remove(); reject(new Error(`${name} unavailable`)); };
+        document.head.append(script);
+      }));
+    }
+    return scriptLoads.get(name);
+  }
+  const msgIcon = '<svg class="discussion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>';
+  const rightIcon = '<svg class="discussion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>';
+  function resourceKind(resource) {
+    if (window.AgentHubDiscussion?.resourceKind) return window.AgentHubDiscussion.resourceKind(resource);
+    let host = '';
+    try { host = new URL(resource.url).hostname.replace(/^www\./, ''); } catch {}
+    if (host === 'github.com') return 'code';
+    if (host === 'arxiv.org') return 'paper';
+    return { paper: 'paper', arxiv: 'paper', article: 'article', wechat: 'article', official: 'article', code: 'code',
+      github: 'code', repo: 'code', demo: 'demo', discussion: 'messages' }[resource.kind] || 'link';
+  }
+  function discussionTrigger(messagesOrMeta, index) {
+    if (window.AgentHubDiscussion?.trigger) return window.AgentHubDiscussion.trigger(messagesOrMeta, index);
+    const count = Array.isArray(messagesOrMeta) ? messagesOrMeta.length : messagesOrMeta.count;
+    const speakers = Array.isArray(messagesOrMeta) ? new Set(messagesOrMeta.map(m => m.speaker)).size : messagesOrMeta.speakers;
+    return `<button type="button" class="discussion-trigger" id="discussion-${index + 1}" data-discussion-index="${index}" aria-haspopup="dialog" aria-label="查看原始讨论，${count} 条消息，${speakers} 位群友">${msgIcon}<span class="discussion-trigger-label">原始讨论</span><span class="discussion-trigger-meta">${count} 条 · ${speakers} 人</span>${rightIcon}</button>`;
+  }
   function storyResources(story) {
     const icons = { paper: 'file-text', article: 'book-open', code: 'code-xml', demo: 'play', discussion: 'messages-square' };
     const lucideNames = { ...icons, messages: 'messages-square', link: 'link' };
@@ -24,7 +54,7 @@
     if (!links.length) return '';
     return `<ul class="brief-resources" aria-label="相关资料">${links.map(resource =>
       `<li><a href="${esc(resource.url)}" target="_blank" rel="noopener noreferrer">
-        <span class="resource-icon"><i data-lucide="${lucideNames[window.AgentHubDiscussion.resourceKind(resource)]}"></i></span><span class="resource-copy"><span class="resource-label">${esc(resource.label)}</span> <span class="resource-address">${esc(new URL(resource.url).hostname.replace(/^www\./, ''))}</span></span>
+        <span class="resource-icon"><i data-lucide="${lucideNames[resourceKind(resource)]}"></i></span><span class="resource-copy"><span class="resource-label">${esc(resource.label)}</span> <span class="resource-address">${esc(new URL(resource.url).hostname.replace(/^www\./, ''))}</span></span>
         <i class="resource-external" data-lucide="arrow-up-right"></i>
       </a></li>`).join('')}</ul>`;
   }
@@ -46,6 +76,23 @@
       html += `<strong class="brief-emphasis">${esc(text.slice(range.start, end))}</strong>`;
     }
     return html + esc(text.slice(end));
+  }
+  const hasDiscussion = story => Boolean(story?.discussion?.length || story?.discussionMeta?.count);
+  const discussionLoads = new Map();
+  function loadIssueDiscussions(issue) {
+    const cache = window.AGENT_HUB_DISCUSSIONS || (window.AGENT_HUB_DISCUSSIONS = {});
+    if (cache[issue.date]) return Promise.resolve(cache[issue.date]);
+    if (!issue.discussionVersion) return Promise.resolve(null);
+    if (!discussionLoads.has(issue.date)) {
+      discussionLoads.set(issue.date, new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = asset(`issues/${issue.date}.discussions.js?v=${issue.discussionVersion}`);
+        script.onload = () => resolve(cache[issue.date] || null);
+        script.onerror = () => { discussionLoads.delete(issue.date); script.remove(); reject(new Error('Discussions unavailable')); };
+        document.head.append(script);
+      }));
+    }
+    return discussionLoads.get(issue.date);
   }
   let pageIndex = 0;
   // Index entries carry a precomputed flag until their issue script has loaded (build.mjs).
@@ -76,7 +123,7 @@
     const groupActivity = activity?.groups.find(g => g.id === page.id);
     const daily = groupActivity?.daily[issue.date];
     const avatar = member => activity?.avatars?.[member.key]
-      ? `<img src="${esc(asset(activity.avatars[member.key]))}${archive.avatarVersion ? `?v=${esc(archive.avatarVersion)}` : ''}" alt="第 ${esc(member.rank)} 名成员头像" width="28" height="28">`
+      ? `<img src="${esc(asset(activity.avatars[member.key]))}${archive.avatarVersion ? `?v=${esc(archive.avatarVersion)}` : ''}" alt="第 ${esc(member.rank)} 名成员头像" width="28" height="28" loading="lazy" decoding="async">`
       : '<span class="avatar-missing" aria-label="头像未获取"><i data-lucide="user-round"></i></span>';
     const main = document.querySelector('#reading');
     const rankingHref = routes?.href
@@ -236,11 +283,11 @@
           <h2>${esc(s.title)}</h2></header><div class="brief-body"><p>${briefText(s)}</p>
           ${s.takeaway ? `<p class="brief-takeaway"><span>讨论摘记</span>${esc(s.takeaway)}</p>` : ''}
           ${storyResources(s)}
-          ${s.aiComment ? `<aside class="brief-comment" aria-label="AI 锐评"><span class="brief-comment-label">AI 锐评</span><p>${esc(s.aiComment)}</p></aside>` : ''}
-          <div class="brief-actions">${!external && !weekly && s.discussion?.length ? window.AgentHubDiscussion.trigger(s.discussion, i) : ''}</div></div></div>
+          ${s.aiComment ? `<aside class="brief-comment" aria-label="Bot 锐评"><span class="brief-comment-label">Bot 锐评</span><p>${esc(s.aiComment)}</p></aside>` : ''}
+          <div class="brief-actions">${!external && !weekly && hasDiscussion(s) ? discussionTrigger(s.discussion || s.discussionMeta, i) : ''}</div></div></div>
         </article>`).join('')}
         </section>
-          ${page.figure ? `<figure class="lead-figure" aria-labelledby="evidence-heading"><figcaption><h2 id="evidence-heading">论文依据</h2><a href="${esc(page.figure.url)}" target="_blank" rel="noopener noreferrer">${esc(page.figure.credit)}<i data-lucide="arrow-up-right"></i></a></figcaption><div class="evidence-body">${page.figure.src ? `<a href="${esc(page.figure.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(page.figure.src)}" alt="${esc(page.figure.alt)}" width="4086" height="1930"></a>` : `<p>${esc(page.figure.alt)}</p>`}<p class="evidence-note">${esc(page.figure.caption)}</p></div></figure>` : ''}
+          ${page.figure ? `<figure class="lead-figure" aria-labelledby="evidence-heading"><figcaption><h2 id="evidence-heading">论文依据</h2><a href="${esc(page.figure.url)}" target="_blank" rel="noopener noreferrer">${esc(page.figure.credit)}<i data-lucide="arrow-up-right"></i></a></figcaption><div class="evidence-body">${page.figure.src ? `<a href="${esc(page.figure.url)}" target="_blank" rel="noopener noreferrer"><img src="${esc(page.figure.src)}" alt="${esc(page.figure.alt)}" width="4086" height="1930" loading="lazy" decoding="async"></a>` : `<p>${esc(page.figure.alt)}</p>`}<p class="evidence-note">${esc(page.figure.caption)}</p></div></figure>` : ''}
         ` : papers.length ? `<div class="paper-list">${papers.map((p, i) => `<article>
           <div class="brief-category"><span>${String(i + 1).padStart(2, '0')}</span>${esc(p.topic)}</div>
           <h2><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}<i data-lucide="arrow-up-right"></i></a></h2>
@@ -253,14 +300,60 @@
       </section>
       ${switcherDialog}`;
     for (const image of main.querySelectorAll('.lead-figure img')) image.src = asset(image.getAttribute('src'));
-    window.AgentHubDiscussion.configure(!isOverview && !external && !weekly && stories.some(story => story.discussion?.length) ? {
+    const storyMessages = index => {
+      const story = stories[index];
+      if (!story) return null;
+      if (story.discussion?.length) return story.discussion;
+      const loaded = window.AGENT_HUB_DISCUSSIONS?.[issue.date]?.[page.id]?.[index];
+      if (loaded?.length) { story.discussion = loaded; return loaded; }
+      return null;
+    };
+    const needsLazyDiscussions = Boolean(!isOverview && !external && !weekly && issue.discussionVersion && stories.some(s => hasDiscussion(s) && !s.discussion?.length));
+    const discussionConfig = !isOverview && !external && !weekly && stories.some(hasDiscussion) ? {
       section: page.label, back: '日报', total: stories.length,
-      topic: index => stories[index]?.discussion?.length ? {
-        title: stories[index].title, messages: stories[index].discussion, category: stories[index].category,
-        text: stories[index].text, emphasis: stories[index].emphasis, comment: stories[index].aiComment,
-        resources: stories[index].resources, feedbackId: stories[index].feedbackId,
-      } : null,
-    } : null);
+      ...(needsLazyDiscussions ? {
+        prefetch: () => loadIssueDiscussions(issue).catch(() => {}),
+        ensureLoaded: () => loadIssueDiscussions(issue),
+      } : {}),
+      topic: index => {
+        const story = stories[index];
+        if (!hasDiscussion(story)) return null;
+        const messages = storyMessages(index);
+        return {
+          title: story.title, messages, pending: !messages, category: story.category,
+          text: story.text, emphasis: story.emphasis, comment: story.aiComment,
+          resources: story.resources, feedbackId: story.feedbackId,
+        };
+      },
+    } : null;
+    if (window.AgentHubDiscussion?.configure) {
+      window.AgentHubDiscussion.configure(discussionConfig);
+    } else if (discussionConfig) {
+      let panelPromise = null;
+      const warmPanel = () => {
+        if (!panelPromise) {
+          const panelVer = archive.lazyAssets?.['discussion-panel.js'];
+          const loads = [loadLazyScript('discussion-panel.js', panelVer)];
+          if (needsLazyDiscussions) loads.push(loadIssueDiscussions(issue).catch(() => {}));
+          panelPromise = Promise.all(loads).then(() => {
+            if (main.dataset.page === page.id) window.AgentHubDiscussion?.configure(discussionConfig);
+          }).catch(() => { panelPromise = null; });
+        }
+        return panelPromise;
+      };
+      if (/^#discussion-\d+$/.test(loc.hash || '')) warmPanel();
+      for (const btn of main.querySelectorAll('[data-discussion-index]')) {
+        btn.addEventListener('pointerenter', warmPanel, { passive: true, once: true });
+        btn.addEventListener('focusin', warmPanel, { once: true });
+        btn.addEventListener('click', event => {
+          if (window.AgentHubDiscussion?.open) return;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          const idx = Number(btn.dataset.discussionIndex);
+          warmPanel().then(() => window.AgentHubDiscussion?.open(idx));
+        });
+      }
+    }
     const sections = document.querySelector('#edition-sections');
     sections.replaceChildren(main.querySelector('.group-nav'));
     function flip(index, focus = false) {
@@ -326,11 +419,14 @@
       const bar = activeTab.parentElement;
       bar.scrollLeft = Math.max(0, activeTab.offsetLeft - (bar.clientWidth - activeTab.offsetWidth) / 2);
     }
-    // The toolbar button and the compact header's copy save the same page.
-    for (const button of document.querySelectorAll('.save-image')) button.onclick = () =>
-      window.AgentHubShare.save(`${issue.label} ${page.label}`, `AgentHub日报-${issue.date}-${page.label}.png`);
+    // The toolbar button and the compact header's copy save the same page; share-image.js loads on demand.
+    for (const button of document.querySelectorAll('.save-image')) button.onclick = () => {
+      const run = () => window.AgentHubShare.save(`${issue.label} ${page.label}`, `AgentHub日报-${issue.date}-${page.label}.png`);
+      if (window.AgentHubShare?.save) run();
+      else loadLazyScript('share-image.js', archive.lazyAssets?.['share-image.js']).then(run).catch(() => {});
+    };
     main.dataset.page = page.id;
-    window.AgentHubFeedback?.mount(main, isOverview ? [] : page.stories || []);
-    window.lucide.createIcons({ attrs: { 'aria-hidden': 'true', 'stroke-width': 1.6 } });
+    window.lucide.createIcons({ root: main, attrs: { 'aria-hidden': 'true', 'stroke-width': 1.6 } });
+    window.lucide.createIcons({ root: sections, attrs: { 'aria-hidden': 'true', 'stroke-width': 1.6 } });
   };
 })();

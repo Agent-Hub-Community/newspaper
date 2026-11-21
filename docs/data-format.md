@@ -16,6 +16,8 @@
 | `data/opportunities.json` | 招聘、活动与征稿机会 | [`lib/opportunities.mjs`](../lib/opportunities.mjs) |
 | `data/glossary.json` | 群聊黑话词典 | [`lib/glossary.mjs`](../lib/glossary.mjs) |
 | `data/search-synonyms.json` | 站内搜索的普通同义词组 | [`lib/synonyms.mjs`](../lib/synonyms.mjs) |
+| `data/attachments/media/`、`files/` | 讨论记录挂载的压缩媒体（WebP / faststart MP4）与 ≤10 MB 文件（内容 MD5 去重） | [`lib/attachments.mjs`](../lib/attachments.mjs)、[`test/build.mjs`](../test/build.mjs) |
+| `data/link-previews.json` | 讨论裸链的 OpenGraph/oEmbed 预览缓存（构建期输出 `dist/link-previews.js`） | [`build.mjs`](../build.mjs)、[`test/build.mjs`](../test/build.mjs) |
 | `data/semantic-vectors.json` | 语义检索用的 int8 向量 | [`lib/semantic.mjs`](../lib/semantic.mjs) |
 
 几条通用规矩：
@@ -78,6 +80,16 @@
 | `text` | 原话文本（保留原始消息正文与 `@昵称` 不改写）；图片固定写 `[图片]`，不能把 `[图片（缩略图）：……]` 这种模型图说放进来 |
 | `quote` | 可选，`{ "speaker": 编号或 null, "text": "被引用的原话" }` |
 | `continues` | 仅周报可选，标记跨话题延续 |
+| `attachments` | 可选，图片、视频、音频或文件的静态附件。路径必须以 `attachments/` 开头，文件由构建器复制进站点 |
+
+附件使用 `kind`、`src` 或 `href`、`poster`、`name`、`label`、`alt`、`caption`、`mime`、`bytes`、`width`、`height` 等字段。图片默认转为 WebP（最长边 ≤ 1440px）并写入自然宽高以消除排版抖动（CLS），视频采用 H.264 + `+faststart` 且默认静音 25% 音量，文件单件上限 10 MB，超限或未采集到二进制时保留元信息卡片。
+
+### 构建产物与前端性能约定
+
+- 日报首屏 `issues/<date>.js` 仅携带轻量的 `discussionMeta`（条数、人数、时间跨度），完整原始讨论拆分到按需加载的 `issues/<date>.discussions.js`。
+- 站内动态数据（`issues/*.js`、`issues/*.discussions.js`、`link-previews.js`）一律以带内容哈希的 `<script>` 载入，兼容严格 CSP（`connect-src 'none'`）与 `file://` 本地打开，子目录页面通过 `<meta name="agenthub-root">` 解析根路径。
+- 全站 CSS/JS 构建期压缩并按页合并（`daily.bundle.css` / `app.bundle.js` / `weekly.bundle.*` / `library.bundle.*`），`discussion-panel.js`、`share-image.js`、`ranking.js`、`link-previews.js` 均按需懒加载；字体仅打包 48 KB 英文/数字 `Inter Variable`，中文走系统原生字体栈。
+- 已移除日报点赞/点踩与资料库红心投票请求，公开构建仅保留轻量访问统计 `views.js`。
 
 ## 2. 外部资讯（`data/external-editions/<date>.json`）
 

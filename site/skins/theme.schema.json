@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-hub-community.github.io/newspaper/skins/theme.schema.json",
+  "title": "Agent Hub Theme Pack v2",
+  "description": "Declarative special-day and knowledge-theme plugin contract for Agent Hub Newspaper and Community Homepage.",
+  "type": "object",
+  "required": ["version", "id", "kind", "name", "masthead", "palette"],
+  "properties": {
+    "version": { "const": 2 },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "kind": { "enum": ["holiday", "milestone", "knowledge", "community"] },
+    "name": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "summary": { "type": "string", "maxLength": 220 },
+    "targets": {
+      "type": "array",
+      "items": { "enum": ["daily", "weekly", "library", "glossary", "rank", "search", "agents", "home"] }
+    },
+    "masthead": {
+      "type": "object",
+      "required": ["eyebrow", "label", "message"],
+      "properties": {
+        "eyebrow": { "type": "string", "maxLength": 80 },
+        "label": { "type": "string", "maxLength": 40 },
+        "message": { "type": "string", "maxLength": 100 },
+        "art": {
+          "type": "object",
+          "required": ["file"],
+          "properties": {
+            "file": { "type": "string", "pattern": "^[a-z0-9-]+\\.(png|jpg|webp|svg)$" },
+            "alt": { "type": "string", "maxLength": 120 },
+            "pixelated": { "type": "boolean" }
+          }
+        },
+        "ornament": {
+          "type": "object",
+          "required": ["file"],
+          "properties": {
+            "file": { "type": "string", "pattern": "^[a-z0-9-]+\\.(png|jpg|webp|svg)$" }
+          }
+        },
+        "seal": {
+          "type": "object",
+          "required": ["text"],
+          "properties": {
+            "text": { "type": "string", "maxLength": 24 },
+            "caption": { "type": "string", "maxLength": 24 }
+          }
+        },
+        "story": {
+          "type": "object",
+          "required": ["title", "body"],
+          "properties": {
+            "kicker": { "type": "string", "maxLength": 40 },
+            "title": { "type": "string", "maxLength": 100 },
+            "body": { "type": "array", "items": { "type": "string", "maxLength": 400 }, "minItems": 1 },
+            "facts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["label", "value"],
+                "properties": {
+                  "label": { "type": "string", "maxLength": 24 },
+                  "value": { "type": "string", "maxLength": 32 }
+                }
+              }
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["label", "href"],
+                "properties": {
+                  "label": { "type": "string", "maxLength": 40 },
+                  "href": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "palette": {
+      "type": "object",
+      "required": ["scope", "light", "dark"],
+      "properties": {
+        "scope": { "enum": ["masthead-only", "masthead-and-accent", "full-paper"] },
+        "light": { "$ref": "#/$defs/modePalette" },
+        "dark": { "$ref": "#/$defs/modePalette" }
+      }
+    },
+    "ambient": {
+      "type": "object",
+      "properties": {
+        "preset": { "enum": ["none", "critical-line", "stardust", "snow", "lantern"] },
+        "region": { "const": "masthead" }
+      }
+    },
+    "knowledge": {
+      "type": "object",
+      "properties": {
+        "banner": {
+          "type": "object",
+          "required": ["text"],
+          "properties": {
+            "dismissible": { "type": "boolean" },
+            "placement": { "enum": ["overview-only", "all"], "default": "overview-only" },
+            "kicker": { "type": "string", "maxLength": 32 },
+            "text": { "type": "string", "maxLength": 200 },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["label"],
+                "properties": {
+                  "label": { "type": "string", "maxLength": 36 },
+                  "href": { "type": "string" },
+                  "action": { "enum": ["open-story"] }
+                }
+              }
+            }
+          }
+        },
+        "highlight": {
+          "type": "object",
+          "required": ["keywords"],
+          "properties": {
+            "badge": { "type": "string", "maxLength": 32 },
+            "keywords": { "type": "array", "items": { "type": "string", "maxLength": 40 } }
+          }
+        },
+        "related": {
+          "type": "object",
+          "required": ["keywords"],
+          "properties": {
+            "heading": { "type": "string", "maxLength": 32 },
+            "keywords": { "type": "array", "items": { "type": "string", "maxLength": 40 } },
+            "limit": { "type": "integer", "minimum": 1, "maximum": 12 },
+            "maxPerGroup": { "type": "integer", "minimum": 1, "maximum": 4 }
+          }
+        }
+      }
+    },
+    "home": {
+      "type": "object",
+      "properties": {
+        "eyebrow": { "type": "string", "maxLength": 80 },
+        "badge": { "type": "string", "maxLength": 40 },
+        "summary": { "type": "string", "maxLength": 160 },
+        "href": { "type": "string" },
+        "accent": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bandBg": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "galaxyCore": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "galaxyArm": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "asciiHands": {
+          "type": "object",
+          "properties": {
+            "humanColor": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+            "machineColor": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+            "glyphBands": { "type": "array", "items": { "type": "string", "maxLength": 24 }, "minItems": 4 }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "modePalette": {
+      "type": "object",
+      "required": ["bandBg", "bandInk", "bandMuted", "bandAccent", "bandRule"],
+      "properties": {
+        "paper": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "surface": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "ink": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "muted": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "rule": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "accent": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "link": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "emphasis": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bandBg": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bandInk": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bandMuted": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bandAccent": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bandRule": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bannerBg": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" },
+        "bannerBorder": { "type": "string", "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$" }
+      }
+    }
+  }
+}

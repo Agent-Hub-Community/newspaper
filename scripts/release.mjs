@@ -1,13 +1,11 @@
-// Runs the approved-release chain in one command: import reviewed batches into data/, public build, semantic
-// vectors, tests, and the D1 feedback catalog. It stops at the first failing step and never commits or pushes.
+// Runs the approved-release chain in one command: import reviewed batches into data/, public build, and
+// optional semantic vector embedding. Voting/D1 feedback catalog registration has been removed; GitHub Actions
+// runs the final public build with vectors and full verification on push.
 //
-//   node scripts/release.mjs --daily-batch scratch/day-2026-10-25-run1/final \
-//     --external-draft scratch/external-2026-10-25-run1/commented-reviewed.json \
+//   node scripts/release.mjs --daily-batch scratch/day-2026-10-25-run1 \
+//     --external-draft scratch/external-2026-10-25-run1/reviewed-final.json \
 //     --external-selection scratch/external-2026-10-25-run1/selection.json \
-//     [--weekly-reader DIR] [--sql-out FILE] [--skip-d1] [--dry-run]
-//
-// Requires FEEDBACK_API_URL and CLOUDFLARE_ACCOUNT_ID, plus WRANGLER_BIN unless --skip-d1. Before the first step it
-// also checks that WRANGLER_BIN is executable and that the embed step can get a Cloudflare token.
+//     [--weekly-reader DIR] [--skip-embed] [--dry-run]
 import { execFileSync, spawnSync } from 'node:child_process';
 import { accessSync, constants, existsSync, mkdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
@@ -16,30 +14,32 @@ import { parseArgs } from 'node:util';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const USAGE = 'Usage: node scripts/release.mjs [--daily-batch DIR] [--external-draft FILE [--external-selection FILE]] '
-  + '[--weekly-reader DIR] [--sql-out FILE] [--skip-d1] [--dry-run]';
+  + '[--weekly-reader DIR] [--skip-embed] [--dry-run]';
 
 export function parseReleaseArgs(argv) {
   const { values } = parseArgs({ args: argv, strict: true, options: {
     'daily-batch': { type: 'string' }, 'external-draft': { type: 'string' }, 'external-selection': { type: 'string' },
     'weekly-reader': { type: 'string' }, 'sql-out': { type: 'string' },
-    'skip-d1': { type: 'boolean', default: false }, 'dry-run': { type: 'boolean', default: false },
+    'skip-d1': { type: 'boolean', default: false }, 'skip-embed': { type: 'boolean', default: false },
+    'dry-run': { type: 'boolean', default: false },
   } });
   return {
     dailyBatch: values['daily-batch'], externalDraft: values['external-draft'],
     externalSelection: values['external-selection'], weeklyReader: values['weekly-reader'],
-    sqlOut: values['sql-out'], skipD1: values['skip-d1'], dryRun: values['dry-run'],
+    sqlOut: values['sql-out'], skipD1: values['skip-d1'], skipEmbed: values['skip-embed'],
+    dryRun: values['dry-run'],
   };
 }
 
 // Builds the ordered step list; throws before anything runs when options or environment are incomplete.
-// A step is either a command (`argv`) or the in-process SQL guard (`checkSql`).
 export function buildReleasePlan(options, env = {}) {
-  const { dailyBatch, externalDraft, externalSelection, weeklyReader, skipD1 } = options;
+  const { dailyBatch, externalDraft, externalSelection, weeklyReader, skipD1, skipEmbed } = options;
   if (externalSelection && !externalDraft) throw new Error('--external-selection needs --external-draft');
-  const required = ['FEEDBACK_API_URL', 'CLOUDFLARE_ACCOUNT_ID', ...(skipD1 ? [] : ['WRANGLER_BIN'])];
+  const shouldEmbed = !skipEmbed && Boolean(env.CLOUDFLARE_ACCOUNT_ID);
+  const shouldRegisterStories = !skipD1 && Boolean(env.WRANGLER_BIN);
+  const required = ['FEEDBACK_API_URL'];
   const missing = required.filter(name => !env[name]);
   if (missing.length) throw new Error(`Missing environment variables: ${missing.join(', ')}`);
-  // The SQL sits next to the daily batch by default, as in the runbook; scratch/ is ignored by git.
   const sqlOut = options.sqlOut || path.join(dailyBatch || 'scratch', 'feedback-catalog.sql');
   const build = { name: 'public build', argv: ['npm', 'run', 'build', '--', '--public'] };
   const steps = [];
@@ -47,20 +47,17 @@ export function buildReleasePlan(options, env = {}) {
   if (externalDraft) steps.push({ name: 'import external report',
     argv: ['node', 'scripts/import-external-report.mjs', externalDraft, ...(externalSelection ? [externalSelection] : [])] });
   if (weeklyReader) steps.push({ name: 'import weekly', argv: ['node', 'scripts/import-reviewed-weekly.mjs', weeklyReader] });
-  steps.push(
-    build,
-    { name: 'embed catalog', argv: ['node', 'scripts/embed-catalog.mjs'] },
-    // Second build packs the new vectors into dist/.
-    { ...build, name: 'public build with vectors' },
-    // npm test and test/build.mjs --public run in deploy.yml before Pages is updated, so a failure there stops the
-    // deployment; running them here as well only repeated that check.
-    // feedback-catalog.mjs does not create directories, so a --sql-out in a new folder needs it made first.
-    { name: 'feedback catalog SQL', argv: ['node', 'scripts/feedback-catalog.mjs', 'dist/data.js', sqlOut],
-      outputDir: path.dirname(sqlOut) },
-    { name: 'check SQL', checkSql: sqlOut },
-  );
-  if (!skipD1) steps.push({ name: 'register D1 feedback IDs', argv: [env.WRANGLER_BIN, 'd1', 'execute', 'agenthub-feedback',
-    '--remote', '--config', 'feedback/wrangler.jsonc', '--file', sqlOut] });
+  steps.push(build);
+  if (shouldEmbed) steps.push({ name: 'embed catalog', argv: ['node', 'scripts/embed-catalog.mjs'] });
+  // Keep registering story IDs in D1 so POST /opens (per-topic discussion open telemetry) continues to record new stories.
+  if (shouldRegisterStories) {
+    steps.push(
+      { name: 'story catalog SQL', argv: ['node', 'scripts/feedback-catalog.mjs', 'dist/data.js', sqlOut], outputDir: path.dirname(sqlOut) },
+      { name: 'check SQL', checkSql: sqlOut },
+      { name: 'register D1 story IDs', argv: [env.WRANGLER_BIN, 'd1', 'execute', 'agenthub-feedback',
+        '--remote', '--config', 'feedback/wrangler.jsonc', '--file', sqlOut] },
+    );
+  }
   return steps;
 }
 
@@ -170,10 +167,11 @@ function main() {
       if (input && !existsSync(input)) throw new Error(`Not found: ${input}`);
     }
     const env = { ...process.env };
-    // Resolved before chdir, so a relative WRANGLER_BIN still means the caller's directory.
-    if (!options.skipD1 && env.WRANGLER_BIN) env.WRANGLER_BIN = resolveExecutable(env.WRANGLER_BIN);
+    if (env.WRANGLER_BIN && existsSync(path.resolve(env.WRANGLER_BIN))) env.WRANGLER_BIN = resolveExecutable(env.WRANGLER_BIN);
     steps = buildReleasePlan(options, env);
-    if (!options.dryRun) process.env.CLOUDFLARE_API_TOKEN = checkCloudflareToken(env);
+    if (!options.dryRun && steps.some(step => step.name === 'embed catalog')) {
+      process.env.CLOUDFLARE_API_TOKEN = checkCloudflareToken(env);
+    }
     // A local NODE_OPTIONS loader for model requests has no place in the build steps.
     delete process.env.NODE_OPTIONS;
     // The default SQL path (scratch/feedback-catalog.sql) and every step are relative to the repository root.

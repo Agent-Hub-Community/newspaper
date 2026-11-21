@@ -780,7 +780,16 @@
             {
               "speaker": 1,
               "time": "22:28",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/0622dd66d5bdfb3c63219e42faeceacb.webp",
+                  "alt": "群聊图片",
+                  "width": 655,
+                  "height": 1440
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -914,7 +923,15 @@
             {
               "speaker": 1,
               "time": "18:02",
-              "text": "[文件] HGIplus_Formal_Research_Program_v0.1.pdf (1.9 MB, pdf, md5=8d6e27e1678fdf5a564b2eb8124528ae)"
+              "text": "[文件] HGIplus_Formal_Research_Program_v0.1.pdf (1.9 MB, pdf, md5=8d6e27e1678fdf5a564b2eb8124528ae)",
+              "attachments": [
+                {
+                  "kind": "file",
+                  "href": "attachments/files/8d6e27e1678fdf5a564b2eb8124528ae.pdf",
+                  "name": "HGIplus_Formal_Research_Program_v0.1.pdf",
+                  "bytes": 2026328
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -1250,7 +1267,16 @@
             {
               "speaker": 1,
               "time": "20:49",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/60d19e7992b03a9a2dcb22b0b827c9f7.webp",
+                  "alt": "群聊图片",
+                  "width": 987,
+                  "height": 495
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -1839,7 +1865,14 @@
             {
               "speaker": 2,
               "time": "20:28",
-              "text": "[文件] science.aea2535.pdf (15.2 MB, pdf, md5=18f44372a4219f24796bd1e7903c97b0)"
+              "text": "[文件] science.aea2535.pdf (15.2 MB, pdf, md5=18f44372a4219f24796bd1e7903c97b0)",
+              "attachments": [
+                {
+                  "kind": "file",
+                  "name": "science.aea2535.pdf",
+                  "label": "15.2 MB"
+                }
+              ]
             }
           ]
         }

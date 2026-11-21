@@ -87,7 +87,14 @@
             {
               "speaker": 3,
               "time": "11:29",
-              "text": "[视频]"
+              "text": "[视频]",
+              "attachments": [
+                {
+                  "kind": "video",
+                  "poster": "attachments/media/5f9fa7d02e98b933a95d62478e66da7c.webp",
+                  "label": "视频（仅本地封面）"
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -209,7 +216,16 @@
             {
               "speaker": 1,
               "time": "11:11",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/b0e665620537c2e7595662a0e23e1fdf.webp",
+                  "alt": "群聊图片",
+                  "width": 180,
+                  "height": 123
+                }
+              ]
             },
             {
               "speaker": 3,
@@ -943,7 +959,16 @@
             {
               "speaker": 1,
               "time": "23:30",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/d7cc3856f15956d458678280bef299cf.webp",
+                  "alt": "群聊图片",
+                  "width": 175,
+                  "height": 180
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -963,7 +988,16 @@
             {
               "speaker": 1,
               "time": "23:33",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/3216cc38a451e8a8f006df15ad0cec84.webp",
+                  "alt": "群聊图片",
+                  "width": 180,
+                  "height": 143
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -1092,7 +1126,16 @@
             {
               "speaker": 1,
               "time": "11:17",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/8cb4a4dbefb447b21d7090605ba193ea.webp",
+                  "alt": "群聊图片",
+                  "width": 172,
+                  "height": 210
+                }
+              ]
             },
             {
               "speaker": 1,

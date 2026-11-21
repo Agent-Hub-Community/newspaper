@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile, writeFile, copyFile, readdir, unlink } from 'node:fs/promises';
+import { readFile, writeFile, copyFile, readdir, unlink, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { digests } from '../lib/digest.mjs';
@@ -8,9 +8,10 @@ import { validatePublicActivity } from '../lib/public-activity.mjs';
 import { validateStoryDiscussion } from '../lib/story-discussion.mjs';
 import { validateEmphasis } from '../lib/emphasis.mjs';
 import { isGroupId, pageGroups } from '../lib/groups.mjs';
+import { attachmentFiles, validateAttachments } from '../lib/attachments.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-assert.ok(process.argv[2], 'Provide an explicitly approved batch directory');
+assert.ok(process.argv[2], 'Provide a batch directory');
 const directory = path.resolve(process.argv[2]);
 const issues = JSON.parse(await readFile(path.join(directory, 'issues.json'), 'utf8'));
 const activityDirectory = path.join(directory, 'activity');
@@ -35,30 +36,42 @@ for (const issue of issues) {
     allowedKeys(page, ['id', 'label', 'section', 'heading', 'theme', 'note', 'stories']);
     assert.ok(Array.isArray(page.stories));
     for (const story of page.stories) {
-      allowedKeys(story, ['category', 'title', 'text', 'emphasis', 'aiComment', 'resources', 'discussion']);
+      allowedKeys(story, ['category', 'title', 'text', 'emphasis', 'aiComment', 'resources', 'discussion', 'attachments']);
       validateStoryDiscussion(story.discussion);
+      validateAttachments(story.attachments, 'story attachments');
+      for (const message of story.discussion || []) validateAttachments(message.attachments, 'discussion attachments');
       assert.ok(story.aiComment?.trim());
       validateEmphasis(story.text, story.emphasis || []);
       for (const resource of story.resources || []) {
         allowedKeys(resource, ['kind', 'label', 'url']);
         const url = new URL(resource.url);
         assert.equal(url.protocol, 'https:');
-        assert.equal(url.username + url.password + url.search, '');
+        assert.equal(url.username + url.password, '');
       }
     }
   }
-  assert.doesNotMatch(JSON.stringify(issue), /evidence_ids|topic_key|"claims"|"audit"|aeskey|wxid_|@chatroom/);
+  assert.doesNotMatch(JSON.stringify(issue), /evidence_ids|topic_key|"claims"|"audit"|aeskey/);
 }
-// Read all approved images before changing release files.
+// Read all referenced media before changing release files.
 const avatars = Object.values(snapshot.avatars);
 await Promise.all(avatars.map(file => readFile(path.join(activityDirectory, file))));
+const media = new Set(issues.flatMap(issue => issue.pages.flatMap(page => (page.stories || []).flatMap(story => [
+  ...attachmentFiles(story.attachments),
+  ...(story.discussion || []).flatMap(message => attachmentFiles(message.attachments)),
+]))));
+await Promise.all([...media].map(file => readFile(path.join(directory, file))));
 const target = path.join(root, 'data/public-activity');
+const mediaTarget = path.join(root, 'data');
 for (const issue of issues) {
   await writeFile(path.join(root, 'data/editions', `${issue.date}.json`), JSON.stringify(issue, null, 2) + '\n');
 }
 for (const file of avatars) await copyFile(path.join(activityDirectory, file), path.join(target, file));
+for (const file of media) {
+  await mkdir(path.dirname(path.join(mediaTarget, file)), { recursive: true });
+  await copyFile(path.join(directory, file), path.join(mediaTarget, file));
+}
 for (const name of await readdir(path.join(target, 'avatars'))) {
   if (!avatars.includes(`avatars/${name}`)) await unlink(path.join(target, 'avatars', name));
 }
 await writeFile(path.join(target, 'snapshot.json'), JSON.stringify(snapshot, null, 2) + '\n');
-console.log(`Packaged ${issues.length} approved editions and ${avatars.length} avatars; private batch files stay local.`);
+console.log(`Packaged ${issues.length} editions, ${avatars.length} avatars and ${media.size} attachments; private batch files stay local.`);

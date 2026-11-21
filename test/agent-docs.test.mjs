@@ -36,7 +36,7 @@ test('daily Markdown keeps summaries, comments and sources but never the raw dis
   assert.match(markdown, /## 二群：AI 审稿会怎样变？/);
   assert.doesNotMatch(markdown, /一群/, 'pages without copy are left out');
   assert.match(markdown, /第一段。\n\n第二段 \\\*不是强调\\\*。/, 'paragraphs survive and Markdown syntax is escaped');
-  assert.match(markdown, /AI 锐评：记下模型版本。/);
+  assert.match(markdown, /Bot 锐评：记下模型版本。/);
   assert.match(markdown, /资料：\[论文\]\(https:\/\/arxiv\.org\/abs\/2609\.39027\)/);
   assert.ok(markdown.includes(`网页：${site}daily/2026-10-13/group-2/#topic-1`));
   assert.doesNotMatch(markdown, /原话|21:24/);
@@ -77,7 +77,7 @@ test('weekly Markdown has its own path and keeps the timeline', () => {
   assert.equal(weeklyMarkdownPath(weekly), 'weekly/2026-10-05/2026-10-11/index.md');
   const markdown = weeklyMarkdown(weekly);
   assert.match(markdown, /- 2026-10-07：提出问题/);
-  assert.match(markdown, /AI 锐评：锐评。/);
+  assert.match(markdown, /Bot 锐评：锐评。/);
 });
 
 test('the index, llms files and skill point only at files the build writes', () => {

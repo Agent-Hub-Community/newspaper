@@ -107,7 +107,14 @@
             {
               "speaker": 1,
               "time": "20:06",
-              "text": "[视频]"
+              "text": "[视频]",
+              "attachments": [
+                {
+                  "kind": "video",
+                  "poster": "attachments/media/911e0eb3c533e1d22dc77af1475feacc.jpg",
+                  "label": "视频（仅本地封面）"
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -235,7 +242,16 @@
             {
               "speaker": 1,
               "time": "12:40",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/4a9e93547a3c912e21d3f51ecf910097.webp",
+                  "alt": "群聊图片",
+                  "width": 148,
+                  "height": 210
+                }
+              ]
             },
             {
               "speaker": 3,
@@ -642,7 +658,16 @@
             {
               "speaker": 1,
               "time": "17:54",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/101ed286069caca275f6fb74905721be.webp",
+                  "alt": "群聊图片",
+                  "width": 1440,
+                  "height": 394
+                }
+              ]
             }
           ],
           "resources": [
@@ -677,7 +702,15 @@
             {
               "speaker": 1,
               "time": "13:33",
-              "text": "[文件] kimi_k31_benchmark_audit.pdf (1.4 MB, pdf, md5=7b1f357a7672db53c8789258be139d70)"
+              "text": "[文件] kimi_k31_benchmark_audit.pdf (1.4 MB, pdf, md5=7b1f357a7672db53c8789258be139d70)",
+              "attachments": [
+                {
+                  "kind": "file",
+                  "href": "attachments/files/7b1f357a7672db53c8789258be139d70.pdf",
+                  "name": "kimi_k31_benchmark_audit.pdf",
+                  "bytes": 1484305
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -851,7 +884,16 @@
             {
               "speaker": 13,
               "time": "13:59",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/250fc3db4cf01e718d123a3714e75021.webp",
+                  "alt": "群聊图片",
+                  "width": 754,
+                  "height": 1440
+                }
+              ]
             },
             {
               "speaker": 14,
@@ -1435,7 +1477,16 @@
             {
               "speaker": 1,
               "time": "00:21",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/53599b473e694db6e46836a5eac654a8.webp",
+                  "alt": "群聊图片",
+                  "width": 885,
+                  "height": 1440
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -1445,7 +1496,16 @@
             {
               "speaker": 2,
               "time": "09:57",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/ca19fa8c6a608616b937733310397e2a.webp",
+                  "alt": "群聊图片",
+                  "width": 663,
+                  "height": 1440
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -1588,7 +1648,16 @@
             {
               "speaker": 1,
               "time": "09:57",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/ca19fa8c6a608616b937733310397e2a.webp",
+                  "alt": "群聊图片",
+                  "width": 663,
+                  "height": 1440
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -1919,7 +1988,16 @@
             {
               "speaker": 1,
               "time": "15:21",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/08b3978e4d1b94aa369e9538aab778ba.webp",
+                  "alt": "群聊图片",
+                  "width": 96,
+                  "height": 210
+                }
+              ]
             },
             {
               "speaker": 4,
@@ -2004,7 +2082,14 @@
             {
               "speaker": 1,
               "time": "14:22",
-              "text": "[视频]"
+              "text": "[视频]",
+              "attachments": [
+                {
+                  "kind": "video",
+                  "poster": "attachments/media/297e4bcdf6c028b8a701868156dbad23.webp",
+                  "label": "视频（仅本地封面）"
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -2068,7 +2153,16 @@
             {
               "speaker": 1,
               "time": "20:17",
-              "text": "[视频]"
+              "text": "[视频]",
+              "attachments": [
+                {
+                  "kind": "video",
+                  "src": "attachments/media/8a4b3e2dd1ead373d4e6734fbeb92cd4.mp4",
+                  "mime": "video/mp4",
+                  "bytes": 1795470,
+                  "poster": "attachments/media/650572d8c5643b788c50a2e2fa58d0de.webp"
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -2283,7 +2377,16 @@
             {
               "speaker": 1,
               "time": "01:47",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/9cb85a9fa6863a96b61f043c498eefc7.webp",
+                  "alt": "群聊图片",
+                  "width": 1440,
+                  "height": 820
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -2324,7 +2427,16 @@
             {
               "speaker": 1,
               "time": "01:02",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/1a4bc860e17802cdd2ae33f41ca288cf.webp",
+                  "alt": "群聊图片",
+                  "width": 319,
+                  "height": 1440
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -2529,7 +2641,16 @@
             {
               "speaker": 4,
               "time": "17:50",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/6eeb26d1de46219474d17d01f77d512a.webp",
+                  "alt": "群聊图片",
+                  "width": 1200,
+                  "height": 800
+                }
+              ]
             },
             {
               "speaker": 1,
@@ -2718,7 +2839,16 @@
             {
               "speaker": 1,
               "time": "14:23",
-              "text": "[视频]"
+              "text": "[视频]",
+              "attachments": [
+                {
+                  "kind": "video",
+                  "src": "attachments/media/baf796fad4d3da64287f2316ab1b6a3f.mp4",
+                  "mime": "video/mp4",
+                  "bytes": 3053508,
+                  "poster": "attachments/media/d77278570f010ac65a0d330365f46f47.webp"
+                }
+              ]
             },
             {
               "speaker": 2,
@@ -3031,7 +3161,16 @@
             {
               "speaker": 4,
               "time": "18:23",
-              "text": "[图片]"
+              "text": "[图片]",
+              "attachments": [
+                {
+                  "kind": "image",
+                  "src": "attachments/media/5ad92d5170be627c4aa9f10145ee69e9.webp",
+                  "alt": "群聊图片",
+                  "width": 664,
+                  "height": 1440
+                }
+              ]
             },
             {
               "speaker": 4,

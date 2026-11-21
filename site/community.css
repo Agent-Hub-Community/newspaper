@@ -2,7 +2,7 @@
 
 /* Shared visual language with the community homepage. Reading stays immediate. */
 :root {
-  --sans: 'Inter Variable', 'AgentHub Publication SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --sans: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
   --serif: var(--sans);
   --latin: 'Inter Variable', var(--sans);
   --gutter: 48px;

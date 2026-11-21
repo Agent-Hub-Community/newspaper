@@ -1,0 +1,130 @@
+{
+  "$schema": "../theme.schema.json",
+  "version": 2,
+  "id": "riemann-proof",
+  "kind": "knowledge",
+  "name": "黎曼猜想形式化证明特刊",
+  "summary": "2026 年 11 月 20 日，Levent Alpöge 与 Claude 公布 1,700 万行 Lean 黎曼猜想与 GRH 候选形式化证明，已通过底层内核编译校验。",
+  "targets": ["daily", "weekly", "library", "glossary", "rank", "search", "agents", "home"],
+  "masthead": {
+    "eyebrow": "MILESTONE · ζ(s) = 0 · Re(s) = 1/2",
+    "label": "黎曼猜想特刊",
+    "message": "1,700 万行 Lean 代码通过底层校验，人机协作触及百年数论临界线。",
+    "art": {
+      "file": "doodle.svg",
+      "alt": "复平面临界带与临界线 Re(s)=1/2 上的非平凡零点插画"
+    },
+    "seal": {
+      "text": "ζ(½+it)=0",
+      "caption": "2026.11 特刊"
+    },
+    "footerNote": "所有非平凡零点都在 Re(s) = 1/2 上 —— 机器可验，人类求索。",
+    "story": {
+      "kicker": "为什么今天有这个主题？",
+      "title": "当 1,700 万行 Lean 代码通过了黎曼猜想内核校验",
+      "body": [
+        "2026 年 11 月 20 日，Anthropic 数学家 Levent Alpöge 宣布在 Claude 协助下完成黎曼猜想（RH）与广义黎曼猜想（GRH）的候选形式化证明：全部以 Lean 代码公开，包含 175,187 个源文件、约 1,700 万行证明脚本（折合超过 25 万页数学文本）。",
+        "MIT 数论学家 Andrew Sutherland 等同行已在本地完成编译验证，确认该证明仅调用 Lean 3 条标准基础公理即可通过内核检查；而如何让人类数学家真正“读懂、消化并评议”这部由 AI 深度参与写成的巨著，正成为数学与 AI4Science 交汇处的历史性分水岭。"
+      ],
+      "facts": [
+        { "label": "Lean 源文件", "value": "175,187 个" },
+        { "label": "形式化规模", "value": "~1,700 万行" },
+        { "label": "依赖公理", "value": "3 条标准公理" },
+        { "label": "临界线", "value": "Re(s) = 1/2" }
+      ],
+      "links": [
+        { "label": "站内搜：黎曼 / 形式化验证", "href": "search/?q=黎曼" },
+        { "label": "站内搜：Lean 定理证明", "href": "search/?q=Lean" }
+      ]
+    }
+  },
+  "palette": {
+    "scope": "masthead-and-accent",
+    "light": {
+      "paper": "#f9f8f4",
+      "surface": "#f0eee6",
+      "ink": "#182032",
+      "muted": "#4e586e",
+      "rule": "#d4d8e2",
+      "accent": "#1d4d8f",
+      "link": "#1d4d8f",
+      "emphasis": "#dce7fa",
+      "bandBg": "#0f1b35",
+      "bandInk": "#f5f7fc",
+      "bandMuted": "#c4d1ea",
+      "bandAccent": "#f3ca6d",
+      "bandRule": "#3b507d",
+      "bannerBg": "#f1f4fa",
+      "bannerBorder": "#cfd8ea"
+    },
+    "dark": {
+      "paper": "#090e1a",
+      "surface": "#11192c",
+      "ink": "#eef2fb",
+      "muted": "#a4b2cc",
+      "rule": "#24314c",
+      "accent": "#8bb8ff",
+      "link": "#9ac1ff",
+      "emphasis": "#1e3360",
+      "bandBg": "#101b36",
+      "bandInk": "#f5f7fc",
+      "bandMuted": "#bfd0ec",
+      "bandAccent": "#f5cf7a",
+      "bandRule": "#42598a",
+      "bannerBg": "#111a2e",
+      "bannerBorder": "#29395b"
+    }
+  },
+  "ambient": {
+    "preset": "critical-line",
+    "region": "masthead"
+  },
+  "knowledge": {
+    "banner": {
+      "dismissible": true,
+      "placement": "overview-only",
+      "kicker": "数论 × AI 里程碑",
+      "text": "11 月 20 日，Levent Alpöge × Claude 公布 1,700 万行 Lean 黎曼猜想候选证明并获内核编译复核，「机器可验 vs 人类可读」成为学界焦点。",
+      "links": [
+        { "label": "阅读事件速览", "action": "open-story" },
+        { "label": "站内搜全部相关讨论", "href": "search/?q=形式化" }
+      ]
+    },
+    "related": {
+      "heading": "各群历史相关讨论",
+      "keywords": ["黎曼", "Riemann", "Lean", "形式化", "定理证明", "费马", "数学证明", "数学研究", "MathRSI", "数学猜想"],
+      "limit": 6,
+      "maxPerGroup": 2
+    },
+    "searchExamples": ["黎曼", "Lean", "形式化", "MathRSI"],
+    "highlight": {
+      "badge": "黎曼 / 形式化专题",
+      "keywords": ["黎曼", "Riemann", "Lean", "形式化", "定理证明", "AI4Sci", "AI4Science", "AutoResearch"]
+    }
+  },
+  "home": {
+    "eyebrow": "MILESTONE · Re(s) = 1/2",
+    "badge": "黎曼猜想特刊",
+    "summary": "1,700 万行 Lean 形式化证明通过内核校验：当机器验证跑在人类理解之前。",
+    "href": "/newspaper/?theme=riemann-proof",
+    "accent": "#f5cf7a",
+    "bandBg": "#101b36",
+    "galaxyCore": "#fff2cc",
+    "galaxyArm": "#8bb8ff",
+    "asciiHands": {
+      "humanColor": "#f5cf7a",
+      "machineColor": "#8bb8ff",
+      "glyphBands": [
+        ".,:'`",
+        ":;!|il",
+        "irslt/\\",
+        "vxzc+=*",
+        "1/2sπ=+",
+        "01λ⊢∀∃∈",
+        "QEDΣ∫∞0",
+        "Re(s)=½",
+        "ζ(½+it)"
+      ]
+    }
+  }
+}

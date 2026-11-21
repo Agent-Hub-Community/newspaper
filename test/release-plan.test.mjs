@@ -1,54 +1,45 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildReleasePlan, checkCloudflareToken, checkFeedbackSql, formatStep, parseReleaseArgs, resolveExecutable, runSteps,
   summarizeStatus } from '../scripts/release.mjs';
 
-const env = { FEEDBACK_API_URL: 'https://feedback.example', CLOUDFLARE_ACCOUNT_ID: 'a'.repeat(32), WRANGLER_BIN: '/opt/wrangler' };
+const env = { FEEDBACK_API_URL: 'https://feedback.example', CLOUDFLARE_ACCOUNT_ID: 'a'.repeat(32) };
 const plan = (argv, overrides = env) => buildReleasePlan(parseReleaseArgs(argv), overrides);
 const names = steps => steps.map(step => step.name);
-const tail = ['public build', 'embed catalog', 'public build with vectors', 'feedback catalog SQL', 'check SQL'];
 
-test('daily, external and weekly imports run first, then the runbook build chain, then D1', () => {
+test('daily, external and weekly imports run first, followed by single public build, embed and optional D1 story registration', () => {
+  const withWrangler = { ...env, WRANGLER_BIN: '/opt/wrangler' };
   const steps = plan(['--daily-batch', 'scratch/b', '--external-draft', 'e/draft.json', '--external-selection', 'e/sel.json',
-    '--weekly-reader', 'w', '--sql-out', 'scratch/c.sql']);
-  assert.deepEqual(names(steps), ['import daily batch', 'import external report', 'import weekly', ...tail, 'register D1 feedback IDs']);
+    '--weekly-reader', 'w', '--sql-out', 'scratch/c.sql'], withWrangler);
+  assert.deepEqual(names(steps), ['import daily batch', 'import external report', 'import weekly', 'public build', 'embed catalog', 'story catalog SQL', 'check SQL', 'register D1 story IDs']);
   assert.deepEqual(steps.map(formatStep), [
     'node scripts/publish-reviewed-batch.mjs scratch/b',
     'node scripts/import-external-report.mjs e/draft.json e/sel.json',
     'node scripts/import-reviewed-weekly.mjs w',
     'npm run build -- --public',
     'node scripts/embed-catalog.mjs',
-    'npm run build -- --public',
     'node scripts/feedback-catalog.mjs dist/data.js scratch/c.sql',
     '(check every line of scratch/c.sql starts with INSERT OR IGNORE INTO)',
     '/opt/wrangler d1 execute agenthub-feedback --remote --config feedback/wrangler.jsonc --file scratch/c.sql',
   ]);
 });
 
-test('optional imports are omitted and the SQL defaults next to the daily batch', () => {
-  const daily = plan(['--daily-batch', 'scratch/b']);
-  assert.deepEqual(names(daily), ['import daily batch', ...tail, 'register D1 feedback IDs']);
-  assert.equal(daily.at(-2).checkSql, 'scratch/b/feedback-catalog.sql');
-  assert.equal(plan([]).at(-2).checkSql, 'scratch/feedback-catalog.sql');
+test('embed catalog is skipped when CLOUDFLARE_ACCOUNT_ID is absent or --skip-embed is set', () => {
+  assert.deepEqual(names(plan(['--daily-batch', 'scratch/b'], { FEEDBACK_API_URL: 'https://feedback.example' })),
+    ['import daily batch', 'public build']);
+  assert.deepEqual(names(plan(['--weekly-reader', 'w', '--skip-embed'])),
+    ['import weekly', 'public build']);
   assert.deepEqual(plan(['--external-draft', 'd.json']).find(step => step.name === 'import external report').argv,
     ['node', 'scripts/import-external-report.mjs', 'd.json']);
 });
 
-test('--skip-d1 still writes and checks the SQL but does not need or call Wrangler', () => {
-  const { WRANGLER_BIN, ...withoutWrangler } = env;
-  const steps = plan(['--weekly-reader', 'w', '--skip-d1'], withoutWrangler);
-  assert.deepEqual(names(steps), ['import weekly', ...tail]);
-  assert.ok(steps.every(step => !step.argv?.includes(WRANGLER_BIN)));
-});
-
 test('missing environment and inconsistent options fail before any step', () => {
-  assert.throws(() => plan([], {}), /FEEDBACK_API_URL, CLOUDFLARE_ACCOUNT_ID, WRANGLER_BIN/);
-  assert.throws(() => plan(['--skip-d1'], { FEEDBACK_API_URL: 'x' }), /: CLOUDFLARE_ACCOUNT_ID$/);
+  assert.throws(() => plan([], {}), /FEEDBACK_API_URL/);
   assert.throws(() => plan(['--external-selection', 's.json']), /needs --external-draft/);
   assert.throws(() => parseReleaseArgs(['--daily', 'x']), /Unknown option/);
 });
@@ -71,7 +62,6 @@ test('git status summary counts changes per directory', () => {
   ]);
 });
 
-// A temporary directory holding an executable `wrangler` (never run) and a non-executable `plain`.
 function fakeBinDir() {
   const dir = mkdtempSync(path.join(tmpdir(), 'release-bin-'));
   writeFileSync(path.join(dir, 'wrangler'), '#!/bin/sh\nexit 1\n');
@@ -82,33 +72,21 @@ function fakeBinDir() {
   return dir;
 }
 
-test('--dry-run prints the plan and runs nothing', () => {
+test('--dry-run prints the streamlined plan and runs nothing', () => {
   const dir = mkdtempSync(path.join(tmpdir(), 'release-plan-'));
   writeFileSync(path.join(dir, 'draft.json'), '{}');
-  const bin = fakeBinDir();
-  const dryEnv = { ...env, WRANGLER_BIN: path.join(bin, 'wrangler') };
   const script = fileURLToPath(new URL('../scripts/release.mjs', import.meta.url));
   const run = (args, extraEnv, cwd) => spawnSync(process.execPath, [script, ...args],
     { encoding: 'utf8', cwd, env: { PATH: process.env.PATH, ...extraEnv } });
-  const result = run(['--daily-batch', dir, '--external-draft', path.join(dir, 'draft.json'), '--dry-run'], dryEnv);
+  const result = run(['--daily-batch', dir, '--external-draft', path.join(dir, 'draft.json'), '--dry-run'], env);
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /^1\. import daily batch: node scripts\/publish-reviewed-batch\.mjs /);
-  assert.ok(result.stdout.includes(`8. register D1 feedback IDs: ${path.join(bin, 'wrangler')} d1 execute`), result.stdout);
-  assert.doesNotMatch(result.stdout, /== release step|Changed paths/);
-  const missing = run(['--daily-batch', path.join(dir, 'absent'), '--dry-run'], dryEnv);
+  assert.ok(result.stdout.includes('4. embed catalog: node scripts/embed-catalog.mjs'), result.stdout);
+  assert.doesNotMatch(result.stdout, /== release step|Changed paths|d1 execute/);
+  const missing = run(['--daily-batch', path.join(dir, 'absent'), '--dry-run'], env);
   assert.equal(missing.status, 2);
   assert.match(missing.stderr, /Not found: .*absent/);
   assert.match(run(['--dry-run'], {}).stderr, /Missing environment variables/);
-  // A relative WRANGLER_BIN means the caller's directory, although the steps later run from the repository root.
-  const relative = run(['--dry-run'], { ...env, WRANGLER_BIN: './wrangler' }, bin);
-  assert.equal(relative.status, 0, relative.stderr);
-  assert.ok(relative.stdout.includes(`${path.join(bin, 'wrangler')} d1 execute`), relative.stdout);
-  const absent = run(['--dry-run'], { ...env, WRANGLER_BIN: './no-such-wrangler' }, bin);
-  assert.equal(absent.status, 2);
-  assert.match(absent.stderr, /WRANGLER_BIN is not an executable file: .*no-such-wrangler/);
-  assert.doesNotMatch(absent.stdout, /^1\./m);
-  // --skip-d1 never touches Wrangler, so a broken WRANGLER_BIN does not matter.
-  assert.equal(run(['--dry-run', '--skip-d1'], { ...env, WRANGLER_BIN: './no-such-wrangler' }, bin).status, 0);
 });
 
 test('WRANGLER_BIN with a separator resolves against the caller directory; a bare name is looked up in PATH', () => {
@@ -121,7 +99,6 @@ test('WRANGLER_BIN with a separator resolves against the caller directory; a bar
   const pathEnv = [other, '', bin].join(path.delimiter);
   assert.equal(resolveExecutable('wrangler', { cwd: other, pathEnv }), path.join(bin, 'wrangler'));
   assert.throws(() => resolveExecutable('plain', { cwd: other, pathEnv }), /not found in PATH: plain/);
-  // An empty PATH entry is not taken as the current directory.
   assert.throws(() => resolveExecutable('wrangler', { cwd: bin, pathEnv: `${other}${path.delimiter}` }), /not found in PATH/);
 });
 
@@ -135,26 +112,19 @@ test('the embed token preflight accepts CLOUDFLARE_API_TOKEN or a Wrangler login
   assert.throws(() => checkCloudflareToken({ CLOUDFLARE_API_TOKEN: '' }, login('')), /No Cloudflare token for embed-catalog/);
 });
 
-test('runSteps creates the --sql-out directory before the SQL step and stops at the first failure', () => {
-  const dir = mkdtempSync(path.join(tmpdir(), 'release-run-'));
-  const sqlOut = path.join(dir, 'new', 'nested', 'c.sql');
-  const steps = plan(['--sql-out', sqlOut, '--skip-d1']);
+test('runSteps executes in order and stops at the first failure', () => {
+  const steps = plan(['--skip-embed']);
   const spawned = [];
-  // Stands in for every command; the SQL step writes its output file the way feedback-catalog.mjs does.
   const spawn = (command, args) => {
-    spawned.push(args.at(-1));
-    if (args[0] === 'scripts/feedback-catalog.mjs') writeFileSync(args[2], "INSERT OR IGNORE INTO stories (id) VALUES ('a');\n");
+    spawned.push(args);
     return { status: 0 };
   };
   runSteps(steps, { spawn, log: () => {} });
-  assert.equal(readFileSync(sqlOut, 'utf8').split('\n')[0], "INSERT OR IGNORE INTO stories (id) VALUES ('a');");
-  assert.equal(spawned.length, steps.length - 1);
+  assert.equal(spawned.length, 1);
 
-  const failing = mkdtempSync(path.join(tmpdir(), 'release-run-'));
   const calls = [];
-  assert.throws(() => runSteps(plan(['--sql-out', path.join(failing, 'x', 'c.sql'), '--skip-d1']),
+  assert.throws(() => runSteps(plan([]),
     { spawn: (command, args) => { calls.push(args); return { status: 3 }; }, log: () => {} }),
-  /step 1\/5 "public build" failed \(exit 3\)/);
+  /step 1\/2 "public build" failed \(exit 3\)/);
   assert.equal(calls.length, 1);
-  assert.equal(existsSync(path.join(failing, 'x')), false);
 });

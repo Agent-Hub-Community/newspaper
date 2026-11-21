@@ -17,15 +17,30 @@ const source = await readFile(path.join(root, 'data.js'), 'utf8');
 const prefix = 'window.AGENT_HUB_DATA = ';
 assert.ok(source.startsWith(prefix));
 const data = JSON.parse(source.slice(prefix.length).trim().replace(/;$/, ''));
-// data.js is an index; each issue's articles live in issues/<date>.js under a content hash.
+// data.js is an index; each issue's articles live in issues/<date>.js under a content hash,
+// and raw discussions live in lazy issues/<date>.discussions.js under their own content hash.
 const issuePrefix = 'window.AGENT_HUB_ISSUES = window.AGENT_HUB_ISSUES || {})';
+const discussionPrefix = 'window.AGENT_HUB_DISCUSSIONS = window.AGENT_HUB_DISCUSSIONS || {})';
 const issues = {};
+const discussions = {};
 for (const index of data.digests) {
   const script = await readFile(path.join(root, 'issues', `${index.date}.js`), 'utf8');
   assert.equal(createHash('sha256').update(script).digest('hex').slice(0, 16), index.version, index.date);
   assert.ok(script.startsWith(`(${issuePrefix}[${JSON.stringify(index.date)}] = `), index.date);
   issues[index.date] = JSON.parse(script.slice(script.indexOf('] = ') + 4).trim().replace(/;$/, ''));
   assert.deepEqual(index.pages.map(page => page.id), issues[index.date].pages.map(page => page.id));
+  // Initial issue payloads carry only compact discussionMeta, never raw discussion arrays.
+  for (const page of issues[index.date].pages) {
+    for (const story of page.stories || []) {
+      assert.equal('discussion' in story, false, `${index.date} ${page.id} embeds raw discussion in initial script`);
+    }
+  }
+  if (index.discussionVersion) {
+    const discScript = await readFile(path.join(root, 'issues', `${index.date}.discussions.js`), 'utf8');
+    assert.equal(createHash('sha256').update(discScript).digest('hex').slice(0, 16), index.discussionVersion, `${index.date} discussions`);
+    assert.ok(discScript.startsWith(`(${discussionPrefix}[${JSON.stringify(index.date)}] = `), `${index.date} discussions`);
+    discussions[index.date] = JSON.parse(discScript.slice(discScript.indexOf('] = ') + 4).trim().replace(/;$/, ''));
+  }
   // The index carries only navigation fields plus the public heading of pages that have articles.
   for (const [i, page] of index.pages.entries()) {
     assert.deepEqual(Object.keys(page).sort(), page.heading ? ['hasContent', 'heading', 'id', 'label'] : ['hasContent', 'id', 'label']);
@@ -60,7 +75,10 @@ assert.doesNotMatch(await readFile(path.join(root, 'index.html'), 'utf8'), /data
 const paths = await readdir(root, { recursive: true });
 // Agent copies are the only published files this source-leak guard would otherwise catch.
 const agentCopy = /^(?:index\.md|agents\/SKILL\.md|agents\/topics\/[a-z0-9:-]{1,200}\.(?:md|json)|library\/resources\.(?:json|md|schema\.json)|library\/opportunities\.(?:json|md)|glossary\/glossary\.(?:json|md)|daily\/\d{4}-\d{2}-\d{2}\/(?:(?:group-[1-8]|external)\/)?index\.md|weekly\/\d{4}-\d{2}-\d{2}\/\d{4}-\d{2}-\d{2}\/index\.md)$/;
-assert.ok(paths.every(p => agentCopy.test(p.split(path.sep).join('/')) || !/messages|audit|\.md$|sources/.test(p)));
+assert.ok(paths.every(p => {
+  const rel = p.split(path.sep).join('/');
+  return rel.startsWith('attachments/') || agentCopy.test(rel) || !/messages|audit|\.md$|sources/.test(p);
+}));
 assert.ok(paths.every(p => !p.startsWith('documents')));
 const checkKeys = object => {
   if (!object || typeof object !== 'object') return;
@@ -72,6 +90,12 @@ const checkKeys = object => {
 };
 checkKeys(data);
 checkKeys(issues);
+for (const [date, byPage] of Object.entries(discussions)) {
+  for (const [pageId, list] of Object.entries(byPage)) {
+    assert.ok(Array.isArray(list), `${date} ${pageId} discussions list`);
+    for (const messages of list) if (messages !== null) validateStoryDiscussion(messages);
+  }
+}
 const catalog = JSON.parse(await readFile(path.join(root, 'search/catalog.json'), 'utf8'));
 checkKeys(catalog);
 assert.equal(new Set(catalog.entries.map(entry => entry.id)).size, catalog.entries.length);
@@ -105,7 +129,20 @@ if (data.publicBuild) {
   assert.deepEqual(paths.filter(p => p.startsWith('avatars/')).sort(), Object.values(data.activity.avatars).sort());
   assert.ok(Object.values(issues).every(issue => issue.pages.every(page => !page.figure?.src)));
 }
-const files = ['index.html', 'library/index.html', 'glossary/index.html', ...(AGENTS_PAGE ? ['agents/index.html'] : []), 'search/index.html', 'style.css', 'app.js', 'icons.js'];
+const files = ['index.html', 'library/index.html', 'glossary/index.html', ...(AGENTS_PAGE ? ['agents/index.html'] : []), 'search/index.html', 'daily.bundle.css', 'app.bundle.js', 'weekly.bundle.css', 'library.bundle.css', 'library.bundle.js', 'link-previews.js'];
+// Performance & weight guardrails: zero Chinese web fonts, zero feedback.js, max 10 MB per attachment.
+assert.ok(!paths.some(p => /noto-sans-sc-/.test(p)), 'Chinese web fonts must not be shipped');
+assert.ok(!paths.includes('feedback.js'), 'feedback.js must not be shipped');
+const linkPreviewsRaw = await readFile(path.join(root, 'link-previews.js'), 'utf8');
+assert.ok(linkPreviewsRaw.startsWith('window.AGENT_HUB_LINK_PREVIEWS='));
+assert.equal(typeof JSON.parse(linkPreviewsRaw.slice('window.AGENT_HUB_LINK_PREVIEWS='.length).trim().replace(/;$/, '')), 'object');
+const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024;
+for (const p of paths) {
+  const rel = p.split(path.sep).join('/');
+  if (!rel.startsWith('attachments/')) continue;
+  const st = await stat(path.join(root, p));
+  if (st.isFile()) assert.ok(st.size <= MAX_ATTACHMENT_BYTES, `${rel} exceeds 10 MB cap (${st.size} bytes)`);
+}
 // While the "给 Agent 用" page is paused, the build skips it and no page links to it.
 if (!AGENTS_PAGE) {
   assert.ok(!paths.includes(path.join('agents', 'index.html')), 'agents/index.html is built while AGENTS_PAGE is off');
@@ -145,7 +182,8 @@ const viewsBuild = Boolean(data.publicBuild && data.feedbackEndpoint);
 const isForwardingPage = html => /<meta http-equiv="refresh"/.test(html);
 assert.equal(paths.includes('views.js'), viewsBuild);
 if (viewsBuild) assert.equal(await readFile(path.join(root, 'views.js'), 'utf8'), await readFile(new URL('../site/views.js', import.meta.url), 'utf8'));
-for (const page of paths.filter(p => p.endsWith('.html')).map(p => p.split(path.sep).join('/'))) {
+const siteHtmlPages = paths.filter(p => p.endsWith('.html') && !p.split(path.sep).join('/').startsWith('attachments/'));
+for (const page of siteHtmlPages.map(p => p.split(path.sep).join('/'))) {
   const html = await readFile(path.join(root, page), 'utf8');
   const tags = [...html.matchAll(/<script\b[^>]*\bsrc="[^"]*views\.js[^"]*"[^>]*>/g)].map(([tag]) => tag);
   const expected = viewsBuild && page !== '404.html' && !isForwardingPage(html);
@@ -154,8 +192,8 @@ for (const page of paths.filter(p => p.endsWith('.html')).map(p => p.split(path.
   assert.equal(tags[0].match(/\bdata-endpoint="([^"]*)"/)?.[1], data.feedbackEndpoint, `${page} views endpoint`);
   const connect = html.match(/http-equiv="Content-Security-Policy" content="[^"]*connect-src ([^;"]*)/)?.[1].split(' ') || [];
   assert.ok(connect.some(source => source.replace(/\/$/, '') === new URL(data.feedbackEndpoint).origin), `${page} CSP allows the Worker`);
-  // On reader-app pages, views.js reports the address the reader opened before app.js rewrites it.
-  if (html.includes('app.js?v=')) assert.ok(html.indexOf(tags[0]) < html.search(/<script\b[^>]*src="[^"]*app\.js/), `${page} views before app.js`);
+  // On reader-app pages, views.js reports the address the reader opened before app.bundle.js rewrites it.
+  if (html.includes('app.bundle.js?v=')) assert.ok(html.indexOf(tags[0]) < html.search(/<script\b[^>]*src="[^"]*app\.bundle\.js/), `${page} views before app.bundle.js`);
 }
 // Library: the page, its agent copies and the avatars it shows; the agent copies carry no avatars.
 const library = JSON.parse(await readFile(path.join(root, 'library/resources.json'), 'utf8'));
@@ -229,7 +267,7 @@ for (const file of ['llms.txt', 'index.md', 'agents/SKILL.md']) {
     assert.match(url, /^[\x21-\x7e]+$/, `${file} API example ${url} is not percent-encoded ASCII`);
   }
 }
-for (const page of paths.filter(p => p.endsWith('.html'))) {
+for (const page of siteHtmlPages) {
   const href = parseHTML(await readFile(path.join(root, page), 'utf8')).document.querySelector('link[rel="alternate"][type="text/markdown"]')?.getAttribute('href');
   if (href) assert.ok(await built(href, new URL(page.split(path.sep).join('/'), site)), `${page} names a missing Markdown copy ${href}`);
 }
@@ -241,12 +279,13 @@ assert.equal(rankPage.querySelector('#footer-label').textContent, 'Agent Hub / �
 const { INDEXED } = await import('../lib/seo.mjs');
 if (!INDEXED.size) {
   assert.ok(!paths.includes('sitemap.xml'));
-  for (const page of paths.filter(p => p.endsWith('.html') && p !== '404.html')) {
+  for (const page of siteHtmlPages.filter(p => p !== '404.html')) {
     const robots = parseHTML(await readFile(path.join(root, page), 'utf8')).document.querySelector('meta[name="robots"]')?.getAttribute('content');
     assert.equal(robots, 'noindex,nofollow', page);
   }
 }
-assert.equal(Boolean(libraryPage.querySelector('meta[name="agenthub-feedback"]')), Boolean(data.feedbackEndpoint));
+assert.equal(libraryPage.querySelector('meta[name="agenthub-feedback"]'), null);
+assert.equal(libraryPage.querySelector('.heart'), null);
 // Pages serves 404.html at whatever missing path was requested, so every link must resolve from any depth.
 const notFound = parseHTML(await readFile(path.join(root, '404.html'), 'utf8')).document;
 assert.equal(notFound.querySelectorAll('script').length, 0);

@@ -79,9 +79,9 @@ test('only a message that is nothing but links reads as a share card; links in s
   const [arxiv, two, sentence, unsafe] = list.querySelectorAll('.discussion-text');
   const cards = node => [...node.querySelectorAll('a.discussion-card')].map(card => [card.getAttribute('href'),
     card.querySelector('.discussion-card-origin').textContent, card.querySelector('.discussion-card-title').textContent]);
-  assert.deepEqual(cards(arxiv), [['https://arxiv.org/abs/2605.19516', 'arXiv', 'arXiv 2605.19516']]);
-  assert.deepEqual(cards(two), [['https://github.com/oceanbase/powercontext', 'GitHub', 'oceanbase/powercontext'],
-    ['https://arxiv.org/pdf/2610.08144', 'arXiv', 'arXiv 2610.08144']]);
+  assert.deepEqual(cards(arxiv), [['https://arxiv.org/abs/2605.19516', 'arXiv · arxiv.org', 'arXiv 2605.19516']]);
+  assert.deepEqual(cards(two), [['https://github.com/oceanbase/powercontext', 'GitHub · github.com', 'oceanbase/powercontext'],
+    ['https://arxiv.org/pdf/2610.08144', 'arXiv · arxiv.org', 'arXiv 2610.08144']]);
   assert.equal(withCards(two), '▢▢');
   assert.equal(sentence.querySelector('.discussion-card'), null);
   assert.equal(sentence.textContent, '感觉可以在这基础上做开发：github.com/oceanbase/powercontext 这个地基貌似打得挺全的了');
@@ -94,7 +94,7 @@ test('only a message that is nothing but links reads as a share card; links in s
   assert.deepEqual([...other.querySelectorAll('.discussion-card')].map(card => [card.querySelector('.discussion-card-origin').textContent, card.querySelector('.discussion-card-title').textContent]),
     [['figma.com', 'resource-library/design-basics'], ['网站', 'programgym.github.io']]);
   const zhihu = render([message(1, '20:45', 'https://zhuanlan.zhihu.com/p/135981668')]).list;
-  assert.equal(zhihu.querySelector('.discussion-card-origin').textContent, '知乎', 'a subdomain falls back to its site name');
+  assert.equal(zhihu.querySelector('.discussion-card-origin').textContent, '知乎 · zhuanlan.zhihu.com', 'a subdomain falls back to its site name');
 });
 test('shared cards, files and media placeholders replace raw export fields without losing their content', () => {
   const card = '[链接] 一篇文章的标题\n  来源: 机器之心\n  摘要: 一句摘要。\n  URL: https://mp.weixin.qq.com/s?__biz=Mz&mid=1#rd';
@@ -109,7 +109,8 @@ test('shared cards, files and media placeholders replace raw export fields witho
   assert.equal(link.querySelector('.discussion-card-origin').textContent, '公众号 · 机器之心');
   assert.equal(link.querySelector('.discussion-card-title').textContent, '一篇文章的标题');
   assert.equal(link.querySelector('.discussion-card-summary').textContent, '一句摘要。');
-  assert.equal(file.textContent, 'spec.md51.5 KB');
+  assert.equal(file.querySelector('.discussion-file-copy strong').textContent, 'spec.md');
+  assert.match(file.querySelector('.discussion-file-copy small').textContent, /51\.5 KB/);
   assert.equal(media.textContent, '图片或视频');
   // Known WeChat codes become emoji that keep the code as tooltip and the name for screen readers.
   const face = sticker.querySelector('.discussion-emoji');
@@ -119,4 +120,25 @@ test('shared cards, files and media placeholders replace raw export fields witho
   // An unrecognized layout keeps the original text rather than guessing fields.
   assert.equal(unknown.textContent, '[链接] 标题\n  多出来的一行');
   assert.equal(list.querySelector('.discussion-quote-text').textContent, '原话\n  ↳ [链接] 被引用的标题');
+});
+test('discussion attachments render frameless images without redundant captions, muted videos, file badges and forwarded chat cards', () => {
+  const { list } = render([
+    { speaker: 1, time: '09:30', text: '[图片]', attachments: [{ kind: 'image', src: 'attachments/2026-11-21/group-1/m0001.jpg', alt: '群聊图片' }] },
+    { speaker: 1, time: '09:31', text: '[视频]', attachments: [{ kind: 'video', src: 'attachments/2026-11-21/group-1/m0002.mp4', poster: 'attachments/2026-11-21/group-1/m0002.jpg', mime: 'video/mp4', label: '演示视频' }] },
+    { speaker: 1, time: '09:31', text: '[视频]', attachments: [{ kind: 'video', poster: 'attachments/2026-11-21/group-1/m0003.jpg', label: '视频（仅本地封面）' }] },
+    { speaker: 2, time: '09:32', text: '[文件] 纪要.pdf (2 MB, pdf, md5=abc)', attachments: [{ kind: 'file', href: 'attachments/2026-11-21/group-1/brief.pdf', name: '纪要.pdf', bytes: 2097152 }] },
+    { speaker: 2, time: '09:33', text: '[合并聊天记录] 测试的聊天记录 (2条)\n  - A: jpg\n  - B: 真实消息' },
+  ]);
+  assert.equal(list.querySelectorAll('.discussion-image img').length, 1);
+  assert.equal(list.querySelector('.discussion-image figcaption'), null);
+  assert.equal(list.querySelector('.discussion-video video').hasAttribute('muted'), true);
+  assert.equal(list.querySelector('.discussion-video video').getAttribute('poster'), 'attachments/2026-11-21/group-1/m0002.jpg');
+  assert.equal(list.querySelector('.discussion-video source').getAttribute('src'), 'attachments/2026-11-21/group-1/m0002.mp4');
+  assert.equal(list.querySelector('.discussion-video-thumb img').getAttribute('src'), 'attachments/2026-11-21/group-1/m0003.jpg');
+  assert.equal(list.querySelector('.discussion-file-card').getAttribute('href'), 'attachments/2026-11-21/group-1/brief.pdf');
+  assert.equal(list.querySelector('.discussion-file-card').getAttribute('download'), '纪要.pdf');
+  assert.equal(list.querySelector('.discussion-file-badge').textContent, 'PDF');
+  assert.equal(list.querySelector('.discussion-forward-title').textContent, '测试的聊天记录');
+  assert.equal(list.querySelector('.discussion-forward-chip').textContent, '图片');
+  assert.equal(list.querySelectorAll('.discussion-entry.is-card').length, 5);
 });

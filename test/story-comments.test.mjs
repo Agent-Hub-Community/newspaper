@@ -42,7 +42,7 @@ test('comments reject model markup and render as separate escaped editorial opin
   runDigest({ window, document: window.document });
   window.renderDigest(issues[0], () => {}, { weeks: [], topics: [] }, 'group-1');
   const aside = window.document.querySelector('.brief-comment');
-  assert.equal(aside.getAttribute('aria-label'), 'AI 锐评');
+  assert.equal(aside.getAttribute('aria-label'), 'Bot 锐评');
   assert.equal(aside.querySelector('p').textContent, issues[0].pages[0].stories[0].aiComment);
   assert.equal(aside.querySelectorAll('img, script').length, 0);
   assert.equal(window.document.querySelectorAll('.brief-comment').length, 1);

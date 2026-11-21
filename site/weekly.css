@@ -99,7 +99,8 @@ button.issue-date { border: 0; background: none; color: inherit; font: inherit; 
 
 /* Stories: equal columns; a leading story with a timeline spans the row. */
 .stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; }
-.story { min-width: 0; padding: 24px 0; border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent); scroll-margin-top: 16px; }
+.story { min-width: 0; padding: 24px 0; border-top: 1px solid color-mix(in srgb, var(--rule) 40%, transparent); scroll-margin-top: 16px; content-visibility: auto; contain-intrinsic-size: auto 340px; }
+.export-sheet * { content-visibility: visible !important; }
 .stories > .story:first-child,
 .stories > .story:not(.feature):first-child + .story:not(.feature) { border-top: 0; padding-top: 8px; }
 @media (max-width: 700px) {

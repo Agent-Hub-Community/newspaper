@@ -1,5 +1,4 @@
-// Library page: filters and search over the server-rendered list, shareable through the query string,
-// plus hearts stored by the same feedback worker as the daily votes.
+// Library page: filters and search over the server-rendered list, shareable through the query string.
 (() => {
   'use strict';
   const $ = selector => document.querySelector(selector);
@@ -12,7 +11,6 @@
   const total = entries.length;
   const opportunities = $('#opportunities');
   const opportunityCards = [...document.querySelectorAll('.opportunity')];
-  let sortingAvailable = false;
   // Search ranks with BM25 (bm25.js) over the title, the keywords with their aliases, and the rest of the card
   // including its link addresses. The query expands with the same vocabulary as site search (synonyms.mjs).
   const data = JSON.parse(document.getElementById('library-search-data').textContent);
@@ -35,7 +33,7 @@
   const labels = new Map(chips.map(chip => [`${chip.dataset.filter}|${chip.dataset.value}`, chip.firstChild.textContent]));
   const params = new URLSearchParams(location.search);
   const hashTarget = location.hash ? document.getElementById(location.hash.slice(1)) : null;
-  const state = { q: params.get('q') || '', sort: 'recent', selected: {},
+  const state = { q: params.get('q') || '', selected: {},
     opportunities: Boolean(opportunities && (params.getAll('type').includes('opportunity') || hashTarget === opportunities || hashTarget?.classList.contains('opportunity'))) };
   // A shared address may name any value a card carries, including keywords too rare to have a chip.
   for (const [filter, param] of Object.entries(filters)) {
@@ -53,9 +51,7 @@
   // While searching, the most relevant cards come first.
   const score = entry => hits(state.q).get(entry) || 0;
   function order() {
-    const sorted = state.sort === 'hearts'
-      ? original.slice().sort((a, b) => (counts.get(b.querySelector('.heart').dataset.feedback) || 0) - (counts.get(a.querySelector('.heart').dataset.feedback) || 0))
-      : state.q ? original.slice().sort((a, b) => score(b) - score(a)) : original;
+    const sorted = state.q ? original.slice().sort((a, b) => score(b) - score(a)) : original;
     if (sorted.some((entry, index) => list.children[index] !== entry)) list.append(...sorted);
   }
 
@@ -64,7 +60,6 @@
     list.hidden = opportunityView;
     if (opportunities) opportunities.hidden = !opportunityView;
     for (const row of document.querySelectorAll('.filter-row:not([data-row="type"]), .more-filters')) row.hidden = opportunityView;
-    $('.sort').hidden = opportunityView || !sortingAvailable;
     $('.search .visually-hidden').textContent = opportunityView ? '搜索机会' : '搜索资料';
     input.placeholder = opportunityView ? '搜机会标题、简介或机构' : '搜标题、简介或网址';
     let shown = 0;
@@ -217,72 +212,4 @@
     apply();
     target.scrollIntoView();
   }
-
-  // Hearts. Local previews keep the choice on this device and never invent counts.
-  const endpoint = document.querySelector('meta[name="agenthub-feedback"]')?.content;
-  const remote = Boolean(endpoint) && location.protocol !== 'file:';
-  const prefix = 'agenthub:feedback:v1:';
-  const stored = key => { try { return localStorage.getItem(prefix + key); } catch { return null; } };
-  const store = (key, value) => { try { localStorage.setItem(prefix + key, value); return true; } catch { return false; } };
-  let voter = stored('voter');
-  if (!/^[a-f0-9-]{36}$/.test(voter || '')) { voter = crypto.randomUUID(); store('voter', voter); }
-  const counts = new Map();
-  const hearts = new Map(entries.map(entry => [entry.querySelector('.heart').dataset.feedback, entry.querySelector('.heart')]));
-  function paint(id, { up = null, vote = null, busy = false } = {}) {
-    const button = hearts.get(id);
-    const title = button.closest('.entry').querySelector('.entry-title').textContent;
-    button.setAttribute('aria-pressed', String(vote === 'up'));
-    button.setAttribute('aria-label', `${vote === 'up' ? '取消喜欢' : '喜欢'}：${title}`);
-    button.title = vote === 'up' ? '取消喜欢' : remote ? '喜欢' : '喜欢（仅保存在此设备）';
-    button.disabled = busy;
-    button.querySelector('.heart-count').textContent = up ?? '—';
-    if (up !== null) counts.set(id, up);
-  }
-  const url = query => {
-    const address = new URL('votes', endpoint.endsWith('/') ? endpoint : `${endpoint}/`);
-    if (query) address.search = new URLSearchParams(query);
-    return address;
-  };
-  const validCounts = data => data && (data.vote === null || data.vote === 'up' || data.vote === 'down') && Number.isSafeInteger(data.up) && data.up >= 0;
-  let loaded = !remote;
-  async function load() {
-    try {
-      const response = await fetch(url({ collection: 'library', voter }), { credentials: 'omit', referrerPolicy: 'no-referrer', signal: AbortSignal.timeout(8000) });
-      if (!response.ok) throw new Error('Feedback unavailable');
-      const { items } = await response.json();
-      for (const [id, data] of Object.entries(items || {})) if (hearts.has(id) && validCounts(data)) paint(id, data);
-      loaded = true;
-      sortingAvailable = true;
-      $('.sort').hidden = state.opportunities;
-    } catch { /* Counts stay "—"; a click retries. */ }
-  }
-  for (const [id, button] of hearts) {
-    if (!remote) paint(id, { vote: stored(id) === 'up' ? 'up' : null });
-    button.addEventListener('click', async () => {
-      if (remote && !loaded) { await load(); if (!loaded) return; }
-      const vote = button.getAttribute('aria-pressed') === 'true' ? null : 'up';
-      if (!remote) { store(id, vote || ''); paint(id, { vote }); return; }
-      const previous = { up: counts.get(id) ?? null, vote: button.getAttribute('aria-pressed') === 'true' ? 'up' : null };
-      paint(id, { ...previous, busy: true });
-      try {
-        const response = await fetch(url(), {
-          method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ story: id, voter, vote }),
-          credentials: 'omit', referrerPolicy: 'no-referrer', signal: AbortSignal.timeout(8000),
-        });
-        const data = await response.json();
-        if (!response.ok || !validCounts(data)) throw new Error('Feedback unavailable');
-        paint(id, data);
-      } catch {
-        // A timed-out write may still have committed; re-read before the next click.
-        loaded = false;
-        paint(id, previous);
-      }
-    });
-  }
-  if (remote) load();
-  for (const button of document.querySelectorAll('.sort button')) button.addEventListener('click', () => {
-    state.sort = button.dataset.sort;
-    for (const other of document.querySelectorAll('.sort button')) other.setAttribute('aria-pressed', String(other === button));
-    order();
-  });
 })();

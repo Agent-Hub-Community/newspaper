@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>星际战机 · 曙光防线</title>
+<style>
+:root{--ink:#05080c;--bone:#e8eef2;--dim:rgba(232,238,242,.62);--faint:rgba(232,238,242,.2);--cy:#72e4ff;--am:#ffb347;--rd:#ff5a40;--gn:#7dffb0;
+  --plate:rgba(8,12,18,.66);--f:'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',system-ui,sans-serif;--m:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --sl:max(18px,env(safe-area-inset-left));--sr:max(18px,env(safe-area-inset-right));--st:max(14px,env(safe-area-inset-top));--sb:max(14px,env(safe-area-inset-bottom))}
+html,body{height:100%;margin:0;background:var(--ink);color:var(--bone);font-family:var(--f);overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}
+#hud{pointer-events:none}
+body.play #gl{cursor:none}
+#ui{position:fixed;inset:0;pointer-events:none;font-size:13px}
+.hide{display:none!important}
+/* ---------- HUD ---------- */
+.hb{position:absolute;text-shadow:0 0 3px #000,0 1px 6px rgba(0,0,0,.7)}
+.k{font-size:11px;letter-spacing:.2em;color:var(--dim)}
+.n{font:600 28px/1.1 var(--m);letter-spacing:.04em}
+.s{font-size:12px;color:var(--am);letter-spacing:.12em;margin-top:2px}
+.tl{left:var(--sl);top:var(--st)}
+.tc{left:50%;top:var(--st);transform:translateX(-50%);text-align:center}
+.bl{left:var(--sl);bottom:var(--sb)}
+.br{right:var(--sr);bottom:var(--sb);text-align:right}
+.row{display:flex;align-items:center;gap:10px;margin-top:7px;font-size:11px;letter-spacing:.2em;color:var(--dim)}
+.br .row{justify-content:flex-end}
+.bar{width:150px;height:6px;background:rgba(232,238,242,.12);outline:1px solid var(--faint);outline-offset:1px}
+.bar.w{width:min(300px,44vw);margin-top:6px}
+.bar i{display:block;height:100%;width:100%;background:var(--bone);transition:width .15s linear}
+.bar i.cy{background:var(--cy)}.bar i.gn{background:var(--gn)}.bar i.am{background:var(--am)}.bar i.rd{background:var(--rd)}
+#hMis{font:600 13px var(--m);color:var(--bone);letter-spacing:.1em}
+#banner{position:absolute;left:0;right:0;top:22%;text-align:center;opacity:0;transition:opacity .5s;text-shadow:0 0 12px rgba(0,0,0,.8)}
+#banner.on{opacity:1}
+#banner b{display:block;font-size:clamp(26px,5vw,46px);font-weight:800;letter-spacing:.3em;margin-right:-.3em}
+#banner span{display:block;margin-top:8px;font-size:13px;letter-spacing:.24em;color:var(--am)}
+#warn{position:absolute;left:0;right:0;top:36%;text-align:center;font-size:14px;letter-spacing:.3em;color:var(--rd);font-weight:700;animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:.25}}
+#radio{position:absolute;left:50%;bottom:calc(var(--sb) + 150px);transform:translateX(-50%);max-width:min(560px,86vw);background:var(--plate);border-left:2px solid var(--cy);padding:8px 14px;font-size:14px;line-height:1.5;opacity:0;transition:opacity .4s}
+#radio.on{opacity:1}
+#radio b{color:var(--cy);font-weight:600;margin-right:8px;letter-spacing:.1em}
+/* ---------- 触屏 ---------- */
+#touch>*{pointer-events:auto;position:absolute;touch-action:none}
+#stick{left:var(--sl);bottom:calc(var(--sb) + 60px);width:130px;height:130px;border-radius:50%;border:1px solid var(--faint);background:rgba(232,238,242,.05)}
+#stick i{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px;border-radius:50%;background:rgba(232,238,242,.22)}
+.tb{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;border:1px solid var(--faint);background:rgba(232,238,242,.07);font-size:12px;letter-spacing:.1em}
+.tb.on{background:rgba(114,228,255,.3)}
+#tFire{right:var(--sr);bottom:calc(var(--sb) + 70px);width:92px;height:92px;border-color:var(--cy)}
+#tMis{right:calc(var(--sr) + 104px);bottom:calc(var(--sb) + 60px)}
+#tBoost{right:calc(var(--sr) + 30px);bottom:calc(var(--sb) + 176px)}
+#tPause{right:var(--sr);top:calc(var(--st) + 44px);width:40px;height:40px}
+/* ---------- 菜单 ---------- */
+#panel,#boot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;pointer-events:auto;padding:20px;box-sizing:border-box;text-align:center}
+#panel{background:radial-gradient(ellipse at center,rgba(5,8,12,.5),rgba(5,8,12,.82))}
+#boot{background:var(--ink);transition:opacity .6s}
+#boot.done{opacity:0;pointer-events:none}
+.mark{font-size:clamp(40px,9vw,88px);font-weight:900;letter-spacing:.22em;margin-right:-.22em;line-height:1}
+.tag{font-size:13px;letter-spacing:.5em;margin-right:-.5em;color:var(--am);margin-bottom:22px}
+h2{margin:0 0 10px;font-size:26px;letter-spacing:.3em;margin-right:-.3em}
+button{font:inherit;color:var(--bone);background:rgba(232,238,242,.06);border:1px solid var(--faint);padding:12px 0;width:min(260px,70vw);font-size:15px;letter-spacing:.3em;cursor:pointer;transition:background .15s,border-color .15s}
+button:hover,button:focus-visible{background:rgba(114,228,255,.16);border-color:var(--cy);outline:none}
+button.pri{border-color:var(--cy);background:rgba(114,228,255,.1)}
+.foot{margin-top:16px;font:12px var(--m);color:var(--dim);letter-spacing:.14em}
+label{display:flex;align-items:center;justify-content:space-between;gap:16px;width:min(340px,82vw);font-size:14px;letter-spacing:.1em}
+input[type=range]{width:160px;accent-color:var(--cy)}
+select{font:inherit;color:var(--bone);background:#10161d;border:1px solid var(--faint);padding:5px 8px}
+.help{display:grid;grid-template-columns:auto auto;gap:7px 22px;text-align:left;font-size:14px;margin-bottom:10px}
+.help b{color:var(--cy);font-weight:600;font-family:var(--m)}
+.stats{display:grid;grid-template-columns:auto auto;gap:6px 26px;font-size:15px;margin:6px 0 14px;text-align:left}
+.stats b{font-family:var(--m);text-align:right;color:var(--am)}
+.pbar{width:min(320px,70vw);height:2px;background:#1b2229}.pbar i{display:block;height:100%;width:0;background:var(--cy);transition:width .25s}
+#err{color:var(--rd);font:12px/1.5 var(--m);white-space:pre-wrap;max-width:90vw;text-align:left}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas><canvas id="hud"></canvas>
+<div id="ui">
+  <div id="hudBox" class="hide">
+    <div class="hb tl"><div class="k">得分</div><div class="n" id="hScore">0</div><div class="s" id="hWave"></div></div>
+    <div class="hb tc"><div class="k">曙光站 · 结构完整度</div><div class="bar w"><i id="bSt"></i></div></div>
+    <div class="hb bl"><div class="row"><span>护盾</span><div class="bar"><i id="bSh" class="cy"></i></div></div><div class="row"><span>船体</span><div class="bar"><i id="bHu" class="gn"></i></div></div></div>
+    <div class="hb br"><div class="row"><div class="bar"><i id="bHt" class="am"></i></div><span>炮温</span></div><div class="row"><div class="bar"><i id="bEn" class="cy"></i></div><span>推进</span></div><div class="row"><span id="hMis">导弹 ×6</span></div></div>
+    <div id="banner"><b></b><span></span></div>
+    <div id="warn"></div>
+    <div id="radio"><b></b><span></span></div>
+  </div>
+  <div id="touch" class="hide"><div id="stick"><i></i></div><div id="tBoost" class="tb">加速</div><div id="tMis" class="tb">导弹</div><div id="tFire" class="tb">开火</div><div id="tPause" class="tb">Ⅱ</div></div>
+  <div id="panel" class="hide"></div>
+  <div id="boot"><div class="mark">星际战机</div><div class="tag" id="bootT">正在启动</div><div class="pbar"><i id="bootB"></i></div><div id="err"></div></div>
+</div>
+<script>
+'use strict';
+/* =====================================================================
+   星际战机 · 曙光防线 —— 单文件、零素材：贴图、模型、音效、音乐全部运行时生成
+   目录：1 基础数学 · 2 渲染器 · 3 着色器 · 4 模型 · 5 音频 · 6 玩法 · 7 渲染帧 · 8 HUD · 9 菜单与输入 · 10 启动
+   ===================================================================== */
+/* ---------- 1 基础数学 ---------- */
+const $=s=>document.querySelector(s),M=Math,{sin,cos,min,max,abs,hypot,PI,sqrt}=M,R=M.random;
+const clamp=(v,a=0,b=1)=>v<a?a:v>b?b:v;
+const ad=(a,b,s=1)=>[a[0]+b[0]*s,a[1]+b[1]*s,a[2]+b[2]*s];
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]];
+const sc=(a,s)=>[a[0]*s,a[1]*s,a[2]*s];
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const len=a=>hypot(a[0],a[1],a[2]);
+const nm=a=>{const l=len(a)||1;return[a[0]/l,a[1]/l,a[2]/l]};
+const dist=(a,b)=>hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]);
+const rnd=(a=1,b)=>b===undefined?(R()*2-1)*a:a+R()*(b-a);
+const rdir=()=>{const z=R()*2-1,a=R()*2*PI,r=sqrt(1-z*z);return[r*cos(a),z,r*sin(a)]};
+const Z=[0,0,0];
+// 朝向矩阵（列主序 mat3）：列 = 右、上、前
+const basis=(f,roll=0)=>{const x=nm([f[2],0,-f[0]]),y=cross(f,x),c=cos(roll),s=sin(roll);
+  return[x[0]*c+y[0]*s,x[1]*c+y[1]*s,x[2]*c+y[2]*s,y[0]*c-x[0]*s,y[1]*c-x[1]*s,y[2]*c-x[2]*s,f[0],f[1],f[2]]};
+const rotAxis=(a,t)=>{const c=cos(t),s=sin(t),k=1-c,x=a[0],y=a[1],z=a[2];
+  return[c+x*x*k,y*x*k+z*s,z*x*k-y*s,x*y*k-z*s,c+y*y*k,z*y*k+x*s,x*z*k+y*s,y*z*k-x*s,c+z*z*k]};
+const loc=(p,b,v,s=1)=>[p[0]+(b[0]*v[0]+b[3]*v[1]+b[6]*v[2])*s,p[1]+(b[1]*v[0]+b[4]*v[1]+b[7]*v[2])*s,p[2]+(b[2]*v[0]+b[5]*v[1]+b[8]*v[2])*s];
+
+/* ---------- 设置 ---------- */
+const opt={sens:1,vol:.8,q:1,shake:.5,best:0};
+try{Object.assign(opt,JSON.parse(localStorage.getItem('dawnline')||'{}'))}catch(e){}
+const saveOpt=()=>{try{localStorage.setItem('dawnline',JSON.stringify(opt))}catch(e){}};
+
+/* ---------- 2 渲染器 ---------- */
+const cv=$('#gl'),hudC=$('#hud'),hx=hudC.getContext('2d');
+const gl=cv.getContext('webgl2',{antialias:false,alpha:false,depth:false,powerPreference:'high-performance'});
+let HDR=false,IFMT,W=1,H=1,RW=1,RH=1,fbMS,rbC,rbD,scene,bloom=[],skyTex,curP;
+const FL=1.6,SUNV=nm([-.8,.35,.3]);
+const HEAD='#version 300 es\nprecision highp float;precision highp int;\n';
+function prog(vs,fs){const p=gl.createProgram();
+  for(const[t,s]of[[gl.VERTEX_SHADER,vs],[gl.FRAGMENT_SHADER,fs]]){const o=gl.createShader(t);gl.shaderSource(o,HEAD+s);gl.compileShader(o);
+    if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw Error('着色器编译失败\n'+gl.getShaderInfoLog(o));gl.attachShader(p,o)}
+  gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw Error('着色器链接失败\n'+gl.getProgramInfoLog(p));
+  const u={},n=gl.getProgramParameter(p,gl.ACTIVE_UNIFORMS);
+  for(let i=0;i<n;i++){const k=gl.getActiveUniform(p,i).name.replace('[0]','');u[k]=gl.getUniformLocation(p,k)}
+  return{p,u}}
+function mkTex(w,h){const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.texStorage2D(gl.TEXTURE_2D,1,IFMT,w,h);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  const f=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,f);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,t,0);return{t,f,w,h}}
+function resize(){
+  const dpr=min(window.devicePixelRatio||1,[1,1.5,2][opt.q]);W=innerWidth;H=innerHeight;
+  RW=max(2,W*dpr|0);RH=max(2,H*dpr|0);cv.width=RW;cv.height=RH;
+  const hd=min(window.devicePixelRatio||1,2);hudC.width=W*hd;hudC.height=H*hd;hx.setTransform(hd,0,0,hd,0,0);
+  if(!gl||!IFMT)return;
+  if(fbMS){gl.deleteFramebuffer(fbMS);gl.deleteRenderbuffer(rbC);gl.deleteRenderbuffer(rbD);for(const b of[scene,...bloom]){gl.deleteTexture(b.t);gl.deleteFramebuffer(b.f)}}
+  const smp=min(4,gl.getParameter(gl.MAX_SAMPLES));
+  fbMS=gl.createFramebuffer();rbC=gl.createRenderbuffer();rbD=gl.createRenderbuffer();
+  gl.bindRenderbuffer(gl.RENDERBUFFER,rbC);gl.renderbufferStorageMultisample(gl.RENDERBUFFER,smp,IFMT,RW,RH);
+  gl.bindRenderbuffer(gl.RENDERBUFFER,rbD);gl.renderbufferStorageMultisample(gl.RENDERBUFFER,smp,gl.DEPTH_COMPONENT24,RW,RH);
+  gl.bindFramebuffer(gl.FRAMEBUFFER,fbMS);gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.RENDERBUFFER,rbC);gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.RENDERBUFFER,rbD);
+  scene=mkTex(RW,RH);bloom=[];let w=RW,h=RH;for(let i=0;i<5;i++){w=max(1,w>>1);h=max(1,h>>1);bloom.push(mkTex(w,h))}
+  gl.bindFramebuffer(gl.FRAMEBUFFER,null)}
+
+/* ---------- 3 着色器 ---------- */
+const GLC=`const vec3 SUN=normalize(vec3(-.8,.35,.3)),PLN=normalize(vec3(.55,.12,.8));
+float H(vec3 p){p=fract(p*.3183099+.1);p*=17.;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}
+float N(vec3 x){vec3 i=floor(x),f=fract(x);f=f*f*(3.-2.*f);
+ return mix(mix(mix(H(i),H(i+vec3(1,0,0)),f.x),mix(H(i+vec3(0,1,0)),H(i+vec3(1,1,0)),f.x),f.y),
+            mix(mix(H(i+vec3(0,0,1)),H(i+vec3(1,0,1)),f.x),mix(H(i+vec3(0,1,1)),H(i+vec3(1,1,1)),f.x),f.y),f.z);}
+float F(vec3 p){float s=0.,a=.5;for(int i=0;i<5;i++){s+=a*N(p);p=p*2.02+7.;a*=.5;}return s;}
+`;
+const VS_FS=`out vec2 uv;void main(){vec2 q=vec2(gl_VertexID&1,gl_VertexID>>1)*2.;uv=q;gl_Position=vec4(q*2.-1.,0,1);}`;
+// 星空烘焙：只在启动时算一次，写进立方体贴图。刻意做得暗、稀疏、低饱和 —— 背景越安静越不晕
+const FS_BAKE=`in vec2 uv;uniform mat3 Fm;out vec4 o;
+${GLC}
+void main(){
+ vec3 r=normalize(Fm*vec3(uv*2.-1.,1.));
+ vec3 c=vec3(.0022,.003,.0055);
+ vec3 G=normalize(vec3(.3,.86,-.4));float g=pow(1.-abs(dot(r,G)),7.);
+ float dn=F(r*5.+vec3(3.,1.,7.));
+ c+=vec3(.07,.066,.08)*g*(.25+1.3*dn*dn)*smoothstep(.72,.35,F(r*9.+20.));
+ float m1=pow(max(dot(r,normalize(vec3(-.75,.25,-.6))),0.),4.);
+ c+=vec3(.028,.07,.1)*m1*pow(F(r*3.5+5.),2.)*2.;
+ float m2=pow(max(dot(r,normalize(vec3(.2,-.6,-.75))),0.),5.);
+ c+=vec3(.09,.04,.028)*m2*pow(F(r*4.-3.),2.)*1.8;
+ for(float i=0.;i<3.;i++){
+  vec3 q=r*(120.+i*95.),j=floor(q);float h=H(j+i*13.),th=.994+i*.001;
+  if(h>th){vec3 of=vec3(H(j+1.7),H(j+2.9),H(j+4.3))-.5;float d=length(q-j-.5-of*.6),b=(h-th)/(1.-th);
+   c+=mix(vec3(1.,.82,.66),vec3(.72,.84,1.),H(j+6.1))*smoothstep(.22,0.,d)*(.1+b*b*1.2)*(1.+g*1.5);}
+ }
+ vec3 pc=PLN*10.,ax=normalize(vec3(.22,.95,-.2));float b=dot(r,pc),hh=b*b-dot(pc,pc)+6.76,tp=1e9;
+ if(hh>0.&&b>0.){tp=b-sqrt(hh);vec3 n=normalize(r*tp-pc);float l=max(dot(n,SUN),0.),lat=dot(n,ax);
+  float bd=F(vec3(lat*7.,.5,.5)+.35*F(n*3.))+.2*sin(lat*26.);
+  vec3 pn=mix(vec3(.3,.38,.46),vec3(.68,.62,.52),smoothstep(.3,.8,bd));
+  pn=mix(pn,vec3(.2,.25,.34),smoothstep(.55,.2,F(vec3(lat*15.,2.,n.x*.6)))*.5);
+  c=mix(c,pn*pow(l,.8)*.8+vec3(.22,.4,.75)*pow(1.+dot(n,r),4.)*(l*.9+.03),smoothstep(0.,.22,hh));}
+ float tr=dot(pc,ax)/dot(r,ax);
+ if(tr>0.&&tr<tp){vec3 hp=r*tr-pc;float rr=length(hp);
+  if(rr>3.3&&rr<6.1){float a=(.35+.65*N(vec3(rr*14.,1.,1.)))*smoothstep(3.3,3.5,rr)*smoothstep(6.1,5.6,rr)*(1.-.8*smoothstep(.08,0.,abs(rr-4.75)));
+   float sb=dot(hp,SUN),sh=(sb<0.&&dot(hp,hp)-sb*sb<6.76)?.08:1.;
+   c=mix(c,vec3(.58,.53,.45)*sh*.7,a*.75);}}
+ o=vec4(sqrt(clamp(c,0.,1.)),1);}`;
+const CAMU=`uniform mat3 C;uniform vec3 E;uniform vec4 A;`;
+const PROJ=`vec3 v=(w-E)*C;gl_Position=vec4(v.xy*A.xy,v.z-2.,v.z);`;
+const VS_SKY=CAMU+`out vec3 d;void main(){vec2 q=vec2(gl_VertexID&1,gl_VertexID>>1)*4.-1.;d=C*vec3(q/A.xy,1.);gl_Position=vec4(q,0,1);}`;
+const FS_SKY=`in vec3 d;uniform samplerCube Sky;out vec4 o;
+const vec3 SUN=normalize(vec3(-.8,.35,.3));
+void main(){vec3 r=normalize(d),c=texture(Sky,r).rgb;c*=c;float s=max(dot(r,SUN),0.);
+ c+=vec3(1.,.86,.66)*(pow(s,5000.)*40.+pow(s,300.)*.6+pow(s,14.)*.035);o=vec4(c,1);}`;
+const VS_MESH=CAMU+`layout(location=0)in vec3 p;layout(location=1)in vec4 c;uniform mat3 M;uniform vec3 P;uniform float S;
+out vec3 w,q;out vec4 k;void main(){q=p;w=M*p*S+P;k=c;${PROJ}}`;
+// 光照：太阳 GGX 高光 + 行星反光补光 + 立方体贴图环境反射
+const SHADE=`uniform samplerCube Sky;
+vec3 shade(vec3 n,vec3 v,vec3 alb,float rough,float metal){
+ vec3 V=-v,L=SUN,Hh=normalize(L+V);float nl=max(dot(n,L),0.),nv=max(dot(n,V),.001),nh=max(dot(n,Hh),0.);
+ float a=rough*rough,a2=a*a,dd=nh*nh*(a2-1.)+1.,D=a2/(3.1416*dd*dd),kk=a*.5,vis=.25/((nl*(1.-kk)+kk)*(nv*(1.-kk)+kk));
+ vec3 F0=mix(vec3(.04),alb,metal),Fr=F0+(1.-F0)*pow(1.-max(dot(Hh,V),0.),5.),dif=alb*(1.-metal*.85);
+ vec3 c=(dif/3.1416+min(D*vis,6.)*Fr)*nl*vec3(1.,.93,.82)*4.5;
+ c+=dif*vec3(.24,.36,.5)*max(dot(n,PLN),0.)*.4;
+ vec3 e=textureLod(Sky,reflect(v,n),1.+rough*6.).rgb;e*=e;vec3 ei=textureLod(Sky,n,8.).rgb;ei*=ei;
+ c+=dif*(ei*1.6+.025)+e*(F0+(1.-F0)*pow(1.-nv,5.)*(1.-rough))*1.6;
+ return c;}`;
+// 舰体：法线用屏幕空间导数求；装甲板缝、色差、舷窗全部由物体空间坐标程序化生成
+const FS_HULL=`in vec3 w,q;in vec4 k;uniform mat3 M;uniform vec3 E,K;uniform vec4 T;out vec4 o;
+${GLC}${SHADE}
+void main(){
+ vec3 v=normalize(w-E),n=normalize(cross(dFdx(w),dFdy(w)));if(dot(n,v)>0.)n=-n;
+ vec3 no=abs(n*M);vec2 u=(no.x>no.y&&no.x>no.z?q.zy:no.y>no.z?q.xz:q.xy)*T.z;
+ float fw=max(fwidth(u.x),fwidth(u.y)),fade=clamp(1.-fw*1.5,0.,1.);
+ vec2 ce=floor(u),f=fract(u);float h=H(vec3(ce,3.));
+ if(h>.6){f=fract(f*2.);h=H(vec3(ce*2.+floor(fract(u)*2.),5.));}
+ float e=min(min(f.x,1.-f.x),min(f.y,1.-f.y)),ln=smoothstep(0.,.035+fw,e);
+ vec3 alb=k.rgb,glow=vec3(0);float rough=T.y,em=k.a;
+ if(em<.01){
+  alb*=mix(1.,(.8+.4*h)*mix(.35,1.,ln),fade)*(.86+.28*N(q*T.z*5.));
+  rough=clamp(rough+(h-.5)*.3*fade,.08,1.);
+  if(T.w>1.5){vec2 wu=u*4.,wc=floor(wu),wf=fract(wu);
+   glow=vec3(1.,.74,.42)*step(.82,H(vec3(wc,9.)))*step(.2,wf.x)*step(wf.x,.8)*step(.32,wf.y)*step(wf.y,.68)*1.6*clamp(1.-fw*5.,0.,1.);}
+ }
+ vec3 c=shade(n,v,alb,rough,T.x)*(1.-min(em,1.))+k.rgb*em*2.2+glow+K;
+ o=vec4(c,1);}`;
+// 陨石：分形噪声着色 + 无切线凹凸
+const FS_ROCK=`in vec3 w,q;in vec4 k;uniform vec3 E;uniform float S;out vec4 o;
+${GLC}${SHADE}
+void main(){
+ vec3 v=normalize(w-E),dx=dFdx(w),dy=dFdy(w),n=normalize(cross(dx,dy));if(dot(n,v)>0.)n=-n;
+ float h=F(q*2.6),h2=F(q*9.+3.),b=(h*1.3+h2*.45)*S*.05;
+ vec3 r1=cross(dy,n),r2=cross(n,dx);float det=dot(dx,r1);
+ n=normalize(abs(det)*n-sign(det)*(dFdx(b)*r1+dFdy(b)*r2));
+ vec3 alb=k.rgb*(.28+.85*h)*(.8+.4*h2);
+ o=vec4(shade(n,v,alb,.95,0.),1);}`;
+// 粒子：实例化公告板。类型 0 光晕 · 1 火球 · 2 冲击波环 · 3 拉丝（激光/火花/尾焰）
+const VS_SPR=CAMU+`layout(location=0)in vec4 a0;layout(location=1)in vec4 a1;layout(location=2)in vec4 a2;layout(location=3)in vec2 a3;
+out vec2 uv;out vec4 col;flat out vec3 fi;
+void main(){vec2 c=vec2(gl_VertexID&1,gl_VertexID>>1)*2.-1.;uv=c;col=a1;fi=vec3(a2.w,a3);vec3 w;
+ if(dot(a2.xyz,a2.xyz)>0.){vec3 s=normalize(cross(a2.xyz,a0.xyz-E));w=a0.xyz+a2.xyz*c.x+s*c.y*a0.w;}
+ else w=a0.xyz+(C[0]*c.x+C[1]*c.y)*a0.w;
+ ${PROJ}}`;
+const FS_SPR=`in vec2 uv;in vec4 col;flat in vec3 fi;out vec4 o;
+${GLC}
+void main(){float t=fi.x,r=length(uv),f;vec3 c=col.rgb;
+ if(t<.5)f=pow(max(1.-r,0.),2.6);
+ else if(t<1.5){float n=N(vec3(uv*2.2+fi.z*31.,fi.y*2.5+fi.z*9.));float rr=r*(1.+.9*(n-.5))+fi.y*.12;
+  f=pow(max(1.-rr,0.),1.4)*pow(1.-fi.y,1.3)*smoothstep(1.,.7,r);c=mix(vec3(1.9,1.5,1.),c,clamp(fi.y*2.2+rr*.6,0.,1.))*mix(1.,.35,fi.y);}
+ else if(t<2.5){float x=(r-.74)*11.;f=exp(-x*x)*(1.-fi.y)*smoothstep(1.,.88,r);}
+ else f=pow(max(1.-abs(uv.y),0.),2.5)*max(1.-uv.x*uv.x,0.);
+ o=vec4(c*f*col.a,1);}`;
+const FS_BLUR=`in vec2 uv;uniform sampler2D S;uniform vec4 U;out vec4 o;
+void main(){vec3 c=(texture(S,uv+U.xy).rgb+texture(S,uv-U.xy).rgb+texture(S,uv+vec2(U.x,-U.y)).rgb+texture(S,uv+vec2(-U.x,U.y)).rgb)*.25;
+ if(U.z>0.){float l=max(c.r,max(c.g,c.b));c=min(c,vec3(5.))*smoothstep(U.z,U.z*2.2,l);}
+ o=vec4(c,1);}`;
+const FS_POST=`in vec2 uv;uniform sampler2D S,B;uniform vec4 U;out vec4 o;
+void main(){vec3 c=texture(S,uv).rgb+texture(B,uv).rgb*U.y;
+ c=(c*(2.51*c+.03))/(c*(2.43*c+.59)+.14);c=pow(clamp(c,0.,1.),vec3(.4545));
+ vec2 d=uv-.5;float r=dot(d,d);c*=1.-.85*r;
+ c=mix(c,vec3(.95,.14,.06),clamp(U.x*r*2.2,0.,.55));
+ c+=(fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233))+U.z)*43758.5453)-.5)/200.;
+ o=vec4(c,1);}`;
+let pBake,pSky,pHull,pRock,pSpr,pBlur,pPost,vaoNone,vaoMesh,vaoSpr,bufSpr;
+function bakeSky(size){
+  const t=gl.createTexture();gl.activeTexture(gl.TEXTURE2);gl.bindTexture(gl.TEXTURE_CUBE_MAP,t);
+  gl.texStorage2D(gl.TEXTURE_CUBE_MAP,M.round(M.log2(size))+1,gl.RGBA8,size,size);
+  const f=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,f);gl.viewport(0,0,size,size);gl.disable(gl.DEPTH_TEST);gl.disable(gl.BLEND);
+  gl.useProgram(pBake.p);gl.bindVertexArray(vaoNone);
+  [[0,0,-1,0,-1,0,1,0,0],[0,0,1,0,-1,0,-1,0,0],[1,0,0,0,0,1,0,1,0],[1,0,0,0,0,-1,0,-1,0],[1,0,0,0,-1,0,0,0,1],[-1,0,0,0,-1,0,0,0,-1]].forEach((m,i)=>{
+    gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_CUBE_MAP_POSITIVE_X+i,t,0);gl.uniformMatrix3fv(pBake.u.Fm,false,m);gl.drawArrays(gl.TRIANGLES,0,3)});
+  gl.generateMipmap(gl.TEXTURE_CUBE_MAP);gl.texParameteri(gl.TEXTURE_CUBE_MAP,gl.TEXTURE_MIN_FILTER,gl.LINEAR_MIPMAP_LINEAR);gl.texParameteri(gl.TEXTURE_CUBE_MAP,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.deleteFramebuffer(f);gl.activeTexture(gl.TEXTURE0);return t}
+
+/* ---------- 4 模型：全部由“放样”拼装（一串截面连成的多边形管）---------- */
+const VB=[];let XF=null;
+const pv=(p,c)=>{if(XF)p=XF(p);VB.push(p[0],p[1],p[2],c[0],c[1],c[2],c[3])};
+const tri=(a,b,c,k)=>{pv(a,k);pv(b,k);pv(c,k)};
+const quad=(a,b,c,d,k)=>{tri(a,b,c,k);tri(a,c,d,k)};
+const withX=(f,fn)=>{const o=XF;XF=o?p=>o(f(p)):f;fn();XF=o};
+const SWAPX=p=>[p[2],p[1],p[0]],ALONGY=p=>[p[0],p[2],p[1]],MIR=s=>p=>[p[0]*s,p[1],p[2]];
+// 截面 = [沿轴位置, 中心x, 中心y, 半宽, 半高]，n 为截面边数（4=方、8≈圆）
+function loft(secs,n,col,endCol){
+  const ring=s=>{const o=[],k=n==4?M.SQRT2:1;for(let i=0;i<n;i++){const a=(i+.5)/n*2*PI;o.push([s[1]+cos(a)*s[3]*k,s[2]+sin(a)*s[4]*k,s[0]])}return o};
+  const cap=(r,c)=>{for(let i=1;i<n-1;i++)tri(r[0],r[i],r[i+1],c)};
+  let prev=ring(secs[0]);cap(prev,col);
+  for(let s=1;s<secs.length;s++){const cur=ring(secs[s]);for(let i=0;i<n;i++){const j=(i+1)%n;quad(prev[i],prev[j],cur[j],cur[i],col)}prev=cur}
+  cap(prev,endCol||col)}
+const box=(c,s,col)=>loft([[c[2]-s[2],c[0],c[1],s[0],s[1]],[c[2]+s[2],c[0],c[1],s[0],s[1]]],4,col);
+function torus(Rr,rw,rh,seg,n,col){const rg=i=>{const a=i/seg*2*PI,o=[];for(let j=0;j<n;j++){const b=(j+.5)/n*2*PI,rr=Rr+cos(b)*rw;o.push([cos(a)*rr,sin(b)*rh,sin(a)*rr])}return o};
+  let p=rg(0);for(let i=1;i<=seg;i++){const c=rg(i);for(let j=0;j<n;j++){const k=(j+1)%n;quad(p[j],p[k],c[k],c[j],col)}p=c}}
+const mesh=fn=>{const s=VB.length/7;fn();return[s,VB.length/7-s]};
+const c4=(r,g,b,e=0)=>[r,g,b,e];
+const HULL=c4(.6,.63,.68),HULL2=c4(.3,.34,.42),DARK=c4(.09,.1,.12),ACC=c4(.9,.3,.05),GLASS=c4(.02,.04,.07),E_ENG=c4(.3,.7,1.6,1),
+  FOE=c4(.19,.19,.22),FOE2=c4(.48,.06,.05),E_FENG=c4(1.6,.45,.12,1),E_EYE=c4(1.5,.12,.08,.8),OLV=c4(.3,.31,.23),E_AMB=c4(1.5,.75,.15,1),
+  STC=c4(.58,.6,.64),STD=c4(.2,.22,.27),SOLAR=c4(.015,.04,.17);
+let mShip,mFoe,mBomb,mGun,mStation,mMis,mChunk,mRocks=[];
+function buildShips(){
+  mShip=mesh(()=>{
+    loft([[8,0,-.1,.06,.05],[6,0,0,.42,.3],[3,0,.1,.9,.6],[-.5,0,.18,1.2,.82],[-4.5,0,.12,1.05,.72],[-6.2,0,.05,.6,.42]],8,HULL);
+    loft([[3.9,0,.48,.08,.05],[2.6,0,.82,.4,.3],[.8,0,.98,.5,.36],[-1.2,0,.86,.36,.18]],6,GLASS);
+    loft([[-1.5,0,.9,.3,.12],[-5.6,0,.75,.18,.1]],4,HULL2);
+    for(const s of[1,-1])withX(MIR(s),()=>{
+      withX(SWAPX,()=>{loft([[.9,-1.4,0,2.1,.2],[3.6,-2.5,-.14,1.35,.12],[6.8,-3.7,-.34,.55,.05]],4,HULL);loft([[1.5,-1.55,.17,.45,.03],[3.4,-2.35,0,.4,.03]],4,ACC)});
+      loft([[1.4,6.8,-.34,.08,.08],[-.6,6.8,-.34,.09,.09]],6,DARK);
+      loft([[-.6,6.8,-.34,.24,.22],[-4,6.8,-.34,.26,.24],[-4.6,6.8,-.34,.12,.12]],6,HULL2);
+      loft([[-.8,1.8,.02,.5,.5],[-1.6,1.8,.02,.85,.78],[-5.2,1.8,.02,.8,.74],[-6.6,1.8,.02,.58,.54]],10,HULL2,E_ENG);
+      withX(ALONGY,()=>loft([[.5,1.5,-4.5,.09,1.2],[2.7,2.2,-5.7,.04,.5]],4,HULL));
+      loft([[2.2,.95,-.25,.1,.1],[.8,.95,-.25,.28,.2],[-1,.95,-.25,.28,.2]],4,DARK)})});
+  mFoe=mesh(()=>{
+    loft([[6,0,0,.05,.05],[4,0,.05,.5,.36],[1,0,.15,1.05,.7],[-2.5,0,.1,.9,.62],[-4.2,0,.02,.5,.4]],6,FOE,E_FENG);
+    loft([[3.4,0,.5,.1,.05],[2,0,.78,.36,.2],[.2,0,.8,.3,.12]],4,E_EYE);
+    for(const s of[1,-1])withX(MIR(s),()=>{
+      withX(SWAPX,()=>{loft([[.8,-1.6,0,1.6,.18],[3.2,-.3,.05,1.05,.1],[5.6,2.4,.12,.3,.04]],4,FOE);loft([[1.2,-1.2,.2,.3,.03],[3,-.1,.16,.25,.03]],4,FOE2)});
+      loft([[4.6,5.6,.12,.1,.1],[2.4,5.6,.12,.16,.16]],6,DARK);
+      withX(ALONGY,()=>loft([[-.3,1.6,-2.2,.07,.9],[-2,2.1,-2.9,.03,.35]],4,FOE2))})});
+  mBomb=mesh(()=>{
+    loft([[6.5,0,-.2,.5,.4],[4.5,0,0,1.5,1.1],[-1.5,0,.1,2,1.45],[-5,0,.1,1.7,1.25],[-6.5,0,0,1,.8]],8,OLV);
+    loft([[5.6,0,.5,.4,.12],[4.3,0,.98,.85,.2],[3.2,0,1.2,.8,.12]],4,c4(1.2,.6,.15,.7));
+    for(const s of[1,-1])withX(MIR(s),()=>{
+      loft([[1.5,3.6,.2,.7,.7],[.5,3.6,.2,1.05,1.05],[-4.6,3.6,.2,1.05,1.05],[-6.2,3.6,.2,.75,.75]],10,DARK,E_AMB);
+      withX(SWAPX,()=>{loft([[1.6,-1.5,.2,1.8,.28],[2.7,-1.8,.2,1.5,.2]],4,OLV);loft([[4.5,-2,.2,1.6,.16],[7.5,-3,.1,.7,.06]],4,OLV)});
+      loft([[3.2,1.1,-1.55,.34,.34],[-2.2,1.1,-1.55,.34,.34]],8,DARK)})});
+  mGun=mesh(()=>{
+    loft([[13,0,0,.25,.2],[10,0,0,1.3,.9],[4,0,0,2.3,1.5],[-6,0,.1,2.6,1.8],[-10.5,0,0,1.8,1.3]],6,FOE);
+    loft([[-1.5,0,1.7,1,.4],[-5.5,0,2.5,1.25,.55],[-8,0,1.8,.8,.35]],4,DARK);
+    box([0,2.5,-4.2],[1,.1,.12],c4(1.5,.3,.2,.9));
+    loft([[7,0,-1.5,.3,.3],[6.3,0,-1.9,.8,.6],[5,0,-1.9,.8,.6],[4.3,0,-1.5,.3,.3]],8,DARK);
+    for(const s of[1,-1])withX(MIR(s),()=>{
+      loft([[7,3.5,-.3,.5,.4],[5,3.5,-.3,.95,.7],[-7,3.7,-.3,1.1,.95],[-9.8,3.7,-.3,.75,.65]],6,FOE2,E_FENG);
+      withX(SWAPX,()=>loft([[2,-1,-.2,3.2,.3],[3,-1.5,-.3,2.8,.25]],4,FOE));
+      withX(ALONGY,()=>loft([[1.2,2.2,-7.5,.1,1.5],[4,2.8,-9,.04,.6]],4,FOE));
+      loft([[9.5,1.2,-1.3,.12,.12],[6,1.2,-1.3,.16,.16]],6,DARK)})});
+  mMis=mesh(()=>loft([[1.6,0,0,.02,.02],[.9,0,0,.16,.16],[-1.3,0,0,.16,.16]],6,HULL,E_FENG));
+  mChunk=mesh(()=>loft([[.8,0,0,.3,.2],[0,.1,0,.7,.5],[-.7,0,.1,.4,.3]],5,DARK))}
+function buildStation(){
+  mStation=mesh(()=>{
+    withX(ALONGY,()=>loft([[-72,0,0,1,1],[-54,0,0,5,5],[-45,0,0,13,13],[-31,0,0,15,15],[-23,0,0,26,26],[23,0,0,26,26],[31,0,0,15,15],[45,0,0,13,13],[54,0,0,5,5],[98,0,0,1.2,1.2]],16,STC));
+    torus(130,9,6,48,8,STC);torus(130,9.4,2,48,4,STD);
+    for(let k=0;k<4;k++){const a=k*PI/2,c=cos(a),s=sin(a);withX(p=>[p[0]*c+p[2]*s,p[1],p[2]*c-p[0]*s],()=>{
+      loft([[25,0,0,3.4,3.4],[122,0,0,3.4,3.4]],6,STD);box([0,0,75],[5,4.5,6],STC)})}
+    box([0,64,0],[72,1.2,1.2],STD);
+    for(const sx of[-1,1])for(const i of[0,1])box([sx*(30+i*30),64,0],[13,.3,21],SOLAR);
+    box([0,-10,33],[7,5,9],STD);box([0,-10,42.2],[5,.7,.3],c4(.3,1,1.6,1));
+    for(let i=0;i<12;i++){const a=i/12*2*PI;box([cos(a)*139.6,0,sin(a)*139.6],[.9,.9,.9],c4(1.6,1.3,.9,1))}})}
+// JS 侧噪声，用来给二十面体细分球做位移
+const h3=(x,y,z)=>{const n=sin(x*127.1+y*311.7+z*74.7)*43758.5453;return n-M.floor(n)};
+function vn(x,y,z){const xi=M.floor(x),yi=M.floor(y),zi=M.floor(z);let fx=x-xi,fy=y-yi,fz=z-zi;fx=fx*fx*(3-2*fx);fy=fy*fy*(3-2*fy);fz=fz*fz*(3-2*fz);
+  const L=(a,b,t)=>a+(b-a)*t;
+  return L(L(L(h3(xi,yi,zi),h3(xi+1,yi,zi),fx),L(h3(xi,yi+1,zi),h3(xi+1,yi+1,zi),fx),fy),L(L(h3(xi,yi,zi+1),h3(xi+1,yi,zi+1),fx),L(h3(xi,yi+1,zi+1),h3(xi+1,yi+1,zi+1),fx),fy),fz)}
+const fbm=(x,y,z)=>{let s=0,a=.5;for(let i=0;i<4;i++){s+=a*vn(x,y,z);x=x*2+5;y=y*2+3;z=z*2+1;a*=.5}return s};
+function icosphere(sub){const t=(1+sqrt(5))/2;
+  let v=[[-1,t,0],[1,t,0],[-1,-t,0],[1,-t,0],[0,-1,t],[0,1,t],[0,-1,-t],[0,1,-t],[t,0,-1],[t,0,1],[-t,0,-1],[-t,0,1]].map(nm);
+  let f=[[0,11,5],[0,5,1],[0,1,7],[0,7,10],[0,10,11],[1,5,9],[5,11,4],[11,10,2],[10,7,6],[7,1,8],[3,9,4],[3,4,2],[3,2,6],[3,6,8],[3,8,9],[4,9,5],[2,4,11],[6,2,10],[8,6,7],[9,8,1]];
+  while(sub--){const nf=[],mid={},m=(a,b)=>{const k=a<b?a+'_'+b:b+'_'+a;if(mid[k]===undefined){v.push(nm(ad(v[a],v[b])));mid[k]=v.length-1}return mid[k]};
+    for(const[a,b,c]of f){const ab=m(a,b),bc=m(b,c),ca=m(c,a);nf.push([a,ab,ca],[b,bc,ab],[c,ca,bc],[ab,bc,ca])}f=nf}
+  return{v,f}}
+function buildRocks(){const ico=icosphere(3);
+  for(let i=0;i<4;i++)mRocks.push(mesh(()=>{const sd=R()*90,sq=[rnd(.78,1.15),rnd(.7,1.05),rnd(.8,1.2)],col=c4(rnd(.3,.4),rnd(.27,.34),rnd(.24,.3));
+    const pts=ico.v.map(p=>{const d=.55+.8*fbm(p[0]*1.25+sd,p[1]*1.25,p[2]*1.25)+.12*fbm(p[0]*4+sd,p[1]*4,p[2]*4);return[p[0]*d*sq[0],p[1]*d*sq[1],p[2]*d*sq[2]]});
+    for(const[a,b,c]of ico.f)tri(pts[a],pts[b],pts[c],col)}))}
+const MAT={ship:[.8,.34,.9,0],foe:[.88,.4,.85,0],bomb:[.55,.55,.6,0],gun:[.88,.42,.45,0],st:[.5,.5,.11,2],dark:[.8,.5,1.5,0],rock:[0,.95,1,1]};
+const MAXS=4096,SB=new Float32Array(MAXS*14);let sn=0;
+function spr(type,p,size,col,a=1,ax,age=0,seed=0){if(sn>=MAXS)return;const o=sn++*14;
+  SB[o]=p[0];SB[o+1]=p[1];SB[o+2]=p[2];SB[o+3]=size;SB[o+4]=col[0];SB[o+5]=col[1];SB[o+6]=col[2];SB[o+7]=a;
+  if(ax){SB[o+8]=ax[0];SB[o+9]=ax[1];SB[o+10]=ax[2]}else SB[o+8]=SB[o+9]=SB[o+10]=0;SB[o+11]=type;SB[o+12]=age;SB[o+13]=seed}
+function initGL(){
+  HDR=!!gl.getExtension('EXT_color_buffer_float');IFMT=HDR?gl.RGBA16F:gl.RGBA8;
+  pBake=prog(VS_FS,FS_BAKE);pSky=prog(VS_SKY,FS_SKY);pHull=prog(VS_MESH,FS_HULL);pRock=prog(VS_MESH,FS_ROCK);pSpr=prog(VS_SPR,FS_SPR);pBlur=prog(VS_FS,FS_BLUR);pPost=prog(VS_FS,FS_POST);
+  vaoNone=gl.createVertexArray()}
+function uploadGeometry(){
+  vaoMesh=gl.createVertexArray();gl.bindVertexArray(vaoMesh);gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(VB),gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,3,gl.FLOAT,false,28,0);gl.enableVertexAttribArray(1);gl.vertexAttribPointer(1,4,gl.FLOAT,false,28,12);
+  vaoSpr=gl.createVertexArray();gl.bindVertexArray(vaoSpr);bufSpr=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bufSpr);gl.bufferData(gl.ARRAY_BUFFER,SB.byteLength,gl.DYNAMIC_DRAW);
+  [[0,4,0],[1,4,16],[2,4,32],[3,2,48]].forEach(([i,n,o])=>{gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,n,gl.FLOAT,false,56,o);gl.vertexAttribDivisor(i,1)});
+  gl.bindVertexArray(null)}
+
+/* ---------- 5 音频：音效、混响、环境音乐全部实时合成 ---------- */
+let AC=null,aMaster,aSfx,aMusic,aNoise,aEng,mNext=0,mBar=0,mBeat=0,mBeatT=0,mRoot=45;
+function audioInit(){
+  if(AC){AC.resume();return}
+  const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return;AC=new Ctx();
+  aMaster=AC.createGain();aMaster.gain.value=opt.vol;const cp=AC.createDynamicsCompressor();aMaster.connect(cp);cp.connect(AC.destination);
+  aNoise=AC.createBuffer(1,AC.sampleRate*2,AC.sampleRate);const nd=aNoise.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=R()*2-1;
+  const ir=AC.createBuffer(2,AC.sampleRate*3,AC.sampleRate);        // 合成的混响脉冲响应
+  for(let c=0;c<2;c++){const d=ir.getChannelData(c);let lp=0;for(let i=0;i<d.length;i++){const t=i/d.length;lp+=((R()*2-1)-lp)*(.5-.4*t);d[i]=lp*M.pow(1-t,3)}}
+  const cvn=AC.createConvolver();cvn.buffer=ir;const rv=AC.createGain();rv.gain.value=.45;rv.connect(cvn);cvn.connect(aMaster);
+  aSfx=AC.createGain();aSfx.connect(aMaster);aSfx.connect(rv);
+  aMusic=AC.createGain();aMusic.gain.value=.6;aMusic.connect(aMaster);aMusic.connect(rv);
+  const n=AC.createBufferSource();n.buffer=aNoise;n.loop=true;const bp=AC.createBiquadFilter();bp.type='bandpass';bp.frequency.value=300;bp.Q.value=.7;
+  const g=AC.createGain();g.gain.value=0;n.connect(bp);bp.connect(g);g.connect(aMaster);n.start();
+  const o=AC.createOscillator();o.type='sawtooth';o.frequency.value=48;const lp=AC.createBiquadFilter();lp.frequency.value=150;
+  const g2=AC.createGain();g2.gain.value=0;o.connect(lp);lp.connect(g2);g2.connect(aMaster);o.start();
+  aEng={bp,g,o,g2};setInterval(musicTick,100)}
+function voice(src,{dur,vol,att=.005,pan=0,delay=0,dest}){
+  const t=AC.currentTime+delay,g=AC.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(max(vol,.0002),t+att);g.gain.exponentialRampToValueAtTime(.0001,t+att+dur);
+  let out=g;if(pan&&AC.createStereoPanner){const p=AC.createStereoPanner();p.pan.value=pan;g.connect(p);out=p}
+  out.connect(dest||aSfx);src.connect(g)}
+function tone(o){const s=AC.createOscillator(),t=AC.currentTime+(o.delay||0);s.type=o.type||'sine';
+  s.frequency.setValueAtTime(o.f0,t);s.frequency.exponentialRampToValueAtTime(o.f1||o.f0,t+o.dur);voice(s,o);s.start(t);s.stop(t+o.dur+.1)}
+function noise(o){const s=AC.createBufferSource(),f=AC.createBiquadFilter(),t=AC.currentTime+(o.delay||0);s.buffer=aNoise;s.loop=true;f.type=o.ft||'lowpass';f.Q.value=o.q||1;
+  f.frequency.setValueAtTime(o.f0,t);f.frequency.exponentialRampToValueAtTime(o.f1||o.f0,t+o.dur);s.connect(f);voice(f,o);s.start(t,R());s.stop(t+o.dur+.1)}
+const SFX={
+  laser:(v,p)=>{tone({type:'sawtooth',f0:1500,f1:260,dur:.14,vol:.08*v,pan:p});tone({type:'square',f0:2400,f1:700,dur:.06,vol:.035*v,pan:p});noise({ft:'highpass',f0:5000,dur:.05,vol:.045*v,pan:p})},
+  elaser:(v,p)=>{tone({type:'sawtooth',f0:700,f1:140,dur:.2,vol:.07*v,pan:p});noise({ft:'bandpass',f0:1800,f1:500,q:2,dur:.12,vol:.05*v,pan:p})},
+  hit:(v,p)=>{noise({ft:'bandpass',f0:3200,f1:1200,q:3,dur:.07,vol:.12*v,pan:p});tone({f0:900,f1:500,dur:.05,vol:.05*v,pan:p})},
+  shield:v=>{tone({f0:1300,f1:600,dur:.25,vol:.11*v});tone({type:'triangle',f0:1950,f1:800,dur:.3,vol:.05*v});noise({ft:'bandpass',f0:2400,q:6,dur:.2,vol:.07*v})},
+  shieldDown:v=>tone({type:'sawtooth',f0:500,f1:60,dur:.6,vol:.13*v}),
+  hullhit:v=>{noise({f0:900,f1:90,dur:.3,vol:.38*v});tone({f0:120,f1:45,dur:.25,vol:.28*v})},
+  boom:(v,p)=>{noise({f0:1600,f1:50,dur:1.1,vol:.5*v,pan:p});tone({f0:110,f1:32,dur:.7,vol:.38*v,pan:p});noise({ft:'bandpass',f0:3000,f1:400,dur:.25,vol:.18*v,pan:p})},
+  bigboom:(v,p)=>{noise({f0:1200,f1:30,dur:2.4,vol:.75*v,pan:p});tone({f0:80,f1:24,dur:1.6,vol:.55*v,pan:p});noise({f0:400,f1:60,dur:1.2,delay:.25,vol:.35*v,pan:p})},
+  missile:v=>{noise({ft:'bandpass',f0:500,f1:2600,q:1.5,dur:.7,att:.05,vol:.22*v});tone({type:'sawtooth',f0:90,f1:220,dur:.5,vol:.09*v})},
+  lock:v=>{tone({type:'square',f0:1760,dur:.05,vol:.035*v});tone({type:'square',f0:2350,dur:.07,delay:.07,vol:.035*v})},
+  pickup:v=>[660,880,1320].forEach((f,i)=>tone({type:'triangle',f0:f,dur:.22,delay:i*.07,vol:.09*v})),
+  radio:v=>{tone({type:'square',f0:1200,dur:.04,vol:.028*v});tone({type:'square',f0:1200,dur:.04,delay:.09,vol:.028*v});noise({ft:'bandpass',f0:2200,q:4,dur:.25,vol:.018*v})},
+  alarm:v=>{tone({type:'square',f0:520,dur:.14,vol:.045*v});tone({type:'square',f0:390,dur:.14,delay:.16,vol:.045*v})},
+  heat:v=>{noise({ft:'highpass',f0:3000,f1:6000,dur:.6,vol:.09*v});tone({type:'square',f0:300,f1:150,dur:.25,vol:.045*v})},
+  ui:v=>tone({type:'triangle',f0:900,f1:1300,dur:.06,vol:.06*v}),
+  wave:v=>[220,330,440].forEach((f,i)=>tone({type:'sawtooth',f0:f,dur:.5,delay:i*.12,vol:.045*v}))};
+function sfx(name,pos,vol=1){if(!AC||AC.state!=='running')return;let pan=0;
+  if(pos){const d=sub(pos,cam.p),L=len(d);vol*=min(1,110/(L+40));pan=clamp(dot(d,cam.r)/(L+1),-1,1)*.8}
+  if(vol>.02)SFX[name](vol,pan)}
+const CH=[[45,52,57,60,64],[41,48,57,60,65],[38,50,53,57,62],[40,47,55,59,64]],mf=m=>440*M.pow(2,(m-69)/12);
+function musicTick(){if(!AC||AC.state!=='running')return;const t=AC.currentTime;
+  if(t>mNext-.3){const ch=CH[mBar++%4],t0=max(mNext,t);mNext=t0+8;mRoot=ch[0];       // 缓慢换和弦的合成器铺底
+    const lp=AC.createBiquadFilter();lp.frequency.setValueAtTime(350,t0);lp.frequency.linearRampToValueAtTime(850,t0+4);lp.frequency.linearRampToValueAtTime(300,t0+10);
+    const g=AC.createGain();g.gain.setValueAtTime(.0001,t0);g.gain.linearRampToValueAtTime(.045,t0+3);g.gain.linearRampToValueAtTime(.0001,t0+10.5);lp.connect(g);g.connect(aMusic);
+    for(const n of ch)for(const d of[-6,7]){const o=AC.createOscillator();o.type='sawtooth';o.frequency.value=mf(n);o.detune.value=d;o.connect(lp);o.start(t0);o.stop(t0+11)}}
+  while(mBeatT<t+.25){if(mBeatT<t)mBeatT=t;                                           // 交战时加入低音脉冲
+    if(state==='play'&&G.intense){const s=mBeat%8;tone({type:'triangle',f0:mf(mRoot-12+(s==6?7:s==3?12:0)),dur:.2,delay:mBeatT-t,vol:s%2?.05:.085,dest:aMusic})}
+    mBeat++;mBeatT+=.27}}
+
+/* ---------- 6 玩法 ---------- */
+const ST={p:[0,0,0],hp:1,ang:0,b:rotAxis([0,1,0],0),dead:0};
+const cam={p:[0,60,-400],f:[0,0,1],r:[1,0,0],u:[0,1,0],b:basis([0,0,1]),sf:[0,0,1]};
+const inp={mx:0,my:0,fire:0,boost:0,mis:0,sx:0,sy:0};
+const key={};
+let state='boot',touchMode=false,time=0,lastT=0,G,pl,foes=[],shots=[],parts=[],picks=[],miss=[],debris=[],rocks=[],dust=[];
+const FT=[
+  {name:'掠袭者',s:1,r:5.5,hp:45,spd:95,turn:1.7,score:100,cd:[.5,1.3],dmg:7,bspd:420,col:[2.6,.45,.2],eng:[[0,0,-4.4]],ec:[2.2,.7,.2],es:1.5},
+  {name:'重锤轰炸机',s:1.3,r:9,hp:160,spd:58,turn:.8,score:250,cd:[1.6,2.4],dmg:28,bspd:260,col:[2.6,1.3,.2],eng:[[3.6,.2,-6.4],[-3.6,.2,-6.4]],ec:[2.2,1.1,.3],es:2,bomber:1},
+  {name:'炮舰',s:2.2,r:18,hp:900,spd:42,turn:.5,score:800,cd:[.2,.3],dmg:6,bspd:480,col:[2.6,.3,.7],eng:[[3.7,-.3,-10],[-3.7,-.3,-10]],ec:[2.2,.6,.2],es:2.2,turret:1}];
+function initWorld(){FT[0].mesh=mFoe;FT[0].mat=MAT.foe;FT[1].mesh=mBomb;FT[1].mat=MAT.bomb;FT[2].mesh=mGun;FT[2].mat=MAT.gun;
+  while(rocks.length<26){const a=R()*2*PI,d=rnd(330,1500),p=[cos(a)*d,rnd(220),sin(a)*d],rad=rnd(14,26)+R()*R()*60;
+    if(dist(p,[0,25,-520])<rad+170)continue;rocks.push({p,rad,ax:rdir(),ang:R()*6,w:rnd(.02,.09),m:mRocks[rocks.length%4],b:null})}
+  for(let i=0;i<70;i++)dust.push([rnd(120),rnd(120),rnd(120)]);
+  resetGame();pl.alive=0}
+function resetGame(){
+  G={score:0,wave:0,kills:0,t:0,wt:3.5,active:0,lock:null,shake:0,flash:0,over:0,reason:'',intense:0,alarmT:0,warned:1,lockT:0};
+  pl={p:[0,25,-520],yaw:0,pit:0,roll:0,wy:0,wp:0,vs:0,spd:95,f:[0,0,1],b:basis([0,0,1]),sh:1,hull:1,sd:0,en:1,enLock:0,heat:0,hot:0,cd:0,mcd:0,mis:6,gun:1,hitCd:0,alive:1,boost:0};
+  ST.hp=1;ST.dead=0;foes=[];shots=[];parts=[];picks=[];miss=[];debris=[];cam.sf=[0,0,1]}
+function part(type,p,v,life,size,col,grow=0,a=1,drag=0){if(parts.length<1500)parts.push({type,p,v,life,max:life,size,col,grow,a,drag,seed:R()})}
+function boom(p,s){
+  part(0,p,Z,.16,12*s,[2.2,1.8,1.4],0,.9);part(2,p,Z,.5,5*s,[1.2,.8,.5],3.5,.16);
+  for(let i=0;i<7;i++)part(1,ad(p,rdir(),rnd(0,3*s)),sc(rdir(),rnd(3,16)*s),rnd(.5,1.2),rnd(3.5,6.5)*s,[1.9,.7,.2],1.2,.55,1.5);
+  for(let i=0;i<16;i++)part(3,p,sc(rdir(),rnd(30,120)),rnd(.35,.9),.3,[2.4,1.5,.6],0,1,1.2);
+  for(let i=0;i<5;i++)debris.push({p,v:sc(rdir(),rnd(10,45)),ax:rdir(),ang:0,w:rnd(2,7),life:rnd(1.5,3),s:rnd(.6,1.5)*s});
+  sfx(s>1.4?'bigboom':'boom',p)}
+function sparks(p,col,n){for(let i=0;i<n;i++)part(3,p,sc(rdir(),rnd(15,60)),rnd(.15,.4),.2,col,0,.8,2);part(0,p,Z,.12,5,col,0,.7)}
+function say(text,dur=5.5){G.radio={text,t:0,dur};sfx('radio')}
+function banner(big,small,dur=3){G.ban={big,small,t:dur}}
+function spawnFoe(k,p){const T=FT[k];foes.push({k,T,p,f:nm(sub(ST.p,p)),roll:0,hp:T.hp,cd:rnd(1.5,3),brk:0,away:null,fl:0,burst:0,spd:T.spd*rnd(.9,1.1)})}
+function spawnWave(){
+  const n=++G.wave,dir=nm([rnd(1),rnd(.25),rnd(1)]),base=ad(ST.p,dir,1250);
+  const nf=min(2+n,9),nb=n<2?0:min(1+(n>>1),4),ng=n%4==0?1+(n>=8?1:0):0;
+  for(let i=0;i<nf;i++)spawnFoe(0,ad(base,rdir(),rnd(40,220)));
+  for(let i=0;i<nb;i++)spawnFoe(1,ad(base,rdir(),rnd(60,260)));
+  for(let i=0;i<ng;i++)spawnFoe(2,ad(base,rdir(),rnd(100,300)));
+  G.active=1;G.intense=1;sfx('wave');
+  banner('第 '+n+' 波',ng?'警告 · 重型炮舰':nb?'轰炸机编队来袭':'掠袭者机群接近');
+  say(n==1?'指挥中心：侦测到掠袭者机群正在接近曙光站。保护空间站，祝你好运。':ng?'指挥中心：重型炮舰跃迁进入战区！注意它的炮塔，导弹留给它。':
+      n==2?'指挥中心：注意，轰炸机的目标是空间站——优先击落它们。':'指挥中心：第 '+n+' 波敌机接近，方位已标记在雷达上。')}
+function killFoe(e){if(e.dead)return;e.dead=1;const T=e.T;boom(e.p,T.s*(T.turret?1.3:1));G.score+=T.score;G.kills++;
+  if(R()<(T.turret?1:T.bomber?.5:.22))picks.push({p:e.p,k:R()<.5?0:1,life:22});
+  if(G.lock===e)G.lock=null}
+function hurt(n,hard){if(!pl.alive)return;n/=100;pl.sd=3.5;G.flash=min(1,G.flash+.45);G.shake=min(1,G.shake+(hard?.7:.4));
+  if(pl.sh>0){pl.sh-=n;sfx('shield');if(pl.sh<=0){pl.hull+=pl.sh*.8;pl.sh=0;sfx('shieldDown')}}else{pl.hull-=n;sfx('hullhit')}
+  if(pl.hull<=0){pl.hull=0;pl.alive=0;boom(pl.p,1.7);G.over=2.4;G.reason='战机被击毁';G.shake=1}}
+function stDmg(n){if(ST.dead)return;const o=ST.hp;ST.hp-=n/1500;
+  for(const th of[.75,.5,.25])if(o>th&&ST.hp<=th)say('指挥中心：空间站结构完整度降至 '+th*100+'%！'+(th<.5?'我们撑不了多久了！':'拦住那些轰炸机！'));
+  if(ST.hp<=0){ST.hp=0;ST.dead=1;G.over=3.2;G.reason='曙光站被摧毁';G.shake=1;
+    for(let i=0;i<14;i++)setTimeout(()=>boom(ad(ST.p,rdir(),rnd(10,130)),rnd(1.5,3)),i*160)}}
+// 空间站碰撞体：中轴胶囊 + 圆环
+function stPen(p,pad){const l=sub(p,ST.p),ay=clamp(l[1],-48,48),dh=hypot(l[0],l[1]-ay,l[2]);
+  if(dh<28+pad)return{n:nm([l[0],l[1]-ay,l[2]]),d:28+pad-dh};
+  const rr=hypot(l[0],l[2])||1,dt=hypot(rr-130,l[1]);
+  if(dt<10+pad)return{n:nm([l[0]/rr*(rr-130),l[1],l[2]/rr*(rr-130)]),d:10+pad-dt};return null}
+const seg=(s,p,r,st)=>{const d=sub(p,s.p),t=clamp(dot(d,s.v),0,st);return hypot(d[0]-s.v[0]*t,d[1]-s.v[1]*t,d[2]-s.v[2]*t)<r};
+const lead=(e,from,spd)=>ad(e.p,e.f,e.spd*dist(e.p,from)/spd);
+function ray(px,py){const x=(px/W*2-1)*W/H/FL,y=(1-py/H*2)/FL;return nm([cam.r[0]*x+cam.u[0]*y+cam.f[0],cam.r[1]*x+cam.u[1]*y+cam.f[1],cam.r[2]*x+cam.u[2]*y+cam.f[2]])}
+function proj(w){const d=sub(w,cam.p),z=dot(d,cam.f);return[W/2*(1+dot(d,cam.r)*FL*H/W/z),H/2*(1-dot(d,cam.u)*FL/z),z]}
+
+function updPlayer(dt){const p=pl;if(!p.alive)return;
+  // —— 转向：准星在屏幕中央的“静区”内时飞船不转，离开静区后平滑加速，且有上限。视角不会跟着手抖 ——
+  let sx=0,sy=0;
+  if(touchMode){sx=inp.sx;sy=inp.sy}
+  else{const hm=min(W,H)/2,x=(inp.mx-W/2)/hm,y=(inp.my-H/2)/hm,m=hypot(x,y);
+    if(m>.14){const k=min(1,(m-.14)/.7),g=k*k*(3-2*k);sx=x/m*g;sy=y/m*g}}
+  sx=clamp(sx+(key.ArrowRight?1:0)-(key.ArrowLeft?1:0),-1,1);sy=clamp(sy+(key.ArrowDown?1:0)-(key.ArrowUp?1:0),-1,1);
+  p.wy+=(sx*1.0*opt.sens-p.wy)*min(1,5*dt);p.wp+=(-sy*.8*opt.sens-p.wp)*min(1,5*dt);
+  p.yaw+=p.wy*dt;p.pit=clamp(p.pit+p.wp*dt,-1.3,1.3);
+  p.vs+=(((key.KeyD?1:0)-(key.KeyA?1:0))*50-p.vs)*min(1,5*dt);
+  p.roll+=(-p.wy*.6-p.vs*.008-p.roll)*min(1,4*dt);
+  p.f=[sin(p.yaw)*cos(p.pit),sin(p.pit),cos(p.yaw)*cos(p.pit)];p.b=basis(p.f,p.roll);
+  const want=(key.KeyW||key.ShiftLeft||key.ShiftRight||inp.boost)&&!p.enLock;p.boost=want?1:0;
+  p.en=clamp(p.en+(want?-.28:.14)*dt);if(p.en<=0)p.enLock=1;if(p.enLock&&p.en>.3)p.enLock=0;
+  p.spd+=((want?200:key.KeyS?42:95)-p.spd)*min(1,1.8*dt);
+  p.p=ad(ad(p.p,p.f,p.spd*dt),[cos(p.yaw),0,-sin(p.yaw)],p.vs*dt);
+  // —— 护盾回充 ——
+  p.sd-=dt;if(p.sd<0)p.sh=min(1,p.sh+.13*dt);p.hitCd-=dt;
+  // —— 瞄准：炮口跟随准星（限制在机头 30° 内），不用为了打一架敌机把整个世界转过去 ——
+  let aim=touchMode?p.f:ray(inp.mx,inp.my);const ca=dot(aim,p.f);
+  if(ca<.86){const o=nm(sub(aim,sc(p.f,ca)));aim=nm(ad(sc(p.f,.86),o,.51))}
+  p.aim=aim;let best=touchMode?.975:.9925,lk=null;
+  for(const e of foes){const d=sub(e.p,cam.p),L=len(d),c=dot(d,aim)/L;if(c>best&&L<1300){best=c;lk=e}}
+  if(lk&&lk!==G.lock)sfx('lock');G.lock=lk;
+  // —— 激光 ——
+  p.heat=max(0,p.heat-.4*dt);if(p.hot&&p.heat<.35)p.hot=0;p.cd-=dt;p.mcd-=dt;
+  if((inp.fire||key.Space)&&p.cd<=0&&!p.hot){p.cd=.11;p.heat+=.07;if(p.heat>=1){p.hot=1;sfx('heat')}
+    p.gun=-p.gun;const gp=loc(p.p,p.b,[6.8*p.gun,-.34,1.6]),tp=lk?lead(lk,gp,760):ad(cam.p,aim,650);
+    shots.push({p:gp,v:nm(sub(tp,gp)),spd:760,life:1.4,own:0,dmg:12,col:[.35,2.2,1.1],len:7,w:.5});
+    part(0,gp,sc(p.f,p.spd),.06,2.2,[.4,2,1.1],0,.9);sfx('laser')}
+  // —— 导弹 ——
+  if((inp.mis||key.KeyF)&&p.mcd<=0&&p.mis>0){p.mcd=.55;p.mis--;inp.mis=0;
+    miss.push({p:loc(p.p,p.b,[0,-1.2,1]),f:p.f,spd:p.spd+40,life:7,tgt:lk});sfx('missile')}
+  // —— 碰撞 ——
+  const bump=(n,d)=>{p.p=ad(p.p,n,d);p.spd*=.6;if(p.hitCd<=0){p.hitCd=.7;hurt(18,1)}};
+  for(const r of rocks){const d=sub(p.p,r.p),L=len(d),m=r.rad*.95+4;if(L<m)bump(sc(d,1/L),m-L)}
+  if(!ST.dead){const h=stPen(p.p,4.5);if(h)bump(h.n,h.d)}
+  // —— 战区边界 ——
+  const far=dist(p.p,ST.p);G.out=far>2600;if(far>3400)hurt(30*dt)}
+
+function updFoes(dt){
+  for(const e of foes){if(e.dead)continue;const T=e.T;
+    const tp=T.bomber||!pl.alive?ST.p:pl.p,d=sub(tp,e.p),L=len(d)||1,dn=sc(d,1/L);
+    let aim=dn;if(!T.bomber&&pl.alive)aim=nm(sub(ad(pl.p,pl.f,pl.spd*L/T.bspd),e.p));
+    // 状态机：追击 → 贴近后脱离 → 再回头
+    let want;
+    if(e.brk>0){e.brk-=dt;want=e.away}
+    else{want=aim;if(L<(T.bomber?300:T.turret?280:75)){e.brk=T.bomber?rnd(5,7):T.turret?rnd(4,6):rnd(1.6,3);
+      e.away=T.bomber||T.turret?nm(ad(ad(sc(dn,-.8),e.f,1),[0,rnd(.4),0])):nm(ad(rdir(),e.f,.9));want=e.away}}
+    // 避障
+    for(const o of rocks){const od=sub(e.p,o.p),ol=len(od),gp=ol-o.rad-T.r;if(gp<70)want=nm(ad(want,od,(1-max(gp,0)/70)*2.4/ol))}
+    if(!ST.dead){const od=sub(e.p,ST.p),ol=len(od),gp=ol-150-T.r;if(gp<80)want=nm(ad(want,od,(1-max(gp,0)/80)*2.6/ol))}
+    const rt=[e.f[2],0,-e.f[0]];e.roll+=(clamp(-dot(want,rt)*2.5,-1.1,1.1)-e.roll)*min(1,3*dt);
+    e.f=nm(ad(e.f,sub(want,e.f),min(1,T.turn*dt)));e.p=ad(e.p,e.f,e.spd*dt);e.fl=max(0,e.fl-dt*5);
+    // 开火
+    e.cd-=dt;
+    if(e.cd<=0&&state==='play'){const fire=(dir,st)=>{shots.push({p:ad(e.p,e.f,T.r*.8),v:dir,spd:T.bspd,life:st?3.4:2.2,own:1,dmg:T.dmg,col:T.col,len:st?5:6,w:st?1.5:.55});sfx('elaser',e.p,st?1:.7)};
+      if(T.turret){const pd=dist(e.p,pl.p);if(pl.alive&&pd<850){fire(nm(ad(nm(sub(ad(pl.p,pl.f,pl.spd*pd/T.bspd),e.p)),rdir(),.035)));e.cd=++e.burst%6?.15:rnd(1.6,2.4)}else e.cd=.3}
+      else if(e.brk<=0&&L<(T.bomber?720:650)&&dot(e.f,aim)>(T.bomber?.9:.955)){fire(nm(ad(aim,rdir(),.025)),T.bomber);e.cd=rnd(T.cd[0],T.cd[1])}
+      else e.cd=.1}
+    // 撞击玩家
+    if(pl.alive&&dist(e.p,pl.p)<T.r+4){pl.p=ad(pl.p,nm(sub(pl.p,e.p)),6);if(pl.hitCd<=0){pl.hitCd=.7;hurt(22,1);e.hp-=70;e.fl=1;if(e.hp<=0)killFoe(e)}}}
+  foes=foes.filter(e=>!e.dead)}
+
+function updShots(dt){
+  for(const s of shots){const st=s.spd*dt;let dead=0;
+    if(s.own){if(pl.alive&&seg(s,pl.p,4.5,st)){dead=1;hurt(s.dmg)}else if(!ST.dead&&stPen(ad(s.p,s.v,st),2)){dead=1;stDmg(s.dmg)}}
+    else{for(const e of foes)if(!e.dead&&seg(s,e.p,e.T.r,st)){dead=1;e.hp-=s.dmg;e.fl=1;sfx('hit',e.p,.6);if(e.hp<=0)killFoe(e);break}
+      if(!dead&&!ST.dead&&stPen(ad(s.p,s.v,st),0))dead=1}
+    if(!dead)for(const r of rocks)if(seg(s,r.p,r.rad*.92,st)){dead=1;break}
+    s.p=ad(s.p,s.v,st);s.life-=dt;if(dead){sparks(s.p,s.col,4);s.life=0}}
+  shots=shots.filter(s=>s.life>0);
+  for(const m of miss){const t=m.tgt;
+    if(t&&!t.dead)m.f=nm(ad(m.f,sub(nm(sub(lead(t,m.p,m.spd),m.p)),m.f),min(1,4.5*dt)));
+    m.spd=min(340,m.spd+260*dt);m.p=ad(m.p,m.f,m.spd*dt);m.life-=dt;
+    part(0,ad(m.p,m.f,-1.5),sc(rdir(),3),.45,1.6,[1.6,.9,.4],.5,.7);
+    let hit=m.life<=0;for(const e of foes)if(!e.dead&&dist(e.p,m.p)<e.T.r+3)hit=1;
+    for(const r of rocks)if(dist(r.p,m.p)<r.rad)hit=1;if(!ST.dead&&stPen(m.p,0))hit=1;
+    if(hit){m.life=0;boom(m.p,1.2);for(const e of foes){const d=dist(e.p,m.p)-e.T.r;if(d<45){e.hp-=d<6?240:90;e.fl=1;if(e.hp<=0)killFoe(e)}}}}
+  miss=miss.filter(m=>m.life>0)}
+
+function update(dt){
+  G.t+=dt;G.shake=max(0,G.shake-dt*2.2);G.flash=max(0,G.flash-dt*1.6);
+  ST.ang+=dt*.025;ST.b=rotAxis([0,1,0],ST.ang);
+  for(const r of rocks){r.ang+=r.w*dt;r.b=rotAxis(r.ax,r.ang)}
+  updPlayer(dt);updFoes(dt);updShots(dt);
+  for(const q of parts){q.p=ad(q.p,q.v,dt);if(q.drag)q.v=sc(q.v,max(0,1-q.drag*dt));q.life-=dt}parts=parts.filter(q=>q.life>0);
+  for(const d of debris){d.p=ad(d.p,d.v,dt);d.ang+=d.w*dt;d.life-=dt}debris=debris.filter(d=>d.life>0);
+  for(const k of picks){k.life-=dt;const d=dist(k.p,pl.p);if(pl.alive&&d<90)k.p=ad(k.p,nm(sub(pl.p,k.p)),min(d,(pl.spd+90)*dt));
+    if(pl.alive&&d<12){k.life=0;sfx('pickup');if(k.k){pl.mis=min(12,pl.mis+3);banner('','导弹 +3',1.4)}else{pl.hull=min(1,pl.hull+.3);banner('','船体修复 +30%',1.4)}}}
+  picks=picks.filter(k=>k.life>0);
+  if(state==='play'&&pl.alive&&!ST.dead){
+    if(G.active&&!foes.length){G.active=0;G.intense=0;G.wt=7;G.score+=150*G.wave;ST.hp=min(1,ST.hp+.06);banner('战区已肃清','奖励 +'+150*G.wave,2.6);
+      say('指挥中心：干得漂亮。抓紧修整，下一波正在集结。',4.5)}
+    if(!G.active&&(G.wt-=dt)<=0)spawnWave();
+    if(pl.hull<.3&&(G.alarmT-=dt)<0){G.alarmT=1.3;sfx('alarm')}}
+  if(G.over>0&&(G.over-=dt)<=0&&state==='play')showOver();
+  if(G.radio&&(G.radio.t+=dt)>G.radio.dur)G.radio=null;if(G.ban&&(G.ban.t-=dt)<0)G.ban=null;
+  if(aEng){const t=AC.currentTime,a=pl.alive&&state==='play'?1:0;aEng.g.gain.setTargetAtTime(a*(.03+pl.spd/200*.07),t,.15);aEng.bp.frequency.setTargetAtTime(180+pl.spd*4,t,.15);
+    aEng.g2.gain.setTargetAtTime(a*.05,t,.15);aEng.o.frequency.setTargetAtTime(38+pl.spd*.22,t,.15)}}
+
+function updCam(dt){
+  if(state==='menu'||state==='boot'){const a=time*.03+2.4,p=[sin(a)*400,70+sin(time*.02)*30,cos(a)*400];cam.p=p;cam.sf=cam.f=nm(sub([0,18,0],p))}
+  else{cam.sf=nm(ad(cam.sf,sub(pl.f,cam.sf),min(1,8*dt)));cam.f=cam.sf}       // 轻微滞后，但不甩镜头、不滚转，地平线始终水平
+  const b=basis(cam.f);cam.b=b;cam.r=b.slice(0,3);cam.u=b.slice(3,6);
+  if(state!=='menu'&&state!=='boot'){const sh=G.shake*G.shake*opt.shake*.9;cam.p=ad(ad(ad(pl.p,cam.f,-25),cam.u,6.5),[rnd(sh),rnd(sh),rnd(sh)])}}
+
+/* ---------- 7 渲染帧 ---------- */
+function drawMesh(m,p,b,s,mat,flash){const u=curP.u;gl.uniform3fv(u.P,p);gl.uniformMatrix3fv(u.M,false,b);gl.uniform1f(u.S,s);gl.uniform4fv(u.T,mat);gl.uniform3fv(u.K,flash||Z);gl.drawArrays(gl.TRIANGLES,m[0],m[1])}
+function render(){
+  const A=[FL*RH/RW,FL,0,0];
+  const use=P=>{gl.useProgram(P.p);gl.uniformMatrix3fv(P.u.C,false,cam.b);gl.uniform4fv(P.u.A,A);gl.uniform3fv(P.u.E,cam.p);gl.uniform1i(P.u.Sky,2);curP=P};
+  gl.bindFramebuffer(gl.FRAMEBUFFER,fbMS);gl.viewport(0,0,RW,RH);gl.depthMask(true);gl.clear(gl.DEPTH_BUFFER_BIT);gl.disable(gl.BLEND);
+  gl.activeTexture(gl.TEXTURE2);gl.bindTexture(gl.TEXTURE_CUBE_MAP,skyTex);gl.activeTexture(gl.TEXTURE0);
+  gl.disable(gl.DEPTH_TEST);gl.bindVertexArray(vaoNone);use(pSky);gl.drawArrays(gl.TRIANGLES,0,3);
+  gl.enable(gl.DEPTH_TEST);gl.bindVertexArray(vaoMesh);use(pHull);
+  if(!ST.dead)drawMesh(mStation,ST.p,ST.b,1,MAT.st);
+  if(pl.alive&&state!=='menu')drawMesh(mShip,pl.p,pl.b,1,MAT.ship);
+  for(const e of foes)drawMesh(e.T.mesh,e.p,basis(e.f,e.roll),e.T.s,e.T.mat,e.fl>0?[e.fl*.5,e.fl*.5,e.fl*.5]:null);
+  for(const m of miss)drawMesh(mMis,m.p,basis(m.f),1,MAT.ship);
+  for(const d of debris)drawMesh(mChunk,d.p,rotAxis(d.ax,d.ang),d.s,MAT.dark);
+  use(pRock);for(const r of rocks)drawMesh(r.m,r.p,r.b||rotAxis(r.ax,r.ang),r.rad,MAT.rock);
+  // —— 粒子 ——
+  sn=0;
+  for(const s of shots)spr(3,s.p,s.w,s.col,1,sc(s.v,s.len));
+  for(const q of parts){const a=1-q.life/q.max;
+    if(q.type==3)spr(3,q.p,q.size,q.col,q.a*(1-a),sc(q.v,.045));else spr(q.type,q.p,q.size*(1+q.grow*a),q.col,q.type?q.a:q.a*(1-a),null,a,q.seed)}
+  if(pl.alive&&state!=='menu'){const L=1.1+pl.spd*.014,fl=.9+R()*.2;
+    for(const s of[1.8,-1.8]){const e=loc(pl.p,pl.b,[s,.02,-6.7]);spr(0,e,1.5+pl.boost*.9,[.35,.8,2.2],.8*fl);spr(3,ad(e,pl.f,-L),.42,[.3,.75,2.2],.6*fl,sc(pl.f,L))}}
+  for(const e of foes){const b=basis(e.f,e.roll),T=e.T;for(const g of T.eng){const p=loc(e.p,b,g,T.s);spr(0,p,T.es*T.s,T.ec,1);spr(3,ad(p,e.f,-2.2*T.s),.6*T.s,T.ec,.8,sc(e.f,2.2*T.s))}}
+  for(const m of miss)spr(0,ad(m.p,m.f,-1.4),2.6,[2.4,1.3,.5],1);
+  for(const k of picks){const c=k.k?[2,1.2,.3]:[.4,2,.9],pu=.75+.25*sin(time*6);spr(0,k.p,5*pu,c,.9);spr(2,k.p,4.5,c,.9,null,.2)}
+  if(!ST.dead){const bl=.5+.5*sin(time*2.4);spr(0,loc(ST.p,ST.b,[0,98,0]),7,[2.2,.4,.3],bl);spr(0,loc(ST.p,ST.b,[0,-72,0]),6,[.4,2,.8],1-bl);spr(0,loc(ST.p,ST.b,[0,-10,43]),6,[.4,1.2,2.2],.7)}
+  if(state==='play'&&pl.alive){const a=clamp((pl.spd-60)/140)*.5+.08,ax=sc(pl.f,.4+pl.spd*.012);          // 速度尘埃：很淡，只在加速时明显
+    for(const d of dust){const q=[0,1,2].map(i=>((d[i]-cam.p[i])%240+360)%240-120+cam.p[i]);spr(3,q,.1,[.5,.6,.8],a,ax)}}
+  gl.bindVertexArray(vaoSpr);gl.bindBuffer(gl.ARRAY_BUFFER,bufSpr);gl.bufferSubData(gl.ARRAY_BUFFER,0,SB.subarray(0,sn*14));
+  use(pSpr);gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,gl.ONE);gl.depthMask(false);gl.drawArraysInstanced(gl.TRIANGLE_STRIP,0,4,sn);gl.depthMask(true);
+  // —— 解析多重采样 → 泛光 → 色调映射 ——
+  gl.bindFramebuffer(gl.READ_FRAMEBUFFER,fbMS);gl.bindFramebuffer(gl.DRAW_FRAMEBUFFER,scene.f);gl.blitFramebuffer(0,0,RW,RH,0,0,RW,RH,gl.COLOR_BUFFER_BIT,gl.NEAREST);
+  gl.disable(gl.DEPTH_TEST);gl.disable(gl.BLEND);gl.bindVertexArray(vaoNone);gl.useProgram(pBlur.p);gl.uniform1i(pBlur.u.S,0);
+  let src=scene;bloom.forEach((b,i)=>{gl.bindFramebuffer(gl.FRAMEBUFFER,b.f);gl.viewport(0,0,b.w,b.h);gl.bindTexture(gl.TEXTURE_2D,src.t);gl.uniform4f(pBlur.u.U,1/src.w,1/src.h,i?0:HDR?1.1:.8,0);gl.drawArrays(gl.TRIANGLES,0,3);src=b});
+  gl.enable(gl.BLEND);for(let i=bloom.length-2;i>=0;i--){const b=bloom[i],s=bloom[i+1];gl.bindFramebuffer(gl.FRAMEBUFFER,b.f);gl.viewport(0,0,b.w,b.h);gl.bindTexture(gl.TEXTURE_2D,s.t);gl.uniform4f(pBlur.u.U,.5/s.w,.5/s.h,0,0);gl.drawArrays(gl.TRIANGLES,0,3)}
+  gl.disable(gl.BLEND);gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,RW,RH);gl.useProgram(pPost.p);
+  gl.bindTexture(gl.TEXTURE_2D,scene.t);gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,bloom[0].t);gl.activeTexture(gl.TEXTURE0);
+  gl.uniform1i(pPost.u.S,0);gl.uniform1i(pPost.u.B,1);gl.uniform4f(pPost.u.U,state==='play'?G.flash+(pl.hull<.3&&pl.alive?.25+.15*sin(time*5):0):0,.09,time%10,0);gl.drawArrays(gl.TRIANGLES,0,3)}
+
+/* ---------- 8 HUD ---------- */
+const el={};['hScore','hWave','bSt','bSh','bHu','bHt','bEn','hMis','banner','warn','radio'].forEach(k=>el[k]=$('#'+k));
+const setW=(e,v)=>{const s=M.round(clamp(v)*100)+'%';if(e._w!==s){e._w=s;e.style.width=s}};
+const setT=(e,t)=>{if(e._t!==t){e._t=t;e.textContent=t}};
+const setC=(e,c)=>{if(e._c!==c){e._c=c;e.className=c}};
+function hud(){
+  hx.clearRect(0,0,W,H);if(state!=='play'&&state!=='pause')return;
+  setT(el.hScore,String(G.score));setT(el.hWave,G.wave?'第 '+G.wave+' 波 · 敌机 '+foes.length:'待命');
+  setW(el.bSt,ST.hp);setC(el.bSt,ST.hp<.3?'rd':'');setW(el.bSh,pl.sh);setW(el.bHu,pl.hull);setC(el.bHu,pl.hull<.3?'rd':'gn');
+  setW(el.bHt,pl.heat);setC(el.bHt,pl.hot?'rd':'am');setW(el.bEn,pl.en);setC(el.bEn,pl.enLock?'rd':'cy');setT(el.hMis,'导弹 ×'+pl.mis);
+  const bn=G.ban;setC(el.banner,bn&&bn.t>.5?'on':'');if(bn){setT(el.banner.firstChild,bn.big);setT(el.banner.lastChild,bn.small)}
+  const rd=G.radio;setC(el.radio,rd&&rd.t<rd.dur-.5?'on':'');if(rd){const i=rd.text.indexOf('：');setT(el.radio.firstChild,rd.text.slice(0,i));setT(el.radio.lastChild,rd.text.slice(i+1,i+1+(rd.t*38|0)))}
+  setT(el.warn,!pl.alive?'':G.out?'已偏离战区 · 请立即返航':pl.hull<.3?'船体严重受损':pl.hot?'武器过热':'');
+  if(!pl.alive)return;
+  const cx=W/2,cy=H/2,MONO='11px ui-monospace,Menlo,Consolas,monospace';hx.lineWidth=1.5;hx.font=MONO;
+  // 静区圈 + 机头指示
+  if(!touchMode){hx.strokeStyle='rgba(232,238,242,.1)';hx.beginPath();hx.arc(cx,cy,min(W,H)*.07,0,7);hx.stroke()}
+  const np=proj(ad(pl.p,pl.f,650));
+  if(np[2]>0){hx.strokeStyle='rgba(232,238,242,.55)';hx.beginPath();for(const[a,b]of[[-9,-3],[3,9]]){hx.moveTo(np[0]+a,np[1]);hx.lineTo(np[0]+b,np[1]);hx.moveTo(np[0],np[1]+a);hx.lineTo(np[0],np[1]+b)}hx.stroke()}
+  // 目标框 / 屏幕外箭头
+  const mark=(w,col,sz,lk,txt,hp)=>{const q=proj(w);hx.strokeStyle=hx.fillStyle=col;
+    if(q[2]>0&&q[0]>24&&q[0]<W-24&&q[1]>24&&q[1]<H-24){const s=clamp(sz*FL*H/2/q[2]*1.25,8,110),c=s*.4;hx.beginPath();
+      for(const[x,y]of[[-1,-1],[1,-1],[1,1],[-1,1]]){hx.moveTo(q[0]+x*s,q[1]+y*(s-c));hx.lineTo(q[0]+x*s,q[1]+y*s);hx.lineTo(q[0]+x*(s-c),q[1]+y*s)}hx.stroke();
+      if(lk){hx.fillRect(q[0]-s,q[1]-s-8,2*s*clamp(hp),3);hx.fillText(txt+' '+(q[2]|0)+'m',q[0]-s,q[1]+s+14)}}
+    else{const a=M.atan2((q[1]-cy)*q[2],(q[0]-cx)*q[2]),r=min(W,H)*.44;hx.save();hx.translate(cx+cos(a)*r,cy+sin(a)*r);hx.rotate(a);hx.beginPath();hx.moveTo(10,0);hx.lineTo(-5,6);hx.lineTo(-5,-6);hx.fill();hx.restore()}};
+  for(const e of foes)mark(e.p,e===G.lock?'#7dffb0':e.T.bomber?'#ffb347':'#ff5a40',e.T.r,e===G.lock,e.T.name,e.hp/e.T.hp);
+  for(const k of picks){const q=proj(k.p);if(q[2]>0){hx.strokeStyle=k.k?'#ffb347':'#7dffb0';hx.beginPath();hx.moveTo(q[0],q[1]-7);hx.lineTo(q[0]+7,q[1]);hx.lineTo(q[0],q[1]+7);hx.lineTo(q[0]-7,q[1]);hx.closePath();hx.stroke()}}
+  if(!ST.dead){const q=proj(ST.p);if(!(q[2]>0&&q[0]>0&&q[0]<W&&q[1]>0&&q[1]<H))mark(ST.p,'#72e4ff',1,0)}
+  // 准星
+  const rx=touchMode?np[0]:inp.mx,ry=touchMode?np[1]:inp.my,rc=pl.hot?'#ff5a40':G.lock?'#7dffb0':'#e8eef2';hx.strokeStyle=hx.fillStyle=rc;
+  hx.beginPath();hx.arc(rx,ry,11,0,7);hx.stroke();hx.fillRect(rx-1,ry-1,2,2);hx.beginPath();hx.arc(rx,ry,15,-PI/2,-PI/2+PI*2*pl.heat);hx.strokeStyle='#ffb347';hx.stroke();
+  // 雷达：机头朝上的俯视图，竖线表示高度差
+  const Rr=min(58,W*.13),ox=cx,oy=H-Rr-(touchMode?16:26),rg=1700,rt=[cos(pl.yaw),0,-sin(pl.yaw)],fw=[sin(pl.yaw),0,cos(pl.yaw)];
+  hx.fillStyle='rgba(8,12,18,.5)';hx.strokeStyle='rgba(232,238,242,.25)';hx.beginPath();hx.arc(ox,oy,Rr,0,7);hx.fill();hx.stroke();
+  hx.beginPath();hx.arc(ox,oy,Rr*.5,0,7);hx.moveTo(ox,oy-Rr);hx.lineTo(ox,oy+Rr);hx.moveTo(ox-Rr,oy);hx.lineTo(ox+Rr,oy);hx.strokeStyle='rgba(232,238,242,.1)';hx.stroke();
+  const blip=(w,col,s)=>{const d=sub(w,pl.p);let x=dot(d,rt)/rg,z=dot(d,fw)/rg;const m=hypot(x,z);if(m>1){x/=m;z/=m}
+    const px=ox+x*Rr,py=oy-z*Rr,hh=clamp(d[1]/rg*Rr*1.5,-14,14);hx.fillStyle=hx.strokeStyle=col;hx.beginPath();hx.moveTo(px,py);hx.lineTo(px,py-hh);hx.stroke();hx.fillRect(px-s/2,py-hh-s/2,s,s)};
+  if(!ST.dead)blip(ST.p,'#72e4ff',6);for(const k of picks)blip(k.p,k.k?'#ffb347':'#7dffb0',3);
+  for(const e of foes)blip(e.p,e.T.bomber?'#ffb347':'#ff5a40',e.T.turret?6:4);
+  hx.fillStyle='#e8eef2';hx.beginPath();hx.moveTo(ox,oy-5);hx.lineTo(ox+4,oy+4);hx.lineTo(ox-4,oy+4);hx.fill()}
+
+/* ---------- 9 菜单与输入 ---------- */
+const pn=$('#panel');let optBack='menu';
+function panel(html){pn.innerHTML=html;pn.classList.toggle('hide',!html)}
+function setPlay(on){document.body.classList.toggle('play',on);$('#hudBox').classList.toggle('hide',!on);$('#touch').classList.toggle('hide',!(on&&touchMode))}
+function showMenu(){state='menu';setPlay(false);pl.alive=0;G.intense=0;
+  panel(`<div class="mark">星际战机</div><div class="tag">曙 光 防 线</div><button class="pri" data-a="start">开始作战</button><button data-a="opts">设置</button><button data-a="help">操作说明</button><div class="foot">最高分 ${opt.best}</div>`)}
+function showOpts(){panel(`<h2>设置</h2>
+  <label>转向灵敏度<input type="range" min=".5" max="1.6" step=".05" value="${opt.sens}" data-o="sens"></label>
+  <label>音量<input type="range" min="0" max="1" step=".05" value="${opt.vol}" data-o="vol"></label>
+  <label>画质<select data-o="q"><option value="0">流畅</option><option value="1">标准</option><option value="2">高清</option></select></label>
+  <label>镜头震动<select data-o="shake"><option value="0">关闭</option><option value="0.5">轻微</option><option value="1">标准</option></select></label>
+  <button data-a="${optBack}">返回</button>`);pn.querySelector('[data-o=q]').value=opt.q;pn.querySelector('[data-o=shake]').value=opt.shake}
+function showHelp(){panel(`<h2>操作说明</h2><div class="help">
+  <b>鼠标</b><span>准星指哪打哪；移出中央小圈，飞船才会转向</span><b>左键 / 空格</b><span>激光（连射会过热）</span><b>右键 / F</b><span>追踪导弹（需先锁定目标）</span>
+  <b>W / Shift</b><span>加速</span><b>S</b><span>减速</span><b>A / D</b><span>横向平移，躲子弹不用转视角</span><b>Esc</b><span>暂停</span>
+  <b>触屏</b><span>左摇杆转向，右侧按钮开火</span></div>
+  <div class="foot" style="margin:0 0 14px">目标：保护曙光站。橙色标记的轰炸机会直奔空间站。</div><button data-a="menu">返回</button>`)}
+function showPause(){state='pause';panel(`<h2>已暂停</h2><button class="pri" data-a="resume">继续</button><button data-a="opts">设置</button><button data-a="menu">返回主菜单</button>`)}
+function showOver(){state='over';setPlay(false);const nb=G.score>opt.best;if(nb){opt.best=G.score;saveOpt()}
+  panel(`<h2>${G.reason}</h2><div class="stats"><span>得分</span><b>${G.score}${nb?' · 新纪录':''}</b><span>坚持到</span><b>第 ${G.wave} 波</b><span>击落</span><b>${G.kills} 架</b><span>作战时长</span><b>${(G.t/60|0)}:${String(G.t%60|0).padStart(2,'0')}</b></div>
+  <button class="pri" data-a="start">再来一局</button><button data-a="menu">返回主菜单</button>`)}
+function startGame(){audioInit();resetGame();state='play';panel('');setPlay(true);inp.mx=W/2;inp.my=H/2;inp.fire=inp.mis=0}
+pn.addEventListener('click',e=>{const a=e.target.dataset.a;if(!a)return;audioInit();sfx('ui');
+  if(a==='start')startGame();else if(a==='opts'){optBack=state==='pause'?'pause':'menu';showOpts()}else if(a==='help')showHelp();
+  else if(a==='menu')showMenu();else if(a==='pause')showPause();else if(a==='resume'){state='play';panel('')}});
+pn.addEventListener('input',e=>{const k=e.target.dataset.o;if(!k)return;opt[k]=+e.target.value;saveOpt();if(k==='vol'&&aMaster)aMaster.gain.value=opt.vol;if(k==='q')resize()});
+addEventListener('keydown',e=>{key[e.code]=1;if(e.code==='Escape'||e.code==='KeyP'){if(state==='play')showPause();else if(state==='pause'){state='play';panel('')}}
+  if(state==='play'&&['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Tab'].includes(e.code))e.preventDefault()});
+addEventListener('keyup',e=>key[e.code]=0);
+addEventListener('blur',()=>{for(const k in key)key[k]=0;inp.fire=0;if(state==='play')showPause()});
+addEventListener('resize',resize);addEventListener('contextmenu',e=>e.preventDefault());
+cv.addEventListener('pointermove',e=>{if(e.pointerType!=='touch'){inp.mx=e.clientX;inp.my=e.clientY}});
+cv.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'){if(!touchMode){touchMode=true;setPlay(state==='play'||state==='pause')}return}
+  inp.mx=e.clientX;inp.my=e.clientY;if(state!=='play')return;if(e.button===0)inp.fire=1;if(e.button===2)inp.mis=1});
+addEventListener('pointerup',e=>{if(e.pointerType!=='touch'){if(e.button===0)inp.fire=0;if(e.button===2)inp.mis=0}});
+// 触屏：左摇杆 + 右侧按钮
+{const stick=$('#stick'),knob=stick.firstChild;let id=null;
+  const mv=e=>{const r=stick.getBoundingClientRect(),x=clamp((e.clientX-r.left-r.width/2)/(r.width/2),-1,1),y=clamp((e.clientY-r.top-r.height/2)/(r.height/2),-1,1);
+    inp.sx=abs(x)<.12?0:x;inp.sy=abs(y)<.12?0:y;knob.style.transform=`translate(${x*38}px,${y*38}px)`};
+  stick.addEventListener('pointerdown',e=>{id=e.pointerId;stick.setPointerCapture(id);mv(e)});
+  stick.addEventListener('pointermove',e=>{if(e.pointerId===id)mv(e)});
+  const up=e=>{if(e.pointerId===id){id=null;inp.sx=inp.sy=0;knob.style.transform=''}};stick.addEventListener('pointerup',up);stick.addEventListener('pointercancel',up);
+  const hold=(sel,k)=>{const b=$(sel);b.addEventListener('pointerdown',e=>{b.setPointerCapture(e.pointerId);inp[k]=1;b.classList.add('on')});
+    const u=()=>{if(k!=='mis')inp[k]=0;b.classList.remove('on')};b.addEventListener('pointerup',u);b.addEventListener('pointercancel',u)};
+  hold('#tFire','fire');hold('#tBoost','boost');hold('#tMis','mis');$('#tPause').addEventListener('pointerdown',()=>{if(state==='play')showPause()})}
+
+/* ---------- 10 启动 ---------- */
+function frame(t){requestAnimationFrame(frame);t/=1e3;const dt=clamp(t-lastT,0,.05);lastT=t;
+  if(state!=='pause'){time+=dt;update(dt)}
+  updCam(dt);render();hud()}
+async function boot(){
+  const step=(t,p)=>{$('#bootT').textContent=t;$('#bootB').style.width=p+'%';return new Promise(r=>setTimeout(r,40))};
+  try{
+    if(!gl)throw Error('此浏览器不支持 WebGL2，无法运行。');
+    await step('正在编译着色器',12);initGL();
+    await step('正在烘焙星空与行星',30);skyTex=bakeSky(min(1024,gl.getParameter(gl.MAX_CUBE_MAP_TEXTURE_SIZE))>>(matchMedia('(pointer:coarse)').matches?1:0));
+    await step('正在建造曙光站',48);buildStation();
+    await step('正在装配战机',62);buildShips();
+    await step('正在雕刻小行星',76);buildRocks();
+    await step('正在校准武器系统',90);uploadGeometry();resize();initWorld();
+    await step('准备就绪',100);showMenu();$('#boot').classList.add('done');requestAnimationFrame(frame)
+  }catch(e){$('#bootT').textContent='启动失败';$('#err').textContent=String(e.message||e);console.error(e)}}
+boot();
+</script>
+</body>
+</html>

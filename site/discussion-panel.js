@@ -2,6 +2,8 @@
 (() => {
   'use strict';
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const rootPrefix = () => (typeof document !== 'undefined' && document.querySelector('meta[name="agenthub-root"]')?.content) || '';
+  const asset = file => window.AgentHubRoutes?.asset(file) || `${rootPrefix()}${file}`;
   const paths = {
     messages: '<path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>',
     right: '<path d="m9 18 6-6-6-6"/>',
@@ -15,11 +17,13 @@
     article: '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
     code: '<path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>',
     demo: '<polygon points="6 3 20 12 6 21 6 3"/>',
+    download: '<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/>',
     external: '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
   };
   const icon = name => `<svg class="discussion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]}</svg>`;
   const speakerName = number => number === null ? '未编号群友' : `群友 ${number}`;
-  const speakerColor = number => number === null ? 'unknown' : (number - 1) % 6;
+  const speakerColor = number => number === null ? 'unknown' : (number - 1) % 12;
+  const speakerSide = number => (number !== null && number % 2 === 0) ? 'right' : 'left';
   // Weekly times carry a date ("10.07 12:35"); daily times are only "12:35".
   const day = time => time.includes(' ') ? time.slice(0, time.indexOf(' ')) : '';
   const pad = number => String(number).padStart(2, '0');
@@ -87,9 +91,34 @@
     }
     return { html: html + textWithStickers(text.slice(end)), card: false };
   }
-  const sites = { 'mp.weixin.qq.com': '公众号', 'zhihu.com': '知乎', 'xiaohongshu.com': '小红书', 'github.com': 'GitHub', 'arxiv.org': 'arXiv', 'x.com': 'X', 'twitter.com': 'X', 'bilibili.com': 'B 站', 'youtube.com': 'YouTube', 'huggingface.co': 'Hugging Face' };
-  // Subdomains such as zhuanlan.zhihu.com fall back to their site's name.
+  const sites = { 'mp.weixin.qq.com': '公众号', 'zhihu.com': '知乎', 'xiaohongshu.com': '小红书', 'github.com': 'GitHub', 'arxiv.org': 'arXiv', 'x.com': 'X', 'twitter.com': 'X', 'bilibili.com': 'B 站', 'youtube.com': 'YouTube', 'huggingface.co': 'Hugging Face', 'blog.google': 'Google Blog', 'openai.com': 'OpenAI', 'anthropic.com': 'Anthropic' };
   const siteName = host => sites[host] || sites[host.split('.').slice(-2).join('.')];
+  let linkPreviews = (typeof window !== 'undefined' && window.AGENT_HUB_LINK_PREVIEWS) || null;
+  let linkPreviewsPromise = null;
+  function loadLinkPreviews() {
+    if (typeof window !== 'undefined' && window.AGENT_HUB_LINK_PREVIEWS) {
+      linkPreviews = window.AGENT_HUB_LINK_PREVIEWS;
+      return;
+    }
+    if (linkPreviews || linkPreviewsPromise || typeof document === 'undefined' || !document.head) return;
+    const version = typeof window !== 'undefined' && (window.AGENT_HUB_DATA?.lazyAssets?.['link-previews.js'] || window.AGENT_HUB_DATA?.linkPreviewsVersion);
+    const src = asset(`link-previews.js${version ? `?v=${version}` : ''}`);
+    linkPreviewsPromise = new Promise(resolve => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => {
+        linkPreviews = (typeof window !== 'undefined' && window.AGENT_HUB_LINK_PREVIEWS) || {};
+        if (dialog?.open && active >= 0 && body?.querySelector('.discussion-card.is-unfurl')) {
+          const prevScroll = body.scrollTop;
+          fill(active);
+          body.scrollTop = prevScroll;
+        }
+        resolve();
+      };
+      script.onerror = () => { linkPreviews = {}; script.remove(); resolve(); };
+      document.head.append(script);
+    });
+  }
   const placeholders = { 表情: '表情', 图片: '图片', 视频: '视频', 语音: '语音', 动画表情: '表情', 媒体引用未解析: '图片或视频' };
   // WeChat exports cards as "[链接] title" plus indented 来源/摘要/URL lines.
   function shareCard(text) {
@@ -105,7 +134,7 @@
     const url = fields.URL ? safeUrl(fields.URL) : null;
     const host = url?.hostname.replace(/^www\./, '');
     const origin = [host && (siteName(host) || host), fields.来源].filter(Boolean).join(' · ');
-    const inner = `<span class="discussion-card-origin">${icon('link')}${esc(origin || '链接')}</span><span class="discussion-card-title">${esc(title)}</span>${
+    const inner = `<span class="discussion-card-origin">${icon('link')}<span>${esc(origin || '链接')}</span>${url ? icon('external') : ''}</span><span class="discussion-card-title">${esc(title)}</span>${
       fields.摘要 ? `<span class="discussion-card-summary">${esc(fields.摘要)}</span>` : ''}`;
     return url ? `<a class="discussion-card" href="${esc(url.href)}" target="_blank" rel="noopener noreferrer">${inner}</a>` : `<span class="discussion-card">${inner}</span>`;
   }
@@ -119,29 +148,132 @@
     return { paper: 'paper', arxiv: 'paper', article: 'article', wechat: 'article', official: 'article', code: 'code',
       github: 'code', repo: 'code', demo: 'demo', discussion: 'messages' }[resource.kind] || 'link';
   }
-  // A plain address reads like a share card: the site, then a title people recognize.
+  // A plain address reads like a share card: real OpenGraph preview when cached, else a clean path title.
   function linkTitle(url) {
     const host = url.hostname.replace(/^www\./, '');
     const parts = url.pathname.split('/').filter(Boolean);
     if (host === 'arxiv.org' && ['abs', 'pdf', 'html'].includes(parts[0]) && parts[1]) return `arXiv ${parts[1].replace(/\.pdf$/, '')}`;
     if (host === 'github.com' && parts.length >= 2) return `${parts[0]}/${parts[1]}`;
     if (host === 'huggingface.co' && parts[0] === 'papers' && parts[1]) return `Hugging Face 论文 ${parts[1]}`;
-    // The origin line already names the host, so the title is the path people would recognize.
     let path = parts.join('/');
     try { path = decodeURIComponent(path); } catch { /* Keep the encoded path. */ }
     return !path ? host : path.length > 48 ? `${path.slice(0, 47)}…` : path;
   }
   function linkCard(url) {
-    const host = url.hostname.replace(/^www\./, ''), title = linkTitle(url);
-    // A site's front page has the host as its title; the line above it then says it is a website.
-    const origin = siteName(host) || (title === host ? '网站' : host);
-    return `<a class="discussion-card" href="${esc(url.href)}" title="${esc(url.href)}" target="_blank" rel="noopener noreferrer"><span class="discussion-card-origin">${icon('link')}${esc(origin)}</span><span class="discussion-card-title">${esc(title)}</span></a>`;
+    const host = url.hostname.replace(/^www\./, '');
+    const preview = (typeof window !== 'undefined' && window.AGENT_HUB_LINK_PREVIEWS?.[url.href]) || linkPreviews?.[url.href];
+    const kindIcon = host === 'github.com' ? 'code' : (host === 'arxiv.org' || host === 'huggingface.co') ? 'paper' : 'link';
+    const tone = host === 'github.com' ? 'code' : (host === 'arxiv.org' || host === 'huggingface.co') ? 'paper' : (host === 'x.com' || host === 'twitter.com') ? 'social' : 'web';
+    const fallbackTitle = linkTitle(url);
+    const title = preview?.title || fallbackTitle;
+    const named = siteName(host) || preview?.siteName;
+    const origin = named ? (named.toLowerCase() === host.toLowerCase() ? named : `${named} · ${host}`) : (fallbackTitle === host ? '网站' : host);
+    const desc = preview?.description ? `<span class="discussion-card-summary">${esc(preview.description)}</span>` : '';
+    return `<a class="discussion-card is-unfurl" data-link-tone="${tone}" href="${esc(url.href)}" title="${esc(url.href)}" target="_blank" rel="noopener noreferrer"><span class="discussion-card-origin">${icon(kindIcon)}<span>${esc(origin)}</span>${icon('external')}</span><span class="discussion-card-title">${esc(title)}</span>${desc}</a>`;
   }
-  function messageBody(text) {
+  function fileExtInfo(name) {
+    const match = /\.([a-z0-9]{1,5})$/i.exec((name || '').trim());
+    const ext = match ? match[1].toUpperCase() : 'FILE';
+    const tone = ext === 'PDF' ? 'pdf'
+      : ['HTML', 'HTM'].includes(ext) ? 'web'
+      : ['MD', 'TXT', 'JSON', 'YAML', 'YML', 'CSV'].includes(ext) ? 'doc'
+      : ['ZIP', 'RAR', '7Z', 'TAR', 'GZ'].includes(ext) ? 'zip'
+      : ['DOC', 'DOCX', 'PPT', 'PPTX', 'XLS', 'XLSX'].includes(ext) ? 'office'
+      : ['MP4', 'MOV', 'WEBM', 'MKV', 'MP3', 'WAV', 'M4A'].includes(ext) ? 'media'
+      : 'other';
+    return { ext: ext.slice(0, 4), tone };
+  }
+  function fileCard({ name, detail, bytes, href }) {
+    const { ext, tone } = fileExtInfo(name);
+    const metaParts = [bytes ? formatBytes(bytes) : detail, ext !== 'FILE' ? ext : ''].filter(Boolean);
+    const inner = `<span class="discussion-file-badge" data-file-tone="${tone}">${esc(ext)}</span><span class="discussion-file-copy"><strong title="${esc(name)}">${esc(name)}</strong>${metaParts.length ? `<small>${esc(metaParts.join(' · '))}</small>` : ''}</span>${href ? `<span class="discussion-file-action" aria-hidden="true">${icon('download')}</span>` : ''}`;
+    return href
+      ? `<a class="discussion-file-card" href="${esc(href)}" download="${esc(name)}">${inner}</a>`
+      : `<div class="discussion-file-card is-static">${inner}</div>`;
+  }
+  const forwardPayloads = new Map();
+  let forwardSerial = 0;
+  function forwardCard(text) {
+    const lines = text.split('\n');
+    const head = /^\[合并聊天记录\]\s*(.+?)(?:\s*\((\d+)条\))?\s*$/.exec(lines[0]);
+    if (!head || lines.length < 2) return null;
+    const items = [];
+    for (const rawLine of lines.slice(1)) {
+      const m = /^\s*-\s*([^:：\n]{1,48})[:：]\s*(.*)$/.exec(rawLine);
+      if (m) items.push({ sender: m[1].trim(), text: m[2] });
+      else if (items.length) items.at(-1).text += `\n${rawLine.trim()}`;
+    }
+    if (!items.length) return null;
+    const renderItemText = value => {
+      const t = value.trim();
+      if (/^(?:jpg|jpeg|png|gif|webp|\[图片\])$/i.test(t)) return '<span class="discussion-forward-chip">图片</span>';
+      if (/^(?:mp4|\[视频\])$/i.test(t)) return '<span class="discussion-forward-chip">视频</span>';
+      if (/^\[(?:动画表情|表情)\]$/.test(t)) return '<span class="discussion-forward-chip">表情</span>';
+      return inline(t).html;
+    };
+    const renderRow = (item, clamp = false) => `<li class="discussion-forward-row${clamp ? ' is-clamped' : ''}"><span class="discussion-forward-sender">${esc(item.sender)}</span><span class="discussion-forward-body">${renderItemText(item.text)}</span></li>`;
+    const title = head[1].trim();
+    const count = head[2] || String(items.length);
+    const totalChars = items.reduce((sum, item) => sum + item.text.length, 0);
+    // Short forwarded chats render in full inline; only long ones become a WeChat-style preview card that opens a detail modal.
+    if (items.length <= 8 && totalChars <= 450) {
+      return `<div class="discussion-forward-card"><div class="discussion-forward-head">${icon('messages')}<strong class="discussion-forward-title">${esc(title)}</strong><span class="discussion-forward-count">${esc(count)} 条</span></div><ul class="discussion-forward-list">${items.map(item => renderRow(item, false)).join('')}</ul></div>`;
+    }
+    const id = `fwd-${++forwardSerial}`;
+    forwardPayloads.set(id, { title, count, html: `<ul class="discussion-forward-list is-detail">${items.map(item => renderRow(item, false)).join('')}</ul>` });
+    const previewRows = items.slice(0, 4).map(item => renderRow(item, true)).join('');
+    return `<button type="button" class="discussion-forward-card is-interactive" data-forward-id="${id}"><div class="discussion-forward-head">${icon('messages')}<strong class="discussion-forward-title">${esc(title)}</strong><span class="discussion-forward-count">${esc(count)} 条</span></div><ul class="discussion-forward-list is-preview">${previewRows}</ul><div class="discussion-forward-foot"><span>查看全部 ${esc(count)} 条聊天记录</span>${icon('right')}</div></button>`;
+  }
+  function attachmentIcon(kind) {
+    return icon(kind === 'image' ? 'paper' : kind === 'video' ? 'demo' : kind === 'audio' ? 'messages' : 'file');
+  }
+  function attachmentBody(attachment) {
+    const rawSource = attachment.src || attachment.href;
+    const source = typeof rawSource === 'string' && rawSource.startsWith('attachments/') ? asset(rawSource) : '';
+    const label = attachment.name || attachment.label || (attachment.kind === 'image' ? '图片' : attachment.kind === 'video' ? '视频' : attachment.kind === 'audio' ? '语音' : '文件');
+    const caption = typeof attachment.caption === 'string' && attachment.caption.trim() ? attachment.caption.trim() : '';
+    if (attachment.kind === 'image' && source) {
+      const dimensions = attachment.width && attachment.height ? ` width="${esc(attachment.width)}" height="${esc(attachment.height)}"` : '';
+      return `<figure class="discussion-media discussion-image"><a class="discussion-zoom" href="${esc(source)}" data-lightbox-src="${esc(source)}" data-lightbox-alt="${esc(caption || attachment.alt || '')}"><img src="${esc(source)}" alt="${esc(attachment.alt || '图片')}"${dimensions} loading="lazy" decoding="async"></a>${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
+    }
+    if (attachment.kind === 'video' && source) {
+      const dimensions = attachment.width && attachment.height ? ` width="${esc(attachment.width)}" height="${esc(attachment.height)}"` : '';
+      const poster = typeof attachment.poster === 'string' && attachment.poster.startsWith('attachments/') ? asset(attachment.poster) : '';
+      return `<figure class="discussion-media discussion-video"><video controls muted playsinline preload="metadata"${dimensions}${poster ? ` poster="${esc(poster)}"` : ''}><source src="${esc(source)}"${attachment.mime ? ` type="${esc(attachment.mime)}"` : ''}>${esc(label)}</video>${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
+    }
+    if (attachment.kind === 'video' && typeof attachment.poster === 'string' && attachment.poster.startsWith('attachments/')) {
+      const poster = asset(attachment.poster);
+      return `<figure class="discussion-media discussion-video-thumb"><a class="discussion-zoom" href="${esc(poster)}" data-lightbox-src="${esc(poster)}" data-lightbox-alt="${esc(caption || '视频封面')}"><img src="${esc(poster)}" alt="${esc(attachment.alt || '视频')}" loading="lazy" decoding="async"><span class="discussion-video-badge">${icon('demo')}<span>视频</span></span></a></figure>`;
+    }
+    if (attachment.kind === 'audio' && source) {
+      return `<div class="discussion-media discussion-audio"><audio controls muted preload="metadata"><source src="${esc(source)}"${attachment.mime ? ` type="${esc(attachment.mime)}"` : ''}>${esc(label)}</audio><span>${esc(label)}</span></div>`;
+    }
+    if (attachment.kind === 'file') {
+      return fileCard({ name: attachment.name || label, detail: attachment.label || '', bytes: attachment.bytes, href: source });
+    }
+    return `<span class="discussion-attachment is-placeholder">${attachmentIcon(attachment.kind)}${esc(label)}</span>`;
+  }
+  function formatBytes(bytes) {
+    if (!Number.isFinite(bytes) || bytes < 1024) return bytes ? `${bytes} B` : '';
+    const units = ['KB', 'MB', 'GB'];
+    let value = bytes / 1024, unit = units[0];
+    for (let i = 1; value >= 1024 && i < units.length; i += 1) { value /= 1024; unit = units[i]; }
+    return `${value >= 10 ? value.toFixed(0) : value.toFixed(1)} ${unit}`;
+  }
+  function messageBody(text, attachments = []) {
     const share = shareCard(text);
     if (share) return { html: share, card: true };
+    const forwarded = forwardCard(text);
+    if (forwarded) return { html: forwarded, card: true };
     const file = /^\[文件\]\s*(.+?)\s*\(([^,()]+),[^()]*\)\s*$/.exec(text);
-    if (file) return { html: `<span class="discussion-attachment">${icon('file')}${esc(file[1])}<small>${esc(file[2])}</small></span>` };
+    if (attachments.length) {
+      const media = attachments.map(attachmentBody).join('');
+      const hideRaw = /^\[(?:图片|视频|语音)\]$/.test(text.trim()) || (text.trim().startsWith('[文件]') && attachments.some(a => a.kind === 'file'));
+      const placeholder = hideRaw ? '' : textWithStickers(text);
+      const isRichMedia = hideRaw && attachments.every(a => (a.kind === 'image' && a.src) || (a.kind === 'video' && (a.src || a.poster)) || a.kind === 'file');
+      return { html: `${placeholder}${media}`, card: isRichMedia };
+    }
+    if (file) return { html: fileCard({ name: file[1], detail: file[2] }), card: true };
     const media = /^\[([^\[\]]+)\]$/.exec(text.trim());
     if (media && placeholders[media[1]]) return { html: `<span class="discussion-attachment is-placeholder">${esc(placeholders[media[1]])}</span>` };
     return inline(text);
@@ -188,7 +320,7 @@
         : `aria-expanded="false" aria-controls="${quoteId}" aria-label="展开完整引文"`}>
 <span class="discussion-quote-body"><span class="discussion-quote-label">${icon('reply')}${esc(speakerName(message.quote.speaker))}</span><span class="discussion-quote-text" id="${quoteId}">${textWithStickers(quoteText(message.quote.text))}</span></span>
         </button>` : '';
-      const body = messageBody(message.text);
+      const body = messageBody(message.text, Array.isArray(message.attachments) ? message.attachments : []);
       // A card on its own needs no bubble around it; with a quote, the bubble holds both.
       const cardOnly = !quote && body.card;
       return `<div class="discussion-entry${cardOnly ? ' is-card' : ''}" id="${messageId(message.index)}" tabindex="-1" aria-label="${esc(speakerName(message.speaker))}，${esc(message.time)}">${quote}<div class="discussion-text">${body.html}</div></div>`;
@@ -199,7 +331,7 @@
       const groupDay = day(group[0].time);
       const divider = groupDay && groupDay !== shownDay ? `<li class="discussion-day" aria-hidden="true"><span>${esc(groupDay)}</span></li>` : '';
       shownDay = groupDay || shownDay;
-      return `${divider}<li data-speaker-color="${speakerColor(group[0].speaker)}">
+      return `${divider}<li data-speaker-color="${speakerColor(group[0].speaker)}" data-side="${speakerSide(group[0].speaker)}">
       <span class="discussion-avatar" aria-hidden="true">${esc(group[0].speaker)}</span>
       <div class="discussion-message"><div class="discussion-meta"><span class="discussion-speaker">${esc(speakerName(group[0].speaker))}</span><time>${esc(groupDay ? group[0].time.slice(groupDay.length + 1) : group[0].time)}</time></div>
       <div class="discussion-entries">${group.map(entry).join('')}</div></div>
@@ -237,7 +369,7 @@
         ? [{ url, label: resource.label.trim(), kind: resourceKind(resource) }] : [];
     });
     return `${text ? `<div class="discussion-lead-text">${emphasize(text, item.emphasis).split(/\n\s*\n/).map(part => `<p>${part}</p>`).join('')}</div>` : ''}${
-      typeof item.comment === 'string' && item.comment.trim() ? `<aside class="discussion-lead-comment" aria-label="AI 锐评"><span>AI 锐评</span><p>${esc(item.comment)}</p></aside>` : ''}${
+      typeof item.comment === 'string' && item.comment.trim() ? `<aside class="discussion-lead-comment" aria-label="Bot 锐评"><span>Bot 锐评</span><p>${esc(item.comment)}</p></aside>` : ''}${
       links.length ? `<section class="discussion-lead-resources" aria-label="相关资料"><p class="discussion-lead-label">相关资料</p>
         <ul class="discussion-lead-links">${links.map(({ url, label, kind }) => `<li><a href="${esc(url.href)}" target="_blank" rel="noopener noreferrer">
           <span class="discussion-lead-link-icon">${icon(kind)}</span>
@@ -245,8 +377,8 @@
         </a></li>`).join('')}</ul></section>` : ''}`;
   }
   // weekly-render.mjs writes the same trigger markup into its static pages.
-  function trigger(messages, index) {
-    const { count, speakers } = summary(messages);
+  function trigger(messagesOrMeta, index) {
+    const { count, speakers } = Array.isArray(messagesOrMeta) ? summary(messagesOrMeta) : messagesOrMeta;
     return `<button type="button" class="discussion-trigger" id="discussion-${index + 1}" data-discussion-index="${index}" aria-haspopup="dialog" aria-label="查看原始讨论，${count} 条消息，${speakers} 位群友">
       ${icon('messages')}<span class="discussion-trigger-label">原始讨论</span><span class="discussion-trigger-meta">${count} 条 · ${speakers} 人</span>${icon('right')}
     </button>`;
@@ -310,8 +442,15 @@
         if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) requestClose();
         return;
       }
+      const zoom = event.target.closest('a[data-lightbox-src]');
+      if (zoom && dialog.contains(zoom) && !event.metaKey && !event.ctrlKey && !event.shiftKey) {
+        event.preventDefault();
+        openLightbox(zoom.dataset.lightboxSrc, zoom.dataset.lightboxAlt || '');
+        return;
+      }
       const control = event.target.closest('button');
       if (!control || !dialog.contains(control)) return;
+      if (control.dataset.forwardId) { openForwardModal(control.dataset.forwardId); return; }
       if (control.hasAttribute('data-discussion-close')) requestClose();
       else if (control.dataset.discussionStep) open(Number(control.dataset.discussionStep));
       else if (control.classList.contains('discussion-quote')) followQuote(control);
@@ -322,6 +461,45 @@
         quote.focus({ preventScroll: true });
       }
     });
+  }
+  let lightbox;
+  function openLightbox(src, alt) {
+    if (!lightbox) {
+      lightbox = document.createElement('dialog');
+      lightbox.className = 'discussion-lightbox';
+      lightbox.innerHTML = `<div class="discussion-lightbox-bar"><a class="discussion-lightbox-raw" target="_blank" rel="noopener noreferrer">原图${icon('external')}</a><button type="button" class="discussion-lightbox-close" aria-label="关闭大图">${icon('close')}</button></div><figure class="discussion-lightbox-stage"><img alt=""></figure>`;
+      document.body.append(lightbox);
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox || event.target.closest('.discussion-lightbox-close') || event.target.classList.contains('discussion-lightbox-stage')) {
+          if (typeof lightbox.close === 'function') lightbox.close(); else lightbox.removeAttribute('open');
+        }
+      });
+    }
+    const img = lightbox.querySelector('img');
+    img.src = src;
+    img.alt = alt || '图片预览';
+    lightbox.querySelector('.discussion-lightbox-raw').href = src;
+    if (typeof lightbox.showModal === 'function') lightbox.showModal(); else lightbox.setAttribute('open', '');
+  }
+  let forwardModal;
+  function openForwardModal(id) {
+    const data = forwardPayloads.get(id);
+    if (!data) return;
+    if (!forwardModal) {
+      forwardModal = document.createElement('dialog');
+      forwardModal.className = 'discussion-forward-modal';
+      forwardModal.innerHTML = `<header class="discussion-forward-modal-head"><div class="discussion-forward-modal-title">${icon('messages')}<strong></strong><span class="discussion-forward-count"></span></div><button type="button" class="discussion-forward-modal-close" aria-label="关闭聊天记录">${icon('close')}</button></header><div class="discussion-forward-modal-body"></div>`;
+      document.body.append(forwardModal);
+      forwardModal.addEventListener('click', event => {
+        if (event.target === forwardModal || event.target.closest('.discussion-forward-modal-close')) {
+          if (typeof forwardModal.close === 'function') forwardModal.close(); else forwardModal.removeAttribute('open');
+        }
+      });
+    }
+    forwardModal.querySelector('.discussion-forward-modal-title strong').textContent = data.title;
+    forwardModal.querySelector('.discussion-forward-modal-title .discussion-forward-count').textContent = `${data.count} 条`;
+    forwardModal.querySelector('.discussion-forward-modal-body').innerHTML = data.html;
+    if (typeof forwardModal.showModal === 'function') forwardModal.showModal(); else forwardModal.setAttribute('open', '');
   }
   function hideReturn() {
     if (returnButton) returnButton.hidden = true;
@@ -420,15 +598,35 @@
       ${renderList(item.messages, `discussion-${index + 1}`)}
       <p class="discussion-end">以上是全部 ${count} 条消息</p>
       <footer class="discussion-dialog-footer">${nextButton}${actions}</footer>`;
+    for (const el of body.querySelectorAll('video, audio')) {
+      el.muted = true;
+      el.volume = 0.25;
+    }
   }
+  let pendingOpen = -1;
   function open(index, historyMode = 'push') {
-    if (!topic(index)) return;
+    const item = topic(index);
+    if (!item) return;
+    if (item.pending && typeof provider?.ensureLoaded === 'function') {
+      pendingOpen = index;
+      const targetProvider = provider;
+      loadLinkPreviews();
+      provider.ensureLoaded().then(() => {
+        if (provider !== targetProvider || pendingOpen !== index) return;
+        pendingOpen = -1;
+        const loaded = topic(index);
+        if (loaded && !loaded.pending) open(index, historyMode);
+      }).catch(() => { pendingOpen = -1; });
+      return;
+    }
+    pendingOpen = -1;
     ensureDialog();
     clearTimeout(closeTimer);
     const wasOpen = dialog.open;
     active = index;
+    loadLinkPreviews();
     fill(index);
-    reportOpen(topic(index).feedbackId);
+    reportOpen(item.feedbackId);
     if (!wasOpen) {
       // A deep link has no clicked control, so focus returns to the topic's own trigger.
       opener = document.activeElement instanceof HTMLElement && document.activeElement !== document.body
@@ -466,6 +664,7 @@
   }
   function configure(next) {
     closeReader();
+    pendingOpen = -1;
     provider = next ? { section: '', back: '正文', ...next, page: pageKey() } : null;
     if (provider && hashIndex() >= 0) open(hashIndex(), 'none');
   }
@@ -485,6 +684,14 @@
     expectingPop = false;
     event.stopImmediatePropagation();
   });
+  const prefetchFromEvent = event => {
+    const control = event.target?.closest?.('[data-discussion-index]');
+    if (!control || !provider) return;
+    provider.prefetch?.();
+    loadLinkPreviews();
+  };
+  document.addEventListener('pointerenter', prefetchFromEvent, true);
+  document.addEventListener('focusin', prefetchFromEvent);
   document.addEventListener('click', event => {
     const control = event.target.closest?.('[data-discussion-index]');
     if (!control || !provider) return;

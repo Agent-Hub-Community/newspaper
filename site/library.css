@@ -51,7 +51,8 @@
 
 /* Entries: three columns on wide screens, each card ends with its sources and heart on one row. */
 .entries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 36px; margin: 0; padding: 0; list-style: none; }
-.entry { display: flex; flex-direction: column; min-width: 0; padding: 20px 0 14px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; }
+.entry { display: flex; flex-direction: column; min-width: 0; padding: 20px 0 14px; border-top: 1px solid var(--rule); scroll-margin-top: 16px; content-visibility: auto; contain-intrinsic-size: auto 260px; }
+.icon { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .entry[hidden] { display: none; }
 .entry:target { border-top: 2px solid var(--accent); }
 .entry-meta { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; color: var(--muted); font: 11px/1.5 var(--sans); }

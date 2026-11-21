@@ -5,7 +5,7 @@
   const routes = window.AgentHubRoutes;
   const $ = selector => document.querySelector(selector);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const icons = () => window.lucide.createIcons({ attrs: { 'aria-hidden': 'true', 'stroke-width': 1.6 } });
+  const icons = (root = document) => window.lucide.createIcons({ root, attrs: { 'aria-hidden': 'true', 'stroke-width': 1.6 } });
   const dateText = date => date.replaceAll('-', '.');
   let state = { mode: 'digest', id: data.digests.at(-1)?.id };
   const weeklies = data.weeklies || [];
@@ -83,6 +83,28 @@
       document.head.append(script);
     }));
     return loading.get(item.date);
+  }
+  function prefetchIssue(item) {
+    if (!item?.version || item.loaded || issues[item.date] || loading.has(item.date)) return;
+    loadIssue(item).catch(() => {});
+  }
+  let rankingLoad = null;
+  function loadRanking() {
+    if (window.renderRanking) return Promise.resolve();
+    if (!rankingLoad) rankingLoad = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      const v = data.lazyAssets?.['ranking.js'];
+      script.src = routes.asset(`ranking.js${v ? `?v=${v}` : ''}`);
+      script.onload = () => resolve();
+      script.onerror = () => { rankingLoad = null; script.remove(); reject(new Error('Ranking unavailable')); };
+      document.head.append(script);
+    });
+    return rankingLoad;
+  }
+  function prefetchNeighbors() {
+    if (state.mode !== 'digest') return;
+    prefetchIssue(neighbor(-1));
+    prefetchIssue(neighbor(1));
   }
   function showLoading(item) {
     $('#reading').innerHTML = `<div class="issue-status" role="status">正在加载 ${esc(dateText(item.date))} 的日报…</div>`;
@@ -193,25 +215,52 @@
       ? new Intl.DateTimeFormat('zh-CN', { weekday: 'long', timeZone: 'UTC' }).format(new Date(`${item.date}T00:00:00Z`))
       : state.mode === 'weekly' ? periodRange(state.mode, item) : '';
     $('#date-picker').setAttribute('aria-label', `${badge(state.mode)} ${$('#date-label').textContent} ${$('#date-weekday').textContent}，打开往期目录`);
+    let renderedDigest = false;
     if (state.mode === 'digest' && !hydrate(item)) showLoading(item);
-    else if (state.mode === 'digest' || state.mode === 'weekly') window.renderDigest(item, navigate, data, state.page, state.mode);
-    else window.renderRanking(item, navigate, data, state.page);
+    else if (state.mode === 'digest' || state.mode === 'weekly') {
+      window.renderDigest(item, navigate, data, state.page, state.mode);
+      renderedDigest = true;
+    } else if (window.renderRanking) {
+      window.renderRanking(item, navigate, data, state.page);
+    } else {
+      $('#reading').innerHTML = '<div class="issue-status" role="status">正在加载社区活跃榜…</div>';
+      loadRanking().then(() => { if (state.mode === 'rank') render(); }, () => {
+        if (state.mode === 'rank') $('#reading').innerHTML = '<div class="issue-status" role="alert">活跃榜暂时无法加载。</div>';
+      });
+    }
     bindJumps();
     if ($('#archive-dialog').open) $('#archive-dialog').close();
     window.AgentHubAppearance?.update();
-    icons();
+    if (!renderedDigest) icons($('#reading'));
     document.body.dataset.edition = `${state.mode}/${state.id}`;
+    window.AgentHubSkins?.sync?.({
+      editionDate: state.mode === 'digest' ? item.date : null,
+      pageKind: state.mode === 'rank' ? 'rank' : state.mode === 'weekly' ? 'weekly' : 'daily',
+      pageId: state.page || null,
+    });
+    if (renderedDigest && state.mode === 'digest') {
+      if (typeof requestIdleCallback === 'function') requestIdleCallback(prefetchNeighbors, { timeout: 1500 });
+      else setTimeout(prefetchNeighbors, 500);
+    }
   }
   function bindJumps() {
-    for (const button of document.querySelectorAll('[data-jump]')) button.onclick = event => {
-      // A jump that is a real link still opens in a new tab or window with a modifier key.
-      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      if (button.dataset.jump === 'digest' && !published('digest').some(item => key(item) === button.dataset.id)) return;
-      event.preventDefault();
-      $('#archive-dialog').close();
-      navigate(button.dataset.jump, button.dataset.id, true,
-        button.dataset.jumpPage || (['digest', 'weekly'].includes(button.dataset.jump) ? state.page : undefined));
-    };
+    for (const button of document.querySelectorAll('[data-jump]')) {
+      if (button.dataset.jump === 'digest' && !button.dataset.prefetchBound) {
+        button.dataset.prefetchBound = '1';
+        const warm = () => prefetchIssue(data.digests.find(item => item.date === button.dataset.id));
+        button.addEventListener('pointerenter', warm, { passive: true });
+        button.addEventListener('focusin', warm);
+      }
+      button.onclick = event => {
+        // A jump that is a real link still opens in a new tab or window with a modifier key.
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (button.dataset.jump === 'digest' && !published('digest').some(item => key(item) === button.dataset.id)) return;
+        event.preventDefault();
+        $('#archive-dialog').close();
+        navigate(button.dataset.jump, button.dataset.id, true,
+          button.dataset.jumpPage || (['digest', 'weekly'].includes(button.dataset.jump) ? state.page : undefined));
+      };
+    }
   }
   function openArchive(event) {
     const list = published();
@@ -228,7 +277,7 @@
       if (button.dataset.id === state.id) button.setAttribute('aria-current', 'page');
     }
     archiveOpener.setAttribute('aria-expanded', 'true');
-    bindJumps(); icons(); $('#archive-dialog').showModal();
+    bindJumps(); icons($('#archive-dialog')); window.AgentHubSkins?.syncContent?.(); $('#archive-dialog').showModal();
   }
   function flip(delta) {
     const item = neighbor(delta);
@@ -236,6 +285,7 @@
   }
   // Section tabs are links: a plain click switches in place, a modified click opens the section's own address.
   for (const tab of document.querySelectorAll('.tabs [data-mode]')) {
+    if (tab.dataset.mode === 'rank') tab.addEventListener('pointerenter', () => loadRanking().catch(() => {}), { passive: true, once: true });
     tab.onclick = event => {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
@@ -265,5 +315,6 @@
     if (e.key === 'ArrowLeft') { e.preventDefault(); turn(-1); }
     if (e.key === 'ArrowRight') { e.preventDefault(); turn(1); }
   });
+  icons();
   restore();
 })();

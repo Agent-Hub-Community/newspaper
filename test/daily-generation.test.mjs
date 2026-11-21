@@ -26,13 +26,15 @@ test('reader projection removes audit, source IDs and arbitrary model fields', (
   const d = draft(); d.secret = 'never';
   assert.doesNotMatch(JSON.stringify(readerPage(d, input)), /evidence|claims|topic_key|never|m0001/);
 });
-test('reject invented references, private content and unsupported links', () => {
+test('reject invented references, aeskey leaks and unsupported links', () => {
   const d = draft(); d.stories[0].evidence_ids = ['m9999'];
   assert.throws(() => validateDraft(d, input), /evidence/);
-  const p = draft(); p.stories[0].text = 'wxid_private';
+  const p = draft(); p.stories[0].text = 'aeskey=leaked';
   assert.throws(() => validateDraft(p, input), /Private/);
   const r = draft(); r.resources = [{ url: 'https://example.com', evidence_ids: ['m0001'] }];
   assert.throws(() => validateDraft(r, input), /Invented/);
+  const direct = { heading: '直出稿', theme: '无需 claims', stories: [{ category: '动态', title: '极简', text: '正文内容', aiComment: '锐评' }] };
+  assert.equal(readerPage(direct, input).stories[0].aiComment, '锐评');
 });
 test('generation input removes media keys and link tokens', () => {
   const data = sanitizeInput({ messages: [{ content: 'https://example.com/?xsec_token=secret&v=1 wxid_abc <msg><img aeskey="secret"></msg>' }] });

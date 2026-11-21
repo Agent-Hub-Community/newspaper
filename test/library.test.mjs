@@ -111,18 +111,18 @@ test('agent copies carry the page facts without avatars and stay consistent with
   assert.deepEqual(json.items.map(entry => entry.related), [['memory-paper'], ['cua-gym']], 'related items share a keyword');
 });
 
-test('the page escapes text, keys hearts by item id and only allows the configured feedback origin', () => {
+test('the page escapes text, drops feedback hearts and only allows the configured views origin', () => {
   const normalized = normalizeLibrary(library([item({ title: '<img src=x onerror=alert(1)>' })]));
   const html = renderLibraryPage(normalized, { dailyHref: '../', weeklyHref: '../', feedbackEndpoint: 'https://votes.example/' });
   const { document } = parseHTML(html);
   assert.equal(document.querySelector('.entry-title img'), null);
-  assert.equal(document.querySelector('.heart').dataset.feedback, libraryFeedbackId('cua-gym'));
+  assert.equal(document.querySelector('.heart'), null);
   assert.equal(document.querySelector('.entry').dataset.keyword, 'OSWorld|RLVR|data synthesis');
   assert.equal(document.querySelector('.chips [data-filter="keyword"][data-value="RLVR"]'), null, 'a keyword on one item has no chip');
   assert.ok(document.querySelector('.entry-tags a[data-filter="keyword"][data-value="RLVR"]'), 'but stays clickable on its card');
   assert.equal(document.querySelector('meta[name="robots"]').content, 'noindex,nofollow', 'unlisted sections stay out of search');
   assert.match(document.querySelector('meta[http-equiv="Content-Security-Policy"]').content, /connect-src https:\/\/votes\.example;/);
-  assert.equal(document.querySelector('meta[name="agenthub-feedback"]').content, 'https://votes.example/');
+  assert.equal(document.querySelector('meta[name="agenthub-feedback"]'), null);
   assert.equal(document.querySelector('.source img').getAttribute('src'), '../library-avatars/0123456789abcdef.jpg');
   const offline = parseHTML(renderLibraryPage(normalized, { dailyHref: '../', weeklyHref: '../' })).document;
   assert.match(offline.querySelector('meta[http-equiv="Content-Security-Policy"]').content, /connect-src 'none'/);

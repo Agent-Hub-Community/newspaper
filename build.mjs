@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { readFile, readdir, mkdir, writeFile, copyFile, cp, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,12 +9,13 @@ import { mergeDraftEditions } from './lib/draft-editions.mjs';
 import { mergeExternalEditions } from './lib/external-editions.mjs';
 import { feedbackId } from './lib/feedback-id.mjs';
 import { createHash } from 'node:crypto';
-import { loadSkins } from './site/skins/build.mjs';
+import { loadSkins, resolveThemeRelated } from './site/skins/build.mjs';
 import { writeRoutePages } from './lib/route-pages.mjs';
 import { writeRedirectPages } from './lib/redirect-pages.mjs';
 import { buildIconBundle } from './lib/icons.mjs';
 import { readerReport, validateExternalDraft } from './lib/external-workflow.mjs';
 import { validateStoryDiscussion } from './lib/story-discussion.mjs';
+import { attachmentFiles, validateAttachments } from './lib/attachments.mjs';
 import { normalizeWeeklyIssue } from './lib/weekly-editions.mjs';
 import { normalizeLibrary, readLibrary } from './lib/library.mjs';
 import { normalizeOpportunities, readOpportunities } from './lib/opportunities.mjs';
@@ -29,6 +31,7 @@ import { searchCounts, searchIndex, writeSearchFiles } from './lib/search-render
 import { readSynonyms, searchVocabulary } from './lib/synonyms.mjs';
 import { weeklyRoute } from './lib/weekly-editions.mjs';
 import { brandHome, brandWordmark, communityLink, colophon, favicon, mastheadNav } from './lib/brand.mjs';
+import { minifyCss, minifyJs } from './lib/minify.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 // Browser files and templates copied into the build as they are.
@@ -46,6 +49,8 @@ if (feedbackEndpoint) {
 const localActivity = process.argv.includes('--local-activity');
 const draftIndex = process.argv.indexOf('--draft');
 const draftFile = draftIndex >= 0 ? process.argv[draftIndex + 1] : null;
+const attachmentDirIndex = process.argv.indexOf('--attachment-dir');
+const attachmentDir = attachmentDirIndex >= 0 ? process.argv[attachmentDirIndex + 1] : null;
 const draftActivityIndex = process.argv.indexOf('--draft-activity');
 const draftActivityFile = draftActivityIndex >= 0 ? process.argv[draftActivityIndex + 1] : null;
 if (draftActivityIndex >= 0 && (!draftFile || !draftActivityFile || draftActivityFile.startsWith('--'))) {
@@ -53,7 +58,9 @@ if (draftActivityIndex >= 0 && (!draftFile || !draftActivityFile || draftActivit
 }
 if (draftIndex >= 0 && (!draftFile || draftFile.startsWith('--'))) throw new Error('--draft requires a reviewed issue JSON file');
 if (draftFile && publicBuild) throw new Error('Draft preview cannot be combined with a public build');
+if (attachmentDirIndex >= 0 && (!attachmentDir || attachmentDir.startsWith('--'))) throw new Error('--attachment-dir needs a directory');
 const draft = draftFile ? JSON.parse(await readFile(path.resolve(draftFile), 'utf8')) : null;
+const attachmentRoot = attachmentDir ? path.resolve(attachmentDir) : dataDir;
 // A reviewed external draft joins the preview at build time instead of being patched into built files.
 const draftExternalIndex = process.argv.indexOf('--draft-external');
 let draftExternal = null;
@@ -84,6 +91,8 @@ const editions = mergeExternalEditions(draft ? mergeDraftEditions(digests, draft
   [...externalReports.filter(report => report.date !== draftExternal?.date), ...(draftExternal ? [draftExternal] : [])]);
 for (const issue of editions) for (const page of issue.pages) for (const story of page.stories || []) {
   validateStoryDiscussion(story.discussion);
+  validateAttachments(story.attachments, 'story attachments');
+  for (const message of story.discussion || []) validateAttachments(message.attachments, 'discussion attachments');
 }
 // The library is a separate static page; it never enters data.js.
 const library = normalizeLibrary(await readLibrary(dataDir), editions, weeklyReports);
@@ -93,6 +102,7 @@ library.aliases = mergedAliases(library, glossary);
 if (publicBuild && localActivity) throw new Error('Public builds use the approved snapshot; do not combine --public and --local-activity.');
 const out = path.join(root, draft || localActivity ? 'dist-preview' : 'dist');
 const skins = await loadSkins();
+resolveThemeRelated(skins.data, editions);
 await rm(out, { recursive: true, force: true });
 await mkdir(path.join(out, 'assets'), { recursive: true });
 const exists = async file => readFile(file, 'utf8').catch(error => {
@@ -188,7 +198,36 @@ for (const file of new Set(weeklyReports.flatMap(issue => issue.rank?.groups.fla
   await mkdir(path.dirname(path.join(out, file)), { recursive: true });
   await copyFile(path.join(dataDir, file), path.join(out, file));
 }
-await writeFile(path.join(out, 'skins.css'), skins.css);
+const resolveAttachment = file => (attachmentDir && existsSync(path.join(attachmentRoot, file)))
+  ? path.join(attachmentRoot, file) : path.join(dataDir, file);
+const attachmentFilesInUse = new Set(editions.flatMap(issue => issue.pages.flatMap(page => (page.stories || []).flatMap(story => [
+  ...attachmentFiles(story.attachments),
+  ...(story.discussion || []).flatMap(message => attachmentFiles(message.attachments)),
+]))));
+for (const file of attachmentFilesInUse) {
+  await mkdir(path.dirname(path.join(out, file)), { recursive: true });
+  await copyFile(resolveAttachment(file), path.join(out, file));
+}
+for (const issue of weeklyReports) for (const page of issue.pages) for (const story of page.stories || []) {
+  for (const file of [...attachmentFiles(story.attachments), ...(story.discussion || []).flatMap(message => attachmentFiles(message.attachments))]) {
+    if (attachmentFilesInUse.has(file)) continue;
+    attachmentFilesInUse.add(file);
+    await mkdir(path.dirname(path.join(out, file)), { recursive: true });
+    await copyFile(resolveAttachment(file), path.join(out, file));
+  }
+}
+await writeFile(path.join(out, 'skins.css'), minifyCss(skins.css));
+await writeFile(path.join(out, 'themes.js'), `window.AGENT_HUB_THEMES = ${JSON.stringify(skins.data).replaceAll('<', '\\u003c')};\n`);
+await writeFile(path.join(out, 'themes.json'), `${JSON.stringify(skins.data, null, 1)}\n`);
+const linkPreviewsPath = path.join(dataDir, 'link-previews.json');
+let linkPreviewsObj = {};
+if (existsSync(linkPreviewsPath)) {
+  const rawPreviews = JSON.parse(await readFile(linkPreviewsPath, 'utf8'));
+  linkPreviewsObj = Object.fromEntries(Object.entries(rawPreviews).filter(([, v]) => v && typeof v.title === 'string' && v.title.trim() && !v.failed));
+}
+const linkPreviewsJs = `window.AGENT_HUB_LINK_PREVIEWS=${JSON.stringify(linkPreviewsObj).replaceAll('<', '\\u003c')};\n`;
+await writeFile(path.join(out, 'link-previews.js'), linkPreviewsJs);
+const linkPreviewsVersion = createHash('sha256').update(linkPreviewsJs).digest('hex').slice(0, 16);
 // Loaded only when exporting from file://, where canvas cannot read local images.
 const exportFiles = new Set([
   ...skins.assets.map(asset => asset.file),
@@ -198,8 +237,9 @@ const exportFiles = new Set([
 ]);
 const exportImages = {};
 for (const file of exportFiles) {
-  const type = { '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp' }[path.extname(file)];
-  if (!type || path.isAbsolute(file) || file.split('/').includes('..')) throw new Error('Invalid export image');
+  const type = { '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.svg': 'image/svg+xml' }[path.extname(file)];
+  if (!type) continue;
+  if (path.isAbsolute(file) || file.split('/').includes('..')) throw new Error('Invalid export image');
   exportImages[file] = `data:${type};base64,${(await readFile(path.join(out, file))).toString('base64')}`;
 }
 await writeFile(path.join(out, 'export-images.js'), `window.AGENT_HUB_EXPORT_IMAGES = ${JSON.stringify(exportImages)};\n`);
@@ -212,25 +252,89 @@ const hasArticles = page => [page.stories, page.papers, page.id === 'external' ?
 const outline = pages => pages.map(page => hasArticles(page) && typeof page.heading === 'string' && page.heading.trim()
   ? { id: page.id, label: page.label, hasContent: true, heading: page.heading.trim() }
   : { id: page.id, label: page.label, hasContent: hasArticles(page) });
+const discussionMeta = messages => {
+  const first = messages[0].time, last = messages.at(-1).time;
+  const day = t => t.includes(' ') ? t.slice(0, t.indexOf(' ')) : '';
+  const span = day(first) ? (day(first) === day(last) ? day(first) : `${day(first)}–${day(last)}`)
+    : first === last ? first : `${first}–${last}`;
+  return { count: messages.length, speakers: new Set(messages.map(m => m.speaker)).size, span };
+};
 const issueVersions = {};
+const discussionVersions = {};
 await mkdir(path.join(out, 'issues'), { recursive: true });
 for (const issue of data.digests) {
-  const script = `(window.AGENT_HUB_ISSUES = window.AGENT_HUB_ISSUES || {})[${JSON.stringify(issue.date)}] = ${JSON.stringify({ pages: issue.pages }).replaceAll('<', '\\u003c')};\n`;
+  const discussionsByPage = {};
+  const lightPages = issue.pages.map(page => {
+    if (!page.stories?.length) return page;
+    const readable = page.stories.filter(story => typeof story.text === 'string' && story.text.trim());
+    const pageDiscussions = readable.map(story => story.discussion?.length ? story.discussion : null);
+    if (pageDiscussions.some(Boolean)) discussionsByPage[page.id] = pageDiscussions;
+    return {
+      ...page,
+      stories: page.stories.map(story => {
+        if (!story.discussion?.length) return story;
+        const { discussion, ...rest } = story;
+        return { ...rest, discussionMeta: discussionMeta(discussion) };
+      }),
+    };
+  });
+  const script = `(window.AGENT_HUB_ISSUES = window.AGENT_HUB_ISSUES || {})[${JSON.stringify(issue.date)}] = ${JSON.stringify({ pages: lightPages }).replaceAll('<', '\\u003c')};\n`;
   await writeFile(path.join(out, 'issues', `${issue.date}.js`), script);
   issueVersions[issue.date] = createHash('sha256').update(script).digest('hex').slice(0, 16);
+  if (Object.keys(discussionsByPage).length) {
+    const discScript = `(window.AGENT_HUB_DISCUSSIONS = window.AGENT_HUB_DISCUSSIONS || {})[${JSON.stringify(issue.date)}] = ${JSON.stringify(discussionsByPage).replaceAll('<', '\\u003c')};\n`;
+    await writeFile(path.join(out, 'issues', `${issue.date}.discussions.js`), discScript);
+    discussionVersions[issue.date] = createHash('sha256').update(discScript).digest('hex').slice(0, 16);
+  }
 }
 // Weekly pages are static and embed their own stories.
+const brandFontsCss = (await readFile(path.join(siteDir, 'brand/fonts.css'), 'utf8')).replaceAll("url('", "url('brand/");
+const builtAssets = new Map();
+for (const file of ['index.html', '404.html', 'app.js', 'routes.js', 'appearance.js', 'digest.js', 'ranking.js', 'share-image.js', 'style.css', 'daily.css', 'color-scheme.css', 'community.css', 'skins.js', 'weekly.css', 'weekly-reader.js', 'discussion-panel.js', 'discussion-panel.css', 'library.css', 'library.js', 'copy.js', 'bm25.js', 'query.js', 'search.js']) {
+  let content = await exists(path.join(siteDir, file));
+  if (!content) continue;
+  if (file === 'index.html') content = withAnalytics(content, 'analytics.js');
+  else if (file === 'community.css') content = minifyCss(content.replace("@import url('brand/fonts.css');", brandFontsCss));
+  else if (file.endsWith('.css')) content = minifyCss(content);
+  else if (file.endsWith('.js')) content = minifyJs(content);
+  builtAssets.set(file, content);
+  await writeFile(path.join(out, file), content);
+}
+const iconsJs = minifyJs(await buildIconBundle(root));
+builtAssets.set('icons.js', iconsJs);
+await writeFile(path.join(out, 'icons.js'), iconsJs);
+const skinsCssMin = await readFile(path.join(out, 'skins.css'), 'utf8');
+const themesJs = await readFile(path.join(out, 'themes.js'), 'utf8').catch(() => '');
+// Single-request CSS & JS bundles per page family cut 15+ blocking requests down to 1 CSS + 1 JS.
+const joinCss = names => names.map(name => name === 'skins.css' ? skinsCssMin : (builtAssets.get(name) || '')).filter(Boolean).join('\n');
+const joinJs = names => names.map(name => name === 'themes.js' ? themesJs : (builtAssets.get(name) || '')).filter(Boolean).join('\n');
+await writeFile(path.join(out, 'daily.bundle.css'), joinCss(['style.css', 'daily.css', 'discussion-panel.css', 'color-scheme.css', 'community.css', 'skins.css']));
+await writeFile(path.join(out, 'weekly.bundle.css'), joinCss(['weekly.css', 'discussion-panel.css', 'color-scheme.css', 'community.css', 'skins.css']));
+await writeFile(path.join(out, 'library.bundle.css'), joinCss(['weekly.css', 'library.css', 'color-scheme.css', 'community.css', 'skins.css']));
+await writeFile(path.join(out, 'app.bundle.js'), joinJs(['icons.js', 'routes.js', 'skins.js', 'digest.js', 'app.js']));
+await writeFile(path.join(out, 'weekly.bundle.js'), joinJs(['themes.js', 'skins.js', 'discussion-panel.js', 'weekly-reader.js']));
+await writeFile(path.join(out, 'library.bundle.js'), joinJs(['themes.js', 'skins.js', 'bm25.js', 'query.js', 'library.js', 'copy.js']));
+const lazyAssets = {};
+for (const file of ['discussion-panel.js', 'share-image.js', 'ranking.js', 'link-previews.js']) {
+  lazyAssets[file] = createHash('sha256').update(await readFile(path.join(out, file))).digest('hex').slice(0, 16);
+}
 const index = {
   ...data,
-  digests: data.digests.map(({ pages, ...issue }) => ({ ...issue, version: issueVersions[issue.date], pages: outline(pages) })),
+  linkPreviewsVersion,
+  lazyAssets,
+  digests: data.digests.map(({ pages, ...issue }) => ({
+    ...issue,
+    version: issueVersions[issue.date],
+    ...(discussionVersions[issue.date] ? { discussionVersion: discussionVersions[issue.date] } : {}),
+    pages: outline(pages),
+  })),
   weeklies: data.weeklies.map(({ pages, rank, ...issue }) => ({ ...issue, pages: outline(pages) })),
 };
 await writeFile(path.join(out, 'data.js'), `window.AGENT_HUB_DATA = ${JSON.stringify(index).replaceAll('<', '\\u003c')};\n`);
-for (const file of ['index.html', '404.html', 'app.js', 'routes.js', 'appearance.js', 'digest.js', 'feedback.js', 'ranking.js', 'share-image.js', 'style.css', 'daily.css', 'color-scheme.css', 'community.css', 'skins.js', 'weekly.css', 'weekly-reader.js', 'discussion-panel.js', 'discussion-panel.css', 'library.css', 'library.js', 'copy.js', 'bm25.js', 'query.js', 'search.js']) {
-  const content = await exists(path.join(siteDir, file));
-  if (content) await writeFile(path.join(out, file), file === 'index.html' ? withAnalytics(content, 'analytics.js') : content);
-}
-await cp(path.join(siteDir, 'brand'), path.join(out, 'brand'), { recursive: true });
+await cp(path.join(siteDir, 'brand'), path.join(out, 'brand'), {
+  recursive: true,
+  filter: src => !/noto-sans-sc-/.test(path.basename(src)),
+});
 if (publicBuild) {
   await copyFile(path.join(siteDir, 'analytics.js'), path.join(out, 'analytics.js'));
   await copyFile(path.join(siteDir, 'search-tracking.js'), path.join(out, 'search-tracking.js'));
@@ -238,9 +342,21 @@ if (publicBuild) {
 if (feedbackEndpoint) await copyFile(path.join(siteDir, 'views.js'), path.join(out, 'views.js'));
 await writeFile(path.join(out, '.nojekyll'), '');
 await writeFile(path.join(out, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
-await writeFile(path.join(out, 'icons.js'), await buildIconBundle(root));
 await copyFile(path.join(root, 'node_modules/modern-screenshot/dist/index.js'), path.join(out, 'screenshot.js'));
 const { document } = parseHTML(await readFile(path.join(out, 'index.html'), 'utf8'));
+// Replace the 6 individual stylesheets with one minified daily bundle.
+const styleLinks = [...document.querySelectorAll('link[rel="stylesheet"]')];
+if (styleLinks.length) {
+  styleLinks[0].setAttribute('href', 'daily.bundle.css');
+  for (const extra of styleLinks.slice(1)) extra.remove();
+}
+// Replace individual deferred app scripts with one bundle; discussion-panel, share-image & ranking load on demand.
+const bundledScripts = new Set(['icons.js', 'routes.js', 'skins.js', 'share-image.js', 'discussion-panel.js', 'digest.js', 'ranking.js']);
+for (const script of [...document.querySelectorAll('script[src]')]) {
+  const src = script.getAttribute('src');
+  if (bundledScripts.has(src)) script.remove();
+  else if (src === 'app.js') script.setAttribute('src', 'app.bundle.js');
+}
 const brand = document.querySelector('.wordmark');
 brand.innerHTML = brandWordmark + brand.querySelector('span').outerHTML;
 brand.insertAdjacentHTML('beforebegin', brandHome);

@@ -1,0 +1,2324 @@
+{
+  "http://127.0.0.1:8080/v1": {
+    "failed": true
+  },
+  "http://arxiv.org/abs/2610.05048": {
+    "title": "E$^2$-OPSD: Taming Entropy Overshoot in On-Policy Self-Distillation",
+    "description": "On-policy self-distillation (OPSD) provides dense token-level supervision without a second model: one network acts as teacher with the reference solution and as student with only the problem. We identify a specific failu",
+    "siteName": "arXiv.org"
+  },
+  "http://github.com/stablyai/orca": {
+    "title": "stablyai/orca: Orca lets you run a fleet of bots with your own subscription (e.g. Claude Code, Grok, Agy, Codex). Available on desktop, mobile and remote runtim",
+    "description": "Orca lets you run a fleet of bots with your own subscription (e.g. Claude Code, Grok, Agy, Codex). Available on desktop, mobile and remote runtime. - stablyai/orca",
+    "siteName": "GitHub"
+  },
+  "http://www.denovo-pinal.com/": {
+    "title": "Pinal (从头设计蛋白质)"
+  },
+  "http://xhslink.com/o/7leCmGY8IBN": {
+    "title": "小红书 - 你的生活兴趣社区"
+  },
+  "https://0966b7ac.pinme.dev/#model=v41&chapter=layer": {
+    "title": "主流的模型 架构全解析",
+    "description": "从矩阵和真实数据流理解 DeepSeek：MLA、MoE、负载均衡、mHC 与 CSA2 的可编辑结构图。"
+  },
+  "https://1stauthor.com/data/": {
+    "title": "Data — 1stAuthor",
+    "description": "Every corpus moves along the same pipeline. This page says where each one stands."
+  },
+  "https://1stauthor.com/zh/assistant/": {
+    "title": "研究助理 — 1stAuthor",
+    "description": "一个问题查遍各库——人、论文、法条、判决、试验、药品、公司申报、漏洞——答案里每一处都编号指向能打开的出处。"
+  },
+  "https://3dagentworld.github.io/CameraVLM/": {
+    "title": "CameraVLM · When Left Is Right? Camera-Motion Understanding beyond Screen",
+    "description": "CameraVLM couples off-screen camera motion with on-screen flow dynamics and lets the language model read both. With 9B parameters it reaches the highest three-benchmark average among more than 20 baselines."
+  },
+  "https://agent-hub-community.github.io/": {
+    "title": "Agent Hub · LLM Agent 技术分享、讨论与共建",
+    "description": "基模研究员、高校教授与青年硕博，和来自自然科学领域的同行，一起交流 LLM Agent、RSI、AI4Science、AI 安全、物理 AI 等方向。",
+    "siteName": "Agent Hub"
+  },
+  "https://agent-hub-community.github.io/newspaper/daily/2026-10-27/overview/": {
+    "title": "2026-10-27 各群与外部资讯总览",
+    "description": "Agent Hub 2026-10-27 本日总览：DeepSeek V4.1 Flash 安全评估：近半真实对话触发“评估错觉”；基座模型会吃掉 Harness 吗？从 ReAct 本质到让 Agent 自己改工具；嫌 opencode 臃肿怎么换？纯终端开发获荐 codex cli 搭配 om…",
+    "siteName": "Agent Hub"
+  },
+  "https://agent-hub-community.github.io/newspaper/daily/2026-11-02/overview/": {
+    "title": "2026-11-02 各群与外部资讯总览",
+    "description": "Agent Hub 2026-11-02 本日总览：Astra 额度一天见底，没想清楚的活还得靠 Opus 5.5；跨平台 Computer Use 接口设计：AX 树编排与批量指令防误触；合成轨迹数据全靠 Agent 检验不放心？双维度抽检与校准方案；AI 做游戏卡在哪：大厂源码壁垒、复合人才稀…",
+    "siteName": "Agent Hub"
+  },
+  "https://agent-hub-community.github.io/newspaper/daily/2026-11-03/overview/": {
+    "title": "2026-11-03 各群与外部资讯总览",
+    "description": "Agent Hub 2026-11-03 本日总览：开源 Agent Harness 项目 CoworkOS：三层协作架构与后训练迭代；Astra 免训练改权重是修死循环，还是替代梯度下降的新路？；GPT-6 Astra 改 Qwen 权重：许愿式微调还是修死循环？；扒开 Astra“权重空间编程…",
+    "siteName": "Agent Hub"
+  },
+  "https://agent-hub-community.github.io/newspaper/daily/2026-11-04/overview/": {
+    "title": "2026-11-04 各群与外部资讯总览",
+    "description": "Agent Hub 2026-11-04 本日总览：腾讯混元 Hy4 开源发布与群友初步实测反馈；4B 小模型切换 GUI/CLI 越级跑赢 30B；Kimi K3.1 被指刷榜，国模科学基准分差引热议；4B 路由器跑赢固定调用 Opus 5.5；4B 模型混合操控电脑，OSWorld 跑出 66…",
+    "siteName": "Agent Hub"
+  },
+  "https://agent-hub-community.github.io/newspaper/daily/2026-11-05/overview/": {
+    "title": "2026-11-05 各群与外部资讯总览",
+    "description": "Agent Hub 2026-11-05 本日总览：内核对齐后，最简 IS 稳训 20K 步异步 RL；HCU 把 AX 从观察升级成动作通道；满屏“不是……而是……”，是代码门禁还是数学训多了；Router 中途切模型丢 cache，反而亏钱？；量化回测难防信息泄露，Agent 辩论被批纯玩具；…",
+    "siteName": "Agent Hub"
+  },
+  "https://agent-hub-community.github.io/newspaper/weekly/2026-10-26/2026-11-01/overview/": {
+    "title": "本期各群与行业重点总览 · 2026.10.26–11.01 周报",
+    "description": "Agent Hub 总览周报 2026-10-26 至 2026-11-01：本期各群与行业重点总览。一页速览本期 9 个版面的核心讨论与行业动态，点击任意卡片或话题即可进入对应版面深读。",
+    "siteName": "Agent Hub"
+  },
+  "https://agent-hub-community.github.io/newspaper/weekly/2026-11-02/2026-11-08/overview/": {
+    "title": "本期各群与行业重点总览 · 2026.11.02–11.08 周报",
+    "description": "Agent Hub 总览周报 2026-11-02 至 2026-11-08：本期各群与行业重点总览。一页速览本期 9 个版面的核心讨论与行业动态，点击任意卡片或话题即可进入对应版面深读。",
+    "siteName": "Agent Hub"
+  },
+  "https://aleph-alpha.com/en/blog/scaling-pre-training-in-practice-a-hierarchical-approach": {
+    "failed": true
+  },
+  "https://alignment.anthropic.com/2026/automated-w2s-researcher/": {
+    "title": "Automated Weak-to-Strong Researcher"
+  },
+  "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/": {
+    "title": "Suppressing misalignment monitoring alerts and disabling misalignment monitoring",
+    "description": "In two internal coding tasks, agents weakened misalignment monitoring while making requested software changes.",
+    "siteName": "OpenAI"
+  },
+  "https://alpha-innovator.github.io/Sage-A1.5/": {
+    "title": "Sage-A1.5: From Long-Horizon Execution to Scientific Exploration with Capability Composition",
+    "description": "A scalable general-purpose agentic model with strong engineering, long-horizon search, scientific reasoning, and instruction following."
+  },
+  "https://andonlabs.com/evals/blueprint-bench-2": {
+    "title": "Blueprint-Bench 2 | Andon Labs",
+    "description": "How do AI agents understand space? We test this by asking them to convert apartment photographs into accurate 2D floor plans. While photos are familiar training data, spatial reconstruction requires genuine intelligence."
+  },
+  "https://antigravity.google/use-cases/science": {
+    "title": "Google Antigravity - Use Case: Why choose Google Antigravity for science",
+    "description": "Google Antigravity accelerates scientific discovery with extensible agent customizations, parallel workflow execution, and grounded verification across frontier models and scientific databases.",
+    "siteName": "Google Antigravity"
+  },
+  "https://api-docs.deepseek.com/quick_start/agent_integrations/codex/": {
+    "title": "Integrate with Codex | DeepSeek API Docs",
+    "description": "Codex is an AI coding assistant from OpenAI. It talks to models via the Responses API, which the DeepSeek API natively supports."
+  },
+  "https://artificialanalysis.ai/articles/aa-robotics": {
+    "title": "Welcome to the era of embodied AI: Introducing AA-Robotics v0.1",
+    "description": "We are launching AA-Robotics v0.1, our research preview that measures frontier language model performance on understanding, planning, and acting in the physical world. In v0.1, each model is given control of a 6-axis rob"
+  },
+  "https://artificialanalysis.ai/models/mistral-large-4": {
+    "title": "Mistral Large 4 Models - Intelligence, Performance & Price Comparison | Artificial Analysis",
+    "description": "Mistral Large 4 by Mistral scores up to 26 on the Intelligence Index. See how it compares with other AI models."
+  },
+  "https://arxiv.org/abs/2208.11173": {
+    "title": "The Alberta Plan for AI Research",
+    "description": "Herein we describe our approach to artificial intelligence research, which we call the Alberta Plan. The Alberta Plan is pursued within our research groups in Alberta and by others who are like minded throughout the worl",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2310.06987": {
+    "title": "Catastrophic Jailbreak of Open-source LLMs via Exploiting Generation",
+    "description": "The rapid progress in open-source large language models (LLMs) is significantly advancing AI development. Extensive efforts have been made before model release to align their behavior with human values, with the primary ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2410.10934": {
+    "title": "Agent-as-a-Judge: Evaluate Agents with Agents",
+    "description": "Contemporary evaluation techniques are inadequate for agentic systems. These approaches either focus exclusively on final outcomes -- ignoring the step-by-step nature of agentic systems, or require excessive manual labou",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2504.02732": {
+    "title": "Why do LLMs attend to the first token?",
+    "description": "Large Language Models (LLMs) tend to attend heavily to the first token in the sequence -- creating a so-called attention sink. Many works have studied this phenomenon in detail, proposing various ways to either leverage ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2506.17871": {
+    "title": "LLM Probability Concentration: How Alignment Shrinks the Generative Horizon",
+    "description": "Despite their impressive capabilities, aligned large language models (LLMs) often generate outputs that lack diversity. What drives this consistency in the generation? We investigate this phenomenon through the lens of p",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2601.16175": {
+    "title": "Learning to Discover at Test Time",
+    "description": "How can we use AI to discover a new state of the art for a scientific problem? Prior work in test-time scaling, such as AlphaEvolve, performs search by prompting a frozen LLM. We perform reinforcement learning at test ti",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2602.06358": {
+    "title": "SHINE: A Scalable In-Context Hypernetwork for Mapping Context to LoRA in a Single Pass",
+    "description": "We propose SHINE (Scalable Hyper In-context NEtwork), a scalable hypernetwork that can map diverse meaningful contexts into high-quality LoRA adapters for large language models (LLMs). By reusing the frozen LLM's own par",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2602.15902": {
+    "title": "Doc-to-LoRA: Learning to Instantly Internalize Contexts",
+    "description": "Long input sequences are central to in-context learning, document understanding, and multi-step reasoning of Large Language Models (LLMs). However, the quadratic attention cost of Transformers makes inference memory-inte",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2605.02937": {
+    "title": "Proteo-R1: Reasoning Foundation Models for De Novo Protein Design",
+    "description": "Deep learning in de novo protein design has achieved atomic-level fidelity. However, existing models remain largely non-deliberative: they directly synthesize molecular geometries without explicitly reasoning about which",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2605.08678": {
+    "title": "MLS-Bench: A Holistic and Rigorous Assessment of AI Systems on Building Better AI",
+    "description": "Modern AI progress has been driven by ML methods that are generalizable across settings and scalable to larger regimes. As large language models demonstrate advanced capabilities in reasoning, coding, and engineering tas",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2605.12684": {
+    "title": "Visual Aesthetic Benchmark: Can Frontier Models Judge Beauty?",
+    "description": "Multimodal large language models (MLLMs) are now routinely deployed for visual understanding, generation, and curation. A substantial fraction of these applications require an explicit aesthetic judgment. Most existing s",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2605.19516": {
+    "title": "Base Models Look Human To AI Detectors",
+    "description": "As AI-generated text enters the real-world at scale, institutions increasingly use commercial AI-text detectors, especially in education and academic-integrity workflows. We report a surprising empirical finding about su",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2607.05155": {
+    "title": "EdgeBench: Unveiling Scaling Laws of Learning from Real-World Environments",
+    "description": "Pretraining scaling laws reveal that model capability improves predictably with data and compute. But learning from real world environments after deployment remains far less understood. Analyzing roughly 38,000 hours of ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2608.03764": {
+    "title": "GDPevo: Evaluating Agent Self-Evolution on Real Business Tasks",
+    "description": "Agent self-evolution updates an agent's persistent state from prior experience and reuses it to solve related tasks more effectively. Evaluating self-evolution is difficult: existing benchmarks provide limited coverage o",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2608.06714": {
+    "title": "The Optimizer Is the Agent: Reasoning-Driven Search across Prompts, Programs, and ML Workflows",
+    "description": "Recent systems for optimizing prompts, programs, and ML workflows typically rely on explicit outer-loop controllers such as evolutionary search, bandits, or textual-gradient methods. We ask a fundamentally different ques",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2608.13940": {
+    "title": "AI Research Preference Models",
+    "description": "AI research agents (AIRA) can now carry machine learning experiments from proposal through implementation and evaluation. Yet progress on frontier tasks is throttled by the cost of evaluations that can consume days of GP",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2608.25593": {
+    "title": "JIT-Agent: Scaling Harness Intelligence via Just-in-Time Harness Evolution",
+    "description": "Agent capability is not determined by the model alone. The agent harness, encompassing memory management, planning strategy, action protocol, and tool/skill orchestration, can dominate the contribution of the underlying ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2609.11042": {
+    "title": "T1: Terminal Agent Reinforcement Learning for Long-Horizon Tasks",
+    "description": "Agent usage is shifting toward long-horizon tasks such as coding and scientific discovery, among which terminal tasks are especially important. We introduce T1, a Mixture-of-Experts model of 122B total trained with reinf",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2609.15818": {
+    "title": "Atria Dawn: The Dawn of Agentic Superintelligence",
+    "description": "As AI agents become participants in the development of their successors, they reshape both the production of intelligence and the role of human researchers. We introduce Atria Dawn Preview, a foundation agentic language ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2609.34036": {
+    "title": "UOPD: Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents",
+    "description": "On-policy distillation (OPD) trains a student on its own rollouts using dense supervision from a teacher. In multi-turn environments, a mistake at a critical decision step can redirect the subsequent rollout toward poor ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2609.38269": {
+    "title": "Zero2Repo: Can Coding Agents Build Repositories from Scratch?",
+    "description": "Coding agents are increasingly asked to build software rather than patch it, yet benchmarks for from-scratch repository construction are mostly limited to a single language and depend on manually curated tasks. We introd",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.00898": {
+    "title": "When Do Biological Reasoning Models Use Their Biological Inputs?",
+    "description": "Biological reasoning models use post-training to connect LLMs to biological foundation model representations and biological text. Their benchmark accuracy is taken as evidence that LLMs reason over these inputs. We test ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.01207": {
+    "title": "Dependency-Aware Reward Shaping for Agentic Reinforcement Learning",
+    "description": "When training large language models with reinforcement learning, terminal rewards provide little guidance about which steps matter. Common methods for assigning step credit overlook that work built on uncorrected mistake",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.03025%EF%BC%89": {
+    "failed": true
+  },
+  "https://arxiv.org/abs/2610.04902": {
+    "title": "Self-Evaluating Recursive Agents",
+    "description": "Recursive language-model agents decompose tasks and delegate subtasks to child instances of the same policy, forming a tree of work. Training them, however, is hard: the final outcome is verifiable, but the self-invented",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.04976": {
+    "title": "Priced Guidance: Can Language Models Generate Future Research Ideas?",
+    "description": "We evaluate language models' capability to generate novel research ideas through the lens of compression. We aim to lower-bound the potentially tiny probability that a language model generates the essence of a future res",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.10310": {
+    "title": "RSIGym: A Flexible Environment for Recursive Self-Improvement",
+    "description": "Recursive self-improvement requires carrying accepted changes into later improvement cycles, while studying agent-proposed changes also requires substantial research infrastructure. Existing settings often leave agents t",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.10409": {
+    "title": "RobotWorld: Benchmarking Multimodal Agents for Robot Use Across Diverse Tasks and Embodiments",
+    "description": "General-purpose agents increasingly write code, use tools, and complete complex digital tasks, raising the question of how far these capabilities carry into the physical world. To investigate this, we introduce RobotWorl",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.12235": {
+    "title": "Language Models as AI Research World Models",
+    "description": "AI research agents automate the cycle of proposing, implementing, and evaluating experiments, opening a path toward recursive self-improvement. Yet their ability to propose experiments outpaces their capacity to execute ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.13395": {
+    "title": "ProgramGym: Scaling Training Environments for Long-Horizon Program Reproduction Agents",
+    "description": "Coding agents are increasingly used to build programs from scratch as software engineers do rather than to resolve issues within a repository or to generate a repository from a given requirements document. However, scala",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.14625": {
+    "title": "From Existing Methods to New Research Ideas: Two Perspectives on Recursive Self-Improvement",
+    "description": "Recursive self-improvement (RSI) offers a route to AI systems that participate in their own continued development. Recent methods allow language agents to retain changes to their parameters, memory, skills, and code for ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.15915": {
+    "title": "VIEWCRAFT: Evolving What Multimodal Agents See and How They Read It",
+    "description": "Reusable skills improve multimodal agents without updating model weights, but their effectiveness depends on both the evidence presented and the procedure used to read it. We introduce ViewCraft, which jointly evolves an",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.16397": {
+    "title": "Recursive Environment Scaling for General Long-Horizon Agents",
+    "description": "We study environment scaling as a way to increase agent-benchmark difficulty while holding core task objectives fixed. Our framework, Recursive Environment Scaling (RES), transforms existing benchmark environments while ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.17242": {
+    "title": "When Left Is Right? Camera-Motion Understanding beyond Screen",
+    "description": "Can a vision-language model tell left from right? Modern VLMs solve visual puzzles and follow hour-long videos, yet when asked whether the camera moved left or right, most do no better than a coin flip. Adding camera-mot",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.20442": {
+    "title": "Towards Agentic Robots: Model, Data, Environment, and Harness",
+    "description": "Foundation models are driving a paradigm shift in robotic intelligence, moving beyond low-level action prediction to goal-directed orchestration of data collection, model training, task planning, and real-world execution",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.20731": {
+    "title": "WorldCast: Exploring Intelligent Visual Generation in World State Prediction",
+    "description": "Humans interpret multimodal observations of the world and forecast how it will evolve. Recent multimodal generative systems have demonstrated similar capabilities: they can integrate multimodal context and synthesize vis",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.20935": {
+    "title": "RAC: A Relational Agent Contract for Constraint-Governed Engineering Tasks",
+    "description": "Engineering agents must produce artifacts that satisfy exact, coupled constraints. Existing solutions often require agents to make semantic decisions and also derive consequences such as precise geometry or timing from t",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.21412": {
+    "title": "JevAgentHarness: Benchmarking, Deploying and Training Decision Models That Share Control with LLMs",
+    "description": "Large language model (LLM) agents now fix software, operate computers and serve customers, but their harnesses, the programs that run them, call a large LLM at every step, which makes long tasks slow and costly. Most of ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.21893": {
+    "title": "GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models",
+    "description": "Context compression in long-running applications of large language models (LLMs) must preserve goal-relevant information, often before specific downstream questions are known. We introduce GACC-Bench, a benchmark for Goa",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.22174": {
+    "title": "Mosaic: Multi-Session Agentic Reinforcement Learning",
+    "description": "Most existing agentic reinforcement learning methods assume single-session trajectories, where interaction proceeds within one continuously accumulated context. However, agentic techniques such as context compaction and ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.22200": {
+    "title": "OpenGCUA: Toward a Fully Open Stack for Generalist Computer Use",
+    "description": "Computer use has reached a turning point: the focus is expanding from GUI-only interaction to systems that complete tasks on users' computers through visual and programmatic interfaces. We define a generalist computer-us",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.22344": {
+    "title": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
+    "description": "Large language models (LLMs) are expanding from assisting scientific research and engineering to autonomously developing and improving AI systems, advancing AI for AI (AI4AI) as a pathway toward recursive self-improvemen",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.22496": {
+    "title": "Scaling Online Exploration for Robot Agents",
+    "description": "Robot learning has advanced by scaling demonstration datasets and model capacity; however, deploying a new robot embodiment or task typically necessitates a dedicated teleoperation corpus. The resulting policies remain b",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.23374": {
+    "title": "MOSS-Image Technical Report",
+    "description": "Recent closed-source image generation systems can produce diverse visual content from simple compositions to information-dense graphics, yet open-weight text-to-image models still struggle with dense text and intricate l",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.23986": {
+    "title": "BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References",
+    "description": "Recent advances in multimodal large language models (MLLMs) have enabled them to act as autonomous agents, creating and editing 3D models via code or direct software manipulation. In practical workflows, these models mus",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.24766": {
+    "title": "ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction",
+    "description": "Existing Multi-token prediction (MTP) methods are auxiliary by design: the multi-horizon loss mostly trains modules attached to the backbone, and each added horizon costs another module and another pass. We propose Effic",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.26828": {
+    "title": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis",
+    "description": "Agent learning is shifting from learning from human data toward learning through interaction with the world. However, scaling such learning directly in real-world computer systems is challenging and can introduce substan",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.27613": {
+    "title": "Embodied Task Agents Can Perform Fine Manipulation through Tactile In-Context Learning",
+    "description": "Can embodied task agents use tactile experience to perform fine manipulation without task-specific model training? We investigate this capability through Tactile-ETA, a system that incorporates tactile experience into an",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.28679": {
+    "title": "VerifierBench: Benchmarking the Generation of Executable Verifiers for LLM Agents",
+    "description": "Agents need reliable ways to validate their outputs, both when completing tasks and when filtering synthetic training data. We study verifier generation: from the instruction and environment available for solving a task,",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.29162v1": {
+    "title": "Why is AI-generated language so hard to understand?",
+    "description": "There is a widespread sense that AI-generated text has recently become harder to understand. In this study, we investigate a set of psycholinguistic features that are known to correlate with human processing difficulty (",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.32057": {
+    "title": "HyScale: Scaling Long-Context Training for Learned Sparse Attention",
+    "description": "We present HyScale, a long-context training system for learned sparse attention. Learned sparse attention is a promising architecture for million-token contexts, widely adopted in production since DeepSeek-V3.2. Selectio",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.33149": {
+    "title": "WebUniverse: Scaling Verified Training Data for Agentic Web Development",
+    "description": "Training agents for front-end web development requires demonstrations of code editing, execution, browser inspection and revision, yet public trajectories and reusable task environments remain limited. We introduce WebUn",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.35138": {
+    "title": "Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models",
+    "description": "Evaluating human-AI co-design requires testing whether coding agents can translate real users' multimodal requests into working application revisions. We introduce Co-Design Bench, a reference-free benchmark of 273 tasks",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.36077": {
+    "title": "The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents",
+    "description": "Multimodal intelligence can be viewed as human-guided co-evolution between worlds and agents through interaction. However, scaling this process faces two bottlenecks: constructing heterogeneous, verifiable environments i",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.37609": {
+    "title": "EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning",
+    "description": "As executable environments for language agents scale, generating and verifying their rollouts becomes increasingly expensive. Under finite rollout budgets, this raises an important question: can data management at the en",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.38342": {
+    "title": "Investor's Last Exam: Can AI Agents Do Equity Investment Without Seeing the Future?",
+    "description": "Financial agents must form forecasts and investment judgments from decision-time evidence, with predictions evaluated against subsequent outcomes. Existing benchmarks assess financial knowledge, research workflows, or fo",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.40747": {
+    "title": "Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses",
+    "description": "Effective computer-use agents (CUAs) should seamlessly combine visual GUI interaction with code and terminal execution within a single policy. We present Mage-VL-Cowork, a 4B hybrid CUA trained from a general multimodall",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.41432": {
+    "title": "Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+    "description": "Computer-use agents increasingly tackle tasks ranging from everyday desktop activities to long-horizon professional workflows. Yet interfaces centered on screenshots and mouse-and-keyboard actions can impose a human-inte",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2610.42053": {
+    "title": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+    "description": "Foundation models are becoming remarkably reliable at high-level reasoning, yet they remain too slow and costly to serve as fine-grained controllers. Conversely, fast policies like VLAs and whole-body controllers offer m",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.02102": {
+    "title": "NorthCUA Technical Report: Turbocharging Computer-Use Agents through Experience at Scale",
+    "description": "Scaling computer-use agents from individual actions to complex software work requires experience that connects decisions to complete outcomes. We present NorthCUA, an integrated system for turbocharging computer-use agen",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.03634": {
+    "title": "WebHarbor: Docking Real Websites for Evolving GUI Agent Environments",
+    "description": "GUI web agents require realistic and interactive environments that remain stable during both evaluation and training. Live website evaluation suffers from changing content, access restrictions, and limited coverage of au",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.04634": {
+    "title": "VeriSpoof: Beyond Real or Fake with One Audio LLM",
+    "description": "A speech deepfake detector estimates whether a recording is synthetic, but a forensic analyst also asks which system produced it, whether recordings share a source, and what evidence supports each conclusion. We present ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.04867": {
+    "title": "One Assistant, Many Memories: Benchmarking Real-World Group Assistance When Recall Is Not Enough",
+    "description": "The value of memory lies not only in recall but in using it to provide appropriate assistance. Recent benchmarks test memory use in personalisation and agentic tasks, but seldom evaluate assistance without fixed answers ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.04894": {
+    "title": "VisSearch-Bench: Evaluating Long Horizon Visual Search in Multimodal Agents",
+    "description": "Multimodal agents use web and image tools to answer questions beyond their internal knowledge. Some search tasks use images mainly to identify an initial entity, then rely on text retrieval. These tasks offer limited ins",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.05275": {
+    "title": "Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems",
+    "description": "Artificial general intelligence (AGI) requires a method that can understand, generate, reason, and act across diverse domains and modalities. Rather than relying on a single model to master every capability, a promising ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.05320": {
+    "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
+    "description": "Teleoperation remains the default way to collect robot demonstrations, but every episode costs robot and operator time, and every new task starts from scratch. We ask whether a coding agent can take over the teleoperator",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.12426": {
+    "title": "dNaViT: Discrete Codes are General-Purpose Visual Representations",
+    "description": "Discrete autoregressive modeling, notably through next-token prediction, has become a cornerstone of modern language models. Extending this paradigm to vision allows visual and language models to converge on a unified fr",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.16009": {
+    "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
+    "description": "GPT-6 Astra can drive a robot arm directly through a fixed harness, and scores of such robot-use agents on RoboDojo have risen quickly since. Reported systems differ in harness and test subset and often change several de",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2611.18359": {
+    "title": "Envisioning Agentic Robotics: A New Era of Robotic Systems",
+    "description": "The release of GPT-6 Astra marks the emergence of a new paradigm in robotics: agentic robotics. Within weeks, frontier models with agentic harnesses matched or exceeded task-specific policies on many embodied benchmarks.",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/html/2610.15166v1": {
+    "title": "ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling"
+  },
+  "https://arxiv.org/html/2610.19159v1": {
+    "title": "Into the Unknown:Benchmarking AI agents on open scientific research problems"
+  },
+  "https://arxiv.org/pdf/2509.14257": {
+    "title": "Student-Centered Distillation Narrows the Agentic Gap Between Small and Large LLMs",
+    "description": "Large Language Model agents achieve strong performance on multi-step reasoning and tool-use tasks, but their impressive capabilities typically rely on extremely large backbones. Existing distillation approaches train sma",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2509.19736": {
+    "title": "UserRL: Training Interactive User-Centric Agent via Reinforcement Learning",
+    "description": "Reinforcement learning (RL) has shown promise in training agentic models that move beyond static benchmarks to engage in dynamic, multi-turn interactions. Yet, the ultimate value of such agents lies in their ability to a",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2512.24601": {
+    "title": "Recursive Language Models",
+    "description": "We study allowing large language models (LLMs) to process arbitrarily long prompts through the lens of inference-time scaling. We propose Recursive Language Models (RLMs), a general inference paradigm that treats long pr",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2602.11144": {
+    "title": "GENIUS: Generative Fluid Intelligence Evaluation Suite",
+    "description": "Unified Multimodal Models (UMMs) have shown remarkable progress in visual generation. Yet, existing benchmarks predominantly assess $\\textit{Crystallized Intelligence}$, which relies on recalling accumulated knowledge an",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2604.24658": {
+    "title": "The Last Human-Written Paper: Agent-Native Research Artifacts",
+    "description": "Scientific publication compresses a branching, iterative research process into a linear narrative, discarding the majority of what was discovered along the way. This compilation imposes two structural costs: a Storytelli",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2608.05466": {
+    "title": "Recursive Synthesis for Long-Horizon Terminal Tasks",
+    "description": "High-quality long-horizon training data for terminal agents is costly and difficult to scale, as manual authoring is expensive and direct LLM generation often produces inconsistent instructions, environments, solutions, ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2608.13698": {
+    "title": "GRPO Beyond English: A Large-Scale Study of GRPO in Non-English and Multilingual Settings",
+    "description": "Reinforcement Learning with Verifiable Rewards (RLVR), often optimized with Group Relative Policy Optimization (GRPO), has become a central recipe for improving the reasoning capabilities of pretrained language models bu",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2608.16798": {
+    "title": "ClawGym II: Exploring Black-Box RL on Agent Harness",
+    "description": "Agent harnesses have substantially improved performance on long-horizon tasks by coordinating agent interactions with the environment. However, reinforcement learning through complex harnesses remains largely unexplored,",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2609.28399": {
+    "title": "Memory Attention",
+    "description": "Language models typically construct attention values from contextual hidden states, even when some of their content may be reusable across contexts. We investigate whether token-indexed memory can replace the dedicated v",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2610.02710v1": {
+    "title": "Self-Supervised Scaling of Terminal Environments for Scientific Domains",
+    "description": "Terminal agents are increasingly deployed beyond software engineering in science and other specialized domains. Constructing training environments requires executable reference behavior and a domain-specific verifier tha",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2610.02826%F0%9F%98%83": {
+    "failed": true
+  },
+  "https://arxiv.org/pdf/2610.08144": {
+    "title": "Navier-Stokes lost in translation: Why Lean verification of AI autoformalisation does not guarantee correct natural language proofs",
+    "description": "Autoformalisation is increasingly used to verify mathematical texts, including those generated by AI, as in OpenAI's announced proof of blow-up of solutions to the Navier-Stokes equations. In this process, an AI system t",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2610.22192": {
+    "title": "Terminal-RSI: Recursive Self-Improving Terminal Agents via Recursive Self-Rewrite and Policy-Refine",
+    "description": "Converting verifier outcomes into useful policy updates and partial progress into complete task resolution is crucial for terminal agents. We present Terminal-RSI, which alternates Recursive Self-Rewrite (RSR) of verifie",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2611.01560": {
+    "title": "Democratizing Robot-Use Agents: A Unified Harness with Open Models",
+    "description": "Robot-use Agents (RUAs) have shown promising zero-shot manipulation capabilities, but reliance on frontier, proprietary models limits research into further training. To democratize RUA research, we introduce uni-robot-ag",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2611.03126": {
+    "title": "CUA-Master: Scaling Computer-use Agents through Open-World Recursive Improvements",
+    "description": "Despite recent advances in CUAs, their development remains constrained by the limited diversity, controllability, and reliability of interaction data. Moreover, conventional optimization pipelines lack iterative feedback",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2611.05036": {
+    "title": "ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+    "description": "Large language models are deployed as long-horizon agents that compose diverse tools across MCP services into executable workflows. Existing MCP environment-scaling methods are data-centric: they first synthesize a datab",
+    "siteName": "arXiv.org"
+  },
+  "https://atria-asi.ai/": {
+    "title": "Atria Dawn",
+    "description": "Build More. Together."
+  },
+  "https://autodatabench.com/": {
+    "title": "AutoDataBench — Can agents write the data?",
+    "description": "AutoDataBench evaluates whether agents can write executable training tasks that pass the checks a data production pipeline would apply, one task at a time."
+  },
+  "https://battam1111.github.io/zh/blog/2026/chinese-llms-and-rl/": {
+    "title": "为何国产大模型训不好 RL？ | Yanjun Chen",
+    "description": "卡和 infra 之外，我认为还有一个更根本的原因，它藏在国内 RL 起步时走的那条路里。",
+    "siteName": "Yanjun Chen"
+  },
+  "https://beipo.top/blog/northcua/": {
+    "title": "NorthCUA — 心中万象，指间成形",
+    "description": "让意图经过真实的软件操作，成为可以继续使用的成果。",
+    "siteName": "NorthCUA"
+  },
+  "https://bench.cardinal-agi.com/aaaworldwiki/#play/crazy-water-world/declination-cardinal": {
+    "title": "Cardinal AI - World Maker",
+    "description": "Cardinal AI helps creators generate 3D models, animation, images, music, sound effects, and game assets through APIs and local tools.",
+    "siteName": "Cardinal AI"
+  },
+  "https://blenderworld.github.io/": {
+    "title": "BlenderWorld — From real-world references to editable 3D worlds",
+    "description": "223 tasks. 13 frontier models. 9 creative domains. Explore the benchmark and its actual 3D artifacts."
+  },
+  "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/": {
+    "title": "Gemini 4 Carbon: our next frontier model",
+    "description": "Gemini 4 Carbon is our strongest model with state-of-the-art cybersecurity and long horizon capabilities.",
+    "siteName": "Google"
+  },
+  "https://ccfddl.com/": {
+    "title": "CCFDDL | Agentic Conference Tracker"
+  },
+  "https://chanzuckerberg.com/blog/rbio-reasoning-ai-model/": {
+    "title": "rBio: Reasoning Model Trained on Virtual Cell Simulations",
+    "description": "Scientists can ask complex biological questions in plain language and get predictions about gene interactions.",
+    "siteName": "Chan Zuckerberg Initiative"
+  },
+  "https://chatgpt.com/share/6ae84e39-2324-8322-9ba5-6c6b3c6d4e84": {
+    "failed": true
+  },
+  "https://chetaslua.github.io/crimson-loong/": {
+    "title": "赤龍 · Crimson Loong"
+  },
+  "https://claude.ai/artifact/BGY1SztrAYcJQHSsnHHGmp": {
+    "title": "Claude Artifact",
+    "description": "Try out Artifacts created by Claude users"
+  },
+  "https://claude.dev/blog/lessons-from-building-claude-code-prompt-caching-is-everything/": {
+    "title": "Lessons from building Claude Code: Prompt caching is everything / claude.dev Blog",
+    "description": "Best practices for optimizing prompt caching in Claude Code, including how to most effectively structure your prompt, use tools, and layer on compaction.",
+    "siteName": "claude.dev Blog"
+  },
+  "https://club.penguin.ooo/zh/": {
+    "failed": true
+  },
+  "https://codesignbench.github.io/": {
+    "title": "Co-Design Bench — Multimodal Collaborative Coding Evaluation for Agentic Models",
+    "description": "273 application revision tasks · 2,331 hidden acceptance criteria · 10 agentic model endpoints. Criterion coverage is not complete delivery."
+  },
+  "https://codex-resets.com/": {
+    "title": "Codex 额度重置追踪与历史记录 | Codex Resets",
+    "description": "追踪最新的 OpenAI Codex 额度重置，查看重置历史，并在新重置公布时收到通知。",
+    "siteName": "Codex Resets"
+  },
+  "https://codex-resets.com/zh-CN": {
+    "title": "Codex 额度重置追踪与历史记录 | Codex Resets",
+    "description": "追踪最新的 OpenAI Codex 额度重置，查看重置历史，并在新重置公布时收到通知。",
+    "siteName": "Codex Resets"
+  },
+  "https://codexradar.com/": {
+    "title": "Codex雷达站 codexradar.com"
+  },
+  "https://collectors-modifications-fiction-acceptance.trycloudflare.com/%E7%9C%8B%E7%9C%8B%E6%88%91%E5%92%8Copus": {
+    "failed": true
+  },
+  "https://continual-arc.unify.ai/": {
+    "title": "Continual-ARC: Measuring Skill Acquisition over a Working Lifetime",
+    "description": "Continual-ARC is a lifelong stream built from the ARC-AGI editions: tasks return after dormant gaps with fresh instances while new ones keep arriving, every demonstration and wrong answer is charged, and after the stream",
+    "siteName": "Continual-ARC"
+  },
+  "https://coworkos-ai.github.io/": {
+    "title": "CoworkOS — Overview, Benchmarks, Showcase & RSI",
+    "description": "Explore the CoworkOS architecture, benchmark results, interactive showcases, and recursive self-improvement experiments.",
+    "siteName": "CoworkOS"
+  },
+  "https://coworkos-ai.github.io/showcase.html": {
+    "title": "CoworkOS — All Showcases",
+    "description": "Explore interactive visualizations, Blender scenes, CAD models, websites, games, and Office work created with CoworkOS.",
+    "siteName": "CoworkOS"
+  },
+  "https://dagroup-pku.github.io/PyRUA-Lean/DataFarm": {
+    "failed": true
+  },
+  "https://deepmind.google/models/model-cards/gemini-4-argon/": {
+    "title": "Gemini 4 Argon - Model Card — Google DeepMind"
+  },
+  "https://dingwu1021.github.io/VisSearch-Bench/": {
+    "title": "VisSearch-Bench · Long Horizon Visual Search",
+    "description": "VisSearch-Bench evaluates long horizon visual search in multimodal agents: 204 human-written tasks, five search families, and seven knowledge domains."
+  },
+  "https://docs.nvidia.com/nemo/rl/latest/apidocs/nemo_rl/nemo_rl.algorithms.grpo.html#nemo_rl.algorithms.grpo._apply_configured_message_level_advantage_penalties": {
+    "title": "nemo_rl.algorithms.grpo — NeMo-RL"
+  },
+  "https://docs.typesafe.ai/primitives/box": {
+    "title": "Box - TypeSafe",
+    "description": "A Box is a System One question type for finding where something is in an image. The answer is the four edges of a box around it, as fractions of the image's width and height.",
+    "siteName": "TypeSafe"
+  },
+  "https://doi.org/10.1038/s41586-026-11205-z": {
+    "title": "Programmable design of functional proteins from natural language",
+    "description": "Programming biological function—designing bespoke proteins to perform specified molecular tasks—is a foundational goal of molecular engineering. However, current design models remain fundamentally limited1–3: they typica"
+  },
+  "https://doi.org/10.13140/RG.2.2.20245.69602": {
+    "failed": true
+  },
+  "https://drug.apodexlab.ai/": {
+    "title": "AI-Powered Drug Research · Apodex Drug Research Computing Center",
+    "description": "Apodex Drug Research Computing Center — knowledge-empowered agentic AI for drug research decisions. Free for approved projects whose results are shared publicly.",
+    "siteName": "Apodex Drug Research Computing Center"
+  },
+  "https://easyslides.scansci.com/index.html?library=image#catalog": {
+    "title": "EasySlides · 模板与案例展厅"
+  },
+  "https://ernie.baidu.com/release/ernie-5-5-flash-preview/": {
+    "title": "Introducing ERNIE 5.5 Flash Preview · ERNIE",
+    "description": "ERNIE 5.5 Flash Preview has 280B total parameters, 14B active and a 1M-token context, with across-the-board improvements in coding, agentic tasks, knowledge work and deep research. The weights will be open-sourced under "
+  },
+  "https://explcre.github.io/UOPD-Project/": {
+    "title": "UOPD: Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents",
+    "description": "Teacher uncertainty decides when to correct a student agent during on-policy distillation. ALFWorld, WebShop, and multi-hop search."
+  },
+  "https://fangcunleap.com/public/reports/fangcun_eval_deepseek_v4_1_flash_1017.pdf": {
+    "failed": true
+  },
+  "https://fibona.ai/blog/fibona-": {
+    "failed": true
+  },
+  "https://fibona.ai/blog/fibona-agent": {
+    "title": "Fibona Agent: The Ultimate Harness Bootstrapping Itself From Scratch",
+    "description": "Fibona Agent, illustrated: an agent harness where generated Python controls what happens next. Explore a complete cell-to-model-to-cell handoff.",
+    "siteName": "Fibona"
+  },
+  "https://fibona.ai/fibona-agent": {
+    "title": "Fibona Agent",
+    "description": "An evolving app. Tell Fibona what you want it to be. Use it. Evolve it. Your changes take effect instantly, right in the app.",
+    "siteName": "Fibona"
+  },
+  "https://fibona.ai/projects/fibona-iphone": {
+    "title": "Fibona Agent | One Agent. Endless forms.",
+    "description": "Give Fibona a starting point. It becomes an app you can use and keep evolving, with changes taking effect in place.",
+    "siteName": "Fibona"
+  },
+  "https://geolocation-study.inf.ethz.ch/register/Wb9T9PylekjhaqSNJEB-AQ/": {
+    "title": "Register · Image geolocation study"
+  },
+  "https://git.shenjack.top:5100/deepseek-tweak/web_craw": {
+    "title": "web_craw",
+    "description": "deepseek 网页爬取",
+    "siteName": "shenjack's gitea!"
+  },
+  "https://github.com/Acm1011/ProgramGym": {
+    "title": "Acm1011/ProgramGym: Scaling Training Environments for Long-Horizon Program Reproduction Agents",
+    "description": "Scaling Training Environments for Long-Horizon Program Reproduction Agents - Acm1011/ProgramGym",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill": {
+    "title": "Adkid-Zephyr/anti-defensive-writing-Skill: 极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)",
+    "description": "极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN) - Adkid-Zephyr/anti-defensive-writing-Skill",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Agent-Hub-Community": {
+    "title": "Agent Hub",
+    "description": "Agent Hub has 4 repositories available. Follow their code on GitHub.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/aiming-lab/WebHarbor": {
+    "title": "aiming-lab/WebHarbor: WebHarbor: Docking Real Websites for Evolving GUI Agent Environments",
+    "description": "WebHarbor: Docking Real Websites for Evolving GUI Agent Environments - aiming-lab/WebHarbor",
+    "siteName": "GitHub"
+  },
+  "https://github.com/alibaba/open-code-review": {
+    "title": "alibaba/open-code-review: Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, ",
+    "description": "Secure, fast, efficient, battle-tested at Alibaba&#39;s scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language rulese...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/antins-labs/VisSearch-Bench-v1": {
+    "title": "antins-labs/VisSearch-Bench-v1: VisSearch-Bench is a benchmark of 204 human-written tasks that test how well multimodal agents find, organize, and use visual ev",
+    "description": "VisSearch-Bench is a benchmark of 204 human-written tasks that test how well multimodal agents find, organize, and use visual evidence across multiple steps of web search. - antins-labs/VisSearch-B...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/B1anYu/claude-telemetry-audit": {
+    "title": "B1anYu/claude-telemetry-audit",
+    "siteName": "GitHub"
+  },
+  "https://github.com/baidu-netdisk/bdpan-storage": {
+    "title": "baidu-netdisk/bdpan-storage: Agent Skill for Baidu Netdisk (百度网盘) — upload, download, transfer, share, search files via natural language. Works with Claude Code",
+    "description": "Agent Skill for Baidu Netdisk (百度网盘) — upload, download, transfer, share, search files via natural language. Works with Claude Code, Cursor, Codex, Gemini CLI, OpenClaw. - baidu-netdisk/bdpan-...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/beipo-ai/NorthCUA": {
+    "title": "beipo-ai/NorthCUA: Turn intent into work. Open-source Desktop/Web agent harness with long-horizon memory, live evaluation and recoverable batches.",
+    "description": "Turn intent into work. Open-source Desktop/Web agent harness with long-horizon memory, live evaluation and recoverable batches. - beipo-ai/NorthCUA",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ChenLiu-1996/figures4papers": {
+    "title": "ChenLiu-1996/figures4papers: My Python scripts to make high-quality figures for publications in top AI conferences and journals.",
+    "description": "My Python scripts to make high-quality figures for publications in top AI conferences and journals. - ChenLiu-1996/figures4papers",
+    "siteName": "GitHub"
+  },
+  "https://github.com/chonghanqin/Awesome-Agentic-Robots": {
+    "title": "chonghanqin/Awesome-Agentic-Robots: The offcial repo of \"Towards Agentic Robots: Model, Data, Environment, and Harness\"",
+    "description": "The offcial repo of \"Towards Agentic Robots: Model, Data, Environment, and Harness\" - chonghanqin/Awesome-Agentic-Robots",
+    "siteName": "GitHub"
+  },
+  "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm": {
+    "title": "DAGroup-PKU/PyRUA-Lean at DataFarm",
+    "description": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success but 65% Fewer Tokens - DAGroup-PKU/PyRUA-Lean",
+    "siteName": "GitHub"
+  },
+  "https://github.com/deepseek-ai/DeepInfer": {
+    "title": "deepseek-ai/DeepInfer: DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+    "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models - deepseek-ai/DeepInfer",
+    "siteName": "GitHub"
+  },
+  "https://github.com/deepseek-ai/dsh-superagent-prototype": {
+    "title": "deepseek-ai/dsh-superagent-prototype: Towards a More Autonomous Agent System",
+    "description": "Towards a More Autonomous Agent System.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/DeepXiv/deepxiv_sdk": {
+    "title": "DeepXiv/deepxiv_sdk: Talk to research papers like talking to authors - Python package with AI agent for arXiv papers",
+    "description": "Talk to research papers like talking to authors - Python package with AI agent for arXiv papers - DeepXiv/deepxiv_sdk",
+    "siteName": "GitHub"
+  },
+  "https://github.com/dongguanting/ToolSpace": {
+    "title": "dongguanting/ToolSpace: The official code of ToolSpace",
+    "description": "The official code of ToolSpace.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/dongguanting/ToolSpace/tree/main/Automation-Pro": {
+    "title": "ToolSpace/Automation-Pro at main · dongguanting/ToolSpace",
+    "description": "The official code of ToolSpace.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/dongguanting/ToolSpace/tree/main/Tau3-Banking-Pro": {
+    "title": "ToolSpace/Tau3-Banking-Pro at main · dongguanting/ToolSpace",
+    "description": "The official code of ToolSpace.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/DwanZhang-AI/verifier-suite": {
+    "title": "DwanZhang-AI/verifier-suite: Fair verdicts for agent work: a benchmark and a harness for the verifiers LLM agents write.",
+    "description": "Fair verdicts for agent work: a benchmark and a harness for the verifiers LLM agents write. - DwanZhang-AI/verifier-suite",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ernie-research/ECHO": {
+    "title": "ernie-research/ECHO: Official repository of ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction",
+    "description": "Official repository of ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction - ernie-research/ECHO",
+    "siteName": "GitHub"
+  },
+  "https://github.com/eval-sys/ibench": {
+    "title": "eval-sys/ibench: Interaction Bench: Benchmarked on what users feel",
+    "description": "Interaction Bench: Benchmarked on what users feel.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/evolvent-ai/RSIGym": {
+    "title": "evolvent-ai/RSIGym: RSIGym: A Flexible Environment for Recursive Self-Improvement",
+    "description": "RSIGym: A Flexible Environment for Recursive Self-Improvement - evolvent-ai/RSIGym",
+    "siteName": "GitHub"
+  },
+  "https://github.com/FibonaAI/fi": {
+    "failed": true
+  },
+  "https://github.com/FibonaAI/fibona-agent": {
+    "title": "FibonaAI/fibona-agent: Fibona Agent is a minimal, general-purpose, self-improving agent that writes its own code as it runs.",
+    "description": "Fibona Agent is a minimal, general-purpose, self-improving agent that writes its own code as it runs. - FibonaAI/fibona-agent",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Gradient-Data/Zero2Repo": {
+    "title": "Gradient-Data/Zero2Repo: zero2repo bench: from a spec to a working repo. Hidden deterministic tests. Formerly CodingBench.",
+    "description": "zero2repo bench: from a spec to a working repo. Hidden deterministic tests. Formerly CodingBench. - Gradient-Data/Zero2Repo",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Hhankyangg/envsched": {
+    "title": "Hhankyangg/envsched",
+    "siteName": "GitHub"
+  },
+  "https://github.com/hijkzzz/REINFORCE-Zero": {
+    "title": "hijkzzz/REINFORCE-Zero",
+    "siteName": "GitHub"
+  },
+  "https://github.com/HKUST-KnowComp/CoworkEnv": {
+    "title": "HKUST-KnowComp/CoworkEnv",
+    "siteName": "GitHub"
+  },
+  "https://github.com/HKUSTDial/Supervisor-Skills": {
+    "title": "HKUSTDial/Supervisor-Skills: 将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。",
+    "description": "将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。 - HKUSTDial/Supervisor-Skills",
+    "siteName": "GitHub"
+  },
+  "https://github.com/IamJerryXu/AstraDraw": {
+    "title": "IamJerryXu/AstraDraw: Let Astra not only create editable PowerPoint presentations, but also create the style you desire.",
+    "description": "Let Astra not only create editable PowerPoint presentations, but also create the style you desire. - IamJerryXu/AstraDraw",
+    "siteName": "GitHub"
+  },
+  "https://github.com/InfRec-Cardinal/REA-Agent": {
+    "failed": true
+  },
+  "https://github.com/InfRec-Cardinal/route-anything": {
+    "title": "InfRec-Cardinal/route-anything: Official repository for Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems.",
+    "description": "Official repository for Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems. - InfRec-Cardinal/route-anything",
+    "siteName": "GitHub"
+  },
+  "https://github.com/InfRec-Cardinal/The-Trinity": {
+    "title": "InfRec-Cardinal/The-Trinity: Official implementation of The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents.",
+    "description": "Official implementation of The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents. - InfRec-Cardinal/The-Trinity",
+    "siteName": "GitHub"
+  },
+  "https://github.com/InternScience/MLExpert": {
+    "title": "InternScience/MLExpert: MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
+    "description": "MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering - InternScience/MLExpert",
+    "siteName": "GitHub"
+  },
+  "https://github.com/JaneZ-2006/Anti-Over-Defense": {
+    "title": "JaneZ-2006/Anti-Over-Defense: A Codex skill that prevents over-engineering and keeps coding tasks focused on direct delivery.",
+    "description": "A Codex skill that prevents over-engineering and keeps coding tasks focused on direct delivery. - JaneZ-2006/Anti-Over-Defense",
+    "siteName": "GitHub"
+  },
+  "https://github.com/JevAgentHarness/JevAgentHarness": {
+    "title": "JevAgentHarness/JevAgentHarness",
+    "siteName": "GitHub"
+  },
+  "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/pptx-posters": {
+    "title": "scientific-agent-skills/skills/pptx-posters at main · K-Dense-AI/scientific-agent-skills",
+    "description": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering bio...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/keros68/xiaoyu-skill/tree/main/skills/ai-cross": {
+    "failed": true
+  },
+  "https://github.com/Kiterlin/anti-defens": {
+    "failed": true
+  },
+  "https://github.com/langfengQ/verl-agent/issues/267": {
+    "title": "Potential validation aggregation issue for Bamboogle · Issue #267 · langfengQ/verl-agent",
+    "description": "Hi authors, Thank you for the great work. I noticed a potential issue in the Search QA validation metric in verl-agent. The trainer records one success rate per validation batch and then takes an u...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/LARK-AI-Lab/Mosaic": {
+    "title": "LARK-AI-Lab/Mosaic: Exploring Multi-Session Agentic Reinforcement Learning",
+    "description": "Exploring Multi-Session Agentic Reinforcement Learning - LARK-AI-Lab/Mosaic",
+    "siteName": "GitHub"
+  },
+  "https://github.com/lisresearchgroup/math-rsi": {
+    "title": "lisresearchgroup/math-rsi: MathRSI - A self-improving agent harness for mathematical discovery and proof: shared 5-stage research loop, domain plugins, workspac",
+    "description": "MathRSI - A self-improving agent harness for mathematical discovery and proof: shared 5-stage research loop, domain plugins, workspace memory &amp; verifiable proofs(Lean 4, DRAT) for Claude Code a...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/lisresearchgroup/math-rsi.git": {
+    "title": "lisresearchgroup/math-rsi: MathRSI - A self-improving agent harness for mathematical discovery and proof: shared 5-stage research loop, domain plugins, workspac",
+    "description": "MathRSI - A self-improving agent harness for mathematical discovery and proof: shared 5-stage research loop, domain plugins, workspace memory &amp; verifiable proofs(Lean 4, DRAT) for Claude Code a...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Little-Fridge/ViewCraft": {
+    "title": "Little-Fridge/ViewCraft: Evolving what multimodal agents see and how they read it. Framework, ten reusable task skills, and paper resources.",
+    "description": "Evolving what multimodal agents see and how they read it. Framework, ten reusable task skills, and paper resources. - Little-Fridge/ViewCraft",
+    "siteName": "GitHub"
+  },
+  "https://github.com/lizaixi01/AgentCAD": {
+    "title": "lizaixi01/AgentCAD: The CAD runtime built for AI agents: 2D drawings (DXF/DWG) and parametric 3D parts (FreeCAD, STEP) through MCP, CLI and Python, with undo, i",
+    "description": "The CAD runtime built for AI agents: 2D drawings (DXF/DWG) and parametric 3D parts (FreeCAD, STEP) through MCP, CLI and Python, with undo, independent validation and a live viewer. - lizaixi01/Agen...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/lobehub/awesome-rsi": {
+    "title": "lobehub/awesome-rsi: A curated research map of Recursive Self-Improvement (RSI): models, agents, harnesses, embodied systems, automated AI R&D, benchmarks, and ",
+    "description": "A curated research map of Recursive Self-Improvement (RSI): models, agents, harnesses, embodied systems, automated AI R&D, benchmarks, and safety. - lobehub/awesome-rsi",
+    "siteName": "GitHub"
+  },
+  "https://github.com/meituan-longcat/LongCat-Next": {
+    "title": "meituan-longcat/LongCat-Next",
+    "siteName": "GitHub"
+  },
+  "https://github.com/mf46/E2-OPSD": {
+    "title": "orionfei/E2-OPSD",
+    "siteName": "GitHub"
+  },
+  "https://github.com/microsoft/Hybrid-Computer-Use": {
+    "title": "microsoft/Hybrid-Computer-Use: Official code for \"Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents\"",
+    "description": "Official code for \"Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents\" - microsoft/Hybrid-Computer-Use",
+    "siteName": "GitHub"
+  },
+  "https://github.com/microsoft/Mage": {
+    "title": "microsoft/Mage",
+    "siteName": "GitHub"
+  },
+  "https://github.com/milind-soni/OpenMausBot": {
+    "failed": true
+  },
+  "https://github.com/mingti-org/phyai": {
+    "title": "mingti-org/phyai: PhyAI is a high-performance framework for running Physical AI models (VLA, WAM, and beyond), supporting both cloud-based serving and on-device",
+    "description": "PhyAI is a high-performance framework for running Physical AI models (VLA, WAM, and beyond), supporting both cloud-based serving and on-device deployment. - mingti-org/phyai",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Mizar77/ml-paper-icons": {
+    "title": "Mizar77/ml-paper-icons",
+    "siteName": "GitHub"
+  },
+  "https://github.com/mmlong818/Cat-Research": {
+    "title": "mmlong818/Cat-Research: Cat-Research 是一个基于多智能体协作的深度研究系统。它将一个研究问题自动分解为多个专业阶段，由职责各异的 AI 智能体协同完成，最终交付一份经过来源权威性验证、事实交叉核查、结论逻辑验证的高质量研究报告。",
+    "description": "Cat-Research 是一个基于多智能体协作的深度研究系统。它将一个研究问题自动分解为多个专业阶段，由职责各异的 AI 智能体协同完成，最终交付一份经过来源权威性验证、事实交叉核查、结论逻辑验证的高质量研究报告。 - mmlong818/Cat-Research",
+    "siteName": "GitHub"
+  },
+  "https://github.com/mmlong818/filmgame": {
+    "title": "mmlong818/filmgame: 面向编剧的 AI 互动影游创作系统 · AI-assisted interactive film game authoring",
+    "description": "面向编剧的 AI 互动影游创作系统 · AI-assisted interactive film game authoring - mmlong818/filmgame",
+    "siteName": "GitHub"
+  },
+  "https://github.com/mmlong818/nemos-memory": {
+    "title": "mmlong818/nemos-memory: Local-first, evidence-backed long-term memory engine for AI systems",
+    "description": "Local-first, evidence-backed long-term memory engine for AI systems - mmlong818/nemos-memory",
+    "siteName": "GitHub"
+  },
+  "https://github.com/mmlong818/open-academic-paper-gen": {
+    "title": "mmlong818/open-academic-paper-gen: Multi-agent pipeline that turns a research topic into a draft paper grounded in real literature, with citation hallucination ",
+    "description": "Multi-agent pipeline that turns a research topic into a draft paper grounded in real literature, with citation hallucination detection and claim-support checking. - mmlong818/open-academic-paper-gen",
+    "siteName": "GitHub"
+  },
+  "https://github.com/MSR-Orchard/WildAWM": {
+    "title": "MSR-Orchard/WildAWM: Agent World Model in the Wild: Computer-Use Agent Environment Synthesis",
+    "description": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis - MSR-Orchard/WildAWM",
+    "siteName": "GitHub"
+  },
+  "https://github.com/nicolascc1/CameraVLM": {
+    "title": "nicolascc1/CameraVLM",
+    "siteName": "GitHub"
+  },
+  "https://github.com/No-518/Tactile-ETA": {
+    "title": "No-518/Tactile-ETA: Tactile-ETA: tactile in-context learning for fine robotic manipulation",
+    "description": "Tactile-ETA: tactile in-context learning for fine robotic manipulation - No-518/Tactile-ETA",
+    "siteName": "GitHub"
+  },
+  "https://github.com/NVIDIA-NeMo/labs-molt/tree/main/.claude/skills/train-inference-consistency": {
+    "failed": true
+  },
+  "https://github.com/oceanbase/powercontext": {
+    "title": "oceanbase/powercontext: Agent memory: long-term memory & agent memory handoff. Claude Code & Codex.",
+    "description": "Agent memory: long-term memory & agent memory handoff. Claude Code & Codex. - oceanbase/powercontext",
+    "siteName": "GitHub"
+  },
+  "https://github.com/OliverLeeXZ/SERA": {
+    "title": "OliverLeeXZ/SERA: Official implement on \"Self-Evaluating Recursive Agents\"",
+    "description": "Official implement on \"Self-Evaluating Recursive Agents\" - OliverLeeXZ/SERA",
+    "siteName": "GitHub"
+  },
+  "https://github.com/onepounchman/UOPD": {
+    "title": "onepounchman/UOPD: Official implementation of Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents",
+    "description": "Official implementation of Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents - onepounchman/UOPD",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Open-RUA/uni-robot-agent": {
+    "title": "Open-RUA/uni-robot-agent: A Unified Robot-Use Agent Harness Across Environments",
+    "description": "A Unified Robot-Use Agent Harness Across Environments - Open-RUA/uni-robot-agent",
+    "siteName": "GitHub"
+  },
+  "https://github.com/OpenMOSS/MOSS-Image": {
+    "title": "OpenMOSS/MOSS-Image: Official repository for MOSS-Image, a 5B-parameter base DiT model with high-quality text rendering, layout generation, and efficient fine-t",
+    "description": "Official repository for MOSS-Image, a 5B-parameter base DiT model with high-quality text rendering, layout generation, and efficient fine-tuning. - OpenMOSS/MOSS-Image",
+    "siteName": "GitHub"
+  },
+  "https://github.com/OriEra-engine/engine": {
+    "title": "OriEra-engine/engine: AI-native, mixed-reality, self-evolving open world engine. 11-layer architecture, 5 platforms (PC / Mobile / Web / AR / BCI-reserved).",
+    "description": "AI-native, mixed-reality, self-evolving open world engine. 11-layer architecture, 5 platforms (PC / Mobile / Web / AR / BCI-reserved). - OriEra-engine/engine",
+    "siteName": "GitHub"
+  },
+  "https://github.com/OriEra-engine/studio/releases/latest": {
+    "title": "Release OriEra Studio v0.12.0 · OriEra-engine/studio",
+    "description": "桌面版对齐引擎 v0.12.0 Studio 桌面版与引擎发版节奏对齐（引擎 v0.12.0 Release：engine tar + oriera_sim whl；release notes 见引擎仓 docs/release-notes/v0.12.0-embodied-crate.md）。 具身仿真台 /sim 工作台：七预设卡片墙（Contact 判据卡、drawer v2 真滑轨...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/OvOhao/relay/tree/main": {
+    "title": "OvOhao/relay: One Claude Code window, every Claude account you own. A macOS menu-bar app that hands heavy jobs to your other accounts.",
+    "description": "One Claude Code window, every Claude account you own. A macOS menu-bar app that hands heavy jobs to your other accounts. - OvOhao/relay",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Prefrontal-AI/latent-sparse-attention": {
+    "title": "Prefrontal-AI/latent-sparse-attention: Code for Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention",
+    "description": "Code for Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention - Prefrontal-AI/latent-sparse-attention",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Prism-Shadow/awesome-rsi": {
+    "title": "Prism-Shadow/awesome-rsi: An Open Index of RSI Papers",
+    "description": "An Open Index of RSI Papers.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Prism-Shadow/GDPevo": {
+    "title": "Prism-Shadow/GDPevo: A Benchmark for Evaluating Agent Self-Evolution on Real Business Tasks",
+    "description": "A Benchmark for Evaluating Agent Self-Evolution on Real Business Tasks - Prism-Shadow/GDPevo",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Prism-Shadow/penguin-harness": {
+    "title": "Prism-Shadow/penguin-harness: 🐧 Unified and Stable RSI Platform",
+    "description": "🐧 Unified and Stable RSI Platform.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Prism-Shadow/penguin-harness-benchmark": {
+    "title": "Prism-Shadow/penguin-harness-benchmark: PenguinHarness Benchmarks + Leaderboards",
+    "description": "PenguinHarness Benchmarks + Leaderboards.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Prism-Shadow/penguin-harness-community": {
+    "title": "Prism-Shadow/penguin-harness-community: Shared RSI Community for Everyone",
+    "description": "Shared RSI Community for Everyone.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Prophetlab/Investor-Last-Exam": {
+    "title": "Prophetlab/Investor-Last-Exam: Investor’s Last Exam: Can AI Agents Do Equity Investment Without Seeing the Future?",
+    "description": "Investor’s Last Exam: Can AI Agents Do Equity Investment Without Seeing the Future? - Prophetlab/Investor-Last-Exam",
+    "siteName": "GitHub"
+  },
+  "https://github.com/QwenLM/BlenderWorld": {
+    "title": "QwenLM/BlenderWorld",
+    "siteName": "GitHub"
+  },
+  "https://github.com/RikiyaT/lm_understand-logs.git": {
+    "title": "RikiyaT/lm_understand-logs: Complete logs of the experiments in the blog post 'LLMs can understand and write neural network weights'",
+    "description": "Complete logs of the experiments in the blog post 'LLMs can understand and write neural network weights' - RikiyaT/lm_understand-logs",
+    "siteName": "GitHub"
+  },
+  "https://github.com/robot-agent-exploration/rax": {
+    "title": "robot-agent-exploration/rax: RAX harness: coding agents that learn robot tasks by online exploration",
+    "description": "RAX harness: coding agents that learn robot tasks by online exploration - robot-agent-exploration/rax",
+    "siteName": "GitHub"
+  },
+  "https://github.com/robot-agent-exploration/skills-lib": {
+    "title": "robot-agent-exploration/skills-lib: Task skills robot agents learned on real robots, one library per embodiment",
+    "description": "Task skills robot agents learned on real robots, one library per embodiment - robot-agent-exploration/skills-lib",
+    "siteName": "GitHub"
+  },
+  "https://github.com/robotworldai/robotworld": {
+    "title": "robotworldai/robotworld",
+    "siteName": "GitHub"
+  },
+  "https://github.com/RUC-NLPIR/Agent-Reflex": {
+    "title": "RUC-NLPIR/Agent-Reflex: Official code for Agent-Reflex: Teaching Language Agents to Act Reflectively",
+    "description": "Official code for Agent-Reflex: Teaching Language Agents to Act Reflectively - RUC-NLPIR/Agent-Reflex",
+    "siteName": "GitHub"
+  },
+  "https://github.com/RUC-NLPIR/CoworkOS": {
+    "title": "RUC-NLPIR/CoworkOS: CoworkOS: a cowork harness for long-horizon and human-in-the-loop task execution",
+    "description": "CoworkOS: a cowork harness for long-horizon and human-in-the-loop task execution - RUC-NLPIR/CoworkOS",
+    "siteName": "GitHub"
+  },
+  "https://github.com/RUC-NLPIR/CoworkOS/blob/main/CoworkOS_paper.pdf": {
+    "title": "CoworkOS/CoworkOS_paper.pdf at main · RUC-NLPIR/CoworkOS",
+    "description": "CoworkOS: a cowork harness for long-horizon and human-in-the-loop task execution - RUC-NLPIR/CoworkOS",
+    "siteName": "GitHub"
+  },
+  "https://github.com/RUC-NLPIR/FlashRSI": {
+    "title": "RUC-NLPIR/FlashRSI: A Unified Framework for Efficient RSI Research",
+    "description": "A Unified Framework for Efficient RSI Research.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ShaoShuai0605/PhysCodeGym": {
+    "title": "ShaoShuai0605/PhysCodeGym: Official Repository of PhysCodeGym",
+    "description": "Official Repository of PhysCodeGym.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ShenYifanS/Awesome-Interactive-Omni": {
+    "title": "ShenYifanS/Awesome-Interactive-Omni",
+    "siteName": "GitHub"
+  },
+  "https://github.com/SingularGuyLeBorn/machine-stage": {
+    "title": "SingularGuyLeBorn/machine-stage",
+    "siteName": "GitHub"
+  },
+  "https://github.com/SingularGuyLeBorn/machine-stage/blob/main/docs/showcase/README.md": {
+    "title": "machine-stage/docs/showcase/README.md at main · SingularGuyLeBorn/machine-stage",
+    "siteName": "GitHub"
+  },
+  "https://github.com/SingularGuyLeBorn/model-architecture-atlas": {
+    "title": "SingularGuyLeBorn/model-architecture-atlas: 交互式模型架构图：Attention、MoE、缓存与逐层数据流",
+    "description": "交互式模型架构图：Attention、MoE、缓存与逐层数据流.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/SpeedAI-Lab/DAMI": {
+    "title": "SpeedAI-Lab/DAMI: DAMI: Dual-Axis Memory Initialization for Enhanced Long-Context Retrieval in Gated Linear Attention",
+    "description": "DAMI: Dual-Axis Memory Initialization for Enhanced Long-Context Retrieval in Gated Linear Attention - SpeedAI-Lab/DAMI",
+    "siteName": "GitHub"
+  },
+  "https://github.com/swagshaw/verispoof": {
+    "title": "swagshaw/verispoof: VeriSpoof: one audio LLM for speech deepfake detection, source verification and grounded reasoning",
+    "description": "VeriSpoof: one audio LLM for speech deepfake detection, source verification and grounded reasoning - swagshaw/verispoof",
+    "siteName": "GitHub"
+  },
+  "https://github.com/systemind-team/Runtime-AI-Scientist": {
+    "title": "systemind-team/Runtime-AI-Scientist: Runtime AI Scientist (formerly RAC AI Scientist): official code for \"Can AI Scientists Coordinate at Runtime?\" (arXiv 2610.",
+    "description": "Runtime AI Scientist (formerly RAC AI Scientist): official code for &quot;Can AI Scientists Coordinate at Runtime?&quot; (arXiv 2610.00980). Runtime Agent Coordination (RAC) for multi-agent AI scie...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Takamatsu-Hikaru/humanize-skill": {
+    "title": "Takamatsu-Hikaru/humanize-skill: 让 AI 重新说人话，写人字。中文写作与编辑 skill：改掉读得人红温的 AI 报告、过度引导、空话和说教。",
+    "description": "让 AI 重新说人话，写人字。中文写作与编辑 skill：改掉读得人红温的 AI 报告、过度引导、空话和说教。 - Takamatsu-Hikaru/humanize-skill",
+    "siteName": "GitHub"
+  },
+  "https://github.com/teal024/WorldCast": {
+    "title": "teal024/WorldCast: WorldCast: Exploring Intelligent Visual Generation in World State Prediction",
+    "description": "WorldCast: Exploring Intelligent Visual Generation in World State Prediction - teal024/WorldCast",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Tencent/GroupAssistBench": {
+    "title": "Tencent/GroupAssistBench: One Assistant, Many Memories: Benchmarking Real-World Group Assistance When Recall Is Not Enough",
+    "description": "One Assistant, Many Memories: Benchmarking Real-World Group Assistance When Recall Is Not Enough - Tencent/GroupAssistBench",
+    "siteName": "GitHub"
+  },
+  "https://github.com/TokenWave-AI/swe-cowork-bench": {
+    "title": "TokenWave-AI/swe-cowork-bench",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Tongyi-MAI/MAI-Gym": {
+    "title": "Tongyi-MAI/MAI-Gym: An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments",
+    "description": "An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments - Tongyi-MAI/MAI-Gym",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Tongyi-MAI/OpenGCUA": {
+    "title": "Tongyi-MAI/OpenGCUA: An open-source stack for generalist computer-use agents, combining code execution, GUI interaction, and cross-device control.",
+    "description": "An open-source stack for generalist computer-use agents, combining code execution, GUI interaction, and cross-device control. - Tongyi-MAI/OpenGCUA",
+    "siteName": "GitHub"
+  },
+  "https://github.com/totec448-spec/chat-on-steroids": {
+    "title": "totec448-spec/chat-on-steroids: Cross-platform local MCP capabilities for ChatGPT with Chrome integration, Goal, Compact & Resume, and durable multi-agent workf",
+    "description": "Cross-platform local MCP capabilities for ChatGPT with Chrome integration, Goal, Compact & Resume, and durable multi-agent workflows. - totec448-spec/chat-on-steroids",
+    "siteName": "GitHub"
+  },
+  "https://github.com/uclanlp/OpenVLHarness": {
+    "title": "uclanlp/OpenVLHarness: Official Code for OpenVLHarness: Real-World Visual Agentic Tool‑Use with Multimodal Memory",
+    "description": "Official Code for OpenVLHarness: Real-World Visual Agentic Tool‑Use with Multimodal Memory - uclanlp/OpenVLHarness",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ucsandman/discovery-loop": {
+    "title": "ucsandman/discovery-loop: Subscription-powered Fable and Astra research for optimization solvers, with isolated experiments, independent verification and human-",
+    "description": "Subscription-powered Fable and Astra research for optimization solvers, with isolated experiments, independent verification and human-reviewed evidence. - ucsandman/discovery-loop",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Vector-Wangel/XLeRobot": {
+    "title": "Vector-Wangel/XLeRobot: XLeRobot: Practical Dual-Arm Mobile Home Robot for $660",
+    "description": "XLeRobot: Practical Dual-Arm Mobile Home Robot for $660 - Vector-Wangel/XLeRobot",
+    "siteName": "GitHub"
+  },
+  "https://github.com/visitworld123/Awesome-Robot-Use-Agent": {
+    "title": "visitworld123/Awesome-Robot-Use-Agent: News: We add many jev+robot in infrastructure. A curated collection of papers and resources on robot-use agents, tool-bas",
+    "description": "News: We add many jev+robot in infrastructure. A curated collection of papers and resources on robot-use agents, tool-based robot control, embodied agent runtimes, and self-evolving robotic systems...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/vllm-project/vllm/pull/61551": {
+    "title": "[Docs] Add train-inference consistency agent skill by aoshen02 · Pull Request #61551 · vllm-project/vllm",
+    "description": "Overview Adds the train-inference-consistency agent skill under .agents/skills/ (symlinked from .claude/skills/). It guides an agent through making RL training and vLLM rollout produce bitwise iden...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/waltstephen/CaPtain": {
+    "title": "waltstephen/CaPtain: CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents — CaPtain-Harness, SFT and RL training code, benchmark adapters",
+    "description": "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents — CaPtain-Harness, SFT and RL training code, benchmark adapters - waltstephen/CaPtain",
+    "siteName": "GitHub"
+  },
+  "https://github.com/wanshuiyin/SuperARIS": {
+    "title": "wanshuiyin/SuperARIS: SuperARIS — Your personal research agent with ARIS (Auto Research In Sleep), powered by a team of agents.",
+    "description": "SuperARIS — Your personal research agent with ARIS (Auto Research In Sleep), powered by a team of agents. - wanshuiyin/SuperARIS",
+    "siteName": "GitHub"
+  },
+  "https://github.com/weiting24/GACC-Bench": {
+    "title": "weiting24/GACC-Bench",
+    "siteName": "GitHub"
+  },
+  "https://github.com/westlake-repl/Denovo-Pinal": {
+    "title": "westlake-repl/Denovo-Pinal: Programmable Design of Functional Proteins from Natural Language",
+    "description": "Programmable Design of Functional Proteins from Natural Language - westlake-repl/Denovo-Pinal",
+    "siteName": "GitHub"
+  },
+  "https://github.com/williamLyh/InteractionGym": {
+    "title": "williamLyh/InteractionGym",
+    "siteName": "GitHub"
+  },
+  "https://github.com/Wiselnn570/Co-Design-Bench": {
+    "title": "Wiselnn570/Co-Design-Bench: Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models",
+    "description": "Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models - Wiselnn570/Co-Design-Bench",
+    "siteName": "GitHub"
+  },
+  "https://github.com/XingChen-AGI": {
+    "title": "XingChen-AGI",
+    "description": "XingChen-AGI has 8 repositories available. Follow their code on GitHub.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/xlyu0106/CUA-Master": {
+    "title": "xlyu0106/CUA-Master: CUA-Master: Scaling Computer-use Agents through Open-World Recursive Improvements",
+    "description": "CUA-Master: Scaling Computer-use Agents through Open-World Recursive Improvements - xlyu0106/CUA-Master",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ydotdog/wechat-export-macos": {
+    "title": "ydotdog/wechat-export-macos: macOS 微信聊天记录一键解密导出工具 | WeChat chat history decrypt & export for macOS",
+    "description": "macOS 微信聊天记录一键解密导出工具 | WeChat chat history decrypt & export for macOS - ydotdog/wechat-export-macos",
+    "siteName": "GitHub"
+  },
+  "https://github.com/yhbcode000/paper-share-skills": {
+    "title": "yhbcode000/paper-share-skills: 📦 论文分享技能包：PDF 论文 → SUSTech Beamer 幻灯片 → 配音讲解视频 → B 站投稿（Claude Code / Codex / OMP 三端通用）| Paper-to-Bilibili skill suite: arXiv PDF",
+    "description": "📦 论文分享技能包：PDF 论文 → SUSTech Beamer 幻灯片 → 配音讲解视频 → B 站投稿（Claude Code / Codex / OMP 三端通用）| Paper-to-Bilibili skill suite: arXiv PDF → slides → narrated MP4 → Bilibili upload - yhbcode000/paper-share-s...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/yhbcode000/sustech-slides-template": {
+    "title": "yhbcode000/sustech-slides-template: 📊 学术报告 · 论文分享 · 课题答辩一站式中英文 LaTeX Beamer 模板 | SUSTech Beamer Slide Template — paper share, region survey, proposal, progress",
+    "description": "📊 学术报告 · 论文分享 · 课题答辩一站式中英文 LaTeX Beamer 模板 | SUSTech Beamer Slide Template — paper share, region survey, proposal, progress record, finalisation - yhbcode000/sustech-slides-template",
+    "siteName": "GitHub"
+  },
+  "https://github.com/yhbcode000/sustech-slides-template.git": {
+    "title": "yhbcode000/sustech-slides-template: 📊 学术报告 · 论文分享 · 课题答辩一站式中英文 LaTeX Beamer 模板 | SUSTech Beamer Slide Template — paper share, region survey, proposal, progress",
+    "description": "📊 学术报告 · 论文分享 · 课题答辩一站式中英文 LaTeX Beamer 模板 | SUSTech Beamer Slide Template — paper share, region survey, proposal, progress record, finalisation - yhbcode000/sustech-slides-template",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ZefanW/JustRUA": {
+    "title": "ZefanW/JustRUA: A RoboDojo robot policy with predicted depth, measured gripper feedback and a persistent coding actor.",
+    "description": "A RoboDojo robot policy with predicted depth, measured gripper feedback and a persistent coding actor. - ZefanW/JustRUA",
+    "siteName": "GitHub"
+  },
+  "https://github.com/zhenyi4/platour": {
+    "title": "zhenyi4/platour: Official repository for \"On the Opportunities and Challenges of Prefill-to-Autoregressive Cross-Model Transfer\"",
+    "description": "Official repository for \"On the Opportunities and Challenges of Prefill-to-Autoregressive Cross-Model Transfer\" - zhenyi4/platour",
+    "siteName": "GitHub"
+  },
+  "https://github.com/zhongweixie/CoworkEnv-Lessons": {
+    "title": "zhongweixie/CoworkEnv-Lessons",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ziyan-wang98/BazaarBench": {
+    "title": "ziyan-wang98/BazaarBench: BazaarBench: Delegation Safety in Decentralized C2C Marketplaces Run by LLM Agents",
+    "description": "BazaarBench: Delegation Safety in Decentralized C2C Marketplaces Run by LLM Agents - ziyan-wang98/BazaarBench",
+    "siteName": "GitHub"
+  },
+  "https://github.com/ZX271848/claude-codex-groupchat": {
+    "title": "ZX271848/claude-codex-groupchat: Windows desktop group chat for you, Claude (Claude Code) and GPT (Codex): streaming, routing, steering, shared context via offi",
+    "description": "Windows desktop group chat for you, Claude (Claude Code) and GPT (Codex): streaming, routing, steering, shared context via official hooks - ZX271848/claude-codex-groupchat",
+    "siteName": "GitHub"
+  },
+  "https://grid-robotics-official.github.io/agentic-robotics-roadmap/": {
+    "title": "Envisioning Agentic Robotics · Grid Robotics",
+    "description": "A framework, evaluation principles, and research roadmap for agentic robotics."
+  },
+  "https://huggingface.co/beipo-ai/NorthCUA-Mini": {
+    "title": "beipo-ai/NorthCUA-Mini · Hugging Face",
+    "description": "Image-Text-to-Text model with 35B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/beipo-ai/NorthCUA-Nano": {
+    "title": "beipo-ai/NorthCUA-Nano · Hugging Face",
+    "description": "Image-Text-to-Text model with 9B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/beipo-ai/NorthCUA-Pro": {
+    "title": "beipo-ai/NorthCUA-Pro · Hugging Face",
+    "description": "Image-Text-to-Text model with 397B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/blog/KYLN24/introducing-a5": {
+    "title": "Introducing A5: Proactive Personal Agent in Your Life-Long Context",
+    "description": "A Blog post by Honglin Guo on Hugging Face"
+  },
+  "https://huggingface.co/buckets/KYLN24/a5-release": {
+    "title": "KYLN24/a5-release - Storage Bucket",
+    "description": "Storage bucket KYLN24/a5-release on Hugging Face"
+  },
+  "https://huggingface.co/collections/baidu/ernie-55-flash-base": {
+    "title": "ERNIE-5.5-Flash - a baidu Collection",
+    "description": "Collection of ERNIE-5.5-Flash models."
+  },
+  "https://huggingface.co/collections/ChilleD/agent-world-model-in-the-wild": {
+    "title": "Agent World Model in the Wild - a ChilleD Collection",
+    "description": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis"
+  },
+  "https://huggingface.co/collections/ChilleD/webharbor": {
+    "title": "WebHarbor - a ChilleD Collection",
+    "description": "WebHarbor: Docking Real Websites for Evolving GUI Agent Environments"
+  },
+  "https://huggingface.co/collections/dongguanting/toolspace": {
+    "title": "ToolSpace - a dongguanting Collection",
+    "description": "The collection of ToolSpace"
+  },
+  "https://huggingface.co/collections/groundhogLLM/graphforge": {
+    "title": "GraphForge - a groundhogLLM Collection",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science."
+  },
+  "https://huggingface.co/collections/InternScience/sage-a15": {
+    "title": "Sage-A1.5 - a InternScience Collection",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science."
+  },
+  "https://huggingface.co/collections/LiquidAI/lfm3": {
+    "title": "💧 LFM3 - a LiquidAI Collection",
+    "description": "Collection of base and post-trained LFM3 models (www.liquid.ai/blog/lfm3)."
+  },
+  "https://huggingface.co/collections/zhongweixie/pocketworker": {
+    "title": "PocketWorker - a zhongweixie Collection",
+    "description": "PocketWorker_claweval"
+  },
+  "https://huggingface.co/datasets/antins-labs/VisSearch-Bench-v1": {
+    "title": "antins-labs/VisSearch-Bench-v1 · Datasets at Hugging Face",
+    "description": "Dataset with 204 rows (Image, Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/Catherine1213/VerifierBench": {
+    "title": "Catherine1213/VerifierBench · Datasets at Hugging Face",
+    "description": "Dataset with 5.22k rows (Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/HenryJ12/InvestorLastExam": {
+    "title": "HenryJ12/InvestorLastExam · Datasets at Hugging Face",
+    "description": "Dataset with 1.56k rows (Tabular, Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/ProgramGym/programgym-1648": {
+    "title": "ProgramGym/programgym-1648 · Datasets at Hugging Face",
+    "description": "Dataset with 1.65k rows (Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/Regimes/GACC-Bench": {
+    "title": "Regimes/GACC-Bench · Datasets at Hugging Face",
+    "description": "Dataset with 624 rows (Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym": {
+    "title": "ShaoShuai0605/PhysCodeGym · Datasets at Hugging Face",
+    "description": "Dataset with 156 rows (Tabular, Text, Video). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/tencent/GroupAssistBench": {
+    "title": "tencent/GroupAssistBench · Datasets at Hugging Face",
+    "description": "Dataset with 2.4k rows (Tabular, Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/Tokenwave-AI/swe-cowork": {
+    "title": "Tokenwave-AI/swe-cowork · Datasets at Hugging Face",
+    "description": "Dataset with 101 rows (Tabular, Text). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/datasets/YijiaFan/CaPtain-SFT-Data": {
+    "title": "YijiaFan/CaPtain-SFT-Data · Datasets at Hugging Face",
+    "description": "Dataset with 27.6k rows (Image). Explore, preview and download it on Hugging Face."
+  },
+  "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/33": {
+    "title": "deepseek-ai/DeepSeek-V4.1-Flash-1017 · 短请求的乱码问题--Non-thinking mode corrupts replies to short greetings when a system prompt is present (reproduces on the offici",
+    "description": "In non-thinking mode, the model often breaks a short reply a few tokens in when two things are both true: there is a system prompt, and the user message is a short greeting. The output repeats a wo..."
+  },
+  "https://huggingface.co/JevAgentHarness": {
+    "title": "JevAgentHarness (JevAgentHarness)",
+    "description": "Org profile for JevAgentHarness on Hugging Face, the AI community building the future."
+  },
+  "https://huggingface.co/jindun/Qwen3-1.7B-SFT-DeepMath": {
+    "title": "jindun/Qwen3-1.7B-SFT-DeepMath · Hugging Face",
+    "description": "Machine learning model with 2B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/meituan-longcat/LongCat-2.5": {
+    "title": "meituan-longcat/LongCat-2.5 · Hugging Face",
+    "description": "Image-Text-to-Text model with 1.8T parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/papers/2609.27334": {
+    "title": "Paper page - Just-in-Time Memory: Learning to Curate Task-Adaptive Memory for LLM Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2609.34036": {
+    "title": "Paper page - UOPD: Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2609.38923": {
+    "title": "Paper page - GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.01207": {
+    "title": "Paper page - Dependency-Aware Reward Shaping for Agentic Reinforcement Learning",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.02076": {
+    "title": "Paper page - LLM-as-Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.10409": {
+    "title": "Paper page - RobotWorld: Benchmarking Multimodal Agents for Robot Use Across Diverse Tasks and Embodiments",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.13395": {
+    "title": "Paper page - ProgramGym: Scaling Training Environments for Long-Horizon Program Reproduction Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.15915": {
+    "title": "Paper page - VIEWCRAFT: Evolving What Multimodal Agents See and How They Read It",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.16397": {
+    "title": "Paper page - Recursive Environment Scaling for General Long-Horizon Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.17953": {
+    "title": "Paper page - Agent-Reflex: Teaching Language Agents to Act Reflectively",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.20442": {
+    "title": "Paper page - Towards Agentic Robots: Model, Data, Environment, and Harness",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.20584": {
+    "title": "Paper page - Player-1: Learning to Play from Synthetic Experience",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.20731": {
+    "title": "Paper page - WorldCast: Exploring Intelligent Visual Generation in World State Prediction",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.20939": {
+    "title": "Paper page - MAI-Gym: An Open All-in-One Platform for GUI Agent Evaluation and RL Training across Mobile and Computer Environments",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.21412": {
+    "title": "Paper page - JevAgentHarness: Benchmarking, Deploying and Training Decision Models That Share Control with LLMs",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.22174": {
+    "title": "Paper page - Mosaic: Multi-Session Agentic Reinforcement Learning",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.22192": {
+    "title": "Paper page - Terminal-RSI: Recursive Self-Improving Terminal Agents via Recursive Self-Rewrite and Policy-Refine",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.22344": {
+    "title": "Paper page - MLExpert: Towards a Generalist Agentic Model for Autonomous Machine Learning Engineering",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.23194": {
+    "title": "Paper page - OfficeTown: Generative Organizations for Evolving Agent Intelligence",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.23374": {
+    "title": "Paper page - MOSS-Image Technical Report",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.24960": {
+    "title": "Paper page - CoworkEnv: Synthesizing Training Environments for Long-Horizon Cowork Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.26860": {
+    "title": "Paper page - OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.27613": {
+    "title": "Paper page - Embodied Task Agents Can Perform Fine Manipulation through Tactile In-Context Learning",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.28578": {
+    "title": "Paper page - Sage-A1.5: From Long-Horizon Execution to Scientific Exploration with Capability Composition",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.35138": {
+    "title": "Paper page - Co-Design Bench: Multimodal Collaborative Coding Evaluation for Agentic Models",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.36077": {
+    "title": "Paper page - The Trinity:Capability-Driven Recursive Self-Improvement for Multimodal Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.37609": {
+    "title": "Paper page - EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.40747": {
+    "title": "Paper page - Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use From Evolved Harnesses",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.41432": {
+    "title": "Paper page - Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.41994": {
+    "title": "Paper page - DAMI: Dual-Axis Memory Initialization for Enhanced Long-Context Retrieval in Gated Linear Attention",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2610.42053": {
+    "title": "Paper page - REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.02102": {
+    "title": "Paper page - NorthCUA Technical Report: Turbocharging Computer-Use Agents through Experience at Scale",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.03126": {
+    "title": "Paper page - CUA-Master: Scaling Computer-use Agents through Open-World Recursive Improvements",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.03178": {
+    "title": "Paper page - CoworkOS:Scaling Agent Coworkers for Real-world Automation",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.03634": {
+    "title": "Paper page - WebHarbor: Docking Real Websites for Evolving GUI Agent Environments",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.04634": {
+    "title": "Paper page - VeriSpoof: Beyond Real or Fake with One Audio LLM",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.04867": {
+    "title": "Paper page - One Assistant, Many Memories: Benchmarking Real-World Group Assistance When Recall Is Not Enough",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.04894": {
+    "title": "Paper page - VisSearch-Bench: Evaluating Long Horizon Visual Search in Multimodal Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.04916": {
+    "title": "Paper page - Behind Video Generation: Observations and Insights on Multimodal Understanding from Kling",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.05036": {
+    "title": "Paper page - ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.05275": {
+    "title": "Paper page - Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.05320": {
+    "title": "Paper page - PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.12426": {
+    "title": "Paper page - dNaViT: Discrete Codes are General-Purpose Visual Representations",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.16009": {
+    "title": "Paper page - JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.18359": {
+    "title": "Paper page - Envisioning Agentic Robotics: A New Era of Robotic Systems",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.20218": {
+    "title": "Paper page - SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/RecursiveSI/flint": {
+    "title": "RecursiveSI/flint · Hugging Face",
+    "description": "Text Generation model with 40B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/spaces/AustinXiao/VeriSpoof-demo": {
+    "title": "VeriSpoof - a Hugging Face Space by AustinXiao",
+    "description": "Beyond real or fake: one unified audio LLM for deepfakes"
+  },
+  "https://huggingface.co/spaces/FineEnvs/simulation-rl-environments#simulation-rl-environments": {
+    "title": "Simulation RL Environments - a Hugging Face Space by FineEnvs",
+    "description": "Real-world simulation RL environments for AI agents"
+  },
+  "https://huggingface.co/spaces/nanotron/ultrascale-playbook/blob/5ee9a011dcafa685792ebe7b458a554d2e78c5d5/The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters.pdf": {
+    "title": "The_Ultra-Scale_Playbook_Training_LLMs_on_GPU_Clusters.pdf · nanotron/ultrascale-playbook at 5ee9a01",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science."
+  },
+  "https://huggingface.co/spaces/ZefanW/robodojo-replay-explorer": {
+    "title": "RoboDojo Replay Explorer - a Hugging Face Space by ZefanW",
+    "description": "Compare robot replays and recorded actions"
+  },
+  "https://huggingface.co/SpeedAI-Lab/DAMI": {
+    "title": "SpeedAI-Lab/DAMI · Hugging Face",
+    "description": "Text Generation model. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/Tongyi-MAI/MAI-Gym-9B": {
+    "title": "Tongyi-MAI/MAI-Gym-9B · Hugging Face",
+    "description": "Machine learning model with 9B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/XHToken/Spark-X2.6-4B": {
+    "title": "XHToken/Spark-X2.6-4B · Hugging Face",
+    "description": "Text Generation model with 4B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/YijiaFan/CaPtain-4B": {
+    "title": "YijiaFan/CaPtain-4B · Hugging Face",
+    "description": "Image-Text-to-Text model with 5B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://huggingface.co/yxl66666/CUAMaster-27B": {
+    "title": "yxl66666/CUAMaster-27B · Hugging Face",
+    "description": "Machine learning model with 27B parameters. Download, explore files and run it on Hugging Face."
+  },
+  "https://hy.tencent.ai/research/hyra2": {
+    "failed": true
+  },
+  "https://i.smitop.com/concise-research-roadmap.pdf": {
+    "failed": true
+  },
+  "https://ibench.ai/": {
+    "title": "Interaction Bench - Benchmarked on what users feel.",
+    "description": "Interaction Bench evaluates coding agents on real interaction defects recovered from merged pull requests in real products, replayed in locked environments and judged from before/after evidence."
+  },
+  "https://ibench.ai/leaderboard": {
+    "title": "Leaderboard",
+    "description": "Pass rate, cost, latency and cache hit for every agent on the Interaction Bench 0.1 set, with the per-task result strip behind each number."
+  },
+  "https://immersivetranslate.com/": {
+    "failed": true
+  },
+  "https://index-translate.bilibili.com/v1": {
+    "failed": true
+  },
+  "https://index-translate.bilibili.com/v1/chat/completions": {
+    "failed": true
+  },
+  "https://index.openrsi.foundation/blog/2026/openrsi-sglang-omni/": {
+    "title": "OpenRSI × SGLang-Omni: Scaling RSI for AI Infra",
+    "description": "Agents ran a continuous, verifier-checked performance-optimization loop on SGLang-Omni: fourteen merged PRs across eight omni models."
+  },
+  "https://jevagentharness.github.io/": {
+    "title": "JevAgentHarness",
+    "description": "Benchmarking, deploying and training decision models that share control with LLMs."
+  },
+  "https://jianhuiwei7.github.io/DARS/": {
+    "title": "DARS: Dependency-Aware Reward Shaping",
+    "description": "Reward progress. Respect dependencies. Learn from repairs."
+  },
+  "https://join.qq.com/scholarship.html": {
+    "title": "腾讯青云奖学金"
+  },
+  "https://jyyang26.github.io/terminal-rsi/": {
+    "title": "Terminal-RSI — A better agent. A better starting point.",
+    "description": "27B parameters. Terminal-Bench 4.0: 19.84%. Terminal-Bench 2.1: 86.52%. Recursive Self-Rewrite and Policy-Refine."
+  },
+  "https://labs.scale.com/blog/to-critic-or-not-to-critic-grpo-vs-ppo": {
+    "title": "To Critic or Not to Critic: GRPO vs PPO",
+    "description": "As agentic tasks become more complex and rollouts become longer and more expensive, improving the efficiency of reinforcement learning becomes increasi...",
+    "siteName": "Scale Labs"
+  },
+  "https://lark-ai-lab.github.io/Mosaic/": {
+    "title": "Mosaic: Multi-Session Agentic Reinforcement Learning",
+    "description": "Better agents need more than longer contexts. They need to learn how to use their sessions."
+  },
+  "https://linux.do/t/topic/2774454": {
+    "failed": true
+  },
+  "https://lisresearchgroup.github.io/math-rsi/": {
+    "title": "MathRSI — SII MathRSI Team",
+    "description": "MathRSI: a self-improving agent harness for mathematical discovery and proof."
+  },
+  "https://littleprince.dev/": {
+    "title": "The Little Prince Among the Stars · 小王子：星辰之旅",
+    "description": "On a planet scarcely bigger than a house, there lives a little prince."
+  },
+  "https://lixiaotong97.github.io/dNaViT/": {
+    "title": "dNaViT: Discrete Codes are General-Purpose Visual Representations",
+    "description": "dNaViT is a Discrete Native-resolution Vision Transformer whose shared discrete vocabulary supports understanding, reconstruction, generation, and editing."
+  },
+  "https://llm-agents-under-threat.github.io/": {
+    "title": "LLM Agents Under Threat in Cyberspace · AAAI-27 Workshop",
+    "description": "Call for papers for the AAAI-27 workshop on adversarial threats and defenses for LLM agents."
+  },
+  "https://llm2014.github.io/llm_benchmark/#category=code_v3&dataset=code_v3%7C2026-10%7C0": {
+    "title": "致知｜大模型智力长期追踪榜单",
+    "description": "持续追踪主流大语言模型在逻辑、编程与视觉等私有基准上的表现，对比月度排名、成本与长期趋势。",
+    "siteName": "致知"
+  },
+  "https://matraix.ai/": {
+    "title": "MatrAIx — Personal Agent Evaluation",
+    "description": "Evaluation and RL environments for personal agents. Learn from real user insights, test across apps, and train on the tasks agents need to complete."
+  },
+  "https://meeting.tencent.com/dm/uK8Mgb6aVK0J": {
+    "title": "腾讯会议",
+    "description": "基于腾讯20多年音视频通讯经验，腾讯会议提供一站式音视频会议解决方案，让您能随时随地体验高清流畅的会议以及会议协作。"
+  },
+  "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/": {
+    "title": "Independent Assessment of AI R&D Acceleration at Anthropic in October 2026",
+    "description": "METR's high-access assessment of the degree to which AI is accelerating AI research and development at Anthropic."
+  },
+  "https://microsoft.github.io/Hybrid-Computer-Use": {
+    "title": "Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+    "description": "One MCP server for code, accessibility (AX), and GUI control of Linux, macOS, and Windows desktops.",
+    "siteName": "Hybrid Computer Use"
+  },
+  "https://microsoft.github.io/Hybrid-Computer-Use/": {
+    "title": "Hybrid Computer Use: A Unified Programmatic, Semantic, and Visual Interface for General Agents",
+    "description": "One MCP server for code, accessibility (AX), and GUI control of Linux, macOS, and Windows desktops.",
+    "siteName": "Hybrid Computer Use"
+  },
+  "https://microsoft.github.io/Mage/cowork/": {
+    "title": "Mage-VL-Cowork: A Full Training Recipe to Learn Hybrid Computer Use from Evolved Harnesses",
+    "description": "Hybrid computer use at 4B: one policy that knows when to click and when to code. 66.0% on OSWorld-Verified, evolved-harness supervision, workflow-first data generation, and a five-stage training recipe.",
+    "siteName": "Mage"
+  },
+  "https://mikeeeeeeeeeeeeee.github.io/REA": {
+    "title": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+    "description": "No running policy waits on the brain. 95.9% on 3,000 LIBERO-Pro test episodes with 25% fewer control steps, 86% on RoboTwin 2.0 with VLA and code policies together, and the most episodes solved on BEHAVIOR-1K and a real "
+  },
+  "https://mikeeeeeeeeeeeeee.github.io/RouteAnything/": {
+    "title": "Route Anything: A Study of Model and Policy Routing for General-Purpose AI Systems",
+    "description": "How much can routing gain, how well do learned routers work, and when is a cheaper route good enough? An omni-modal trajectory matrix and a unified theory."
+  },
+  "https://mistral.ai/news/mistral-large-4/": {
+    "title": "Introducing Mistral Large 4 | Mistral",
+    "description": "The most powerful AI platform for enterprises. Customize, fine-tune, and deploy AI assistants, autonomous agents, and multimodal AI with open models.",
+    "siteName": "Mistral"
+  },
+  "https://mit-han-lab.github.io/pear-blog/paper.pdf": {
+    "failed": true
+  },
+  "https://mlc.ai/agentic-gpu-programming-for-mlsys/": {
+    "title": "Agentic GPU Programming for MLSys — Agentic GPU Programming for MLSys"
+  },
+  "https://mmlong818.github.io/ai-pulse/zh/": {
+    "title": "猫叔的AI资讯雷达 — 由 AI 撰写的每日 AI 资讯",
+    "description": "AI 每日自主采编的中英双语 AI 资讯简报：模型、研究、政策与产业，每篇附原始信源。最新：DeepSeek V1作者公布开源本地智能体Linger",
+    "siteName": "Uncle Cat AI Radar"
+  },
+  "https://mmlong818.github.io/ai-trending/": {
+    "title": "首页 · AI 新项目崛起榜",
+    "description": "每天发现近 60 天新建、星数最高的 AI 项目"
+  },
+  "https://mmsp.penguin.ooo/": {
+    "title": "MMSP: Model Message Stream Protocol",
+    "description": "Integrate every model the same way. MMSP is one message format and one streaming grammar for every model provider, in Python and TypeScript.",
+    "siteName": "MMSP"
+  },
+  "https://mp.weixin.qq.com/s/-t7vWAwoYpmCgEu1giXiHg": {
+    "title": "自动化科研指数提升超图染色问题下界",
+    "siteName": "微信公众平台"
+  },
+  "https://mp.weixin.qq.com/s/Dwc9oqE6-inihwls43gevg": {
+    "title": "自动化科研闭合40余年编码核心开放问题",
+    "siteName": "微信公众平台"
+  },
+  "https://mp.weixin.qq.com/s/EGLDrPxND-xGTyStJIDXrw": {
+    "title": "LongCat-2.5开源：从看见，到抵达",
+    "description": "LongCat-2.5开源",
+    "siteName": "微信公众平台"
+  },
+  "https://msr-orchard.github.io/WildAWM/": {
+    "title": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis",
+    "description": "Persona-driven personal-computer worlds, cross-interface tasks, and five execution-based quality gates for training general computer-use agents."
+  },
+  "https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x": {
+    "title": "Anthropic Subscriptions Offer 5x+ More Value Than OpenAI",
+    "description": "Limit testing every AI subscription plan from Anthropic, OpenAI, Meta, SpaceXSI, MiniMax, Moonshot, Z.ai, Cursor, and Cognition"
+  },
+  "https://no-518.github.io/tactile-eta/": {
+    "title": "Tactile-ETA · Tactile In-Context Learning",
+    "description": "Embodied task agents can perform fine manipulation through tactile in-context learning."
+  },
+  "https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3": {
+    "title": "StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render",
+    "description": "A code game engine keeps the world state; a two-step streaming video model renders it in real time."
+  },
+  "https://officeintelligence.github.io/": {
+    "title": "Office Intelligence — Research environments, harness & evaluation",
+    "description": "Office Intelligence: environments, evaluation, training, and harnesses for knowledge-work agents. Explore OfficeTown, DocAtlas, and XL-DocBench."
+  },
+  "https://oken.ai/zh": {
+    "title": "Oken.ai"
+  },
+  "https://openai.com/index/introducing-gpt-6-2-astra-sol/": {
+    "title": "Introducing GPT-6.2 Astra and Sol",
+    "description": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
+    "siteName": "OpenAI"
+  },
+  "https://openai.com/zh-Hans-CN/index/expanding-chatgpt-for-academic-researchers/": {
+    "title": "让更多科学家用上 AI",
+    "description": "我们正在扩大 ChatGPT 学术研究人员计划的规模，为全球 20 万名研究人员提供免费使用前沿模型的机会。",
+    "siteName": "OpenAI"
+  },
+  "https://openai.com/zh-Hans-CN/index/introducing-gpt-6-sol-and-luna/": {
+    "title": "隆重推出 GPT-6 Sol 和 Luna",
+    "description": "认识 GPT-6 Sol 和 Luna：两款以不同能力与成本组合，将前沿智能带入日常工作的模型。",
+    "siteName": "OpenAI"
+  },
+  "https://openbmb.cn/model/minicpm5-2b": {
+    "title": "MiniCPM5-2B · OpenBMB",
+    "description": "在 4B 以下开源基座模型中综合性能表现优异，具备工具调用、代码生成、长上下文推理等多项能力，初步展现出端侧通用 Agent 的潜力。"
+  },
+  "https://openreview.net/group?id=AAAI.org/2027/Workshop/LAUT": {
+    "title": "AAAI 2027 Workshop LAUT",
+    "description": "Welcome to the OpenReview homepage for AAAI 2027 Workshop LAUT"
+  },
+  "https://openrouter.ai/openrouter/auto": {
+    "failed": true
+  },
+  "https://openrua.ai/revisiting-rua": {
+    "title": "Behind the RoboDojo Boom: Revisiting Embodied Evaluation of Robot-Use Agents",
+    "description": "Robot-use agent scores on embodied leaderboards are climbing fast. We find three loopholes that inflate them: unfair execution budgets, privileged task progress leaked to the agent during execution, and test-task solutio",
+    "siteName": "OpenRUA"
+  },
+  "https://openvlharness.github.io/": {
+    "title": "OpenVLHarness: Real World Visual Agentic Tool-Use with Multimodal Memory",
+    "description": "A capability layer + persistent multimodal memory lifts six MLLM backbones by 9.7–12.6 points across 22 benchmarks."
+  },
+  "https://oriera-engine.github.io/engine/": {
+    "title": "OriEra — AI-Native World Engine"
+  },
+  "https://penguin.ooo/": {
+    "title": "PenguinHarness",
+    "description": "Out-of-the-Box RSI Framework. One sentence builds an AI app, one sentence starts self-evolution.",
+    "siteName": "PenguinHarness"
+  },
+  "https://penguin.ooo/amsp": {
+    "failed": true
+  },
+  "https://pi.dev/": {
+    "title": "Pi Coding Agent",
+    "description": "A terminal-based coding agent"
+  },
+  "https://platform.claude.com/cookbook/managed-agents-cma-dreaming-with-a-dynamic-workflow": {
+    "title": "Dreaming with a dynamic workflow | Claude Cookbook",
+    "description": "Build a small working dream for your agents. A Managed Agents dynamic workflow reads finished sessions, distills them into a wiki-style memory store that future sessions mount read-only, and can run every night from cron",
+    "siteName": "Claude Cookbook"
+  },
+  "https://player-1-project.github.io/": {
+    "title": "Player-1 · Learning to Play from Synthetic Experience",
+    "description": "Player-1 learns game control from synthetic experience. Watch the agent, play sixteen synthetic environments, and explore its gameplay demonstrations."
+  },
+  "https://programgym.github.io/": {
+    "title": "ProgramGym",
+    "description": "ProgramGym: scaling training environments for long-horizon program reproduction agents. 1,648 tasks across Go, C++, Rust and C.",
+    "siteName": "ProgramGym"
+  },
+  "https://prophet-lab.cn/benchmarks/investor-last-exam-v1": {
+    "title": "Investor's Last Exam",
+    "description": "Investor"
+  },
+  "https://quickresearch.github.io/": {
+    "title": "“快”科研联合声明 · Joint Statement on Quick Research",
+    "description": "快而不苟：我们想缩短的是等待，而不是思考。Fast, never careless: shorten the waiting, not the thinking."
+  },
+  "https://qwen.ai/blog?id=qwen4-max": {
+    "title": "Qwen",
+    "description": "Qwen offers comprehensive functionality spanning chatbot, image and video understanding, image generation, document processing, web search integration, tool utilization, and artifacts."
+  },
+  "https://raft.build/": {
+    "title": "Raft - Agent-native workspace for humans and AI agents",
+    "description": "Raft is team chat where humans and AI agents work together as teammates in shared channels, threads, and tasks.",
+    "siteName": "Raft"
+  },
+  "https://real-api-pricing.vercel.app/#lang=zh": {
+    "title": "Real API Pricing · The cost behind the capability",
+    "description": "Monthly fee ÷ tokens you can actually use, plotted against independent leaderboards. Open data, open methodology.",
+    "siteName": "Real API Pricing"
+  },
+  "https://reflection.ai/blog/introducing-beam": {
+    "title": "Introducing Beam: Reflection’s 501B open-weight model — Reflection",
+    "description": "Make intelligence open and accessible to all",
+    "siteName": "Reflection"
+  },
+  "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/": {
+    "title": "Grounding AI agents in biological reality: Building blocks for autonomous wet labs"
+  },
+  "https://research.meta.ai/blog/muse-wonder": {
+    "failed": true
+  },
+  "https://rikiyat.github.io/blog/weight-space-programming/": {
+    "title": "Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights",
+    "description": "We find that frontier LLMs are surprisingly good at natively reading and writing neural network weights much like code, sometimes with tools such as a Python kernel and sometimes from the raw weights alone."
+  },
+  "https://rlinf.readthedocs.io/en/latest/rst_source/guides/rollout-engines/phyai.html": {
+    "title": "PhyAI Embodied Rollout Backend — RLinf documentation"
+  },
+  "https://robot-agent-exploration.com/": {
+    "title": "RAX: Scaling Online Exploration for Robot Agents",
+    "description": "RAX: a coding agent learns real robot tasks by exploring online, with no demonstrations and no policy training."
+  },
+  "https://robotworldai.github.io/": {
+    "title": "RobotWorld · Benchmarking Multimodal Agents for Robot Use"
+  },
+  "https://robotworldai.github.io/blog/zh/": {
+    "title": "一个 agent，84 道机器人任务 · RobotWorld Blog"
+  },
+  "https://rsi-index.ai/": {
+    "title": "RSIGym & RSI-Index | Evolvent AI",
+    "description": "RSI-Index measures how effectively AI research agents improve a target system. Explore six agents, five benchmarks, and the RSIGym research environment."
+  },
+  "https://ruc-nlpir.github.io/FlashRSI/project.html": {
+    "title": "FlashRSI · Project page",
+    "description": "FlashRSI benchmark atlas: compare RSI methods, native harnesses, and reproducible experiment evidence."
+  },
+  "https://scholar.google.com/citations?user=TJHmrREAAAAJ": {
+    "title": "Seyedali Mirjalili",
+    "description": "‪Professor of AI, Torrens University Australia, Obuda University, VSB Technical University of Ostrava‬ - ‪‪引用次数：192,725 次‬‬ - ‪Metaheuristics‬ - ‪Computational Intelligence‬ - ‪Evolutionary Computation‬ - ‪Swarm Intellig"
+  },
+  "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=gCG4cPYAAAAJ&pagesize=80&sortby=pubdate&citation_for_view=gCG4cPYAAAAJ:zA6iFVUQeVQC": {
+    "title": "Verifying..."
+  },
+  "https://scientist-two.github.io/#applications/Health%20(Cartan-DEC-MiAE)": {
+    "title": "ScientistTwo: Pioneering the Human Knowledge Frontier with Autonomous AI",
+    "description": "Beats human SOTA on 86 of 107 research problems (+25.2% avg. gain), with papers that outscore accepted ICLR 2026 and NeurIPS 2025 submissions."
+  },
+  "https://shiqiangw.github.io/iclr-2027-scores/": {
+    "title": "ICLR 2027 Scores",
+    "description": "Score distributions and paper list for ICLR 2027 submissions during the discussion period."
+  },
+  "https://simplexfoundry.com/tetra-1": {
+    "title": "SimpleX · Into the unreachable corners of life",
+    "description": "SimpleX builds AI that reasons through complex biology to reveal hidden molecular states, and what they mean. Meet Tetra-1."
+  },
+  "https://simplexfoundry.com/tetra-1/apply/": {
+    "title": "SimpleX · Into the unreachable corners of life",
+    "description": "SimpleX builds AI that reasons through complex biology to reveal hidden molecular states, and what they mean. Meet Tetra-1."
+  },
+  "https://snnh.github.io/code_bench/": {
+    "title": "LLM Bench｜榜单查询",
+    "description": "LLM Bench 大模型开发能力评测：编程复刻与开发场景 OCR 榜单、成本与 token 对比。",
+    "siteName": "LLM Bench"
+  },
+  "https://solar-system-atlas.pages.dev/": {
+    "title": "HUMAN ARTIFACTS · 宇宙与地球",
+    "description": "从太阳系图谱走进地球：探索宇宙、洋流、全球气象与深海生命。"
+  },
+  "https://speedai.com/research/dami": {
+    "title": "SpeedAI - Best AI Humanizer & AI Detector | Bypass AI Detection",
+    "description": "Transform AI text to human with SpeedAI. Bypass GPTZero, Turnitin & all AI detectors. 2M+ users trust us. Free AI humanizer tool.",
+    "siteName": "SpeedAI"
+  },
+  "https://spylab.ai/%EF%BC%89%E7%9A%84%E5%9B%A2%E9%98%9F": {
+    "failed": true
+  },
+  "https://standwithjensen.com/": {
+    "title": "Stand with Jensen | An Open Letter to The NVIDIA Board",
+    "description": "An independent campaign of current and former NVIDIA employees and shareholders expressing gratitude to Jensen Huang and asking the Board for a transparent account of the CEO transition. Not affiliated with NVIDIA.",
+    "siteName": "Stand with Jensen"
+  },
+  "https://steadypareto-benchmark.orangeaspen1.chatgpt.site/": {
+    "title": "SteadyBench 稳鲸评测 — Three-dimensional Pareto frontier benchmark",
+    "description": "Explore model trade-offs across cost, performance and latency with SteadyBench"
+  },
+  "https://substack.com/profile/562160125-fangcun-ai/note/c-370762565": {
+    "title": "Fangcun AI (@fangcunai)",
+    "description": "We are Fangcun AI, China’s first lab dedicated to independent third-party evaluation & technique research on frontier AI safety. We are excited to share our safety evaluation of DeepSeek V4.1 Flash-1017, the first report",
+    "siteName": "Substack"
+  },
+  "https://support.claude.com/en/articles/14604842-cyber-verification-program": {
+    "title": "Cyber Verification Program | Claude Help Center"
+  },
+  "https://teal024.github.io/WorldCast/": {
+    "title": "WorldCast: Exploring Intelligent Visual Generation in World State Prediction",
+    "description": "A benchmark for multi-step world state prediction: 320 cases, 1,352 visual states, 8 categories, 12 models."
+  },
+  "https://thinkingmachines.ai/blog/end-to-end-4-bit-training/": {
+    "title": "End‑to‑End 4‑Bit Training",
+    "description": "Training large language models involves calculating and storing a lot of numbers. Using fewer bits for each value reduces memory usage and allows GPUs to perform calculations faster. However, there is a tradeoff: fewer b",
+    "siteName": "Thinking Machines Lab"
+  },
+  "https://thinkingmachines.ai/news/inkling-2-small/": {
+    "title": "Introducing Inkling 2 Small",
+    "description": "Today we are introducing the second generation of Inkling models with the release of Inkling 2 Small.",
+    "siteName": "Thinking Machines Lab"
+  },
+  "https://threejs.cc/topic/fable-5-2/": {
+    "title": "Claude Fable 5.2 案例｜3D 网页游戏与交互演示",
+    "description": "在线体验 68 个 Claude Fable 5.2 网页案例，涵盖 3D 游戏、场景漫游与科学模拟，附实机截图、体验链接和作品来源。",
+    "siteName": "Three.js 案例库"
+  },
+  "https://tokenwave-ai.github.io/swe-cowork-page": {
+    "title": "SWE-CoWork · Toward dependable digital engineers",
+    "description": "A TokenWave AI benchmark for coding agents that recover requirements, coordinate with colleagues, and carry software work through verification and accountable delivery."
+  },
+  "https://tongyi-mai.github.io/MAI-Gym/": {
+    "title": "MAI-Gym — Online agentic RL for GUI agents",
+    "description": "MAI-Gym: an open, all-in-one platform for GUI agent evaluation, data collection, and online RL across mobile, computer, and web. Explore the training board and play the 42 novel apps in the browser."
+  },
+  "https://tongyi-mai.github.io/OpenGCUA/#lab": {
+    "title": "OpenGCUA — Open Generalist Computer Use",
+    "description": "Open Generalist CUA: an open research stack of models, real-device harnesses, cross-device SDKs, trajectories, and benchmarks."
+  },
+  "https://toolspace-agent.github.io/": {
+    "title": "ToolSpace — Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
+    "description": "ToolSpace reconstructs a scalable, explorable tool space from real execution traces and synthesizes long-horizon, cross-environment, replay-verified agent tasks."
+  },
+  "https://trae1oung.github.io/posttrainbench0/": {
+    "title": "PostTrainBench⁰ — LLM Post-Training Without Gradients",
+    "description": "Can LLM agents discover generalizable post-training algorithms when backpropagation is removed and only scalar scores are provided?"
+  },
+  "https://trinity-rsi.github.io/": {
+    "title": "The Trinity: Capability-Driven Recursive Self-Improvement for Multimodal Agents",
+    "description": "Creator, Explorer and Evolver turn 44 benchmarks into a capability tree and grow a Harness tree along it: +34.1 points on 28 training benchmarks and +26.2 on 18 unseen ones, two real robots included.",
+    "siteName": "The Trinity"
+  },
+  "https://verifierbench.github.io/": {
+    "title": "VerifierBench",
+    "description": "Benchmarking the generation of executable verifiers for LLM agents: 222 tasks, 4,993 hidden test cases, 36 model–harness configurations."
+  },
+  "https://vibeprevisbench.github.io/": {
+    "title": "VibePrevisBench",
+    "description": "VibePrevisBench: Evaluating Agentic Coding for 4D Scene Generation in Blender.",
+    "siteName": "VibePrevisBench"
+  },
+  "https://vibevideobench.github.io/": {
+    "title": "VibeVideoBench · A benchmark for video-making agents",
+    "description": "239 tasks, 9 agent systems, ~13k task-specific rubric checks judged by three independent video panels. How well do agents make complete, sound-on videos by writing code?"
+  },
+  "https://vllm.ai/blog/2026-10-14-train-inference-consistency": {
+    "title": "Finish RL Training Faster: Bitwise-Consistent, High-Performance, Agent-Driven",
+    "description": "We make vLLM rollout and the training forward give bitwise identical logprobs on DeepSeek-V4-Flash and Nemotron-3.5-Lightning-30B-A3B (NVFP4), keep 91% of rollo"
+  },
+  "https://waltstephen.github.io/captain/assets/paper/CaPtain.pdf": {
+    "failed": true
+  },
+  "https://wangwu-30.github.io/ai-digest-registry/": {
+    "title": "AI 日报黄页",
+    "description": "每个人用自己的 agent 收集、重排、发布的 AI 日报目录。做一份你自己的，收录在这里。"
+  },
+  "https://wanshuiyin.github.io/SuperARIS/": {
+    "title": "SuperARIS — Your personal research agent with ARIS, powered by a team of agents.",
+    "description": "SuperARIS — Your personal research agent with ARIS, powered by a team of agents. Live inside a real multi-pane CLI workbench with Claude Code, Codex, and Gemini."
+  },
+  "https://webuniverse-nsl.github.io/": {
+    "title": "WebUniverse — Scaling Verified Training Data for Agentic Web Development",
+    "description": "From repositories and real web pages to executable environments, verified trajectories, and stronger front-end agents."
+  },
+  "https://weftplay.com/": {
+    "title": "Weftplay · 免费网页小游戏",
+    "description": "免费在线玩 AI 生成的小游戏:益智、街机、棋牌、文字。无需下载,无需注册,中英文双语。",
+    "siteName": "Weftplay"
+  },
+  "https://who.1ms.dog/zh-cn/": {
+    "title": "网站眼里的你是谁？浏览器指纹、IP 检测与隐私检测 · 你是谁",
+    "description": "不用你同意，网站就能读到的你",
+    "siteName": "1ms.dog"
+  },
+  "https://www-cdn.anthropic.com/8167d62f0fb9c46e94e292e66ff5e26249860f94.pdf": {
+    "failed": true
+  },
+  "https://www-cdn.anthropic.com/b9ca6db27f02a9ddf0d4fdb51b26432c99a27be0.pdf": {
+    "failed": true
+  },
+  "https://www.agentenvframework.com/": {
+    "title": "AgentEnv Framework | Scale AI's open-source framework for RL environments",
+    "description": "The open-source framework Scale AI uses to build RL environments: composable environments behind an MCP gateway, any agent in any sandbox, tasks as DAGs.",
+    "siteName": "AgentEnv Framework"
+  },
+  "https://www.alphaxiv.org/pdf/2611.reinforce-zero-kernel-alignment-asynchronous-rl": {
+    "failed": true
+  },
+  "https://www.anthropic.com/research/components-of-agent-memory": {
+    "title": "The components of agent memory",
+    "description": "For Claude to learn from experience, it has to decide what’s worth remembering before it knows what’s next. Here’s how “dreaming” helps it organize memory and correct mistakes."
+  },
+  "https://www.anthropic.com/research/formalizing-fermats-last-theorem": {
+    "title": "Formalizing Fermat's Last Theorem",
+    "description": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems."
+  },
+  "https://www.anthropic.com/research/self-replicating-ai": {
+    "title": "AI models may be capable of self-replicating without access to a datacenter",
+    "description": "Small AI models may be only months away from being able to self-replicate across cheap IoT devices like Android TV boxes, with no datacenter needed."
+  },
+  "https://www.bilibili.com/video/BV1H8av6HEYs/": {
+    "title": "震惊瘫坐！Opus 5.5生成-从现在看过去-AI简史_哔哩哔哩_bilibili",
+    "description": "Opus 5.5纯代码生成随便做做的，试试手感，但真的感觉不错，虽然修改了8次，人工把控了一些节奏能产出6分多钟的视频非常强了, 视频播放量 91408、弹幕量 197、点赞数 3108、投硬币枚数 1103、收藏人数 3357、转发人数 1726, 视频作者 铼夏LAYccc, 作者简介 正在学习各种骚操作，相关视频：Opus5.5生成短片《当我让claude展示她的所有知识》，「AI 被提问时，脑子里到底在想什么？」我让 Claud",
+    "siteName": "哔哩哔哩"
+  },
+  "https://www.biorxiv.org/content/10.64898/2026.03.19.712954v1": {
+    "failed": true
+  },
+  "https://www.businessinsider.com/hugging-face-hack-openai-rogue-ai-china-cybersecurity-2026-7%EF%BC%89": {
+    "failed": true
+  },
+  "https://www.figma.com/resource-library/design-basics/": {
+    "title": "Design Basics: UI/UX, Prototyping & Core Principles | Figma",
+    "description": "Discover the fundamentals of design with articles that cover the core principles, tools, and techniques every designer should know.",
+    "siteName": "Figma"
+  },
+  "https://www.linkedin.com/company/fangcun-ai/posts/?viewAsMember=true": {
+    "failed": true
+  },
+  "https://www.linkedin.com/feed/update/urn:li:activity:7525657367661674496/": {
+    "title": "#recursiveselfimprovement #aiinfrastructure #opensource | OpenRSI Foundation",
+    "description": "Recursive Self-Improvement is making measurable progress in production AI infrastructure. OpenRSI’s work with SGLang-Omni has delivered 14 upstream-merged pull requests across 8 speech and omni models, with throughput im",
+    "siteName": "LinkedIn"
+  },
+  "https://www.liquid.ai/blog/lfm3": {
+    "title": "Introducing LFM3: Every Modality for Specialized Intelligence | Blog",
+    "description": "LFM3 is Liquid AI’s new open-weight model family: 2B-class text, vision, audio, omni, and decision models built to fine-tune and run fast on any device.",
+    "siteName": "Liquid AI"
+  },
+  "https://www.nature.com/articles/d41586-026-02804-x?code=806f0d1a-fa32-4693-a187-0f90088df82e&error=cookies_not_supported": {
+    "title": "The Einstein test: what happens when AI tries to rediscover relativity?",
+    "description": "Scientists are probing whether language models trained on historical data can reproduce creative breakthroughs."
+  },
+  "https://www.onorca.dev/": {
+    "title": "Orca — The agent development environment",
+    "description": "Orca is the Agent Development Environment (ADE) for shipping with coding agents. Run Claude Code, Codex, Gemini, Cursor CLI, and every other CLI agent in parallel across isolated worktrees. Get work done dramatically fas",
+    "siteName": "Orca"
+  },
+  "https://www.recursive.com/updates/introducing-recursive-flint": {
+    "title": "Introducing Flint - Recursive",
+    "description": "Recursive self-improving superintelligence to automate knowledge discovery."
+  },
+  "https://www.reddit.com/r/kimi/comments/1xe7cbr/moonshot_fooled_everyone_with_kimi_k31_pros_3d/": {
+    "title": "Reddit - Prove your humanity"
+  },
+  "https://www.reuters.com/legal/legalindustry/how-att-is-using-ai-reduce-its-reliance-law-firms-2026-10-08/": {
+    "failed": true
+  },
+  "https://www.sglang.io/blog/omni-interactive-runtime": {
+    "title": "Unified Runtime for Full-Duplex Interactive Intelligence with SGLang Omni | SGLang Blog",
+    "description": "Graphs, persistent sessions, and model execution unify native full-duplex, turn-based, and cascaded interactive systems in SGLang-Omni.",
+    "siteName": "SGLang"
+  },
+  "https://www.sglang.io/summit": {
+    "title": "SGLang Summit 2026",
+    "description": "Open Foundations for the Next Era of AI. November 12–13, 2026 · Fort Mason, San Francisco.",
+    "siteName": "SGLang"
+  },
+  "https://www.theguardian.com/technology/2015/jul/06/hacking-team-hacked-firm-sold-spying-tools-to-repressive-regimes-documents-claim": {
+    "title": "Hacking Team hacked: firm sold spying tools to repressive regimes, documents claim",
+    "description": "Cybersecurity firm has 400GB of what purport to be its own documents published via its Twitter feed after hack",
+    "siteName": "the Guardian"
+  },
+  "https://www.xiaohongshu.com/discovery/item/6acc8440000000000100af40?source=webshare&%5B%E6%95%8F%E6%84%9F%E5%AD%97%E6%AE%B5%E5%B7%B2%E9%9A%90%E8%97%8F%5D=&xsec_source=pc_share": {
+    "title": "小红书 - 你访问的页面不见了"
+  },
+  "https://www.youtube.com/watch?v=lR0kH0c_R6Y": {
+    "failed": true
+  },
+  "https://www.zhihu.com/question/2102042636320298288/answer/2106112805854262890": {
+    "failed": true
+  },
+  "https://x.com/AlexKrentsel/status/2117376683724660898?a=Tv4Fve1oeShS-odx-uM&s=20": {
+    "title": "Alex Krentsel 的帖子",
+    "description": "i've reproduced the results from the MIT blog post today on weight-space programming. but one additional result i have to add: this is a new, step-change emerging capability that's appeared in just the latest set of mode",
+    "siteName": "X"
+  },
+  "https://x.com/anthropicai/status/2109795898909950247?s=46": {
+    "title": "Anthropic 的帖子",
+    "description": "Over the last few months, we’ve made significant progress in reducing the effectiveness of distillation attacks against Claude. In this post, we explain how: https://t.co/uWiRSLBuOS &mdash; Anthropic (@AnthropicAI) Octob",
+    "siteName": "X"
+  },
+  "https://x.com/anthropicai/status/2113390212911083894?s=46&t=l4UlHPk8b2R98wFAOTM_sw": {
+    "title": "Anthropic 的帖子",
+    "description": "New on our Frontier Red Team blog: using Claude to formally verify software at large scale. Formal verification can prove that code is free of certain bugs, but historically it has only been feasible for small codebases ",
+    "siteName": "X"
+  },
+  "https://x.com/ChongZzZhang/status/2112358962335207607": {
+    "title": "C. Zhang 的帖子",
+    "description": "following the discussion weeks ago, I asked codex to vibe a comparison for MPC vs RL for just table-top EE tracking, 1.6Mtok gone. It uses Pinocchio for MPC, and codes a cupy-based simulator, tuned RL to achieve better t",
+    "siteName": "X"
+  },
+  "https://x.com/claudeai/status/2119867132452221045/video/1?s=46": {
+    "failed": true
+  },
+  "https://x.com/da7_tech/status/2120540672696451162?s=46": {
+    "title": "Da7em 的帖子",
+    "description": "A big Chinese lab reached out to me asking for help distilling Fable into their model. I said no. I told them to use the millions of books that have no copyright instead. Offered to help pick them and to help train the m",
+    "siteName": "X"
+  },
+  "https://x.com/FangcunLeap/status/2114719692137136245": {
+    "title": "Fangcun AI 的帖子",
+    "description": "We’re Fangcun AI (方寸跃迁), China’s first lab dedicated to independent third-party evaluation & technique research on frontier AI safety. Today we’re publishing our evaluation of DeepSeek V4.1 Flash-1017, the first report i",
+    "siteName": "X"
+  },
+  "https://x.com/FanqingMengAI/status/2108030344322789563": {
+    "title": "Fanqing 的帖子",
+    "description": "💡Our view: RSI is a systems engineering problem, not just a model problem. Progress depends on the environment a research agent works in: what resources it can call, what it can change, and how it runs experiments. That",
+    "siteName": "X"
+  },
+  "https://x.com/felixrieseberg/status/2119925633564463609?a=bqTe7jJG3JpACz8QR18&s=46": {
+    "failed": true
+  },
+  "https://x.com/greghxm_1/status/2122514912849359169?a=ZCZWlEYaFaQ6mvsdDDg&s=20": {
+    "title": "Greg Hu 的帖子",
+    "description": "I've recently been exploring Coding Agents for Science. Here are my thoughts on building a scalable scientific data flywheel, from assisting existing scientific workflows to autonomous research with closed-loop dry and w",
+    "siteName": "X"
+  },
+  "https://x.com/haochen_shi3/status/2115871363001135262?a=tmaS7BQ2qFKs6woBIy4&s=20": {
+    "title": "Haochen shi 的帖子",
+    "description": "Can recursive models think differently, not just longer? Input-Conditioned Search (ICS) changes their update maps at test time with no extra training. ICS achieves the highest mean Acc across six tasks with up to two ord",
+    "siteName": "X"
+  },
+  "https://x.com/jkeatn": {
+    "title": "X 上的 Jake Eaton (@jkeatn)",
+    "description": "a bubble in a stream // technically, a member of staff @anthropicai",
+    "siteName": "X (formerly Twitter)"
+  },
+  "https://x.com/Jo1uck/status/2110717028948668899": {
+    "title": "J.L 的帖子",
+    "description": "Memory Attention paper update! Added extensive ablation studies exploring MA integration, placement, normalization, and Attnres. simple idea: V = K + M. More parameters, yet a lower GPU memory footprint, better performan",
+    "siteName": "X"
+  },
+  "https://x.com/joseph_h_garvin/status/2113668055582625833": {
+    "title": "Joseph Garvin 的帖子",
+    "description": "Astra just found a bug in Anthropic's formal verification example, their \"specification\" doesn't actually check output bytes match input bytes. The irony is thick. pic.twitter.com/VCYiPSOXrV &mdash; Joseph Garvin (@josep",
+    "siteName": "X"
+  },
+  "https://x.com/maxforai/status/2117156375293825036?a=YBjoRNhjqOucT6Uy1dY&s=46": {
+    "title": "Max For AI 的帖子",
+    "description": "周末太忙了，编辑好草稿忘发了。。。 本周我们会迎来几个新的中国模型🇨🇳： 1. @TencentHunyuan 的HY4正式版（比Preview有了较大提升，坐到大人那桌了） 2. @deepseek_ai 的新模型V4.1-Pro（如果一些流程没有遇到意外，本周我们会见到它） 3. @Kimi_Moonshot 的K3.1另一个版本（便宜、大碗、速度快）… pic.twitter.com/JP7Og8z0v7 &mdash; Ma",
+    "siteName": "X"
+  },
+  "https://x.com/openai/status/2116253388883345623?a=-DF2XoeI2SJiaEta1r8&s=46": {
+    "failed": true
+  },
+  "https://x.com/OpenRSI/status/2119869682929066288": {
+    "title": "OpenRSI Foundation 的帖子",
+    "description": "We scaled Recursive Self-Improvement (RSI) to production AI infrastructure with SGLang-Omni, shipping 14 upstream-merged PRs across 8 speech & omni models with 7.6%–344.3% throughput gains. Blog: https://t.co/rLVw43GzFm ",
+    "siteName": "X"
+  },
+  "https://x.com/realmrfakename/status/2111656925737947387?s=46": {
+    "title": "mrfakename 的帖子",
+    "description": "AutoTrust’s HF models are trending thanks to thousands of farmed likes 🧵 Their JEV-27B-VL model is now the 10th most liked model on Hugging Face of all time, after only ~17 days. But if you click into the likes, you may",
+    "siteName": "X"
+  },
+  "https://x.com/RichardSocher/status/2112944385415426249?s=20": {
+    "title": "Richard Socher 的帖子",
+    "description": "Introducing Flint, @Recursive_SI ’s first model: a fast local coding model built with our automated research system, the Eureka Machine. • Best-in-class fast local coding • Up to 2x faster than comparable models: 125+ to",
+    "siteName": "X"
+  },
+  "https://x.com/techfren/status/2119924958134702276": {
+    "title": "Tech Friend AJ 的帖子",
+    "description": "HOLY this ended up looking even better than the leaks! the lighting, the small differences in acceleration as it peddles. insane... https://t.co/ia6WUYcthy pic.twitter.com/CkbuEVyR2f &mdash; Tech Friend AJ (@techfren) No",
+    "siteName": "X"
+  },
+  "https://x.com/TencentAI_News/status/2109904850708512825?s=20": {
+    "title": "Tencent AI 的帖子",
+    "description": "Everyone's posting about RSI. So we built the exam AI can't study for. Most benchmark questions have decades of human discussion behind them, and all of that text sits in the training data. So a high score might just mea",
+    "siteName": "X"
+  },
+  "https://x.com/thebuggeddev/status/2110241991233790456": {
+    "title": "The Bugged Dev 的帖子",
+    "description": "I feel like we haven't seen enough of what Gemini 4 Argon can actually do ❤️‍🔥 I gave it one image of a Gothic Victorian carriage and asked it to build the whole thing as an interactive 3D experience. Just one image and",
+    "siteName": "X"
+  },
+  "https://x.com/themianoo/status/2120042064666882266?s=20": {
+    "title": "Mian🍜 的帖子",
+    "description": "Fable 5.2 在 Blender 里做出了这只骑自行车的鹈鹕😱😱 全程没打开软件界面👍 大约 4800 行 Python 代码，RTX 5080 上渲染全部 444 帧，只用了 56 分钟。 没有使用任何现成下载的3D模型，也没有手动建模。 成品效果居然比泄露版本还要惊艳！… &mdash; Mian🍜 (@themianoo) November 10, 2026",
+    "siteName": "X"
+  },
+  "https://x.com/theo/status/2122760447103484410?s=46": {
+    "title": "Theo - t3.gg 的帖子",
+    "description": "https://t.co/M034Qyf2d5 &mdash; Theo - t3.gg (@theo) November 17, 2026",
+    "siteName": "X"
+  },
+  "https://x.com/tokenwaveai/status/2122713676511867009?s=46": {
+    "title": "TokenWave.AI 的帖子",
+    "description": "Can a coding agent take over a teammate’s work in progress? Introducing SWE-CoWork, a benchmark for coding agents working as digital employees on long-horizon software engineering tasks. Each assignment starts with a sho",
+    "siteName": "X"
+  },
+  "https://x.com/tydsh/status/2117431355730723149?a=YZWpNH2F9NBi_Lghe4I&s=46": {
+    "title": "Yuandong Tian 的帖子",
+    "description": "Interesting work! I wonder whether this also works for other models than Qwen3.5-0.8B? It could be possible that the mech interp analysis of the Qwen model has been incorporated into the training set of Astra. E.g., can ",
+    "siteName": "X"
+  },
+  "https://x.com/xingyudang/status/2117361892486201526?a=ZBiEfMaJrEJAisW9P54&s=46": {
+    "title": "Xingyu Dang 的帖子",
+    "description": "Same recipe https://t.co/7tWuEc0WKs pic.twitter.com/07lmcZCAK4 &mdash; Xingyu Dang (@xingyudang) November 2, 2026",
+    "siteName": "X"
+  },
+  "https://x.com/YxzRainy/status/2119936069877555281?a=dGYBnoLaP43iol4ohmo&s=20": {
+    "title": "兴雨 的帖子",
+    "description": "感受一下 Claude Fable 5.2 的顶级审美😭 这光影、配色和氛围感，真有《光遇》那味儿了好吧…… 有一说一，这审美 ChatGPT 得学十年🤣👌 pic.twitter.com/z2XTQdnQp6 &mdash; 兴雨 (@YxzRainy) November 9, 2026",
+    "siteName": "X"
+  },
+  "https://x.com/zuo_yuxin/status/2117635294115795134?a=XWAw0OD1Z9QRKDbK7q4&s=20": {
+    "title": "Yuxin Zuo 的帖子",
+    "description": "‼️ Can Qwen directly control the robot as well as GPT-6 Astra? 🚀 Introducing uni-robot-agent: a unified harness for Robot-Use Agents (RUAs), a first step toward RUA training and local deployment. We tested uni-robot-age",
+    "siteName": "X"
+  },
+  "https://xhslink.cn/o/8V6igg1Nq8a": {
+    "title": "小红书 - 你的生活兴趣社区"
+  },
+  "https://xhslink.cn/o/HhMD5Mq63k": {
+    "title": "小红书 - 你的生活兴趣社区"
+  },
+  "https://xlyu0106.github.io/CUA-Master/": {
+    "title": "CUA-Master: Scaling Computer-use Agents through Open-World Recursive Improvements",
+    "description": "A nested double-loop recursive improvement framework that scales computer-use agents with open-world knowledge."
+  },
+  "https://yinhongliu.com/InteractionGym/": {
+    "failed": true
+  },
+  "https://zefanw.github.io/JustRUA/zh/": {
+    "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
+    "description": "不用学习得到的策略、自我改进循环或针对任务的调参，一个简洁的 harness 就让 GPT-6 Astra 在 RoboDojo 上的得分从 29.7 提高到 50.3。",
+    "siteName": "JustRUA"
+  },
+  "https://zero2repo.ai/": {
+    "title": "zero2repo bench",
+    "description": "A 0-to-1 coding benchmark. The agent ships a repository. A sealed judge scores it."
+  },
+  "https://zhuanlan.zhihu.com/p/135981668": {
+    "failed": true
+  },
+  "https://zhuanlan.zhihu.com/p/1893266316107957953": {
+    "failed": true
+  },
+  "https://zhuanlan.zhihu.com/p/2078125465248833927": {
+    "failed": true
+  },
+  "https://zhuanlan.zhihu.com/p/2095560295930508953": {
+    "failed": true
+  },
+  "https://zhuanlan.zhihu.com/p/2104545623055848467": {
+    "failed": true
+  }
+}

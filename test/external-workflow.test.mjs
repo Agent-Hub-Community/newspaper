@@ -40,6 +40,8 @@ test('edition window uses China midnight and invalid dates fail', () => {
   assert.throws(() => externalWindow('2026-02-30'));
   assert.throws(() => externalWindow('2026-09-26', '2026-09-24T00:00:00Z'));
   assert.throws(() => validateSelection({ ...selection(), cutoff:'2026-09-27T00:00:00Z' }), /exceeds/);
+  validateSelection({ ...selection(), cutoff:'2026-09-27T00:00:00.000Z', throughNow: true });
+  assert.throws(() => validateSelection({ ...selection(), cutoff:'2026-09-28T00:00:00.000Z', throughNow: true }), /exceeds/);
   assert.throws(() => validateSelection({ ...selection(), windowStart:'2026-09-24T16:00:00Z' }), /content date/);
 });
 test('selection requires original content and attention; papers need both top-five ranks', () => {

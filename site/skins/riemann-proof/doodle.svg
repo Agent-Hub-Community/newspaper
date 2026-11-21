@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 96" width="180" height="96" fill="none" role="img" aria-label="临界线 Re(s)=1/2 与非平凡零点插画">
+  <defs>
+    <linearGradient id="strip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8bb8ff" stop-opacity="0.04"/>
+      <stop offset="50%" stop-color="#f3ca6d" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#8bb8ff" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8bb8ff" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#8bb8ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f3ca6d" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3ca6d" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#f3ca6d" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#f3ca6d" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .zero-ring { animation: rh-pulse 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .zero-ring.d2 { animation-delay: 0.7s; }
+    .zero-ring.d3 { animation-delay: 1.4s; }
+    .zero-ring.d4 { animation-delay: 2.1s; }
+    .zero-ring.d5 { animation-delay: 2.8s; }
+    @keyframes rh-pulse { 0%, 100% { opacity: 0.25; transform: scale(1); } 50% { opacity: 0.85; transform: scale(1.35); } }
+    @media (prefers-reduced-motion: reduce) { .zero-ring { animation: none; opacity: 0.45; } }
+  </style>
+  <!-- Critical strip 0 < Re(s) < 1 -->
+  <rect x="46" y="6" width="88" height="84" rx="2" fill="url(#strip)"/>
+  <!-- Subtle complex plane grid -->
+  <line x1="46" y1="6" x2="46" y2="90" stroke="#7da7ff" stroke-opacity="0.3" stroke-dasharray="2 3"/>
+  <line x1="134" y1="6" x2="134" y2="90" stroke="#7da7ff" stroke-opacity="0.3" stroke-dasharray="2 3"/>
+  <line x1="14" y1="84" x2="168" y2="84" stroke="#9ab4e8" stroke-opacity="0.35" stroke-width="0.9"/>
+  <!-- Zeta magnitude oscillation intersecting Re(s) = 1/2 -->
+  <path d="M90 12 C112 16, 118 22, 90 27 C62 32, 68 39, 90 44 C122 50, 114 57, 90 62 C64 68, 70 74, 90 78 C108 82, 102 86, 90 89" stroke="url(#wave)" stroke-width="1.35" stroke-linecap="round"/>
+  <path d="M90 12 C72 16, 70 22, 90 27 C110 32, 108 39, 90 44 C68 50, 74 57, 90 62 C112 68, 106 74, 90 78" stroke="#f3ca6d" stroke-opacity="0.35" stroke-width="0.9" stroke-dasharray="2 2"/>
+  <!-- Critical line Re(s) = 1/2 -->
+  <line x1="90" y1="6" x2="90" y2="90" stroke="url(#line)" stroke-width="1.6"/>
+  <!-- Non-trivial zeros along Re(s) = 1/2 -->
+  <circle class="zero-ring" cx="90" cy="12" r="4.5" stroke="#f3ca6d" stroke-width="0.9"/>
+  <circle cx="90" cy="12" r="2.2" fill="#f3ca6d"/>
+  <circle class="zero-ring d2" cx="90" cy="27" r="4.5" stroke="#f3ca6d" stroke-width="0.9"/>
+  <circle cx="90" cy="27" r="2.4" fill="#fff4d2"/>
+  <circle class="zero-ring d3" cx="90" cy="44" r="5" stroke="#f3ca6d" stroke-width="1"/>
+  <circle cx="90" cy="44" r="2.8" fill="#f3ca6d"/>
+  <circle class="zero-ring d4" cx="90" cy="62" r="4.5" stroke="#f3ca6d" stroke-width="0.9"/>
+  <circle cx="90" cy="62" r="2.4" fill="#fff4d2"/>
+  <circle class="zero-ring d5" cx="90" cy="78" r="4" stroke="#f3ca6d" stroke-width="0.9"/>
+  <circle cx="90" cy="78" r="2.1" fill="#f3ca6d"/>
+  <!-- Mathematical labels -->
+  <text x="14" y="21" fill="#c4d1ea" font-family="Georgia, serif" font-style="italic" font-size="11">ζ(s) = 0</text>
+  <text x="14" y="34" fill="#8bb8ff" font-family="ui-monospace, SFMono-Regular, monospace" font-size="8.5">⊢ Lean</text>
+  <text x="139" y="21" fill="#f3ca6d" font-family="ui-monospace, SFMono-Regular, monospace" font-size="9">Re = ½</text>
+  <text x="139" y="34" fill="#9ab4e8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="8">17M loc</text>
+  <text x="43" y="93" fill="#9ab4e8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="7.5">0</text>
+  <text x="86" y="95" fill="#f3ca6d" font-family="ui-monospace, SFMono-Regular, monospace" font-size="7.5">½</text>
+  <text x="131" y="93" fill="#9ab4e8" font-family="ui-monospace, SFMono-Regular, monospace" font-size="7.5">1</text>
+</svg>
