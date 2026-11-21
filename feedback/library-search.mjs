@@ -51,7 +51,7 @@ export function createLibrarySearch(fetchContent = fetch, now = Date.now) {
       headers: { ...readerHeaders, 'Access-Control-Allow-Methods': 'GET, OPTIONS' } });
     if (request.method !== 'GET') return json({ error: 'Use GET', code: 'method_not_allowed', links }, 405);
     const params = new URL(request.url).searchParams;
-    const allowed = new Set(['q', 'type', 'topic', 'keyword', 'limit', 'offset', 'revision', 'analytics_test']);
+    const allowed = new Set(['q', 'type', 'topic', 'keyword', 'has', 'group', 'discussed', 'since', 'until', 'sort', 'limit', 'offset', 'revision', 'analytics_test']);
     const extra = [...params.keys()].find(key => !allowed.has(key) || params.getAll(key).length !== 1);
     if (extra) {
       return json({ error: allowed.has(extra) ? `Repeated parameter: ${extra}` : `Unknown parameter: ${extra}`,
@@ -61,12 +61,23 @@ export function createLibrarySearch(fetchContent = fetch, now = Date.now) {
     const get = name => params.get(name) || '';
     const q = get('q').normalize('NFKC').trim();
     const type = get('type'), topic = get('topic'), keyword = get('keyword').normalize('NFKC').trim(), revision = get('revision');
+    const has = get('has'), group = get('group'), discussed = get('discussed'), since = get('since'), until = get('until'), sort = get('sort');
     const limitText = get('limit') || '5', offsetText = get('offset') || '0';
+    const isDay = value => /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+    const SORTS = ['recent', 'heat', 'active', 'relevance'];
+    const DEFAULT_LINK_KINDS = ['paper', 'code', 'project', 'data', 'model', 'leaderboard', 'demo', 'docs', 'article', 'post', 'video'];
     const invalid = [
       ['q', [...q].length > 120, 'at most 120 characters'],
       ['keyword', [...keyword].length > 120, 'at most 120 characters'],
       ['type', type.length > 64, 'a type id from available.types'],
       ['topic', topic.length > 64, 'a topic id from available.topics'],
+      ['has', has.length > 32, 'a link kind such as code, data, model, leaderboard, or paper'],
+      ['group', group.length > 32, 'a group id such as group-1..group-8'],
+      ['discussed', discussed && !['1', '0', 'true', 'false'].includes(discussed), '1, 0, true, or false'],
+      ['since', since && !isDay(since), 'YYYY-MM-DD'],
+      ['until', until && !isDay(until), 'YYYY-MM-DD'],
+      ['until', since && until && since > until, 'a date on or after since'],
+      ['sort', sort && !SORTS.includes(sort), SORTS.join(', ')],
       ['limit', !/^(?:[1-9]|1[0-9]|20)$/.test(limitText), 'an integer from 1 to 20'],
       ['offset', !/^(?:0|[1-9][0-9]{0,4})$/.test(offsetText), 'an integer from 0 to 99999'],
       ['revision', revision && !/^[a-f0-9]{64}$/.test(revision), '64 lowercase hex characters from an earlier library response'],
@@ -91,32 +102,70 @@ export function createLibrarySearch(fetchContent = fetch, now = Date.now) {
           error: 'Library changed, or the revision came from another endpoint; restart at restart_url',
           code: 'revision_conflict', restart_url: restart.href }, 409));
       }
-      const available = { types: data.types, topics: data.topics };
-      const unknown = [['type', type, data.types], ['topic', topic, data.topics]].find(([, value, list]) => value && !list.some(x => x.id === value));
+      const linkKinds = Array.isArray(data.link_kinds) && data.link_kinds.length
+        ? data.link_kinds
+        : DEFAULT_LINK_KINDS.map(id => ({ id }));
+      const available = {
+        types: data.types,
+        topics: data.topics,
+        link_kinds: linkKinds,
+        ...(Array.isArray(data.groups) ? { groups: data.groups } : {}),
+        sorts: SORTS,
+      };
+      const unknown = [
+        ['type', type, data.types],
+        ['topic', topic, data.topics],
+        ['has', has, linkKinds],
+        ...(Array.isArray(data.groups) ? [['group', group, data.groups]] : []),
+      ].find(([, value, list]) => value && !list.some(x => x.id === value));
       if (unknown) {
         const [param, value] = unknown;
         return json({ ...meta, error: `Unknown ${param}: ${value}`, code: 'invalid_parameter', param, available }, 400);
+      }
+      if (group && !Array.isArray(data.groups) && !/^group-\d{1,2}$/.test(group)) {
+        return json({ ...meta, error: `Unknown group: ${group}`, code: 'invalid_parameter', param: 'group', available }, 400);
       }
       const key = keyword ? aliases.get(norm(keyword)) : '';
       if (keyword && !key) {
         return json({ ...meta, error: `Unknown keyword: ${keyword}`, code: 'invalid_parameter', param: 'keyword',
           hint: 'keyword takes a recorded keyword or alias; search free text with q', available }, 400);
       }
-      const fits = item => (!type || item.type === type) && (!topic || item.topics.includes(topic))
-        && (!key || item.keywords.some(k => norm(k) === norm(key)));
+      const firstSharedOf = item => item.first_shared || item.shared?.[0]?.date || '';
+      const lastSharedOf = item => item.last_shared || item.shared?.at(-1)?.date || firstSharedOf(item);
+      const heatOf = item => typeof item.heat === 'number'
+        ? item.heat
+        : (new Set((item.shared || []).map(s => s.group)).size * 3 + (item.shared || []).length * 2 + (item.discussions || []).length * 4 + ((item.links || []).length > 1 ? 1 : 0));
+      const discussedFilter = discussed === '1' || discussed === 'true' ? true : discussed === '0' || discussed === 'false' ? false : null;
+      const fits = item => (!type || item.type === type)
+        && (!topic || item.topics.includes(topic))
+        && (!key || item.keywords.some(k => norm(k) === norm(key)))
+        && (!has || (item.links || []).some(link => link.kind === has))
+        && (!group || (item.shared || []).some(share => share.group === group))
+        && (discussedFilter === null || ((item.discussions || []).length > 0) === discussedFilter)
+        && (!since || lastSharedOf(item) >= since)
+        && (!until || firstSharedOf(item) <= until);
+      const hasAnyFilter = Boolean(type || topic || key || has || group || discussedFilter !== null || since || until);
       // Filters apply inside the search, so relevance is judged among the items the reader asked for.
-      const keep = type || topic || key ? i => fits(data.items[i]) : undefined;
+      const keep = hasAnyFilter ? i => fits(data.items[i]) : undefined;
       const read = q ? index.explain(q, keep) : null;
       const matches = read?.matches || null;
       const top = matches ? Math.max(0, ...[...matches.values()].map(match => match.score)) : 0;
+      const effectiveSort = sort || (q ? 'relevance' : 'recent');
       const found = data.items.map((item, i) => ({ item, score: matches?.get(i)?.score || 0, i }))
         .filter(({ item, i }) => (!matches || matches.has(i)) && fits(item))
-        .sort((a, b) => b.score - a.score || a.i - b.i);
+        .sort((a, b) => {
+          if (effectiveSort === 'heat') return heatOf(b.item) - heatOf(a.item) || b.score - a.score || a.i - b.i;
+          if (effectiveSort === 'active') return lastSharedOf(b.item).localeCompare(lastSharedOf(a.item)) || b.score - a.score || a.i - b.i;
+          if (effectiveSort === 'recent') return firstSharedOf(b.item).localeCompare(firstSharedOf(a.item)) || a.i - b.i;
+          return b.score - a.score || a.i - b.i;
+        });
       const limit = Number(limitText), offset = Number(offsetText);
       const items = found.slice(offset, offset + limit).map(({ item, score }) => ({
         id: item.id, content_id: `library:${item.id}`,
         detail_url: `${contentAPIBase}item?${new URLSearchParams({ id: `library:${item.id}` })}`, title: item.title, ...(matches ? { relevance: relevance(score, top) } : {}), summary: item.summary, type: item.type, topics: item.topics,
-        keywords: item.keywords, links: item.links, shared: item.shared, related: item.related, url: item.url,
+        keywords: item.keywords, links: item.links, first_shared: firstSharedOf(item), last_shared: lastSharedOf(item),
+        heat: heatOf(item), discussion_count: item.discussion_count ?? (item.discussions || []).length,
+        shared: item.shared, related: item.related, url: item.url,
         discussions: item.discussions.map(d => ({ ...d, read_url: d.read_url || (d.kind === 'weekly'
           ? `${readingBase}weekly/${d.from}/${d.date}/index.md`
           : `${readingBase}daily/${d.date}/${d.group}/index.md`) })),
@@ -128,11 +177,20 @@ export function createLibrarySearch(fetchContent = fetch, now = Date.now) {
       const nextUrl = new URL(request.url);
       nextUrl.searchParams.set('offset', String(next));
       if (data.revision) nextUrl.searchParams.set('revision', data.revision);
-      response = json({ ...meta, query: { q, type, topic, keyword: key, ...(read ? searchReading(read, q) : {}) },
+      const queryInfo = {
+        q, type, topic, keyword: key,
+        ...(has ? { has } : {}), ...(group ? { group } : {}),
+        ...(discussedFilter !== null ? { discussed: discussedFilter } : {}),
+        ...(since ? { since } : {}), ...(until ? { until } : {}),
+        ...(sort ? { sort: effectiveSort } : {}),
+        ...(read ? searchReading(read, q) : {}),
+      };
+      response = json({ ...meta, query: queryInfo,
         total: found.length, limit, offset, next_offset: next, next_url: next === null ? null : nextUrl.href,
         ...(read ? zeroResultHint(read, q, request.url, rest => index.search(rest, keep).size > 0) : {}),
         coverage: data.coverage, ...(offset === 0 || !found.length ? { available } : {}), items });
-      await recordSearch(request, env, ctx, { endpoint: 'library/search', q, filters: { type, topic, keyword: key },
+      await recordSearch(request, env, ctx, { endpoint: 'library/search', q,
+        filters: { type, topic, keyword: key, has, group, discussed: discussedFilter === null ? '' : String(discussedFilter), since, until, sort },
         total: found.length, read });
     } catch {
       response = json({ error: 'Library temporarily unavailable; retry later', code: 'upstream_unavailable',

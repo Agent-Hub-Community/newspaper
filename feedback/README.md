@@ -354,6 +354,11 @@ It reads the same `library/resources.json` as the website; it cannot query raw c
 | `type` | One resource type, such as `benchmark` or `code` |
 | `topic` | One topic, such as `computer-use` |
 | `keyword` | One keyword or a known keyword alias |
+| `has` | One link kind, such as `code`, `data`, `model`, `leaderboard`, or `paper` |
+| `group` | One group ID, such as `group-3` |
+| `discussed` | `1`/`true` for items with linked daily/weekly discussions, `0`/`false` for items without |
+| `since` / `until` | Optional `YYYY-MM-DD` date bounds matched against `last_shared >= since` and `first_shared <= until` |
+| `sort` | `recent` (first-share desc), `heat` (community resonance desc), `active` (last-share desc), or `relevance` (default when `q` is given) |
 | `limit` | Page size, 1 to 20; default 5 |
 | `offset` | Zero-based result offset; default 0 |
 | `revision` | Optional catalog revision from a previous response; a mismatch returns HTTP 409 |

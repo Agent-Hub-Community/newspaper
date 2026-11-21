@@ -156,3 +156,39 @@ test('when a library refresh fails, every waiting request gets the previous data
   assert.ok(bodies.every(body => body.stale === true && body.total >= 1));
   assert.equal(loads, 2);
 });
+
+test('library search supports has, group, discussed, since/until, and heat/active sorting', async () => {
+  const rich = {
+    ...data,
+    groups: [{ id: 'group-1', label: '一群' }, { id: 'group-3', label: '三群' }],
+    link_kinds: [{ id: 'paper', label: '论文' }, { id: 'code', label: '代码' }],
+    items: [
+      { ...data.items[0], first_shared: '2026-10-10', last_shared: '2026-10-15', heat: 12, discussion_count: 1,
+        shared: [{ date: '2026-10-10', group: 'group-1' }, { date: '2026-10-15', group: 'group-3' }] },
+      { ...data.items[1], first_shared: '2026-10-12', last_shared: '2026-10-12', heat: 5, discussion_count: 0,
+        links: [{ kind: 'paper', url: 'https://arxiv.org/abs/2610.00001' }],
+        shared: [{ date: '2026-10-12', group: 'group-1' }] },
+      { ...data.items[2], first_shared: '2026-10-01', last_shared: '2026-10-18', heat: 20, discussion_count: 0,
+        links: [{ kind: 'code', url: 'https://github.com/org/c' }],
+        shared: [{ date: '2026-10-01', group: 'group-3' }, { date: '2026-10-18', group: 'group-3' }] },
+    ],
+  };
+  const { call } = fixture(async () => Response.json(rich));
+  const withCode = await (await call('?has=code')).json();
+  assert.deepEqual(withCode.items.map(i => i.id).sort(), ['a', 'c']);
+  const discussedOnly = await (await call('?discussed=1')).json();
+  assert.deepEqual(discussedOnly.items.map(i => i.id), ['a']);
+  const inGroup3 = await (await call('?group=group-3')).json();
+  assert.deepEqual(inGroup3.items.map(i => i.id).sort(), ['a', 'c']);
+  const ranged = await (await call('?since=2026-10-14&until=2026-10-16')).json();
+  assert.deepEqual(ranged.items.map(i => i.id), ['a', 'c']);
+  const byHeat = await (await call('?sort=heat')).json();
+  assert.deepEqual(byHeat.items.map(i => i.id), ['c', 'a', 'b']);
+  assert.equal(byHeat.items[0].heat, 20);
+  const byActive = await (await call('?sort=active')).json();
+  assert.deepEqual(byActive.items.map(i => i.id), ['c', 'a', 'b']);
+  assert.equal(byActive.items[0].last_shared, '2026-10-18');
+  assert.equal((await call('?sort=bogus')).status, 400);
+  assert.equal((await call('?has=invalid')).status, 400);
+  assert.equal((await call('?since=2026-10-20&until=2026-10-10')).status, 400);
+});
