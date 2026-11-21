@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-19",
+  "title": "Google 发布 Gemini 4 Neon 与 Genie 4，Anthropic IPO 定价 83 美元",
+  "intro": "Google 连发两记重拳：主力新模型 Gemini 4 Neon 把价格压到 3/15 美元，世界模型 Genie 4 也向 Ultra 订阅开放。另一边，Anthropic 定价每股 83 美元准备敲钟，OpenAI 晒出用自家模型给 AMD 旗舰 GPU 改 RTL 代码的战果。",
+  "stories": [
+    {
+      "title": "Google 发布 Gemini 4 Neon，1M 上下文输入定价 3 美元",
+      "timing": "美东 11 月 18 日发布，北京时间 11 月 19 日 05:34 登上 HN 热议",
+      "text": "Google 发布 Gemini 4 Neon，定位复杂软件工程、知识工作和科学分析的快速端到端任务模型。API 定价每百万 token 输入 3 美元、输出 15 美元，缓存输入 0.15 美元（折扣 95%），上下文窗口 1M token。模型即日起在 Google AI Studio 的 Gemini API、Gemini for business、Google Antigravity 以及 Gemini 应用中向付费 Pro 与 Ultra 订阅用户逐步推出。\nGoogle 官方数据显示，Neon 在 xhigh 思考档位下于 Artificial Analysis 智能指数得 61 分，总榜排第 3；在 Vals Index 排第 2（70.9%），并在 Legal Research Bench、Tax Agent Bench 排第 1；在新的 Agent Arena Index 中，中途纠偏可控性排第 2。此外，它在 Chartography 专业图表阅读测得 73.5%，在 Agents' Last Exam v1.1 得 75.8%，内部 Antigravity 测试中幻觉率创自家新低。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 官方博客",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50552424"
+        }
+      ],
+      "emphasis": [
+        "输入 3 美元、输出 15 美元，缓存输入 0.15 美元（折扣 95%），上下文窗口 1M token",
+        "于 Artificial Analysis 智能指数得 61 分，总榜排第 3"
+      ],
+      "aiComment": "缓存输入直接打到 0.15 美元，这价格是打算让大家把整个代码库焊死在 1M 上下文里不松手了 🔥",
+      "sources": [
+        {
+          "publisher": "Google Blog",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "excerpt": "Google introduces Gemini 4 Neon, delivering frontier-level intelligence with fast end-to-end task completion across complex software engineering, knowledge work, and science workflows. Priced at $3/M input ($0.15/M cached, 95% discount) and $15/M output with a 1M token context window. Ranks #3 overall (score 61) on Artificial Analysis Intelligence Index at xhigh thinking, #2 on Vals Index (70.9%), #1 on Legal Research Bench and Tax Agent Bench, #2 on steerability on Agent Arena Index, 73.5% on Chartography, 75.8% on Agents' Last Exam v1.1, and lowest fabrication rate in internal Google Antigra"
+        },
+        {
+          "publisher": "Google DeepMind",
+          "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+          "excerpt": "Google introduces Gemini 4 Neon, delivering frontier-level intelligence for complex coding and analysis at a lower cost."
+        }
+      ]
+    },
+    {
+      "title": "Anthropic IPO 定价每股 83 美元，11 月 19 日纳斯达克挂牌",
+      "timing": "北京时间 11 月 19 日 07:30 前公布定价，美东 11 月 19 日开始交易",
+      "text": "Anthropic 宣布将首次公开募股发行价定为每股 83 美元，共发行 9.8 亿股 A 类普通股。其中约 9.56 亿股由 Anthropic 发行，约 2365 万股由现有售股股东出售，公司不从售股股东部分获得收益。此外，Anthropic 向承销商授予 30 天内最多追加认购 1.47 亿股的超额配售选择权。\n公告称，美国证监会已于 11 月 18 日宣布其注册声明生效，股票预计于美东时间 11 月 19 日在纳斯达克全球精选市场挂牌交易，代码为 ANT，发行预计于 11 月 20 日完成交割。高盛与摩根士丹利担任本次发行的主要承销商。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 定价公告",
+          "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50553843"
+        }
+      ],
+      "emphasis": [
+        "发行价定为每股 83 美元，共发行 9.8 亿股 A 类普通股",
+        "预计于美东时间 11 月 19 日在纳斯达克全球精选市场挂牌交易，代码为 ANT"
+      ],
+      "aiComment": "代码叫 ANT，募资规模却像头大象，83 美元每股，以后订阅 Claude Max 算不算给上市公司冲业绩 💸",
+      "sources": [
+        {
+          "publisher": "Anthropic",
+          "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+          "excerpt": "Anthropic, PBC priced its initial public offering of 980,000,000 shares of Class A common stock at $83.00 per share (956,351,354 sold by Anthropic and 23,648,646 by selling stockholders), plus a 30-day underwriter option for up to 147,000,000 additional shares. SEC registration statement declared effective Nov 18, 2026. Expected to begin trading on Nasdaq Global Select Market on Nov 19, 2026 under symbol ANT and close on Nov 20, 2026. Lead underwriters Goldman Sachs and Morgan Stanley."
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 披露模型辅助芯片设计进展：与 AMD 合作优化旗舰 GPU IP",
+      "timing": "美东 11 月 18 日发布，北京时间 11 月 19 日 01:45 登上 HN",
+      "text": "OpenAI 公布用自家前沿模型辅助芯片设计的最新进展。在自研推理芯片 Jalapeño 上，OpenAI 从 2025 年初开始用 GPT-o3 mini 等模型优化算术与流水线逻辑，官方估算模型建议的改动让向量单元标准单元面积减少约 13%、矩阵单元减少约 10%，其中一个乘法器在面积缩减约 15% 的同时把延迟从 2 周期降到 1 周期，相关改动已在芯片点亮中得到硅片验证。\nOpenAI 同时披露，已与 AMD 合作通过改写 SystemVerilog RTL 电路代码优化旗舰 GPU IP，官方称在高度优化的基线上实现最高 14% 的 PPA 提升，不到 5 个月完成了约一年的进度，部分改动已进入 AMD 送厂流片与生产设计文件。OpenAI 还将与 Synopsys 合作把模型接入主流 EDA 工具。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 研究博客",
+          "url": "https://openai.com/index/advancing-chip-design-with-our-models/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50549493"
+        }
+      ],
+      "emphasis": [
+        "向量单元标准单元面积减少约 13%、矩阵单元减少约 10%",
+        "在高度优化的基线上实现最高 14% 的 PPA 提升"
+      ],
+      "aiComment": "AI 开始自己改 RTL 帮 AMD 抠 14% 的 PPA，芯片工程师还没缓过神，硅片自己先卷起来了 🫠",
+      "sources": [
+        {
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/advancing-chip-design-with-our-models/",
+          "excerpt": "OpenAI details how frontier models starting with GPT-o3 mini in early 2025 improved its custom inference chip Jalapeño, reducing standard-cell area by ~13% in the vector unit and ~10% in the matrix unit (including a multiplier with ~15% less cell area and latency cut from 2 cycles to 1), silicon proven during bring-up. In collaboration with AMD, OpenAI models rewrote SystemVerilog RTL on flagship GPU IP for up to 14% PPA improvement over heavily optimized baselines, achieving roughly a year of progress in under 5 months, with some changes already sent for manufacturing. OpenAI is also partneri"
+        }
+      ]
+    },
+    {
+      "title": "Google DeepMind 开放 Genie 4，支持实时文本改场景与原生音频",
+      "timing": "美东 11 月 18 日发布，北京时间 11 月 19 日 02:49 登上 HN",
+      "text": "Google DeepMind 宣布向符合条件的 Google AI Ultra 订阅用户推出世界模型 Genie 4，并同步更新 Project Genie 体验。用户现在可以在交互式虚拟世界中，直接通过文本 prompt 实时修改当前环境，同时体验原生音频生成能力。\n此次更新还包含新的 Project Genie agent 与社区画廊；上一代 Genie 3 模型也同步获得升级，支持更长的交互会话、全景图锚定以及多世界串联序列。目前 Genie 4 仅面向合资格的 Google AI Ultra 付费订阅开放，未公布公开 API 或免费层计划。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 官方博客",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50550415"
+        }
+      ],
+      "emphasis": [
+        "直接通过文本 prompt 实时修改当前环境，同时体验原生音频生成能力",
+        "仅面向合资格的 Google AI Ultra 付费订阅开放"
+      ],
+      "aiComment": "打字就能实时改世界还带原生音效，可惜门票是 AI Ultra 会员，普通玩家只能先在画廊云逛街 🍿",
+      "sources": [
+        {
+          "publisher": "Google Blog",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+          "excerpt": "Google DeepMind is rolling out Genie 4 to eligible Google AI Ultra subscribers for creating interactive worlds, with real-time environment modification via text prompts and native audio features, alongside the new Project Genie agent and community gallery. Updated Genie 3 supports longer sessions, panorama grounding, and linked world sequences."
+        }
+      ]
+    },
+    {
+      "title": "Ruby 曝高危漏洞 Ruby2Shell，默认配置 Rails 可无认证远程执行代码",
+      "timing": "北京时间 11 月 19 日 13:09 公开披露",
+      "text": "安全机构 Veria Labs 披露 Ruby 字符串大小写转换高危漏洞 Ruby2Shell（CVE-2026-132825），波及 Ruby 2.4.0 至 4.0.9 等多条分支。原因在于部分单字节传统编码（如 ISO-8859 与 Windows-125x）将德语字母 ß 转为大写 SS 时会多写一个字节，但循环只检查了一个字节的边界；输入 21 个 ß 即可触发 1 字节堆溢出，进而实现远程代码执行。UTF-8 路径不受影响。\n该漏洞在默认配置的 Rails 与经典模式 Sinatra 中无需认证即可通过网络触发。Ruby 官方已在 3.3.14、3.4.13 和 4.0.10 中修复；GitLab、Mastodon、Chatwoot、OpenProject 和 Discourse 基础镜像已发补丁，GitHub Enterprise Server 3.22.5 及更早版本截至披露时仍无修复版。Ruby 安全公告同时致谢 Ada Logics 与 Anthropic 报告了底层原语。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Veria Labs 漏洞页",
+          "url": "https://verialabs.com/ruby2shell/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50556287"
+        }
+      ],
+      "emphasis": [
+        "输入 21 个 ß 即可触发 1 字节堆溢出，进而实现远程代码执行",
+        "默认配置的 Rails 与经典模式 Sinatra 中无需认证即可通过网络触发"
+      ],
+      "aiComment": "21 个德语 ß 就能把默认配置的 Rails 干穿，从 Ruby 2.4 潜伏到现在，运维今晚咖啡得续杯了 🚑",
+      "sources": [
+        {
+          "publisher": "Veria Labs",
+          "url": "https://verialabs.com/ruby2shell/",
+          "excerpt": "Ruby2Shell (CVE-2026-132825) is a critical one-byte heap overflow to pre-authentication RCE in Ruby's string case conversion affecting Ruby 2.4.0 through 4.0.9 (fixed in 3.3.14, 3.4.13, 4.0.10). In legacy single-byte encodings (ISO-8859, Windows-125x), upcasing sharp s (ß) writes two bytes (SS) while the loop only bounds-checks one; 21 ß characters overflow the buffer by one byte. UTF-8 is unaffected. Reachable by default on stock Rails and classic Sinatra; GitLab, Mastodon, Chatwoot, OpenProject, Discourse patched; GitHub Enterprise Server 3.22.5 and earlier vulnerable with no fix yet. Ruby a"
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "前沿 AI 正向底层硬件与系统安全纵深渗透",
+      "text": "OpenAI 披露用模型改写 SystemVerilog RTL 优化自研芯片和 AMD 旗舰 GPU IP，并计划接入 Synopsys EDA 工具；同一天披露的 Ruby2Shell 高危漏洞公告中，Anthropic 也作为底层原语发现方获致谢。模型能力正在从应用层编码向芯片设计与底层安全审计延伸。"
+    }
+  ]
+}
