@@ -36,7 +36,7 @@ for (const issue of issues) {
     allowedKeys(page, ['id', 'label', 'section', 'heading', 'theme', 'note', 'stories']);
     assert.ok(Array.isArray(page.stories));
     for (const story of page.stories) {
-      allowedKeys(story, ['category', 'title', 'text', 'emphasis', 'aiComment', 'resources', 'discussion', 'attachments']);
+      allowedKeys(story, ['category', 'title', 'tldr', 'points', 'text', 'emphasis', 'aiComment', 'resources', 'discussion', 'attachments']);
       validateStoryDiscussion(story.discussion);
       validateAttachments(story.attachments, 'story attachments');
       for (const message of story.discussion || []) validateAttachments(message.attachments, 'discussion attachments');
