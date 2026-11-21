@@ -49,8 +49,24 @@
   const masthead = document.querySelector('.masthead');
   if (!config || !masthead) return;
 
+  const overrideKey = 'agenthub-theme-override';
+  function readStoredPreview() {
+    try { return typeof sessionStorage !== 'undefined' ? sessionStorage.getItem(overrideKey) : null; }
+    catch { return null; }
+  }
+  function writeStoredPreview(val) {
+    try {
+      if (typeof sessionStorage === 'undefined') return;
+      if (!val || val === 'auto') sessionStorage.removeItem(overrideKey);
+      else sessionStorage.setItem(overrideKey, val);
+    } catch {}
+  }
+
   const params = new URLSearchParams(location.search);
-  const preview = params.get('theme') ?? params.get('skin');
+  const urlPreview = params.get('theme') ?? params.get('skin');
+  if (urlPreview === 'auto') writeStoredPreview(null);
+  else if (urlPreview) writeStoredPreview(urlPreview);
+  let preview = urlPreview === 'auto' ? null : (urlPreview || readStoredPreview());
 
   // Ensure masthead slots exist on both the daily SPA and static pages (weekly, library, glossary, search, agents).
   let brand = masthead.querySelector('.masthead-brand');
@@ -116,6 +132,10 @@
   let activeSkin = null;
   let activeWidgetCleanup = null;
   const widgetLoads = new Map();
+  let lastBannerKey = '';
+  let lastHighlightKey = '';
+  let lastChromeKey = '';
+  let switchFrame = 0;
   let currentContext = {
     pageKind: detectPageKind(document),
     editionDate: null,
@@ -243,7 +263,7 @@
       `<div class="theme-story-copy">${story.body.map(p => `<p>${esc(p)}</p>`).join('')}${factsHtml}</div>` +
       `${widgetHtml ? `<div class="theme-story-aside">${widgetHtml}</div>` : ''}</div>` +
       `${relatedHtml}` +
-      `<div class="theme-story-foot"><span>Agent Hub 特别主题 · ${esc(skin.name)}</span><div class="theme-story-foot-links"><a href="${esc(resolveAsset('themes/'))}">主题档案馆 →</a><a href="${esc(resetPreviewHref())}">切回常规样式</a></div></div></div>`;
+      `<div class="theme-story-foot"><span>Agent Hub 特别主题 · ${esc(skin.name)}</span><div class="theme-story-foot-links"><a href="${esc(resolveAsset('themes/'))}">主题档案馆 →</a><a href="${esc(resetPreviewHref())}" data-theme-switch="default">切回常规样式</a></div></div></div>`;
     dialog.querySelector('.theme-story-close')?.addEventListener('click', () => dialog.close());
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open', '');
@@ -266,11 +286,19 @@
   function syncKnowledgeBanner(skin) {
     let banner = document.getElementById('theme-knowledge-banner');
     const spec = skin?.knowledge?.banner;
-    const allowedHere = spec && (spec.placement === 'all' || isOverviewContext(currentContext));
-    if (!allowedHere || (spec.dismissible && isBannerDismissed(skin.id))) {
+    const allowedHere = Boolean(spec && (spec.placement === 'all' || isOverviewContext(currentContext)));
+    const dismissed = Boolean(spec?.dismissible && isBannerDismissed(skin.id));
+    const key = `${skin?.id || 'default'}|${allowedHere ? 1 : 0}|${dismissed ? 1 : 0}|${preview || ''}`;
+    if (!allowedHere || dismissed) {
       if (banner) banner.hidden = true;
+      lastBannerKey = key;
       return;
     }
+    if (banner && lastBannerKey === key) {
+      banner.hidden = false;
+      return;
+    }
+    lastBannerKey = key;
     if (!banner) {
       banner = document.createElement('aside');
       banner.id = 'theme-knowledge-banner';
@@ -308,12 +336,15 @@
     });
   }
 
-  function syncStoryHighlights(skin) {
-    for (const existing of document.querySelectorAll('.theme-story-badge')) existing.remove();
+  function syncStoryHighlights(skin, force = false) {
     const highlight = skin?.knowledge?.highlight;
+    const cards = document.querySelectorAll('article.brief, article.story, li.entry');
+    const key = `${skin?.id || 'default'}|${cards.length}|${currentContext.editionDate || ''}|${currentContext.pageId || ''}`;
+    if (!force && lastHighlightKey === key) return;
+    lastHighlightKey = key;
+    for (const existing of document.querySelectorAll('.theme-story-badge')) existing.remove();
     if (!highlight?.keywords?.length || !highlight.badge) return;
     const needles = highlight.keywords.map(k => k.toLowerCase());
-    const cards = document.querySelectorAll('article.brief, article.story, li.entry');
     for (const card of cards) {
       const text = (card.textContent || '').toLowerCase();
       if (!needles.some(needle => text.includes(needle))) continue;
@@ -331,7 +362,26 @@
   const searchInputEl = document.querySelector('#site-search');
   const originalSearchPlaceholder = searchInputEl?.getAttribute('placeholder') || '';
 
-  function syncChromeTouchpoints(skin) {
+  function syncArchiveGalleryState(skin) {
+    const id = skin?.id || 'default';
+    for (const card of document.querySelectorAll('[data-theme-card]')) {
+      const active = card.dataset.themeCard === id;
+      card.classList.toggle('is-active-theme', active);
+      const btn = card.querySelector('[data-theme-switch]');
+      if (btn) {
+        btn.classList.toggle('is-current', active);
+        btn.setAttribute('aria-pressed', String(active));
+        btn.textContent = active ? '当前已穿戴 ✓' : '本页试穿';
+      }
+    }
+  }
+
+  function syncChromeTouchpoints(skin, force = false) {
+    const id = skin?.id || 'default';
+    const archiveRows = document.querySelectorAll('#archive-list .issue-row[data-id]');
+    const key = `${id}|${archiveRows.length}`;
+    if (!force && lastChromeKey === key) return;
+    lastChromeKey = key;
     if (footerNoteEl) {
       footerNoteEl.textContent = skin?.footerNote || originalFooterNote;
     }
@@ -343,7 +393,7 @@
     }
     // Tag special-edition dates inside the archive dialog when editions bindings exist.
     const editions = config.editions || {};
-    for (const row of document.querySelectorAll('#archive-list .issue-row[data-id]')) {
+    for (const row of archiveRows) {
       const date = row.dataset.id;
       const boundId = editions[date];
       if (!boundId || row.querySelector('.archive-theme-badge')) continue;
@@ -356,15 +406,25 @@
         target.append(badge);
       }
     }
+    syncArchiveGalleryState(skin);
   }
 
-  function applySkin(skin) {
+  function applySkin(skin, { forceContent = false, instant = false } = {}) {
     activeSkin = skin;
     const id = skin?.id || 'default';
+    const root = document.documentElement;
     const changed = masthead.dataset.skin !== id;
     if (changed) {
+      if (instant && root?.classList && typeof requestAnimationFrame === 'function') {
+        if (typeof cancelAnimationFrame === 'function') cancelAnimationFrame(switchFrame);
+        root.classList.add('is-changing-scheme');
+      }
       masthead.dataset.skin = id;
       document.body.dataset.skin = id;
+      if (root?.dataset) {
+        if (id === 'default') delete root.dataset.skinPre;
+        else root.dataset.skinPre = id;
+      }
       if (skin?.version === 2) masthead.dataset.themeVersion = '2';
       else delete masthead.dataset.themeVersion;
 
@@ -376,13 +436,25 @@
       art.hidden = !skin?.image;
       flora.hidden = !skin?.ornament;
 
-      if (skin?.ornament) flora.src = resolveAsset(skin.ornament);
-      else flora.removeAttribute('src');
+      if (skin?.ornament) {
+        flora.decoding = 'async';
+        flora.src = resolveAsset(skin.ornament);
+      } else {
+        flora.removeAttribute('src');
+      }
 
       if (skin) {
         note.querySelector('.skin-label').textContent = skin.label;
         note.querySelector('.skin-message').textContent = skin.message;
         if (skin.image) {
+          art.decoding = 'async';
+          if (skin.artStyle === 'vector') {
+            art.width = 176;
+            art.height = 94;
+          } else {
+            art.width = 98;
+            art.height = 98;
+          }
           art.src = resolveAsset(skin.image);
           art.alt = skin.artAlt || '';
           if (skin.artStyle) art.dataset.artStyle = skin.artStyle;
@@ -415,33 +487,68 @@
         sealEl.textContent = '';
         sealEl.hidden = true;
         storyBtn.hidden = true;
+        const dialog = document.getElementById('theme-story-dialog');
+        if (dialog?.open) dialog.close();
+      }
+      if (instant && root?.classList && typeof requestAnimationFrame === 'function') {
+        void root.offsetHeight;
+        switchFrame = requestAnimationFrame(() => {
+          root.classList.remove('is-changing-scheme');
+          switchFrame = 0;
+        });
       }
     }
     syncKnowledgeBanner(skin);
-    syncStoryHighlights(skin);
-    syncChromeTouchpoints(skin);
+    syncStoryHighlights(skin, forceContent || changed);
+    syncChromeTouchpoints(skin, forceContent || changed);
   }
 
-  function update(nextContext) {
+  function update(nextContext, options = {}) {
     clearTimeout(timer);
     if (nextContext) currentContext = { ...currentContext, ...nextContext };
     else currentContext.pageKind = detectPageKind(document);
     const skin = selectSkin(config, preview, Date.now(), currentContext);
-    applySkin(skin);
+    applySkin(skin, options);
     const next = (config.campaigns || []).flatMap(c => [Date.parse(c.startsAt), Date.parse(c.endsAt)])
       .filter(time => time > Date.now()).sort((a, b) => a - b)[0];
     if (next) timer = setTimeout(() => update(), Math.min(next - Date.now() + 20, 2147483647));
   }
 
+  function setPreview(nextId) {
+    const normalized = !nextId || nextId === 'auto' ? null : String(nextId);
+    preview = normalized;
+    writeStoredPreview(normalized);
+    try {
+      const next = new URLSearchParams(location.search);
+      next.delete('skin');
+      if (normalized) next.set('theme', normalized);
+      else next.delete('theme');
+      const qs = next.toString();
+      const url = `${location.pathname || ''}${qs ? `?${qs}` : ''}${location.hash || ''}`;
+      if (typeof history !== 'undefined' && history.replaceState) history.replaceState(history.state, '', url);
+    } catch {}
+    update(null, { forceContent: true, instant: true });
+    try { window.dispatchEvent(new Event('agenthub:skin-change')); } catch {}
+  }
+
+  document.addEventListener('click', event => {
+    const trigger = event.target?.closest?.('[data-theme-switch]');
+    if (!trigger) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    setPreview(trigger.dataset.themeSwitch);
+  });
+
   window.AgentHubSkins = {
     selectSkin,
     active() { return activeSkin; },
-    sync(context) { update(context); },
-    syncContent() { syncStoryHighlights(activeSkin); syncChromeTouchpoints(activeSkin); },
+    setPreview,
+    sync(context) { update(context, { forceContent: true }); },
+    syncContent() { syncStoryHighlights(activeSkin, true); syncChromeTouchpoints(activeSkin, true); },
     openStory() { openStoryDialog(activeSkin); },
   };
 
-  document.addEventListener('visibilitychange', () => update());
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) update(); });
   window.addEventListener('pageshow', () => update());
   update();
 })();

@@ -299,11 +299,16 @@ for (const issue of data.digests) {
 }
 // Weekly pages are static and embed their own stories.
 const brandFontsCss = (await readFile(path.join(siteDir, 'brand/fonts.css'), 'utf8')).replaceAll("url('", "url('brand/");
+const skinBootPayload = JSON.stringify({
+  c: (skins.data.campaigns || []).map(c => [c.skin, Date.parse(c.startsAt), Date.parse(c.endsAt)]),
+  e: skins.data.editions || {},
+}).replaceAll('<', '\\u003c');
 const builtAssets = new Map();
 for (const file of ['index.html', '404.html', 'app.js', 'routes.js', 'appearance.js', 'digest.js', 'ranking.js', 'share-image.js', 'style.css', 'daily.css', 'color-scheme.css', 'community.css', 'skins.js', 'weekly.css', 'weekly-reader.js', 'discussion-panel.js', 'discussion-panel.css', 'library.css', 'library.js', 'copy.js', 'bm25.js', 'query.js', 'search.js']) {
   let content = await exists(path.join(siteDir, file));
   if (!content) continue;
   if (file === 'index.html') content = withAnalytics(content, 'analytics.js');
+  else if (file === 'appearance.js') content = minifyJs(`window.__AH_SKIN_BOOT__=${skinBootPayload};\n${content}`);
   else if (file === 'community.css') content = minifyCss(content.replace("@import url('brand/fonts.css');", brandFontsCss));
   else if (file.endsWith('.css')) content = minifyCss(content);
   else if (file.endsWith('.js')) content = minifyJs(content);
@@ -324,6 +329,7 @@ await writeFile(path.join(out, 'library.bundle.css'), joinCss(['weekly.css', 'li
 await writeFile(path.join(out, 'app.bundle.js'), joinJs(['icons.js', 'routes.js', 'skins.js', 'digest.js', 'app.js']));
 await writeFile(path.join(out, 'weekly.bundle.js'), joinJs(['themes.js', 'skins.js', 'discussion-panel.js', 'weekly-reader.js']));
 await writeFile(path.join(out, 'library.bundle.js'), joinJs(['themes.js', 'skins.js', 'bm25.js', 'query.js', 'library.js', 'copy.js']));
+await writeFile(path.join(out, 'skins.bundle.js'), joinJs(['themes.js', 'skins.js']));
 const lazyAssets = {};
 for (const file of ['discussion-panel.js', 'share-image.js', 'ranking.js', 'link-previews.js']) {
   lazyAssets[file] = createHash('sha256').update(await readFile(path.join(out, file))).digest('hex').slice(0, 16);

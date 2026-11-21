@@ -35,6 +35,8 @@ test('riemann-proof v2 theme pack loads declaratively with compiled light/dark C
   assert.ok(plugin.home?.asciiHands?.glyphBands?.length >= 4);
   assert.ok(loaded.assets.some(a => a.file === 'skins/riemann-proof/doodle.svg'));
   assert.match(loaded.css, /body\[data-skin="riemann-proof"\]/);
+  assert.match(loaded.css, /:root\[data-skin-pre="riemann-proof"\] body:not\(\[data-skin\]\)/);
+  assert.match(loaded.css, /:root\[data-color-scheme="dark"\][\s\S]*&\[data-skin-pre="riemann-proof"\] body:not\(\[data-skin\]\)/);
   assert.match(loaded.css, /:root\[data-color-scheme="dark"\][\s\S]*body\[data-skin="riemann-proof"\]/);
 });
 
@@ -134,6 +136,13 @@ test('runtime renders v2 doodle, seal, knowledge banner, story dialog and keywor
   assert.ok(dialog, 'story dialog created');
   assert.match(dialog.textContent, /175,187/);
   assert.match(dialog.textContent, /Re\(s\) = 1\/2/);
+
+  // Instant zero-reload theme switching via setPreview() updates DOM and closes story modal when resetting to default.
+  window.AgentHubSkins.setPreview('national-day');
+  assert.equal(document.body.dataset.skin, 'national-day');
+  window.AgentHubSkins.setPreview('default');
+  assert.equal(document.body.dataset.skin, 'default');
+  assert.equal(document.getElementById('theme-knowledge-banner').hidden, true);
 });
 
 test('resolveThemeRelated auto-curates cross-group discussions and respects Latin word boundaries', () => {

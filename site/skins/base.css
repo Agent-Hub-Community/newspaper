@@ -1,14 +1,23 @@
 svg[hidden] { display: none; }
+:root.is-changing-scheme *,
+:root.is-changing-scheme *::before,
+:root.is-changing-scheme *::after {
+  transition: none !important;
+}
 .masthead-brand { position: relative; }
 .skin-art, .skin-note, .skin-flora, .skin-seal, .skin-story-trigger { display: none; }
+:root[data-skin-pre]:not([data-skin-pre="default"]) body:not([data-skin]) .masthead-brand,
 .masthead[data-skin]:not([data-skin="default"]) .masthead-brand {
   color: var(--skin-ink);
   background: var(--skin-paper);
   padding-inline: var(--page-gutter);
 }
+:root[data-skin-pre]:not([data-skin-pre="default"]) body[data-page]:not([data-skin]) .masthead-brand,
 body[data-page] .masthead[data-skin]:not([data-skin="default"]) .masthead-brand {
   padding-inline: 0;
 }
+:root[data-skin-pre]:not([data-skin-pre="default"]) body:not([data-skin]) .wordmark { color: var(--skin-ink); }
+:root[data-skin-pre]:not([data-skin-pre="default"]) body:not([data-skin]) .wordmark span { color: var(--skin-accent); }
 body .masthead[data-skin]:not([data-skin="default"]) .masthead-top {
   color: var(--skin-muted);
   border-color: var(--skin-rule);
@@ -849,6 +858,16 @@ body[data-page] .theme-knowledge-banner {
 .theme-card-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+.theme-archive-card.is-active-theme {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.theme-card-secondary.is-current {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  font-weight: 600;
 }
 .archive-theme-badge {
   display: inline-flex;
