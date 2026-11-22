@@ -767,11 +767,25 @@
     let id = 'l-globe', brand = 'kind';
     if (h === 'github.com') { id = 'l-github'; brand = 'github'; }
     else if (h === 'arxiv.org' || h === 'alphaxiv.org') { id = 'l-arxiv'; brand = 'arxiv'; }
-    else if (h === 'huggingface.co') { id = 'l-hf'; brand = 'hf'; }
+    else if (h === 'huggingface.co') { id = 'l-hf'; brand = 'color'; }
     else if (h === 'mp.weixin.qq.com') { id = 'l-wechat'; brand = 'wechat'; }
     else if (h === 'x.com' || h === 'twitter.com') { id = 'l-x'; brand = 'x'; }
     else if (h === 'zhihu.com' || h === 'zhuanlan.zhihu.com') { id = 'l-zhihu'; brand = 'zhihu'; }
-    else if (h === 'youtube.com' || h === 'youtu.be' || h === 'bilibili.com' || h === 'b23.tv') { id = 'l-video'; brand = 'video'; }
+    else if (h === 'anthropic.com' || h.endsWith('.anthropic.com') || h === 'claude.ai' || h === 'claude.com' || h.endsWith('.claude.com')) { id = 'l-anthropic'; brand = 'anthropic'; }
+    else if (h === 'openai.com' || h.endsWith('.openai.com') || h === 'chatgpt.com') { id = 'l-openai'; brand = 'openai'; }
+    else if (h === 'qwen.ai' || h.endsWith('.qwen.ai') || h === 'qwenlm.github.io') { id = 'l-qwen'; brand = 'color'; }
+    else if (h === 'deepmind.google' || h.endsWith('.deepmind.com')) { id = 'l-deepmind'; brand = 'color'; }
+    else if (h === 'blog.google' || h === 'ai.google.dev' || h.endsWith('.google.com') || h === 'google.com') { id = 'l-google'; brand = 'color'; }
+    else if (h === 'deepseek.com' || h.endsWith('.deepseek.com')) { id = 'l-deepseek'; brand = 'color'; }
+    else if (h === 'nvidia.com' || h.endsWith('.nvidia.com')) { id = 'l-nvidia'; brand = 'color'; }
+    else if (h === 'mistral.ai' || h.endsWith('.mistral.ai')) { id = 'l-mistral'; brand = 'color'; }
+    else if (h === 'kimi.ai' || h.endsWith('.kimi.ai') || h === 'moonshot.cn' || h.endsWith('.moonshot.cn')) { id = 'l-kimi'; brand = 'color'; }
+    else if (h === 'bilibili.com' || h === 'b23.tv') { id = 'l-bilibili'; brand = 'bilibili'; }
+    else if (h === 'youtube.com' || h === 'youtu.be') { id = 'l-youtube'; brand = 'youtube'; }
+    else if (h.endsWith('.vercel.app') || h === 'vercel.com') { id = 'l-vercel'; brand = 'vercel'; }
+    else if (h === 'notion.so' || h.endsWith('.notion.site')) { id = 'l-notion'; brand = 'notion'; }
+    else if (h.endsWith('.github.io')) { id = 'l-ghpages'; brand = 'ghpages'; }
+    else if (h === 'openreview.net' || h === 'biorxiv.org' || h === 'medrxiv.org' || h === 'doi.org') { id = 'l-paper'; brand = 'kind'; }
     else {
       const byKind = { paper: 'l-paper', code: 'l-code', data: 'l-data', model: 'l-model', leaderboard: 'l-board', docs: 'l-docs', video: 'l-video' };
       id = byKind[kind] || 'l-globe';
