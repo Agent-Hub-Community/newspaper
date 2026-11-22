@@ -59,8 +59,8 @@
 .chips.show-all .is-extra { display: inline-flex; }
 .chips button.chips-more { min-height: 32px; padding: 7px 6px; background: none; color: var(--accent); font: 13px/18px var(--sans); white-space: nowrap; }
 @media (hover: hover) { .chips button.chips-more:hover { background: none; text-decoration: underline; text-underline-offset: 3px; } }
-.keyword-controls { display: grid; gap: 8px; flex: 1; min-width: 0; }
-.keyword-search-wrap { display: grid; gap: 6px; }
+.keyword-controls { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 0; max-width: 100%; }
+.keyword-search-wrap { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .keyword-search { max-width: 260px; min-height: 30px; padding: 4px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); color: var(--ink); font: 12.5px/1.4 var(--sans); outline: none; }
 .keyword-search:focus { border-color: var(--accent); }
 .keyword-matches { display: flex; flex-wrap: wrap; gap: 5px; }
@@ -97,7 +97,8 @@
 .export-menu { position: relative; }
 .export-toggle { display: inline-flex; align-items: center; gap: 5px; min-height: 32px; padding: 0 10px; border: 1px solid var(--rule); border-radius: 8px; color: var(--ink); font: 12px/1 var(--sans); }
 .export-toggle:hover { border-color: var(--ink); }
-.export-popover { position: absolute; right: 0; top: calc(100% + 4px); z-index: 20; min-width: 185px; padding: 5px; border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); box-shadow: 0 10px 26px color-mix(in srgb, var(--ink) 14%, transparent); display: grid; gap: 2px; }
+.export-popover { position: absolute; right: 0; top: calc(100% + 4px); z-index: 20; min-width: 185px; max-width: calc(100vw - 24px); padding: 5px; border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); box-shadow: 0 10px 26px color-mix(in srgb, var(--ink) 14%, transparent); display: grid; gap: 2px; }
+.export-popover.is-align-left { left: 0; right: auto; }
 .export-popover[hidden] { display: none; }
 .export-popover button { min-height: 34px; padding: 0 10px; border-radius: 6px; text-align: left; color: var(--ink); font: 12.5px/1 var(--sans); }
 .export-popover button:hover { background: color-mix(in srgb, var(--accent) 10%, var(--paper)); color: var(--accent); }
@@ -188,20 +189,21 @@
 .entries.is-list-view .entry-foot { grid-area: actions; margin: 0; padding: 0; }
 
 /* Topic Atlas View. */
-.topic-atlas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 8px; }
+.topic-atlas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 8px; min-width: 0; }
 .topic-atlas[hidden] { display: none; }
-.atlas-card { display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 12px; background: color-mix(in srgb, var(--ink) 1.5%, var(--paper)); }
-.atlas-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.atlas-head h3 { font: 700 18px/1.4 var(--serif); }
-.atlas-count { font: 600 13px/1 var(--latin); color: var(--accent); }
-.atlas-covers { color: var(--muted); font: 13px/1.5 var(--sans); }
+.atlas-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 12px; background: color-mix(in srgb, var(--ink) 1.5%, var(--paper)); overflow: hidden; }
+.atlas-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; min-width: 0; }
+.atlas-head h3 { font: 700 18px/1.4 var(--serif); min-width: 0; overflow-wrap: anywhere; }
+.atlas-count { flex: none; font: 600 13px/1 var(--latin); color: var(--accent); }
+.atlas-covers { color: var(--muted); font: 13px/1.5 var(--sans); overflow-wrap: anywhere; }
 .atlas-types { display: flex; flex-wrap: wrap; gap: 5px; }
 .atlas-type { padding: 2px 7px; border-radius: 4px; background: color-mix(in srgb, var(--ink) 5%, transparent); color: var(--muted); font: 11.5px/1.4 var(--sans); }
-.atlas-top { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
-.atlas-top button { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; width: 100%; padding: 6px 8px; border-radius: 6px; text-align: left; background: color-mix(in srgb, var(--ink) 3%, transparent); }
+.atlas-top { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.atlas-top li { min-width: 0; }
+.atlas-top button { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; width: 100%; min-width: 0; max-width: 100%; padding: 6px 8px; border-radius: 6px; text-align: left; background: color-mix(in srgb, var(--ink) 3%, transparent); overflow: hidden; }
 .atlas-top button:hover { background: color-mix(in srgb, var(--accent) 10%, var(--paper)); color: var(--accent); }
-.atlas-item-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 13px/1.4 var(--sans); }
-.atlas-item-meta { flex: none; color: var(--muted); font: 11.5px/1.4 var(--sans); }
+.atlas-item-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 13px/1.4 var(--sans); }
+.atlas-item-meta { flex: none; color: var(--muted); font: 11.5px/1.4 var(--sans); white-space: nowrap; }
 .atlas-foot { margin-top: auto; padding-top: 4px; }
 .atlas-all { color: var(--accent); font: 600 13px/1.4 var(--sans); }
 .atlas-all:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -320,8 +322,9 @@
   .filters { gap: 10px; padding-top: 12px; }
   .lenses { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding: 2px var(--gutter); }
   .lenses::-webkit-scrollbar { display: none; }
-  .filter-row { display: grid; gap: 2px; }
+  .filter-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .filter-label { width: auto; line-height: 1.6; }
+  .keyword-search { max-width: none; width: 100%; }
   .chips { flex-wrap: nowrap; margin-inline: calc(-1 * var(--gutter)); padding: 2px var(--gutter); overflow-x: auto; scrollbar-width: none; }
   .chips::-webkit-scrollbar { display: none; }
   .chips.show-all { flex-wrap: wrap; overflow-x: visible; }

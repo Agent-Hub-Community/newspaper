@@ -388,7 +388,9 @@
       btn.setAttribute('aria-pressed', String(btn.dataset.viewMode === state.view));
     }
 
-    if (!opportunityView) {
+    if (opportunityView) {
+      if (atlasEl) atlasEl.hidden = true;
+    } else {
       order();
       updateHighlights();
       renderExplain();
@@ -717,6 +719,10 @@
   const exportMenu = $('#library-export-menu');
   exportBtn?.addEventListener('click', () => {
     const open = exportMenu.hidden;
+    if (open) {
+      const rect = exportBtn.getBoundingClientRect();
+      exportMenu.classList.toggle('is-align-left', rect.right < 210);
+    }
     exportMenu.hidden = !open;
     exportBtn.setAttribute('aria-expanded', String(open));
   });
