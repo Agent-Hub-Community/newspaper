@@ -42,21 +42,29 @@ async function avatar(sender) {
   let file = null;
   try {
     const source = members[sender]?.avatarUrl;
-    if (!source) throw new Error('No avatar');
-    const url = new URL(source);
-    if (!(/(^|\.)qlogo\.cn$/.test(url.hostname) || url.hostname === 'mmhead.c2c.wechat.com')) throw new Error('Unexpected avatar host');
-    url.protocol = 'https:';
-    const urlHash = createHash('sha256').update(url.href).digest('hex').slice(0, 16);
-    let name = [...cached].find(entry => entry.startsWith(`url-${urlHash}.`)), bytes;
-    if (name) bytes = await readFile(path.join(cacheDir, name));
-    else {
-      const response = await fetch(url, { signal: AbortSignal.timeout(12000), redirect: 'error' });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      bytes = Buffer.from(await response.arrayBuffer());
-      const ext = bytes.subarray(0, 3).equals(Buffer.from([255, 216, 255])) ? 'jpg'
-        : bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])) ? 'png' : null;
-      if (!ext || bytes.length > 2_000_000) throw new Error('Invalid image');
-      name = `url-${urlHash}.${ext}`;
+    let name, bytes;
+    if (source) {
+      const url = new URL(source);
+      if (!(/(^|\.)qlogo\.cn$/.test(url.hostname) || url.hostname === 'mmhead.c2c.wechat.com')) throw new Error('Unexpected avatar host');
+      url.protocol = 'https:';
+      const urlHash = createHash('sha256').update(url.href).digest('hex').slice(0, 16);
+      name = [...cached].find(entry => entry.startsWith(`url-${urlHash}.`));
+      if (name) bytes = await readFile(path.join(cacheDir, name));
+      else {
+        const response = await fetch(url, { signal: AbortSignal.timeout(12000), redirect: 'error' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        bytes = Buffer.from(await response.arrayBuffer());
+        const ext = bytes.subarray(0, 3).equals(Buffer.from([255, 216, 255])) ? 'jpg'
+          : bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])) ? 'png' : null;
+        if (!ext || bytes.length > 2_000_000) throw new Error('Invalid image');
+        name = `url-${urlHash}.${ext}`;
+      }
+    } else if (!/^sharer-\d+$/.test(sender)) {
+      name = [...cached].find(entry => entry.startsWith(`${sender}.`));
+      if (!name) throw new Error('No avatar');
+      bytes = await readFile(path.join(cacheDir, name));
+    } else {
+      throw new Error('No avatar');
     }
     if (isPlaceholderAvatar(bytes)) {
       // Rejected without review; also drop it from the cache (older runs cached it) so a later run refetches.
