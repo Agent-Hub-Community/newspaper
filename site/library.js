@@ -761,12 +761,30 @@
   let detailStack = [];
   let detailOpener = null;
 
+  function drawerLinkIcon(url, kind) {
+    let h = '';
+    try { h = new URL(url).hostname.replace(/^www\./, '').toLowerCase(); } catch {}
+    let id = 'l-globe', brand = 'kind';
+    if (h === 'github.com') { id = 'l-github'; brand = 'github'; }
+    else if (h === 'arxiv.org' || h === 'alphaxiv.org') { id = 'l-arxiv'; brand = 'arxiv'; }
+    else if (h === 'huggingface.co') { id = 'l-hf'; brand = 'hf'; }
+    else if (h === 'mp.weixin.qq.com') { id = 'l-wechat'; brand = 'wechat'; }
+    else if (h === 'x.com' || h === 'twitter.com') { id = 'l-x'; brand = 'x'; }
+    else if (h === 'zhihu.com' || h === 'zhuanlan.zhihu.com') { id = 'l-zhihu'; brand = 'zhihu'; }
+    else if (h === 'youtube.com' || h === 'youtu.be' || h === 'bilibili.com' || h === 'b23.tv') { id = 'l-video'; brand = 'video'; }
+    else {
+      const byKind = { paper: 'l-paper', code: 'l-code', data: 'l-data', model: 'l-model', leaderboard: 'l-board', docs: 'l-docs', video: 'l-video' };
+      id = byKind[kind] || 'l-globe';
+    }
+    return `<svg class="icon link-logo" data-brand="${brand}" width="15" height="15" aria-hidden="true"><use href="#${id}"/></svg>`;
+  }
+
   function renderDetail(item) {
     if (!detailDialog || !item) return;
     const isSaved = savedIds.has(item.id);
     const topicsHtml = item.topics.map(t => `<button type="button" class="tag-topic" data-drawer-filter="topic" data-value="${esc(t)}">${esc(data.topics?.[t]?.label || t)}</button>`).join('');
     const kwHtml = item.keywords.map(k => `<button type="button" class="tag-keyword" data-drawer-filter="keyword" data-value="${esc(k)}">${esc(k)}</button>`).join('');
-    const linksHtml = item.links.map(l => `<a class="drawer-link" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer"><span class="link-kind">${esc(data.linkKinds?.[l.kind] || l.kind)}</span><span class="drawer-link-url">${esc(l.url.replace(/^https?:\/\//, ''))}</span></a>`).join('');
+    const linksHtml = item.links.map(l => `<a class="drawer-link" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${drawerLinkIcon(l.url, l.kind)}<span class="link-kind">${esc(data.linkKinds?.[l.kind] || l.kind)}</span><span class="drawer-link-url">${esc(l.url.replace(/^https?:\/\//, ''))}</span></a>`).join('');
     const discHtml = item.discussions?.length
       ? `<section class="drawer-section"><h3>群聊讨论脉络（${item.discussions.length}）</h3><ul class="drawer-discussions">${item.discussions.map(d =>
         `<li><a href="${esc(d.href)}"><span class="disc-badge">${d.kind === 'weekly' ? '周报' : '日报'}</span><span class="disc-date">${esc(d.date)} · ${esc(data.groups?.[d.group] || d.group)}</span><span class="disc-title">${esc(d.title)}</span></a></li>`).join('')}</ul></section>`

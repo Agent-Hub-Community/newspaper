@@ -143,6 +143,19 @@
 .link-kind { flex: none; font-weight: 600; }
 .link-host { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); }
 .entry-links .icon { flex: none; width: 13px; height: 13px; color: var(--accent); }
+.entry-links .link-logo, .drawer-link .link-logo { flex: none; width: 15px; height: 15px; color: var(--muted); }
+.link-logo[data-brand="github"], .link-logo[data-brand="x"] { color: var(--ink); }
+.link-logo[data-brand="arxiv"] { color: #b31b1b; }
+.link-logo[data-brand="hf"] { color: #d97706; }
+.link-logo[data-brand="wechat"] { color: #07c160; }
+.link-logo[data-brand="zhihu"] { color: #0066ff; }
+.link-logo[data-brand="video"] { color: #dc2626; }
+:root[data-color-scheme="dark"] .link-logo[data-brand="arxiv"] { color: #f87171; }
+:root[data-color-scheme="dark"] .link-logo[data-brand="hf"] { color: #fbbf24; }
+:root[data-color-scheme="dark"] .link-logo[data-brand="wechat"] { color: #34d399; }
+:root[data-color-scheme="dark"] .link-logo[data-brand="zhihu"] { color: #60a5fa; }
+:root[data-color-scheme="dark"] .link-logo[data-brand="video"] { color: #f87171; }
+@media (hover: hover) { .entry-links a:hover .link-logo[data-brand="kind"], .drawer-link:hover .link-logo[data-brand="kind"] { color: var(--accent); } }
 .entry-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 10px; }
 .entry-tags a, .entry-tags button { display: inline-flex; align-items: center; min-height: 24px; padding: 2px 8px; border-radius: 4px; background: color-mix(in srgb, var(--ink) 5%, transparent); color: var(--muted); font: 12px/1.5 var(--sans); }
 .entry-tags .tag-topic { color: var(--ink); }
