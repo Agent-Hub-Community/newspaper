@@ -25,9 +25,13 @@ test('library sharers with the WeChat placeholder avatar are rejected without re
     await mkdir(path.dirname(path.join(dir, name)), { recursive: true });
     await writeFile(path.join(dir, name), Buffer.isBuffer(value) ? value : JSON.stringify(value));
   };
+  const urlKey = url => `url-${createHash('sha256').update(url).digest('hex').slice(0, 16)}`;
+  const aliceUrl = 'https://wx.qlogo.cn/alice';
+  const ghostUrl = 'https://wx.qlogo.cn/ghost';
+  const bobUrl = 'https://wx.qlogo.cn/bob';
   await save('candidates.json', {
     since: '2026-10-01', generatedFrom: { through: '2026-10-31' },
-    members: { ghost: { avatarUrl: 'https://wx.qlogo.cn/ghost' } },
+    members: { alice: { avatarUrl: aliceUrl }, ghost: { avatarUrl: ghostUrl }, bob: { avatarUrl: bobUrl } },
     candidates: [{ key: 'k1', url: 'https://github.com/example/agent-kit', urls: [], shares: [
       { date: '2026-10-20', group: 'group-1', sender: 'alice' },
       { date: '2026-10-21', group: 'group-2', sender: 'ghost' },
@@ -38,8 +42,8 @@ test('library sharers with the WeChat placeholder avatar are rejected without re
     topics: ['coding-agents'], keywords: ['agent', 'toolkit', 'example'], links: [{ key: 'k1', kind: 'code' }] }] });
   // An earlier approval of the placeholder must not let it through.
   await save('avatar-review.json', { approved: [hashName(photo, 'jpg'), hashName(placeholder, 'png')], rejected: [] });
-  await save('avatar-cache/alice.jpg', photo);
-  await save('avatar-cache/bob.png', placeholder);
+  await save(`avatar-cache/${urlKey(aliceUrl)}.jpg`, photo);
+  await save(`avatar-cache/${urlKey(bobUrl)}.png`, placeholder);
   // ghost has no cache entry, so the script downloads it; the stub serves the placeholder instead of the network.
   const stub = path.join(root, 'stub-fetch.mjs');
   await writeFile(stub, `import { readFileSync } from 'node:fs';
@@ -55,5 +59,5 @@ globalThis.fetch = async () => new Response(readFileSync(${JSON.stringify(fileUR
     [['group-1', hashName(photo, 'jpg')], ['group-2', null], ['group-3', null]]);
   assert.deepEqual(await readdir(path.join(root, 'data/library-avatars')), [hashName(photo, 'jpg')]);
   assert.deepEqual(await readdir(path.join(dir, 'avatars-pending')), []);
-  assert.deepEqual(await readdir(path.join(dir, 'avatar-cache')), ['alice.jpg'], 'placeholders leave the cache so a later run refetches');
+  assert.deepEqual(await readdir(path.join(dir, 'avatar-cache')), [`${urlKey(aliceUrl)}.jpg`], 'placeholders leave the cache so a later run refetches');
 });
