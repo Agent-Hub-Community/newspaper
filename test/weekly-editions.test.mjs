@@ -131,6 +131,6 @@ test('weekly editions accept every configured group and reject unknown ones', ()
   if (copy.rank) copy.rank.groups.push({ id: 'group-5', label: '五群', leaders: [] });
   assert.ok(normalizeWeeklyIssue(copy).pages.some(page => page.id === 'group-5'));
   const unknown = structuredClone(issue);
-  unknown.pages[0].id = 'group-9';
+  unknown.pages[0].id = 'group-99';
   assert.throws(() => normalizeWeeklyIssue(unknown));
 });

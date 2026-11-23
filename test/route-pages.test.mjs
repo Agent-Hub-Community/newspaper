@@ -45,7 +45,7 @@ test('writes real directory indexes including missing sections and all ranking w
   }
   for (const window of ['week', 'month', 'all']) {
     expected.push(`rank/${window}/index.html`);
-    for (const group of ['group-1', 'group-2', 'group-3', 'group-4', 'group-5']) expected.push(`rank/${window}/${group}/index.html`);
+    for (const group of ['group-1', 'group-2', 'group-3', 'group-4', 'group-5', 'group-9']) expected.push(`rank/${window}/${group}/index.html`);
   }
   const files = await readdir(out, { recursive: true });
   assert.deepEqual(files.filter(file => file.endsWith('.html')).sort(), expected.sort());

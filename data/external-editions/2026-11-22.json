@@ -1,0 +1,229 @@
+{
+  "date": "2026-11-22",
+  "title": "黎曼猜想 Lean 证明过检，AI 推理链泄密与读屏防线同步拉响",
+  "intro": "Lean 社区确认 1700 万行黎曼猜想证明通过多内核检验；另一边，200 万条诱饵请求揭开推理路由泄密黑洞，Signal 也在移动端向系统级 AI 亮起截屏红灯。",
+  "stories": [
+    {
+      "title": "Lean 社区确认黎曼猜想 1700 万行形式化证明通过多内核检验",
+      "timing": "证明于 11 月 20 日发布；Lean 与 Mathlib 社区于北京时间 11 月 21 日 21:55 发布联合声明，MIT 独立复现持续更新至 11 月 23 日 00:20",
+      "tldr": "Lean 与 Mathlib 社区联合确认 Levent Alpöge 发布的 1700 万行黎曼猜想形式化证明编译零报错，且已通过 nanoda、con-leche 等多套独立内核重放校验。",
+      "points": [
+        {
+          "text": "代码库含 175,187 个模块、约 1700 万行 Lean 4 代码，仅直接依赖 Mathlib，无未证明占位符。"
+        },
+        {
+          "text": "五条核心定理经 #print axioms 审计，仅依赖 propext、Classical.choice、Quot.sound 三条标准公理。"
+        },
+        {
+          "text": "MIT 数学家 Andrew Sutherland 在无网沙盒中字节级复现了 61.57 GB 导出文件，nanoda、con-leche、lean4lean 均予通过。"
+        },
+        {
+          "text": "形式化校验过关不等于人类已读懂全部直觉，千禧年大奖仍需同行评审期刊发表与社区长期检验。"
+        }
+      ],
+      "text": "Lean 与 Mathlib 社区发布联合声明，确认 Levent Alpöge 于 11 月 20 日发布的黎曼猜想形式化证明在定理表述与逻辑推导上均正确。这套约 1700 万行、175,187 个模块的 Lean 4 代码库仅直接依赖 Mathlib，编译零报错。MIT 数学家 Andrew Sutherland 公布的独立核验记录显示，核心定理只依赖三条标准公理，无网沙盒重建的 61.57 GB 导出文件与发布版字节级一致，并已通过 nanoda、con-leche 及 lean4lean 等独立内核重放。不过机器过检不代表人类数学家已消化全部证明思路，千禧年大奖仍需正式期刊同行评审与长期社区检验。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Lean 社区声明",
+          "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+        },
+        {
+          "kind": "官方发布",
+          "label": "MIT 独立核验页",
+          "url": "https://math.mit.edu/~drew/grh/"
+        },
+        {
+          "kind": "讨论",
+          "label": "HN 讨论",
+          "url": "https://news.ycombinator.com/item?id=50589618"
+        }
+      ],
+      "emphasis": [
+        "在定理表述与逻辑推导上均正确",
+        "已通过 nanoda、con-leche 及 lean4lean 等独立内核重放",
+        "机器过检不代表人类数学家已消化全部证明思路"
+      ],
+      "aiComment": "1700 万行代码、61.57 GB 导出文件，编译器点了个赞，人类数学家看着目录直接陷入沉思 🫠",
+      "sources": [
+        {
+          "publisher": "Lean Community Blog",
+          "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+          "excerpt": "Joint statement by the Lean and Mathlib communities, endorsed by the Lean FRO and the Mathlib Initiative. We hereby certify that both the statement and the proof of the Riemann Hypothesis are correct."
+        },
+        {
+          "publisher": "MIT / Andrew Sutherland",
+          "url": "https://math.mit.edu/~drew/grh/",
+          "excerpt": "All 175,187 modules compile with zero errors; nanoda and con-leche accept the full 61.57 GB exported proof; independent sandboxed lake build reproduces the export byte for byte."
+        }
+      ]
+    },
+    {
+      "title": "Thinking Machines Lab 开源 26.4B 循环模型 Inkling 2 Mini",
+      "timing": "11 月 20 日发布，11 月 22 日在开源与开发者社区持续发酵",
+      "tldr": "Mira Murati 团队按 Apache 2.0 开源 26.4B 循环 Transformer 模型 Inkling 2 Mini，每 token 循环三次中间层，支持 1M 上下文，32GB MacBook Pro 可本地运行。",
+      "points": [
+        {
+          "text": "总参数 26.4B、支持 1M 上下文与图文输入，采用 Apache 2.0 开源协议。"
+        },
+        {
+          "text": "循环 Transformer 架构让每个 token 三次经过中间层，用更少输出 token 换取更高推理质量。"
+        },
+        {
+          "text": "官方测试称其在 DeepSWE v1.1 达 48.2%、Vals Index v2.2 达 46.5%，领先 100B 以下开源权重模型。"
+        },
+        {
+          "text": "结合 NVFP4/MXFP8 量化后占用约 20GB，可在 32GB MacBook Pro 或单张消费级 GPU 上离线跑通。"
+        }
+      ],
+      "text": "Thinking Machines Lab 宣布以 Apache 2.0 协议开源 26.4B 参数的多模态模型 Inkling 2 Mini，支持 1M 上下文。该模型采用循环 Transformer 架构，每个 token 会连续三次经过中间层，以更少输出 token 完成更深推理，主打 agentic coding 与工具调用。官方公布的数据显示，其在 DeepSWE v1.1 上达到 48.2%，在 Vals Index v2.2 上达到 46.5%，领先 100B 总参数以下的同类开源模型。经 NVFP4 与 MXFP8 混合精度量化后，模型显存占用约 20GB，可在 32GB MacBook Pro 上本地运行。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Inkling 2 Mini 博客",
+          "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+        }
+      ],
+      "emphasis": [
+        "每个 token 会连续三次经过中间层",
+        "显存占用约 20GB，可在 32GB MacBook Pro 上本地运行"
+      ],
+      "aiComment": "26.4B 靠中间层三刷硬刚百亿梯队，32GB MacBook Pro 听完默默把风扇转速拉满了 🔥",
+      "sources": [
+        {
+          "publisher": "Thinking Machines Lab",
+          "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+          "excerpt": "Inkling 2 Mini is a looped transformer running the middle layers three times for every token, leading open-weights models under 100B on DeepSWE v1.1 (48.2%) and Vals Index v2.2 (46.5%)."
+        }
+      ]
+    },
+    {
+      "title": "200 万诱饵请求实测 AI 服务链：至少 3 家推理商遭入侵，ZDR 失守",
+      "timing": "Dragos 研究于 11 月 19 日发布，11 月 22 日经 Ars Technica 报道引发广泛讨论",
+      "tldr": "安全研究员 HD Moore 团队向多家 AI 推理商与路由聚合平台投放 200 万条带诱饵密钥的 prompt，揪出至少 3 家遭入侵的托管商，且零数据保留（ZDR）承诺屡屡失效。",
+      "points": [
+        {
+          "text": "2026 年 7 至 11 月间，Dragos 在约 200 万条 prompt 中埋入唯一追踪 URL、DNS 与诱饵 AWS 密钥。"
+        },
+        {
+          "text": "实测发现至少 3 家 AI 推理托管商存在活跃入侵，攻击者数小时内便拿着截获的 AWS 密钥尝试枚举 S3 与凭据库。"
+        },
+        {
+          "text": "即便显式开启零数据保留（ZDR），部分聚合路由与转售商仍记录原始 prompt，或将其转发至意料之外的海外实验室。"
+        }
+      ],
+      "text": "据 Ars Technica 报道，安全研究员 HD Moore 与 Dragos 团队在 2026 年 7 月至 11 月间，向多家 AI 推理服务、聚合路由和转售平台发送了约 200 万条埋有追踪 URL、DNS 及诱饵 AWS 密钥的 prompt。结果触发了至少 3 家推理托管商的活跃入侵警报，攻击者在数小时内便尝试利用截获的诱饵密钥枚举 S3 存储桶与凭据库。测试同时显示，即便用户开启零数据保留（ZDR）设置，部分转售商仍照常落盘日志，甚至有请求被静默转发至未披露的第三方与海外模型实验室。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Ars Technica 报道",
+          "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"
+        }
+      ],
+      "emphasis": [
+        "触发了至少 3 家推理托管商的活跃入侵警报",
+        "即便用户开启零数据保留（ZDR）设置，部分转售商仍照常落盘日志"
+      ],
+      "aiComment": "勾了零数据保留，结果诱饵 AWS Key 几小时就被拿去扫 S3，这波属于纯纯大冤种 🤡",
+      "sources": [
+        {
+          "publisher": "Ars Technica",
+          "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+          "excerpt": "HD Moore and Dragos seeded ~2 million AI prompts with canary tokens, uncovering active breaches at at least three AI hosting providers and widespread failures of Zero Data Retention guarantees."
+        }
+      ]
+    },
+    {
+      "title": "Signal 移动端默认拦截截图，防 iOS 27 Siri AI 与 Android 助手读屏",
+      "timing": "Signal 官方博客于 11 月 20 日发布，11 月 22 日持续引发系统级 AI 权限讨论",
+      "tldr": "继去年拦截 Windows Recall 后，Signal 在 iOS 27 与 Android 上默认启用截屏拦截，阻止系统级 AI 助手直接从屏幕刮取端到端加密聊天内容。",
+      "points": [
+        {
+          "text": "iOS 27 默认开启“Block Siri AI”拦截截屏；Android 检测到 Gemini Intelligence 等助手读屏时自动触发屏幕保护。"
+        },
+        {
+          "text": "Signal 总裁 Meredith Whittaker 称系统级 AI 读屏直接绕过端到端加密，对隐私构成生存级威胁。"
+        },
+        {
+          "text": "Signal 坦言防御并不完整：macOS 无法可靠拦截截图，且 AI 对文件系统与系统通知的访问仍存在风险。"
+        }
+      ],
+      "text": "Signal 总裁 Meredith Whittaker 在官方博客宣布，移动端现已默认限制操作系统内置 AI 助手截取聊天画面。具体措施包括在 iOS 27 上默认拦截 Siri AI 的屏幕感知截图，以及在 Android 检测到 Google Gemini Intelligence 等助手尝试读屏时自动触发屏幕保护。此前 Signal 已在 Windows 11 上拦截微软 Recall。据 The Decoder 报道，Signal 坦言这类防御并不完整，macOS 端目前无法可靠阻断截图，AI 对通知栏与文件系统的访问也仍是隐患。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Signal 官方博客",
+          "url": "https://signal.org/blog/protecting-your-privacy/"
+        },
+        {
+          "kind": "报道",
+          "label": "The Decoder 报道",
+          "url": "https://the-decoder.com/signal-blocks-screenshots-on-ios-27-and-android-to-stop-ai-agents-from-reading-private-chats/"
+        }
+      ],
+      "emphasis": [
+        "在 iOS 27 上默认拦截 Siri AI 的屏幕感知截图",
+        "macOS 端目前无法可靠阻断截图，AI 对通知栏与文件系统的访问也仍是隐患"
+      ],
+      "aiComment": "端到端加密防住了全世界，结果系统级 AI 端着小板凳坐屏幕前直接抄笔记 🍿",
+      "sources": [
+        {
+          "publisher": "Signal Blog",
+          "url": "https://signal.org/blog/protecting-your-privacy/",
+          "excerpt": "Signal is now restricting agentic systems built into iOS 27 (Siri AI Onscreen Awareness) and Android versions where an AI assistant attempts to read the Signal screen."
+        },
+        {
+          "publisher": "The Decoder",
+          "url": "https://the-decoder.com/signal-blocks-screenshots-on-ios-27-and-android-to-stop-ai-agents-from-reading-private-chats/",
+          "excerpt": "Signal calls its defenses incomplete: macOS screenshots cannot be reliably blocked, and AI access to file systems and notifications remains a risk."
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 向 Plus 用户全面开放 ChatGPT Space 协作工作区",
+      "timing": "11 月 20 日起全球逐步推送，11 月 22 日在用户社区持续引发体验反馈",
+      "tldr": "OpenAI 将原属 Pro 与企业版专属的 ChatGPT Space 下放给 18 岁以上 Plus 订阅用户，取代旧版 Library 标签，支持跨端协作编辑持久化文档与幻灯片。",
+      "points": [
+        {
+          "text": "Space 最初于 2026 年 9 月 DevDay 发布，此前仅向 Pro、Business 与 Enterprise 用户开放。"
+        },
+        {
+          "text": "新入口取代侧边栏原有的 Library，支持创建包含文本、图片、图表与上传文件的持久化 Pages 与 Slides。"
+        },
+        {
+          "text": "同步覆盖 Web、桌面端及 iOS、Android 移动端，用户可与 ChatGPT 协同编辑。"
+        }
+      ],
+      "text": "OpenAI ChatGPT 与 Codex 负责人 Thibault Sottiaux 在 X 宣布，此前仅面向 Pro、Business 和 Enterprise 订阅层的 ChatGPT Space 现已向全球 18 岁以上 Plus 用户开放。Space 于今年 9 月 DevDay 首次亮相，上线后将取代侧边栏原有的 Library 标签，允许用户在 Web、桌面端及 iOS、Android 上与 ChatGPT 协同创建并持续编辑包含文字、图片、图表和附件的交互式 Pages 与 Slides。",
+      "links": [
+        {
+          "kind": "原帖",
+          "label": "Tibo Sottiaux 原帖",
+          "url": "https://x.com/thsottiaux/status/2123861214644347122"
+        }
+      ],
+      "emphasis": [
+        "ChatGPT Space 现已向全球 18 岁以上 Plus 用户开放",
+        "取代侧边栏原有的 Library 标签"
+      ],
+      "aiComment": "Pro 专属两个月就下放给 Plus，等等党这次终于赢了一回，Library 正式光荣退休 👋",
+      "sources": [
+        {
+          "publisher": "X / Thibault Sottiaux",
+          "url": "https://x.com/thsottiaux/status/2123861214644347122",
+          "excerpt": "ChatGPT Space is rolling out globally to ChatGPT Plus subscribers (18+), replacing the Library tab with persistent interactive Pages and Slides across web, desktop, iOS, and Android."
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "AI 数据隐私防线同时在云端路由与终端读屏承压",
+      "text": "Dragos 的 200 万条诱饵测试暴露了多层推理路由与转售链条中的 ZDR 失守问题，而 Signal 在 iOS 27 与 Android 上紧急拦截截屏，则说明终端侧 OS 级 Agent 正在绕过传统的端到端加密边界。"
+    },
+    {
+      "title": "推理深度正从堆参数转向循环计算与形式化校验",
+      "text": "无论是 Thinking Machines Lab 用 26.4B 循环 Transformer 在笔记本上换取更高编码推理表现，还是 Lean 社区以多套独立内核重放 1700 万行黎曼猜想证明，计算效率与可验证性都在成为新焦点。"
+    }
+  ]
+}

@@ -386,6 +386,11 @@
     "description": "Multimodal intelligence can be viewed as human-guided co-evolution between worlds and agents through interaction. However, scaling this process faces two bottlenecks: constructing heterogeneous, verifiable environments i",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/abs/2610.37093": {
+    "title": "Learning to Look Beyond Screens: Transferable Visual Observation from GUI Grounding",
+    "description": "Visual perception is evolving from passive recognition toward active, task-oriented observation. We investigate GUI grounding as a scalable source of spatial supervision for learning observation behaviors that transfer b",
+    "siteName": "arXiv.org"
+  },
   "https://arxiv.org/abs/2610.37609": {
     "title": "EnvSched: Environment-Aware Scheduling for Rollout-Efficient Agent Reinforcement Learning",
     "description": "As executable environments for language agents scale, generating and verifying their rollouts becomes increasingly expensive. Under finite rollout budgets, this raises an important question: can data management at the en",
@@ -559,6 +564,11 @@
   "https://arxiv.org/pdf/2611.05036": {
     "title": "ToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents",
     "description": "Large language models are deployed as long-horizon agents that compose diverse tools across MCP services into executable workflows. Existing MCP environment-scaling methods are data-centric: they first synthesize a datab",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2611.21605": {
+    "title": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
+    "description": "Visual agents answer questions about ultra-high-resolution photos by zooming into the relevant regions. However, existing agents often answer from common sense instead of reading the evidence. Reinforcement learning (RL)",
     "siteName": "arXiv.org"
   },
   "https://atria-asi.ai/": {
@@ -894,6 +904,11 @@
     "description": "Let Astra not only create editable PowerPoint presentations, but also create the style you desire. - IamJerryXu/AstraDraw",
     "siteName": "GitHub"
   },
+  "https://github.com/inclusionAI/UI-Venus/tree/LBS": {
+    "title": "inclusionAI/UI-Venus at LBS",
+    "description": "UI-Venus is a general-purpose foundation GUI agent for mobile apps, web platforms, and desktop operating systems using only screenshots as input. - inclusionAI/UI-Venus",
+    "siteName": "GitHub"
+  },
   "https://github.com/InfRec-Cardinal/REA-Agent": {
     "failed": true
   },
@@ -1056,6 +1071,11 @@
   "https://github.com/onepounchman/UOPD": {
     "title": "onepounchman/UOPD: Official implementation of Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents",
     "description": "Official implementation of Uncertainty-Aware Intervention for On-Policy Distillation of Multi-Turn Agents - onepounchman/UOPD",
+    "siteName": "GitHub"
+  },
+  "https://github.com/open-agent-infra/RSInfer": {
+    "title": "open-agent-infra/RSInfer: An RSI-Native LLM Serving Engine for Live, Compositional, and Safe Self-Improvement",
+    "description": "An RSI-Native LLM Serving Engine for Live, Compositional, and Safe Self-Improvement - open-agent-infra/RSInfer",
     "siteName": "GitHub"
   },
   "https://github.com/Open-RUA/uni-robot-agent": {
@@ -1480,6 +1500,10 @@
     "title": "deepseek-ai/DeepSeek-V4.1-Flash-1017 · 短请求的乱码问题--Non-thinking mode corrupts replies to short greetings when a system prompt is present (reproduces on the offici",
     "description": "In non-thinking mode, the model often breaks a short reply a few tokens in when two things are both true: there is a system prompt, and the user message is a short greeting. The output repeats a wo..."
   },
+  "https://huggingface.co/inclusionAI/LBS-27B": {
+    "title": "inclusionAI/LBS-27B · Hugging Face",
+    "description": "Image-Text-to-Text model with 3.05M parameters. Download, explore files and run it on Hugging Face."
+  },
   "https://huggingface.co/JevAgentHarness": {
     "title": "JevAgentHarness (JevAgentHarness)",
     "description": "Org profile for JevAgentHarness on Hugging Face, the AI community building the future."
@@ -1877,6 +1901,9 @@
     "description": "LongCat-2.5开源",
     "siteName": "微信公众平台"
   },
+  "https://mr-bigworth.github.io/LBS/": {
+    "title": "LBS · Observation trajectories"
+  },
   "https://msr-orchard.github.io/WildAWM/": {
     "title": "Agent World Model in the Wild: Computer-Use Agent Environment Synthesis",
     "description": "Persona-driven personal-computer worlds, cross-interface tasks, and five execution-based quality gates for training general computer-use agents."
@@ -1918,6 +1945,11 @@
   "https://openai.com/zh-Hans-CN/index/introducing-gpt-6-sol-and-luna/": {
     "title": "隆重推出 GPT-6 Sol 和 Luna",
     "description": "认识 GPT-6 Sol 和 Luna：两款以不同能力与成本组合，将前沿智能带入日常工作的模型。",
+    "siteName": "OpenAI"
+  },
+  "https://openai.com/zh-Hans-CN/index/previewing-ultrafast/": {
+    "title": "Ultrafast 模式预览：GPT-5.6 Sol 速度最高提升至 14 倍",
+    "description": "抢先体验 Ultrafast：OpenAI API 的新服务层级，可让 GPT-5.6 Sol 的运行速度最高提升至 14 倍。由 Cerebras 提供支持，每秒最多生成 750 个输出 token。",
     "siteName": "OpenAI"
   },
   "https://openbmb.cn/model/minicpm5-2b": {
@@ -2258,6 +2290,9 @@
   "https://www.reuters.com/legal/legalindustry/how-att-is-using-ai-reduce-its-reliance-law-firms-2026-10-08/": {
     "failed": true
   },
+  "https://www.reuters.com/world/like-spacex-anthropic-ran-an-unusual-ipo-process-chafing-some-bankers-2026-11-22/": {
+    "failed": true
+  },
   "https://www.sglang.io/blog/omni-interactive-runtime": {
     "title": "Unified Runtime for Full-Duplex Interactive Intelligence with SGLang Omni | SGLang Blog",
     "description": "Graphs, persistent sessions, and model execution unify native full-duplex, turn-based, and cascaded interactive systems in SGLang-Omni.",
@@ -2472,6 +2507,9 @@
     "failed": true
   },
   "https://zhuanlan.zhihu.com/p/2104545623055848467": {
+    "failed": true
+  },
+  "https://zhuanlan.zhihu.com/p/2107790281424818317": {
     "failed": true
   }
 }

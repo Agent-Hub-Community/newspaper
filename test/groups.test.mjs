@@ -15,7 +15,8 @@ test('a group is collected from its start date, sectioned in daily when page is 
   assert.deepEqual(collectedGroups('2026-09-29').map(g => g.id), ['group-1', 'group-2', 'group-3']);
   assert.deepEqual(collectedGroups('2026-09-30').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4']);
   assert.deepEqual(collectedGroups('2026-10-16').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4', 'group-5']);
-  assert.deepEqual(collectedGroups('2026-10-21').map(g => g.id), groupIds);
+  assert.deepEqual(collectedGroups('2026-10-21').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4', 'group-5', 'group-6', 'group-7', 'group-8']);
+  assert.deepEqual(collectedGroups('2026-11-16').map(g => g.id), groupIds);
   // Collection predates the fifth group's reader section.
   assert.deepEqual(pageGroups('2026-10-16').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4']);
   assert.ok(collectedGroups('2026-10-16').some(g => g.id === 'group-5'));
@@ -23,10 +24,12 @@ test('a group is collected from its start date, sectioned in daily when page is 
   assert.deepEqual(pageGroups('2026-10-20').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4', 'group-5']);
   // Topical groups (group-6..group-8) are optional daily pages and enter weeklyGroups from 2026-10-21.
   assert.deepEqual(pageGroups('2026-10-21').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4', 'group-5']);
+  assert.deepEqual(pageGroups('2026-11-22').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4', 'group-5', 'group-9']);
   assert.deepEqual(optionalPageGroups('2026-10-20').map(g => g.id), []);
   assert.deepEqual(optionalPageGroups('2026-10-21').map(g => g.id), ['group-6', 'group-7', 'group-8']);
   assert.deepEqual(weeklyGroups('2026-10-20').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4', 'group-5']);
-  assert.deepEqual(weeklyGroups('2026-10-21').map(g => g.id), groupIds);
+  assert.deepEqual(weeklyGroups('2026-10-21').map(g => g.id), ['group-1', 'group-2', 'group-3', 'group-4', 'group-5', 'group-6', 'group-7', 'group-8']);
+  assert.deepEqual(weeklyGroups('2026-11-16').map(g => g.id), groupIds);
 });
 
 test('daily and weekly pages are always subsets of the groups collected that day', () => {
@@ -39,10 +42,10 @@ test('daily and weekly pages are always subsets of the groups collected that day
 
 test('isGroupId accepts every known group and nothing else', () => {
   for (const id of groupIds) assert.ok(isGroupId(id));
-  for (const id of ['external', 'group-0', 'group-9', '', undefined]) assert.ok(!isGroupId(id));
+  for (const id of ['external', 'group-0', 'group-99', '', undefined]) assert.ok(!isGroupId(id));
 });
 
 test('reader prose names the whole range of main daily groups', async () => {
   const { groupSpan } = await import('../lib/groups.mjs');
-  assert.equal(groupSpan, '一群到五群');
+  assert.equal(groupSpan, '一群到六群');
 });

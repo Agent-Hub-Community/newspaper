@@ -68,12 +68,22 @@
     '666': '👍', 让我看看: '👀', 叹气: '😮‍💨', 苦涩: '🥲', 裂开: '💔', 嘴唇: '👄', 爱心: '❤️', 心碎: '💔', 拥抱: '🤗', 强: '👍', 弱: '👎',
     握手: '🤝', 胜利: '✌️', 抱拳: '🙏', 拳头: '👊', OK: '👌', 合十: '🙏', 啤酒: '🍺', 咖啡: '☕', 蛋糕: '🎂', 玫瑰: '🌹', 凋谢: '🥀',
     菜刀: '🔪', 炸弹: '💣', 便便: '💩', 月亮: '🌙', 太阳: '☀️', 庆祝: '🎉', 礼物: '🎁', 红包: '🧧', 發: '💰', 福: '🧧', 烟花: '🎆', 爆竹: '🧨',
-    猪头: '🐷', 发抖: '🥶', 转圈: '💫', Doge: '🐶', Lol: '😆', Smile: '🙂', Grin: '😁', Laugh: '😄', Joyful: '😊',
+    猪头: '🐷', 发抖: '🥶', 转圈: '💫', 敬礼: '🫡', 比心: '🫶', 抠鼻: '🤏', 挥手: '👋', 点赞: '👍', 捂嘴笑: '🤭',
+    Doge: '🐶', Lol: '😆', Smile: '🙂', Grin: '😁', Laugh: '😄', Joyful: '😊', Happy: '😀',
     Facepalm: '🤦', Smirk: '😏', Smart: '🤓', Concerned: '😟', 'Yeah!': '✌️', Onlooker: '🍉', GoForIt: '💪',
-    Sweats: '😓', OMG: '😱', Respect: '🙏', NoProb: '👌', MyBad: '🤕', Wow: '🤩', Boring: '🙄', Awesome: '👍',
-    LetMeSee: '👀', Sigh: '😮‍💨', Hurt: '🥲', Broken: '💔', Shocked: '😲', Cry: '😭',
+    Sweats: '😓', Sweat: '😓', OMG: '😱', Respect: '🙏', NoProb: '👌', MyBad: '🤕', Wow: '🤩', Boring: '🙄', Awesome: '👍',
+    LetMeSee: '👀', Sigh: '😮‍💨', Hurt: '🥲', Broken: '💔', Shocked: '😲', Cry: '😭', Sob: '😭',
+    Salute: '🫡', ThumbsUp: '👍', ThumbsDown: '👎', Scowl: '😠', Angry: '😠', Tremble: '🥶', Whimper: '🥺',
+    Chuckle: '🤭', Giggle: '🤭', Sly: '😈', Shy: '☺️', Silent: '🤐', Sleep: '😴', Drowsy: '😪',
+    Awkward: '😅', Tongue: '😜', Frown: '🙁', Scream: '😫', Puke: '🤮', Pout: '😕', Drool: '😍', Stare: '😳',
+    CoolGuy: '😎', Panic: '😱', Terror: '😨', Flushed: '😳', Sick: '😷', Disappointed: '😞', Speechless: '😑',
+    Dizzy: '😵', Skull: '💀', Toasted: '😩', Wave: '👋', Wipe: '😓', Clap: '👏', Yawn: '🥱', Duh: '😒',
+    'Bah!R': '😒', 'Bah!L': '😒', Pity: '🥺', Kiss: '😘', Shhh: '🤫', KeepFighting: '💪',
+    Shake: '🤝', Peace: '✌️', Fist: '👊', Prayer: '🙏', Hug: '🤗', Heart: '❤️', BrokenHeart: '💔', Lips: '👄',
+    Beer: '🍺', Coffee: '☕', Cake: '🎂', Rose: '🌹', Wilt: '🥀', Cleaver: '🔪', Bomb: '💣', Poop: '💩',
+    Moon: '🌙', Sun: '☀️', Party: '🎉', Gift: '🎁', Packet: '🧧', Rich: '💰', Blessing: '🧧', Fireworks: '🎆', Firecracker: '🧨', Pig: '🐷',
   };
-  const textWithStickers = text => esc(text).replace(/\[([^\[\]\s]{1,10})\]/g, (code, name) => Object.hasOwn(emoji, name)
+  const textWithStickers = text => esc(text).replace(/\[([^\[\]\s]{1,16})\]/g, (code, name) => Object.hasOwn(emoji, name)
     ? `<span class="discussion-emoji" role="img" aria-label="${name}" title="${code}">${emoji[name]}</span>`
     : name.length <= 6 ? `<span class="discussion-sticker">${code}</span>` : code);
   // An address ends before Chinese punctuation, trailing ASCII punctuation and unbalanced closing brackets.

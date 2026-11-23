@@ -82,7 +82,7 @@ test('invalid library records are rejected instead of published', () => {
     'link not canonical': item({ links: [{ kind: 'paper', url: 'https://arxiv.org/pdf/2605.25624' }] }),
     'share after coverage': item({ shares: [{ date: '2026-10-14', group: 'group-1', avatar: null }] }),
     'avatar outside the reviewed folder': item({ shares: [{ date: '2026-06-02', group: 'group-1', avatar: '../avatars/x.jpg' }] }),
-    'unknown group': item({ shares: [{ date: '2026-06-02', group: 'group-9', avatar: null }] }),
+    'unknown group': item({ shares: [{ date: '2026-06-02', group: 'group-99', avatar: null }] }),
     'extra field': item({ sharer: 'p1' }),
     'too few keywords': item({ keywords: ['OSWorld'] }),
     'keyword repeated in another case': item({ keywords: ['RLVR', 'rlvr', 'GRPO'] }),
@@ -153,7 +153,7 @@ test('every configured group can share, including groups added after the library
   const result = normalizeLibrary(library([item({ shares: [{ date: '2026-10-21', group: 'group-5', avatar: null }] })], '2026-10-22'));
   assert.equal(result.items[0].shares[0].group, 'group-5');
   assert.match(libraryMarkdown(result), /五群/);
-  assert.throws(() => normalizeLibrary(library([item({ shares: [{ date: '2026-10-21', group: 'group-9', avatar: null }] })], '2026-10-22')));
+  assert.throws(() => normalizeLibrary(library([item({ shares: [{ date: '2026-10-21', group: 'group-99', avatar: null }] })], '2026-10-22')));
 });
 
 test('normalizeLibrary computes derived activity and heat metrics without leaking private fields', () => {
