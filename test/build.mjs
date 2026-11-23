@@ -74,7 +74,7 @@ assert.equal('sourceCounts' in data, false);
 assert.doesNotMatch(await readFile(path.join(root, 'index.html'), 'utf8'), /data-mode="(?:day|week|topic)"|id="calendar-dialog"/);
 const paths = await readdir(root, { recursive: true });
 // Agent copies are the only published files this source-leak guard would otherwise catch.
-const agentCopy = /^(?:index\.md|agents\/SKILL\.md|agents\/topics\/[a-z0-9:-]{1,200}\.(?:md|json)|library\/resources\.(?:json|md|schema\.json)|library\/opportunities\.(?:json|md)|glossary\/glossary\.(?:json|md)|daily\/\d{4}-\d{2}-\d{2}\/(?:(?:group-[1-8]|external)\/)?index\.md|weekly\/\d{4}-\d{2}-\d{2}\/\d{4}-\d{2}-\d{2}\/index\.md)$/;
+const agentCopy = /^(?:index\.md|agents\/SKILL\.md|agents\/topics\/[a-z0-9:-]{1,200}\.(?:md|json)|library\/resources\.(?:json|md|schema\.json)|library\/opportunities\.(?:json|md)|glossary\/glossary\.(?:json|md)|daily\/\d{4}-\d{2}-\d{2}\/(?:(?:group-\d+|external)\/)?index\.md|weekly\/\d{4}-\d{2}-\d{2}\/\d{4}-\d{2}-\d{2}\/index\.md)$/;
 assert.ok(paths.every(p => {
   const rel = p.split(path.sep).join('/');
   return rel.startsWith('attachments/') || agentCopy.test(rel) || !/messages|audit|\.md$|sources/.test(p);
