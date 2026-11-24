@@ -37,6 +37,17 @@
     "title": "CameraVLM · When Left Is Right? Camera-Motion Understanding beyond Screen",
     "description": "CameraVLM couples off-screen camera motion with on-screen flow dynamics and lets the language model read both. With 9B parameters it reaches the highest three-benchmark average among more than 20 baselines."
   },
+  "https://aclanthology.org/2026.findings-acl.1523.pdf": {
+    "failed": true
+  },
+  "https://activity.doubao.com/ug/invite-share/M-HW4NLE": {
+    "title": "小豆",
+    "description": "小豆是懂你、能办事的个人 AI 助手。记住你的偏好，连接常用应用，主动帮你处理工作和生活中的大小事"
+  },
+  "https://activity.doubao.com/ug/invite-share/M-RTBD9H": {
+    "title": "小豆",
+    "description": "小豆是懂你、能办事的个人 AI 助手。记住你的偏好，连接常用应用，主动帮你处理工作和生活中的大小事"
+  },
   "https://agent-hub-community.github.io/": {
     "title": "Agent Hub · LLM Agent 技术分享、讨论与共建",
     "description": "基模研究员、高校教授与青年硕博，和来自自然科学领域的同行，一起交流 LLM Agent、RSI、AI4Science、AI 安全、物理 AI 等方向。",
@@ -133,14 +144,32 @@
     "description": "Contemporary evaluation techniques are inadequate for agentic systems. These approaches either focus exclusively on final outcomes -- ignoring the step-by-step nature of agentic systems, or require excessive manual labou",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/abs/2502.05171": {
+    "title": "Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach",
+    "description": "We study a novel language model architecture that is capable of scaling test-time computation by implicitly reasoning in latent space. Our model works by iterating a recurrent block, thereby unrolling to arbitrary depth ",
+    "siteName": "arXiv.org"
+  },
   "https://arxiv.org/abs/2504.02732": {
     "title": "Why do LLMs attend to the first token?",
     "description": "Large Language Models (LLMs) tend to attend heavily to the first token in the sequence -- creating a so-called attention sink. Many works have studied this phenomenon in detail, proposing various ways to either leverage ",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/abs/2506.01939%EF%BC%89%E5%92%8Centropy": {
+    "failed": true
+  },
   "https://arxiv.org/abs/2506.17871": {
     "title": "LLM Probability Concentration: How Alignment Shrinks the Generative Horizon",
     "description": "Despite their impressive capabilities, aligned large language models (LLMs) often generate outputs that lack diversity. What drives this consistency in the generation? We investigate this phenomenon through the lens of p",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2510.05251": {
+    "title": "Let it Calm: Exploratory Annealed Decoding for Verifiable Reinforcement Learning",
+    "description": "Reinforcement learning with verifiable rewards (RLVR) is a powerful paradigm for enhancing the reasoning capabilities of large language models (LLMs), yet its success hinges on effective exploration. An ideal exploration",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/abs/2510.25741": {
+    "title": "Scaling Latent Reasoning via Looped Language Models",
+    "description": "Modern LLMs are trained to \"think\" primarily via explicit text generation, such as chain-of-thought (CoT), which defers reasoning to post-training and under-leverages pre-training data. We present and open-source Ouro, n",
     "siteName": "arXiv.org"
   },
   "https://arxiv.org/abs/2601.16175": {
@@ -498,6 +527,11 @@
     "description": "We study allowing large language models (LLMs) to process arbitrarily long prompts through the lens of inference-time scaling. We propose Recursive Language Models (RLMs), a general inference paradigm that treats long pr",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/pdf/2601.17367": {
+    "title": "Elastic Attention: Test-time Adaptive Sparsity Ratios for Efficient Transformers",
+    "description": "The quadratic complexity of standard attention mechanisms poses a significant scalability bottleneck for large language models (LLMs) in long-context scenarios. While hybrid attention strategies that combine sparse and f",
+    "siteName": "arXiv.org"
+  },
   "https://arxiv.org/pdf/2602.11144": {
     "title": "GENIUS: Generative Fluid Intelligence Evaluation Suite",
     "description": "Unified Multimodal Models (UMMs) have shown remarkable progress in visual generation. Yet, existing benchmarks predominantly assess $\\textit{Crystallized Intelligence}$, which relies on recalling accumulated knowledge an",
@@ -506,6 +540,11 @@
   "https://arxiv.org/pdf/2603.07267": {
     "title": "How to Steal Reasoning Without Reasoning Traces",
     "description": "Many large language models (LLMs) use reasoning to generate responses but do not reveal their full reasoning traces (a.k.a. chains of thought), instead outputting only final answers and brief reasoning summaries. To demo",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2604.07394": {
+    "title": "Flux Attention: Context-Aware Hybrid Attention for Efficient LLMs Inference",
+    "description": "The quadratic computational complexity of standard attention mechanisms presents a severe scalability bottleneck for LLMs in long-context scenarios. While hybrid attention mechanisms combining Full Attention (FA) and Spa",
     "siteName": "arXiv.org"
   },
   "https://arxiv.org/pdf/2604.24658": {
@@ -571,6 +610,16 @@
     "description": "Visual agents answer questions about ultra-high-resolution photos by zooming into the relevant regions. However, existing agents often answer from common sense instead of reading the evidence. Reinforcement learning (RL)",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/pdf/2611.26510": {
+    "title": "AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher",
+    "description": "Task success alone does not specify which behaviors post-training should reinforce. Even successful teacher trajectories can contain unsupported assumptions, unproductive repetition, or superficial verification. We propo",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2611.26595": {
+    "title": "Coda-DaVinci: Reimagining Video Generation with Code2Video",
+    "description": "Code2Video uses agent-authored 3D proxies to guide video generation, enabling explicit control over structure and dynamics. However, how to construct proxies and prompts for optimal downstream quality remains underexplor",
+    "siteName": "arXiv.org"
+  },
   "https://atria-asi.ai/": {
     "title": "Atria Dawn",
     "description": "Build More. Together."
@@ -578,6 +627,10 @@
   "https://autodatabench.com/": {
     "title": "AutoDataBench — Can agents write the data?",
     "description": "AutoDataBench evaluates whether agents can write executable training tasks that pass the checks a data production pipeline would apply, one task at a time."
+  },
+  "https://aweai-team.github.io/AutoMaster/": {
+    "title": "AutoMaster · Making the Same Model a Better Teacher",
+    "description": "An autonomous post-training system for skill-guided fine-tuning. Explore the method, watch the video, and compare results."
   },
   "https://battam1111.github.io/zh/blog/2026/chinese-llms-and-rl/": {
     "title": "为何国产大模型训不好 RL？ | Yanjun Chen",
@@ -774,6 +827,11 @@
   "https://github.com/antins-labs/VisSearch-Bench-v1": {
     "title": "antins-labs/VisSearch-Bench-v1: VisSearch-Bench is a benchmark of 204 human-written tasks that test how well multimodal agents find, organize, and use visual ev",
     "description": "VisSearch-Bench is a benchmark of 204 human-written tasks that test how well multimodal agents find, organize, and use visual evidence across multiple steps of web search. - antins-labs/VisSearch-B...",
+    "siteName": "GitHub"
+  },
+  "https://github.com/AntiQuality/masthead-project-page-template": {
+    "title": "AntiQuality/masthead-project-page-template: An agent-native academic project page template. Install the skill and build your paper's page with one prompt. No bu",
+    "description": "An agent-native academic project page template. Install the skill and build your paper's page with one prompt. No build step, dark mode. - AntiQuality/masthead-project-page-template",
     "siteName": "GitHub"
   },
   "https://github.com/B1anYu/claude-telemetry-audit": {
@@ -1147,6 +1205,10 @@
     "title": "QwenLM/BlenderWorld",
     "siteName": "GitHub"
   },
+  "https://github.com/r05En1cU/braun-schematic-web": {
+    "title": "r05En1cU/braun-schematic-web",
+    "siteName": "GitHub"
+  },
   "https://github.com/RikiyaT/lm_understand-logs.git": {
     "title": "RikiyaT/lm_understand-logs: Complete logs of the experiments in the blog post 'LLMs can understand and write neural network weights'",
     "description": "Complete logs of the experiments in the blog post 'LLMs can understand and write neural network weights' - RikiyaT/lm_understand-logs",
@@ -1184,6 +1246,10 @@
   "https://github.com/RUC-NLPIR/FlashRSI": {
     "title": "RUC-NLPIR/FlashRSI: A Unified Framework for Efficient RSI Research",
     "description": "A Unified Framework for Efficient RSI Research.",
+    "siteName": "GitHub"
+  },
+  "https://github.com/RUCAIBox/AutoMaster": {
+    "title": "RUCAIBox/AutoMaster",
     "siteName": "GitHub"
   },
   "https://github.com/ShaoShuai0605/PhysCodeGym": {
@@ -1411,6 +1477,10 @@
   "https://huggingface.co/buckets/KYLN24/a5-release": {
     "title": "KYLN24/a5-release - Storage Bucket",
     "description": "Storage bucket KYLN24/a5-release on Hugging Face"
+  },
+  "https://huggingface.co/ByteDance/Ouro-2.6B": {
+    "title": "ByteDance/Ouro-2.6B · Hugging Face",
+    "description": "Text Generation model with 3B parameters. Download, explore files and run it on Hugging Face."
   },
   "https://huggingface.co/collections/baidu/ernie-55-flash-base": {
     "title": "ERNIE-5.5-Flash - a baidu Collection",
@@ -1921,6 +1991,11 @@
     "title": "Tactile-ETA · Tactile In-Context Learning",
     "description": "Embodied task agents can perform fine manipulation through tactile in-context learning."
   },
+  "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director": {
+    "title": "NVIDIA Board Reinstates Jensen Huang as President, CEO and Board Director",
+    "description": "NVIDIA (NASDAQ: NVDA) today announced that effective immediately, Jensen Huang has been reinstated as President and Chief Executive Officer and as a member of the Board.",
+    "siteName": "NVIDIA Newsroom"
+  },
   "https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3": {
     "title": "StreamRender-H3: Interactive Coding Worlds with Real-time Streaming Diffusion Render",
     "description": "A code game engine keeps the world state; a two-step streaming video model renders it in real time."
@@ -1935,6 +2010,11 @@
   "https://openai.com/index/introducing-gpt-6-2-astra-sol/": {
     "title": "Introducing GPT-6.2 Astra and Sol",
     "description": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
+    "siteName": "OpenAI"
+  },
+  "https://openai.com/index/perplexity-and-intelligence/": {
+    "title": "Perplexity and Intelligence",
+    "description": "How perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.",
     "siteName": "OpenAI"
   },
   "https://openai.com/zh-Hans-CN/index/expanding-chatgpt-for-academic-researchers/": {
@@ -2188,6 +2268,10 @@
   "https://wangwu-30.github.io/ai-digest-registry/": {
     "title": "AI 日报黄页",
     "description": "每个人用自己的 agent 收集、重排、发布的 AI 日报目录。做一份你自己的，收录在这里。"
+  },
+  "https://wanshuiyin.github.io/SuperARIS": {
+    "title": "SuperARIS — Your personal research agent with ARIS, powered by a team of agents.",
+    "description": "SuperARIS — Your personal research agent with ARIS, powered by a team of agents. Live inside a real multi-pane CLI workbench with Claude Code, Codex, and Gemini."
   },
   "https://wanshuiyin.github.io/SuperARIS/": {
     "title": "SuperARIS — Your personal research agent with ARIS, powered by a team of agents.",

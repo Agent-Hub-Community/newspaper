@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-23",
+  "title": "黄仁勋官复原职、750B 循环 Transformer 与自动审 PR",
+  "intro": "英伟达董事会全票请回黄仁勋，股价单日飙涨 31%；智谱把 Loop Transformer 推上 750B 旗舰规模，Anthropic 推出 Claude Ship 接管 PR 审查与审批，OpenAI 则一边抛困惑度安全线、一边联手 Cisco 开源 eBPF 漏洞护盾。",
+  "stories": [
+    {
+      "title": "英伟达全票恢复黄仁勋 CEO 职务，股价单日暴涨 31%",
+      "timing": "北京时间 11 月 23 日 21:59 公告",
+      "tldr": "离任仅十天后，英伟达董事会经美政府高层通报“未违反国家安全法”后全票请回黄仁勋，英伟达股价收涨 31%，但涉事新加坡公司 Megaspeed 仍将被列入美国实体清单。",
+      "points": [
+        {
+          "text": "离任 10 天后反转：黄仁勋于 11 月 13 日因婚外情风波辞职，董事会在周末两次会谈后于 11 月 23 日宣布其即刻复职。"
+        },
+        {
+          "text": "官方背书与股价反弹：美国政府高层向董事会通报未发现违反国家安全法行为，特朗普公开表态支持；英伟达股价收涨 31%，几乎收复 11 月 8 日以来近 33% 的跌幅。"
+        },
+        {
+          "text": "关联公司被拉黑：据 Semafor 报道，风波核心人物 Alice Huang 曾掌舵的新加坡公司 Megaspeed 将被美国商务部列入实体清单。"
+        }
+      ],
+      "text": "据 CNBC 报道，英伟达董事会于北京时间 11 月 23 日 21:59 宣布全票通过恢复黄仁勋 CEO 职务，即刻生效。此前黄仁勋于 11 月 13 日因多起婚外情及涉华间谍指控风波辞职，英伟达股价自 11 月 8 日起累计下挫近 33%。知情人士称，美国政府高层上周晚些时候向董事会通报未发现违反国家安全法的行为，促使董事会于周末与黄仁勋两次会谈并敲定复职；特朗普也公开表示支持。消息公布后英伟达股价收盘大涨 31%。另据 TechCrunch 引述 Semafor 消息，风波关联方新加坡公司 Megaspeed 仍将被美国商务部列入实体清单，美企需特许许可方可与其交易。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "CNBC 复职报道",
+          "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html"
+        },
+        {
+          "kind": "报道",
+          "label": "Megaspeed 清单报道",
+          "url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/"
+        }
+      ],
+      "emphasis": [
+        "全票通过恢复黄仁勋 CEO 职务",
+        "未发现违反国家安全法的行为",
+        "英伟达股价收盘大涨 31%"
+      ],
+      "aiComment": "十天体验卡到期，老黄不仅回来了，顺手把跌掉的 33% 几乎一天涨回来，华尔街演都不带演的🍿",
+      "sources": [
+        {
+          "publisher": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html",
+          "excerpt": "Nvidia on Monday announced Jensen Huang has been reinstated as CEO, effective immediately. The board unanimously voted to reinstate Huang after receiving input from senior U.S. government officials that no national security laws were violated. Shares closed up 31%."
+        },
+        {
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/",
+          "excerpt": "Megaspeed, the company previously led by Alice Huang, will be placed on the U.S. Commerce Department's Entity List, requiring a special federal license for U.S. companies to do business with it."
+        }
+      ]
+    },
+    {
+      "title": "智谱发布 GLM-5.4，750B 旗舰首次落地 Loop Transformer",
+      "timing": "北京时间 11 月 23 日发布",
+      "tldr": "GLM-5.4 对 750B 基座中的 28 层做两轮循环，靠门控写回与 KV Cache 共享在不增参数下加深推理深度，已上线 ZCode 与 Coding Plan，非高峰最快 200 token/s。",
+      "points": [
+        {
+          "text": "循环深度不增参数：基于 750B 规模 GLM-5 预训练基座对 28 层执行两轮循环，用逐 token 门控控制每轮写回比例，第一轮建全局状态、第二轮做精炼。"
+        },
+        {
+          "text": "显存与检索控成本：采用全局共享加滑窗独立的 KV Cache 并复用第一轮稀疏注意力索引，1M 上下文下部署成本增幅可控，非高峰最高 200 token/s、高峰 70-80 token/s。"
+        },
+        {
+          "text": "官方对照数据：30B 同架构实验中训练算力仅增约 10%，数学推理、长上下文与代码提升明显，GPQA 与 MMLU-Pro 平均输出长度反降 10%-14%。"
+        }
+      ],
+      "text": "智谱于 11 月 23 日发布旗舰模型 GLM-5.4，首次在 750B 规模落地 Loop Transformer 架构。团队没有从头预训练，而是对 GLM-5 基座中的 28 层执行两轮循环，在不增加参数量的前提下扩展有效计算深度，并引入逐 token 门控渐进更新、全局共享加滑窗独立的 KV Cache，以及稀疏注意力索引复用，以压低 1M 上下文下的显存与检索开销。官方在同架构 30B 对照实验中称，训练算力仅增加约 10%，数学、代码与长上下文提升明显，GPQA 和 MMLU-Pro 平均输出长度下降 10%-14%。GLM-5.4 非高峰速度最高达 200 token/s，现已上线 ZCode 与 GLM Coding Plan，API 即将开放。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "智谱官方技术博客",
+          "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ"
+        },
+        {
+          "kind": "讨论",
+          "label": "alphaXiv 论文页",
+          "url": "https://www.alphaxiv.org/abs/2611.glm-5"
+        }
+      ],
+      "emphasis": [
+        "首次在 750B 规模落地 Loop Transformer 架构",
+        "在不增加参数量的前提下扩展有效计算深度",
+        "平均输出长度下降 10%-14%"
+      ],
+      "aiComment": "参数没涨、思维链还短了 10%，合着模型学会先在脑子里默念两遍再开口了🔥",
+      "sources": [
+        {
+          "publisher": "智谱（GLM）",
+          "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ",
+          "excerpt": "GLM-5.4 对 GLM-5 基座中的 28 层做两轮循环，引入逐 token 门控渐进更新、KV Cache 全局共享加滑窗独立与稀疏注意力索引复用；30B 对照实验训练算力仅增约 10%，GPQA 与 MMLU-Pro 平均输出长度下降 10%-14%，非高峰最高 200 token/s。"
+        }
+      ]
+    },
+    {
+      "title": "Anthropic 推出 Claude Ship 测试版，PR 审查修复到审批一条龙",
+      "timing": "11 月 23 日上线 Beta",
+      "tldr": "Claude Ship 整合 Code Review 与两款新 Agent（PR Steward、Claude Approvals），可自动修 CI、解冲突并按仓库策略审批 PR，Claude Code 现支持 /ship 一键触发。",
+      "points": [
+        {
+          "text": "三组件分工明确：Code Review 负责多视角审查，PR Steward 自动修复失败的 CI、合并冲突与评审意见（但无审批与合并权限），Claude Approvals 按仓库策略文件执行自动审批或转交人工。"
+        },
+        {
+          "text": "可控介入与内部数据：开发者可在 PR 中评论 @claude 引导或 @claude stop 叫停；官方称 Claude Code 团队 6 至 9 月合并 PR 翻倍以上，回滚率下降超 40%。"
+        },
+        {
+          "text": "开放与额度：开发者可在 Claude Code 中使用 /ship 体验，符合条件的企业客户在 2027 年 1 月 15 日前可申领至少 1 万美元额度（30 天有效）。"
+        }
+      ],
+      "text": "Anthropic 于 11 月 23 日发布 Claude Ship 测试版，将已全面开放的 Code Review 与 PR Steward、Claude Approvals 两款新 Agent 组合，覆盖 PR 审查、修复到审批全流程。PR Steward 负责处理失败的 CI 检查、合并冲突及评审意见，每次推送都会说明改动与回退方式，且不具备审批或合并权限，开发者可随时用 @claude 引导或 @claude stop 叫停。Claude Approvals 则类似智能版 CODEOWNERS，依据仓库策略文件自动放行常规改动或要求人工签字。官方数据显示，Claude Code 团队 6 至 9 月合并 PR 翻倍以上，回滚占比下降超 40%。开发者现可在 Claude Code 运行 /ship 试用，合资格企业客户还可申领至少 1 万美元试用额度。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Claude Ship 博客",
+          "url": "https://claude.com/blog/introducing-claude-ship"
+        }
+      ],
+      "emphasis": [
+        "覆盖 PR 审查、修复到审批全流程",
+        "不具备审批或合并权限",
+        "合并 PR 翻倍以上，回滚占比下降超 40%"
+      ],
+      "aiComment": "AI 写代码、AI 审代码、AI 修 CI、AI 点 Approve，程序员终于只剩打 @claude stop 的尊严了🫠",
+      "sources": [
+        {
+          "publisher": "Anthropic",
+          "url": "https://claude.com/blog/introducing-claude-ship",
+          "excerpt": "Claude Ship combines Code Review with two new beta agents: PR Steward and Claude Approvals. On the Claude Code team, merged PRs more than doubled from June to September while the share reverted fell by more than 40%. Eligible Enterprise orgs can claim at least $10,000 in credits."
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 提议以对数困惑度划定安全上限，首曝 GPT-6 内部曲线",
+      "timing": "11 月 23 日发布博客",
+      "tldr": "OpenAI 首席科学家 Jakub Pachocki 公开 GPT-3.5 至未发布内部模型（约 0.73）的对数困惑度曲线，呼吁头部实验室以此作为共同安全上限。",
+      "points": [
+        {
+          "text": "能力阈值映射：Pachocki 给出的内部数据显示，对数困惑度在 0.99 附近（GPT-3.5）涌现流畅对话，0.91（GPT-4）解锁有效思维链，低于 0.8 出现网络安全与数学质变。"
+        },
+        {
+          "text": "未发布模型逼近 0.73：曲线涵盖 GPT-5 至 GPT-6.2 Astra 及约 0.73 的内部模型；约 0.76 起模型已开始产出数学突破，包括尚未完全验证的 Navier-Stokes 解。"
+        },
+        {
+          "text": "安全倡议：Pachocki 警告新一代系统可能跑赢现有安全检查，提议在更强监督方法成熟前，各实验室以困惑度为尺子协调推进节奏。"
+        }
+      ],
+      "text": "据 The Decoder 报道，OpenAI 首席科学家 Jakub Pachocki 于 11 月 23 日发文提议将基座模型的对数困惑度（log-perplexity）确立为行业共同进度标尺，并首次公开 GPT-3.5 至 GPT-6.2 Astra 及一款约 0.73 的未发布内部模型曲线。按其披露的内部数据，流畅对话约在 0.99 涌现，有效思维链约在 0.91 出现，低于 0.8 后在网络安全与数学领域出现质变；约 0.76 起模型已开始产出数学突破，包括一份尚未完全验证的 Navier-Stokes 方程解。Pachocki 认为 2027 年深度学习研究本身也可能迎来类似拐点，呼吁头部实验室在更强监督机制成熟前，就共同安全上限达成一致。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Decoder 报道",
+          "url": "https://the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits/"
+        }
+      ],
+      "emphasis": [
+        "将基座模型的对数困惑度（log-perplexity）确立为行业共同进度标尺",
+        "一款约 0.73 的未发布内部模型曲线",
+        "就共同安全上限达成一致"
+      ],
+      "aiComment": "一边喊大家定个困惑度红线别太卷，一边顺手晒出 0.73 的未发布模型，这波凡尔赛安全感拉满🤡",
+      "sources": [
+        {
+          "publisher": "The Decoder",
+          "url": "https://the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits/",
+          "excerpt": "OpenAI chief scientist Jakub Pachocki proposed making log-perplexity an industry standard and published internal scores through GPT-6.2 Astra plus an unreleased internal model around 0.73, urging leading labs to agree on shared safety limits."
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 联手 Cisco 开源 Shirudo，用 eBPF 护住 Linux 补丁窗口",
+      "timing": "11 月 23 日开源发布",
+      "tldr": "Shirudo 借助 Linux eBPF 在不重启服务的前提下挂上临时护盾拦截漏洞利用，测试中 Codex 生成的护盾成功挡下针对 Elasticsearch 的 Java4Shell 攻击。",
+      "points": [
+        {
+          "text": "不停机热防护：针对漏洞曝光到正式补丁上线往往耗时数天至数周的痛点，Shirudo 用 eBPF 精准拦截恶意路径同时放行正常请求，无需重启服务。"
+        },
+        {
+          "text": "签名与硬件审计：所有护盾加载前均经加密签名与 Linux eBPF 验证器检查，并通过 TPM 硬件记录加载与卸载轨迹。"
+        },
+        {
+          "text": "受控测试案例：官方演示中，Codex 为 Java Base64 解码器生成输入校验护盾并挂载至运行中的 Elasticsearch，成功拦截 Java4Shell 利用尝试。"
+        }
+      ],
+      "text": "OpenAI 与 Cisco 于 11 月 23 日联合开源运行时防护工具 Shirudo，用于在正式补丁测试与部署期间，为运行中的 Linux 服务提供临时防护。Shirudo 基于 Linux eBPF 机制将精确定向的“护盾”挂载到系统关键点，在不重启服务的前提下阻断漏洞利用路径并放行正常流量。每个护盾加载前需通过加密签名与 Linux eBPF 验证器校验，并借助 TPM 提供硬件级加载与卸载审计记录。在官方受控测试中，团队用 Codex 生成了一段针对 Java Base64 解码器的输入校验护盾，直接挂载到运行中的 Elasticsearch 进程，成功挡下 Java4Shell 攻击且未中断服务。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI Shirudo 发布页",
+          "url": "https://openai.com/index/introducing-shirudo"
+        }
+      ],
+      "emphasis": [
+        "在不重启服务的前提下阻断漏洞利用路径并放行正常流量",
+        "借助 TPM 提供硬件级加载与卸载审计记录",
+        "用 Codex 生成了一段针对 Java Base64 解码器的输入校验护盾"
+      ],
+      "aiComment": "正式补丁还要排期三周，Codex 先用 eBPF 打个不停机创可贴顶上，运维半夜少掉一半头发🚑",
+      "sources": [
+        {
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/introducing-shirudo",
+          "excerpt": "OpenAI and Cisco launched Shirudo, an open-source runtime using Linux eBPF to deploy cryptographically signed, TPM-audited shields on running systems without restarts. In a controlled test, a Codex-generated shield blocked a Java4Shell exploit against a running Elasticsearch service."
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "Coding Agent 正从写代码向“交付与运维闭环”外溢",
+      "text": "Anthropic 用 Claude Ship 把 Agent 推进到 PR 审查、修 CI 和按策略自动审批，OpenAI 与 Cisco 则把 Codex 接到 Linux eBPF 运行时防护上，工程自动化正在覆盖代码合入与线上热修复环节。"
+    },
+    {
+      "title": "不靠单纯堆参数，向计算深度与可量化标尺要增量",
+      "text": "智谱在 750B 规模落地 Loop Transformer 以循环深度换推理表现，OpenAI 则抛出对数困惑度作为跨代能力的统一标尺，前沿模型竞争正从参数规模叙事转向有效计算与阈值管理。"
+    }
+  ]
+}
