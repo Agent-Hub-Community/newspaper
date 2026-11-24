@@ -42,11 +42,23 @@ for (const issue of issues) {
       for (const message of story.discussion || []) validateAttachments(message.attachments, 'discussion attachments');
       assert.ok(story.aiComment?.trim());
       validateEmphasis(story.text, story.emphasis || []);
-      for (const resource of story.resources || []) {
-        allowedKeys(resource, ['kind', 'label', 'url']);
-        const url = new URL(resource.url);
-        assert.equal(url.protocol, 'https:');
-        assert.equal(url.username + url.password, '');
+      if (Array.isArray(story.resources)) {
+        const deduped = [];
+        const seen = new Set();
+        for (const resource of story.resources) {
+          allowedKeys(resource, ['kind', 'label', 'url']);
+          const url = new URL(resource.url);
+          assert.equal(url.protocol, 'https:');
+          const allowQuery = url.hostname === 'mp.weixin.qq.com' && url.pathname === '/s';
+          if (!allowQuery && url.search) url.search = '';
+          assert.equal(url.username + url.password + (allowQuery ? '' : url.search), '');
+          resource.url = url.toString();
+          if (!seen.has(resource.url)) {
+            seen.add(resource.url);
+            deduped.push(resource);
+          }
+        }
+        story.resources = deduped;
       }
     }
   }
