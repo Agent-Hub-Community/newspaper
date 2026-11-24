@@ -187,6 +187,11 @@
     "description": "Long input sequences are central to in-context learning, document understanding, and multi-step reasoning of Large Language Models (LLMs). However, the quadratic attention cost of Transformers makes inference memory-inte",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/abs/2604.02029": {
+    "title": "The Latent Space: Foundation, Evolution, Mechanism, Ability, and Outlook",
+    "description": "Latent space is rapidly emerging as a native substrate for language-based models. While modern systems are still commonly understood through explicit token-level generation, an increasing body of work shows that many cri",
+    "siteName": "arXiv.org"
+  },
   "https://arxiv.org/abs/2605.02937": {
     "title": "Proteo-R1: Reasoning Foundation Models for De Novo Protein Design",
     "description": "Deep learning in de novo protein design has achieved atomic-level fidelity. However, existing models remain largely non-deliberative: they directly synthesize molecular geometries without explicitly reasoning about which",
@@ -608,6 +613,11 @@
   "https://arxiv.org/pdf/2611.21605": {
     "title": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
     "description": "Visual agents answer questions about ultra-high-resolution photos by zooming into the relevant regions. However, existing agents often answer from common sense instead of reading the evidence. Reinforcement learning (RL)",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2611.21791": {
+    "title": "Regularized Score Centering",
+    "description": "Asynchronous reinforcement learning increases training throughput, but data from stale policies and numerical mismatch between training and inference can destabilize learning. To stabilize off-policy learning, score cent",
     "siteName": "arXiv.org"
   },
   "https://arxiv.org/pdf/2611.26510": {
@@ -2416,6 +2426,11 @@
     "description": "New on our Frontier Red Team blog: using Claude to formally verify software at large scale. Formal verification can prove that code is free of certain bugs, but historically it has only been feasible for small codebases ",
     "siteName": "X"
   },
+  "https://x.com/Aurora0x3f/status/2124861227730145508?a=VkoKB-IXv4xyKfGyT8o&s=20": {
+    "title": "Aurora 的帖子",
+    "description": "我只能说，哈基米还是哈基米，想出了我没想到的答案 GPT、DeepSeek 均战败，只有哈基米胜利了好吧 😂 pic.twitter.com/gPNWAzfwZY &mdash; Aurora (@Aurora0x3f) November 23, 2026",
+    "siteName": "X"
+  },
   "https://x.com/ChongZzZhang/status/2112358962335207607": {
     "title": "C. Zhang 的帖子",
     "description": "following the discussion weeks ago, I asked codex to vibe a comparison for MPC vs RL for just table-top EE tracking, 1.6Mtok gone. It uses Pinocchio for MPC, and codes a cupy-based simulator, tuned RL to achieve better t",
@@ -2500,6 +2515,11 @@
     "description": "Fan of chain reactions? ✨🤖 Our team just built this entire @MuJoCo_Sim Rube Goldberg machine in a few hours—just by chatting with #Gemini 4 Hydrogen + our new Robotics plugin in @Antigravity from @GoogleDeepMind ! 🚀 Yo",
     "siteName": "X"
   },
+  "https://x.com/SergioPaniego/status/2117599953153294341": {
+    "title": "Sergio Paniego 的帖子",
+    "description": "https://t.co/j8T3wdkj3i &mdash; Sergio Paniego (@SergioPaniego) November 3, 2026",
+    "siteName": "X"
+  },
   "https://x.com/techfren/status/2119924958134702276": {
     "title": "Tech Friend AJ 的帖子",
     "description": "HOLY this ended up looking even better than the leaks! the lighting, the small differences in acceleration as it peddles. insane... https://t.co/ia6WUYcthy pic.twitter.com/CkbuEVyR2f &mdash; Tech Friend AJ (@techfren) No",
@@ -2565,6 +2585,11 @@
   },
   "https://yinhongliu.com/InteractionGym/": {
     "failed": true
+  },
+  "https://yumoxu.notion.site/multi-teacher-on-policy-distillation": {
+    "title": "Notion | Where teams and agents work together",
+    "description": "Made in Notion, the connected workspace where AI agents and teams organize docs, projects and knowledge together.",
+    "siteName": "Notion"
   },
   "https://zefanw.github.io/JustRUA/zh/": {
     "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",

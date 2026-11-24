@@ -1,0 +1,226 @@
+{
+  "date": "2026-11-24",
+  "title": "亚马逊 75 亿美元买优化栈、GPT-6 Cyber 挖出 948 个内核提权与 Ladybird Alpha",
+  "intro": "亚马逊据报豪掷 75 亿美元买下 Decart 优化栈与团队，为外售 Trainium 芯片铺路；OpenAI 披露 GPT-6 Cyber 30 小时跑出 948 个 Linux 提权漏洞，微软 AI 公开跨月 RL 底座 Rocket，独立内核浏览器 Ladybird 也迎来 Alpha。",
+  "stories": [
+    {
+      "title": "亚马逊约 75 亿美元收购 Decart 优化栈与团队，为外售 Trainium 铺路",
+      "timing": "11 月 23–24 日宣布",
+      "tldr": "亚马逊据报斥资 75 亿美元买下以色列初创公司 Decart 的跨芯片优化栈 DOS 与核心团队，不包含其消费级世界模型，直指外售自研 Trainium 芯片。",
+      "points": [
+        {
+          "text": "只买软件栈与人：交易涵盖 Decart Optimization Stack（DOS）跨硬件优化软件，以及三位联合创始人 Dean Leitersdorf、Orian Leitersdorf、Moshe Shalev 与研发团队。"
+        },
+        {
+          "text": "不含消费级模型：Decart 此前走红的实时视频与交互式世界模型（如 Oasis）据报不在本次收购范围内。"
+        },
+        {
+          "text": "补齐芯片生态短板：亚马逊正准备面向外部客户商业化销售自研 Trainium 芯片，DOS 可帮助模型在英伟达、谷歌与亚马逊等不同芯片间高效迁移，降低 CUDA 锁定门槛。"
+        }
+      ],
+      "text": "据 TechCrunch 报道，亚马逊已达成协议，将以约 75 亿美元收购以色列 AI 初创公司 Decart 的核心优化技术与工程团队。亚马逊并非整体买下这家公司，而是打包收走其 Decart Optimization Stack（DOS）软件栈，以及三位联合创始人与核心研发人员；Decart 面向消费者的实时视频与世界模型（如 Oasis）不在交易范围内。亚马逊官方证实了技术与团队加入的消息。随着亚马逊准备把自研 Trainium 芯片推向外部市场直面英伟达，DOS 的跨硬件优化能力将被用来降低客户脱离 CUDA、迁移至 Trainium 的软件门槛。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "亚马逊官方公告",
+          "url": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization"
+        },
+        {
+          "kind": "报道",
+          "label": "TechCrunch 交易报道",
+          "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/"
+        }
+      ],
+      "emphasis": [
+        "以约 75 亿美元收购以色列 AI 初创公司 Decart 的核心优化技术与工程团队",
+        "降低客户脱离 CUDA、迁移至 Trainium 的软件门槛"
+      ],
+      "aiComment": "75 亿美元买软件栈不买世界模型，亚马逊这是明牌告诉黄仁勋：硬件我造好了，现在专门买把撬棍来撬 CUDA 墙角🔧",
+      "sources": [
+        {
+          "publisher": "Amazon",
+          "url": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization",
+          "excerpt": "Amazon announced an agreement to acquire Decart's AI optimization technology (Decart Optimization Stack, DOS) and welcome co-founders Dean Leitersdorf, Orian Leitersdorf, and Moshe Shalev along with their research and engineering team to help customers run AI workloads efficiently on AWS and custom Trainium silicon."
+        },
+        {
+          "publisher": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+          "excerpt": "Amazon is acquiring Israeli startup Decart's AI optimization stack (DOS) and core engineering team for a reported $7.5 billion as Amazon prepares to sell its custom Trainium chips externally against Nvidia. Decart's consumer-facing real-time video and world models such as Oasis are excluded from the deal."
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 披露 GPT-6 Cyber 30 小时跑出 948 个 Linux 内核提权漏洞",
+      "timing": "北京时间 11 月 24 日 07:25 发布",
+      "tldr": "OpenAI 在单次 30 小时自动化扫描中消耗 121.3 万美元 API 额度，跑出 948 个可用 Linux 内核本地提权利用，并向维护者提交了 304 项关键漏洞及候选补丁。",
+      "points": [
+        {
+          "text": "单次扫描产出：针对开启 KASLR、SMEP 与 SMAP 防护的默认桌面版 Linux 内核，系统分析 2,308 处候选点、动态复现 1,724 个漏洞，产出 291 个信息泄露 PoC 与 948 个可用本地提权利用。"
+        },
+        {
+          "text": "单漏洞成本约 1,279 美元：整轮运行消耗 121.343 万美元 API 额度，折合每个可用提权利用约 1,279 美元。"
+        },
+        {
+          "text": "披露与安全克制：官方称流水线使用了至少 10 种此前未知的新型利用手法（出于安全原因未公开细节），并已向 Linux 维护者披露 304 项关键发现及候选补丁。"
+        }
+      ],
+      "text": "OpenAI 于北京时间 11 月 24 日 07:25 披露前沿安全模型 GPT-6 Cyber 的实战测试结果。在一次持续 30 小时的自动化运行中，这套 agent 流水线扫描了开启 KASLR、SMEP 和 SMAP 防护的标准桌面版 Linux 内核，共分析 2,308 处候选问题，在隔离环境中动态复现 1,724 个漏洞，最终产出 291 个信息泄露 PoC 和 948 个可获取 root 权限的可用本地提权利用。整轮扫描消耗 121.343 万美元 API 额度，折合每个可用提权利用约 1,279 美元。官方称流水线用到了至少 10 种此前未知的新型利用技术（细节暂不公开），目前已向 Linux 维护者提交 304 项关键漏洞及候选补丁。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "OpenAI 安全研究博客",
+          "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/"
+        },
+        {
+          "kind": "原帖",
+          "label": "OpenAI 官方 X 帖文",
+          "url": "https://x.com/i/status/2125007927098699827"
+        }
+      ],
+      "emphasis": [
+        "最终产出 291 个信息泄露 PoC 和 948 个可获取 root 权限的可用本地提权利用",
+        "折合每个可用提权利用约 1,279 美元",
+        "目前已向 Linux 维护者提交 304 项关键漏洞及候选补丁"
+      ],
+      "aiComment": "一千两百多美元一个 Linux 提权 0-day，还是 30 小时批发价，Linus 看到邮件列表里 304 封补丁信血压怕是直接拉满💀",
+      "sources": [
+        {
+          "publisher": "OpenAI",
+          "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+          "excerpt": "In a single 30-hour automated run against a stock hardened Linux desktop kernel configuration (with KASLR, SMEP, and SMAP enabled), OpenAI's GPT-6 Cyber pipeline analyzed 2,308 candidate findings, reproduced 1,724 vulnerabilities, and produced 291 info-leak PoCs plus 948 working local privilege escalation exploits to root. The run cost $1,213,430 in API credits (about $1,279 per working LPE exploit), used at least 10 novel exploitation techniques withheld for safety, and OpenAI disclosed 304 critical findings with candidate patches to Linux maintainers."
+        }
+      ]
+    },
+    {
+      "title": "微软 AI 公开异步 RL 底座 Rocket，支撑数千卡跨月强化学习",
+      "timing": "北京时间 11 月 24 日 01:46 发布",
+      "tldr": "Microsoft AI 详解自研异步强化学习框架 Rocket，基于 Ray 与自维护 SGLang 分支协同设计，可在数千 GPU 上连续跑数周至数月，支撑 3T 基座 MAI Base 2 后训练。",
+      "points": [
+        {
+          "text": "摆脱外部蒸馏：Rocket 旨在让团队直接从基座模型靠长期强化学习攀升至前沿，不依赖第三方模型数据蒸馏，已用于训练 MAI Thinking 1 并支撑 3T 参数 MAI Base 2。"
+        },
+        {
+          "text": "训练与推理协同：底层基于 Kubernetes 或 Slurm 上的 Ray 编排，采样端采用 MAI 自行维护的 SGLang 分支，专门优化长时 agentic rollout 延迟。"
+        },
+        {
+          "text": "直面三大长跑痛点：重点解决 GRPO 类任务中慢 rollout 导致的策略陈旧（staleness）、低精度采样与训练端数值一致性，以及数千卡跨月运行时的节点弹性容错。"
+        }
+      ],
+      "text": "Microsoft AI 于北京时间 11 月 24 日 01:46 公开自研异步强化学习基础设施 Rocket 的架构细节。团队表示，从基座模型不靠第三方蒸馏独立冲向前沿，需要在数千张 GPU 上连续运行数周乃至数月的 RL 训练。Rocket 运行在 Kubernetes 或 Slurm 之上的 Ray 编排层，并将训练框架与 MAI 自行维护的 SGLang 采样引擎深度协同，集中攻克长程 agentic rollout 引发的策略陈旧性、低精度采样器与训练端之间的数值一致性，以及跨月长跑中不可避免的节点掉线弹性容错。该系统此前已产出 MAI Thinking 1，现正支撑 3T 参数基座模型 MAI Base 2 的后训练。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Microsoft AI 技术博客",
+          "url": "https://microsoft.ai/news/rl-infrastructure-at-microsoft-ai/"
+        },
+        {
+          "kind": "原帖",
+          "label": "MicrosoftAI 官方帖文",
+          "url": "https://x.com/i/status/2124922556922691892"
+        }
+      ],
+      "emphasis": [
+        "需要在数千张 GPU 上连续运行数周乃至数月的 RL 训练",
+        "将训练框架与 MAI 自行维护的 SGLang 采样引擎深度协同",
+        "现正支撑 3T 参数基座模型 MAI Base 2 的后训练"
+      ],
+      "aiComment": "RL 训练周期从“考前突击两晚”卷成“数千张卡连跑几个月”，以后 infra 工程师最怕的不是 OOM，是跑了两个月精度飘了🚀",
+      "sources": [
+        {
+          "publisher": "Microsoft AI",
+          "url": "https://microsoft.ai/news/rl-infrastructure-at-microsoft-ai/",
+          "excerpt": "Microsoft AI unveiled Rocket, its in-house asynchronous reinforcement learning infrastructure built to run continuous RL climbs for weeks to months across thousands of GPUs without relying on distillation from third-party models. Running on Ray over Kubernetes or Slurm and paired with an MAI-maintained fork of SGLang for sampling, Rocket addresses rollout staleness in GRPO-style agentic tasks, numerical consistency between low-precision samplers and learners, and elastic fault tolerance across node drops."
+        }
+      ]
+    },
+    {
+      "title": "Google Search AI Mode 开放接入 Wallet，Drive 与 Gemini 随后跟进",
+      "timing": "11 月 23 日起逐步推送",
+      "tldr": "Google 搜索 AI Mode 的 Personal Intelligence 现支持用户自主授权连接 Google Wallet，未来几周将接入 Drive 与 Gemini 应用，把消费与文档上下文直接带入搜索。",
+      "points": [
+        {
+          "text": "消费数据进搜索：11 月 23 日起逐步开放授权连接 Google Wallet，用户可在 AI Mode 与 Gemini 应用中结合消费记录梳理财务目标、优化信用卡返现与缩减日常开支。"
+        },
+        {
+          "text": "后续接入列表：Google Drive 与 Gemini 应用将在未来几周内加入，与此前已支持的 Gmail、日历和相册汇合。"
+        },
+        {
+          "text": "授权可控：所有应用连接均为默认关闭的自主开启（opt-in），用户可随时在搜索个性化设置中管理或断开。"
+        }
+      ],
+      "text": "Google 于 11 月 23 日宣布扩展 Google Search AI Mode 中的 Personal Intelligence 能力，即日起逐步开放用户自主授权连接 Google Wallet，并在未来几周内继续接入 Google Drive 与 Gemini 应用。这三项新数据源将与此前已打通的 Gmail、Calendar 和 Photos 汇合，使搜索结果能直接结合个人消费习惯、云端文档与近期对话给出定制回答，例如梳理消费支出或规划信用卡权益。Google 强调相关连接均为 opt-in 模式，用户可在搜索个性化设置中随时调整或关闭授权。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Google 官方博客",
+          "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+        }
+      ],
+      "emphasis": [
+        "即日起逐步开放用户自主授权连接 Google Wallet",
+        "未来几周内继续接入 Google Drive 与 Gemini 应用",
+        "相关连接均为 opt-in 模式"
+      ],
+      "aiComment": "以后在 Google 搜“周末去哪玩”，它先默默看一眼你的 Wallet 余额，然后贴心推荐楼下免费公园💳",
+      "sources": [
+        {
+          "publisher": "Google",
+          "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+          "excerpt": "Starting to roll out Nov 23, 2026, users can opt in to securely connect Google Wallet to Personal Intelligence in Google Search AI Mode, with Google Drive and the Gemini app following in the coming weeks. These join Gmail, Calendar, and Photos so Search can provide tailored answers using spending habits, documents, and recent chats."
+        }
+      ]
+    },
+    {
+      "title": "独立内核浏览器 Ladybird 进入 Alpha，开放 macOS 与 Linux 下载",
+      "timing": "11 月 23 日发布",
+      "tldr": "完全从零自研内核、不基于 Chromium 或 Gecko 分叉的开源浏览器 Ladybird 发布 Alpha 版，提供滚动自动更新、WebDriver 与 Firefox DevTools 协议支持。",
+      "points": [
+        {
+          "text": "不再需要从源码编译：面向 macOS 与 Linux 提供可直接下载的安装包，并启用滚动更新通道定期自动推送新版本。"
+        },
+        {
+          "text": "开发者测试支持：内置页面异常反馈与可选崩溃报告，支持 WebDriver 自动化测试及 Firefox DevTools 协议。"
+        },
+        {
+          "text": "坦承安全尚早：创始人 Andreas Kling 明确表示当前不做任何安全承诺，公开邀请安全研究者来“攻破它”并提交漏洞以帮助加固。"
+        }
+      ],
+      "text": "独立开源浏览器项目 Ladybird 于 11 月 23 日宣布进入 Alpha 阶段，正式面向 macOS 与 Linux 开放二进制下载，开发者与用户不再需要自行从源码编译。Ladybird 的核心卖点是完全从零编写的独立渲染引擎，而非 Chromium 或 Firefox 分叉。此次 Alpha 版采用滚动更新通道，支持定期自动更新、内置破损网页一键上报，并兼容 WebDriver 自动化测试与 Firefox DevTools 协议。创始人 Andreas Kling 坦言现阶段仍会出现网页不兼容与崩溃，且不做任何安全承诺，公开欢迎安全研究者积极挖掘并回报漏洞。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Ladybird Alpha 公告",
+          "url": "https://ladybird.org/posts/alpha/"
+        },
+        {
+          "kind": "讨论",
+          "label": "Hacker News 讨论",
+          "url": "https://news.ycombinator.com/item?id=50614249"
+        }
+      ],
+      "emphasis": [
+        "正式面向 macOS 与 Linux 开放二进制下载",
+        "完全从零编写的独立渲染引擎，而非 Chromium 或 Firefox 分叉",
+        "公开欢迎安全研究者积极挖掘并回报漏洞"
+      ],
+      "aiComment": "在全网浏览器几乎都套壳 Chromium 的年代，硬从零手搓新内核还喊黑客“快来打我”，这股极客莽劲太稀缺了🐞",
+      "sources": [
+        {
+          "publisher": "Ladybird",
+          "url": "https://ladybird.org/posts/alpha/",
+          "excerpt": "Andreas Kling announced on Nov 23, 2026 that Ladybird is now in alpha and available to download for macOS and Linux. Built with its own engine from the ground up rather than a fork, the alpha ships on a rolling channel with regular automatic updates, in-browser broken-site reporting, WebDriver support, and the Firefox DevTools protocol."
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "大厂把竞争重心压向底层软件栈与长程训练基建",
+      "text": "亚马逊斥资 75 亿美元收购 Decart 优化栈以打通 Trainium 商业化软件层，微软 AI 则公开自研跨月 RL 底座 Rocket 并深度定制 SGLang 采样引擎，头部厂商正把差异化押注在自研硬件适配与后训练基础设施上。"
+    },
+    {
+      "title": "AI 代理的实战边界正快速外溢至底层系统安全",
+      "text": "OpenAI 披露 GPT-6 Cyber 30 小时自动化跑出 948 个 Linux 内核提权利用并生成补丁，标志着大模型安全能力已从单点代码审计迈向规模化内核级漏洞发现与修复。"
+    }
+  ]
+}
