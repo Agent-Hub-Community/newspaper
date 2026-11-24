@@ -40,10 +40,11 @@ test('one board shows the community, then every group, with ranks and ties as pu
   // The board carries no score, count or scoring rule.
   assert.doesNotMatch(document.querySelector('#reading').textContent, /分数|计分|消息|条/);
 });
-test('a fifth group shares the board and carries its collection start', () => {
-  const { columns } = render([...groups, group('group-5', '2026-10-16')], 'all', 'group-5');
-  assert.deepEqual(columns.map(column => column.label), ['全社区', '一群', '二群', '三群', '四群', '五群']);
-  assert.equal(columns.at(-1).since, '10 月 16 日起');
+test('a fifth and sixth group share the board and carry their collection start', () => {
+  const { columns } = render([...groups, group('group-5', '2026-10-16'), group('group-9', '2026-11-09')], 'all', 'group-9');
+  assert.deepEqual(columns.map(column => column.label), ['全社区', '一群', '二群', '三群', '四群', '五群', '六群']);
+  assert.equal(columns.at(-2).since, '10 月 16 日起');
+  assert.equal(columns.at(-1).since, '11 月 9 日起');
   assert.equal(columns.at(-1).ranks, '1,2,2');
 });
 test('a column names its start only when its records begin after the period does', () => {

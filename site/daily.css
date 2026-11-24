@@ -411,9 +411,9 @@ body[data-view="rank"] .rank-periods { display: inline-flex; flex: none; gap: 2p
 body[data-view="rank"] .rank-periods button { min-width: 64px; min-height: 36px; padding: 0 14px; border-radius: 6px; color: var(--muted); font: 14px/1 var(--sans); }
 @media (hover: hover) { body[data-view="rank"] .rank-periods button:not([aria-pressed="true"]):hover { background: color-mix(in srgb, var(--ink) 6%, var(--paper)); color: var(--ink); } }
 body[data-view="rank"] .rank-periods button[aria-pressed="true"] { background: var(--ink); color: var(--paper); font-weight: 600; }
-body[data-view="rank"] .rank-board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); }
-body[data-view="rank"] .rank-column { --avatar: 56px; display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 22px 16px 26px; }
-body[data-view="rank"] .rank-column + .rank-column { border-left: 1px solid var(--rule); }
+body[data-view="rank"] .rank-board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+body[data-view="rank"] .rank-column { --avatar: 56px; display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 22px 16px 26px; border-bottom: 1px solid var(--rule); }
+body[data-view="rank"] .rank-column:not(:nth-child(4n + 1)) { border-left: 1px solid var(--rule); }
 body[data-view="rank"] .rank-column h2 { margin: 0; font: 700 18px/1.4 var(--serif); }
 body[data-view="rank"] .rank-since { margin: 0; color: var(--muted); font: 12px/1.5 var(--sans); }
 body[data-view="rank"] .activity-leaders { display: flex; justify-content: space-between; gap: 8px; margin: 14px 0 0; }
@@ -439,7 +439,7 @@ body[data-view="rank"] .rank-empty { margin: 14px 0 0; color: var(--muted); font
     --avatar: 52px; display: grid; grid-template-columns: 8em minmax(0, 1fr); grid-template-rows: auto auto; align-content: center;
     column-gap: 16px; padding: 16px 12px; border-bottom: 1px solid var(--rule);
   }
-  body[data-view="rank"] .rank-column + .rank-column { border-left: 0; }
+  body[data-view="rank"] .rank-column:not(:nth-child(4n + 1)) { border-left: 0; }
   body[data-view="rank"] .rank-column h2 { grid-column: 1; align-self: end; }
   body[data-view="rank"] .rank-since { grid-column: 1; align-self: start; }
   body[data-view="rank"] .rank-column:not(:has(.rank-since)) h2 { grid-row: 1 / span 2; align-self: center; }
