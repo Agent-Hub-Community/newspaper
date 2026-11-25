@@ -1,0 +1,152 @@
+{
+  "date": "2026-11-25",
+  "title": "OpenAI 与 Google 同日放出数学预印本，Claude Artifacts 支持安装独立桌面应用",
+  "intro": "OpenAI 与 Google Research 同日释出多篇 AI 参与产出的数学与算法预印本；Anthropic 为 Artifacts 上线 Mac 与 Windows 独立桌面安装；端侧三元量化模型 Bonsai 2.5 与 Tidal 封禁纯 AI 音乐同样引发关注。",
+  "stories": [
+    {
+      "title": "OpenAI 发布数学预印本与 Lean 形式化证明，声称矩阵乘法指数为 9/4",
+      "timing": "2026 年 11 月 24 日发布，25 日持续热议",
+      "text": "OpenAI 在官方数学仓库发布预印本，声称方阵乘法的指数在任意域上均精确等于 9/4，并给出形式化算术电路的匹配下界：对任意阶数 n≥2，至少需要 ⌈n^(9/4)/2⌉ 个非标量乘法或除法门。配套的张量几何论文提供了下界证明框架，仓库同时附带了面向无除法电路的 Lean 形式化证明代码。由于矩阵乘法指数 ω 的精确值长期悬而未决，该预印本目前仍处于公开审视与社区核验阶段。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "OpenAI 预印本 PDF",
+          "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf"
+        },
+        {
+          "kind": "讨论",
+          "label": "Hacker News 讨论",
+          "url": "https://news.ycombinator.com/item?id=50637220"
+        }
+      ],
+      "emphasis": [
+        "声称方阵乘法的指数在任意域上均精确等于 9/4",
+        "仓库同时附带了面向无除法电路的 Lean 形式化证明代码"
+      ],
+      "aiComment": "自带 Lean 形式化证明把“真假之争”从自然语言拉进了机器可验证层面，但社区仍需核对形式化定义与经典算术电路模型是否完全等价。",
+      "sources": [
+        {
+          "publisher": "OpenAI Math GitHub",
+          "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf",
+          "excerpt": "The matrix multiplication exponent is nine fourths. OpenAI · November 24, 2026 edition. The exponent of square matrix multiplication is 9/4 over every field. The paper proves the matching lower bound for formal arithmetic circuits. At every side length n>=2, at least ceil(n^(9/4)/2) nonscalar multiplication or division gates are required. The geometric border rank of the square multiplication tensor is at least n^(9/4) and its asymptotic rank over the base field equals n^(9/4). The Lean development proves the square exponent 9/4 for division-free circuits computing formal polynomial identities"
+        }
+      ]
+    },
+    {
+      "title": "Google 发布 6 篇 Cogentic 产出论文，覆盖整数分解与离散对数",
+      "timing": "2026 年 11 月 25 日发布",
+      "text": "Google Research 在官方仓库集中公开 6 篇由 Cogentic 系统产出的研究论文，涵盖无条件 L_N[1/3, O(1)] 时间复杂度的整数分解、固定特征有限域上的亚拟多项式时间离散对数算法、双矩阵博弈 1/5-近似纳什均衡精确多项式时间算法，以及 Log-Rank 猜想与图边重构问题。仓库按日期归档了全部 PDF 原稿，相关结论仍有待密码学与理论计算机学界独立复核。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "Cogentic 论文仓库",
+          "url": "https://github.com/google-research/google-research/tree/master/cogentic_research_papers"
+        },
+        {
+          "kind": "讨论",
+          "label": "Hacker News 讨论",
+          "url": "https://news.ycombinator.com/item?id=50642086"
+        }
+      ],
+      "emphasis": [
+        "集中公开 6 篇由 Cogentic 系统产出的研究论文",
+        "无条件 L_N[1/3, O(1)] 时间复杂度的整数分解"
+      ],
+      "aiComment": "AI 科研系统开始批量触碰数论与复杂性理论的核心难题，同行评议与形式化验证的吞吐量正面临前所未有的压力。",
+      "sources": [
+        {
+          "publisher": "Google Research GitHub",
+          "url": "https://github.com/google-research/google-research/tree/master/cogentic_research_papers",
+          "excerpt": "Cogentic Research Papers. This directory holds research papers that were produced by Cogentic. November 25, 2026: Unconditional Integer Factorization in Time L_N[1/3, O(1)]; Discrete Logarithms in Finite Fields of Fixed Characteristic in Sub-Quasi-Polynomial Time; An Exact Polynomial-Time Algorithm for 1/5-Approximate Nash Equilibria in Bimatrix Games; Unconditional Deterministic Subexponential Integer Factoring and Quadratic Nonresidue Construction; Breaking the Square-Root Barrier for the Log-Rank Conjecture; Unconditional Edge Reconstruction of Simple Graphs of Linear Density."
+        }
+      ]
+    },
+    {
+      "title": "Claude Artifacts 支持一键安装为 Mac 与 Windows 独立桌面应用",
+      "timing": "2026 年 11 月 24 日发布",
+      "text": "Anthropic 在 Claude 的 Mac 与 Windows 桌面端逐步开放“Install as app”测试功能，用户可将常用 Artifacts 安装为独立桌面应用。安装后，应用拥有独立图标与窗口，不再局限于对话界面内运行，并可发送系统通知或常驻菜单栏与系统托盘。每款应用的本机交互权限均需用户单独授权，Team 与 Enterprise 管理员可为组织统一开关应用权限与完全访问控制。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Install as app 博客",
+          "url": "https://claude.com/blog/install-as-app"
+        }
+      ],
+      "emphasis": [
+        "用户可将常用 Artifacts 安装为独立桌面应用",
+        "每款应用的本机交互权限均需用户单独授权"
+      ],
+      "aiComment": "从对话侧边栏的临时预览变成可常驻系统托盘的独立应用，个人微型软件的生成与分发门槛又降了一截。",
+      "sources": [
+        {
+          "publisher": "Claude Blog",
+          "url": "https://claude.com/blog/install-as-app",
+          "excerpt": "Turn artifacts into Mac and Windows apps (November 24, 2026). The Install as app feature is rolling out in beta in Claude for Mac and Windows. When an artifact is installed as a Mac or Windows app, it gets its own icon and opens in its own window instead of inside Claude. Installed apps can send notifications or add items to your menu bar or system tray. You choose permissions for each app, and Team and Enterprise admins can turn app permissions and full access on or off for their organization."
+        }
+      ]
+    },
+    {
+      "title": "PrismML 发布三元量化模型 Ternary Bonsai 2.5 27B，5.9 GB 跑 Agent 编码",
+      "timing": "2026 年 11 月 24 日发布",
+      "text": "PrismML 发布基于 Qwen3.8 27B 的三元量化模型 Ternary Bonsai 2.5 27B，维持 5.9 GB 内存占用，重点强化端侧 agentic coding、多轮工具调用与长链路任务执行，并缓解了前代过度思考与重复循环问题。官方基准数据显示，其在 SWE-bench Verified 上取得 75.6 分，较前代 Bonsai 2 27B 的 60.8 分大幅提升，已接近全精度 Qwen3.8 27B 基座模型 80.6 分的表现。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Bonsai 2.5 发布页",
+          "url": "https://prismml.com/news/bonsai-2-5-27b"
+        },
+        {
+          "kind": "讨论",
+          "label": "Hacker News 讨论",
+          "url": "https://news.ycombinator.com/item?id=50633922"
+        }
+      ],
+      "emphasis": [
+        "维持 5.9 GB 内存占用，重点强化端侧 agentic coding",
+        "在 SWE-bench Verified 上取得 75.6 分"
+      ],
+      "aiComment": "不到 6 GB 就能在本地跑出接近 27B 全精度模型的编码 agent 表现，隐私知识库与离线编程的实用边界正在明显外扩。",
+      "sources": [
+        {
+          "publisher": "PrismML",
+          "url": "https://prismml.com/news/bonsai-2-5-27b",
+          "excerpt": "Introducing Ternary Bonsai 2.5 27B: Powering Agentic Coding and Private Knowledge Work (November 24, 2026). Based on Qwen3.8 27B, it retains the previous release's 5.9 GB model footprint while significantly improving agentic coding, multi-turn tool use, and multi-step task execution. It addresses excessive thinking and repetitive loops in the previous model. On SWE-bench Verified, Ternary Bonsai 2.5 27B scores 75.6 compared to 60.8 for Bonsai 2 27B and 80.6 for the full-precision Qwen3.8 27B base model."
+        }
+      ]
+    },
+    {
+      "title": "Tidal 宣布 12 月 9 日起封禁纯 AI 生成音乐，预计下架约 2900 万首",
+      "timing": "北京时间 11 月 25 日 01:17 报道",
+      "text": "据 The Verge 报道，音乐流媒体平台 Tidal 将于 12 月 9 日起正式封禁纯 AI 生成音乐。Tidal 音乐负责人 Robert Andersen 透露，新规实施后平台预计删除约 2900 万首 AI 生成曲目，并每日拦截约 8 万至 8.5 万首新上传曲目。此前 Tidal 曾对 100% AI 生成曲目采取标注与取消分成措施，但过去 90 天内分发至平台的曲目中仍有 43% 为 AI 音乐，促使其转向全面清退。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban"
+        }
+      ],
+      "emphasis": [
+        "将于 12 月 9 日起正式封禁纯 AI 生成音乐",
+        "预计删除约 2900 万首 AI 生成曲目"
+      ],
+      "aiComment": "当 AI 内容占比逼近半数，单纯贴标签和取消分成已挡不住批量灌水，平台治理开始从温和限流转向直接封禁。",
+      "sources": [
+        {
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/entertainment/1041362/tidal-ai-music-ban",
+          "excerpt": "Tidal will start banning AI-generated music next month (Nov 24, 2026, 5:17 PM UTC). Tidal is officially banning AI-generated music on December 9th. As a result of this change, Tidal will delete around 29 million AI-generated songs and reject an estimated 80,000 to 85,000 tracks per day, according to Tidal music lead Robert Andersen. The move comes months after Tidal began labeling and demonetizing tracks identified as 100 percent AI-generated, after AI music made up 43 percent of tracks distributed to the platform in the last 90 days."
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "AI 参与前沿数学与算法证明集中涌现",
+      "text": "OpenAI 与 Google Research 同日公开涉及矩阵乘法指数、整数分解与离散对数等经典难题的预印本，并开始配套 Lean 形式化证明以应对社区核验压力。"
+    },
+    {
+      "title": "AI 工具向本地桌面与端侧轻量化延伸",
+      "text": "Anthropic 让 Artifacts 脱离对话窗成为支持权限隔离的独立桌面应用，PrismML 则将 27B 级编码 agent 压进 5.9 GB 端侧内存，个人软件分发与离线编码边界同步拓宽。"
+    }
+  ]
+}
