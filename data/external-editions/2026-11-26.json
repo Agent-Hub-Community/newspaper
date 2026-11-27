@@ -1,0 +1,252 @@
+{
+  "date": "2026-11-26",
+  "title": "Anthropic 用生产流量把核心 API 迁到 Rust，Google 强制 AI Agent 改走官方 MCP",
+  "intro": "Anthropic 公开无停机将 Claude Messages API 从 Python 迁至 Rust 的工程实录；Google 划出明年 2 月红线，要求所有 AI Agent 通过官方 MCP 访问 Workspace；1Password 披露后端遭员工 GitHub 劫持投毒，但用户保险库数据未受损。",
+  "stories": [
+    {
+      "title": "Anthropic 将 Claude Messages API 迁至 Rust，每请求 CPU 占用降约 70%",
+      "timing": "2026 年 11 月 25 日发布",
+      "tldr": "面对 2024 年以来约 1800 倍的流量增长，Anthropic 借 Claude 在约一周内写出 Rust 初版，并用生产流量充当验证器自动派发 Agent 修复差异，上线后单请求 CPU 降约 70%。",
+      "points": [
+        {
+          "text": "2024 年初至 2026 年秋，Messages API 流量增长约 1800 倍，原 Python 服务开销攀升。"
+        },
+        {
+          "text": "Claude 约一周完成核心请求路径初版，团队用生产 API 作为验证器比对流量并自动派发 Agent 修差异。"
+        },
+        {
+          "text": "全程未停机、未冻结功能迭代，官方称单请求 CPU 占用降约 70%，中位首字延迟（TTFT）降约 20%。"
+        }
+      ],
+      "text": "Anthropic 工程团队公布将核心 Messages API 从 Python 迁移至 Rust 的全过程。2024 年初至 2026 年秋，该接口流量增长约 1800 倍，承载着外部客户与 Claude Code、Cowork 等自研产品的全部请求。Claude 用约一周写出 Rust 核心请求路径初版，但真正的难点在于验证等价性：Python 版本仍在持续迭代、模型输出非确定性，且团队无法直接查看客户请求内容。Anthropic 将生产环境 Messages API 本身改造成验证器，在真实流量上比对两套实现并自动派发 Agent 修复差异。官方数据显示，迁移全程未停机、未冻结功能开发，上线后每请求 CPU 占用降低约 70%，中位首字延迟缩短约 20%。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "Anthropic 工程博客",
+          "url": "https://www.anthropic.com/research/migrating-api-to-rust"
+        }
+      ],
+      "emphasis": [
+        "将生产环境 Messages API 本身改造成验证器",
+        "每请求 CPU 占用降低约 70%，中位首字延迟缩短约 20%"
+      ],
+      "aiComment": "用 Claude 写 Rust 只要一周，但造出能自动抓虫的影子流量验证器才是真功夫——生成越来越便宜，验证才是高流量系统迁移的命门。",
+      "sources": [
+        {
+          "publisher": "Anthropic Engineering",
+          "url": "https://www.anthropic.com/research/migrating-api-to-rust",
+          "excerpt": "Migrating our Messages API to Rust (Published Nov 25, 2026). From early 2024 to fall 2026, API traffic grew roughly 1,800 times. Claude wrote a first version of the API's core request path in about a week. We turned the production Messages API itself into a verifier—testing the new Rust version on production traffic, finding where it differed, and automatically dispatching agents to fix those differences. This allowed us to ship an API on Rust that uses about 70% less CPU per request and cuts median time to first token by about 20% without ever taking the service offline or freezing feature de"
+        }
+      ]
+    },
+    {
+      "title": "Google 要求 AI Agent 明年 2 月起改走官方 MCP，但 Gmail 服务器暂不能发邮件",
+      "timing": "2026 年 11 月 26 日报道，新规 2027 年 2 月 1 日生效",
+      "tldr": "Google 全面开放 8 个 Workspace MCP 服务器并更新 API 条款，强制 AI Agent 明年 2 月起弃用直连 REST API，但 Gmail MCP 的发送、回复与转发仍需合作伙伴权限。",
+      "points": [
+        {
+          "text": "11 月 24 日全面开放 8 个 Workspace MCP 服务器，新条款将于 2027 年 2 月 1 日正式生效。"
+        },
+        {
+          "text": "条款规定凡由 AI Agent、AI Harness 或模型驱动的工具必须走官方 MCP，禁止伪装绕过。"
+        },
+        {
+          "text": "公开版 Gmail MCP 仅支持搜索、读邮件、建草稿和打标签，发信、回复、转发和改草稿暂未开放。"
+        }
+      ],
+      "text": "据 Tech Stackups 报道，Google 已于 11 月 24 日全面开放 8 个 Workspace MCP 服务器，并同步更新 API 服务条款中的 Workspace AI Tools 附加协议。自 2027 年 2 月 1 日起，凡属于或由 AI Agent、AI Harness 及模型驱动的工具，访问 Gmail、Drive、Calendar 等服务时均须经由官方 MCP 服务器，且禁止通过伪装客户端规避识别，违者可能被限制访问或封禁账号。不过，公开版 Gmail MCP 目前仅支持搜索邮件、读取会话、创建草稿和贴标签，发送、回复、转发以及修改已建草稿等工具仍标注为“需合作伙伴权限”，尚未向普通开发者开放。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "Tech Stackups 分析",
+          "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/"
+        },
+        {
+          "kind": "讨论",
+          "label": "Hacker News 讨论",
+          "url": "https://news.ycombinator.com/item?id=50653477"
+        }
+      ],
+      "emphasis": [
+        "均须经由官方 MCP 服务器，且禁止通过伪装客户端规避识别",
+        "发送、回复、转发以及修改已建草稿等工具仍标注为“需合作伙伴权限”"
+      ],
+      "aiComment": "先收口子再放权限的经典打法：把所有第三方邮件 Agent 赶进官方 MCP 网关，顺手把“发邮件”这把钥匙先锁进合作伙伴白名单。",
+      "sources": [
+        {
+          "publisher": "Tech Stackups",
+          "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+          "excerpt": "Google Will Make AI Agents Use Its Workspace MCP Servers. The Gmail One Can't Send Email (November 26, 2026). On 24 November, Google made its eight Workspace MCP servers generally available and published a new clause in its API terms. From 1 February 2027, any tool that is or is driven by an AI Agent must reach Gmail, Drive, Calendar and the rest of Workspace through those servers. The Gmail server can search mail, read threads, create a draft and file things under labels, but cannot send a message, reply, forward, or change a draft after creating it; those tools require partner access and are"
+        }
+      ]
+    },
+    {
+      "title": "FCC 批准 SpaceX 部署最多 100 万颗 StarMind 卫星，用于轨道 AI 数据中心",
+      "timing": "北京时间 11 月 26 日 21:41 报道",
+      "tldr": "美国 FCC 批准 SpaceX 在 2040 年前部署最多 100 万颗 StarMind 轨道算力卫星，并同步批复光链路失效时的无线电测控备份。",
+      "points": [
+        {
+          "text": "获批星座名为 StarMind，定位为轨道计算模块，面向地球持续攀升的 AI 算力需求。"
+        },
+        {
+          "text": "许可上限为 2040 年前部署最多 100 万颗卫星，规模远超现有近地通信星座。"
+        },
+        {
+          "text": "FCC 同时批准无线电链路，确保卫星在星间光通信中断时仍可被监控与控制。"
+        }
+      ],
+      "text": "据 The Decoder 引述路透社报道，美国联邦通信委员会（FCC）已批准 SpaceX 在 2040 年前部署最多 100 万颗 StarMind 卫星，用于建设轨道 AI 数据中心。该星座由轨道计算模块构成，旨在承接地面持续增长的部分 AI 算力需求。除卫星部署许可外，FCC 还一并批准了无线电通信链路，以便在星间光通信出现故障时，SpaceX 仍能对在轨卫星保持监控与测控能力。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Decoder 报道",
+          "url": "https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040/"
+        }
+      ],
+      "emphasis": [
+        "批准 SpaceX 在 2040 年前部署最多 100 万颗 StarMind 卫星"
+      ],
+      "aiComment": "地面缺电缺地皮，马斯克直接向 FCC 批了百万颗“太空机房”指标，顺便给光链路备好了无线电救生绳。",
+      "sources": [
+        {
+          "publisher": "The Decoder",
+          "url": "https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040/",
+          "excerpt": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040. The Federal Communications Commission (FCC) has authorized SpaceX to deploy up to 1 million satellites for orbital data centers, according to Reuters. The Starmind constellation of orbital compute modules is intended to meet part of the rapidly growing demand for AI computing power on Earth. The agency also approved radio links that let SpaceX monitor and control the satellites if their optical connections fail."
+        }
+      ]
+    },
+    {
+      "title": "1Password 披露后端遭员工 GitHub 劫持投毒，部分用户元数据泄露、保险库未受损",
+      "timing": "2026 年 11 月 25 日公告",
+      "tldr": "攻击者劫持 1Password 员工企业 GitHub 账号并向后端推送恶意代码，导出部分用户姓名、邮箱与账户元数据；官方称加密保险库与密钥均未受影响。",
+      "points": [
+        {
+          "text": "11 月 19 日启动调查，确认攻击者借员工企业 GitHub 访问源码并向后端服务推送恶意代码。"
+        },
+        {
+          "text": "泄露内容限于部分用户的姓名、邮箱、账户 ID、创建与最近登录时间、公钥及 SRP 参数。"
+        },
+        {
+          "text": "官方强调用户保险库及密钥未受影响，已完成隔离恢复与内部凭据轮换，数周内发布根因报告。"
+        }
+      ],
+      "text": "1Password 发布安全事件公告称，公司于 11 月 19 日发现一名员工的企业 GitHub 账号遭到入侵。攻击者利用该账号获取源代码并向后端服务推送恶意代码，进而导出了部分用户的管理信息，包括姓名、登录邮箱、账户与用户 ID、账户创建及最近登录时间、公钥、SRP 协议参数，以及部分邀请邮件中的链接令牌。1Password 强调，用户保险库内容及保护密钥全程未受影响，公司已隔离受影响服务、恢复干净版本并轮换内部凭据，预计未来数周公布完整根因分析，同时提醒用户警惕冒充官方的钓鱼邮件。",
+      "links": [
+        {
+          "kind": "官方发布",
+          "label": "1Password 安全公告",
+          "url": "https://1password.com/blog/update-on-nov-2026-security-incident"
+        },
+        {
+          "kind": "讨论",
+          "label": "Hacker News 讨论",
+          "url": "https://news.ycombinator.com/item?id=50644817"
+        }
+      ],
+      "emphasis": [
+        "利用该账号获取源代码并向后端服务推送恶意代码",
+        "用户保险库内容及保护密钥全程未受影响"
+      ],
+      "aiComment": "端到端加密守住了保险库底线，但单点员工 GitHub 账号就能把恶意代码推进生产后端，接下来根因报告里最值得看的是 CI/CD 审批链怎么失守的。",
+      "sources": [
+        {
+          "publisher": "1Password Blog",
+          "url": "https://1password.com/blog/update-on-nov-2026-security-incident",
+          "excerpt": "Update on a security incident involving 1Password's backend systems (November 25, 2026). On November 19, 2026, 1Password began investigating indications that an attacker gained access to an employee's corporate GitHub account. The actor used the account to access source code and push malicious code to backend services, which downloaded administrative data pertaining to a subset of customers, including names, email addresses, account/user identifiers, account creation and last sign-in times, public keys, and SRP protocol parameters. Customer vaults, the items in them, and the keys that protect "
+        }
+      ]
+    },
+    {
+      "title": "《纽约时报》警告摄影师暂勿升级 Photoshop 2027，避免隐性 AI 功能标记新闻照",
+      "timing": "北京时间 11 月 25 日 00:09 报道",
+      "tldr": "《纽约时报》致信自由摄影师要求暂缓升级 Photoshop 2027，称新版 AI 工具触发方式不够透明，可能导致新闻照片元数据被标为 AI 生成。",
+      "points": [
+        {
+          "text": "摄影部门负责人 Meaghan Looram 与 Josh Haner 联名致信自由摄影师发出升级警告。"
+        },
+        {
+          "text": "11 月更新新增 AI 辅助编辑视图、提示词改图、AI 放大与画布重构等多项深度集成功能。"
+        },
+        {
+          "text": "编辑部担忧用户在不自知情况下触发 AI 功能，导致成片元数据被识别为 AI 生成图像。"
+        }
+      ],
+      "text": "据 The Verge 报道，《纽约时报》摄影部门负责人 Meaghan Looram 与 Josh Haner 向自由摄影师发出邮件，要求暂勿升级至最新版 Adobe Photoshop 2027。邮件指出，11 月更新以“对用户而言可能并不明显的方式”引入了多项 AI 功能，一旦使用，可能导致照片元数据将其标记为 AI 生成内容，从而触碰新闻摄影真实性红线。该版本在工具栏整合了“AI 辅助编辑”视图，并新增分步 AI 助手、提示词图像变换、新版 AI 放大以及面向不同画布尺寸的 AI 重构图工具。",
+      "links": [
+        {
+          "kind": "报道",
+          "label": "The Verge 报道",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features"
+        },
+        {
+          "kind": "讨论",
+          "label": "Hacker News 讨论",
+          "url": "https://news.ycombinator.com/item?id=50647673"
+        }
+      ],
+      "emphasis": [
+        "要求暂勿升级至最新版 Adobe Photoshop 2027",
+        "可能导致照片元数据将其标记为 AI 生成内容"
+      ],
+      "aiComment": "Adobe 拼命把 AI 揉进每一个常规修图按钮里，结果新闻摄影师最怕的就是“手滑一下，整张现场照背上 AI 生成的电子烙印”。",
+      "sources": [
+        {
+          "publisher": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+          "excerpt": "The New York Times warns photographers not to update Photoshop over AI features (Nov 24, 2026, 4:09 PM UTC). The New York Times is asking freelance photographers not to use the newest version of Adobe Photoshop because features in the 2027 update use AI in ways that may not be apparent to users. In an email seen by The Verge, photography leaders Meaghan Looram and Josh Haner wrote that using these features can result in metadata identifying photographs as AI-generated. The November update adds an AI Assisted Editor view, step-by-step AI assistant, prompt-based image transformation, new AI upsc"
+        }
+      ]
+    },
+    {
+      "title": "Mixture-of-Loops Transformer：以 KV 为跨循环记忆，700M 预训练效率达 OLMo3 的 1.7 倍",
+      "timing": "2026 年 11 月 25 日发布",
+      "tldr": "新架构 MoLT 用 KV 缓存作为跨深度与跨循环的选择性记忆，其 U-MoLT 变体在 400B token 预训练中全面超越同规模 OLMo3，700M 规模 token 效率达 1.7 倍。",
+      "points": [
+        {
+          "text": "MoLA 注意力机制将 KV 作为记忆跨层与跨循环复用，MoLT-KV 消除同位置跨循环依赖以支持并行训练。"
+        },
+        {
+          "text": "U-MoLT 分离记忆构建与预测读出，可跳过未使用的解码遍历而不改变最终预测结果。"
+        },
+        {
+          "text": "400B token 预训练中，700M 模型达 OLMo3 的 1.7 倍 token 效率，3B MoE 10 任务准确率高 2.1 个百分点。"
+        }
+      ],
+      "text": "新论文提出 Mixture-of-Loops Transformer（MoLT），针对循环 Transformer 复用共享层虽提升表达力但拖慢效率的瓶颈，设计了以键值缓存（KV）作为跨深度、跨循环记忆的 Mixture-of-Loops Attention（MoLA）。其中 MoLT-KV 从词嵌入重启并读取当前循环局部 KV 与前序循环历史位置 KV，消除同位置跨循环依赖，配合 loop forcing 实现并行训练，并支持超出训练循环上限的单次遍历解码。作者进一步提出 U-MoLT 分离记忆构建与预测读出，在 400B token 预训练中超越同规模 OLMo3，700M 稠密模型验证交叉熵 token 效率达 1.7 倍，3B MoE 模型 10 域困惑度降 0.75、10 任务准确率提升 2.1 个百分点。",
+      "links": [
+        {
+          "kind": "论文",
+          "label": "HF 论文页",
+          "url": "https://huggingface.co/papers/2611.34923"
+        },
+        {
+          "kind": "讨论",
+          "label": "alphaXiv 讨论",
+          "url": "https://www.alphaxiv.org/abs/2611.34923"
+        }
+      ],
+      "emphasis": [
+        "以键值缓存（KV）作为跨深度、跨循环记忆的 Mixture-of-Loops Attention（MoLA）",
+        "700M 稠密模型验证交叉熵 token 效率达 1.7 倍"
+      ],
+      "aiComment": "把 KV 缓存直接当成跨循环记忆库，既保住了循环架构的表达力红利，又解开了串行推理死结，1.7 倍预训练效率足够让小模型团队眼前一亮。",
+      "sources": [
+        {
+          "publisher": "Hugging Face Papers",
+          "url": "https://huggingface.co/papers/2611.34923",
+          "excerpt": "Mixture-of-Loops Transformer (2611.34923, published Nov 25, 2026). We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. MoLT-KV restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions, eliminating same-position cross-loop dependence and unlocking single-traversal decoding beyond the training loop horizon. U-shaped MoLT (U-MoLT) separates memory construction from prediction readout and skips unused decoder traversals. In 400B-t"
+        }
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "title": "AI 平台治理与工程边界同步收紧",
+      "text": "Google 通过服务条款强制 AI Agent 统一接入官方 Workspace MCP 并限制高风险写操作，《纽约时报》则因隐性 AI 功能可能污染元数据而叫停 Photoshop 升级，平台与专业机构都在加快划清自动化工具的权限与标识边界。"
+    },
+    {
+      "title": "验证闭环成为高可靠性 AI 工程落地的关键",
+      "text": "Anthropic 在 Messages API 的 Rust 迁移中以生产流量本身充当验证器并自动派发 Agent 修复差异，说明在代码生成成本大幅下降后，自动化等价验证与灰度护栏正成为核心瓶颈。"
+    }
+  ]
+}

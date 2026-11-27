@@ -508,6 +508,11 @@
     "description": "Recent advances in world models are opening new possibilities for fine-grained embodied tasks, with hand-object interaction offering a particularly demanding setting. Modeling these interactions involves capturing how ha",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/abs/2611.34237": {
+    "title": "VibeVideoAgent: Closing the Perceptual Loop for Code-Driven Video Generation",
+    "description": "Code-driven video generation asks a coding agent to write and run rendering programs. This gives exact control over typography, data visualizations, synchronized audio, and multi-shot scenes, and it leaves an editable pr",
+    "siteName": "arXiv.org"
+  },
   "https://arxiv.org/html/2602.16839": {
     "title": "Training Large Reasoning Models Efficiently via Progressive Thought Encoding"
   },
@@ -630,6 +635,16 @@
     "description": "Code2Video uses agent-authored 3D proxies to guide video generation, enabling explicit control over structure and dynamics. However, how to construct proxies and prompts for optimal downstream quality remains underexplor",
     "siteName": "arXiv.org"
   },
+  "https://arxiv.org/pdf/2611.30017": {
+    "title": "OWE-Bench: A long-horizon benchmark for measuring real-world engineering",
+    "description": "We present OWE-Bench (OpenWorldEngineer-Bench), a benchmark of 26 long-horizon engineering tasks written by domain experts in software engineering, physical engineering, machine learning, and scientific computing. Tasks ",
+    "siteName": "arXiv.org"
+  },
+  "https://arxiv.org/pdf/2611.33144": {
+    "title": "PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents",
+    "description": "Learning for dexterous manipulation is limited by the scarcity of high-quality demonstrations: retargeting from human video is imprecise, teleoperation gives no force feedback to the operator, and exoskeleton-based colle",
+    "siteName": "arXiv.org"
+  },
   "https://atria-asi.ai/": {
     "title": "Atria Dawn",
     "description": "Build More. Together."
@@ -684,6 +699,10 @@
     "title": "赤龍 · Crimson Loong"
   },
   "https://claude.ai/artifact/BGY1SztrAYcJQHSsnHHGmp": {
+    "title": "Claude Artifact",
+    "description": "Try out Artifacts created by Claude users"
+  },
+  "https://claude.ai/artifact/Cy2d8Vn63CnzCtonA1LSah": {
     "title": "Claude Artifact",
     "description": "Try out Artifacts created by Claude users"
   },
@@ -881,6 +900,11 @@
     "description": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success but 65% Fewer Tokens - DAGroup-PKU/PyRUA-Lean",
     "siteName": "GitHub"
   },
+  "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/dex": {
+    "title": "DAGroup-PKU/PyRUA-Lean at dex",
+    "description": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success but 65% Fewer Tokens - DAGroup-PKU/PyRUA-Lean",
+    "siteName": "GitHub"
+  },
   "https://github.com/deepseek-ai/DeepInfer": {
     "title": "deepseek-ai/DeepInfer: DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
     "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models - deepseek-ai/DeepInfer",
@@ -1017,6 +1041,11 @@
   },
   "https://github.com/Kiterlin/anti-defens": {
     "failed": true
+  },
+  "https://github.com/Kling-Keye/VibeVideoAgent": {
+    "title": "Kling-Keye/VibeVideoAgent: VibeVideoAgent: Closing the Perceptual Loop for Code-Driven Video Generation — MCP tools that give Claude Code and Codex eyes and ear",
+    "description": "VibeVideoAgent: Closing the Perceptual Loop for Code-Driven Video Generation — MCP tools that give Claude Code and Codex eyes and ears while they write videos. - Kling-Keye/VibeVideoAgent",
+    "siteName": "GitHub"
   },
   "https://github.com/langfengQ/verl-agent/issues/267": {
     "title": "Potential validation aggregation issue for Bamboogle · Issue #267 · langfengQ/verl-agent",
@@ -1787,6 +1816,14 @@
     "title": "Paper page - SWE-CoWork: Benchmarking Coding Agents as Digital Employees in Organizations",
     "description": "Join the discussion on this paper page"
   },
+  "https://huggingface.co/papers/2611.33144": {
+    "title": "Paper page - PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents",
+    "description": "Join the discussion on this paper page"
+  },
+  "https://huggingface.co/papers/2611.34237": {
+    "title": "Paper page - VibeVideoAgent: Closing the Perceptual Loop for Code-Driven Video Generation",
+    "description": "Join the discussion on this paper page"
+  },
   "https://huggingface.co/RecursiveSI/flint": {
     "title": "RecursiveSI/flint · Hugging Face",
     "description": "Text Generation model with 40B parameters. Download, explore files and run it on Hugging Face."
@@ -1910,6 +1947,11 @@
   "https://matraix.ai/": {
     "title": "MatrAIx — Personal Agent Evaluation",
     "description": "Evaluation and RL environments for personal agents. Learn from real user insights, test across apps, and train on the tasks agents need to complete."
+  },
+  "https://mcpmarket.com/zh/tools/skills/ask-codex": {
+    "title": "Ask Codex: AI Coding Assistance Skill for Claude Code",
+    "description": "Boost Claude Code with the Ask Codex skill. Delegate tasks, generate code, and get AI-driven debugging assistance using the Codex CLI in your terminal.",
+    "siteName": "MCP 市场"
   },
   "https://meeting.tencent.com/dm/uK8Mgb6aVK0J": {
     "title": "腾讯会议",
